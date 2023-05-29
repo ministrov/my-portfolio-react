@@ -49,3 +49,14 @@
 .header__text p+p {
   margin-top: 0.5em;
 }
+
+.header__image-wrapper {
+  padding: 34px;
+  background-color: var(--blackpure);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+}
+
+.header__image {
+  border-radius: 50%;
+}
