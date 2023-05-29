@@ -1,9 +1,10 @@
 import video from './video.jpg';
+import './style.css';
 
 const Video = () => {
   return (
-    <div>
-      <img src={video} alt="Pic about video" />
+    <div className="video">
+      <img src={video} className="video__image" alt="Pic about video" />
     </div>
   )
 }

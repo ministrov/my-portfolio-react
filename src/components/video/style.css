@@ -1,0 +1,10 @@
+.video {
+  position: absolute;
+  top: 169px;
+  right: 0;
+  background-color: var(--white);
+}
+
+.video__image {
+  border-radius: 24px;
+}

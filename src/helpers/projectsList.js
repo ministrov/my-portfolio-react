@@ -13,6 +13,7 @@ import project06Big from '../img/projects/06-big.jpg';
 
 const projects = [
   {
+    id: Math.floor(Math.random() * 10000),
     title: 'Gaming streaming portal',
     skills: 'React, Node.js, MongoDB',
     img: project01,
@@ -20,6 +21,7 @@ const projects = [
     gitHubLink: 'https://github.com'
   },
   {
+    id: Math.floor(Math.random() * 10000),
     title: 'Video Service',
     skills: 'React, PHP, MySQL',
     img: project02,
@@ -27,6 +29,7 @@ const projects = [
     gitHubLink: 'https://github.com'
   },
   {
+    id: Math.floor(Math.random() * 10000),
     title: 'Video Portal',
     skills: 'Vue JS, Node.js, MongoDB',
     img: project03,
@@ -34,18 +37,21 @@ const projects = [
     gitHubLink: 'https://github.com'
   },
   {
+    id: Math.floor(Math.random() * 10000),
     title: 'Dating App',
     skills: 'React Native',
     img: project04,
     imgBig: project04Big
   },
   {
+    id: Math.floor(Math.random() * 10000),
     title: 'Landing',
     skills: 'HTML, CSS, JS',
     img: project05,
     imgBig: project05Big
   },
   {
+    id: Math.floor(Math.random() * 10000),
     title: 'Gaming Comunity',
     skills: 'React, PHP, MySQL',
     img: project06,
