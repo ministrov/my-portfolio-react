@@ -1,4 +1,5 @@
 import './style.css';
+import pic from './pic1.jpeg';
 
 const Header = () => {
   return (
@@ -12,6 +13,9 @@ const Header = () => {
           <p>with passion for learning and creating.</p>
         </div>
         <a href="#!" className="btn">Download CV</a>
+      </div>
+      <div className="header__image-wrapper">
+        <img src={pic} className="header__image" alt="Avatar img"/>
       </div>
     </header>
   )
