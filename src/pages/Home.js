@@ -32,7 +32,22 @@ const Home = () => {
           </div>
           <div className="container">
             <p className="section-about__descr">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque facilis assumenda illum ex! Quod omnis nostrum neque minima accusantium tenetur praesentium ducimus dolore, quisquam corporis, impedit provident nulla eaque vero culpa quia asperiores voluptatibus blanditiis ad tempore corrupti laudantium nesciunt illo! Eos rerum voluptatum laborum in aut esse reiciendis eligendi dolores voluptatem veniam ex rem fugit ipsam mollitia, voluptatibus facere fuga? Voluptas repellat officia reiciendis molestias optio id facilis, ducimus deleniti nostrum in aperiam cum corporis rerum quo alias, quasi obcaecati incidunt consequuntur sint fugit! Harum reprehenderit, consectetur provident hic alias cupiditate voluptas quaerat, ab, nemo ipsum illo ipsa libero? A maiores, in delectus perferendis fugit quas dolorem magnam aspernatur! Nostrum, doloribus ducimus maiores, quisquam tempore magni consequatur, repellendus quibusdam assumenda illum sunt labore tempora error. Aut accusamus corrupti voluptates blanditiis nihil consectetur totam reprehenderit sunt molestiae veritatis, itaque est expedita, debitis ducimus repellat, hic optio dolorum nobis temporibus doloremque? Rem nulla expedita dicta incidunt assumenda est aliquid minima harum id. Dolores architecto, nemo asperiores ratione in doloremque consequuntur mollitia error labore dolorem placeat neque adipisci est animi exercitationem quis nesciunt sunt consectetur. Culpa quibusdam reprehenderit cumque eius laboriosam, nihil id, optio vitae minima perspiciatis quae enim, natus debitis repudiandae!
+              Stack: HTML, CSS, ECMAScript 6 (ES6), React, Vue<br/>
+              <br />
+              I am developing cross-platform web applications on HTML, CSS, ECMAScript 6 (ES6), React, Vue<br />
+              <br />
+              Since July 2021 I have been working in the company "Service Market" LLC, I am engaged in the maintenance and refinement of the site vamvoda.ru . As well as web development of a new company website from scratch . The company is engaged in the retail trade of water and food, as well as soft drinks.<br />
+              <br />
+              I will consider invitations to the role of junior Frontend Developer / HTML-coder.<br />
+              <br />
+              - Due to my vast life experience, I easily build communication with designers and testers, Backend developers and all team members.<br />
+
+              - I am not afraid to learn new things<br />
+              - I approach any task responsibly, I do it efficiently, I pay attention to details<br />
+              - I have experience working in projects with different technologies: HTML, PUG, CSS, ECMAScript 6 (ES6), React, Vue, etc.<br />
+              <br />
+              I like to do my job efficiently, I know how to meet
+              deadlines, quickly assimilate new information, attentive to details. The development awakened in me
             </p>
 
             <Video/>

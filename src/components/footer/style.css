@@ -27,3 +27,7 @@
 .copyright p+p {
   margin-top: 0.5em;
 }
+
+.copyright p {
+  text-align: center;
+}
