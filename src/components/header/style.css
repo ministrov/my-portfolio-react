@@ -51,12 +51,21 @@
 }
 
 .header__image-wrapper {
-  padding: 34px;
-  background-color: var(--blackpure);
+  padding: 5px;
   border-radius: 50%;
   box-shadow: var(--box-shadow);
+  background-color: var(--white);
 }
 
 .header__image {
   border-radius: 50%;
+}
+
+@media (max-width: 1020px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    row-gap: 50px;
+  }
 }

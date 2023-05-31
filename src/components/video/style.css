@@ -1,7 +1,4 @@
 .video {
-  position: absolute;
-  top: 169px;
-  right: 0;
   background-color: var(--white);
 }
 
