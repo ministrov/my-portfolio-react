@@ -143,18 +143,18 @@ body {
   z-index: 9;
 }
 
-/* About */
-.about {
+/* section-about */
+.section-about {
   position: relative;
   padding-top: 45px;
   padding-bottom: 245px;
 }
 
-.about__title {
+.section-about__title {
   text-align: center;
 }
 
-.about__descr {
+.section-about__descr {
   padding: 23px;
   padding-left: 92px;
   text-align: center;

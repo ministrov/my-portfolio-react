@@ -10,6 +10,7 @@ import Contacts from './pages/Contacts';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Project from './pages/Project';
+import About from './pages/About';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/projects" element={<Projects />}/>
           <Route path="/project" element={<Project />}/>
           <Route path="/contacts" element={<Contacts />}/>
+          <Route path="/about" element={<About />}/>
         </Routes>
 
         <Footer />

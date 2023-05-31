@@ -4,10 +4,11 @@ import img from '../img/projects/02-big.jpg';
 const Project = () => {
   return (
     <main className="section">
+      <h1 className="visually-hidden">Page about single author's project</h1>
       <div className="container">
         <div className="project-details">
 
-          <h1 className="title-1">Video service</h1>
+          <h2 className="title-1">Video service</h2>
 
           <img src={img} alt="" className="project-details__cover" />
 

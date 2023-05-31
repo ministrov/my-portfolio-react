@@ -7,6 +7,7 @@ const Projects = () => {
   return (
     <>
       <main className="section">
+        <h1 className="visually-hidden">Page about author's projects</h1>
         <div className="container">
           <h2 className="title-1">Projects</h2>
           <ul className="projects">
