@@ -1,8 +1,8 @@
 
-import '../styles/about.css';
 import myPicture from '../img/my-picture.jpg';
 import shapes from '../img/shapes.png';
 import { skills } from '../helpers/skills';
+import '../styles/about.css';
 
 const About = () => {
   return (
