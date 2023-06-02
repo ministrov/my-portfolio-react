@@ -1,6 +1,11 @@
 import Header from '../components/header/Header';
 import Video from '../components/video/Video';
 
+/**
+ * 
+ * Change className at the content-list to not duplicate with another section
+ */
+
 const Home = () => {
   return (
     <>
