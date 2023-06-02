@@ -147,7 +147,7 @@ body {
 .section-about {
   position: relative;
   padding-top: 45px;
-  padding-bottom: 245px;
+  padding-bottom: 100px;
 }
 
 .section-about__title {
@@ -155,9 +155,11 @@ body {
 }
 
 .section-about__descr {
-  padding: 23px;
-  padding-left: 92px;
-  text-align: center;
+  max-width: 80%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: start;
 }
 
 

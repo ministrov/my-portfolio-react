@@ -64,3 +64,59 @@
   width: 100%;
   background-color: var(--accent);
 }
+
+.nav__toggler div {
+  width: 2.1rem;
+  height: 0.15rem;
+  margin: 0.4rem;
+  background-color: var(--white);
+  transition: 0.34s ease-in;
+}
+
+.nav__toggler {
+  display: none;
+  cursor: pointer;
+}
+
+@media  screen and (max-width: 798px) {
+  .nav {
+    position: relative;
+    z-index: 10;
+  }
+
+  .nav__toggler {
+    display: block;
+  }
+
+  .nav-list {
+    z-index: 5;
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    width: 50%;
+    height: 93vh;
+    background-color: var(--nav-bg);
+    transform: translateX(100%);
+    transition: 0.5s ease-in;
+  }
+}
+
+.nav-list__active {
+  transform: translateX(0);
+}
+
+/* Toggle line animation*/
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-4px, 5px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-4px, -5px);
+}
