@@ -1,3 +1,5 @@
+import map from '../img/content-map.png';
+
 const Contacts = () => {
   return (
     <>
@@ -20,6 +22,9 @@ const Contacts = () => {
             </li>
           </ul>
 
+          <div className="contact-map">
+            <img src={map} alt="Map of the city" />
+          </div>
         </div>
       </main>
     </>
