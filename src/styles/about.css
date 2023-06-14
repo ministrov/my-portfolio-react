@@ -103,6 +103,11 @@
   width: 55%;
 }
 
+.skills__image {
+  display: block;
+  height: 500px;
+}
+
 .skills__elements {
   min-width: 45%;
   border: 3px solid var(--skills-elements-border);
