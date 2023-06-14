@@ -1,11 +1,7 @@
-/* eslint-disable no-unused-vars */
-import './style.css';
-
-import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-
-import sun from '../../img/icons/sun.svg';
-import moon from '../../img/icons/moon.svg';
+import { NavLink } from 'react-router-dom';
+import ButtonDarkMode from '../buttonDarkMode/ButtonDarkMode';
+import './style.css';
 
 const Navbar = () => {
   const activeLink = "nav-list__link nav-list__link--active";
@@ -32,10 +28,7 @@ const Navbar = () => {
             <strong>Anton Zhilin's</strong> portfolio
           </NavLink>
 
-          <button className="dark-mode-btn">
-            <img src={sun} alt="Light mode" className="dark-mode-btn__icon" />
-            <img src={moon} alt="Dark mode" className="dark-mode-btn__icon" />
-          </button>
+          <ButtonDarkMode/>
 
           <ul className={active}>
             <li className="nav-list__item">

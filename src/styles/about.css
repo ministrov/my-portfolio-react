@@ -105,12 +105,12 @@
 
 .skills__elements {
   min-width: 45%;
-  border: 3px solid var(--black-border);
+  border: 3px solid var(--skills-elements-border);
 }
 
 .skills__title-wrapper {
   padding: 10px;
-  border-bottom: 3px solid var(--black-border);
+  border-bottom: 3px solid var(--skills-elements-border);
 }
 
 .skills__title {
