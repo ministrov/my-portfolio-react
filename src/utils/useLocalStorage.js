@@ -1,3 +1,5 @@
+// This hook is saving dark mode value into the localStorage
+
 import { useState, useEffect } from "react";
 
 function getStorageValue(key, defaultValue) {
@@ -15,6 +17,8 @@ export const useLocalStorage = (key, defaultValue) => {
   useEffect(() => {
     // storing input name
     localStorage.setItem(key, JSON.stringify(value));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key, setValue]);
+
+  }, [key, value]);
+
+  return [value, setValue];
 }
