@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ButtonDarkMode from '../buttonDarkMode/ButtonDarkMode';
 import './style.css';
+import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 
 const Navbar = () => {
   const activeLink = "nav-list__link nav-list__link--active";
@@ -28,7 +29,9 @@ const Navbar = () => {
             <strong>Anton Zhilin's</strong> portfolio
           </NavLink>
 
-          <ButtonDarkMode/>
+          <ErrorBoundary>
+            <ButtonDarkMode />
+          </ErrorBoundary>
 
           <ul className={active}>
             <li className="nav-list__item">

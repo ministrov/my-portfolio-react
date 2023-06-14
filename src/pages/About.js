@@ -1,6 +1,6 @@
 
 import myPicture from '../img/my-picture.jpg';
-import shapes from '../img/shapes.png';
+import skillsBg from '../img/skills-bg.png';
 import { skills } from '../helpers/skills';
 import '../styles/about.css';
 
@@ -49,7 +49,7 @@ const About = () => {
             <h2 className="skills__title title-1">#skills</h2>
             <div className="skills__bottom">
               <div className="skills__left">
-                <img className="about__image" src={shapes} alt="a diffrent of shapes" />
+                <img className="skills__image" src={skillsBg} alt="In focus all frontend skills in icons" />
               </div>
               <div className="skills__right">
                 {skills.map(skill =>
