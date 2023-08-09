@@ -9,10 +9,10 @@ import Video from '../components/video/Video';
 const Home = () => {
   return (
     <>
-      <Promo />
-
       <main className="section">
         <h1 className="visually-hidden">Home page of the author</h1>
+
+        <Promo />
 
         <section className='section-content'>
           <h2 className='visually-hidden'>Frontent Anton Zhilin</h2>

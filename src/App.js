@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './utils/scrollToTop';
 import Header from './components/header/Header';
@@ -7,14 +8,25 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Project from './pages/Project';
 import About from './pages/About';
+import Modal from './components/modal/Modal';
+
 import './styles/main.css';
+import './styles/reset.css';
 
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function onOpen() {
+    setIsOpen(true);
+    console.log('click');
+  }
+
+  function onClose() {
+    setIsOpen(false);
+    console.log('click');
+  }
+
   return (
-    // <div className="App">
-
-    // </div>
-
     <>
       <Router>
         <Header />
@@ -28,6 +40,8 @@ const App = () => {
         </Routes>
       </Router>
       <Footer />
+
+      <Modal open={isOpen} onOpen={onOpen} onClose={onClose} />
     </>
   );
 }

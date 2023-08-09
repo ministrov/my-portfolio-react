@@ -54,6 +54,7 @@ body {
   flex-direction: column;
   font-family: 'DM Sans', sans-serif;
   letter-spacing: -0.5px;
+  scroll-behavior: smooth;
 
   /* Light mode */
   background-color: var(--page-bg);
@@ -222,7 +223,6 @@ body {
 
 @media (max-width: 620px) {
   /* Header  */
-
   .header {
     min-height: unset;
   }

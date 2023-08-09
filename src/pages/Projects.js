@@ -7,7 +7,7 @@ const Projects = ({ title }) => {
     <main className="projects">
       <h1 className="visually-hidden">Page about author's projects</h1>
       <div className="container">
-        <h2 className="title-1">{}</h2>
+        <h2 className="title-1">{title}</h2>
         <ul className="projects">
           {projects.map((project, index) =>
             <Project

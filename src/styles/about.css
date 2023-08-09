@@ -4,11 +4,11 @@
 }
 
 .about__section {
-  margin-top: 50px;
-  padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 50px;
+  margin-top: 3.125rem;
+  padding-top: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-bottom: 3.125rem;
   box-shadow: var(--box-shadow);
 }
 
@@ -24,32 +24,32 @@
 .about__right {
   width: 40%;
   display: flex;
-  padding: 5px;
+  padding: 0.3125rem;
   border: 5px solid var(--title-1);
   border-radius: .3rem;
   box-shadow: var(--box-shadow);
 }
 
 .about__title.title-1 {
-  margin-bottom: 20px;
-  font-size: 45px;
+  margin-bottom: 1.25rem;
+  font-size: 2.8125rem;
   font-weight: 700;
   text-align: start;
 }
 
 .about__description {
-  margin-bottom: 45px;
-  font-size: 18px;
+  margin-bottom: 2.8125rem;
+  font-size: 1.125rem;
   font-weight: 500;
   color: inherit;
 }
 
 .about__link button {
   display: block;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem;
   border: 1px solid var(--title-1);
   color: var(--title-1);
 }
@@ -67,18 +67,18 @@
 /* skills */
 
 .skills__section {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 50px;
+  margin-top: 3.125rem;
+  margin-bottom: 3.125rem;
+  padding-top: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-bottom: 3.125rem;
   box-shadow: var(--box-shadow);
 }
 
 .skills__title.title-1 {
-  margin-bottom: 50px;
-  font-size: 45px;
+  margin-bottom: 3.125rem;
+  font-size: 2.8125rem;
   font-weight: 700;
   text-align: start;
 }
@@ -111,13 +111,13 @@
 }
 
 .skills__title-wrapper {
-  padding: 10px;
+  padding: 0.625rem;
   border-bottom: 3px solid var(--skills-elements-border);
 }
 
 .skills__title {
   font-family: inherit;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.4;
 }
@@ -125,14 +125,14 @@
 .skills__items {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 10px;
+  row-gap: 0.625rem;
   max-width: 88%;
-  padding: 10px;
+  padding: 0.625rem;
   font-family: inherit;
-  font-size: 17px;
+  font-size: 1.0625rem;
   line-height: 1.2;
 }
 
 .skills__items span:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
