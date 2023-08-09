@@ -1,25 +1,22 @@
 /* promo */
 
 .promo {
-  padding: 40px 0;
   min-height: 695px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
+  column-gap: 5rem;
+  padding: 40px 0;
+  text-align: center;
+  color: var(--promo-text);
   background-color: var(--promo-bg);
   background-image: url('../../img/promo-bg.png');
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center center;
-
-  color: var(--promo-text);
-  text-align: center;
 }
 
 .promo__wrapper {
-  padding: 0 15px;
   max-width: 660px;
 }
 

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './utils/scrollToTop';
-import Navbar from './components/navbar/Navbar';
+import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Contacts from './pages/Contacts';
 import Home from './pages/Home';
@@ -9,24 +9,26 @@ import Project from './pages/Project';
 import About from './pages/About';
 import './styles/main.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    // <div className="App">
+
+    // </div>
+
+    <>
       <Router>
-        <ScrollToTop/>
-        <Navbar />
-
+        <Header />
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/projects" element={<Projects />}/>
-          <Route path="/project/:id" element={<Project />}/>
-          <Route path="/contacts" element={<Contacts />}/>
-          <Route path="/about" element={<About />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects title={'Projects'}/>} />
+          <Route path="/project/:id" element={<Project />} />
+          <Route path="/contacts" element={<Contacts title={'Contacts'}/>} />
+          <Route path="/about" element={<About />} />
         </Routes>
-
-        <Footer />
       </Router>
-    </div>
+      <Footer />
+    </>
   );
 }
 

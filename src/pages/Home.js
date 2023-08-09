@@ -13,10 +13,11 @@ const Home = () => {
 
       <main className="section">
         <h1 className="visually-hidden">Home page of the author</h1>
+
         <section className='section-content'>
           <h2 className='visually-hidden'>Frontent Anton Zhilin</h2>
-          <div className="container">
 
+          <div className="container">
             <ul className="content-list">
               <li className="content-list__item">
                 <h2 className="title-2">Frontend</h2>
@@ -27,7 +28,6 @@ const Home = () => {
                 <p>NodeJS, MySQL, MongoDB, PHP, Laravel</p>
               </li>
             </ul>
-
           </div>
         </section>
 
