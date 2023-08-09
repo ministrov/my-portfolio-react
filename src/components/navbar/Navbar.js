@@ -22,48 +22,50 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="nav">
-      <div className="container">
-        <div className="nav-row">
-          <NavLink to="/" className="logo">
-            <strong>Anton Zhilin's</strong> portfolio
-          </NavLink>
+    <header>
+      <nav className="nav">
+        <div className="container">
+          <div className="nav-row">
+            <NavLink to="/" className="logo">
+              <strong>Anton Zhilin's</strong> portfolio
+            </NavLink>
 
-          <ErrorBoundary>
-            <ButtonDarkMode />
-          </ErrorBoundary>
+            <ErrorBoundary>
+              <ButtonDarkMode />
+            </ErrorBoundary>
 
-          <ul className={active}>
-            <li className="nav-list__item">
-              <NavLink to="/" className={({ isActive }) => isActive ? activeLink : normalLink}>
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-list__item">
-              <NavLink to="/projects" className={({ isActive }) => isActive ? activeLink : normalLink}>
-                Projects
-              </NavLink>
-            </li>
-            <li className="nav-list__item">
-              <NavLink to="/contacts" className={({ isActive }) => isActive ? activeLink : normalLink}>
-                Contacts
-              </NavLink>
-            </li>
-            <li className="nav-list__item">
-              <NavLink to="/about" className={({ isActive }) => isActive ? activeLink : normalLink}>
-                About
-              </NavLink>
-            </li>
-          </ul>
+            <ul className={active}>
+              <li className="nav-list__item">
+                <NavLink to="/" className={({ isActive }) => isActive ? activeLink : normalLink}>
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-list__item">
+                <NavLink to="/projects" className={({ isActive }) => isActive ? activeLink : normalLink}>
+                  Projects
+                </NavLink>
+              </li>
+              <li className="nav-list__item">
+                <NavLink to="/contacts" className={({ isActive }) => isActive ? activeLink : normalLink}>
+                  Contacts
+                </NavLink>
+              </li>
+              <li className="nav-list__item">
+                <NavLink to="/about" className={({ isActive }) => isActive ? activeLink : normalLink}>
+                  About
+                </NavLink>
+              </li>
+            </ul>
 
-          <div onClick={navToggler} className={toggleIcon}>
-            <div className="line1"></div>
-            <div className="line2"></div>
-            <div className="line3"></div>
+            <div onClick={navToggler} className={toggleIcon}>
+              <div className="line1"></div>
+              <div className="line2"></div>
+              <div className="line3"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   )
 }
 

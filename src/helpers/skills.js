@@ -1,16 +1,18 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export const skills = [
   {
-    id: 1,
+    id: uuidv4(),
     title: "Languages",
     languages: ["TypeScript", "Lua", "Python", "JavaScript"],
   },
   {
-    id: 2,
+    id: uuidv4(),
     title: "Databases",
     languages: ["SQLite", "PostgreSQL", "Mongo"]
   },
   {
-    id: 3,
+    id: uuidv4(),
     title: "Tools",
     languages: [
       "VSCode",
@@ -24,12 +26,12 @@ export const skills = [
     ],
   },
   {
-    id: 4,
+    id: uuidv4(),
     title: "Other",
     languages: ["HTML", "CSS", "EJS", "SCSS", "REST", "Jinja"],
   },
   {
-    id: 5,
+    id: uuidv4(),
     title: "Frameworks",
     languages: [
       "React",
@@ -41,7 +43,7 @@ export const skills = [
     ],
   },
   {
-    id: 6,
+    id: uuidv4(),
     title: "Things",
     languages: [
       "React",

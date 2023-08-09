@@ -1,15 +1,15 @@
-import Header from '../components/header/Header';
+import Promo from '../components/promo/Promo';
 import Video from '../components/video/Video';
 
 /**
- * 
+ *
  * Change className at the content-list to not duplicate with another section
  */
 
 const Home = () => {
   return (
     <>
-      <Header />
+      <Promo />
 
       <main className="section">
         <h1 className="visually-hidden">Home page of the author</h1>

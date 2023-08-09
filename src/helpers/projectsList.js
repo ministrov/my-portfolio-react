@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import project01 from '../img/projects/01.jpg';
 import project01Big from '../img/projects/01-big.jpg';
 import project02 from '../img/projects/02.jpg';
@@ -13,7 +14,7 @@ import project06Big from '../img/projects/06-big.jpg';
 
 const projects = [
   {
-    id: Math.floor(Math.random() * 10000),
+    id: uuidv4(),
     title: 'Gaming streaming portal',
     skills: 'React, Node.js, MongoDB',
     img: project01,
@@ -21,7 +22,7 @@ const projects = [
     gitHubLink: 'https://github.com'
   },
   {
-    id: Math.floor(Math.random() * 10000),
+    id: uuidv4(),
     title: 'Video Service',
     skills: 'React, PHP, MySQL',
     img: project02,
@@ -29,7 +30,7 @@ const projects = [
     gitHubLink: 'https://github.com'
   },
   {
-    id: Math.floor(Math.random() * 10000),
+    id: uuidv4(),
     title: 'Video Portal',
     skills: 'Vue JS, Node.js, MongoDB',
     img: project03,
@@ -37,21 +38,21 @@ const projects = [
     gitHubLink: 'https://github.com'
   },
   {
-    id: Math.floor(Math.random() * 10000),
+    id: uuidv4(),
     title: 'Dating App',
     skills: 'React Native',
     img: project04,
     imgBig: project04Big
   },
   {
-    id: Math.floor(Math.random() * 10000),
+    id: uuidv4(),
     title: 'Landing',
     skills: 'HTML, CSS, JS',
     img: project05,
     imgBig: project05Big
   },
   {
-    id: Math.floor(Math.random() * 10000),
+    id: uuidv4(),
     title: 'Gaming Comunity',
     skills: 'React, PHP, MySQL',
     img: project06,
