@@ -17,6 +17,14 @@ import './styles/reset.css';
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const onCloseHandler = (event) => {
+    const target = event.target;
+
+    if (target) setIsOpen(false);
+
+    console.log('close');
+  }
+
   return (
     <>
       <Router>
@@ -33,7 +41,7 @@ const App = () => {
       <Button onClick={() => setIsOpen(true)} />
       <Footer />
 
-      <Modal open={isOpen}>
+      <Modal open={isOpen} onClose={onCloseHandler}>
         Fancy modal
       </Modal>
     </>
