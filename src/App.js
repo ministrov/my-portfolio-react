@@ -21,8 +21,6 @@ const App = () => {
     const target = event.target;
 
     if (target) setIsOpen(false);
-
-    console.log('close');
   }
 
   return (
