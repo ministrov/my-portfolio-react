@@ -1,33 +1,44 @@
 import Promo from '../components/promo/Promo';
 import Video from '../components/video/Video';
-
-/**
- *
- * Change className at the content-list to not duplicate with another section
- */
+import HomeSkills from '../helpers/homeSkills';
 
 const Home = () => {
   return (
     <>
-      <Promo />
-
       <main className="section">
         <h1 className="visually-hidden">Home page of the author</h1>
-        <section className='section-content'>
+
+        <Promo />
+
+        <section className="home-skills">
           <h2 className='visually-hidden'>Frontent Anton Zhilin</h2>
+
           <div className="container">
+            <div className="home-skills__wrapper">
+              <div className="home-skills__left">
+                {HomeSkills.map(skill => (
+                  <div key={skill.id} className="home-skill__card">
+                    <div className="home-skill__card-icon">
+                      {skill.icon}
+                    </div>
+                    <div className="home-skill__card-header">
+                      {skill.tech}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="home-skills__right">
+                <h3>My Skills</h3>
+                <h4>What <span>I can do</span></h4>
 
-            <ul className="content-list">
-              <li className="content-list__item">
-                <h2 className="title-2">Frontend</h2>
-                <p>JavaScript, ReactJS, HTML, CSS, NPM, BootStrap, MaterialUI, Yarn, TailwindCSS, StyledComponents</p>
-              </li>
-              <li className="content-list__item">
-                <h2 className="title-2">Backend</h2>
-                <p>NodeJS, MySQL, MongoDB, PHP, Laravel</p>
-              </li>
-            </ul>
-
+                <p>
+                  As a Developer, I have a wide range of experience in front-end development. I am proficient in JavaScript , React, Vue , HTML and CSS. My strong experience in building responsive and dynamic interfaces using React and Redux, and some time I can use vanilly JS, if it needs to my customers. It is allowed me to create engaging and interactive web applications.
+                </p>
+                <p>
+                  I have experience in using React for building scalable and maintainable applications. This has allowed me to create efficient and sustainable code that can adept to the changing needs of a business.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

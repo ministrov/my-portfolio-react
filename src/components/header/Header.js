@@ -4,7 +4,7 @@ import ButtonDarkMode from '../buttonDarkMode/ButtonDarkMode';
 import './style.css';
 import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 
-const Navbar = () => {
+const Header = () => {
   const activeLink = "nav-list__link nav-list__link--active";
   const normalLink = "nav-list__link";
 
@@ -22,7 +22,7 @@ const Navbar = () => {
   }
 
   return (
-    <header>
+    <header className="header">
       <nav className="nav">
         <div className="container">
           <div className="nav-row">
@@ -69,4 +69,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar;
+export default Header;

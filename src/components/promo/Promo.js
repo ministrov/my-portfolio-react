@@ -1,5 +1,6 @@
 import './style.css';
 import pic from './pic1.jpeg';
+import Button from '../button/Button';
 
 const Promo = () => {
   return (
@@ -12,7 +13,9 @@ const Promo = () => {
         <div className="promo__text">
           <p>with passion for learning and creating.</p>
         </div>
-        <a href="#!" className="btn">Download CV</a>
+        <div className="promo__btns">
+          <Button href={'#!'}/>
+        </div>
       </div>
       <div className="promo__image-wrapper">
         <img src={pic} className="promo__image" alt="Avatar img"/>

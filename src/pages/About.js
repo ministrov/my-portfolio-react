@@ -1,5 +1,5 @@
 
-import myPicture from '../img/my-picture.jpg';
+import myPicture from '../img/my-photo.webp';
 import skillsBg from '../img/skills-bg.png';
 import { skills } from '../helpers/skills';
 import '../styles/about.css';
