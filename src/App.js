@@ -30,10 +30,10 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
-      <Button />
+      <Button onClick={() => setIsOpen(true)} />
       <Footer />
 
-      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal open={isOpen}>
         Fancy modal
       </Modal>
     </>

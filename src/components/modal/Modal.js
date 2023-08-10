@@ -1,7 +1,8 @@
 // import { createPortal } from "react-dom";
 import './style.css';
 
-const Modal = ({ children }) => {
+const Modal = ({ open, children }) => {
+  if (!open) return null;
 
   return (
     <div className="modal">
