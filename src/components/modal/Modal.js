@@ -1,14 +1,12 @@
-import { createPortal } from "react-dom";
+// import { createPortal } from "react-dom";
+import './style.css';
 
-const Modal = ({ open, children }) => {
-  if (!open) return null;
+const Modal = ({ children }) => {
 
-  return createPortal(
+  return (
     <div className="modal">
-      <h2>My awesome modal</h2>
       {children}
-    </div>,
-    document.getElementById('portal')
+    </div>
   )
 }
 

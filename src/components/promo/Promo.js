@@ -1,7 +1,8 @@
 import './style.css';
 import pic from './pic1.jpeg';
+import Button from '../button/Button';
 
-const Promo = ({ onOpen }) => {
+const Promo = () => {
   return (
     <section className="promo">
       <div className="promo__wrapper">
@@ -13,8 +14,7 @@ const Promo = ({ onOpen }) => {
           <p>with passion for learning and creating.</p>
         </div>
         <div className="promo__btns">
-          <a href="#!" className="btn">Download CV</a>
-          <button type='button' className="btn" onClick={() => onOpen}>Click Me</button>
+          <Button href={'#!'}/>
         </div>
       </div>
       <div className="promo__image-wrapper">

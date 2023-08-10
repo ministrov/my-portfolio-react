@@ -9,22 +9,13 @@ import Projects from './pages/Projects';
 import Project from './pages/Project';
 import About from './pages/About';
 import Modal from './components/modal/Modal';
+import Button from './components/button/Button';
 
 import './styles/main.css';
 import './styles/reset.css';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  function onOpen() {
-    setIsOpen(true);
-    console.log('click');
-  }
-
-  function onClose() {
-    setIsOpen(false);
-    console.log('click');
-  }
 
   return (
     <>
@@ -39,9 +30,12 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
+      <Button />
       <Footer />
 
-      <Modal open={isOpen} onOpen={onOpen} onClose={onClose} />
+      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+        Fancy modal
+      </Modal>
     </>
   );
 }
