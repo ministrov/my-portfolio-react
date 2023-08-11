@@ -1,13 +1,13 @@
-import { createPortal } from 'react-dom';
-import video from './video.jpg';
+import video from './video.mp4';
 import './style.css';
 
 const Video = () => {
-  return createPortal(
+  return (
     <div className="video">
-      <img src={video} className="video__image" alt="Pic about video" />
-    </div>,
-    document.getElementById('portal')
+      <video autoPlay loop muted playsilines="true" className="back-video">
+        <source src={video} type="video/mp4" />
+      </video>
+    </div>
   )
 }
 

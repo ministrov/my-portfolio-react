@@ -5,7 +5,6 @@ import Video from '../components/video/Video';
 import HomeSkills from '../helpers/homeSkills';
 import Modal from '../components/modal/Modal';
 import myPicture from '../img/my-photo.webp';
-import '../styles/about.css';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,11 +93,14 @@ const Home = () => {
               deadlines, quickly assimilate new information, attentive to details. The development awakened in me
             </motion.p>
 
-            <Video/>
-
             <section className="about-section">
               <div className="about-section__bottom">
-                <div className="about-section__left">
+                <motion.div
+                  className="about-section__left"
+                  initial={{ x: -50, opacity: 1 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ type: 'tween', duration: 1 }}
+                >
                   <div className="about-section__title-block">
                     <div className="about-section__title-wrapper">
                       <h2 className="about-section__title title-1">#about-me</h2>
@@ -123,14 +125,21 @@ const Home = () => {
                       <button>Read more -{">"}</button>
                     </a>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="about-section__right">
+                <motion.div
+                  className="about-section__right"
+                  initial={{ x: 50, opacity: 1 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ type: 'tween', duration: 1 }}
+                >
                   <img className="about-section__image" src={myPicture} alt="Focus on author's face" />
-                </div>
+                </motion.div>
               </div>
             </section>
           </div>
+
+          <Video />
         </section>
       </main>
 
