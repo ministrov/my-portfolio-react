@@ -1,5 +1,10 @@
 .video {
-  background-color: transparent;
+  z-index: 1000;
+  position: absolute;
+  top: 2033px;
+  left: 0;
+  width: 100%;
+  background-color: red;
 }
 
 .video__image {

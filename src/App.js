@@ -6,7 +6,6 @@ import Contacts from './pages/Contacts';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Project from './pages/Project';
-import About from './pages/About';
 import './styles/main.css';
 
 const App = () => {
@@ -21,7 +20,6 @@ const App = () => {
           <Route path="/projects" element={<Projects title={'Projects'}/>} />
           <Route path="/project/:id" element={<Project />} />
           <Route path="/contacts" element={<Contacts title={'Contacts'}/>} />
-          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
       <Footer />

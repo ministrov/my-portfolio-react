@@ -1,11 +1,13 @@
+import { createPortal } from 'react-dom';
 import video from './video.jpg';
 import './style.css';
 
 const Video = () => {
-  return (
+  return createPortal(
     <div className="video">
       <img src={video} className="video__image" alt="Pic about video" />
-    </div>
+    </div>,
+    document.getElementById('portal')
   )
 }
 
