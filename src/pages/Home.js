@@ -1,21 +1,37 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Promo from '../components/promo/Promo';
 import Video from '../components/video/Video';
 import HomeSkills from '../helpers/homeSkills';
+import Modal from '../components/modal/Modal';
 
 const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onCloseHandler = (event) => {
+    const target = event.target;
+
+    if (target) setIsOpen(false);
+  }
+
   return (
     <>
       <main className="section">
         <h1 className="visually-hidden">Home page of the author</h1>
 
-        <Promo />
+        <Promo setIsOpen={setIsOpen}/>
 
         <section className="home-skills">
           <h2 className='visually-hidden'>Frontent Anton Zhilin</h2>
 
           <div className="container">
             <div className="home-skills__wrapper">
-              <div className="home-skills__left">
+              <motion.div
+                className="home-skills__left"
+                initial={{ x: -50, opacity: 1 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ type: 'tween', duration: 1 }}
+              >
                 {HomeSkills.map(skill => (
                   <div key={skill.id} className="home-skill__card">
                     <div className="home-skill__card-icon">
@@ -26,8 +42,13 @@ const Home = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-              <div className="home-skills__right">
+              </motion.div>
+              <motion.div
+                className="home-skills__right"
+                initial={{ x: 50, opacity: 1 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ type: 'tween', duration: 1 }}
+              >
                 <h3>My Skills</h3>
                 <h4>What <span>I can do</span></h4>
 
@@ -37,7 +58,7 @@ const Home = () => {
                 <p>
                   I have experience in using React for building scalable and maintainable applications. This has allowed me to create efficient and sustainable code that can adept to the changing needs of a business.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -70,6 +91,10 @@ const Home = () => {
           </div>
         </section>
       </main>
+
+      <Modal open={isOpen} onClose={onCloseHandler}>
+        Fancy modal
+      </Modal>
     </>
   )
 }

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './utils/scrollToTop';
 import Header from './components/header/Header';
@@ -8,20 +7,9 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Project from './pages/Project';
 import About from './pages/About';
-import Modal from './components/modal/Modal';
-import Button from './components/button/Button';
-
 import './styles/main.css';
-import './styles/reset.css';
 
 const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const onCloseHandler = (event) => {
-    const target = event.target;
-
-    if (target) setIsOpen(false);
-  }
 
   return (
     <>
@@ -36,12 +24,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
-      <Button onClick={() => setIsOpen(true)} />
       <Footer />
-
-      <Modal open={isOpen} onClose={onCloseHandler}>
-        Fancy modal
-      </Modal>
     </>
   );
 }
