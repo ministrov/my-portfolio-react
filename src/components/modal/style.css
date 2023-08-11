@@ -19,3 +19,7 @@
   height: 1.5rem;
   background-color: #fff;
 }
+
+.modal p {
+  margin-bottom: 3rem;
+}

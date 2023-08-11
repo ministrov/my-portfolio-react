@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import './style.css';
 
-const Button = ({ href, onClick }) => {
+const Button = ({ href, onClick, text }) => {
 
   return (
     <>
@@ -9,22 +9,20 @@ const Button = ({ href, onClick }) => {
         <motion.a
           href="#!"
           className="btn"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.3 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
-          Download CV
+          { text }
         </motion.a>
       ) : (
           <motion.button
             type='button'
             className="btn"
             onClick={onClick}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            Click Me
+            { text }
           </motion.button>
       )}
     </>

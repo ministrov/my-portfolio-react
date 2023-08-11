@@ -154,7 +154,9 @@ const Home = () => {
       </main>
 
       <Modal open={isOpen} onClose={onCloseHandler}>
-        Fancy modal
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque alias maiores non deleniti nemo iure, ex accusantium harum perspiciatis reiciendis ipsam earum at, repellendus facere nisi quia asperiores minima fugit rerum illum perferendis! Quia aut, repellendus, qui pariatur voluptate ut in corporis, culpa eveniet deleniti eaque dolor cum repudiandae nostrum!
+        </p>
       </Modal>
     </>
   )

@@ -21,8 +21,8 @@ const Promo = ({ setIsOpen }) => {
           <p>with passion for learning and creating.</p>
         </div>
         <div className="promo__btns">
-          <Button href={'#!'}/>
-          <Button onClick={() => setIsOpen(true)} />
+          <Button text={'Download CV'} href={'#!'}/>
+          <Button onClick={() => setIsOpen(true)} text={'Click me'} />
         </div>
       </motion.div>
       <motion.div
