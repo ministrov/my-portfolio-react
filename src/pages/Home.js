@@ -34,8 +34,14 @@ const Home = () => {
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ type: 'tween', duration: 1 }}
               >
-                {HomeSkills.map(skill => (
-                  <div key={skill.id} className="home-skill__card">
+                {HomeSkills.map((skill, i) => (
+                  <div
+                    key={skill.id}
+                    className="home-skill__card"
+                    // initial={{ opacity: 0, translateX: -50, translateY: -50}}
+                    // animate={{ opacity: 1, translateX: 0, translateY: 0}}
+                    // transition={{ duration: 0.3, delay: i * 0.3}}
+                  >
                     <div className="home-skill__card-icon">
                       {skill.icon}
                     </div>
@@ -73,7 +79,7 @@ const Home = () => {
               className="about__descr"
               initial={{ x: -50, opacity: 1 }}
               whileInView={{ x: 0, opacity: 1 }}
-              transition={{ type: 'tween', duration: 1 }}
+              transition={{ type: 'tween', duration: 1.2 }}
             >
               Stack: HTML, CSS, ECMAScript 6 (ES6), React, Vue<br/>
               <br />
@@ -133,7 +139,11 @@ const Home = () => {
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ type: 'tween', duration: 1 }}
                 >
-                  <img className="about-section__image" src={myPicture} alt="Focus on author's face" />
+                  <img
+                    className="about-section__image"
+                    src={myPicture}
+                    alt="Focus on author's face"
+                  />
                 </motion.div>
               </div>
             </section>
