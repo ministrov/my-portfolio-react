@@ -4,7 +4,9 @@ import Promo from '../components/promo/Promo';
 import Video from '../components/video/Video';
 import HomeSkills from '../helpers/homeSkills';
 import Modal from '../components/modal/Modal';
+import Button from '../components/button/Button';
 import myPicture from '../img/my-photo.webp';
+import Contact from '../components/contact/Contact';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +19,13 @@ const Home = () => {
 
   return (
     <>
-      <main className="section">
+      <main className="home-page">
         <h1 className="visually-hidden">Home page of the author</h1>
 
         <Promo setIsOpen={setIsOpen}/>
 
         <section className="home-skills">
-          <h2 className="visually-hidden">Frontent Anton Zhilin</h2>
+          <h2 className="visually-hidden">Anton Zhilin's frontend skills</h2>
           <h3 className="home-skills__title title-2">My Skills</h3>
 
           <div className="container">
@@ -96,7 +98,7 @@ const Home = () => {
               - I have experience working in projects with different technologies: HTML, PUG, CSS, ECMAScript 6 (ES6), React, Vue, etc.<br />
               <br />
               I like to do my job efficiently, I know how to meet
-              deadlines, quickly assimilate new information, attentive to details. The development awakened in me
+              deadlines, quickly assimilate new information, attentive to details.
             </motion.p>
 
             <section className="about-section">
@@ -124,12 +126,7 @@ const Home = () => {
                   </p>
 
                   <div className="about-section__button-block">
-                    <a
-                      href="#!"
-                      className="about-section__link"
-                    >
-                      <button>Read more -{">"}</button>
-                    </a>
+                    <Button href={"#!"} text={"Read more >"} />
                   </div>
                 </motion.div>
 
@@ -151,11 +148,17 @@ const Home = () => {
 
           <Video />
         </section>
+
+        <Contact />
       </main>
 
       <Modal open={isOpen} onClose={onCloseHandler}>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque alias maiores non deleniti nemo iure, ex accusantium harum perspiciatis reiciendis ipsam earum at, repellendus facere nisi quia asperiores minima fugit rerum illum perferendis! Quia aut, repellendus, qui pariatur voluptate ut in corporis, culpa eveniet deleniti eaque dolor cum repudiandae nostrum!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque alias maiores non deleniti nemo iure, ex accusantium harum perspiciatis reiciendis ipsam earum at, repellendus facere nisi quia asperiores minima fugit rerum illum perferendis!
+        </p>
+
+        <p>
+          Quia aut, repellendus, qui pariatur voluptate ut in corporis, culpa eveniet deleniti eaque dolor cum repudiandae nostrum!
         </p>
       </Modal>
     </>
