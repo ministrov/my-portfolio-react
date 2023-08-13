@@ -4,7 +4,9 @@ import Promo from '../components/promo/Promo';
 import Video from '../components/video/Video';
 import HomeSkills from '../helpers/homeSkills';
 import Modal from '../components/modal/Modal';
+import Button from '../components/button/Button';
 import myPicture from '../img/my-photo.webp';
+import Contact from '../components/contact/Contact';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="section">
+      <main className="home-page">
         <h1 className="visually-hidden">Home page of the author</h1>
 
         <Promo setIsOpen={setIsOpen}/>
@@ -124,12 +126,7 @@ const Home = () => {
                   </p>
 
                   <div className="about-section__button-block">
-                    <a
-                      href="#!"
-                      className="about-section__link"
-                    >
-                      <button>Read more -{">"}</button>
-                    </a>
+                    <Button href={"#!"} text={"Read more >"} />
                   </div>
                 </motion.div>
 
@@ -151,6 +148,8 @@ const Home = () => {
 
           <Video />
         </section>
+
+        <Contact />
       </main>
 
       <Modal open={isOpen} onClose={onCloseHandler}>

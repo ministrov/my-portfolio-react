@@ -81,8 +81,11 @@ body {
   display: none !important;
 }
 
-.section {
-  padding: 70px 0;
+.home-page {
+  padding-top: 0;
+  padding-bottom: 4.5rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .title-1 {
@@ -159,6 +162,7 @@ body {
 .about {
   position: relative;
   padding-top: 45px;
+  padding-bottom: 3.5rem;
 }
 
 .about__descr {
