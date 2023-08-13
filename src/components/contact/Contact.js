@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { FaTelegram } from 'react-icons/fa';
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
@@ -13,7 +14,12 @@ const Contact = () => {
       </div>
 
       <div className="container contacts__container">
-        <div className="contacts__options">
+        <motion.div
+          className="contacts__options"
+          initial={{ x: -50, opacity: 1 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ type: 'tween', duration: 1 }}
+        >
           <article className="contacts__option">
             <MdEmail className="contacts__option-icon"/>
             <h4>Email</h4>
@@ -34,15 +40,20 @@ const Contact = () => {
             <h5>+7 (925) 739-86-12</h5>
             <a href="https://api.whatsapp.com/send?=+79257398612" target="_blank" rel="noreferrer">Send a message</a>
           </article>
-        </div>
+        </motion.div>
 
-        <form action="#">
+        <motion.form
+          action="#"
+          initial={{ x: 50, opacity: 1 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ type: 'tween', duration: 1 }}
+        >
           <input type="text" name="name" placeholder="Your Full Name" required />
           <input type="email" name="email" placeholder="Your Email" required/>
           <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
 
           <button type="submit" className="contacts__btn-submit btn">Send me a message</button>
-        </form>
+        </motion.form>
       </div>
     </section>
   );

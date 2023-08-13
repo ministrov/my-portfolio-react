@@ -1,11 +1,11 @@
 /* promo */
 
 .promo {
-  min-height: 695px;
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 5rem;
+  column-gap: 3rem;
+  min-height: 600px;
   text-align: center;
   color: var(--promo-text);
   background-color: var(--promo-bg);
@@ -16,7 +16,7 @@
 }
 
 .promo__wrapper {
-  max-width: 660px;
+  max-width: 100%;
 }
 
 .promo__title {
@@ -64,11 +64,15 @@
   column-gap: 2.5rem;
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 1286px) {
   .promo {
     flex-direction: column;
     align-items: center;
     justify-items: center;
+    padding-top: 7.4rem;
     row-gap: 3.125rem;
+    min-height: auto;
+    height: auto;
+    margin-bottom: 3.5rem;
   }
 }

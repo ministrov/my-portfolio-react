@@ -98,7 +98,7 @@ const Home = () => {
               - I have experience working in projects with different technologies: HTML, PUG, CSS, ECMAScript 6 (ES6), React, Vue, etc.<br />
               <br />
               I like to do my job efficiently, I know how to meet
-              deadlines, quickly assimilate new information, attentive to details. The development awakened in me
+              deadlines, quickly assimilate new information, attentive to details.
             </motion.p>
 
             <section className="about-section">

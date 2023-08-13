@@ -73,9 +73,8 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
 }
 
 .none {
@@ -120,8 +119,8 @@ body {
 
 .home-skills__left {
   display: grid;
-  grid-template-columns: auto auto;
-  gap: 2.5rem;
+  grid-template-columns: 43% 43%;
+  gap: 2rem;
 }
 
 .home-skill__card {
@@ -202,7 +201,6 @@ body {
 .about-section__right {
   width: 40%;
   display: flex;
-  padding: 0.3125rem;
   border: 5px solid var(--title-1);
   border-radius: .3rem;
   box-shadow: var(--box-shadow);
@@ -242,7 +240,6 @@ body {
   flex-basis: 100%;
 }
 
-
 /* Projects  */
 
 .projects {
@@ -251,6 +248,7 @@ body {
   flex-wrap: wrap;
   column-gap: 30px;
   row-gap: 30px;
+  padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
 
