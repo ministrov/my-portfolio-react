@@ -57,6 +57,27 @@ const projects = [
     skills: 'React, PHP, MySQL',
     img: project06,
     imgBig: project06Big
+  },
+  {
+    id: uuidv4(),
+    title: 'Gaming Comunity',
+    skills: 'React, PHP, MySQL',
+    img: project06,
+    imgBig: project06Big
+  },
+  {
+    id: uuidv4(),
+    title: 'Gaming Comunity',
+    skills: 'React, PHP, MySQL',
+    img: project06,
+    imgBig: project06Big
+  },
+  {
+    id: uuidv4(),
+    title: 'Gaming Comunity',
+    skills: 'React, PHP, MySQL',
+    img: project06,
+    imgBig: project06Big
   }
 ];
 
