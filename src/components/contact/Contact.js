@@ -6,8 +6,9 @@ import './style.css';
 const Contact = () => {
   return (
     <section className="contacts">
+      <h2 className="visually-hidden">Contact's information</h2>
       <div className="container">
-        <h2 className="title-2">Get in Touch</h2>
+        <h3 className="title-2">Get in Touch</h3>
         <h5 className="title-1">Contact Me</h5>
       </div>
 

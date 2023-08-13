@@ -1,6 +1,6 @@
 .contacts {
   width: 100%;
-  background-color: red;
+  padding-top: 1.2rem;
 }
 
 .contacts__container {
@@ -24,6 +24,13 @@
   border: 1px solid transparent;
   border-radius: 1.2rem;
   background-color: var(--purple);
+}
+
+.contacts__option:hover {
+  background-color: var(--purple-hover);
+  border-color: var(--accent);
+  transform: scale(1.1);
+  transition: scale 0.8s ease-in;
 }
 
 .contacts__option h4,
@@ -77,4 +84,29 @@ input, textarea {
   font-size: 16px;
   font-weight: 500;
   transition: opacity 0.2s ease-in;
+}
+
+/*================= Media Query ============= (Medium Devices)*/
+@media screen and (max-width: 1024px) {
+  form {
+    align-items: center;
+  }
+  
+  .contacts__container {
+    grid-template-columns: 1fr;
+    gap: 5%;
+  }
+
+  .contacts__options {
+    gap: 1.6rem;
+  }
+
+  .contacts__option:hover {
+    transform: scale(1);
+  }
+}
+
+/*================= Media Query ============= (Small Devices)*/
+@media screen and (max-width: 600px) {
+
 }

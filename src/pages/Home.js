@@ -25,7 +25,7 @@ const Home = () => {
         <Promo setIsOpen={setIsOpen}/>
 
         <section className="home-skills">
-          <h2 className="visually-hidden">Frontent Anton Zhilin</h2>
+          <h2 className="visually-hidden">Anton Zhilin's frontend skills</h2>
           <h3 className="home-skills__title title-2">My Skills</h3>
 
           <div className="container">
