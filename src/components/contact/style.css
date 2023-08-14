@@ -30,7 +30,7 @@
   background-color: var(--purple-hover);
   border-color: var(--accent);
   transform: scale(1.1);
-  transition: scale 0.8s ease-in;
+  transition: scale 2.8s ease-in;
 }
 
 .contacts__option h4,
@@ -86,12 +86,20 @@ input, textarea {
   transition: opacity 0.2s ease-in;
 }
 
+@media screen and (max-width: 1378px) {
+  .contacts__container {
+    display: grid;
+    grid-template-columns: 35% 60%;
+    gap: 5%;
+  }
+}
+
 /*================= Media Query ============= (Medium Devices)*/
 @media screen and (max-width: 1024px) {
   form {
     align-items: center;
   }
-  
+
   .contacts__container {
     grid-template-columns: 1fr;
     gap: 5%;
