@@ -1,29 +1,46 @@
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 import Button from '../button/Button';
 import './style.css';
+import Backdrop from "../backdrop/Backdrop";
 
-const OVERLAY_STYLES = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, .7)',
-  zIndex: 1000
-}
+const dropIn = {
+  hidden: {
+    y: '-100vh',
+    opacity: 0
+  },
+  visible: {
+    y: '0',
+    opacity: 1,
+    transition: {
+      duration: 1.1,
+      type: 'spring',
+      damping: 25,
+      stiffness: 500,
+    }
+  },
+  exit: {
+    y: '100vh',
+    opacity: 0
+  }
+};
 
 const Modal = ({ open, children, onClose }) => {
   if (!open) return null;
 
   return createPortal(
-    <>
-      <div className="overlay" style={OVERLAY_STYLES}></div>
-      <div className="modal">
-        {/* <button className="modal__close" >X</button> */}
+    <Backdrop onClick={onClose}>
+      <motion.div
+        className="modal"
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
         {children}
         <Button onClick={onClose} text={'Close'} />
-      </div>
-    </>,
+      </motion.div>
+    </Backdrop>,
     document.getElementById('portal')
   )
 }
