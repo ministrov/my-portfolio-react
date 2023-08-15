@@ -423,3 +423,18 @@ body {
     width: 80%;
   }
 }
+
+
+/*================= Media Query ============= (Small Devices)*/
+@media screen and (max-width: 700px) {
+  .container {
+    padding: 0 .8rem;
+  }
+
+  .home-skills__wrapper {
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+}
+
+
