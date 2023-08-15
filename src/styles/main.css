@@ -313,11 +313,29 @@ body {
   margin-top: 0.5em;
 }
 
-.contact-map {
+.contacts-map {
   display: flex;
   padding: 75px;
+  margin-bottom: 3rem;
   background-color: transparent;
   box-shadow: var(--box-shadow);
+}
+
+.keep-in-touch {
+  padding-bottom: 3rem;
+}
+
+.keep-in-touch .contacts__container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.keep-in-touch .contacts__options {
+  width: 38%;
+}
+
+.keep-in-touch form {
+  width: 58%;
 }
 
 @media (max-width: 620px) {
@@ -346,9 +364,9 @@ body {
 
   /* General */
 
-  .section {
+  /* .section {
     padding: 40px 0;
-  }
+  } */
 
   /* Projects */
 
@@ -396,9 +414,9 @@ body {
 
 @media screen and (max-width: 1378px) {
   .container {
-    max-width: 100%;
+    max-width: 1170px;
     width: 100%;
-    padding: 0 2.4rem;
+    padding: 0 1.2rem;
   }
 }
 

@@ -1,3 +1,4 @@
+import Contact from '../components/contact/Contact';
 import map from '../img/content-map.png';
 
 const Contacts = ({ title }) => {
@@ -23,8 +24,12 @@ const Contacts = ({ title }) => {
           </ul>
         </div>
 
-        <div className="contact-map">
+        <div className="contacts-map">
           <img src={map} alt="Map of the city" />
+        </div>
+
+        <div className="keep-in-touch">
+          <Contact />
         </div>
       </div>
     </main>
