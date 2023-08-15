@@ -4,13 +4,13 @@ import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
 import './style.css';
 
-const Contact = () => {
+const Contact = ( { title, text } ) => {
   return (
     <section className="contacts">
       <h2 className="visually-hidden">Contact's information</h2>
       <div className="container">
-        <h3 className="title-2">Get in Touch</h3>
-        <h5 className="title-1">Contact Me</h5>
+        <h3 className="title-2">{title}</h3>
+        <h5 className="title-1">{text}</h5>
       </div>
 
       <div className="container contacts__container">

@@ -5,7 +5,7 @@ import Video from '../components/video/Video';
 import HomeSkills from '../helpers/homeSkills';
 import Modal from '../components/modal/Modal';
 import Button from '../components/button/Button';
-import myPicture from '../img/my-photo.webp';
+import myPicture from '../img/my-avatar.jpg';
 import Contact from '../components/contact/Contact';
 
 const Home = () => {
@@ -149,7 +149,7 @@ const Home = () => {
           <Video />
         </section>
 
-        <Contact />
+        <Contact title={'Get in touch'} text={'Contact me'}/>
       </main>
 
       <Modal open={isOpen} onClose={onCloseHandler}>

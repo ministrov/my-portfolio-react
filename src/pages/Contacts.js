@@ -29,7 +29,7 @@ const Contacts = ({ title }) => {
         </div>
 
         <div className="keep-in-touch">
-          <Contact />
+          <Contact title={'Keep in touch'} text={'Write to me'}/>
         </div>
       </div>
     </main>
