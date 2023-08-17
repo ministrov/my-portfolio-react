@@ -7,7 +7,7 @@ const Project = () => {
   const project = projects[id];
 
   return (
-    <main className="section">
+    <main className="project">
       <h1 className="visually-hidden">Page about single author's project</h1>
       <div className="container">
         <div className="project-details">

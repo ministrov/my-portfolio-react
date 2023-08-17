@@ -87,6 +87,7 @@ body {
   padding-bottom: 4.5rem;
   padding-left: 0;
   padding-right: 0;
+  overflow: hidden;
 }
 
 .title-1 {
@@ -243,6 +244,10 @@ body {
 /* Projects  */
 
 .projects {
+  overflow: hidden;
+}
+
+.projects__list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -360,10 +365,6 @@ body {
   }
 
   /* General */
-
-  /* .section {
-    padding: 40px 0;
-  } */
 
   /* Projects */
 

@@ -1,6 +1,6 @@
 .contacts {
-  width: 100%;
   padding-top: 1.2rem;
+  overflow: hidden;
 }
 
 .contacts__container {
