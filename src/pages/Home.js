@@ -19,7 +19,12 @@ const Home = () => {
 
   return (
     <>
-      <main className="home-page">
+      <motion.main
+        className="home-page"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         <h1 className="visually-hidden">Home page of the author</h1>
 
         <Promo setIsOpen={setIsOpen}/>
@@ -150,7 +155,7 @@ const Home = () => {
         </section>
 
         <Contact title={'Get in touch'} text={'Contact me'}/>
-      </main>
+      </motion.main>
 
       <Modal open={isOpen} onClose={onCloseHandler}>
         <p>
