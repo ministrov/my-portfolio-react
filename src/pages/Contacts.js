@@ -1,9 +1,15 @@
+import { motion } from 'framer-motion';
 import Contact from '../components/contact/Contact';
 import map from '../img/content-map.png';
 
 const Contacts = ({ title }) => {
   return (
-    <main className="contacts">
+    <motion.main
+      className="contacts"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="container">
         <div className="content-list-wrapper">
           <h1 className="title-1">{title}</h1>
@@ -32,7 +38,7 @@ const Contacts = ({ title }) => {
           <Contact title={'Keep in touch'} text={'Write to me'}/>
         </div>
       </div>
-    </main>
+    </motion.main>
   )
 }
 

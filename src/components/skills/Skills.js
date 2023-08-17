@@ -1,0 +1,57 @@
+import { motion } from 'framer-motion';
+import HomeSkills from '../../helpers/homeSkills';
+import './style.css';
+
+const Skills = () => {
+  return (
+    <section className="home-skills">
+      <h2 className="visually-hidden">Anton Zhilin's frontend skills</h2>
+      <h3 className="home-skills__title title-2">My Skills</h3>
+
+      <div className="container">
+        <div className="home-skills__wrapper">
+          <motion.div
+            className="home-skills__left"
+            initial={{ x: -50, opacity: 1 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ type: 'tween', duration: 1 }}
+          >
+            {HomeSkills.map((skill, i) => (
+              <div
+                key={skill.id}
+                className="home-skill__card"
+              // initial={{ opacity: 0, translateX: -50, translateY: -50}}
+              // animate={{ opacity: 1, translateX: 0, translateY: 0}}
+              // transition={{ duration: 0.3, delay: i * 0.3}}
+              >
+                <div className="home-skill__card-icon">
+                  {skill.icon}
+                </div>
+                <div className="home-skill__card-header">
+                  {skill.tech}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+          <motion.div
+            className="home-skills__right"
+            initial={{ x: 50, opacity: 1 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ type: 'tween', duration: 1 }}
+          >
+            <h4>What <span>I can do</span></h4>
+
+            <p>
+              As a Developer, I have a wide range of experience in front-end development. I am proficient in JavaScript , React, Vue , HTML and CSS. My strong experience in building responsive and dynamic interfaces using React and Redux, and some time I can use vanilly JS, if it needs to my clients. It is allowed me to create engaging and interactive web applications.
+            </p>
+            <p>
+              I have experience in using React for building scalable and maintainable applications. This has allowed me to create efficient and sustainable code that can adept to the changing needs of a business.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Skills;

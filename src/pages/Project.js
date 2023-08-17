@@ -1,13 +1,19 @@
 import { useParams } from 'react-router-dom';
 import ButtonGitHub from '../components/buttonGitHub/ButtonGitHub';
 import { projects } from '../helpers/projectsList';
+import { motion } from 'framer-motion';
 
 const Project = () => {
   const {id} = useParams();
   const project = projects[id];
 
   return (
-    <main className="section">
+    <motion.main
+      className="project"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h1 className="visually-hidden">Page about single author's project</h1>
       <div className="container">
         <div className="project-details">
@@ -21,7 +27,7 @@ const Project = () => {
           )}
         </div>
       </div>
-    </main>
+    </motion.main>
   )
 }
 

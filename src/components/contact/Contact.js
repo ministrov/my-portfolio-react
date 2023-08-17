@@ -52,7 +52,14 @@ const Contact = ( { title, text } ) => {
           <input type="email" name="email" placeholder="Your Email" required/>
           <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
 
-          <button type="submit" className="contacts__btn-submit btn">Send me a message</button>
+          <motion.button
+            type="submit"
+            className="contacts__btn-submit btn"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Send me a message
+          </motion.button>
         </motion.form>
       </div>
     </section>

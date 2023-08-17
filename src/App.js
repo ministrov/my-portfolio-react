@@ -1,12 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ScrollToTop from './utils/scrollToTop';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import Contacts from './pages/Contacts';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import Project from './pages/Project';
 import './styles/main.css';
+import AnimatedRoutes from './pages/AnimatedRoutes';
 
 const App = () => {
 
@@ -15,12 +12,7 @@ const App = () => {
       <Router>
         <Header />
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects title={'Projects'}/>} />
-          <Route path="/project/:id" element={<Project />} />
-          <Route path="/contacts" element={<Contacts title={'Contacts'}/>} />
-        </Routes>
+        <AnimatedRoutes/>
       </Router>
       <Footer />
     </>

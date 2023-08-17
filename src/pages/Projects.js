@@ -4,11 +4,16 @@ import { projects } from '../helpers/projectsList';
 
 const Projects = ({ title }) => {
   return (
-    <main className="projects">
+    <motion.main
+      className="projects"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h1 className="visually-hidden">Page about author's projects</h1>
       <div className="container">
         <h2 className="title-1">{title}</h2>
-        <ul className="projects">
+        <ul className="projects__list">
           {projects.map((project, index) =>
             <motion.div
               key={project.id}
@@ -25,7 +30,7 @@ const Projects = ({ title }) => {
             )}
         </ul>
       </div>
-    </main>
+    </motion.main>
   )
 }
 
