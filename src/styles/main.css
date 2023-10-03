@@ -82,6 +82,10 @@ body {
   display: none !important;
 }
 
+::-webkit-scrollbar {
+  display: none
+}
+
 .home-page {
   padding-top: 0;
   padding-bottom: 4.5rem;

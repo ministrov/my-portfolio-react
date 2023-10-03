@@ -1,0 +1,102 @@
+.tariff {
+  display: flex;
+  flex-direction: column;
+  min-width: 418px;
+  height: 576px;
+  padding-left: 55px;
+  padding-right: 55px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 8px;
+  background-color: rgb(17%, 20%, 26%, 0.4);
+  scroll-snap-align: start;
+}
+
+.tariff:hover {
+  outline: 2px solid #B63940;
+  background-color: rgb(17%, 20%, 26%, 1);
+}
+
+.tariff__card_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+
+.tariff__card_wrapper h5 {
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.tariff__card_wrapper ul {
+  margin-bottom: 20px;
+  padding-left: 19px;
+}
+
+
+.tariff__card_wrapper li {
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.tariff__card_wrapper li::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: -12px;
+  width: 4px;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.tariff__card_wrapper li:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.tariff__card_wrapper .tariff__days {
+  margin-bottom: 20px;
+}
+
+.tariff__header {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: #B63940;
+}
+
+.tariff__btn {
+  display: inline-block;
+  width: 224px;
+  margin: 0 auto;
+  margin-top: auto;
+  padding: 16px 0px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #FFF;
+  border-radius: 4px;
+  border: 2px solid #B63940;
+  transition: all 0.35s;
+}
+
+.tariff__btn:hover {
+  background-color: #B63940
+}
+
+.tariff__days {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+
+.tariff__price {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+

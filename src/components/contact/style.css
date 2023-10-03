@@ -29,8 +29,6 @@
 .contacts__option:hover {
   background-color: var(--purple-hover);
   border-color: var(--accent);
-  transform: scale(1.1);
-  transition: scale 2.8s ease-in;
 }
 
 .contacts__option h4,
