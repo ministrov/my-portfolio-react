@@ -14,13 +14,12 @@
 .carousel__controls {
   display: flex;
   gap: 25px;
+  padding-left: 0.5rem;
 }
 
-
-/* @media screen and (min-width: 1640px)
-  .carousel
-    max-width: 1640px
-    margin: 0 auto
-
-  .carousel__inner
-    gap: 90px */
+.carousel__btn_prev,
+.carousel__btn_next {
+  display: flex;
+  border-radius: 6px;
+  background-color: var(--purple);
+}
