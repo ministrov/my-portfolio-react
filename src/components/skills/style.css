@@ -7,6 +7,7 @@
   display: grid;
   height: 800px;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   column-gap: 2.5rem;
   padding-top: 2rem;
   padding-bottom: 0;
@@ -52,4 +53,32 @@
 
 .home-skills__right h4 span {
   color: purple;
+}
+
+
+
+/*================= Media Query ============= (Medium Devices)*/
+@media screen and (max-width: 1024px) {
+  .home-skills__wrapper {
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+    height: auto;
+    padding-top: 0;
+  }
+
+  .home-skills__left {
+    grid-template-columns: 1fr 1fr;
+    gap: 2%;
+  }
+
+  .home-skill__card {
+    padding: 1.5rem 0;
+    font-size: 1.8rem;
+  }
+}
+
+
+/*================= Media Query ============= (Small Devices)*/
+@media screen and (max-width: 700px) {
+
 }
