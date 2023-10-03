@@ -1,20 +1,20 @@
 .tariff {
   display: flex;
   flex-direction: column;
-  min-width: 418px;
+  min-width: 377px;
   height: 576px;
   padding-left: 55px;
   padding-right: 55px;
   padding-top: 40px;
   padding-bottom: 40px;
   border-radius: 8px;
-  background-color: rgb(17%, 20%, 26%, 0.4);
+  background-color: transparent;
+  outline: 2px solid var(--purple);
   scroll-snap-align: start;
 }
 
 .tariff:hover {
-  outline: 2px solid #B63940;
-  background-color: rgb(17%, 20%, 26%, 1);
+  outline: 2px solid var(--purple);
 }
 
 .tariff__card_wrapper {
@@ -25,6 +25,7 @@
 
 .tariff__card_wrapper h5 {
   margin-bottom: 12px;
+  font-family: inherit;
   font-weight: 500;
 }
 
@@ -36,6 +37,7 @@
 
 .tariff__card_wrapper li {
   position: relative;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -62,11 +64,12 @@
 }
 
 .tariff__header {
+  font-family: inherit;
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
   text-align: center;
-  color: #B63940;
+  color: var(--purple);
 }
 
 .tariff__btn {
@@ -78,14 +81,15 @@
   font-size: 18px;
   font-weight: 600;
   line-height: 22px;
-  color: #FFF;
+  color: var(--purple);
   border-radius: 4px;
-  border: 2px solid #B63940;
+  border: 2px solid var(--purple);
   transition: all 0.35s;
 }
 
 .tariff__btn:hover {
-  background-color: #B63940
+  color: var(--white);
+  background-color: var(--purple)
 }
 
 .tariff__days {
@@ -98,5 +102,3 @@
   font-size: 14px;
   line-height: 16px;
 }
-
-

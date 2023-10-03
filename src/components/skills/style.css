@@ -5,11 +5,9 @@
 
 .home-skills__wrapper {
   display: grid;
-  height: 800px;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   column-gap: 2.5rem;
-  padding-top: 2rem;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
@@ -24,7 +22,7 @@
 .home-skill__card {
   display: flex;
   flex-direction: column;
-  padding: 3rem 0;
+  padding: 1rem 0;
   font-size: 1.325rem;
   text-align: center;
   border: var(--skills-elements-border);
