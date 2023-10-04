@@ -17,7 +17,7 @@ const Project = () => {
       <h1 className="visually-hidden">Page about single author's project</h1>
       <div className="container">
         <div className="project-details">
-          <h2 className="title-1">{project.title}</h2>
+          <h2 className="project-details__title title-1">{project.title}</h2>
           <img src={project.imgBig} alt={project.title} className="project-details__cover" />
             <div className="project-details__desc">
               <p>Skills: {project.skills}</p>

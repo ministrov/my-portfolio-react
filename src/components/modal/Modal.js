@@ -1,8 +1,8 @@
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import Button from '../button/Button';
-import './style.css';
 import Backdrop from "../backdrop/Backdrop";
+import './style.css';
 
 const dropIn = {
   hidden: {

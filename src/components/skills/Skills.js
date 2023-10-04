@@ -4,37 +4,37 @@ import './style.css';
 
 const Skills = () => {
   return (
-    <section className="home-skills">
+    <section className="skills">
       <h2 className="visually-hidden">Anton Zhilin's frontend skills</h2>
-      <h3 className="home-skills__title title-2">My Skills</h3>
+      <h3 className="skills__title title-2">My Skills</h3>
 
       <div className="container">
-        <div className="home-skills__wrapper">
+        <div className="skills__wrapper">
           <motion.div
-            className="home-skills__left"
+            className="skills__left"
             initial={{ x: -50, opacity: 1 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ type: 'tween', duration: 1 }}
           >
-            {HomeSkills.map((skill, i) => (
+            {HomeSkills.map(skill => (
               <div
                 key={skill.id}
-                className="home-skill__card"
+                className="skill__card"
               // initial={{ opacity: 0, translateX: -50, translateY: -50}}
               // animate={{ opacity: 1, translateX: 0, translateY: 0}}
               // transition={{ duration: 0.3, delay: i * 0.3}}
               >
-                <div className="home-skill__card-icon">
+                <div className="skill__card-icon">
                   {skill.icon}
                 </div>
-                <div className="home-skill__card-header">
+                <div className="skill__card-header">
                   {skill.tech}
                 </div>
               </div>
             ))}
           </motion.div>
           <motion.div
-            className="home-skills__right"
+            className="skills__right"
             initial={{ x: 50, opacity: 1 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ type: 'tween', duration: 1 }}
