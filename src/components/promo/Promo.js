@@ -13,15 +13,15 @@ const Promo = ({ setIsOpen }) => {
         whileInView={{ x: 0, opacity: 1}}
         transition={{ type: 'tween', duration: 1 }}
       >
-        <h1 className="promo__title">
+        <h2 className="promo__title">
           <strong>Hi, my name is <em>Anton</em></strong><br />
           a frontend developer
-        </h1>
+        </h2>
         <div className="promo__text">
           <p>with passion for learning and creating.</p>
         </div>
         <div className="promo__btns">
-          <Button text={'Download CV'} href={'#!'}/>
+          <Button text={'Download CV'} href={require('../../assets/pdfs/my-cv.pdf')} />
           <Button onClick={() => setIsOpen(true)} text={'Click me'} />
         </div>
       </motion.div>

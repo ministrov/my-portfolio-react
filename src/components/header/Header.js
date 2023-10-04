@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ButtonDarkMode from '../buttonDarkMode/ButtonDarkMode';
-import './style.css';
 import ErrorBoundary from '../errorBoundary/ErrorBoundary';
+import './style.css';
 
 const Header = () => {
   const activeLink = "nav-list__link nav-list__link--active";
