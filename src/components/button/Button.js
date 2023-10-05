@@ -8,6 +8,7 @@ const Button = ({ href, onClick, text }) => {
       {href ? (
         <motion.a
           href={href}
+          target="_blank"
           className="btn"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
