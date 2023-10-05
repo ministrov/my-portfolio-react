@@ -19,38 +19,38 @@ const Carousel = () => {
     <div className="carousel">
       <div ref={slider} className="carousel__inner">
         <TestimonialCard
-          title={'Старт'}
+          title={'Start'}
           simultaniousParsing={1}
           parsingPerDay={5}
-          price={'99 ₽'}
+          price={'99 $'}
           gatheringAudience={1}
         />
         <TestimonialCard
-          title={'Стандарт'}
+          title={'Standard'}
           simultaniousParsing={3}
           parsingPerDay={15}
-          price={'149 ₽'}
+          price={'149 $'}
           gatheringAudience={2}
         />
         <TestimonialCard
-          title={'Подарок'}
+          title={'Gift'}
           simultaniousParsing={5}
           parsingPerDay={15}
-          price={'199 ₽'}
+          price={'199 $'}
           gatheringAudience={3}
         />
         <TestimonialCard
-          title={'Бизнес'}
+          title={'Business'}
           simultaniousParsing={5}
           parsingPerDay={15}
-          price={'299 ₽'}
+          price={'299 $'}
           gatheringAudience={3}
         />
         <TestimonialCard
-          title={'Премиум'}
+          title={'Premium'}
           simultaniousParsing={5}
           parsingPerDay={15}
-          price={'499 ₽'}
+          price={'499 $'}
           gatheringAudience={3}
         />
       </div>

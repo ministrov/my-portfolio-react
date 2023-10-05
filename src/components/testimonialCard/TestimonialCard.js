@@ -11,14 +11,14 @@ const TestimonialCard = ({
     <article className="tariff">
       <h4 className="tariff__header">{title}</h4>
       <div className="tariff__card_wrapper">
-        <h5 className="tariff__subtitle">Включает:</h5>
+        <h5 className="tariff__subtitle">Includes:</h5>
 
         <ul className="tariff__contains">
-          <li>одновременный парсинг: {simultaniousParsing}</li>
-          <li>количество парсингов в день: {parsingPerDay}</li>
+          <li>simultanious parsing: {simultaniousParsing}</li>
+          <li>how much parsing per day: {parsingPerDay}</li>
         </ul>
 
-        <h5 className="tariff__subtitle">Способы сбора аудитории:</h5>
+        <h5 className="tariff__subtitle">Ways of gathering audience:</h5>
 
         <ul className="tariff__contains">
           {gatheringAudience === 1 && <li>участники групп/каналов</li>}
@@ -37,13 +37,13 @@ const TestimonialCard = ({
           )}
         </ul>
 
-        <h5 className="tariff__subtitle">Срок действия:</h5>
-        <p className="tariff__days">30 дней</p>
+        <h5 className="tariff__subtitle">Date of expiry:</h5>
+        <p className="tariff__days">30 days</p>
 
-        <h5 className="tariff__subtitle">Стоимость:</h5>
+        <h5 className="tariff__subtitle">Pricing:</h5>
         <p className="tariff__price">{price}</p>
       </div>
-      <button className="tariff__btn">Выбрать тариф</button>
+      <button className="tariff__btn">Choose tariff</button>
     </article>
   );
 };
