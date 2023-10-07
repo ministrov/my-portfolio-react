@@ -66,14 +66,18 @@ body {
 
 .visually-hidden {
   position: absolute;
-  clip: rect(0 0 0 0);
   width: 1px;
   height: 1px;
   margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .container {
-  /* width: 100%; */
   max-width: 1260px;
   margin: 0 auto;
 }
@@ -127,10 +131,6 @@ body {
 }
 
 /* Project details */
-
-.project {
-  padding-top: 6rem;
-}
 
 .project-details {
   margin: 0 auto;
@@ -205,8 +205,6 @@ body {
   display: flex;
   flex-direction: row-reverse;
   gap: 7%;
-  padding-left: 1.4rem;
-  padding-right: 1.4rem;
 }
 
 .keep-in-touch .contacts__options {

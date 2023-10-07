@@ -6,11 +6,12 @@ import './style.css';
 
 const Contact = ( { title, text } ) => {
   return (
+    // Need to change class contacts to another one because it is duplicated
     <section className="contacts">
       <h2 className="visually-hidden">Contact's information</h2>
       <div className="container">
         <h3 className="title-2">{title}</h3>
-        <h5 className="title-1">{text}</h5>
+        <h4 className="title-1">{text}</h4>
       </div>
 
       <div className="container contacts__container">
@@ -22,22 +23,22 @@ const Contact = ( { title, text } ) => {
         >
           <article className="contacts__option">
             <MdEmail className="contacts__option-icon"/>
-            <h4>Email</h4>
-            <h5>ministrov2018@gmail.com</h5>
+            <h5>Email</h5>
+            <h6>ministrov2018@gmail.com</h6>
             <a href="mailto: ministrov2018@gmail.com" target="_blank" rel="noreferrer">Send a message</a>
           </article>
 
           <article className="contacts__option">
             <FaTelegram className="contacts__option-icon" />
-            <h4>Telegram</h4>
-            <h5>@antonyMinistrov</h5>
+            <h5>Telegram</h5>
+            <h6>@antonyMinistrov</h6>
             <a href="https://t.me/antonyMinistrov" target="_blank" rel="noreferrer">Send a message</a>
           </article>
 
           <article className="contacts__option">
             <RiWhatsappFill className="contacts__option-icon"/>
-            <h4>Whatsapp</h4>
-            <h5>+7 (925) 739-86-12</h5>
+            <h5>Whatsapp</h5>
+            <h6>+7 (925) 739-86-12</h6>
             <a href="https://api.whatsapp.com/send?=+79257398612" target="_blank" rel="noreferrer">Send a message</a>
           </article>
         </motion.div>
