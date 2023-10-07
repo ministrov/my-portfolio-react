@@ -1,11 +1,8 @@
 /* promo */
 
 .promo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 3rem;
-  min-height: 600px;
+  padding-top: 6rem;
+  min-height: 560px;
   text-align: center;
   color: var(--promo-text);
   background-color: var(--promo-bg);
@@ -16,6 +13,14 @@
 }
 
 .promo__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 3rem;
+}
+
+.promo__text-wrapper {
+
   max-width: 100%;
 }
 
@@ -47,6 +52,7 @@
 }
 
 .promo__image-wrapper {
+  min-width: 44%;
   padding: 0.3125rem;
   border-radius: 50%;
   box-shadow: var(--box-shadow);

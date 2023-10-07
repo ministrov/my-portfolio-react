@@ -66,14 +66,18 @@ body {
 
 .visually-hidden {
   position: absolute;
-  clip: rect(0 0 0 0);
   width: 1px;
   height: 1px;
   margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .container {
-  /* width: 100%; */
   max-width: 1260px;
   margin: 0 auto;
 }
@@ -115,15 +119,14 @@ body {
 
 .projects {
   overflow: hidden;
+  padding-top: 6rem;
 }
 
 .projects__list {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  column-gap: 30px;
-  row-gap: 30px;
-  padding-top: 2.5rem;
+  gap: 2rem;
+  max-width: 1260px;
   padding-bottom: 2.5rem;
 }
 
@@ -136,7 +139,6 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
@@ -203,8 +205,6 @@ body {
   display: flex;
   flex-direction: row-reverse;
   gap: 7%;
-  padding-left: 1.4rem;
-  padding-right: 1.4rem;
 }
 
 .keep-in-touch .contacts__options {
