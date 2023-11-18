@@ -1,8 +1,7 @@
 /* about */
 .about {
   position: relative;
-  padding-top: 45px;
-  padding-bottom: 3.5rem;
+  padding-bottom: 6rem;
 }
 
 .about__descr {
@@ -31,7 +30,8 @@
 
 .about-section__bottom {
   display: flex;
-  column-gap: 10%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .about-section__left {

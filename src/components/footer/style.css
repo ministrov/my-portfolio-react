@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+/* .social__item a svg path:hover {
+  fill: var(--nav-text);
+} */
+
 .copyright {
   font-size: 1rem;
 }

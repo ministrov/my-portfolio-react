@@ -1,4 +1,5 @@
 import Carousel from '../carousel/Carousel';
+import Heading from '../heading/Heading';
 import './style.css';
 
 const Testimonials = () => {
@@ -6,7 +7,7 @@ const Testimonials = () => {
   return (
     <div className="testimonials">
       <div className="container">
-        <h3 className="testimonials__header title-2">Testimonials</h3>
+        <Heading className="testimonials__header title-2">Testimonials</Heading>
 
         <Carousel/>
       </div>

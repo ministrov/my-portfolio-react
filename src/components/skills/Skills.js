@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import HomeSkills from '../../helpers/homeSkills';
+import Heading from '../heading/Heading';
 import './style.css';
 
 const Skills = () => {
   return (
     <section className="skills">
       <h2 className="visually-hidden">Anton Zhilin's frontend skills</h2>
-      <h3 className="skills__title title-2">My Skills</h3>
+      <Heading className="skills__title title-2">My Skills</Heading>
 
       <div className="container">
         <div className="skills__wrapper">
@@ -20,9 +21,6 @@ const Skills = () => {
               <div
                 key={skill.id}
                 className="skill__card"
-              // initial={{ opacity: 0, translateX: -50, translateY: -50}}
-              // animate={{ opacity: 1, translateX: 0, translateY: 0}}
-              // transition={{ duration: 0.3, delay: i * 0.3}}
               >
                 <div className="skill__card-icon">
                   {skill.icon}

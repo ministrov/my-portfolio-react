@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Contact from '../components/contact/Contact';
 import map from '../img/content-map.png';
+import Heading from '../components/heading/Heading';
 
 const Contacts = ({ title }) => {
   return (
@@ -13,7 +14,7 @@ const Contacts = ({ title }) => {
       <h1 className="visually-hidden">Author's contact page</h1>
 
       <div className="container">
-        <h2 className="contacts__header title-1">{title}</h2>
+        <Heading className="contacts__header title-1">{title}</Heading>
 
         <div className="content-list-wrapper">
           <ul className="content-list">

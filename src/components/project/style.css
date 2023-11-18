@@ -1,5 +1,5 @@
 .project {
-  /* max-width: 370px; */
+  padding-top: 6rem;
   background-color: var(--project-card-bg);
   box-shadow: var(--box-shadow);
   border-radius: 10px;

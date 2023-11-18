@@ -1,5 +1,5 @@
-import './style.css';
 import gitHubicon from './gitHub-black.svg';
+import './style.css';
 
 const ButtonGitHub = ({ link }) => {
   return (
