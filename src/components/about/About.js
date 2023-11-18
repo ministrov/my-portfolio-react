@@ -1,19 +1,15 @@
 import { motion } from 'framer-motion';
 import Button from '../button/Button';
 import Video from '../video/Video';
+import Heading from '../heading/Heading';
 import myPicture from '../../img/my-avatar.jpg';
 import './style.css';
-
-// const TIME_LINE = {
-//   textAlign: 'center'
-// };
 
 const About = () => {
   return (
     <section className="about">
-
       <div className="container">
-        <h2 className="about__title title-2">About</h2>
+        <Heading className="about__title title-2">About</Heading>
 
         <section className="about-section">
           <div className="about-section__bottom">
@@ -34,10 +30,6 @@ const About = () => {
                 To achieve this goal, I use the most modern technologies and tools. I also pay great attention to communication with the team and the customer in order to understand their needs and offer optimal solutions.
                 I will be glad to discuss your project and contribute to its success.portfolio, I showcase a range of projects that demonstrate my technical proficiency, design skills, and ability to work collaboratively with teams to achieve project goals.
               </p>
-
-              
-
-
 
               <div className="about-section__button-block">
                 <Button href={"#!"} text={"Read more >"} />

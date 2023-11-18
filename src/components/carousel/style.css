@@ -23,3 +23,8 @@
   border-radius: 6px;
   background-color: var(--purple);
 }
+
+.carousel__btn_prev:hover,
+.carousel__btn_next:hover {
+  background-color: var(--purple-hover);
+}

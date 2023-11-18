@@ -3,6 +3,7 @@ import { FaTelegram } from 'react-icons/fa';
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
 import './style.css';
+import Heading from '../heading/Heading';
 
 const Contact = ( { title, text } ) => {
   return (
@@ -10,8 +11,8 @@ const Contact = ( { title, text } ) => {
     <section className="contacts">
       <h2 className="visually-hidden">Contact's information</h2>
       <div className="container">
-        <h3 className="title-2">{title}</h3>
-        <h4 className="title-1">{text}</h4>
+        <Heading className="contacts__title title-2">{title}</Heading>
+        <Heading className="contacts__title title-1">{text}</Heading>
       </div>
 
       <div className="container contacts__container">
@@ -21,6 +22,7 @@ const Contact = ( { title, text } ) => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ type: 'tween', duration: 1 }}
         >
+          {/* need to redo articles, icons and headings */}
           <article className="contacts__option">
             <MdEmail className="contacts__option-icon"/>
             <h5>Email</h5>

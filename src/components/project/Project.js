@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import './style.css';
 
+// Need to find out what this component for
+
 const Project = ({ title, img, index }) => {
   return (
     <>
