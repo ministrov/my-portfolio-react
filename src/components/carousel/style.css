@@ -28,3 +28,10 @@
 .carousel__btn_next:hover {
   background-color: var(--purple-hover);
 }
+
+
+@media (max-width: 1286px) {
+  .carousel__inner {
+    gap: 2.7rem;
+  }
+}
