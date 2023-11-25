@@ -45,11 +45,6 @@ const Header = () => {
                   Projects
                 </NavLink>
               </li>
-              <li className="nav-list__item">
-                <NavLink to="/contacts" className={({ isActive }) => isActive ? activeLink : normalLink}>
-                  Contacts
-                </NavLink>
-              </li>
             </ul>
 
             <div onClick={navToggler} className={toggleIcon}>
