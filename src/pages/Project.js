@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ButtonGitHub from '../components/buttonGitHub/ButtonGitHub';
 import { projects } from '../helpers/projectsList';
 import { motion } from 'framer-motion';
@@ -17,6 +17,9 @@ const Project = () => {
       <h1 className="visually-hidden">Page about single author's project</h1>
       <div className="container">
         <div className="project-details">
+          <Link className="project-details__link" to={'/projects'}>
+            Back to Projects
+          </Link>
           <h2 className="project-details__title title-1">{project.title}</h2>
           <img src={project.imgBig} alt={project.title} className="project-details__cover" />
             <div className="project-details__desc">
