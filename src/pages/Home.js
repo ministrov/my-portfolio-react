@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Promo from '../components/promo/Promo';
 import About from '../components/about/About';
@@ -15,6 +15,18 @@ const Home = () => {
 
     if (target) setIsOpen(false);
   }
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen])
 
   return (
     <>

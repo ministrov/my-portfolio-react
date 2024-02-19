@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import Button from '../button/Button';
-import pic from './pic1.jpeg';
+import pic from './pic1.png';
 import './style.css';
 
 
 const Promo = ({ setIsOpen }) => {
+  console.log(setIsOpen);
   return (
     <section className="promo">
       <div className="container">

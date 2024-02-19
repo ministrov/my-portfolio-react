@@ -75,14 +75,19 @@
     justify-items: center;
     padding-top: 6rem;
     row-gap: 3.125rem;
-    min-height: auto;
-    height: auto;
-    margin-bottom: 3.5rem;
   }
 
   .promo__wrapper {
     flex-direction: column;
     row-gap: 4.125rem;
+  }
+
+  .promo__image-wrapper {
+    border-radius: initial;
+  }
+
+  .promo__image {
+    border-radius: initial;
   }
 }
 
