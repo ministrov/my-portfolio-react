@@ -57,6 +57,7 @@
 }
 
 .promo__image {
+  aspect-ratio: 2 / 3;
   border-radius: 50%;
 }
 
@@ -77,6 +78,11 @@
     min-height: auto;
     height: auto;
     margin-bottom: 3.5rem;
+  }
+
+  .promo__wrapper {
+    flex-direction: column;
+    row-gap: 4.125rem;
   }
 }
 

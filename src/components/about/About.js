@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Button from '../button/Button';
-import Video from '../video/Video';
+// import Video from '../video/Video';
 import Heading from '../heading/Heading';
 import myPicture from '../../img/my-avatar.jpg';
 import './style.css';
@@ -74,10 +74,8 @@ const About = () => {
           I like to do my job efficiently, I know how to meet
           deadlines, quickly assimilate new information, attentive to details.
         </motion.p>
-
       </div>
-
-      <Video />
+      {/* <Video /> */}
     </section>
   );
 }

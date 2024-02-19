@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { FaTelegram } from 'react-icons/fa';
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
-import './style.css';
 import Heading from '../heading/Heading';
+import './style.css';
 
 const Contact = ( { title, text } ) => {
   return (
