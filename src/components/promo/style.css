@@ -1,7 +1,10 @@
 /* promo */
 
 .promo {
-  padding-top: 6rem;
+  position: relative;
+  height: 100vh;
+  max-height: 120rem;
+  padding-top: 12rem;
   padding-bottom: 6rem;
   text-align: center;
   color: var(--promo-text);

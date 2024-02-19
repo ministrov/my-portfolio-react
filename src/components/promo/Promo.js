@@ -5,7 +5,7 @@ import './style.css';
 
 
 const Promo = ({ setIsOpen }) => {
-  console.log(setIsOpen);
+  // console.log(setIsOpen);
   return (
     <section className="promo">
       <div className="container">
