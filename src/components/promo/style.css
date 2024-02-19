@@ -1,7 +1,10 @@
 /* promo */
 
 .promo {
-  padding-top: 6rem;
+  position: relative;
+  height: 100vh;
+  max-height: 120rem;
+  padding-top: 12rem;
   padding-bottom: 6rem;
   text-align: center;
   color: var(--promo-text);
@@ -57,6 +60,7 @@
 }
 
 .promo__image {
+  aspect-ratio: 2 / 3;
   border-radius: 50%;
 }
 
@@ -74,9 +78,19 @@
     justify-items: center;
     padding-top: 6rem;
     row-gap: 3.125rem;
-    min-height: auto;
-    height: auto;
-    margin-bottom: 3.5rem;
+  }
+
+  .promo__wrapper {
+    flex-direction: column;
+    row-gap: 4.125rem;
+  }
+
+  .promo__image-wrapper {
+    border-radius: initial;
+  }
+
+  .promo__image {
+    border-radius: initial;
   }
 }
 

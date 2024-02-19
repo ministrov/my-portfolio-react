@@ -108,6 +108,7 @@ body {
 .projects__list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   max-width: 1260px;
   padding-bottom: 2.5rem;
