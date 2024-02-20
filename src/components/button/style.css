@@ -1,23 +1,39 @@
-/* Btn */
-
 .btn {
   display: inline-block;
-  height: 48px;
-  padding: 12px 28px;
-  border-radius: 5px;
-  background-color: var(--accent);
+  font-weight: 700;
   color: var(--white);
-  letter-spacing: 0.15px;
-  font-size: 16px;
-  font-weight: 500;
-  transition: opacity 0.2s ease-in;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  background: var(--white);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+  transition: transform .3s; 
 }
 
 .btn:hover {
-  opacity: 0.8;
+  transform: translateY(-3px); 
 }
 
-.btn:active {
-  position: relative;
-  top: 1px;
+.btn--bg {
+  padding: 1.5rem 4rem;
+  font-size: 1.2rem; 
+  color: var(--text-color);
+}
+
+.btn--med {
+  padding: 1.5rem 3rem;
+  font-size: 1.2rem;
+}
+
+.btn--theme {
+  background: #0062b9;
+  color: #fff; 
+}
+
+.btn--theme-inv {
+  color: #0062b9;
+  background: #fff;
+  border: 2px solid #0062b9;
+  box-shadow: none;
+  padding: calc(1.5rem - 2px) calc(5rem - 2px); 
 }

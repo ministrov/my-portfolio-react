@@ -5,7 +5,7 @@ import './style.css';
 
 const Skills = () => {
   return (
-    <section className="skills">
+    <section id="about" className="skills">
       <h2 className="visually-hidden">Anton Zhilin's frontend skills</h2>
       <Heading className="skills__title title-2">My Skills</Heading>
 

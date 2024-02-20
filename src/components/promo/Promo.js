@@ -23,8 +23,9 @@ const Promo = ({ setIsOpen }) => {
           <Button
             text={"Download CV"}
             href={require("../../assets/pdfs/my-cv.pdf")}
+            className={"btn--bg"}
           />
-          <Button onClick={() => setIsOpen(true)} text={"Click me"} />
+          <Button onClick={() => setIsOpen(true)} text={"Click me"} className={"btn--bg"} />
         </div>
         <div className="promo__image-wrapper">
           <img src={MyAvatar} className="promo__image" alt="Avatar img" />
