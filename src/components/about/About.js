@@ -56,8 +56,6 @@ const About = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ type: 'tween', duration: 1.2 }}
         >
-          Stack: HTML, CSS, ECMAScript 6 (ES6), React, Vue<br />
-          <br />
           I am developing cross-platform web applications on HTML, CSS, ECMAScript 6 (ES6), React, Vue<br />
           <br />
           Since July 2021 I have been working in the company "Service Market" LLC, I am engaged in the maintenance and refinement of the site vamvoda.ru . As well as web development of a new company website from scratch . The company is engaged in the retail trade of water and food, as well as soft drinks.<br />
