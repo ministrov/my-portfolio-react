@@ -1,6 +1,7 @@
 /* skills*/
 .skills {
-  padding-bottom: 6rem;
+  padding: 12rem 0;
+  background-color: #fafafa;
 }
 
 .skills__wrapper {
@@ -8,7 +9,6 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   column-gap: 2.5rem;
-  min-height: 600px;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;

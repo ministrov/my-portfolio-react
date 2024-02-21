@@ -11,8 +11,7 @@ const Contact = ( { title, text } ) => {
     <section className="contacts">
       <h2 className="visually-hidden">Contact's information</h2>
       <div className="container">
-        <Heading className="contacts__title title-2">{title}</Heading>
-        <Heading className="contacts__title title-1">{text}</Heading>
+        <Heading className="contacts__title">{title}</Heading>
       </div>
 
       <div className="container contacts__container">
