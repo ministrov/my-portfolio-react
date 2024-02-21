@@ -50,6 +50,14 @@ const Header = () => {
               </li>
               <li className="nav-list__item">
                 <NavLink
+                  to="./index.html#about"
+                  className="nav-list__link"
+                >
+                  About
+                </NavLink>
+              </li>
+              <li className="nav-list__item">
+                <NavLink
                   to="/projects"
                   className={({ isActive }) =>
                     isActive ? activeLink : normalLink

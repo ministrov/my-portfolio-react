@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import Button from '../button/Button';
-// import Video from '../video/Video';
 import Heading from '../heading/Heading';
 import myPicture from '../../img/my-avatar.jpg';
 import './style.css';
@@ -32,7 +31,7 @@ const About = () => {
               </p>
 
               <div className="about-section__button-block">
-                <Button href={"#!"} text={"Read more >"} />
+                <Button href={"#!"} text={"Read more >"} className={"btn--theme btn--med"} />
               </div>
             </motion.div>
 
@@ -75,7 +74,6 @@ const About = () => {
           deadlines, quickly assimilate new information, attentive to details.
         </motion.p>
       </div>
-      {/* <Video /> */}
     </section>
   );
 }
