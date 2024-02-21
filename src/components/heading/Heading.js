@@ -1,14 +1,11 @@
 import './style.css';
 
-const Heading = ({ children, className }) => {
+const Heading = ({ title, slogan, className }) => {
   console.log(className);
   return (
     <h2 className="heading heading-sec heading-sec__mb-med">
-      <span className="heading-sec__main">{children}</span>
-      <span className="heading-sec__sub">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis
-        tempora explicabo quae quod deserunt eius sapiente
-      </span>
+      <span className="heading-sec__main">{title}</span>
+      <span className="heading-sec__sub">{slogan}</span>
     </h2>
   )
 };

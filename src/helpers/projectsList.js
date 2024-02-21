@@ -19,7 +19,8 @@ const projects = [
     skills: 'React, Node.js, MongoDB',
     img: project01,
     imgBig: project01Big,
-    gitHubLink: 'https://github.com'
+    gitHubLink: 'https://github.com',
+    slogan: 'Gaming streaming portal'
   },
   {
     id: uuidv4(),
@@ -27,7 +28,8 @@ const projects = [
     skills: 'React, PHP, MySQL',
     img: project02,
     imgBig: project02Big,
-    gitHubLink: 'https://github.com'
+    gitHubLink: 'https://github.com',
+    slogan: 'Gaming streaming portal'
   },
   {
     id: uuidv4(),
@@ -35,49 +37,56 @@ const projects = [
     skills: 'Vue JS, Node.js, MongoDB',
     img: project03,
     imgBig: project03Big,
-    gitHubLink: 'https://github.com'
+    gitHubLink: 'https://github.com',
+    slogan: 'Gaming streaming portal'
   },
   {
     id: uuidv4(),
     title: 'Dating App',
     skills: 'React Native',
     img: project04,
-    imgBig: project04Big
+    imgBig: project04Big,
+    slogan: 'Gaming streaming portal'
   },
   {
     id: uuidv4(),
     title: 'Landing',
     skills: 'HTML, CSS, JS',
     img: project05,
-    imgBig: project05Big
+    imgBig: project05Big,
+    slogan: 'Gaming streaming portal'
   },
   {
     id: uuidv4(),
     title: 'Gaming Comunity',
     skills: 'React, PHP, MySQL',
     img: project06,
-    imgBig: project06Big
+    imgBig: project06Big,
+    slogan: 'Gaming streaming portal'
   },
   {
     id: uuidv4(),
     title: 'Gaming Comunity',
     skills: 'React, PHP, MySQL',
     img: project06,
-    imgBig: project06Big
+    imgBig: project06Big,
+    slogan: 'Gaming streaming portal'
   },
   {
     id: uuidv4(),
     title: 'Gaming Comunity',
     skills: 'React, PHP, MySQL',
     img: project06,
-    imgBig: project06Big
+    imgBig: project06Big,
+    slogan: 'Gaming streaming portal'
   },
   {
     id: uuidv4(),
     title: 'Gaming Comunity',
     skills: 'React, PHP, MySQL',
     img: project06,
-    imgBig: project06Big
+    imgBig: project06Big,
+    slogan: 'Gaming streaming portal'
   }
 ];
 

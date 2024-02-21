@@ -8,7 +8,7 @@ const About = () => {
   return (
     <section className="about">
       <div className="container">
-        <Heading className="about__title">About</Heading>
+        <Heading title={"About"} slogan={"Unleash the power of code and create extraordinary digital experiences."} className="about__title"></Heading>
 
         <section className="about-section">
           <div className="about-section__bottom">
@@ -50,7 +50,7 @@ const About = () => {
           </div>
         </section>
 
-        <motion.p
+        {/* <motion.p
           className="about__descr"
           initial={{ x: -50, opacity: 1 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -70,7 +70,7 @@ const About = () => {
           <br />
           I like to do my job efficiently, I know how to meet
           deadlines, quickly assimilate new information, attentive to details.
-        </motion.p>
+        </motion.p> */}
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import Project from '../components/project/Project';
 import { projects } from '../helpers/projectsList';
 import Heading from '../components/heading/Heading';
 
-const Projects = ({ title }) => {
+const Projects = () => {
   return (
     <motion.main
       className="projects"
@@ -13,7 +13,8 @@ const Projects = ({ title }) => {
     >
       <h1 className="visually-hidden">Page about author's projects</h1>
       <div className="container">
-        <Heading className="projects__title title-1">{title}</Heading>
+        <Heading title={"Projects"} className="projects__title" slogan={"Unleash the power of code and create extraordinary digital experiences."}></Heading>
+        
         <ul className="projects__list">
           {projects.map((project, index) =>
             <motion.div

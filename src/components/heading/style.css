@@ -32,6 +32,10 @@
   background: #0062b9;
 }
 
+.heading-sec__mb-med {
+  margin-bottom: 9rem; 
+}
+
 .heading-sec__sub {
   display: block;
   max-width: 80rem;
@@ -62,5 +66,11 @@
 @media only screen and (max-width: 37.5em) {
   .heading-sec__sub {
     font-size: 1.8rem;
+  } 
+}
+
+@media only screen and (max-width: 56.25em) {
+  .heading-sec__mb-med {
+    margin-bottom: 8rem; 
   } 
 }

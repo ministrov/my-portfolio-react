@@ -13,10 +13,6 @@
 }
 
 /* about-section */
-.about-section {
-  position: relative;
-  padding-bottom: 3.5rem;
-}
 
 .about-section__section {
   margin-top: 3.125rem;
@@ -30,7 +26,6 @@
 .about-section__bottom {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .about-section__left {
@@ -54,10 +49,11 @@
 }
 
 .about-section__description {
-  margin-bottom: 2.8125rem;
-  font-size: 1.125rem;
+   margin-bottom: 3rem;
+  font-size: 1.4rem;
   font-weight: 500;
-  color: inherit;
+  line-height: 1.5;
+  color: grey;
 }
 
 .about-section__link button {

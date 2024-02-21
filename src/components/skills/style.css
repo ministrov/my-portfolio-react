@@ -16,18 +16,19 @@
 
 .skills__left {
   display: grid;
-  grid-template-columns: 47% 48%;
-  gap: 5%;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 .skill__card {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   padding: 1rem 0;
-  font-size: 1.325rem;
-  text-align: center;
-  border: var(--skills-elements-border);
+  font-size: 1.2rem;
   border-radius: 1rem;
+  background: rgba(153, 153, 153, 0.2);
 }
 
 .skill__card-icon svg {
@@ -35,22 +36,26 @@
   height: 5rem;
 }
 
-.skills__right h4 {
+.skills__slogan {
+  margin-bottom: 3rem;
   font-family: inherit;
   font-size: 2.2rem;
   font-weight: 900;
 }
 
-.skills__right p {
+.skills__text {
   margin: 0;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.235rem;
-  font-family: inherit;
+  font-size: 1.4rem;
   font-weight: 500;
+  line-height: 1.7;
+  color: grey;
 }
 
-.skills__right h4 span {
+.skills__text:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.skills__slogan span {
   color: purple;
 }
 
@@ -73,8 +78,3 @@
     font-size: 1.8rem;
   }
 }
-
-/* ================= Media Query ============= (Small Devices)
-@media screen and (max-width: 700px) {
-
-} */
