@@ -2,10 +2,14 @@ import "./style.css";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="main-footer">
       <div className="container">
-        <div className="footer__wrapper">
-          <ul className="social">
+        <div className="main-footer__upper">
+          <div className="main-footer__row main-footer__row-1">
+            <h2 className="main-footer__heading-sm">
+              <span>Social</span>
+            </h2>
+            <ul className="main-footer__social social">
             <li className="social__item">
               <a href="https://vk.com/feed" target="_blank" rel="noreferrer">
                 <svg
@@ -70,13 +74,22 @@ const Footer = () => {
                 </svg>
               </a>
             </li>
-          </ul>
-          <div className="copyright">
-            <p>
-              © Copyright 2022
-              <br /> Made by Anton Zhilin
+            </ul>
+          </div>
+          <div className="main-footer__row main-footer__row-2">
+            <h4 className="main-footer__heading-sm">Anton Zhilin</h4>
+            <p className="main-footer__short-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit facilis
+              tempora explicabo quae quod deserunt
             </p>
           </div>
+        </div>
+
+        <div className="main-footer__lower">
+          &copy; Copyright 2021. Made by
+          <a rel="noreferrer" target="_blank" href="https://rammaheshwari.com">
+            Anton Zhilin
+          </a>
         </div>
       </div>
     </footer>

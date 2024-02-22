@@ -27,49 +27,49 @@ const ContactsForm = () => {
     //     Send me a message
     //   </motion.button>
     // </motion.form>
-    <div class="contact__form-container">
-      <form action="#" class="contact__form">
-        <div class="contact__form-field">
-          <label class="contact__form-label" for="name">
+    <div className="contact__form-container">
+      <form action="#" className="contact__form">
+        <div className="contact__form-field">
+          <label className="contact__form-label" htmlFor="name">
             Name
           </label>
           <input
             required
             placeholder="Enter Your Name"
             type="text"
-            class="contact__form-input"
+            className="contact__form-input"
             name="name"
             id="name"
           />
         </div>
-        <div class="contact__form-field">
-          <label class="contact__form-label" for="email">
+        <div className="contact__form-field">
+          <label className="contact__form-label" htmlFor="email">
             Email
           </label>
           <input
             required
             placeholder="Enter Your Email"
             type="text"
-            class="contact__form-input"
+            className="contact__form-input"
             name="email"
             id="email"
           />
         </div>
-        <div class="contact__form-field">
-          <label class="contact__form-label" for="message">
+        <div className="contact__form-field">
+          <label className="contact__form-label" htmlFor="message">
             Message
           </label>
           <textarea
             required
             cols="30"
             rows="10"
-            class="contact__form-input"
+            className="contact__form-input"
             placeholder="Enter Your Message"
             name="message"
             id="message"
           ></textarea>
         </div>
-        <button type="submit" class="btn btn--theme contact__btn">
+        <button type="submit" className="btn btn--theme contact__btn">
           Submit
         </button>
       </form>

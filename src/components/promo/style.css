@@ -47,17 +47,12 @@
 .promo__image-wrapper {
   position: absolute;
   top: 50%;
-  left: -19%;;
+  left: -32%;
   max-width: 23rem;
   padding: 0.3125rem;
   box-shadow: var(--box-shadow);
   background-color: var(--white);
-  transform: translateY(-50%) rotate(45deg);
-}
-
-.promo__image {
-  aspect-ratio: 2 / 3;
-  /* border-radius: 50%; */
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .promo__btns {
