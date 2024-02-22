@@ -5,7 +5,7 @@ import { MdEmail } from 'react-icons/md';
 import Heading from '../heading/Heading';
 import './style.css';
 
-const Contact = ( { title, text } ) => {
+const Contact = () => {
   return (
     <section className="contacts">
       <div className="container">
