@@ -31,6 +31,13 @@
   background: rgba(153, 153, 153, 0.2);
 }
 
+.skill__card-header {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #777
+}
+
 .skill__card-icon svg {
   width: 5rem;
   height: 5rem;

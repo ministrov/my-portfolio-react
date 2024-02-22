@@ -24,9 +24,9 @@ const Skills = () => {
                 <div className="skill__card-icon">
                   {skill.icon}
                 </div>
-                <div className="skill__card-header">
+                <span className="skill__card-header">
                   {skill.tech}
-                </div>
+                </span>
               </div>
             ))}
           </motion.div>

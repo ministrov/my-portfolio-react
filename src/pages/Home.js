@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Promo from '../components/promo/Promo';
 import About from '../components/about/About';
 import Modal from '../components/modal/Modal';
-import Contact from '../components/contact/Contact';
+import Contact from '../components/contacts/Contacts';
 import Skills from '../components/skills/Skills';
 
 const Home = () => {
