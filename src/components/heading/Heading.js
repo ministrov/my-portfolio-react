@@ -1,9 +1,13 @@
 import './style.css';
 
-const Heading = ({ children, className }) => {
-  return <h3 className={className}>
-    {children}
-  </h3>;
+const Heading = ({ title, slogan, className }) => {
+  console.log(className);
+  return (
+    <h2 className="heading heading-sec heading-sec__mb-med">
+      <span className="heading-sec__main">{title}</span>
+      <span className="heading-sec__sub">{slogan}</span>
+    </h2>
+  )
 };
 
 export default Heading;

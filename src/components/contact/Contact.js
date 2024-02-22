@@ -7,15 +7,9 @@ import './style.css';
 
 const Contact = ( { title, text } ) => {
   return (
-    // Need to change class contacts to another one because it is duplicated
     <section className="contacts">
-      <h2 className="visually-hidden">Contact's information</h2>
       <div className="container">
-        <Heading className="contacts__title title-2">{title}</Heading>
-        <Heading className="contacts__title title-1">{text}</Heading>
-      </div>
-
-      <div className="container contacts__container">
+        <Heading title={"Keep in Touch"} className="contacts__title" slogan={"Unleash the power of code and create extraordinary digital experiences."}></Heading>
         <motion.div
           className="contacts__options"
           initial={{ x: -50, opacity: 1 }}

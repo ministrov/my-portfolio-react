@@ -39,7 +39,7 @@ const Modal = ({ open, children, onClose }) => {
         exit="exit"
       >
         {children}
-        <Button onClick={onClose} text={'Close'} />
+        <Button onClick={onClose} text={'Close me'} className={'btn--med btn--theme'} />
       </motion.div>
     </Backdrop>,
     document.getElementById('portal')

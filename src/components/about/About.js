@@ -8,7 +8,7 @@ const About = () => {
   return (
     <section className="about">
       <div className="container">
-        <Heading className="about__title title-2">About</Heading>
+        <Heading title={"About"} slogan={"Unleash the power of code and create extraordinary digital experiences."} className="about__title"></Heading>
 
         <section className="about-section">
           <div className="about-section__bottom">
@@ -50,14 +50,12 @@ const About = () => {
           </div>
         </section>
 
-        <motion.p
+        {/* <motion.p
           className="about__descr"
           initial={{ x: -50, opacity: 1 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ type: 'tween', duration: 1.2 }}
         >
-          Stack: HTML, CSS, ECMAScript 6 (ES6), React, Vue<br />
-          <br />
           I am developing cross-platform web applications on HTML, CSS, ECMAScript 6 (ES6), React, Vue<br />
           <br />
           Since July 2021 I have been working in the company "Service Market" LLC, I am engaged in the maintenance and refinement of the site vamvoda.ru . As well as web development of a new company website from scratch . The company is engaged in the retail trade of water and food, as well as soft drinks.<br />
@@ -72,7 +70,7 @@ const About = () => {
           <br />
           I like to do my job efficiently, I know how to meet
           deadlines, quickly assimilate new information, attentive to details.
-        </motion.p>
+        </motion.p> */}
       </div>
     </section>
   );

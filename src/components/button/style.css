@@ -15,14 +15,14 @@
 }
 
 .btn--bg {
-  padding: 1.5rem 4rem;
-  font-size: 1.2rem; 
+  padding: 1.3rem 3rem;
+  font-size: 1.1rem; 
   color: var(--text-color);
 }
 
 .btn--med {
-  padding: 1.5rem 3rem;
-  font-size: 1.2rem;
+  padding: 1.2rem 2rem;
+  font-size: 1.1rem;
 }
 
 .btn--theme {

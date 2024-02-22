@@ -1,5 +1,4 @@
 /* promo */
-
 .promo {
   display: flex;
   flex-direction: column;
@@ -31,12 +30,13 @@
   font-size: 4rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 11px;
   text-align: center;
   color: var(--page-bg);
 }
 
 .promo__text {
+  max-width: 58rem;
   margin: 3rem auto 0 auto;
   font-size: 2rem;
   text-align: center;
