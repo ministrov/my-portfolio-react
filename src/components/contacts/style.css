@@ -14,15 +14,24 @@
 
 .contacts__options {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   row-gap: 2.4rem;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  margin-top: 6rem;
+  max-width: 80rem;
+  text-align: right;
+  width: 95%;
+  border-radius: 5px;
+  margin: 5rem auto 0 auto;
 }
 
 .contacts__option {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
   padding: 1.2rem;
   border: 1px solid transparent;
   border-radius: 1.2rem;
@@ -54,12 +63,6 @@
 
 /* ================= Form ==============*/
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.7rem;
-}
-
 input, textarea {
   width: 100%;
   padding: 1.5rem;
@@ -87,7 +90,7 @@ input, textarea {
   transition: opacity 0.2s ease-in;
 }
 
-@media screen and (max-width: 1378px) {
+/* @media screen and (max-width: 1378px) {
   .contacts__container {
     display: grid;
     grid-template-columns: 35% 60%;
@@ -96,7 +99,7 @@ input, textarea {
 }
 
 /*================= Media Query ============= (Medium Devices)*/
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   form {
     align-items: center;
   }
@@ -113,5 +116,5 @@ input, textarea {
   .contacts__option:hover {
     transform: scale(1);
   }
-}
+} */
 

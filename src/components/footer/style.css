@@ -23,15 +23,17 @@
 
 .main-footer__heading-sm {
   margin-bottom: 2rem;
-  font-size: 1.5rem;
+  font-size: 2.2rem;
+  font-weight: 700;
   line-height: 1.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .main-footer__short-desc {
-  margin-top: 2rem;
-  color: #eee;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.7;
+  color: #eee;
 }
 
 .main-footer__social-cont {
@@ -57,15 +59,20 @@
 }
 
 .main-footer__lower a {
-  text-decoration: underline;
-  font-weight: bold;
+  display: inline-block;
   margin-left: 2px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .main-footer__social {
   display: flex;
   column-gap: 1.875rem;
   align-items: center;
+}
+
+.social__item {
+  width: 2.5rem;
 }
 
 
