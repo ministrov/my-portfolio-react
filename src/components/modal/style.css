@@ -2,10 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(30rem, 30rem, 90%);
+  width: clamp(90rem, 48rem, 109%);
+  height: 50rem;
   padding: 2.5rem;
   background-color: var(--white);
   border-radius:  var(--border-rs);
+}
+
+.modal__btn {
+  margin-top: auto;
 }
 
 .modal p {

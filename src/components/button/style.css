@@ -1,9 +1,9 @@
 .btn {
   display: inline-block;
   font-weight: 700;
-  color: var(--white);
   text-transform: uppercase;
   letter-spacing: 2px;
+  color: var(--white);
   border-radius: var(--border-rs);
   background: var(--white);
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);

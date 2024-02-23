@@ -1,7 +1,7 @@
 .carousel__inner {
   position: relative;
   display: flex;
-  gap: 50px;
+  gap: 9rem;
   padding: 4px 10px;
   margin-bottom: 25px;
   scroll-padding: 10px;
@@ -21,7 +21,7 @@
 .carousel__btn_next {
   display: flex;
   border-radius: var(--border-rs);
-  background-color: var(--purple);
+  background-color: #0062b9;
 }
 
 .carousel__btn_prev:hover,

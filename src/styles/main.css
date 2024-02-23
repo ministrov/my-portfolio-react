@@ -93,28 +93,12 @@ body {
   display: none
 }
 
-/* .home-page {
-  padding-top: 0;
-  padding-bottom: 4.5rem;
-  padding-left: 0;
-  padding-right: 0;
-  overflow: hidden;
-} */
 /* Projects  */
 
 .projects {
   overflow: hidden;
   padding-top: 6rem;
   padding-bottom: 6rem;
-}
-
-.projects__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 75rem;
-  padding-bottom: 2.5rem;
 }
 
 /* Project details */
