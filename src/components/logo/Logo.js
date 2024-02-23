@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import avatar from './my-photo.png';
+import avatar from '../../assets/png/my-photo.png';
 import './style.css';
 
 const Logo = () => {

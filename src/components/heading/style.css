@@ -6,7 +6,6 @@
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: 1px;
   letter-spacing: 3px;
   text-align: center;
 }
@@ -61,9 +60,7 @@
   .heading-sec__main::after {
     top: calc(100% + 1.2rem); 
   } 
-} 
 
-@media only screen and (max-width: 37.5em) {
   .heading-sec__sub {
     font-size: 1.8rem;
   } 

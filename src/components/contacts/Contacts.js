@@ -4,12 +4,13 @@ import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
 import Heading from '../heading/Heading';
 import './style.css';
+import ContactsForm from '../contactsForm/ContactsForm';
 
-const Contact = ( { title, text } ) => {
+const Contacts = () => {
   return (
     <section className="contacts">
       <div className="container">
-        <Heading title={"Keep in Touch"} className="contacts__title" slogan={"Unleash the power of code and create extraordinary digital experiences."}></Heading>
+        <Heading title={"Keep in Touch"} className={'contacts__title heading-sec__main--lt heading-sec__sub--lt'} slogan={"Unleash the power of code and create extraordinary digital experiences."}></Heading>
         <motion.div
           className="contacts__options"
           initial={{ x: -50, opacity: 1 }}
@@ -38,29 +39,11 @@ const Contact = ( { title, text } ) => {
             <a href="https://api.whatsapp.com/send?=+79257398612" target="_blank" rel="noreferrer">Send a message</a>
           </article>
         </motion.div>
-
-        <motion.form
-          action="#"
-          initial={{ x: 50, opacity: 1 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ type: 'tween', duration: 1 }}
-        >
-          <input type="text" name="name" placeholder="Your Full Name" required />
-          <input type="email" name="email" placeholder="Your Email" required/>
-          <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
-
-          <motion.button
-            type="submit"
-            className="contacts__btn-submit btn"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            Send me a message
-          </motion.button>
-        </motion.form>
+        
+        <ContactsForm/>
       </div>
     </section>
   );
 }
 
-export default Contact;
+export default Contacts;
