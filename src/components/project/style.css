@@ -2,11 +2,11 @@
   max-width: 20rem;
   background-color: var(--project-card-bg);
   box-shadow: var(--box-shadow);
-  border-radius: 5px;
+  border-radius: var(--border-rs);
 }
 
 .project__img {
-  border-radius: 0.625rem;
+  border-radius: var(--border-rs);
 }
 
 .project__title {

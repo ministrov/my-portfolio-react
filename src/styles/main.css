@@ -22,6 +22,9 @@
   --footer-bg: var(--black);
   --footer-text: var(--white);
 
+  /* Border-radius */
+  --border-rs: 5px;
+
   /* Light mode */
   --page-bg: var(--white);
   --text-color: var(--black);
@@ -135,7 +138,7 @@ body {
   max-width: 100%;
   margin-bottom: 40px;
   box-shadow: var(--box-shadow);
-  border-radius: 10px;
+  border-radius: var(--border-rs);
 }
 
 .project-details__desc {
@@ -149,12 +152,12 @@ body {
   display: inline-block;
   height: 48px;
   padding: 12px 28px;
-  border-radius: 5px;
-  background-color: var(--accent);
-  color: var(--white);
-  letter-spacing: 0.15px;
   font-size: 16px;
   font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.15px;
+  border-radius: var(--border-rs);
+  background-color: var(--accent);;
   transition: opacity 0.2s ease-in;
 }
 

@@ -5,6 +5,7 @@ import About from '../components/about/About';
 import Modal from '../components/modal/Modal';
 import Contact from '../components/contacts/Contacts';
 import Skills from '../components/skills/Skills';
+import Testimonials from '../components/testimonials/Testimonials';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +43,8 @@ const Home = () => {
         <About/>
 
         <Skills/>
+
+        <Testimonials/>
 
         <Contact />
       </motion.main>

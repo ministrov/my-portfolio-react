@@ -26,7 +26,7 @@
   height: 5px;
   width: 3rem;
   transform: translateX(-50%);
-  border-radius: 5px; 
+  border-radius: var(--border-rs); 
   background: #0062b9;
 }
 

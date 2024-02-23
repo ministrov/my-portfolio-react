@@ -24,7 +24,7 @@
   max-width: 80rem;
   text-align: right;
   width: 95%;
-  border-radius: 5px;
+  border-radius: var(--border-rs);
   margin: 5rem auto 0 auto;
 }
 
@@ -34,7 +34,7 @@
   align-items: center;
   padding: 1.2rem;
   border: 1px solid transparent;
-  border-radius: 1.2rem;
+  border-radius: var(--border-rs);
   background-color: var(--purple);
 }
 
@@ -71,7 +71,7 @@ input, textarea {
   font-size: 1rem;
   color: var(--blackpure);
   border: 2px solid var(--purple);
-  border-radius: 0.5rem;
+  border-radius: var(--border-rs);
   background-color: transparent;
   resize: none;
 }
@@ -81,7 +81,7 @@ input, textarea {
   max-width: 209px;
   height: 48px;
   padding: 12px 28px;
-  border-radius: 5px;
+  border-radius: var(--border-rs);
   background-color: var(--accent);
   color: var(--white);
   letter-spacing: 0.15px;
@@ -89,32 +89,3 @@ input, textarea {
   font-weight: 500;
   transition: opacity 0.2s ease-in;
 }
-
-/* @media screen and (max-width: 1378px) {
-  .contacts__container {
-    display: grid;
-    grid-template-columns: 35% 60%;
-    gap: 5%;
-  }
-}
-
-/*================= Media Query ============= (Medium Devices)*/
-/* @media screen and (max-width: 1024px) {
-  form {
-    align-items: center;
-  }
-
-  .contacts__container {
-    grid-template-columns: 1fr;
-    gap: 5%;
-  }
-
-  .contacts__options {
-    gap: 1.6rem;
-  }
-
-  .contacts__option:hover {
-    transform: scale(1);
-  }
-} */
-

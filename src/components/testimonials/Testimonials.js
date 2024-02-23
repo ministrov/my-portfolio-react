@@ -1,18 +1,23 @@
-import Carousel from '../carousel/Carousel';
-import Heading from '../heading/Heading';
-import './style.css';
+import Carousel from "../carousel/Carousel";
+import Heading from "../heading/Heading";
+import "./style.css";
 
 const Testimonials = () => {
-
   return (
-    <div className="testimonials">
+    <section className="testimonials">
       <div className="container">
-        <Heading className="testimonials__header title-2">Testimonials</Heading>
+        <Heading
+          title={"Testimonials"}
+          slogan={
+            "Unleash the power of code and create extraordinary digital experiences."
+          }
+          className="testimonials__header"
+        ></Heading>
 
-        <Carousel/>
+        <Carousel />
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
 export default Testimonials;

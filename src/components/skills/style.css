@@ -40,7 +40,7 @@
   gap: 1rem;
   max-width: 15rem;
   padding: 1rem 1rem;
-  border-radius: 1rem;
+  border-radius: var(--border-rs);
   background: rgba(153, 153, 153, 0.2);
 }
 
