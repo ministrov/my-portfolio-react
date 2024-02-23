@@ -41,18 +41,11 @@
   box-shadow: var(--box-shadow);
 }
 
-.about-section__title.title-1 {
-  margin-bottom: 1.25rem;
-  font-size: 2.8125rem;
-  font-weight: 700;
-  text-align: start;
-}
-
 .about-section__description {
-   margin-bottom: 3rem;
-  font-size: 1.4rem;
+  margin-bottom: 4rem;
+  font-size: 2rem;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.7;
   color: grey;
 }
 
