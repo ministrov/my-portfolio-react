@@ -39,9 +39,9 @@ const Home = () => {
 
         <Promo setIsOpen={setIsOpen}/>
 
-        <Skills/>
-
         <About/>
+
+        <Skills/>
 
         <Contact />
       </motion.main>
