@@ -7,6 +7,8 @@ import './style.css';
 const Carousel = () => {
   const slider = useRef();
 
+  console.log(slider);
+
   const moveSlideLeft = () => {
     slider.current?.scrollBy(-334, 0);
   };

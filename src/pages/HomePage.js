@@ -5,6 +5,7 @@ import About from '../components/about/About';
 import Modal from '../components/modal/Modal';
 import Contact from '../components/contacts/Contacts';
 import Skills from '../components/skills/Skills';
+import Testimonials from '../components/testimonials/Testimonials';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,9 +40,11 @@ const Home = () => {
 
         <Promo setIsOpen={setIsOpen}/>
 
+        <About/>
+
         <Skills/>
 
-        <About/>
+        <Testimonials/>
 
         <Contact />
       </motion.main>

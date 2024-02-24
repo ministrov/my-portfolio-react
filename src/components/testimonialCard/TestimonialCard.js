@@ -1,3 +1,4 @@
+import Button from '../button/Button';
 import './style.css';
 
 const TestimonialCard = ({
@@ -43,7 +44,8 @@ const TestimonialCard = ({
         <h5 className="tariff__subtitle">Pricing:</h5>
         <p className="tariff__price">{price}</p>
       </div>
-      <button className="tariff__btn">Choose tariff</button>
+      {/* <button className="tariff__btn">Choose tariff</button> */}
+      <Button text={"Choose tariff"} href={"#"} className={"tariff__btn btn--bg"}></Button>
     </article>
   );
 };
