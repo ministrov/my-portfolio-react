@@ -12,7 +12,12 @@ const routes = [
   { id: 6, title: "Messages", icon: "envelope", path: "/messages" },
 ];
 
-console.log(routes);
+const settings = [
+  { id: 1, title: "Settings", icon: "fas-solid fa-house", path: "/settings" },
+  { id: 2, title: "Support", icon: "chart-line", path: "/support" },
+];
+
+// console.log(routes);
 
 const Projects = () => {
   return (
@@ -28,7 +33,7 @@ const Projects = () => {
 
         <ProjectsList />
 
-        <CollapsingSidebar routes={routes} />
+        <CollapsingSidebar routes={routes} settings={settings} />
       </div>
     </section>
   );
