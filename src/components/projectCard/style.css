@@ -1,15 +1,15 @@
-.project {
-  max-width: 20rem;
+.project-card {
+  max-width: 30rem;
   background-color: var(--project-card-bg);
   box-shadow: var(--box-shadow);
   border-radius: var(--border-rs);
 }
 
-.project__img {
+.project-card__image {
   border-radius: var(--border-rs);
 }
 
-.project__title {
+.project-card__title {
   display: flex;
   flex-direction: column;
   min-height: 5rem;

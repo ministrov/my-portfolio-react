@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import './style.css';
 
 const Button = ({ href, onClick, text, className }) => {
@@ -6,25 +6,22 @@ const Button = ({ href, onClick, text, className }) => {
   return (
     <>
       {href ? (
-        <motion.a
+        <a
           href={href}
           target="_blank"
           className={`btn ${className}`}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          rel="noreferrer"
         >
           { text }
-        </motion.a>
+        </a>
       ) : (
-          <motion.button
+          <button
             type='button'
             className={`btn ${className}`}
             onClick={onClick}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
           >
             { text }
-          </motion.button>
+          </button>
       )}
     </>
   );

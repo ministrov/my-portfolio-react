@@ -18,14 +18,18 @@ const Project = () => {
       <h1 className="visually-hidden">Page about single author's project</h1>
       <div className="container">
         <div className="project-details">
-          <Button className={"btn--theme btn--med"} href={'/projects'}>
-            Back to Projects
-          </Button>
+          <Button text={"Back to Projects"} className={"project-details__btn btn--theme btn--med"} href={'/projects'} />
           <Heading title={project.title} slogan={project.slogan} />
           <img src={project.imgBig} alt={project.title} className="project-details__cover" />
-            <div className="project-details__desc">
-              <p>Skills: {project.skills}</p>
-            </div>
+          <p className="project-detail__overview">
+            Project Overview
+          </p>
+
+          <p className="project-detail__text-overview">{project.overview}</p>
+
+          <div className="project-details__desc">
+            <p>Skills: {project.skills}</p>
+          </div>
           {project.gitHubLink && (
             <ButtonGitHub link="https://github.com" />
           )}
