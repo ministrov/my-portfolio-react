@@ -11,6 +11,10 @@
   border: 2px solid lightgray;
 }
 
+/* .sidebar.collapsed {
+  max-width: 0rem;
+} */
+
 .sidebar__header {
   display: flex;
   flex-direction: column;
