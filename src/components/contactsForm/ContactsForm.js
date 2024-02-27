@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import "./style.css";
+import { motion } from 'framer-motion';
+import './style.css';
 
 const ContactsForm = () => {
   return (

@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import "./style.css";
+import { NavLink } from 'react-router-dom';
+import './style.css';
 
 const ProjectCard = ({ title, img, index }) => {
   return (

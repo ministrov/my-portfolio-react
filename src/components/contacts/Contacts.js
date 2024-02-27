@@ -3,8 +3,8 @@ import { FaTelegram } from 'react-icons/fa';
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
 import Heading from '../heading/Heading';
-import './style.css';
 import ContactsForm from '../contactsForm/ContactsForm';
+import './style.css';
 
 const Contacts = () => {
   return (
@@ -17,7 +17,7 @@ const Contacts = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ type: 'tween', duration: 1 }}
         >
-          {/* need to redo articles, icons and headings */}
+          {/* Need to make a new component ContactsInfo where will be this article */}
           <article className="contacts__option">
             <MdEmail className="contacts__option-icon"/>
             <h5>Email</h5>
