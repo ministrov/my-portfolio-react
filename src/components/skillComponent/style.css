@@ -1,0 +1,32 @@
+.skill__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 15rem;
+  padding: 1rem 1rem;
+  border-radius: var(--border-rs);
+  background: rgba(153, 153, 153, 0.2);
+}
+
+.skill__card-header {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: #777
+}
+
+.skill__card-icon svg {
+  width: 5rem;
+  height: 5rem;
+}
+
+.skill__text {
+  margin-right: 1.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background: rgba(153, 153, 153, 0.2);
+  border-radius: 5px;
+  color: #777;
+}

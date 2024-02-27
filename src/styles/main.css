@@ -120,6 +120,12 @@ body {
   line-height: 1.3;
 }
 
+.project-details__content {
+  max-width: 90rem;
+  margin: auto;
+  padding: 8rem 0;
+}
+
 .project-detail__overview {
   font-weight: 700;
   font-size: 2.8rem;
@@ -127,15 +133,30 @@ body {
 }
 
 .project-detail__text-overview {
-  max-width: 70rem;
   font-size: 1.8rem;
   line-height: 1.7;
   color: grey;
-  margin: 0 auto;
+}
+
+.project-detail__text-overview:not(:last-child) {
+  margin-bottom: 2rem
+}
+
+.project-detail__tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 7rem;
+}
+
+.project-details__links {
+  display: flex;
+  gap: 6rem;
 }
 
 .project-details__btn {
   margin-bottom: 6rem;
+  /* margin-right: 6rem; */
 }
 
 /* Content list */

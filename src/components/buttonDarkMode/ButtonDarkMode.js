@@ -10,6 +10,8 @@ const ButtonDarkMode = () => {
 
   const buttonRef = useRef(null);
 
+  // console.log(buttonRef);
+
   useEffect(() => {
     if (darkMode === 'dark') {
       document.body.classList.add('dark');

@@ -1,7 +1,6 @@
-// import CollapsingSidebar from "../collapsingSidebar/CollapsingSidebar";
-import Heading from "../heading/Heading";
-import ProjectsList from "../projectsList/ProjectsList";
-import "./style.css";
+import Heading from '../heading/Heading';
+import ProjectsList from '../projectsList/ProjectsList';
+import './style.css';
 
 
 const Projects = () => {
@@ -17,8 +16,6 @@ const Projects = () => {
         ></Heading>
 
         <ProjectsList />
-
-        {/* <CollapsingSidebar routes={routes} settings={settings} /> */}
       </div>
     </section>
   );

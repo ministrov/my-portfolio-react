@@ -1,6 +1,6 @@
-import Carousel from "../carousel/Carousel";
-import Heading from "../heading/Heading";
-import "./style.css";
+import Carousel from '../carousel/Carousel';
+import Heading from '../heading/Heading';
+import './style.css';
 
 const Testimonials = () => {
   return (

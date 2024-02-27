@@ -1,8 +1,7 @@
-// import { useEffect } from "react";
-import { createPortal } from "react-dom";
-import { motion } from "framer-motion";
+import { createPortal } from 'react-dom';
+import { motion } from 'framer-motion';
 import Button from '../button/Button';
-import Backdrop from "../backdrop/Backdrop";
+import Backdrop from '../backdrop/Backdrop';
 import './style.css';
 
 const dropIn = {

@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
-import HomeSkills from "../../helpers/homeSkills";
-import Heading from "../heading/Heading";
-import "./style.css";
+import { motion } from 'framer-motion';
+import skills from '../../helpers/homeSkills';
+import Heading from '../heading/Heading';
+import './style.css';
+import SkillComponet from '../skillComponent/SkillComponent';
 
 const Skills = () => {
   return (
@@ -25,11 +26,8 @@ const Skills = () => {
             <h3 className="skills__left-heading">My Skills</h3>
 
             <div className="skills__content-wrapper">
-              {HomeSkills.map((skill) => (
-                <div key={skill.id} className="skill__card">
-                  <div className="skill__card-icon">{skill.icon}</div>
-                  <span className="skill__card-header">{skill.tech}</span>
-                </div>
+              {skills.map((skill) => (
+                <SkillComponet variant={'skill-icon'} key={skill.id} skill={skill}/>
               ))}
             </div>
           </motion.div>

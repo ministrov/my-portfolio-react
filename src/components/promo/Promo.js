@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import Button from "../button/Button";
-import MouseScroll from "../mouseScroll/MouseScroll";
-import MyAvatar from "../../assets/png/my-avatar.png";
-import "./style.css";
+import { motion } from 'framer-motion';
+import Button from '../button/Button';
+import MouseScroll from '../mouseScroll/MouseScroll';
+import MyAvatar from '../../assets/png/my-avatar.png';
+import './style.css';
 
 const Promo = ({ setIsOpen }) => {
   return (
