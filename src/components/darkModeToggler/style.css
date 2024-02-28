@@ -4,10 +4,10 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 43px;
+  width: 53px;
   height: 24px;
-  padding: 0.3125rem;
-  border-radius: 3.125rem;
+  padding: 0.3rem;
+  border-radius: 3rem;
   background-color: #272727;
 }
 
@@ -25,10 +25,24 @@
 }
 
 .dark-mode-btn--active::before {
-  left: 2.625rem;
+  left: 2.8rem;
 }
 
 .dark-mode-btn__icon {
   position: relative;
+  width: 2rem;
   z-index: 9;
 }
+
+/* @media only screen and (max-width: 37.5em) {
+  .dark-mode-btn {
+    display: none;
+  }
+} */
+
+@media only screen and (max-width: 56.25em) {
+  .dark-mode-btn {
+    display: none;
+  }
+}
+

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import ButtonDarkMode from '../buttonDarkMode/ButtonDarkMode';
+import ButtonDarkMode from '../darkModeToggler/DarkModeToggler';
 import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 import Logo from '../logo/Logo';
 import './style.css';

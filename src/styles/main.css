@@ -1,5 +1,3 @@
-/* @import "./reset.css"; */
-
 :root {
   /* Colors */
   --blackpure: #000;
@@ -120,6 +118,7 @@ body {
 
 .container {
   max-width: 120rem;
+  width: 92%;
   margin: auto;
 }
 
@@ -194,65 +193,6 @@ body {
 
 .project-details__btn {
   margin-bottom: 6rem;
-}
-
-/* Content list */
-
-.content-list-wrapper {
-  margin-bottom: 45px;
-  padding: 75px;
-  box-shadow: var(--box-shadow);
-}
-
-.content-list {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  column-gap: 40px;
-  margin: 0 auto;
-  margin-bottom: 4rem;
-  max-width: 76%;
-  text-align: center;
-}
-
-.content-list a {
-  color: var(--accent);
-}
-
-.content-list__item {
-  width: 50%;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.content-list__item p + p {
-  margin-top: 0.5em;
-}
-
-.contacts-map {
-  display: flex;
-  padding: 75px;
-  margin-bottom: 3rem;
-  background-color: transparent;
-  box-shadow: var(--box-shadow);
-}
-
-.keep-in-touch {
-  padding-bottom: 3rem;
-}
-
-.keep-in-touch .contacts__container {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 7%;
-}
-
-.keep-in-touch .contacts__options {
-  width: 38%;
-}
-
-.keep-in-touch form {
-  width: 58%;
 }
 
 @media only screen and (max-width: 37.5em) {
