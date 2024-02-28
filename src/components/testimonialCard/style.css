@@ -1,8 +1,8 @@
 .tariff {
   display: flex;
   flex-direction: column;
-  min-width: 377px;
-  height: 576px;
+  min-width: 23rem;
+  min-height: 576px;
   padding-left: 55px;
   padding-right: 55px;
   padding-top: 40px;

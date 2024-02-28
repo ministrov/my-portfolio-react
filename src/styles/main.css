@@ -1,4 +1,4 @@
-@import "./reset.css";
+/* @import "./reset.css"; */
 
 :root {
   /* Colors */
@@ -50,6 +50,44 @@
   --skills-elements-border: 1px solid var(--white);
 }
 
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+input:focus,
+button:focus,
+a:focus,
+textarea:focus {
+  outline: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+img {
+  width: 100%;
+}
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -85,13 +123,13 @@ body {
   margin: auto;
 }
 
-.none {
+/* .none {
   display: none !important;
-}
+} */
 
 ::-webkit-scrollbar {
   display: none;
-}
+} 
 
 /* Project page details */
 
@@ -156,7 +194,6 @@ body {
 
 .project-details__btn {
   margin-bottom: 6rem;
-  /* margin-right: 6rem; */
 }
 
 /* Content list */

@@ -4,19 +4,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
+  min-height: 80rem;
   max-height: 120rem;
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(to right, rgba(0,98,185,0.8), rgba(0,98,185,0.8)),url('../../assets/svg/common-bg.svg');
-  /* background-position: center;
-  background-color: var(--promo-bg);
-  background-image: url('../../img/promo-bg.png');
+  background-position: center;
+  /* background-color: var(--promo-bg);
+  background-image: url('../../img/promo-bg.png'); */
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: center center; */
+  background-position: center center;
 }
 
-.promo__text-wrapper {
+.promo__content {
   max-width: 90rem;
   width: 92%;
 }

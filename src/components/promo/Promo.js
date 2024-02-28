@@ -8,7 +8,7 @@ const Promo = ({ setIsOpen }) => {
   return (
     <section className="promo">
       <motion.div
-        className="promo__text-wrapper"
+        className="promo__content"
         initial={{ x: -50, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ type: "tween", duration: 1 }}

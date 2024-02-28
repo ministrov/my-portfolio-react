@@ -51,18 +51,20 @@
 
 .main-footer__lower {
   padding: 4rem 0;
-  border-top: 1px solid #444;
-  color: #eee;
   font-size: 1.2rem;
-  text-align: left;
+
+  /* /* text-align: left; */
   text-align: center;
+  color: #eee;
+  border-top: 1px solid #444;
 }
 
 .main-footer__lower a {
   display: inline-block;
-  margin-left: 2px;
+  margin-left: 1rem;
   font-weight: bold;
   text-decoration: underline;
+  color: white;
 }
 
 .main-footer__social {
@@ -72,7 +74,7 @@
 }
 
 .social__item {
-  width: 2.5rem;
+  width: 4.5rem;
 }
 
 

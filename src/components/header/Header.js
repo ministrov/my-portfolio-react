@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Logo from '../logo/Logo';
 import ButtonDarkMode from '../buttonDarkMode/ButtonDarkMode';
 import ErrorBoundary from '../errorBoundary/ErrorBoundary';
+import Logo from '../logo/Logo';
 import './style.css';
 
 const Header = () => {
@@ -29,51 +29,46 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="header__nav main-nav">
-        <div className="main-nav__row">
-          <Logo />
+        <Logo />
 
-          <div className="main-nav__right-menu">
-            <ErrorBoundary>
-              <ButtonDarkMode />
-            </ErrorBoundary>
+        <div className="main-nav__right-menu">
+          <ErrorBoundary>
+            <ButtonDarkMode />
+          </ErrorBoundary>
 
-            <ul className={`main-nav__list ${active}`}>
-              <li className="nav-list__item">
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive ? activeLink : normalLink
-                  }
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-list__item">
-                <NavLink
-                  to="./index.html#about"
-                  className="nav-list__link"
-                >
-                  About
-                </NavLink>
-              </li>
-              <li className="nav-list__item">
-                <NavLink
-                  to="/projects"
-                  className={({ isActive }) =>
-                    isActive ? activeLink : normalLink
-                  }
-                >
-                  Projects
-                </NavLink>
-              </li>
-            </ul>
-          </div>
+          <ul className={`main-nav__list ${active}`}>
+            <li className="nav-list__item">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? activeLink : normalLink
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-list__item">
+              <NavLink to="./index.html#about" className="nav-list__link">
+                About
+              </NavLink>
+            </li>
+            <li className="nav-list__item">
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  isActive ? activeLink : normalLink
+                }
+              >
+                Projects
+              </NavLink>
+            </li>
+          </ul>
+        </div>
 
-          <div onClick={navToggler} className={toggleIcon}>
-            <div className="line1"></div>
-            <div className="line2"></div>
-            <div className="line3"></div>
-          </div>
+        <div onClick={navToggler} className={toggleIcon}>
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
         </div>
       </nav>
     </header>

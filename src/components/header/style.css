@@ -3,14 +3,15 @@
   position: fixed;
   width: 100%;
   z-index: 1000;
-  padding: 1rem 5rem;
   background-color: var(--nav-bg);
-  box-shadow: 0 10px 100px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1);
 }
 
 .main-nav {
-  color: var(--nav-text);
-  background-color: var(--nav-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5rem;
 }
 
 .main-nav__row {
@@ -73,7 +74,6 @@
 .nav-list__link--active::before {
   background-color: #0062b9;
   transform: none;
-  /* background-color: var(--accent); */
 }
 
 .nav__toggler div {
