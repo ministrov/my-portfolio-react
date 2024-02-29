@@ -122,10 +122,6 @@ body {
   margin: auto;
 }
 
-/* .none {
-  display: none !important;
-} */
-
 ::-webkit-scrollbar {
   display: none;
 } 

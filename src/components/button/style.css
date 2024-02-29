@@ -25,6 +25,11 @@
   font-size: 1.6rem;
 }
 
+.btn--med-second {
+  padding: 1.5rem 2rem;
+  font-size: 1.2rem;
+}
+
 .btn--theme {
   background: #0062b9;
   color: #fff; 

@@ -73,12 +73,13 @@
 
 .tariff__btn {
   margin-top: auto;
+  padding: 1.5rem 3rem;
 }
 
 
-@media (max-width: 1286px) {
+/* @media (max-width: 1286px) {
   .tariff {
     min-width: initial;
     width: 100%;
   }
-}
+} */

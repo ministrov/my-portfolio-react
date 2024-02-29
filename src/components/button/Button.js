@@ -1,12 +1,13 @@
 import './style.css';
 
-const Button = ({ href, onClick, text, className }) => {
+const Button = ({ href, onClick, text, className, targetBlank }) => {
+  // const target = targetBlank ? '_blank' : ' ';
+
   return (
     <>
       {href ? (
         <a
           href={href}
-          target="_blank"
           className={`btn ${className}`}
           rel="noreferrer"
         >
