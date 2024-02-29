@@ -8,6 +8,9 @@ const TestimonialCard = ({
   price,
   gatheringAudience,
 }) => {
+
+  // const formatedDate = new Intl.DateTimeFormat('ru-Ru').format('29.09.2024');
+
   return (
     <article className="tariff">
       <h4 className="tariff__header">{title}</h4>
@@ -39,7 +42,7 @@ const TestimonialCard = ({
         </ul>
 
         <h5 className="tariff__subtitle">Date of expiry:</h5>
-        <p className="tariff__days">30 days</p>
+        <p className="tariff__days"></p>
 
         <h5 className="tariff__subtitle">Pricing:</h5>
         <p className="tariff__price">{price}</p>

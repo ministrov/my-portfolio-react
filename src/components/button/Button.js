@@ -1,7 +1,6 @@
 import './style.css';
 
-const Button = ({ href, onClick, text, className, targetBlank }) => {
-  // const target = targetBlank ? '_blank' : ' ';
+const Button = ({ href, onClick, text, className }) => {
 
   return (
     <>

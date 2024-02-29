@@ -1,7 +1,7 @@
 .contacts {
   padding: 12rem 0;
   overflow: hidden;
-  background: linear-gradient(to right, rgba(0,98,185,0.8), rgba(0,98,185,0.8)),url('../../assets/svg/common-bg.svg');
+  background: var(--gradient), url('../../assets/svg/common-bg.svg');
   background-size: cover;
   background-position: center;
 }
@@ -17,15 +17,14 @@
   justify-content: center;
   flex-wrap: wrap;
   row-gap: 2.4rem;
-
+  width: 95%;
+  max-width: 80rem;
+  margin: 5rem auto 0 auto;
+  margin-top: 6rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 3rem;
-  margin-top: 6rem;
-  max-width: 80rem;
   text-align: right;
-  width: 95%;
   border-radius: var(--border-rs);
-  margin: 5rem auto 0 auto;
 }
 
 .contacts__option {

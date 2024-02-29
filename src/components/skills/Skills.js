@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import skills from '../../helpers/skills';
 import Heading from '../heading/Heading';
-import './style.css';
 import SkillComponet from '../skillComponent/SkillComponent';
+import './style.css';
 
 const Skills = () => {
   return (

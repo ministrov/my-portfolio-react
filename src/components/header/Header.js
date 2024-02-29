@@ -47,11 +47,11 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
-            <li className="nav-list__item">
+            {/* <li className="nav-list__item">
               <NavLink to="./index.html#about" className="nav-list__link">
                 About
               </NavLink>
-            </li>
+            </li> */}
             <li className="nav-list__item">
               <NavLink
                 to="/projects"
