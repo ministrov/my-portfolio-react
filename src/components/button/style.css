@@ -17,7 +17,7 @@
 .btn--bg {
   padding: 1.5rem 8rem;
   font-size: 1.8rem; 
-  color: var(--text-color);
+  color: var( --blackpure);
 }
 
 .btn--med {
@@ -36,9 +36,9 @@
 }
 
 .btn--theme-inv {
+  padding: calc(1.5rem - 2px) calc(5rem - 2px); 
   color: #0062b9;
   background: #fff;
   border: 2px solid #0062b9;
   box-shadow: none;
-  padding: calc(1.5rem - 2px) calc(5rem - 2px); 
 }
