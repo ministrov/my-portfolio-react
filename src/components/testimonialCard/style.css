@@ -1,8 +1,8 @@
 .tariff {
   display: flex;
   flex-direction: column;
-  min-width: 377px;
-  height: 576px;
+  min-width: 23rem;
+  min-height: 576px;
   padding-left: 55px;
   padding-right: 55px;
   padding-top: 40px;
@@ -73,12 +73,13 @@
 
 .tariff__btn {
   margin-top: auto;
+  padding: 1.5rem 3rem;
 }
 
 
-@media (max-width: 1286px) {
+/* @media (max-width: 1286px) {
   .tariff {
     min-width: initial;
     width: 100%;
   }
-}
+} */

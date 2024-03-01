@@ -2,7 +2,6 @@ import Heading from '../heading/Heading';
 import ProjectsList from '../projectsList/ProjectsList';
 import './style.css';
 
-
 const Projects = () => {
   return (
     <section className="projects">

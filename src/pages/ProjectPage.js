@@ -2,8 +2,6 @@ import { useParams } from 'react-router-dom';
 import Heading from '../components/heading/Heading';
 import Button from '../components/button/Button';
 import SkillComponet from '../components/skillComponent/SkillComponent';
-// import ButtonGitHub from "../components/buttonGitHub/ButtonGitHub";
-// import SkillComponet from "../components/skillComponent/SkillComponent";
 import { projects } from '../helpers/projectsList';
 import { motion } from 'framer-motion';
 
@@ -26,7 +24,7 @@ const ProjectPage = () => {
         <div className="project-details">
           <Button
             text={"Back to Projects"}
-            className={"project-details__btn btn--theme btn--med"}
+            className={"project-details__btn btn--theme btn--med-second"}
             href={"/projects"}
           />
           <Heading title={project.title} slogan={project.slogan} />
@@ -52,16 +50,10 @@ const ProjectPage = () => {
 
             <h3 className="project-detail__overview">See Live</h3>
 
-            {/* <li key={item} className="project-detail__tools-item">{console.log(typeof item)}</li> */}
-
-            {/* <div className="project-details__desc">
-              <p>Skills: {project.skills}</p>
-            </div> */}
             <div className="project-details__links">
               <Button text={'Live Link'} href={"/"} className={'project-detail__btn btn--med btn--theme'} />
               <Button text={'Code Link'} href={"/"} className={'project-detail__btn btn--med btn--theme-inv'}/>
             </div>
-            {/* {project.gitHubLink && <ButtonGitHub link="https://github.com" />} */}
           </div>
         </div>
       </div>

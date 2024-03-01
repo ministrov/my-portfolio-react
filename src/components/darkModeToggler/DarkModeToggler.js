@@ -5,12 +5,10 @@ import sun from '../../assets/svg/sun.svg';
 import moon from '../../assets/svg/moon.svg';
 import './style.css';
 
-const ButtonDarkMode = () => {
+const DarkModeToggler = () => {
   const [darkMode, setDarkMode] = useLocalStorage('darkMode', detectDarkMode);
 
   const buttonRef = useRef(null);
-
-  // console.log(buttonRef);
 
   useEffect(() => {
     if (darkMode === 'dark') {
@@ -38,4 +36,4 @@ const ButtonDarkMode = () => {
   )
 }
 
-export default ButtonDarkMode;
+export default DarkModeToggler;
