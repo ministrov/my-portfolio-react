@@ -5,13 +5,9 @@ import SkillComponet from '../components/skillComponent/SkillComponent';
 import { projects } from '../helpers/projectsList';
 import { motion } from 'framer-motion';
 
-
-
 const ProjectPage = () => {
   const { id } = useParams();
   const project = projects[id];
-
-  console.log(typeof project);
 
   return (
     <motion.main

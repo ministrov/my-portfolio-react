@@ -25,7 +25,7 @@ const Skills = () => {
           >
             <h3 className="skills__left-heading">My Skills</h3>
 
-            <div className="skills__content-wrapper">
+            <div role="contentinfo" className="skills__content-wrapper">
               {skills.map((skill) => (
                 <SkillComponet variant={'skill-icon'} key={skill.id} skill={skill}/>
               ))}

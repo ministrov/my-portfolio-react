@@ -1,53 +1,23 @@
-import Button from '../button/Button';
+import clientAvatar from '../../assets/png/john-doe.png';
 import './style.css';
 
-const TestimonialCard = ({
-  title,
-  simultaniousParsing,
-  parsingPerDay,
-  price,
-  gatheringAudience,
-}) => {
+const TestimonialCard = () => {
 
   // const formatedDate = new Intl.DateTimeFormat('ru-Ru').format('29.09.2024');
 
   return (
-    <article className="tariff">
-      <h4 className="tariff__header">{title}</h4>
-      <div className="tariff__card_wrapper">
-        <h5 className="tariff__subtitle">Includes:</h5>
-
-        <ul className="tariff__contains">
-          <li>simultanious parsing: {simultaniousParsing}</li>
-          <li>how much parsing per day: {parsingPerDay}</li>
-        </ul>
-
-        <h5 className="tariff__subtitle">Ways of gathering audience:</h5>
-
-        <ul className="tariff__contains">
-          {gatheringAudience === 1 && <li>участники групп/каналов</li>}
-          {gatheringAudience === 2 && (
-            <>
-              <li>участники групп/каналов</li>
-              <li>активность участников групп/каналов</li>
-            </>
-          )}
-          {gatheringAudience === 3 && (
-            <>
-              <li>участники групп/каналов</li>
-              <li>активность участников групп/каналов</li>
-              <li>геолокация</li>
-            </>
-          )}
-        </ul>
-
-        <h5 className="tariff__subtitle">Date of expiry:</h5>
-        <p className="tariff__days"></p>
-
-        <h5 className="tariff__subtitle">Pricing:</h5>
-        <p className="tariff__price">{price}</p>
+    <article className="testimonial-card">
+      <p className="testimonial-card__paragraph">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      </p>
+      <div className="testimonial-card__client-info">
+        <div className="testimonial-card__client-picture">
+          <img src={clientAvatar} alt='Client avatar in focus' />
+        </div>
+        <div className="testimonial-card__client-details">
+          <h3 className="testimonial-card__client-details-title">Ronald Row</h3>
+          <span className="testimonial-card__client-details-info">Designer, LLC Team</span>
+        </div>
       </div>
-      <Button text={"Choose tariff"} href={"#"} className={"tariff__btn btn--bg"}></Button>
     </article>
   );
 };

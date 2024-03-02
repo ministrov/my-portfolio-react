@@ -4,7 +4,7 @@ import ControlLeft from './controlLeft/ControlLeft';
 import ControlRight from './controlRight/ControlRight';
 import './style.css';
 
-const Carousel = () => {
+const Carousel = ({ className }) => {
   const slider = useRef(null);
 
   const moveSlideLeft = () => {
@@ -16,43 +16,16 @@ const Carousel = () => {
   };
 
   return (
-    <div className="carousel">
+    <div className={`${className} carousel`}>
       <div ref={slider} className="carousel__inner">
-        <TestimonialCard
-          title={'Start'}
-          simultaniousParsing={1}
-          parsingPerDay={5}
-          price={'99 $'}
-          gatheringAudience={1}
-        />
-        <TestimonialCard
-          title={'Standard'}
-          simultaniousParsing={3}
-          parsingPerDay={15}
-          price={'149 $'}
-          gatheringAudience={2}
-        />
-        <TestimonialCard
-          title={'Gift'}
-          simultaniousParsing={5}
-          parsingPerDay={15}
-          price={'199 $'}
-          gatheringAudience={3}
-        />
-        <TestimonialCard
-          title={'Business'}
-          simultaniousParsing={5}
-          parsingPerDay={15}
-          price={'299 $'}
-          gatheringAudience={3}
-        />
-        <TestimonialCard
-          title={'Premium'}
-          simultaniousParsing={5}
-          parsingPerDay={15}
-          price={'499 $'}
-          gatheringAudience={3}
-        />
+        <TestimonialCard />
+        <TestimonialCard />
+        <TestimonialCard />
+        <TestimonialCard />
+        <TestimonialCard />
+        <TestimonialCard />
+        <TestimonialCard />
+        <TestimonialCard />
       </div>
       <div className="carousel__controls">
         <ControlLeft

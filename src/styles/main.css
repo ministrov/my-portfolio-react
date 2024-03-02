@@ -28,7 +28,7 @@
   --text-color: var(--black);
   --accent: var(--purple);
   --title-1: var(--accent);
-
+  --grey: #fafafa;
   --project-card-bg: var(--white);
   --project-card-text: var(--black);
   --box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
@@ -42,7 +42,7 @@
   --text-color: var(--white);
 
   --title-1: var(--white);
-
+  --grey: var(--black-border);
   --project-card-bg: var(--black);
   --project-card-text: var(--white);
   --box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.8);

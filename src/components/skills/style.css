@@ -1,7 +1,7 @@
 /* skills*/
 .skills {
   padding: 12rem 0;
-  background-color: #fafafa;
+  background-color: var(--grey);
 }
 
 .skills__wrapper {

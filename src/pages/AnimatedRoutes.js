@@ -7,7 +7,6 @@ import ProjectPage from './ProjectPage';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
-  console.log(location);
 
   return (
     <AnimatePresence>
