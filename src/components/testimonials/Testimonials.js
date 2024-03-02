@@ -14,7 +14,7 @@ const Testimonials = () => {
           className="testimonials__header"
         ></Heading>
 
-        <Carousel />
+        <Carousel className="testimonials__carousel"/>
       </div>
     </section>
   );
