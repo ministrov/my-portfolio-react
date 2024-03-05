@@ -1,10 +1,12 @@
-import { motion } from 'framer-motion';
-import './style.css';
+import { motion } from "framer-motion";
+import "./style.css";
 
 const ContactsForm = () => {
   return (
     <div className="contact__form-container">
-      <motion.form action="#" className="contact__form"
+      <motion.form
+        action="#"
+        className="contact__form"
         initial={{ x: 50, opacity: 1 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ type: "tween", duration: 1 }}

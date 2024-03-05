@@ -1,6 +1,6 @@
-import Carousel from '../carousel/Carousel';
-import Heading from '../heading/Heading';
-import './style.css';
+import Carousel from "../carousel/Carousel";
+import Heading from "../heading/Heading";
+import "./style.css";
 
 const Testimonials = () => {
   return (
@@ -14,7 +14,7 @@ const Testimonials = () => {
           className="testimonials__header"
         ></Heading>
 
-        <Carousel className="testimonials__carousel"/>
+        <Carousel className="testimonials__carousel" />
       </div>
     </section>
   );

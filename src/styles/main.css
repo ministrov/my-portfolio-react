@@ -26,6 +26,7 @@
   /* Light mode */
   --page-bg: var(--white);
   --text-color: var(--black);
+  --nav-text: var(--blackpure);
   --accent: var(--purple);
   --title-1: var(--accent);
   --grey: #fafafa;
@@ -40,7 +41,8 @@
   /* Dark mode */
   --page-bg: #252526;
   --text-color: var(--white);
-
+  --white: var(--black-border);
+  --nav-text: var(--white);
   --title-1: var(--white);
   --grey: var(--black-border);
   --project-card-bg: var(--black);

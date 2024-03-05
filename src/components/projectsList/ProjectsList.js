@@ -1,7 +1,7 @@
-import ProjectCard from '../projectCard/ProjectCard';
-import { projects } from '../../helpers/projectsList';
-import { motion } from 'framer-motion';
-import './style.css';
+import ProjectCard from "../projectCard/ProjectCard";
+import { projects } from "../../helpers/projectsList";
+import { motion } from "framer-motion";
+import "./style.css";
 
 const ProjectsList = () => {
   return (

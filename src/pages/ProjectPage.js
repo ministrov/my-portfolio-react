@@ -1,9 +1,9 @@
-import { useParams } from 'react-router-dom';
-import Heading from '../components/heading/Heading';
-import Button from '../components/button/Button';
-import SkillComponet from '../components/skillComponent/SkillComponent';
-import { projects } from '../helpers/projectsList';
-import { motion } from 'framer-motion';
+import { useParams } from "react-router-dom";
+import Heading from "../components/heading/Heading";
+import Button from "../components/button/Button";
+import SkillComponet from "../components/skillComponent/SkillComponent";
+import { projects } from "../helpers/projectsList";
+import { motion } from "framer-motion";
 
 const ProjectPage = () => {
   const { id } = useParams();
@@ -39,7 +39,7 @@ const ProjectPage = () => {
             <h3 className="project-detail__overview">Tools Used</h3>
 
             <ul className="project-detail__tools-list">
-              {project.skills.split(', ').map(item => (
+              {project.skills.split(", ").map((item) => (
                 <SkillComponet key={item} skillName={item} />
               ))}
             </ul>
@@ -47,8 +47,16 @@ const ProjectPage = () => {
             <h3 className="project-detail__overview">See Live</h3>
 
             <div className="project-details__links">
-              <Button text={'Live Link'} href={"/"} className={'project-detail__btn btn--med btn--theme'} />
-              <Button text={'Code Link'} href={"/"} className={'project-detail__btn btn--med btn--theme-inv'}/>
+              <Button
+                text={"Live Link"}
+                href={"/"}
+                className={"project-detail__btn btn--med btn--theme"}
+              />
+              <Button
+                text={"Code Link"}
+                href={"/"}
+                className={"project-detail__btn btn--med btn--theme-inv"}
+              />
             </div>
           </div>
         </div>

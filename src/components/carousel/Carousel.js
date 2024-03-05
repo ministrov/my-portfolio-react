@@ -1,8 +1,8 @@
-import { useRef } from 'react';
-import TestimonialCard from '../testimonialCard/TestimonialCard';
-import ControlLeft from './controlLeft/ControlLeft';
-import ControlRight from './controlRight/ControlRight';
-import './style.css';
+import { useRef } from "react";
+import TestimonialCard from "../testimonialCard/TestimonialCard";
+import ControlLeft from "./controlLeft/ControlLeft";
+import ControlRight from "./controlRight/ControlRight";
+import "./style.css";
 
 const Carousel = ({ className }) => {
   const slider = useRef(null);
@@ -28,10 +28,7 @@ const Carousel = ({ className }) => {
         <TestimonialCard />
       </div>
       <div className="carousel__controls">
-        <ControlLeft
-          className="carousel__btn_prev"
-          moveLeft={moveSlideLeft}
-        />
+        <ControlLeft className="carousel__btn_prev" moveLeft={moveSlideLeft} />
         <ControlRight
           className="carousel__btn_next"
           moveRight={moveSlideRight}
