@@ -1,9 +1,9 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import Page404 from './Page404';
-import HomePage from './HomePage';
-import ProjectsPage from './ProjectsPage';
-import ProjectPage from './ProjectPage';
+import { Route, Routes, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import Page404 from "./Page404";
+import HomePage from "./HomePage";
+import ProjectsPage from "./ProjectsPage";
+import ProjectPage from "./ProjectPage";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -18,6 +18,6 @@ const AnimatedRoutes = () => {
       </Routes>
     </AnimatePresence>
   );
-}
+};
 
 export default AnimatedRoutes;

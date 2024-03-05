@@ -1,20 +1,20 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const OVERLAY_STYLES = {
-  position: 'fixed',
+  position: "fixed",
   top: 0,
   left: 0,
   bottom: 0,
   right: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%',
-  height: '100%',
-  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "100%",
+  height: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.7)",
   zIndex: 1000,
-  opacity: 1
-}
+  opacity: 1,
+};
 
 const Backdrop = ({ children, onClick }) => {
   return (
@@ -28,6 +28,6 @@ const Backdrop = ({ children, onClick }) => {
       {children}
     </motion.div>
   );
-}
+};
 
 export default Backdrop;

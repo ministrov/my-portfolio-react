@@ -10,10 +10,10 @@
   /* Nav */
   --nav-bg: var(--black);
   --nav-border: var(--black-border);
-  --nav-text: var(--white);
+  --nav-text: var(--blackpure);
 
   /* Header */
-  --header-bg: var(--black);
+  --header-bg: var(--white);
   --header-text: var(--white);
 
   /* Footer */
@@ -39,8 +39,9 @@
 .dark {
   /* Dark mode */
   --page-bg: #252526;
+  --header-bg: var(--black);
   --text-color: var(--white);
-
+  --nav-text: var(--white);
   --title-1: var(--white);
   --grey: var(--black-border);
   --project-card-bg: var(--black);
@@ -55,13 +56,13 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-  font-family: inherit;
+  /* box-sizing: inherit;
+  font-family: inherit; */
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  /* color: inherit; */
 }
 
 li {
@@ -100,7 +101,6 @@ body {
   scroll-behavior: smooth;
   /* Light mode */
   background-color: var(--page-bg);
-  color: var(--text-color);
 }
 
 /* General */

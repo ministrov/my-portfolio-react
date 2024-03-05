@@ -1,4 +1,4 @@
-import './style.css';
+import "./style.css";
 
 const Heading = ({ title, slogan, className }) => {
   return (
@@ -6,7 +6,7 @@ const Heading = ({ title, slogan, className }) => {
       <span className={`heading-sec__main ${className}`}>{title}</span>
       <span className={`heading-sec__sub ${className}`}>{slogan}</span>
     </h2>
-  )
+  );
 };
 
 export default Heading;

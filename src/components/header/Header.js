@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import ButtonDarkMode from '../darkModeToggler/DarkModeToggler';
-import ErrorBoundary from '../errorBoundary/ErrorBoundary';
-import Logo from '../logo/Logo';
-import './style.css';
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import ButtonDarkMode from "../darkModeToggler/DarkModeToggler";
+import ErrorBoundary from "../errorBoundary/ErrorBoundary";
+import Logo from "../logo/Logo";
+import "./style.css";
 
 const Header = () => {
   const activeLink = "nav-list__link nav-list__link--active";
@@ -47,11 +47,6 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
-            {/* <li className="nav-list__item">
-              <NavLink to="./index.html#about" className="nav-list__link">
-                About
-              </NavLink>
-            </li> */}
             <li className="nav-list__item">
               <NavLink
                 to="/projects"

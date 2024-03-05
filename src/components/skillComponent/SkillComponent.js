@@ -1,4 +1,4 @@
-import './style.css';
+import "./style.css";
 
 const SkillComponet = ({ skill, variant, skillName }) => {
   return (
@@ -9,7 +9,9 @@ const SkillComponet = ({ skill, variant, skillName }) => {
           <span className="skill__card-header">{skill.tech}</span>
         </div>
       ) : (
-        <div role="textbox" className="skill__text">{skillName}</div>
+        <div role="textbox" className="skill__text">
+          {skillName}
+        </div>
       )}
     </>
   );

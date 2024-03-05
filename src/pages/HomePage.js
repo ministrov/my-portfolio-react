@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Promo from '../components/promo/Promo';
-import About from '../components/about/About';
-import Modal from '../components/modal/Modal';
-import Contact from '../components/contacts/Contacts';
-import Skills from '../components/skills/Skills';
-import Testimonials from '../components/testimonials/Testimonials';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Promo from "../components/promo/Promo";
+import About from "../components/about/About";
+import Modal from "../components/modal/Modal";
+import Contact from "../components/contacts/Contacts";
+import Skills from "../components/skills/Skills";
+import Testimonials from "../components/testimonials/Testimonials";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,19 +14,25 @@ const Home = () => {
     const target = event.target;
 
     if (target) setIsOpen(false);
-  }
+  };
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
-  }, [isOpen])
+  }, [isOpen]);
+
+  const formatedDate = new Intl.DateTimeFormat("ru-Ru").format();
+
+  useEffect(() => {
+    console.log(formatedDate);
+  }, [formatedDate]);
 
   return (
     <>
@@ -38,28 +44,36 @@ const Home = () => {
       >
         <h1 className="visually-hidden">Home page of the author</h1>
 
-        <Promo setIsOpen={setIsOpen}/>
+        <Promo setIsOpen={setIsOpen} />
 
-        <About/>
+        <About />
 
-        <Skills/>
+        <Skills />
 
-        <Testimonials/>
+        <Testimonials />
 
         <Contact />
       </motion.main>
 
       <Modal open={isOpen} onClose={onCloseHandler}>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque alias maiores non deleniti nemo iure, ex accusantium harum perspiciatis reiciendis ipsam earum at, repellendus facere nisi quia asperiores minima fugit rerum illum perferendis!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque alias
+          maiores non deleniti nemo iure, ex accusantium harum perspiciatis
+          reiciendis ipsam earum at, repellendus facere nisi quia asperiores
+          minima fugit rerum illum perferendis!
         </p>
 
         <p>
-          Quia aut, repellendus, qui pariatur voluptate ut in corporis, culpa eveniet deleniti eaque dolor cum repudiandae nostrum!
+          Quia aut, repellendus, qui pariatur voluptate ut in corporis, culpa
+          eveniet deleniti eaque dolor cum repudiandae nostrum!
         </p>
+
+        <div style={{ maxWidth: "50rem", margin: "0 auto", fontSize: "9rem" }}>
+          {formatedDate}
+        </div>
       </Modal>
     </>
-  )
-}
+  );
+};
 
 export default Home;

@@ -9,13 +9,10 @@
 .logo__link {
   width: 5rem;
   height: 5rem;
-  border-radius: 50px;
   overflow: hidden;
   margin-right: 1.5rem;
-  background: #0062b9;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  color: var(--nav-text);
+  border-radius: 50px;
+  background-color: #0062b9;
 }
 
 .logo__avatar {
@@ -29,6 +26,7 @@
 }
 
 .logo__name {
+  /* font-family: 'Poppins', sans-serif; */
   font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
