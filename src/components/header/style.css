@@ -71,7 +71,7 @@
 }
 
 .nav-list__link--active::before {
-  background-color: #0062b9;
+  background-color: var(--light-blue-100);;
   transform: none;
 }
 

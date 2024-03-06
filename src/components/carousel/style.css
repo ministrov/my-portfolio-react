@@ -25,12 +25,12 @@
 .carousel__btn_next {
   display: flex;
   border-radius: var(--border-rs);
-  background-color: #0062b9;
+  background-color: var(--light-blue-100);;
 }
 
 .carousel__btn_prev:hover,
 .carousel__btn_next:hover {
-  background-color: var(--purple-hover);
+  background-color: var(--light-purple-100);
 }
 
 
