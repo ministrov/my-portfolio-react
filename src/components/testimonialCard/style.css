@@ -3,7 +3,7 @@
   z-index: 2;
   min-width: 58rem;
   /* background-color: #fff; */
-  border: 7px solid #0062b9;
+  border: 7px solid var(--light-blue-100);;
   border-radius: 45px;
 }
 
@@ -35,7 +35,7 @@
   font-size: 1.6rem;
   line-height: 1.2;
   text-align: center;
-  color: #0062b9;
+  color: var(--light-blue-100);;
 }
 
 .testimonial-card__client-info {
@@ -50,7 +50,7 @@
 .testimonial-card__client-picture {
   max-width: 12rem;
   border-radius: 50%;
-  background-color: #0062b9;
+  background-color: var(--light-blue-100);;
 }
 
 .testimonial-card__client-picture img {
@@ -61,12 +61,12 @@
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.2;
-  color: #0062b9;
+  color: var(--light-blue-100);;
 }
 
 .testimonial-card__client-details-info {
   display: inline-block;
   font-size: 1.3rem;
   line-height: 1.2;
-  color: #0062b9;
+  color: var(--light-blue-100);;
 }

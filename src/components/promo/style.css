@@ -8,10 +8,6 @@
   max-height: 120rem;
   height: 100vh;
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center center;
 }
 
 .promo__content {
@@ -25,7 +21,7 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   text-align: center;
-  color: var( --white);
+  color: var(--white);
 }
 
 .promo__text {
@@ -61,4 +57,10 @@
   bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 90rem) {
+  .promo__image-wrapper {
+    display: none;
+  }
 }

@@ -1,11 +1,26 @@
 :root {
-  /* Colors */
+/* Colors */
+/* Examples of naming colors 
+  $light-green-100:
+  $light-green-200:
+  $light-green-300:
+  // etc
+  $light-green-900:
+  $light-green-A200:
+  $light-green-A400:
+
+  $deep-purple-100:
+  $deep-purple-200:
+  $deep-purple-300:
+  // etc
+  $deep-purple-A900:
+*/
   --blackpure: #000;
   --black: #171718;
   --black-border: #26292d;
+  --main-sub-text: #777;
   --white: #fff;
-  --purple: #5c62ec;
-  --purple-hover: #7176ee;
+  --light-blue-100: #0062b9;
 
   /* Nav */
   --nav-bg: var(--black);
@@ -26,7 +41,7 @@
   /* Light mode */
   --page-bg: var(--white);
   --text-color: var(--black);
-  --accent: var(--purple);
+  --accent: var(--light-purple-100);
   --title-1: var(--accent);
   --grey: #fafafa;
   --project-card-bg: var(--white);
@@ -40,7 +55,9 @@
   /* Dark mode */
   --page-bg: #252526;
   --header-bg: var(--black);
+  --blackpure: var(--white);
   --text-color: var(--white);
+  --light-blue-100: var(--main-sub-text);
   --nav-text: var(--white);
   --title-1: var(--white);
   --grey: var(--black-border);
@@ -56,8 +73,6 @@
 *::before {
   margin: 0;
   padding: 0;
-  /* box-sizing: inherit;
-  font-family: inherit; */
 }
 
 a {
@@ -165,6 +180,7 @@ body {
   font-weight: 700;
   font-size: 2.8rem;
   margin-bottom: 3rem;
+  color: var(--blackpure);
 }
 
 .project-detail__text-overview {
