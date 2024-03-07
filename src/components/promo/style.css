@@ -70,3 +70,28 @@
     flex-direction: column;
   }
 }
+
+@media only screen and (max-width: 37.5em) {
+  .promo {
+    height: auto;
+  }
+
+  .promo__content {
+    padding: 19rem 0 13rem 0;
+    margin: auto;
+    position: static;
+    transform: translate(0, 0);
+  }
+
+  .promo__title {
+    font-size: 4rem;
+  }
+
+  .promo__text {
+    font-size: 2rem;
+  }
+
+  .promo__mouse-scroll-cont {
+    display: none;
+  }
+}
