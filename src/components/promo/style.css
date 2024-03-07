@@ -16,7 +16,7 @@
 }
 
 .promo__title {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -48,7 +48,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 2.5rem;
+  gap: 2.5rem;
   margin-top: 5rem;
 }
 
@@ -62,5 +62,11 @@
 @media only screen and (max-width: 90rem) {
   .promo__image-wrapper {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .promo__btns {
+    flex-direction: column;
   }
 }

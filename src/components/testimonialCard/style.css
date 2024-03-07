@@ -2,7 +2,6 @@
   position: relative;
   z-index: 2;
   min-width: 58rem;
-  /* background-color: #fff; */
   border: 7px solid var(--light-blue-100);;
   border-radius: 45px;
 }
@@ -14,7 +13,6 @@
   left: -8px;
   width: 88px;
   height: 89px;
-  /* background-color: #fff; */
 }
 
 .testimonial-card::after {
@@ -70,3 +68,10 @@
   line-height: 1.2;
   color: var(--light-blue-100);;
 }
+
+@media only screen and (max-width: 56.25em) {
+  .testimonial-card {
+    min-width: fit-content;
+  }
+}
+

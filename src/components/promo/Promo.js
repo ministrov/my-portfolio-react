@@ -13,7 +13,7 @@ const Promo = ({ setIsOpen }) => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ type: "tween", duration: 1 }}
       >
-        <h2 className="promo__title">Hey Folks, My name is Anton Zhilin</h2>
+        <h2 className="promo__title">Hey Folks, I'm Anton Zhilin</h2>
         <p className="promo__text">
           Welcome to a world where pixels come alive and digital dreams become
           reality. Step into my realm and let me weave captivating designs with

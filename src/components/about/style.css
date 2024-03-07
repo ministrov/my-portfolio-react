@@ -64,3 +64,18 @@
   background-color: var(--title-1);
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
+
+@media only screen and (max-width: 56.25em) {
+  .about__wrapper {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .about__left {
+    width: 100%;
+  }
+
+  .about__right {
+    display: none;
+  }
+}
