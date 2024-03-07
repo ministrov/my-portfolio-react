@@ -45,3 +45,9 @@
 .skills__text:not(:last-child) {
   margin-bottom: 3rem;
 }
+
+@media only screen and (max-width: 56.25em) {
+  .skills__wrapper {
+    gap: 1.5rem;
+  }
+}

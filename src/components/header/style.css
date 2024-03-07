@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 6rem;
   padding: 1rem 5rem;
 }
 
@@ -86,9 +87,9 @@
 }
 
 .nav__toggler div {
-  width: 2rem;
-  height: 0.2rem;
-  margin: 0.4rem;
+  width: 3rem;
+  height: 3px;
+  margin: 5px;
   background-color: var(--blackpure);
   transition: 0.34s ease-in;
 }
@@ -117,6 +118,11 @@
 }
 
 @media only screen and (max-width: 56.25em) {
+  .main-nav {
+    min-height: 8rem;
+    padding: 0 2rem;
+  }
+
   .nav {
     position: fixed;
     width: 100%;
@@ -125,30 +131,41 @@
 
   .nav__toggler {
     display: block;
+    width: 35px;
+    height: 35px;
   }
 
   .nav-list {
     z-index: 5;
     position: fixed;
-    top: 6rem;
+    top: 19%;
     right: 0;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
     width: 100%;
-    height: 93vh;
+    display: block;
+    text-align: right;
     background-color: var(--header-bg);
     transform: translateX(100%);
     transition: 0.5s ease-in;
   }
 
-  .nav-list .nav-list__active {
+  .nav-list__link:first-child {
+    border-top: 1px solid #eee;
+  }
+
+  .nav-list__link {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2.5rem 3rem;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #eee;
+  }
+
+
+  .nav-list.nav-list__active {
     transform: translateX(0);
   }
-}
 
-@media only screen and (max-width: 37.5em) {
-  .main-nav {
-    padding: 1rem 2rem;
+  .nav-list__link--active::before {
+    display: none;
   }
 }
