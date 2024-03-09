@@ -6,6 +6,7 @@ import Modal from "../components/modal/Modal";
 import Contact from "../components/contacts/Contacts";
 import Skills from "../components/skills/Skills";
 import Testimonials from "../components/testimonials/Testimonials";
+import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,6 +54,8 @@ const Home = () => {
         <Testimonials />
 
         <Contact />
+
+        <ScrollToTop/>
       </motion.main>
 
       <Modal open={isOpen} onClose={onCloseHandler}>

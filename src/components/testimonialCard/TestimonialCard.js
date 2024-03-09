@@ -1,9 +1,17 @@
+import { FaQuoteRight } from "react-icons/fa";
+import { FaQuoteLeft } from "react-icons/fa";
 import clientAvatar from "../../assets/png/john-doe.png";
 import "./style.css";
 
 const TestimonialCard = () => {
   return (
     <article className="testimonial-card">
+      <div className="testimonial-card__top-left">
+        <FaQuoteRight/>
+      </div>
+      <div className="testimonial-card__bottom-right">
+        <FaQuoteLeft/>
+      </div>
       <p className="testimonial-card__paragraph">
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
