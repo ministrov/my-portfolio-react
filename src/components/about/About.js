@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Button from "../button/Button";
 import Heading from "../heading/Heading";
-import myPicture from "../../img/my-avatar.jpg";
+import myPicture from "../../assets/my-avatar.jpg";
 import "./style.css";
 
 const About = () => {
