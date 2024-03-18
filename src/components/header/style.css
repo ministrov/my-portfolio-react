@@ -89,7 +89,7 @@
   width: 3rem;
   height: 3px;
   margin: 5px;
-  background-color: var(--blackpure);
+  background-color: var(--deep-black);
   transition: 0.34s ease-in;
 }
 

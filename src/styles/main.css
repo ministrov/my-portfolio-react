@@ -15,24 +15,24 @@
   // etc
   $deep-purple-A900:
 */
-  --blackpure: #000;
-  --black: #171718;
-  --black-border: #26292d;
-  --main-sub-text: #777;
   --white: #fff;
+  --deep-black: #000;
+  --deep-black-100: #171718;
+  --deep-black-200: #26292d;
   --light-blue-100: #0062b9;
-
+  --light-grey: #777;
+ 
   /* Nav */
-  --nav-bg: var(--black);
-  --nav-border: var(--black-border);
-  --nav-text: var(--blackpure);
+  --nav-bg: var(--deep-black-100);
+  --nav-border: var(--deep-black-200);
+  --nav-text: var(--deep-black);
 
   /* Header */
   --header-bg: var(--white);
   --header-text: var(--white);
 
   /* Footer */
-  --footer-bg: var(--black);
+  --footer-bg: var(--deep-black-100);
   --footer-text: var(--white);
 
   /* Border-radius */
@@ -40,32 +40,30 @@
 
   /* Light mode */
   --page-bg: var(--white);
-  --text-color: var(--black);
+  --text-color: var(--deep-black-100);
   --accent: var(--light-purple-100);
   --title-1: var(--accent);
   --grey: #fafafa;
   --project-card-bg: var(--white);
-  --project-card-text: var(--black);
+  --project-card-text: var(--deep-black-100);
   --box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
   --gradient: linear-gradient(to right, rgba(0, 98, 185, 0.8), rgba(0,98, 185, 0.8));
-  --skills-elements-border: 1px solid var(--black-border);
 }
 
 .dark {
   /* Dark mode */
   --page-bg: #252526;
-  --header-bg: var(--black);
-  --blackpure: var(--white);
+  --header-bg: var(--deep-black-100);
+  --deep-black: var(--white);
   --text-color: var(--white);
-  --light-blue-100: var(--main-sub-text);
+  --light-blue-100: var(--light-grey);
   --nav-text: var(--white);
   --title-1: var(--white);
-  --grey: var(--black-border);
-  --project-card-bg: var(--black);
+  --grey: var(--deep-black-200);
+  --project-card-bg: var(--deep-black-100);
   --project-card-text: var(--white);
   --box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.8);
   --gradient: linear-gradient(to right, rgb(18 21 24 / 80%), rgb(26 27 29 / 80%));
-  --skills-elements-border: 1px solid var(--white);
 }
 
 *,
@@ -179,7 +177,7 @@ body {
   font-weight: 700;
   font-size: 2.8rem;
   margin-bottom: 3rem;
-  color: var(--blackpure);
+  color: var(--deep-black);
 }
 
 .project-detail__text-overview {

@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
 import Modal from "../components/modal/Modal";
-import Contact from "../components/contacts/Contacts";
+import Contacts from "../sections/contacts/Contacts";
 import Skills from "../sections/skills/Skills";
-import Testimonials from "../components/testimonials/Testimonials";
+import Testimonials from "../sections/testimonials/Testimonials";
 import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 
 const Home = () => {
@@ -53,7 +53,7 @@ const Home = () => {
 
         <Testimonials />
 
-        <Contact />
+        <Contacts />
 
         <ScrollToTop/>
       </motion.main>

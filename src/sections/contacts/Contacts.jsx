@@ -1,5 +1,5 @@
-import Heading from "../heading/Heading";
-import ContactsForm from "../contactsForm/ContactsForm";
+import Heading from "../../components/heading/Heading";
+import ContactsForm from "../../components/contactsForm/ContactsForm";
 import "./style.css";
 
 const Contacts = () => {
