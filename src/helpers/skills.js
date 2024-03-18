@@ -3,7 +3,7 @@ import { SiJavascript } from 'react-icons/si';
 import { ImHtmlFive } from 'react-icons/im';
 import { v4 as uuidv4 } from 'uuid';
 
-const skills = [
+export const skills = [
   {
     id: uuidv4(),
     tech: 'HTML',
@@ -35,5 +35,3 @@ const skills = [
     icon: <SiJavascript />
   }
 ];
-
-export default skills;

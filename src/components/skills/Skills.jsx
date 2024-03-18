@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import skills from "../../helpers/skills";
+import { skills } from "../../helpers/skills";
 import Heading from "../heading/Heading";
 import SkillComponet from "../skillComponent/SkillComponent";
 import "./style.css";
