@@ -1,5 +1,5 @@
-import Heading from "../heading/Heading";
-import ProjectsList from "../projectsList/ProjectsList";
+import Heading from "../../components/heading/Heading";
+import ProjectsList from "../../components/projectsList/ProjectsList";
 import "./style.css";
 
 const Projects = () => {

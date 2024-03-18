@@ -7,7 +7,7 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   text-align: center;
-  color: var(--blackpure);
+  color: var(--deep-black);
 }
 
 .heading-sec__main::after {
@@ -34,7 +34,7 @@
   font-weight: 500;
   line-height: 1.6; 
   text-align: center;
-  color: var(--main-sub-text);;
+  color: var(--light-grey);
 }
 
 .heading-sm {

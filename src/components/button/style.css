@@ -16,7 +16,7 @@
 .btn--bg {
   padding: 1.5rem 8rem;
   font-size: 1.8rem; 
-  color: var(--black);
+  color: var(--deep-black-100);
   background-color: var(--white);
 }
 

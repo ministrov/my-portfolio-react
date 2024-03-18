@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import Button from "../button/Button";
-import MouseScroll from "../mouseScroll/MouseScroll";
+import Button from "../../components/button/Button";
+import MouseScroll from "../../components/mouseScroll/MouseScroll";
 import MyAvatar from "../../assets/png/my-avatar.png";
 import "./style.css";
 
