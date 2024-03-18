@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Projects from "../components/projects/Projects";
+import Projects from "../sections/projects/Projects";
 
 const ProjectsPage = () => {
   return (
