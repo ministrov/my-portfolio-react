@@ -82,7 +82,7 @@
   color: var(--light-blue-100);;
 }
 
-@media only screen and (max-width: 56.25em) {
+@media only screen and (max-width: 86.25em) {
   .testimonial-card {
     min-width: fit-content;
   }

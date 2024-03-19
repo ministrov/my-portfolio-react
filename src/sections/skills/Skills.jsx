@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { skills } from "../../helpers/skills";
 import Heading from "../../components/heading/Heading";
 import SkillComponet from "../../components/skillComponent/SkillComponent";
@@ -17,11 +16,8 @@ const Skills = () => {
 
       <div className="container">
         <div className="skills__wrapper">
-          <motion.div
+          <div
             className="skills__left"
-            initial={{ x: -50, opacity: 1 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ type: "tween", duration: 1 }}
           >
             <h3 className="skills__left-heading">My Skills</h3>
 
@@ -34,12 +30,9 @@ const Skills = () => {
                 />
               ))}
             </div>
-          </motion.div>
-          <motion.div
+          </div>
+          <div
             className="skills__right"
-            initial={{ x: 50, opacity: 1 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ type: "tween", duration: 1 }}
           >
             <h3 className="skills__right-heading">Get to know me!</h3>
 
@@ -59,7 +52,7 @@ const Skills = () => {
                 needs of a business.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

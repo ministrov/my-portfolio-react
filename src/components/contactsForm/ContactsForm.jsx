@@ -1,15 +1,11 @@
-import { motion } from "framer-motion";
 import "./style.css";
 
 const ContactsForm = () => {
   return (
     <div className="contact__form-container">
-      <motion.form
+      <form
         action="#"
         className="contact__form"
-        initial={{ x: 50, opacity: 1 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ type: "tween", duration: 1 }}
       >
         <div className="contact__form-field">
           <label className="contact__form-label" htmlFor="name">
@@ -54,7 +50,7 @@ const ContactsForm = () => {
         <button type="submit" className="btn btn--theme contact__btn">
           Submit
         </button>
-      </motion.form>
+      </form>
     </div>
   );
 };

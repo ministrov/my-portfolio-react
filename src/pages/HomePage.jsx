@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
 import Modal from "../components/modal/Modal";
@@ -37,11 +36,8 @@ const Home = () => {
 
   return (
     <>
-      <motion.main
+      <main
         className="home-page"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
       >
         <h1 className="visually-hidden">Home page of the author</h1>
 
@@ -56,7 +52,7 @@ const Home = () => {
         <Contacts />
 
         <ScrollToTop/>
-      </motion.main>
+      </main>
 
       <Modal open={isOpen} onClose={onCloseHandler}>
         <p>
@@ -71,7 +67,7 @@ const Home = () => {
           eveniet deleniti eaque dolor cum repudiandae nostrum!
         </p>
 
-        <div style={{ maxWidth: "50rem", margin: "0 auto", fontSize: "9rem" }}>
+        <div>
           {formatedDate}
         </div>
       </Modal>
