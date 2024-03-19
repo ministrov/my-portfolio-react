@@ -23,8 +23,7 @@
 }
 
 .contact__form-input {
-  width: 94%;
-  padding: 2rem;
+  max-width: -webkit-fill-available;
   font-weight: 600;
   font-size: 1.2rem;
   letter-spacing: 0px;

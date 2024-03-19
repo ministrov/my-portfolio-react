@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import myPicture from "../../assets/my-avatar.jpg";
@@ -17,11 +16,8 @@ const About = () => {
         ></Heading>
 
         <div className="about__wrapper">
-          <motion.div
+          <div
             className="about__left"
-            initial={{ x: -50, opacity: 1 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ type: "tween", duration: 1 }}
           >
             <p className="about__description">
               Hi, I'm Anton!
@@ -50,20 +46,17 @@ const About = () => {
                 className={"btn--theme btn--med"}
               />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
+          <div
             className="about__right"
-            initial={{ x: 50, opacity: 1 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ type: "tween", duration: 1 }}
           >
             <img
               className="about__image"
               src={myPicture}
               alt="Focus on author's face"
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

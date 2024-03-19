@@ -18,6 +18,22 @@
   margin-top: auto;
 }
 
+.modal div {
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
 .modal p {
   margin-bottom: 3rem;
+}
+
+@media (max-width: 36rem) {
+  .modal {
+    width: clamp(36rem, 34rem, 66%);
+    height: auto;
+  }
+
+  .modal div {
+    font-size: 4rem;
+  }
 }

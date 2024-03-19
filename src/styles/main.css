@@ -1,20 +1,6 @@
 :root {
 /* Colors */
-/* Examples of naming colors 
-  $light-green-100:
-  $light-green-200:
-  $light-green-300:
-  // etc
-  $light-green-900:
-  $light-green-A200:
-  $light-green-A400:
 
-  $deep-purple-100:
-  $deep-purple-200:
-  $deep-purple-300:
-  // etc
-  $deep-purple-A900:
-*/
   --white: #fff;
   --deep-black: #000;
   --deep-black-100: #171718;
@@ -110,7 +96,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   /* Light mode */
   background-color: var(--page-bg);
 }
