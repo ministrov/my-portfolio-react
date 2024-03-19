@@ -7,18 +7,13 @@
   display: flex;
   gap: 1rem;
   margin-bottom: 25px;
-  /* padding: 4px 10px;
-  /* scroll-padding: 10px;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth; */ 
 }
 
 
 .carousel__controls {
   display: flex;
-  gap: 25px;
-  padding-left: 0.5rem;
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 .carousel__btn_prev,
@@ -33,9 +28,14 @@
   background-color: var(--light-purple-100);
 }
 
-
-@media (max-width: 1286px) {
+@media only screen and (max-width: 56.25em) {
   .carousel__inner {
-    gap: 2.7rem;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 36rem) {
+  .carousel__inner {
+    gap: 3rem;
   }
 }
