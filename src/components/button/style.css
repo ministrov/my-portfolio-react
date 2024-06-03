@@ -34,7 +34,7 @@
 
 .btn--theme {
   max-width: 15rem;
-  min-height: 27px;
+  line-height: 1.8;
   background: var(--light-blue-100);;
   color: #fff;
 }

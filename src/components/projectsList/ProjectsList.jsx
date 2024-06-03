@@ -1,5 +1,5 @@
 import ProjectCard from "../projectCard/ProjectCard";
-import { projects } from "../../helpers/projectsList";
+import { projects } from "../../data/projects";
 import { motion } from "framer-motion";
 import "./style.css";
 

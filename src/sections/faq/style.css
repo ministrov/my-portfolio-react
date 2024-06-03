@@ -1,5 +1,26 @@
 .faq {
   padding: 12rem 0;
-  background-color: turquoise;
+  /* background-color: turquoise; */
+  background: rgba(153, 153, 153, 0.2);
 }
 
+.faq__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  background-color: var(--light-blue-100);
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  color: var(--deep-black);
+  border-radius: 8px;
+}
