@@ -6,6 +6,7 @@ import Contacts from "../sections/contacts/Contacts";
 import Skills from "../sections/skills/Skills";
 import Testimonials from "../sections/testimonials/Testimonials";
 import ScrollToTop from "../components/scrollToTop/ScrollToTop";
+import Faq from "../sections/faq/Faq";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,6 +49,8 @@ const Home = () => {
         <Skills />
 
         <Testimonials />
+
+        <Faq/>
 
         <Contacts />
 

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import Heading from "../components/heading/Heading";
 import Button from "../components/button/Button";
 import SkillComponet from "../components/skillComponent/SkillComponent";
-import { projects } from "../helpers/projectsList";
+import { projects } from "../data/projects";
 import { motion } from "framer-motion";
 
 const ProjectPage = () => {

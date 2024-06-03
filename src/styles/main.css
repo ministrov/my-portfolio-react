@@ -7,7 +7,7 @@
   --deep-black-200: #26292d;
   --light-blue-100: #0062b9;
   --light-grey: #777;
- 
+
   /* Nav */
   --nav-bg: var(--deep-black-100);
   --nav-border: var(--deep-black-200);
@@ -96,7 +96,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
   /* Light mode */
   background-color: var(--page-bg);
 }
@@ -124,7 +124,7 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
-} 
+}
 
 /* Project page details */
 

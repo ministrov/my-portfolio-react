@@ -1,21 +1,23 @@
 .btn {
-  display: inline-block;
+  display: flex;
+  max-height: 57px;
+  font-size: 1.8rem;
+  line-height: 1.5;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--white);
   border-radius: var(--border-rs);
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
-  transition: transform .3s; 
+  transition: transform .3s;
 }
 
 .btn:hover {
-  transform: translateY(-3px); 
+  transform: translateY(-3px);
 }
 
 .btn--bg {
   padding: 1.5rem 8rem;
-  font-size: 1.8rem; 
   color: var(--deep-black-100);
   background-color: var(--white);
 }
@@ -31,12 +33,14 @@
 }
 
 .btn--theme {
+  max-width: 15rem;
+  line-height: 1.8;
   background: var(--light-blue-100);;
-  color: #fff; 
+  color: #fff;
 }
 
 .btn--theme-inv {
-  padding: calc(1.5rem - 2px) calc(5rem - 2px); 
+  padding: calc(1.5rem - 2px) calc(5rem - 2px);
   color: var(--light-blue-100);;
   background: #fff;
   border: 2px solid var(--light-blue-100);;

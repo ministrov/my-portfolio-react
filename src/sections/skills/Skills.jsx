@@ -1,4 +1,4 @@
-import { skills } from "../../helpers/skills";
+import { skills } from "../../data/skills";
 import Heading from "../../components/heading/Heading";
 import SkillComponet from "../../components/skillComponent/SkillComponent";
 import "./style.css";
