@@ -130,7 +130,7 @@
   .nav-list {
     z-index: 5;
     position: fixed;
-    top: 87px;
+    top: 73px;
     right: 0;
     width: 100%;
     display: block;
@@ -142,6 +142,10 @@
 
   .nav-list__link:first-child {
     border-top: 1px solid #eee;
+  }
+
+  .nav-list__link::before {
+    display: none;
   }
 
   .nav-list__link {

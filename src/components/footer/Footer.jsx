@@ -1,3 +1,4 @@
+// import Logo from "../logo/Logo";
 import "./style.css";
 
 const Footer = () => {
@@ -43,7 +44,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="social__item">
-                <a href="#!">
+                {/* <a href="#!">
                   <svg
                     width="38"
                     height="38"
@@ -56,7 +57,7 @@ const Footer = () => {
                       fill="white"
                     />
                   </svg>
-                </a>
+                </a> */}
               </li>
               <li className="social__item">
                 <a href="#!">
@@ -77,6 +78,8 @@ const Footer = () => {
             </ul>
           </div>
           <div className="main-footer__row main-footer__row-2">
+            {/* <Logo /> */}
+            {/* Need to remove and add LOGO component */}
             <h4 className="main-footer__heading-sm">Anton Zhilin</h4>
             <p className="main-footer__short-desc">
               Lorem ipsum dolor sit amet consectetur adipisicing elit facilis
