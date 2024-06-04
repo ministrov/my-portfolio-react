@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
-    <div className="services">
+    <section className="services">
       <div className="container">
         <motion.div
           initial={{ opacity: 0 }}
@@ -14,23 +14,26 @@ const Services = () => {
             opacity: 1,
             transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' }
           }}
+          className="services__list"
         >
           {services.map((service, index) => (
-            <div key={index}>
+            <div key={index}
+              className="services__item"
+            >
               {/* Top */}
-              <div>
-                <div>{service.num}</div>
+              <div className="services__item-block">
+                <div className="services__item-text text-outline">{service.num}</div>
+                <Link className="services__item-link" href={service.href}>
+                  <BsArrowDownRight className="services__item-icon"/>
+                </Link>
               </div>
-              <Link href={service.href}>
-                <BsArrowDownRight />
-              </Link>
 
               {/* Title */}
 
-              <h2>{service.title}</h2>
+              <h2 className="services__subheading">{service.title}</h2>
 
               {/* Description */}
-              <p>{service.description}</p>
+              <p className="services__description">{service.description}</p>
 
               {/* Border */}
               <div className="services__border"></div>
@@ -39,7 +42,7 @@ const Services = () => {
           }
         </motion.div>
       </div>
-    </div>
+    </section>
   )
 }
 

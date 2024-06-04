@@ -1,7 +1,6 @@
 import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
-// import myPicture from "../../assets/my-avatar.jpg";
-import myPicture from "../../assets/photo.png";
+import Photo from "../../components/photo/Photo";
 import "./style.css";
 
 const About = () => {
@@ -52,11 +51,7 @@ const About = () => {
           <div
             className="about__right"
           >
-            <img
-              className="about__image"
-              src={myPicture}
-              alt="Focus on author's face"
-            />
+            <Photo />
           </div>
         </div>
       </div>
