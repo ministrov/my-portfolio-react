@@ -7,6 +7,7 @@ import Skills from "../sections/skills/Skills";
 import Testimonials from "../sections/testimonials/Testimonials";
 import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 import Faq from "../sections/faq/Faq";
+import Services from "../sections/services/Services";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +44,8 @@ const Home = () => {
         <h1 className="visually-hidden">Home page of the author</h1>
 
         <Promo setIsOpen={setIsOpen} />
+
+        <Services />
 
         <About />
 
