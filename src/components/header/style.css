@@ -49,12 +49,12 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: inherit;
-  color: var(--nav-text);
+  color: var(--light-blue-100);
   transition: color .3s;
 }
 
 .nav-list__link:hover {
-  color: var(--light-blue-100);
+  color: var(--light-blue-200);
   transition: color 0.5s ease-in;
 }
 
@@ -68,7 +68,7 @@
   transform-origin: right;
   transform: scaleX(0);
   transition: transform .3s ease-in-out;
-  background-color: var(--nav-text);
+  background-color: var(--light-blue-200);
 }
 
 .nav-list__link:hover::before {
