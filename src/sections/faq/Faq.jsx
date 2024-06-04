@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Heading from "../../components/heading/Heading";
+import { FaPlus } from "react-icons/fa6";
 import { faqs } from "../../data/faq";
 import "./style.css";
 
@@ -25,8 +26,12 @@ const Faq = () => {
                   <h3>{item.title}</h3>
                   {
                     activeIndex === index ?
-                    <div className="faq__icon">X</div> :
-                    <div className="faq__icon">+</div>
+                    <div className="faq__icon">
+                      <FaPlus />
+                    </div> :
+                      <div className="faq__icon faq__icon--cross">
+                      <FaPlus/>
+                    </div>
                   }
                 </div>
                 <div className="faq__answer">

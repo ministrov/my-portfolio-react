@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="main-footer__upper">
           <div className="main-footer__row main-footer__row-1">
             <h2 className="main-footer__heading-sm">
-              <span>Social</span>
+              <span>Socials</span>
             </h2>
             <ul className="main-footer__social social">
               <li className="social__item">
