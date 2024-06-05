@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   padding-top: 12rem;
-  /* background-color: tomato; */
 }
 
 .services__list {
@@ -31,7 +30,7 @@
 
 .services__item-block:hover .services__item-text,
 .services__item-block:focus .services__item-text {
-  -webkit-text-stroke: 1px #9459f5;
+  -webkit-text-stroke: 1px var(--light-blue-200);
   transition: all .5s ease-in-out;
 }
 
@@ -90,5 +89,10 @@
   .services__list {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .services__item {
+    flex: initial;
+    gap: 4rem;
   }
 }

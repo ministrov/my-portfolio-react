@@ -1,0 +1,20 @@
+.socials {
+  display: flex;
+  gap: 3rem;
+}
+
+.socials__link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  width: 4rem;
+	height: 4rem;
+  padding: 1rem 1rem;
+	font-size: 3.6rem;
+  line-height: 4;
+  color: var(--white);
+
+  border: 1px solid var(--white);
+  border-radius: 50%;
+}
+
