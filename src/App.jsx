@@ -6,13 +6,11 @@ import "./styles/main.css";
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <Header />
-        <AnimatedRoutes />
-      </Router>
+    <Router>
+      <Header />
+      <AnimatedRoutes />
       <Footer />
-    </>
+    </Router>
   );
 };
 

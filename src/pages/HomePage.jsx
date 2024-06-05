@@ -8,6 +8,7 @@ import Testimonials from "../sections/testimonials/Testimonials";
 import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 import Faq from "../sections/faq/Faq";
 import Services from "../sections/services/Services";
+import Statistics from "../sections/statistics/Statistics";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ const Home = () => {
   const formatedDate = new Intl.DateTimeFormat("ru-Ru").format();
 
   useEffect(() => {
-    console.log(formatedDate);
+    // console.log(formatedDate);
   }, [formatedDate]);
 
   return (
@@ -44,6 +45,8 @@ const Home = () => {
         <h1 className="visually-hidden">Home page of the author</h1>
 
         <Promo setIsOpen={setIsOpen} />
+
+        <Statistics />
 
         <Services />
 
