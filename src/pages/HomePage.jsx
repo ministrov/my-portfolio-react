@@ -48,9 +48,9 @@ const Home = () => {
 
         <Statistics />
 
-        <Services />
-
         <About />
+
+        <Services />
 
         <Skills />
 
