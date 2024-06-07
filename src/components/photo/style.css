@@ -1,3 +1,27 @@
+.about__image-block {
+  position: relative;
+}
+
+.about__image-wrapper {
+  width: 498px;
+  height: 498px;
+  mix-blend-mode: lighten;
+}
+
 .about__image {
-  display: block;
+  /* position: absolute; */
+  object-fit: contain;
+}
+
+.about__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .about__image-wrapper {
+    width: 298px;
+    height: 298px;
+  }
 }
