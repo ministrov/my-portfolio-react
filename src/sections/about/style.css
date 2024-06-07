@@ -30,9 +30,10 @@
 }
 
 .about__right {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  max-height: 498px;
   height: fit-content;
   background-color: var(--light-blue-100);
   border-radius: 50%;
@@ -66,14 +67,18 @@
 @media only screen and (max-width: 56.25em) {
   .about__wrapper {
     flex-direction: column;
+    align-items: center;
     gap: 3rem;
   }
 
   .about__left {
     width: 100%;
   }
-
-  .about__right {
-    display: none;
-  }
 }
+
+/* @media screen and (max-width: 36.25) {
+
+
+
+
+} */
