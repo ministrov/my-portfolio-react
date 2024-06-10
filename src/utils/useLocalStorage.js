@@ -5,14 +5,18 @@ import { useState, useEffect } from "react";
 function getStorageValue(key, defaultValue) {
   // getting storage value
   const saved = localStorage.getItem(key);
+  console.log(saved);
   const initial = JSON.parse(saved);
+  // console.log(initial);
   return initial || defaultValue;
 }
 
 export const useLocalStorage = (key, defaultValue) => {
-  const [value, setValue] = useState(() => {
-    return getStorageValue(key, defaultValue);
-  });
+  // const [value, setValue] = useState(() => {
+  //   return getStorageValue(key, defaultValue);
+  // });
+  const [value, setValue] = useState(() => getStorageValue(key, defaultValue));
+  console.log(defaultValue);
 
   useEffect(() => {
     // storing input name

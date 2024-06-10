@@ -3,8 +3,6 @@ import { useLocalStorage } from "../../utils/useLocalStorage";
 import detectDarkMode from "../../utils/detectDarkMode";
 import { WiDaySunny } from "react-icons/wi";
 import { WiMoonWaningCrescent2 } from "react-icons/wi";
-// import sun from "../../assets/svg/sun.svg";
-// import moon from "../../assets/svg/moon.svg";
 import "./style.css";
 
 const DarkModeToggler = () => {
@@ -14,6 +12,7 @@ const DarkModeToggler = () => {
 
   useEffect(() => {
     if (darkMode === "dark") {
+      console.log(darkMode);
       document.body.classList.add("dark");
       buttonRef.current.classList.add("dark-mode-btn--active");
     } else {
@@ -23,17 +22,13 @@ const DarkModeToggler = () => {
   }, [darkMode]);
 
   const toggleDarkMode = () => {
-    setDarkMode((currentValue) => {
-      return currentValue === "light" ? "dark" : "light";
-    });
+    setDarkMode((currentValue) => currentValue === "light" ? "dark" : "light");
   };
 
   return (
     <button ref={buttonRef} className="dark-mode-btn" onClick={toggleDarkMode}>
       <WiDaySunny className="dark-mode-btn__icon" />
       <WiMoonWaningCrescent2 className="dark-mode-btn__icon--moon" />
-      {/* <img src={sun} alt="Light mode" className="dark-mode-btn__icon" /> */}
-      {/* <img src={moon} alt="Dark mode" className="dark-mode-btn__icon" /> */}
     </button>
   );
 };

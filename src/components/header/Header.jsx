@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import ButtonDarkMode from "../darkModeToggler/DarkModeToggler";
-import ErrorBoundary from "../errorBoundary/ErrorBoundary";
+// import ButtonDarkMode from "../darkModeToggler/DarkModeToggler";
+// import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import Logo from "../logo/Logo";
 import "./style.css";
 
@@ -32,9 +32,10 @@ const Header = () => {
         <Logo />
 
         <div className="main-nav__right-menu">
-          <ErrorBoundary>
+          {/* <ErrorBoundary>
             <ButtonDarkMode />
-          </ErrorBoundary>
+          </ErrorBoundary> */}
+          {/* <ButtonDarkMode /> */}
 
           <ul className={`main-nav__list ${active}`}>
             <li className="nav-list__item">
