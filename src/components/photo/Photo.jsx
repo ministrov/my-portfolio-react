@@ -12,20 +12,12 @@ const Photo = () => {
           transition: { delay: 2, duration: 0.4, ease: "easeIn"}
         }}
       >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" }
-          }}
-          className="about__image-wrapper"
-        >
-          <img
-            className="about__image"
-            src={myPicture}
-            alt="Focus on author's face"
-          />
-        </motion.div>
+
+        <img
+          className="about__image"
+          src={myPicture}
+          alt="Focus on author's face"
+        />
 
         {/* <motion.svg
           className="about__svg"
@@ -34,14 +26,14 @@ const Photo = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <motion.circle
-            cx="273"
-            cy="273"
-            r="275"
+            cx="300"
+            cy="300"
+            r="300"
             stroke="#0062b9"
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
-            initial={{ strokeDasharray: "24 10 0 0"}}
+            initial={{ strokeDasharray: "24 10 1 2"}}
             animate={{
               strokeDasharray: ["15 120 25 25", "16 25 92 72", "4 250 22 22"],
               rotate: [120, 360]
@@ -52,7 +44,17 @@ const Photo = () => {
               repeatType: "reverse"
             }}
           />
-        </motion.svg> */}
+        </motion.svg>
+        {/* <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" }
+          }}
+          className="about__image-wrapper"
+        >
+          
+        </motion.div> */} 
       </motion.div>
     </div>
   )

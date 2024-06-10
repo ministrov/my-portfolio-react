@@ -1,15 +1,14 @@
 .about__image-block {
   position: relative;
+  mix-blend-mode: lighten;
 }
 
 .about__image-wrapper {
   width: 498px;
   height: 498px;
-  mix-blend-mode: lighten;
 }
 
 .about__image {
-  /* position: absolute; */
   object-fit: contain;
 }
 

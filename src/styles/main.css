@@ -119,7 +119,7 @@ body {
 
 .container {
   max-width: 120rem;
-  width: 92%;
+  /* width: 92%; */
   margin: auto;
 }
 
