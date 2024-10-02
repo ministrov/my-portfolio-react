@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 12rem;
+  /* padding-top: 12rem; */
+  padding-bottom: 12rem;
 }
 
 .services__list {

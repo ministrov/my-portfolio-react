@@ -1,8 +1,8 @@
+import { Link } from "react-router-dom";
 import { BsArrowDownRight } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { services } from "../../data/services";
 import "./style.css";
-import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
