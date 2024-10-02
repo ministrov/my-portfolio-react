@@ -25,7 +25,25 @@
   transition: color .3s ease-in-out, border .3s ease-in-out;
 }
 
+.logo__name--second {
+  padding: 0.4em 2.5em;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 2px solid var(--white);
+  border-radius: 6px;
+  transition: color .3s ease-in-out, border .3s ease-in-out;
+}
+
 .logo__name:hover {
   color: var(--light-blue-200);
+  opacity: 0.8;
   border: 2px solid var(--light-blue-200);
+}
+
+.logo__name--second:hover {
+  color: var(--white);
+  opacity: 0.8;
+  border: 2px solid var(--white);
 }

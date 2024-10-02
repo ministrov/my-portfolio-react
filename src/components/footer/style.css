@@ -15,8 +15,11 @@
 }
 
 .main-footer__row-2 {
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   order: 1;
+  width: 40%;
   max-width: 50rem;
 }
 

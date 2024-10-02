@@ -76,12 +76,6 @@
   font-size: 1.6rem;
 }
 
-.contact__btn {
-  padding: 1rem 4rem;
-  font-size: 1.6rem;
-  line-height: initial;
-}
-
 @media only screen and (max-width: 37.5em) {
   .contact__form-container {
     padding: 3rem;

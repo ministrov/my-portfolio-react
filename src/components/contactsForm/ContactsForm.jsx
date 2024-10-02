@@ -47,7 +47,7 @@ const ContactsForm = () => {
             id="message"
           ></textarea>
         </div>
-        <button type="submit" className="btn btn--theme contact__btn">
+        <button type="submit" className="btn btn--theme">
           Submit
         </button>
       </form>
