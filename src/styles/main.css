@@ -202,15 +202,29 @@ body {
   min-height: 80vh;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 98.25em) {
   html {
-    font-size: 59%;
+    font-size: 56%;
+  }
+
+  .container {
+    width: 95%;
   }
 }
 
 @media only screen and (max-width: 56.25em) {
   html {
     font-size: 56%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 59%;
+  }
+
+  .container {
+    width: 90%;
   }
 }
 
