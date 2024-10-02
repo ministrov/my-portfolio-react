@@ -14,6 +14,14 @@ const Carousel = ({ className }) => {
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
 
+  const moveSlideLeft = () => {
+    console.log('click left');
+  };
+
+  const moveSlideRight = () => {
+    console.log('click right');
+  };
+
   return (
     <Swiper 
       className={`${className} carousel`}
@@ -55,11 +63,11 @@ const Carousel = ({ className }) => {
       </div>
       <div className="carousel__controls">
         <ControlLeft className="carousel__btn_prev" 
-          // moveLeft={moveSlideLeft} 
+          moveLeft={moveSlideLeft} 
         />
         <ControlRight
           className="carousel__btn_next"
-          // moveRight={moveSlideRight}
+          moveRight={moveSlideRight}
         />
       </div>
     </Swiper>
