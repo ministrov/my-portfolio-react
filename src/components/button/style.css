@@ -1,6 +1,7 @@
 .btn {
   display: flex;
   max-height: 57px;
+  padding: 1rem 6rem;
   font-size: 1.8rem;
   line-height: 1.5;
   font-weight: 700;
@@ -41,7 +42,7 @@
 
 .btn--theme-inv {
   padding: calc(1.5rem - 2px) calc(5rem - 2px);
-  color: var(--light-blue-100);;
+  color: var(--light-blue-100);
   background: #fff;
   border: 2px solid var(--light-blue-100);;
   box-shadow: none;

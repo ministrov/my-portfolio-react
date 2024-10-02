@@ -41,16 +41,16 @@
   justify-content: center;
 }
 
-.faq__item--active .faq__icon--cross {
+.faq__item--active .faq__icon svg {
   transform: rotate(45deg);
-  transition: rotate .5s ease-in-out;
+  transition: transform 0.3s ease-in;
 }
 
 .faq__answer {
   width: 100%;
   max-height: 0px;
   overflow: hidden;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .faq .faq__item--active .faq__answer {
@@ -67,7 +67,6 @@
 
 .faq__answer .faq__muted {
   padding: 3rem;
-  /* background-color: tomato; */
 }
 
 .faq__item--active .faq__muted{

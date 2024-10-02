@@ -26,7 +26,7 @@ const Promo = ({ setIsOpen }) => {
           <Button
             onClick={() => setIsOpen(true)}
             text={"Click me"}
-            className={"btn--bg"}
+            // className={""}
           />
         </div>
       </div>

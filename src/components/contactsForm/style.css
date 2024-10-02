@@ -79,7 +79,7 @@
 .contact__btn {
   padding: 2rem 4rem;
   font-size: 1.6rem;
-  line-height: 1.3;
+  line-height: initial;
 }
 
 @media only screen and (max-width: 37.5em) {

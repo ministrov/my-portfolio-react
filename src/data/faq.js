@@ -28,40 +28,5 @@ export const faqs = [
        average, a residential solar panel system can range from $15,000
        to $25,000 before incentives and rebates.
     `,
-  },
-  {
-    title: "How long will it take for my solar panels to pay for themselves?",
-    description: `
-    The payback period for solar panels typically ranges from 6 to 10 years,
-    depending on factors such as your energy usage, the cost of electricity
-    in your area, and the available financial incentives.
-    `,
-  },
-  {
-    title: "Will my solar panels work during a power outage?",
-    description: `
-      Most grid-tied solar power systems will not function during a power
-      outage for safety reasons unless they are paired with a battery
-       storage system or a solar generator that allows for off-grid
-       operation.
-    `,
-  },
-  {
-    title: "How much maintenance do solar panels require?",
-    description: `
-    Solar panels require minimal maintenance. Regular cleaning to remove dust,
-    dirt, and debris, as well as periodic inspections to ensure everything is
-    functioning properly, is generally sufficient. Most panels come with a
-    25-year warranty.
-    `,
-  },
-  {
-    title: "Do I need a battery storage system?",
-    description: `
-      While a battery storage system is not required, it can be beneficial
-      for storing excess energy generated during the day for use at night or
-      during power outages. Batteries can also help you become more energy
-      independent.
-    `,
-  },
+  }
 ];
