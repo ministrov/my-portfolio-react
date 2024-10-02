@@ -1,4 +1,4 @@
-import Button from "../../components/button/Button";
+// import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Photo from "../../components/photo/Photo";
 import "./style.css";
@@ -39,13 +39,13 @@ const About = () => {
               goals.
             </p>
 
-            <div className="about__button-block">
+            {/* <div className="about__button-block">
               <Button
                 href={"#!"}
                 text={"Read more >"}
                 className={"btn--theme btn--med"}
               />
-            </div>
+            </div> */}
           </div>
 
           <div
