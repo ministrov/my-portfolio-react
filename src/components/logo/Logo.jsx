@@ -1,12 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 
-const Logo = () => {
+const Logo = ({ type = null }) => {
   return (
     <div className="main-nav__logo logo">
-      <NavLink to="/" className="logo__name">
+      <Link to="/" className={`logo__name ${type}`}>
         Anton Zhilin
-      </NavLink>
+      </Link>
     </div>
   );
 };

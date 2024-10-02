@@ -1,3 +1,4 @@
+import Logo from "../logo/Logo";
 import Social from "../social/Social";
 import "./style.css";
 
@@ -15,9 +16,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="main-footer__row main-footer__row-2">
-            {/* <Logo /> */}
-            {/* Need to remove and add LOGO component */}
-            <h4 className="main-footer__heading-sm">Anton Zhilin</h4>
+            <Logo type={'logo__name--second'}/>
             <p className="main-footer__short-desc">
               Lorem ipsum dolor sit amet consectetur adipisicing elit facilis
               tempora explicabo quae quod deserunt
@@ -27,7 +26,7 @@ const Footer = () => {
 
         <div className="main-footer__lower">
           &copy; Copyright 2021. Made by
-          <a rel="noreferrer" target="_blank" href="https://rammaheshwari.com">
+          <a rel="noreferrer" target="_blank" href="#!">
             Anton Zhilin
           </a>
         </div>

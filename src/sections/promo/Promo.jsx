@@ -21,12 +21,12 @@ const Promo = ({ setIsOpen }) => {
           <Button
             text={"Download CV"}
             href={require("../../assets/pdfs/my-cv.pdf")}
-            className={"btn--bg"}
+            className={"btn--big"}
           />
           <Button
             onClick={() => setIsOpen(true)}
             text={"Click me"}
-            // className={""}
+            className={"btn--big"}
           />
         </div>
       </div>

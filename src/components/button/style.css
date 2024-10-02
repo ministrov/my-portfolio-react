@@ -17,7 +17,8 @@
   transform: translateY(-3px);
 }
 
-.btn--bg {
+.btn--big {
+  max-height: 65px;
   padding: 1.5rem 8rem;
   color: var(--light-blue-100);
   background-color: var(--white);
@@ -34,8 +35,8 @@
 }
 
 .btn--theme {
-  max-width: 15rem;
-  line-height: 1.8;
+  max-width: 28rem;
+  /* line-height: 1.8; */
   background: var(--light-blue-100);;
   color: #fff;
 }

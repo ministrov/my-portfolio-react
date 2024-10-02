@@ -13,8 +13,18 @@
   padding: 1rem 5rem;
 }
 
+.main-nav__logo {
+  max-width: fit-content;
+}
+
 .main-nav__logo:hover .logo__name {
   color: var(--light-blue-100);
+  transition: color 0.3s ease-in;
+}
+
+.main-nav__logo:hover .logo__name--second {
+  color: var(--white);
+  opacity: 0.8;
   transition: color 0.3s ease-in;
 }
 
