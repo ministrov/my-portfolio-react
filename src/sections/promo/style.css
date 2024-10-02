@@ -38,7 +38,7 @@
   top: 50%;
   left: 13%;
   max-width: 23rem;
-  padding: 0.3125rem;
+  padding: 0.3rem;
   box-shadow: var(--box-shadow);
   background-color: var(--white);
   transform: translate(-50%, -50%) rotate(45deg);
