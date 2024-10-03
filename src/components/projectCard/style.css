@@ -5,6 +5,10 @@
   border-radius: var(--border-rs);
 }
 
+.project-card:hover {
+  animation: scale-up 0.5s forwards;
+}
+
 .project-card__image {
   border-radius: var(--border-rs);
 }
@@ -21,3 +25,14 @@
   justify-content: center;
   overflow: hidden;
 }
+
+@keyframes scale-up {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
+}
+
