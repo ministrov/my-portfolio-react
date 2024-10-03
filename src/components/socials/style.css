@@ -13,8 +13,17 @@
 	font-size: 3.6rem;
   line-height: 4;
   color: var(--white);
-
   border: 1px solid var(--white);
   border-radius: 50%;
+}
+
+.socials__link:hover {
+  opacity: 0.7;
+  transition: opacity 0.8s ease;
+}
+
+.socials__link:hover svg {
+  opacity: 0.7;
+  transition: opacity 0.8s ease;
 }
 
