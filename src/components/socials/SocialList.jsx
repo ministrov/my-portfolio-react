@@ -8,7 +8,7 @@ const SocialList = ({ className }) => {
     <ul className={`${className} socials`}>
       {socials.map((social) => (
         <li key={uuidv4()} className="main-footer__item socials__item">
-          <Link href={social.path} className="socials__link">
+          <Link to={social.path} target='_blank' className="socials__link">
             {social.icon}
           </Link>
         </li>
