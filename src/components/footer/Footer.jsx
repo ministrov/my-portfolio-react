@@ -1,5 +1,5 @@
 import Logo from "../logo/Logo";
-import Social from "../social/Social";
+import SocialList from "../socials/SocialList";
 import "./style.css";
 
 const Footer = () => {
@@ -11,9 +11,7 @@ const Footer = () => {
             <h2 className="main-footer__heading-sm">
               <span>Socials</span>
             </h2>
-            <ul className="main-footer__list">
-              <Social/>
-            </ul>
+            <SocialList className={'main-footer__list'}/>
           </div>
           <div className="main-footer__row main-footer__row-2">
             <Logo type={'logo__name--second'}/>

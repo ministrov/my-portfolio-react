@@ -1,5 +1,5 @@
 import Button from "../../components/button/Button";
-import Social from "../../components/social/Social";
+import SocialList from "../../components/socials/SocialList";
 import MouseScroll from "../../components/mouseScroll/MouseScroll";
 import MyAvatar from "../../assets/png/my-avatar.png";
 import "./style.css";
@@ -37,7 +37,7 @@ const Promo = ({ setIsOpen }) => {
       <MouseScroll />
 
       <div className="promo__socials">
-        <Social/>
+        <SocialList/>
       </div>
     </section>
   );

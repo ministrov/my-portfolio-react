@@ -1,12 +1,13 @@
+import { v4 as uuidv4 } from 'uuid';
 import { Link } from "react-router-dom";
 import { socials } from "../../data/socials.js";
 import "./style.css";
 
-const Social = () => {
+const SocialList = ({ className }) => {
   return (
-    <ul className="socials">
-      {socials.map((social, index) => (
-        <li key={index} className="main-footer__item socials__item">
+    <ul className={`${className} socials`}>
+      {socials.map((social) => (
+        <li key={uuidv4()} className="main-footer__item socials__item">
           <Link href={social.path} className="socials__link">
             {social.icon}
           </Link>
@@ -16,4 +17,4 @@ const Social = () => {
   )
 }
 
-export default Social
+export default SocialList;
