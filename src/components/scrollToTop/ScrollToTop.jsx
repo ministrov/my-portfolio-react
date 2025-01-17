@@ -1,6 +1,6 @@
-import { FaLongArrowAltUp } from "react-icons/fa";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { FaLongArrowAltUp } from "react-icons/fa";
 import './style.css';
 
 const ScrollToTop = () => {

@@ -3,7 +3,7 @@
   font-size: 2rem;
   line-height: 1.6;
   color: var(--white);
-  background: rgba(153, 153, 153, 0.2);
+  background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }
 
 .faq__list {
