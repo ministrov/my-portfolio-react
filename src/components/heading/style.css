@@ -22,6 +22,14 @@
   background: var(--light-blue-100);
 }
 
+.heading-sec__main--second.heading-sec__main::after  {
+  background: var(--white);
+} 
+
+.heading-sec__main--second {
+  color: var(--white);
+}
+
 .heading-sec__mb-med {
   margin-bottom: 9rem;
 }
@@ -35,6 +43,10 @@
   line-height: 1.6;
   text-align: center;
   color: var(--light-blue-100);
+}
+
+.heading-sec__sub.heading-sec__main--second {
+  color: var(--white);
 }
 
 .heading-sm {

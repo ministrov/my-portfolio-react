@@ -9,7 +9,11 @@ const Faq = () => {
   return (
     <section className="faq">
       <div className="container">
-        <Heading title={"Frequantly Asked Questions"} slogan={"Lorem ipsum dolor sit amet consectetur, adipisicing elit."}/>
+        <Heading 
+          title={"Frequantly Asked Questions"} 
+          slogan={"Lorem ipsum dolor sit amet consectetur, adipisicing elit."}
+          className='heading-sec__main--second'
+        />
         <div className="faq__list">
           {
             faqs.map((item, index) => (
@@ -26,12 +30,13 @@ const Faq = () => {
                   <h3>{item.title}</h3>
                   {
                     activeIndex === index ?
-                    <div className="faq__icon">
-                      <FaPlus />
-                    </div> :
+                      <div className="faq__icon">
+                        <FaPlus />
+                      </div> 
+                    :
                       <div className="faq__icon faq__icon--cross">
-                      <FaPlus/>
-                    </div>
+                        <FaPlus/>
+                      </div>
                   }
                 </div>
                 <div className="faq__answer">

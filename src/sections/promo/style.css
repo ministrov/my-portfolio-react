@@ -114,6 +114,8 @@
   }
 
   .promo__text {
+    max-width: 100%;
+    text-align: initial;
     font-size: 2rem;
   }
 

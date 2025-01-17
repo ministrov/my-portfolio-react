@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 3rem;
+  padding: 4rem 4rem;
   background-color: var(--light-blue-100);
   cursor: pointer;
   transition: all .3s ease-in-out;
@@ -33,13 +33,14 @@
 }
 
 .faq__question .faq__icon {
-  min-width: 3rem;
-  min-width: 3rem;
-  width: 3rem;
-  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.faq__icon svg {
+  width: 2em;
+  height: 2em;
 }
 
 .faq__item--active .faq__icon svg {
@@ -71,5 +72,5 @@
 }
 
 .faq__item--active .faq__muted{
-  color: var(--light-blue-100);
+  color: var(--white);
 }
