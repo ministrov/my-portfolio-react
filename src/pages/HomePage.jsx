@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
 import Modal from "../components/modal/Modal";
-import Contacts from "../sections/contacts/Contacts";
+// import Contacts from "../sections/contacts/Contacts";
 import Skills from "../sections/skills/Skills";
 import Testimonials from "../sections/testimonials/Testimonials";
 import ScrollToTop from "../components/scrollToTop/ScrollToTop";
@@ -12,6 +12,7 @@ import Statistics from "../sections/statistics/Statistics";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const formatedDate = new Intl.DateTimeFormat("ru-Ru").format();
 
   const onCloseHandler = (event) => {
     const target = event.target;
@@ -31,11 +32,9 @@ const Home = () => {
     };
   }, [isOpen]);
 
-  const formatedDate = new Intl.DateTimeFormat("ru-Ru").format();
+  // useEffect(() => {
 
-  useEffect(() => {
-    // console.log(formatedDate);
-  }, [formatedDate]);
+  // }, [formatedDate]);
 
   return (
     <>
@@ -58,7 +57,7 @@ const Home = () => {
 
         <Faq/>
 
-        <Contacts />
+        {/* <Contacts /> */}
 
         <ScrollToTop/>
       </main>
