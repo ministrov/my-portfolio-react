@@ -1,21 +1,26 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { FaLongArrowAltUp } from "react-icons/fa";
 import './style.css';
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const [isShowed, setIsShowed] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   }
 
   useEffect(() => {
-    scrollToTop();
-  }, [pathname]);
+    if (window.scrollY >= 345) {
+      setIsShowed(true);
+    } else {
+      setIsShowed(false);
+    }
+
+    scrollToTop(); 
+  }, []);
 
   return (
-    <div className="scroll-to" onClick={scrollToTop}>
+    <div className={`scroll-to ${isShowed ? 'scroll-to-showed' : ''}`} onClick={scrollToTop}>
       <FaLongArrowAltUp />
     </div>
   )
