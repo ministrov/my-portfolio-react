@@ -1,7 +1,7 @@
 /* skills*/
 .skills {
   padding: 12rem 0;
-  background-color: var(--grey);
+  /* background-color: var(--grey); */
 }
 
 .skills__wrapper {
@@ -39,7 +39,7 @@
   margin: 0;
   font-size: 1.8rem;
   line-height: 1.7;
-  color: grey;
+  color: var(--light-blue-100);
 }
 
 .skills__text:not(:last-child) {
