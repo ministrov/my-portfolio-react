@@ -1,4 +1,3 @@
-// import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Photo from "../../components/photo/Photo";
 import "./style.css";
@@ -38,14 +37,6 @@ const About = () => {
               and ability to work collaboratively with teams to achieve project
               goals.
             </p>
-
-            {/* <div className="about__button-block">
-              <Button
-                href={"#!"}
-                text={"Read more >"}
-                className={"btn--theme btn--med"}
-              />
-            </div> */}
           </div>
 
           <div
