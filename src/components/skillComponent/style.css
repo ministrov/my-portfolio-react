@@ -31,3 +31,9 @@
   border-radius: 5px;
   color: var(--light-grey);
 }
+
+@media screen and (max-width: 600px) {
+  .skill__card {
+    min-width: inherit;
+  }
+}
