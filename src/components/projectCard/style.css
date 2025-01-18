@@ -1,5 +1,4 @@
 .project-card {
-  max-width: 30rem;
   background-color: var(--project-card-bg);
   box-shadow: var(--box-shadow);
   border-radius: var(--border-rs);
