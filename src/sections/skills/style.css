@@ -48,13 +48,13 @@
 
 @media only screen and (max-width: 56.25em) {
   .skills__wrapper {
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
   }
 }
 
 @media (max-width: 36rem) {
   .skills__wrapper {
-    grid-template-columns: 1fr;
     gap: 6rem;
   }
 }
