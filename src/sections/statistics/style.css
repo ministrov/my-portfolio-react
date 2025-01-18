@@ -38,3 +38,34 @@
 .max-width-150 {
   max-width: 150px;
 }
+
+@media only screen and (max-width: 37.5em) {
+  .statistics {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  
+  .statistics__list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .statistics__item {
+    display: flex;
+    gap: 2rem;
+    flex: 1 1;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .max-width-100 {
+    max-width: 150px;
+  }
+
+  .max-width-150 {
+    max-width: 220px;
+  }
+}
