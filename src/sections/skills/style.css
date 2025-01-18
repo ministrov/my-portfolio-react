@@ -33,7 +33,6 @@
   flex-wrap: wrap;
   flex: 1;
   gap: 1rem;
-  max-width: 357px;
 }
 
 .skills__text {
