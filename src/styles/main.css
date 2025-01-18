@@ -21,7 +21,7 @@
   --footer-text: var(--white);
 
   /* Border-radius */
-  --border-rs: 5px;
+  --border-rs: 8px;
 
   /* Light mode */
   --page-bg: var(--white);
