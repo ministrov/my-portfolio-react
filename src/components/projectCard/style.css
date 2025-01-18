@@ -1,12 +1,11 @@
 .project-card {
-  max-width: 30rem;
   background-color: var(--project-card-bg);
   box-shadow: var(--box-shadow);
   border-radius: var(--border-rs);
 }
 
 .project-card:hover {
-  animation: scale-up 0.5s forwards;
+  transform: scale(1.1);
 }
 
 .project-card__image {
@@ -24,15 +23,5 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
-
-@keyframes scale-up {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.2);
-  }
 }
 

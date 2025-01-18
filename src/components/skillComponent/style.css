@@ -5,15 +5,17 @@
   min-width: 155px;
   max-width: 15rem;
   padding: 1rem 1rem;
+  border: 2px solid var(--light-blue-100);
   border-radius: var(--border-rs);
-  background: rgba(153, 153, 153, 0.2);
+  background-color: var(--white);
 }
 
 .skill__card-header {
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 1.7;
-  color: var(--light-grey);
+  /* color: var(--light-grey); */
+  color: var(--light-blue-100);
 }
 
 .skill__card-icon svg {
@@ -30,4 +32,10 @@
   background: rgba(153, 153, 153, 0.2);
   border-radius: 5px;
   color: var(--light-grey);
+}
+
+@media screen and (max-width: 600px) {
+  .skill__card {
+    min-width: inherit;
+  }
 }

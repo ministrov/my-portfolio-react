@@ -5,8 +5,8 @@
 
 .skills__wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10rem;
+  grid-template-columns: 365px 1fr;
+  grid-gap: 5rem;
 }
 
 .skills__left {
@@ -31,6 +31,7 @@
 .skills__content-wrapper {
   display: flex;
   flex-wrap: wrap;
+  flex: 1;
   gap: 1rem;
 }
 
@@ -47,13 +48,17 @@
 
 @media only screen and (max-width: 56.25em) {
   .skills__wrapper {
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
   }
 }
 
 @media (max-width: 36rem) {
+  .skills {
+    padding-bottom: 8rem;
+  }
+  
   .skills__wrapper {
-    grid-template-columns: 1fr;
     gap: 6rem;
   }
 }

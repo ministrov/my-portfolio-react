@@ -1,6 +1,4 @@
 :root {
-/* Colors */
-
   --white: #fff;
   --deep-black: #000;
   --deep-black-100: #171718;
@@ -23,7 +21,7 @@
   --footer-text: var(--white);
 
   /* Border-radius */
-  --border-rs: 5px;
+  --border-rs: 8px;
 
   /* Light mode */
   --page-bg: var(--white);
@@ -35,22 +33,6 @@
   --project-card-text: var(--deep-black-100);
   --box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
   --gradient: linear-gradient(to right, rgba(0, 98, 185, 0.8), rgba(0,98, 185, 0.8));
-}
-
-.dark {
-  /* Dark mode */
-  --page-bg: #252526;
-  --header-bg: var(--deep-black-100);
-  --deep-black: var(--white);
-  --text-color: var(--white);
-  --light-blue-100: var(--light-grey);
-  --nav-text: var(--white);
-  --title-1: var(--white);
-  --grey: var(--deep-black-200);
-  --project-card-bg: var(--deep-black-100);
-  --project-card-text: var(--white);
-  --box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.8);
-  --gradient: linear-gradient(to right, rgb(18 21 24 / 80%), rgb(26 27 29 / 80%));
 }
 
 *,
