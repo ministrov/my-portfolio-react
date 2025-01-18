@@ -5,7 +5,7 @@
 }
 
 .project-card:hover {
-  animation: scale-up 0.5s forwards;
+  transform: scale(1.1);
 }
 
 .project-card__image {
@@ -23,15 +23,5 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
-
-@keyframes scale-up {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.2);
-  }
 }
 
