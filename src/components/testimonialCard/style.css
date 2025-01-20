@@ -82,9 +82,30 @@
   color: var(--light-blue-100);;
 }
 
+@media (max-width: 26rem) {
+  .testimonial-card__top-left {
+    top: -18px;
+    left: -17px;
+  }
+
+  .testimonial-card__bottom-right {
+    bottom: -17px;
+    right: -10px;
+  }
+
+  .testimonial-card__top-left svg,
+  .testimonial-card__bottom-right svg {
+    font-size: 4rem;
+  }
+
+  .testimonial-card__paragraph {
+    padding: 2.4rem;
+    padding-bottom: 2rem;
+  }
+}
+
 @media only screen and (max-width: 86.25em) {
   .testimonial-card {
     min-width: fit-content;
   }
 }
-
