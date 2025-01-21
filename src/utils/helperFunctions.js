@@ -1,7 +1,9 @@
-const LEFT = 'left';
-const RIGHT = 'right';
-const UP = 'up';
-const DOWN = 'down';
+const Direction = {
+    LEFT: 'left',
+    RIGHT: 'right',
+    UP: 'up',
+    DOWN: 'down'
+};
 
 function debounce(func, delay) {
     let timeout;
@@ -18,13 +20,13 @@ function onResize() {
 
 function getDirection(direction) {
     switch (direction) {
-        case LEFT:
+        case Direction.LEFT:
             return 1;
-        case RIGHT:
+        case Direction.RIGHT:
             return 2;
-        case UP:
+        case Direction.UP:
             return 3;
-        case DOWN:
+        case Direction.DOWN:
             return 4;
         default:
             return -1;
