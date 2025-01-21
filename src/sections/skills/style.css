@@ -28,11 +28,11 @@
   color: var(--light-blue-100);
 }
 
-.skills__content-wrapper {
+.skills__list {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .skills__text {

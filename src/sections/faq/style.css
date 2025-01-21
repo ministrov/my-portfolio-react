@@ -26,9 +26,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 4rem 4rem;
-  background-color: var(--light-blue-100);
+  background-color: transparent;
   cursor: pointer;
   transition: all .3s ease-in-out;
+  border: 2px solid var(--white);
   border-radius: 8px;
 }
 
