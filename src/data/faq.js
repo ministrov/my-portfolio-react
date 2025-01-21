@@ -28,5 +28,32 @@ export const faqs = [
        average, a residential solar panel system can range from $15,000
        to $25,000 before incentives and rebates.
     `,
+  },
+  {
+    title: "How much does a solar power system cost?",
+    description: `
+      The cost of a solar power system varies depending on the size of
+       the system, the type of equipment used, and your location. On
+       average, a residential solar panel system can range from $15,000
+       to $25,000 before incentives and rebates.
+    `,
+  },
+  {
+    title: "How much does a solar power system cost?",
+    description: `
+      The cost of a solar power system varies depending on the size of
+       the system, the type of equipment used, and your location. On
+       average, a residential solar panel system can range from $15,000
+       to $25,000 before incentives and rebates.
+    `,
+  },
+  {
+    title: "How much does a solar power system cost?",
+    description: `
+      The cost of a solar power system varies depending on the size of
+       the system, the type of equipment used, and your location. On
+       average, a residential solar panel system can range from $15,000
+       to $25,000 before incentives and rebates.
+    `,
   }
 ];
