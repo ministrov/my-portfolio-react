@@ -9,7 +9,7 @@ const Skills = () => {
       <Heading
         title={"My Skills"}
         slogan={
-          "Unleash the power of code and create extraordinary digital experiences."
+          "Unleashing Potential Through Technology"
         }
         className="skills__title"
       ></Heading>

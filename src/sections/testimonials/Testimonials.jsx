@@ -9,7 +9,7 @@ const Testimonials = () => {
         <Heading
           title={"Testimonials"}
           slogan={
-            "Unleash the power of code and create extraordinary digital experiences."
+            "Satisfied Clients Speak Out"
           }
           className="testimonials__header"
         ></Heading>
