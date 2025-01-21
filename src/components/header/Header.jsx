@@ -29,28 +29,26 @@ const Header = () => {
       <nav className="header__nav main-nav">
         <Logo />
 
-        <div className="main-nav__right-menu">
-          <ul className={`main-nav__list ${active}`}>
-            <li className="nav-list__item">
-              <NavLink
-                to="/"
-                className={"nav-list__link"}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-list__item">
-              <NavLink
-                to="/projects"
-                className={({ isActive }) =>
-                  isActive ? activeLink : normalLink
-                }
-              >
-                Projects
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+        <ul className={`main-nav__list ${active}`}>
+          <li className="nav-list__item">
+            <NavLink
+              to="/"
+              className={"nav-list__link"}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="nav-list__item">
+            <NavLink
+              to="/projects"
+              className={({ isActive }) =>
+                isActive ? activeLink : normalLink
+              }
+            >
+              Projects
+            </NavLink>
+          </li>
+        </ul>
 
         <div onClick={toggleNav} className={toggleIcon}>
           <div className="line1"></div>
