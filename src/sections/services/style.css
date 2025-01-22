@@ -114,7 +114,7 @@
 
   .services__list {
     flex-direction: column;
-    flex-wrap: initial;
+    /* flex-wrap: nowrap; */
   }
 
   .services__item {
