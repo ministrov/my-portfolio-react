@@ -11,7 +11,7 @@ const Faq = () => {
       <div className="container">
         <Heading 
           title={"Frequantly Asked Questions"} 
-          slogan={"Lorem ipsum dolor sit amet consectetur, adipisicing elit."}
+          slogan={"Get Answers to Your Burning Questions"}
           className='heading-sec__main--second'
         />
         <div className="faq__list">
@@ -51,4 +51,4 @@ const Faq = () => {
   )
 }
 
-export default Faq
+export default Faq;

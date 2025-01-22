@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { BsArrowDownRight } from "react-icons/bs";
 import { motion } from "framer-motion";
@@ -5,6 +6,8 @@ import { services } from "../../data/services";
 import "./style.css";
 
 const Services = () => {
+  const [isShort, setIsShort] = useState(false);
+  
   return (
     <section className="services">
       <div className="container">
@@ -20,7 +23,6 @@ const Services = () => {
             <div key={index}
               className="services__item"
             >
-              {/* Top */}
               <div className="services__item-block">
                 <div className="services__item-text text-outline">{service.num}</div>
                 <Link className="services__item-link" href={service.href}>
@@ -28,14 +30,14 @@ const Services = () => {
                 </Link>
               </div>
 
-              {/* Title */}
-
               <h2 className="services__subheading">{service.title}</h2>
 
-              {/* Description */}
-              <p className="services__description">{service.description}</p>
+              <p className={`services__description ${isShort ? 'services__description--long' : ''}`}>{service.description}</p>
 
-              {/* Border */}
+              <button className="services__more" onClick={() => setIsShort((current) => !current)}>
+                {isShort ? 'Hide' : 'Show more'}
+              </button>
+
               <div className="services__border"></div>
             </div>
           ))
@@ -46,4 +48,4 @@ const Services = () => {
   )
 }
 
-export default Services
+export default Services;
