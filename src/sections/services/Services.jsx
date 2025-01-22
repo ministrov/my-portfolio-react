@@ -42,9 +42,6 @@ const Services = () => {
           ))
           }
         </motion.div>
-      {/* <div className="container">
-        
-      </div> */}
     </section>
   )
 }
