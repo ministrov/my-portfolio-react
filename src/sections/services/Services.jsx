@@ -10,8 +10,7 @@ const Services = () => {
   
   return (
     <section className="services">
-      <div className="container">
-        <motion.div
+      <motion.div
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
@@ -43,7 +42,9 @@ const Services = () => {
           ))
           }
         </motion.div>
-      </div>
+      {/* <div className="container">
+        
+      </div> */}
     </section>
   )
 }

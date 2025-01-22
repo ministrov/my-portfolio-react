@@ -5,8 +5,8 @@
 
 .skills__wrapper {
   display: grid;
-  grid-template-columns: 365px 1fr;
-  grid-gap: 5rem;
+  grid-template-columns: 376px 1fr;
+  grid-gap: 3rem
 }
 
 .skills__left {
