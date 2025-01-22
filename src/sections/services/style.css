@@ -9,7 +9,7 @@
 
 .services__list {
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .services__item {
@@ -18,7 +18,7 @@
   justify-content: center;
   flex: 1 1;
   gap: 2rem;
-  padding: 3rem;
+  padding: 2rem;
   font-size: 1rem;
   line-height: 1.2;
   color: var(--light-blue-100);
@@ -89,11 +89,14 @@
 }
 
 .services__more {
+  display: flex;
+  max-width: 93px;
   font-family: inherit;
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1.4;
   color: var(--light-blue-100);
   border: none;
+  border-bottom: 1px solid var(--light-blue-100);
   background-color: transparent;
 }
 

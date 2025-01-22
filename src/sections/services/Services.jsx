@@ -34,7 +34,7 @@ const Services = () => {
               <p className={`services__description ${isShort ? 'services__description--long' : ''}`}>{service.description}</p>
 
               <button className="services__more" onClick={() => setIsShort((current) => !current)}>
-                {isShort ? 'Hide' : 'Show more'}
+                {isShort ? 'Hide all' : 'Show more'}
               </button>
 
               <div className="services__border"></div>
