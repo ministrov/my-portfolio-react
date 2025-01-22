@@ -2,14 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 8rem;
-  padding-right: 8rem;
   padding-bottom: 12rem;
 }
 
 .services__list {
   display: flex;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .services__item {
@@ -62,13 +60,13 @@
 
 .services__item-icon {
   font-size: 1.6rem;
-  line-height: 1;
+  line-height: 1.4;
   color: var(--white);
 }
 
 .services__subheading {
-  font-size: 2.4rem;
-  line-height: 1;
+  font-size: 1.7rem;
+  line-height: 1.4;
 }
 
 .services__description {
@@ -114,8 +112,7 @@
   }
 
   .services__list {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
   }
 
   .services__item {
@@ -124,5 +121,9 @@
     padding: none;
     box-shadow: none;
     border-radius: none;
+  }
+
+  .services__description {
+    min-height: initial;
   }
 }
