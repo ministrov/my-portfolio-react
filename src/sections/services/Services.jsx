@@ -1,17 +1,13 @@
-import { useState } from 'react';
-import { Link } from "react-router-dom";
-import { BsArrowDownRight } from "react-icons/bs";
+import ServicesListItem from '../../components/servicesListItem/ServicesListItem';
 import { motion } from "framer-motion";
 import { services } from "../../data/services";
 import "./style.css";
 
 const Services = () => {
-  const [isShort, setIsShort] = useState(false);
-  
   return (
     <section className="services">
       <div className="container">
-        <motion.div
+        <motion.ul
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
@@ -19,30 +15,11 @@ const Services = () => {
           }}
           className="services__list"
         >
-          {services.map((service, index) => (
-              <div key={index}
-                className="services__item"
-              >
-                <div className="services__item-block">
-                  <div className="services__item-text text-outline">{service.num}</div>
-                  <Link className="services__item-link" href={service.href}>
-                    <BsArrowDownRight className="services__item-icon"/>
-                  </Link>
-                </div>
-
-                <h2 className="services__subheading">{service.title}</h2>
-
-                <p className={`services__description ${isShort ? 'services__description--long' : ''}`}>{service.description}</p>
-
-                <button className="services__more" onClick={() => setIsShort((current) => !current)}>
-                  {isShort ? 'Hide all' : 'Show more'}
-                </button>
-
-                <div className="services__border"></div>
-              </div>
+          {services.map((service) => (
+              <ServicesListItem service={service} />
             ))
           }
-        </motion.div>
+        </motion.ul>
       </div>
     </section>
   )
