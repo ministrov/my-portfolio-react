@@ -1,7 +1,6 @@
 .services__item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   flex: 1 1;
   gap: 2rem;
   padding: 2rem;
@@ -59,16 +58,24 @@
 
 .services__description {
   overflow: hidden;
-  max-width: 200px;
+  /* max-width: 200px; */
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 1.6rem;
   line-height: 1.4;
 }
 
-.services__description--long {
+/* .services__description--long {
   overflow: initial;
-  min-height: 181px;
+  min-height: 136px;
+  max-width: none;
+  text-overflow: initial;
+  white-space: initial;
+} */
+
+.services__item .services__description.services__description--long {
+  overflow: initial;
+  min-height: 136px;
   max-width: none;
   text-overflow: initial;
   white-space: initial;

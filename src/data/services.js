@@ -22,11 +22,5 @@ export const services = [
     title: 'SEO',
     description: 'I optimize websites to improve search engine rankings, driving organic traffic and increasing visibility online. By implementing effective SEO strategies, I ensure your content reaches its target audience and achieves maximum impact.',
     href: ''
-  },
-  {
-    num: '05',
-    title: 'Backend',
-    description: 'I optimize websites to improve search engine rankings, driving organic traffic and increasing visibility online. By implementing effective SEO strategies, I ensure your content reaches its target audience and achieves maximum impact.',
-    href: ''
   }
 ];

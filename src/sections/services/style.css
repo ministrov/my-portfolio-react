@@ -1,13 +1,13 @@
 .services {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   padding-bottom: 12rem;
 }
 
 .services__list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(288px, 1fr));
   gap: 3rem;
 }
 
@@ -17,6 +17,6 @@
   }
 
   .services__list {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
