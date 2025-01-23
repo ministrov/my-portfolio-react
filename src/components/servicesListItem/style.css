@@ -94,16 +94,23 @@
   -webkit-text-stroke: 1px var(--light-blue-100);
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .services__item {
     flex: initial;
     gap: 4rem;
-    padding: none;
+    padding: 0;
     box-shadow: none;
-    border-radius: none;
+    border-radius: 0;
   }
 
   .services__description {
     min-height: initial;
+  }
+}
+
+@media screen and (max-width: 1870px) {
+  .services__item {
+    width: 100%;
+    max-width: 65%;
   }
 }

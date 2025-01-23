@@ -1,7 +1,4 @@
 .services {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
   padding-bottom: 12rem;
 }
 
@@ -15,8 +12,10 @@
   .services {
     padding: 8rem 0;
   }
+}
 
+@media (max-width: 1870px) {
   .services__list {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
   }
 }
