@@ -14,7 +14,7 @@
   }
 }
 
-@media (max-width: 1870px) {
+@media (max-width: 1678px) {
   .services__list {
     grid-template-columns: auto;
   }
