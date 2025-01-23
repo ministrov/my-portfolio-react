@@ -13,7 +13,7 @@
 }
 
 .services__item--long {
-  max-height: min-content;
+  max-height: max-content;
 }
 
 .services__item-block {
@@ -87,10 +87,6 @@
   border: none;
   border-bottom: 1px solid var(--light-blue-100);
   background-color: transparent;
-}
-
-.services__border {
-  border-bottom: 2px solid var(--light-blue-100);
 }
 
 .text-outline {

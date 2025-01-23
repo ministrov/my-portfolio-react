@@ -25,7 +25,7 @@ const ServicesListItem = ({ service }) => {
                 {isShort ? 'Hide all' : 'Show more'}
             </button>
 
-            <div className="services__border"></div>
+            {/* <div className="services__border"></div> */}
         </li>
   )
 }
