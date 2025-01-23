@@ -16,7 +16,10 @@ const Services = () => {
           className="services__list"
         >
           {services.map((service) => (
-              <ServicesListItem service={service} />
+              <ServicesListItem
+                key={service.num} 
+                service={service} 
+              />
             ))
           }
         </motion.ul>
