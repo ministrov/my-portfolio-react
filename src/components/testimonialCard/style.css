@@ -82,6 +82,12 @@
   color: var(--light-blue-100);;
 }
 
+@media only screen and (max-width: 86.25em) {
+  .testimonial-card {
+    min-width: fit-content;
+  }
+}
+
 @media (max-width: 26rem) {
   .testimonial-card__top-left {
     top: -18px;
@@ -101,11 +107,5 @@
   .testimonial-card__paragraph {
     padding: 2.4rem;
     padding-bottom: 2rem;
-  }
-}
-
-@media only screen and (max-width: 86.25em) {
-  .testimonial-card {
-    min-width: fit-content;
   }
 }

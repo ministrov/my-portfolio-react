@@ -95,12 +95,6 @@
   -webkit-text-stroke: 1px var(--light-blue-100);
 }
 
-@media screen and (max-width: 780px) {
-  .services__description {
-    max-width: 404px;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   .services__item {
     flex: initial;
@@ -113,5 +107,17 @@
 
   .services__item .services__description.services__description--long {
     min-height: 140px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .services__description {
+    max-width: 404px;
+  }
+}
+
+@media screen and (max-width: 462px) {
+  .services__description {
+    max-width: 204px;
   }
 }
