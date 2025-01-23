@@ -1,106 +1,14 @@
 .services {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   padding-bottom: 12rem;
 }
 
 .services__list {
-  display: flex;
-  gap: 2rem;
-}
-
-.services__item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1 1;
-  gap: 2rem;
-  padding: 3rem;
-  font-size: 1rem;
-  line-height: 1.2;
-  color: var(--light-blue-100);
-  box-shadow: var(--box-shadow);
-  border-radius: 8px;
-}
-
-.services__item-block {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.services__item-block:hover .services__item-text,
-.services__item-block:focus .services__item-text {
-  -webkit-text-stroke: 1px var(--light-blue-200);
-  transition: all .5s ease-in-out;
-}
-
-.services__item-text {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1;
-  color: transparent;
-}
-
-.services__item-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 4rem;
-  height: 4rem;
-  background-color: var(--light-blue-100);
-  border-radius: 50%;
-  transition: all .5s ease-in;
-}
-
-.services__item-link .services__item-icon:hover {
-  transform: rotate(-45deg);
-}
-
-.services__item-icon {
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--white);
-}
-
-.services__subheading {
-  font-size: 2.4rem;
-  line-height: 1;
-}
-
-.services__description {
-  overflow: hidden;
-  max-width: 200px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 1.6rem;
-  line-height: 1.4;
-}
-
-.services__description--long {
-  overflow: initial;
-  min-height: 181px;
-  max-width: none;
-  text-overflow: initial;
-  white-space: initial;
-}
-
-.services__more {
-  font-family: inherit;
-  font-size: 2rem;
-  line-height: 1.4;
-  color: var(--light-blue-100);
-  border: none;
-  background-color: transparent;
-}
-
-.services__border {
-  border-bottom: 2px solid var(--light-blue-100);
-}
-
-.text-outline {
-  -webkit-text-stroke: 1px var(--light-blue-100);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(288px, 1fr));
+  gap: 3rem;
 }
 
 @media (max-width: 1024px) {
@@ -109,15 +17,6 @@
   }
 
   .services__list {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .services__item {
-    flex: initial;
-    gap: 4rem;
-    padding: none;
-    box-shadow: none;
-    border-radius: none;
+    grid-template-columns: 1fr;
   }
 }

@@ -39,7 +39,7 @@
   max-width: 150px;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 876px) {
   .statistics {
     padding-top: 8rem;
     padding-bottom: 8rem;

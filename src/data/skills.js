@@ -36,14 +36,4 @@ export const skills = [
     tech: 'Redux',
     icon: <SiRedux color='purple'/>
   }
-  // {
-  //   id: uuidv4(),
-  //   tech: 'ReduxToolkit',
-  //   icon: <SiRedux color='purple'/>
-  // },
-  // {
-  //   id: uuidv4(),
-  //   tech: 'Redux Toolkit + RTK Query',
-  //   icon: <SiRedux color='purple'/>
-  // }
 ];
