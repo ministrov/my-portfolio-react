@@ -22,10 +22,8 @@ const ServicesListItem = ({ service }) => {
             <p className={`services__description ${isShort ? 'services__description--long' : ''}`}>{service.description}</p>
 
             <button className="services__more" onClick={() => setIsShort((current) => !current)}>
-                {isShort ? 'Hide all' : 'Show more'}
+                {isShort ? 'Hide ever' : 'Show more'}
             </button>
-
-            {/* <div className="services__border"></div> */}
         </li>
   )
 }
