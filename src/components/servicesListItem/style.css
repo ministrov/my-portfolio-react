@@ -3,12 +3,17 @@
   flex-direction: column;
   flex: 1 1;
   gap: 2rem;
+  max-height: 200px;
   padding: 2rem;
   font-size: 1rem;
   line-height: 1.2;
   color: var(--light-blue-100);
   box-shadow: var(--box-shadow);
   border-radius: 8px;
+}
+
+.services__item--long {
+  max-height: min-content;
 }
 
 .services__item-block {

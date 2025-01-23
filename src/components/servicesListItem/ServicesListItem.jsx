@@ -8,7 +8,7 @@ const ServicesListItem = ({ service }) => {
 
     return (
         <li
-            className="services__item"
+            className={`services__item ${isShort ? "services__item--long" : ''}`}
         >
             <div className="services__item-block">
                 <div className="services__item-text text-outline">{service.num}</div>

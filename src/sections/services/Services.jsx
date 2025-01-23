@@ -11,7 +11,7 @@ const Services = () => {
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' }
+            transition: { delay: 1.4, duration: 0.7, ease: 'easeIn' }
           }}
           className="services__list"
         >
