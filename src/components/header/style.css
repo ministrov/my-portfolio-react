@@ -61,6 +61,10 @@
   transition: color 0.5s ease-in;
 }
 
+.nav-list__link:focus {
+  outline-offset: -1px;
+}
+
 .nav-list__link::before {
   content: '';
   position: absolute;

@@ -4,9 +4,6 @@ import Logo from "../logo/Logo";
 import "./style.css";
 
 const Header = () => {
-  const activeLink = "nav-list__link nav-list__link--active";
-  const normalLink = "nav-list__link";
-
   const [active, setActive] = useState("nav-list");
   const [toggleIcon, setToggleIcon] = useState("nav__toggler");
 
@@ -29,6 +26,8 @@ const Header = () => {
       <nav className="header__nav main-nav">
         <Logo />
 
+        {/* Need to decomposite nav-list to own component */}
+
         <ul className={`main-nav__list ${active}`}>
           <li className="nav-list__item">
             <NavLink
@@ -42,7 +41,7 @@ const Header = () => {
             <NavLink
               to="/projects"
               className={({ isActive }) =>
-                isActive ? activeLink : normalLink
+                isActive ? 'nav-list__link nav-list__link--active' : 'nav-list__link'
               }
             >
               Projects
@@ -50,7 +49,7 @@ const Header = () => {
           </li>
         </ul>
 
-        <div onClick={toggleNav} className={toggleIcon}>
+        <div role='menu' onClick={toggleNav} className={toggleIcon} tabIndex={0}>
           <div className="line1"></div>
           <div className="line2"></div>
           <div className="line3"></div>

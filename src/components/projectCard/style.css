@@ -4,10 +4,6 @@
   border-radius: var(--border-rs);
 }
 
-/* .project-card:focus {
-  outline: var(--light-blue-100);
-} */
-
 .project-card__item {
   display: flex;
   flex-direction: column;
