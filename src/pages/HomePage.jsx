@@ -52,8 +52,6 @@ const Home = () => {
 
         <Faq/>
 
-        {/* <Contacts /> */}
-
         <ScrollToTop/>
       </main>
 
