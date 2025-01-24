@@ -6,15 +6,15 @@ import "./style.css";
 const Skills = () => {
   return (
     <section className="skills">
-      <Heading
-        title={"My Skills"}
-        slogan={
-          "Unleashing Potential Through Technology"
-        }
-        className="skills__title"
-      ></Heading>
-
       <div className="container">
+        <Heading
+          title={"My Skills"}
+          slogan={
+            "Unleashing Potential Through Technology"
+          }
+          className="skills__title"
+        ></Heading>
+
         <div className="skills__wrapper">
           <div
             className="skills__left"
