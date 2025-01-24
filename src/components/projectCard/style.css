@@ -4,12 +4,17 @@
   border-radius: var(--border-rs);
 }
 
-.project-card:hover {
+/* .project-card:hover {
   transform: scale(1.1);
-}
+} */
 
 .project-card__image {
+  transition: transform .8s ease-in-out;
   border-radius: var(--border-rs);
+}
+
+.project-card__image:hover {
+  transform: scale(1.109);
 }
 
 .project-card__title {
