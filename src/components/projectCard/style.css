@@ -4,9 +4,14 @@
   border-radius: var(--border-rs);
 }
 
-/* .project-card:hover {
-  transform: scale(1.1);
+/* .project-card:focus {
+  outline: var(--light-blue-100);
 } */
+
+.project-card__item {
+  display: flex;
+  flex-direction: column;
+}
 
 .project-card__image {
   transition: transform .8s ease-in-out;
