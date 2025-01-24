@@ -37,13 +37,6 @@
   flex-wrap: wrap;
 }
 
-/* .main-nav__right-menu {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-} */
-
-/* Change nav-list class to main-nav__list */
 .nav-list {
   display: flex;
   flex-wrap: wrap;

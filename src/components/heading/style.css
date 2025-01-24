@@ -55,6 +55,12 @@
   letter-spacing: 1px;
 }
 
+@media only screen and (max-width: 56.25em) {
+  .heading-sec__mb-med {
+    margin-bottom: 8rem;
+  }
+}
+
 @media only screen and (max-width: 37.5em) {
   .heading-sec__main {
     font-size: 3rem;
@@ -66,11 +72,5 @@
 
   .heading-sec__sub {
     font-size: 1.8rem;
-  }
-}
-
-@media only screen and (max-width: 56.25em) {
-  .heading-sec__mb-med {
-    margin-bottom: 8rem;
   }
 }
