@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from 'swiper/modules';
 import TestimonialCard from "../testimonialCard/TestimonialCard";
+import { testimonials } from '../../data/testimonials';
 import "./style.css";
 
 const Carousel = ({ className }) => {
@@ -14,18 +15,11 @@ const Carousel = ({ className }) => {
       }}
       modules={[Autoplay, EffectFade]}
     >
-      <SwiperSlide>
-        <TestimonialCard content={"I was amazed by the exceptional quality of service and attention to detail—truly a top-notch experience!"} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <TestimonialCard content={"Their professionalism and dedication made all the difference. I couldn't be happier with the results."} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <TestimonialCard content={"The level of expertise and care they provided exceeded my expectations, highly recommended!"} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <TestimonialCard content={"The level of expertise and care they provided exceeded my expectations, highly recommended!"} />
-      </SwiperSlide>
+      {testimonials.map((testimonial) => (
+        <SwiperSlide key={testimonial.id}>
+          <TestimonialCard content={testimonial.content} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };
