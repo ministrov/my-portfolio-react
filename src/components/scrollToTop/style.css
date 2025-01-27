@@ -18,19 +18,3 @@
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
 }
-
-.scroll-to--showed{
-  animation: 0.4s linear btn-showing forwards;
-}
-
-@keyframes btn-showing {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
