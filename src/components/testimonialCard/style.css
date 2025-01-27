@@ -41,9 +41,9 @@
 .testimonial-card__paragraph {
   position: relative;
   z-index: 3;
-  padding: 7.4rem;
+  padding: 5.4rem;
   padding-bottom: 3rem;
-  font-size: 1.6rem;
+  font-size: 2rem;
   line-height: 1.2;
   text-align: center;
   color: var(--light-blue-100);;

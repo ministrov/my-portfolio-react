@@ -1,57 +1,31 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from 'swiper/modules';
 import TestimonialCard from "../testimonialCard/TestimonialCard";
-// import ControlLeft from "./controlLeft/ControlLeft";
-// import ControlRight from "./controlRight/ControlRight";
 import "./style.css";
-// import 'swiper/css/effect-fade';
 
 const Carousel = ({ className }) => {
-  // const swiper = useSwiper();
-
-  // console.log(swiper);
-  // const moveSlideLeft = () => {
-  //   console.log('click left');
-  //   // swiper.slideNext();
-  // };
-
-  // const moveSlideRight = () => {
-  //   console.log('click right');
-  //   // swiper.slidePrev();
-  // };
-
   return (
     <Swiper 
       className={`${className} carousel`}
       spaceBetween={30}
       centeredSlides={true}
-      // effect={'fade'}
       autoplay={{
         delay: 2000
       }}
       modules={[Autoplay, EffectFade]}
-      // onSlideChange={() => console.log('clide changes')}
-      // onSwiper={(swiper) => console.log(swiper)}
     >
-      {/* <ControlLeft className="carousel__btn_prev" 
-        moveLeft={moveSlideLeft} 
-      /> */}
       <SwiperSlide>
-        <TestimonialCard />
+        <TestimonialCard content={"I was amazed by the exceptional quality of service and attention to detail—truly a top-notch experience!"} />
       </SwiperSlide>
       <SwiperSlide>
-        <TestimonialCard />
+        <TestimonialCard content={"Their professionalism and dedication made all the difference. I couldn't be happier with the results."} />
       </SwiperSlide>
       <SwiperSlide>
-        <TestimonialCard />
+        <TestimonialCard content={"The level of expertise and care they provided exceeded my expectations, highly recommended!"} />
       </SwiperSlide>
       <SwiperSlide>
-        <TestimonialCard />
+        <TestimonialCard content={"The level of expertise and care they provided exceeded my expectations, highly recommended!"} />
       </SwiperSlide>
-      {/* <ControlRight
-        className="carousel__btn_next"
-        moveRight={moveSlideRight}
-      /> */}
     </Swiper>
   );
 };

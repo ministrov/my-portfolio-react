@@ -3,7 +3,7 @@ import { FaQuoteLeft } from "react-icons/fa";
 import clientAvatar from "../../assets/png/john-doe.png";
 import "./style.css";
 
-const TestimonialCard = () => {
+const TestimonialCard = ({ content }) => {
   return (
     <article className="testimonial-card">
       <div className="testimonial-card__top-left">
@@ -12,13 +12,7 @@ const TestimonialCard = () => {
       <div className="testimonial-card__bottom-right">
         <FaQuoteLeft/>
       </div>
-      <p className="testimonial-card__paragraph">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet.
-      </p>
+      <p className="testimonial-card__paragraph">{content}</p>
       <div className="testimonial-card__client-info">
         <div className="testimonial-card__client-picture">
           <img src={clientAvatar} alt="Client avatar in focus" />
