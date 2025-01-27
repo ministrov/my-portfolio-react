@@ -42,7 +42,7 @@ const Modal = ({ open, children, onClose }) => {
         <Button
           onClick={onClose}
           text={"Close me"}
-          className={"modal__btn btn--med btn--theme"}
+          className={"modal__btn btn--theme"}
         />
       </motion.div>
     </Backdrop>,
