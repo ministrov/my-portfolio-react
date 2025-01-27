@@ -30,7 +30,7 @@ const ProjectPage = () => {
             className="project-details__cover"
           />
           <div className="project-details__content">
-            <h3 className="project-detail__overview">Project Overview</h3>
+            <h2 className="project-detail__overview">Project Overview</h2>
 
             <p className="project-detail__text-overview">{project.overview}</p>
 
@@ -44,7 +44,7 @@ const ProjectPage = () => {
               ))}
             </ul>
 
-            <h3 className="project-detail__overview">See Live</h3>
+            <h4 className="project-detail__overview">See Live</h4>
 
             <div className="project-details__links">
               <Button
