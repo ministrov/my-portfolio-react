@@ -20,7 +20,7 @@ const ProjectPage = () => {
         <div className="project-details">
           <Button
             text={"Back to Projects"}
-            className={"project-details__btn btn--theme btn--med-second"}
+            className={"project-details__btn btn--theme"}
             href={"/projects"}
           />
           <Heading title={project.title} slogan={project.slogan} />

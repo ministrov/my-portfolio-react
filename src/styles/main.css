@@ -171,6 +171,7 @@ body {
 }
 
 .project-details__btn {
+  max-width: 21rem;
   margin-bottom: 6rem;
 }
 
