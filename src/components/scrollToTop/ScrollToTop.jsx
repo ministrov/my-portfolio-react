@@ -6,21 +6,28 @@ const ScrollToTop = () => {
   const [isShowed, setIsShowed] = useState(false);
 
   const scrollToTop = () => {
+    // console.log(isShowed);
     window.scrollTo(0, 0);
   }
 
   useEffect(() => {
-    if (window.scrollY >= 345) {
-      setIsShowed(true);
-    } else {
-      setIsShowed(false);
-    }
+    document.addEventListener('scroll', () => {
+      if (window.scrollY >= 345) {
+        setIsShowed(true);
+      } else {
+        setIsShowed(false);
+      }
+    });
 
     scrollToTop(); 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className={`scroll-to ${isShowed ? 'scroll-to-showed' : ''}`} onClick={scrollToTop}>
+    <div 
+      className={`scroll-to ${isShowed ? 'scroll-to--showed' : ''}`} 
+      onClick={scrollToTop}
+    >
       <FaLongArrowAltUp />
     </div>
   )
