@@ -4,6 +4,7 @@ import Button from "../components/button/Button";
 import SkillComponet from "../components/skillComponent/SkillComponent";
 import { projects } from "../data/projects";
 import { motion } from "framer-motion";
+import ScrollToTop from '../components/scrollToTop/ScrollToTop';
 
 const ProjectPage = () => {
   const { id } = useParams();
@@ -61,6 +62,8 @@ const ProjectPage = () => {
           </div>
         </div>
       </div>
+
+      <ScrollToTop/>
     </motion.main>
   );
 };
