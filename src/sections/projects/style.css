@@ -3,5 +3,6 @@
 }
 
 .projects__filter {
+  margin-bottom: 8rem;
   background-color: var(--light-blue-100);
 }
