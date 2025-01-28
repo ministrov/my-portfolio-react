@@ -16,8 +16,7 @@ const Footer = () => {
           <div className="main-footer__row main-footer__row-2">
             <Logo type={'logo__name--second'}/>
             <p className="main-footer__short-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit facilis
-              tempora explicabo quae quod deserunt
+              Creating Intuitive User Experiences Through Clean Code and Modern Design
             </p>
           </div>
         </div>
