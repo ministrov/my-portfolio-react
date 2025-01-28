@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from '../../components/button/Button';
 import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from "../../components/heading/Heading";
 import ProjectsList from "../../components/projectsList/ProjectsList";
@@ -14,6 +15,11 @@ const Projects = () => {
 
     setFilteredProjects(filteredItems);
   }
+
+  const resetFilter = () => {
+    setFilteredProjects(projects);
+  };
+
   return (
     <section className="projects">
       <div className="container">
@@ -36,6 +42,8 @@ const Projects = () => {
               </li>
             ))}
           </ul>
+
+          <Button className={'btn--theme'} onClick={resetFilter} text={'Reset'} />
         </div>
 
         <ProjectsList 

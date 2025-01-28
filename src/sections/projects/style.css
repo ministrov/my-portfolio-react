@@ -3,6 +3,8 @@
 }
 
 .projects__filter {
+  display: flex;
+  justify-content: space-between;
   padding: 1rem;
   margin-bottom: 8rem;
   background-color: var(--light-blue-100);
