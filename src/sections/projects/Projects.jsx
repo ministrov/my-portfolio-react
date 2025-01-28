@@ -1,6 +1,7 @@
 import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from "../../components/heading/Heading";
 import ProjectsList from "../../components/projectsList/ProjectsList";
+import { projects } from "../../data/projects";
 import { filters } from '../../data/filter';
 import "./style.css";
 
@@ -29,7 +30,9 @@ const Projects = () => {
           </ul>
         </div>
 
-        <ProjectsList />
+        <ProjectsList 
+          projects={projects}
+        />
       </div>
     </section>
   );
