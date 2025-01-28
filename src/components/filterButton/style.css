@@ -1,11 +1,3 @@
-.filter {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem;
-    background-color: var(--light-blue-100);
-}
-
 .filter__btn {
     min-width: 170px;
     height: 40px;

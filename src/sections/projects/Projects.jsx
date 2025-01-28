@@ -1,6 +1,7 @@
-import Filter from '../../components/filter/Filter';
+import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from "../../components/heading/Heading";
 import ProjectsList from "../../components/projectsList/ProjectsList";
+import { filters } from '../../data/filter';
 import "./style.css";
 
 const Projects = () => {
@@ -16,7 +17,16 @@ const Projects = () => {
         ></Heading>
 
         <div className="projects__filter">
-          <Filter />
+          <ul className="projects__filter-list">
+            {filters.map((filter) => (
+              <li key={filter.id} className="projects__filter-list-item">
+                <FilterButton
+                  filterName={filter.name}
+                  onClick={() => console.log(`filter name: ${filter.name}`)}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
 
         <ProjectsList />
