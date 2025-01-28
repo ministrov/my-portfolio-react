@@ -22,9 +22,7 @@ const About = () => {
               Hi, I'm Anton!
               <br />
               <br />
-              I am a frontend developer with 3 years of experience. I specialize
-              in creating functional and beautiful interfaces for web
-              applications. My job is to help the customer realize his idea and
+              With several years spent weaving pixels and lines of code into captivating experiences, I've honed my skills as a frontend developer who transforms visions into interactive realities. My job is to help the customer realize his idea and
               make the product user-friendly.
               <br />
               <br />
