@@ -1,3 +1,4 @@
+import Filter from '../../components/filter/Filter';
 import Heading from "../../components/heading/Heading";
 import ProjectsList from "../../components/projectsList/ProjectsList";
 import "./style.css";
@@ -14,7 +15,9 @@ const Projects = () => {
           }
         ></Heading>
 
-        <div className="projects__filter">Filtering box</div>
+        <div className="projects__filter">
+          <Filter />
+        </div>
 
         <ProjectsList />
       </div>

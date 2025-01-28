@@ -1,3 +1,17 @@
 .filter {
-    background-color: tomato;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--light-blue-100);
+}
+
+.filter__btn {
+    min-width: 170px;
+    height: 40px;
+    font-size: 1.7rem;
+    line-height: 1.4;
+    color: var(--light-blue-100);
+    background-color: var(--white);
+    border-radius: 8px;
 }

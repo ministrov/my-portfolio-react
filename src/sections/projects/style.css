@@ -3,6 +3,8 @@
 }
 
 .projects__filter {
+  padding: 1rem;
   margin-bottom: 8rem;
   background-color: var(--light-blue-100);
+  border-radius: 8px;
 }
