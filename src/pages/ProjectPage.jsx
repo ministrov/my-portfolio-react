@@ -4,6 +4,7 @@ import Button from "../components/button/Button";
 import SkillComponet from "../components/skillComponent/SkillComponent";
 import { projects } from "../data/projects";
 import { motion } from "framer-motion";
+import ScrollToTop from '../components/scrollToTop/ScrollToTop';
 
 const ProjectPage = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const ProjectPage = () => {
         <div className="project-details">
           <Button
             text={"Back to Projects"}
-            className={"project-details__btn btn--theme btn--med-second"}
+            className={"project-details__btn btn--theme"}
             href={"/projects"}
           />
           <Heading title={project.title} slogan={project.slogan} />
@@ -61,6 +62,8 @@ const ProjectPage = () => {
           </div>
         </div>
       </div>
+
+      <ScrollToTop/>
     </motion.main>
   );
 };

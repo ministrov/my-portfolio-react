@@ -15,19 +15,6 @@
   border: 2px solid var(--light-blue-100);
   border-radius: 50%;
   opacity: 0;
-}
-
-.scroll-to-showed {
-  display: block;
-  animation: 0.4s linear btn-showing forwards;
-}
-
-@keyframes btn-showing {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
 }

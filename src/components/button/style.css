@@ -35,7 +35,7 @@
 }
 
 .btn--theme {
-  max-width: 15rem;
+  /* max-width: 15rem; */
   background: var(--light-blue-100);;
   color: #fff;
 }

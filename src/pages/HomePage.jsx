@@ -8,6 +8,7 @@ import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 import Faq from "../sections/faq/Faq";
 import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
+import MyCheckBox from '../components/myCheckBox/MyCheckBox';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,6 +52,8 @@ const Home = () => {
         <Testimonials />
 
         <Faq/>
+
+        <MyCheckBox/>
 
         <ScrollToTop/>
       </main>

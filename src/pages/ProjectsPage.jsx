@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Projects from "../sections/projects/Projects";
+import ScrollToTop from '../components/scrollToTop/ScrollToTop';
 
 const ProjectsPage = () => {
   return (
@@ -12,6 +13,8 @@ const ProjectsPage = () => {
       <h1 className="visually-hidden">Page about author's projects</h1>
 
       <Projects />
+
+      <ScrollToTop/>
     </motion.main>
   );
 };
