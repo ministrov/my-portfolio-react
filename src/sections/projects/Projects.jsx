@@ -14,6 +14,8 @@ const Projects = () => {
           }
         ></Heading>
 
+        <div className="projects__filter">Filtering box</div>
+
         <ProjectsList />
       </div>
     </section>
