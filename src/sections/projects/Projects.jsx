@@ -4,18 +4,21 @@ import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from "../../components/heading/Heading";
 import ProjectsList from "../../components/projectsList/ProjectsList";
 import { projects } from "../../data/projects";
-// import { filters } from '../../data/filter';
 import "./style.css";
 
 const Projects = () => {
-  const [filter, setFilter] = useState('All');
-  const [fiteredProjects, setFilteredProjects] = useState(projects);
+  // eslint-disable-next-line no-unused-vars
+  const [list, setList] = useState(projects);
+  const [fiteredProjects, setFilteredProjects] = useState([]);
 
   const handleFilterClick = (name) => {
-    const filteredItems = projects.filter((project) => project.skills.includes(name));
-
-    setFilter(name);
-    setFilteredProjects(filteredItems);
+    if (name === 'All') {
+      setFilteredProjects(list);
+    } else {
+      const filteredItems = list.filter((project) => project.skills.includes(name));
+      setFilteredProjects(filteredItems);
+    }
+    
   }
 
   const resetFilter = () => {
@@ -38,19 +41,19 @@ const Projects = () => {
             <li className="projects__filter-list-item">
               <FilterButton
                 filterName={'All'}
-                onClick={() => resetFilter()}
+                onClick={() => handleFilterClick("All")}
               />
             </li>
             <li className="projects__filter-list-item">
               <FilterButton
                 filterName={'React'}
-                onClick={() => handleFilterClick(filter)}
+                onClick={() => handleFilterClick("React")}
               />
             </li>
             <li className="projects__filter-list-item">
               <FilterButton
                 filterName={"JavaScript"}
-                onClick={() => handleFilterClick(filter)}
+                onClick={() => handleFilterClick("JavaScript")}
               />
             </li>
           </ul>
