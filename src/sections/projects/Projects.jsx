@@ -4,15 +4,17 @@ import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from "../../components/heading/Heading";
 import ProjectsList from "../../components/projectsList/ProjectsList";
 import { projects } from "../../data/projects";
-import { filters } from '../../data/filter';
+// import { filters } from '../../data/filter';
 import "./style.css";
 
 const Projects = () => {
+  const [filter, setFilter] = useState('All');
   const [fiteredProjects, setFilteredProjects] = useState(projects);
 
   const handleFilterClick = (name) => {
     const filteredItems = projects.filter((project) => project.skills.includes(name));
 
+    setFilter(name);
     setFilteredProjects(filteredItems);
   }
 
@@ -33,14 +35,24 @@ const Projects = () => {
 
         <div className="projects__filter">
           <ul className="projects__filter-list">
-            {filters.map((filter) => (
-              <li key={filter.id} className="projects__filter-list-item">
-                <FilterButton
-                  filterName={filter.name}
-                  onClick={() => handleFilterClick(filter.name)}
-                />
-              </li>
-            ))}
+            <li className="projects__filter-list-item">
+              <FilterButton
+                filterName={'All'}
+                onClick={() => resetFilter()}
+              />
+            </li>
+            <li className="projects__filter-list-item">
+              <FilterButton
+                filterName={'React'}
+                onClick={() => handleFilterClick(filter)}
+              />
+            </li>
+            <li className="projects__filter-list-item">
+              <FilterButton
+                filterName={"JavaScript"}
+                onClick={() => handleFilterClick(filter)}
+              />
+            </li>
           </ul>
 
           <Button className={'btn--theme'} onClick={resetFilter} text={'Reset'} />
