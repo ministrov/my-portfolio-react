@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import Button from '../../components/button/Button';
+import { useNavigate, useLocation } from 'react-router-dom';
 import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from "../../components/heading/Heading";
 import ProjectsList from "../../components/projectsList/ProjectsList";
@@ -7,23 +7,22 @@ import { projects } from "../../data/projects";
 import "./style.css";
 
 const Projects = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [list, setList] = useState(projects);
-  const [fiteredProjects, setFilteredProjects] = useState([]);
+  const [filteredProjects, setFilteredProjects] = useState(projects);
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  // console.log(history);
+  console.log(location);
+  console.log(navigate);
 
   const handleFilterClick = (name) => {
     if (name === 'All') {
-      setFilteredProjects(list);
+      setFilteredProjects(projects);
     } else {
-      const filteredItems = list.filter((project) => project.skills.includes(name));
+      const filteredItems = projects.filter((project) => project.skills.includes(name));
       setFilteredProjects(filteredItems);
     }
-    
   }
-
-  // const resetFilter = () => {
-  //   setFilteredProjects(projects);
-  // };
 
   return (
     <section className="projects">
@@ -57,12 +56,10 @@ const Projects = () => {
               />
             </li>
           </ul>
-
-          {/* <Button className={'btn--theme'} onClick={resetFilter} text={'Reset'} /> */}
         </div>
 
         <ProjectsList 
-          projects={fiteredProjects}
+          projects={filteredProjects}
         />
       </div>
     </section>
