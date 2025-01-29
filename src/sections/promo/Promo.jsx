@@ -7,6 +7,7 @@ import "./style.css";
 const Promo = ({ setIsOpen }) => {
   return (
     <section className="promo">
+      <h2 className="visually-hidden">A promo section to introduction</h2>
       <div
         className="promo__content"
       >
