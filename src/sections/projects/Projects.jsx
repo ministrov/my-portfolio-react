@@ -7,20 +7,29 @@ import { projects } from "../../data/projects";
 import "./style.css";
 
 const Projects = () => {
-  const [filteredProjects, setFilteredProjects] = useState(projects);
+  const storedList = JSON.parse(localStorage.getItem('list')) || projects;
+  const [filteredProjects, setFilteredProjects] = useState(storedList);
   let navigate = useNavigate();
   let location = useLocation();
 
   console.log(location);
   console.log(navigate);
+  // console.log(setList());
 
   const handleFilterClick = (name) => {
     if (name === 'All') {
-      setFilteredProjects(projects);
+      setFilteredProjects(storedList);
     } else {
       const filteredItems = projects.filter((project) => project.skills.includes(name));
       setFilteredProjects(filteredItems);
+      localStorage.setItem('projects', JSON.stringify(filteredItems));
     }
+
+    const queryParams = new URLSearchParams(location.search);
+    queryParams.set('filter', name);
+    navigate({
+      search: queryParams.toString()
+    });
   }
 
   return (
