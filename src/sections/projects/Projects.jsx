@@ -11,7 +11,6 @@ const Projects = () => {
   let navigate = useNavigate();
   let location = useLocation();
 
-  // console.log(history);
   console.log(location);
   console.log(navigate);
 
