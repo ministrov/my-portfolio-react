@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Button from '../../components/button/Button';
+// import Button from '../../components/button/Button';
 import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from "../../components/heading/Heading";
 import ProjectsList from "../../components/projectsList/ProjectsList";
@@ -21,9 +21,9 @@ const Projects = () => {
     
   }
 
-  const resetFilter = () => {
-    setFilteredProjects(projects);
-  };
+  // const resetFilter = () => {
+  //   setFilteredProjects(projects);
+  // };
 
   return (
     <section className="projects">
@@ -58,7 +58,7 @@ const Projects = () => {
             </li>
           </ul>
 
-          <Button className={'btn--theme'} onClick={resetFilter} text={'Reset'} />
+          {/* <Button className={'btn--theme'} onClick={resetFilter} text={'Reset'} /> */}
         </div>
 
         <ProjectsList 
