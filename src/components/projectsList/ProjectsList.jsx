@@ -1,9 +1,8 @@
 import ProjectCard from "../projectCard/ProjectCard";
-import { projects } from "../../data/projects";
 import { motion } from "framer-motion";
 import "./style.css";
 
-const ProjectsList = () => {
+const ProjectsList = ({ projects }) => {
   return (
     <ul className="projects__list">
       {projects.map((project, index) => (

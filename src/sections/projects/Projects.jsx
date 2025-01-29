@@ -1,8 +1,25 @@
+import { useState } from 'react';
+import Button from '../../components/button/Button';
+import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from "../../components/heading/Heading";
 import ProjectsList from "../../components/projectsList/ProjectsList";
+import { projects } from "../../data/projects";
+import { filters } from '../../data/filter';
 import "./style.css";
 
 const Projects = () => {
+  const [fiteredProjects, setFilteredProjects] = useState(projects);
+
+  const handleFilterClick = (name) => {
+    const filteredItems = projects.filter((project) => project.skills.includes(name));
+
+    setFilteredProjects(filteredItems);
+  }
+
+  const resetFilter = () => {
+    setFilteredProjects(projects);
+  };
+
   return (
     <section className="projects">
       <div className="container">
@@ -14,7 +31,24 @@ const Projects = () => {
           }
         ></Heading>
 
-        <ProjectsList />
+        <div className="projects__filter">
+          <ul className="projects__filter-list">
+            {filters.map((filter) => (
+              <li key={filter.id} className="projects__filter-list-item">
+                <FilterButton
+                  filterName={filter.name}
+                  onClick={() => handleFilterClick(filter.name)}
+                />
+              </li>
+            ))}
+          </ul>
+
+          <Button className={'btn--theme'} onClick={resetFilter} text={'Reset'} />
+        </div>
+
+        <ProjectsList 
+          projects={fiteredProjects}
+        />
       </div>
     </section>
   );

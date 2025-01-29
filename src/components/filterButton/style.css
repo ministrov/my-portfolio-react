@@ -1,0 +1,9 @@
+.filter__btn {
+    min-width: 170px;
+    height: 40px;
+    font-size: 1.7rem;
+    line-height: 1.4;
+    color: var(--light-blue-100);
+    background-color: var(--white);
+    border-radius: 8px;
+}

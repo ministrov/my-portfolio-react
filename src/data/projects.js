@@ -40,7 +40,7 @@ export const projects = [
   {
     id: uuidv4(),
     title: 'Video Portal',
-    skills: 'Vue JS, Node.js, MongoDB',
+    skills: 'JavaScript, Node.js, MongoDB',
     img: project03,
     imgBig: project03Big,
     gitHubLink: 'https://github.com',
@@ -63,7 +63,7 @@ export const projects = [
   {
     id: uuidv4(),
     title: 'Landing',
-    skills: 'HTML, CSS, JS',
+    skills: 'JavaScript HTML, CSS',
     img: project05,
     imgBig: project05Big,
     slogan: 'Gaming streaming portal',
