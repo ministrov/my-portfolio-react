@@ -9,9 +9,10 @@ import "./style.css";
 const Projects = () => {
   const storedList = JSON.parse(localStorage.getItem('list')) || projects;
   const [filteredProjects, setFilteredProjects] = useState(storedList);
+  const [active, setActive] = useState('All');
   let navigate = useNavigate();
   let location = useLocation();
-   const queryParams = new URLSearchParams(location.search);
+  const queryParams = new URLSearchParams(location.search);
 
   const handleFilterClick = (name) => {
     if (name === 'All') {
@@ -21,6 +22,8 @@ const Projects = () => {
       setFilteredProjects(filteredItems);
       localStorage.setItem('projects', JSON.stringify(filteredItems));
     }
+
+    setActive(name);
 
     queryParams.set('filter', name);
     navigate({
@@ -43,21 +46,24 @@ const Projects = () => {
           <ul className="projects__filter-list">
             <li className={`projects__filter-list-item`}>
               <FilterButton
-                className={`${queryParams.has('filter') === "All" ? 'filter__btn--active' : ''}`}
+                active={active}
+                currentBtn={'All'}
                 filterName={'All'}
                 onClick={() => handleFilterClick("All")}
               />
             </li>
             <li className={`projects__filter-list-item`}>
               <FilterButton
-                className={`${queryParams.has('filter') === "React" ? 'filter__btn--active' : ''}`}
+                active={active}
+                currentBtn={'React'}
                 filterName={'React'}
                 onClick={() => handleFilterClick("React")}
               />
             </li>
             <li className={`projects__filter-list-item`}>
               <FilterButton
-                className={`${queryParams.has('filter') === "JavaScript" ? 'filter__btn--active' : ''}`}
+                active={active}
+                currentBtn={'JavaScript'}
                 filterName={"JavaScript"}
                 onClick={() => handleFilterClick("JavaScript")}
               />

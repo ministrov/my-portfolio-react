@@ -10,6 +10,6 @@
 
 .filter__btn--active {
     color: var(--white);
-    background-color: #fff;
-    border: 2px solid var(--light-blue-100);
+    background-color: var(--light-blue-100);
+    border: 2px solid var(--white);
 }
