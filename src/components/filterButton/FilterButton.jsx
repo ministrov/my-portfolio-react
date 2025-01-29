@@ -1,8 +1,8 @@
 import "./style.css";
 
-const FilterButton = ({ onClick, filterName }) => {
+const FilterButton = ({ onClick, filterName, ...props }) => {
   return (
-    <button className="filter__btn" onClick={onClick}>{filterName}</button>
+    <button {...props} className="filter__btn" onClick={onClick}>{filterName}</button>
   )
 }
 

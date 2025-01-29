@@ -11,10 +11,7 @@ const Projects = () => {
   const [filteredProjects, setFilteredProjects] = useState(storedList);
   let navigate = useNavigate();
   let location = useLocation();
-
-  console.log(location);
-  console.log(navigate);
-  // console.log(setList());
+   const queryParams = new URLSearchParams(location.search);
 
   const handleFilterClick = (name) => {
     if (name === 'All') {
@@ -25,7 +22,6 @@ const Projects = () => {
       localStorage.setItem('projects', JSON.stringify(filteredItems));
     }
 
-    const queryParams = new URLSearchParams(location.search);
     queryParams.set('filter', name);
     navigate({
       search: queryParams.toString()
@@ -45,20 +41,23 @@ const Projects = () => {
 
         <div className="projects__filter">
           <ul className="projects__filter-list">
-            <li className="projects__filter-list-item">
+            <li className={`projects__filter-list-item`}>
               <FilterButton
+                className={`${queryParams.has('filter') === "All" ? 'filter__btn--active' : ''}`}
                 filterName={'All'}
                 onClick={() => handleFilterClick("All")}
               />
             </li>
-            <li className="projects__filter-list-item">
+            <li className={`projects__filter-list-item`}>
               <FilterButton
+                className={`${queryParams.has('filter') === "React" ? 'filter__btn--active' : ''}`}
                 filterName={'React'}
                 onClick={() => handleFilterClick("React")}
               />
             </li>
-            <li className="projects__filter-list-item">
+            <li className={`projects__filter-list-item`}>
               <FilterButton
+                className={`${queryParams.has('filter') === "JavaScript" ? 'filter__btn--active' : ''}`}
                 filterName={"JavaScript"}
                 onClick={() => handleFilterClick("JavaScript")}
               />
