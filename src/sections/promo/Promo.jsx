@@ -3,6 +3,7 @@ import SocialList from "../../components/socials/SocialList";
 import MouseScroll from "../../components/mouseScroll/MouseScroll";
 import MyAvatar from "../../assets/png/my-avatar.png";
 import "./style.css";
+import TypingText from '../../components/typingText/TypingText';
 
 const Promo = ({ setIsOpen }) => {
   return (
@@ -11,7 +12,8 @@ const Promo = ({ setIsOpen }) => {
       <div
         className="promo__content"
       >
-        <strong className="promo__title">Hey Folks, I'm Anton Zhilin, a Frontend Developer!</strong>
+        <TypingText className={'promo__title'} text={"Hey Folks, I'm Anton Zhilin, a Frontend Developer!"}/>
+        {/* <strong className="promo__title">Hey Folks, I'm Anton Zhilin, a Frontend Developer!</strong> */}
         <p className="promo__text">
           Welcome to a world where pixels come alive and digital dreams become
           reality. Step into my realm and let me weave captivating designs with
