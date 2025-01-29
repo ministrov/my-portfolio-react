@@ -10,7 +10,7 @@ const Promo = ({ setIsOpen }) => {
       <div
         className="promo__content"
       >
-        <h2 className="promo__title">Hey Folks, I'm Anton Zhilin</h2>
+        <strong className="promo__title">Hey Folks, I'm Anton Zhilin, a Frontend Developer!</strong>
         <p className="promo__text">
           Welcome to a world where pixels come alive and digital dreams become
           reality. Step into my realm and let me weave captivating designs with
