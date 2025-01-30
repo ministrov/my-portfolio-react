@@ -48,6 +48,12 @@ const sumTwo = (nums, target) => {
 // Input: nums = [2, 7, 11, 15], target = 9
 // Output: [0, 1];
 
+function replateSubstring(str, search, replace) {
+    return str.split(search).join(replace);
+}
+
+console.log(replateSubstring('hello world', 'world', 'there'));
+
 export {
     debounce,
     onResize,
