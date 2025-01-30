@@ -5,6 +5,7 @@ import './style.css';
 const Statistics = () => {
   return (
     <section className="statistics">
+      <h2 className="visually-hidden">Section for a Statistics</h2>
       <div className="container">
         <div className="statistics__list">
           {statistics.map((stat, index) => (

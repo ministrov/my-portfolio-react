@@ -5,6 +5,7 @@ import "./style.css";
 const About = () => {
   return (
     <section className="about">
+      <h2 className="visually-hidden">About author section</h2>
       <div className="container">
         <Heading
           title={"About"}
@@ -19,7 +20,7 @@ const About = () => {
             className="about__left"
           >
             <p className="about__description">
-              <span className="about__greeting">Hi, I'm Anton, a Frontend Developer!</span>
+              <span className="about__greeting">Greeting, new customers</span>
               <br />
               <br />
               With several years spent weaving pixels and lines of code into captivating experiences, I've honed my skills as a frontend developer who transforms visions into interactive realities. My job is to help the customer realize his idea and

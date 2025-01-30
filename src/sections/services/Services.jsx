@@ -6,6 +6,7 @@ import "./style.css";
 const Services = () => {
   return (
     <section className="services">
+      <h2 className="visually-hidden">Section for a services</h2>
       <div className="container">
         <motion.ul
           initial={{ opacity: 0 }}

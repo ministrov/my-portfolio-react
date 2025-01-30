@@ -3,14 +3,17 @@ import SocialList from "../../components/socials/SocialList";
 import MouseScroll from "../../components/mouseScroll/MouseScroll";
 import MyAvatar from "../../assets/png/my-avatar.png";
 import "./style.css";
+import TypingText from '../../components/typingText/TypingText';
 
 const Promo = ({ setIsOpen }) => {
   return (
     <section className="promo">
+      <h2 className="visually-hidden">A promo section to introduction</h2>
       <div
         className="promo__content"
       >
-        <h2 className="promo__title">Hey Folks, I'm Anton Zhilin</h2>
+        <TypingText className={'promo__title'} text={"Hey Folks, I'm Anton Zhilin, a Frontend Developer!"}/>
+        {/* <strong className="promo__title">Hey Folks, I'm Anton Zhilin, a Frontend Developer!</strong> */}
         <p className="promo__text">
           Welcome to a world where pixels come alive and digital dreams become
           reality. Step into my realm and let me weave captivating designs with
