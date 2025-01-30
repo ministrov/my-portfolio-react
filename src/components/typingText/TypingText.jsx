@@ -17,9 +17,9 @@ const TypingText = ({ className, text }) => {
       whileInView="reveal"
       transition={{ staggerChildren: .02 }}
     >
-      {textChars.map((char) => (
+      {textChars.map((char, index) => (
         <motion.span 
-          key={char} 
+          key={index + 1} 
           transition={{ duration: 0.5 }}
           variants={charVariants}
         >
