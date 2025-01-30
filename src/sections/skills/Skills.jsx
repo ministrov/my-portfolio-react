@@ -40,17 +40,13 @@ const Skills = () => {
             <div className="skills__right-content">
               <p className="skills__text">
                 As a Developer, I have a wide range of experience in front-end
-                development. I am proficient in JavaScript , React, Vue , HTML
-                and CSS. My strong experience in building responsive and dynamic
-                interfaces using React and Redux, and some time I can use
-                vanilly JS, if it needs to my clients. It is allowed me to
+                development. I am proficient in HTML, CSS, JavaScript, React. My strong experience in building responsive and dynamic
+                interfaces using React and Next, and some time I can use vanilly JS, if it needs to my clients. It is allowed me to
                 create engaging and interactive web applications.
               </p>
               <p className="skills__text">
-                I have experience in using React for building scalable and
-                maintainable applications. This has allowed me to create
-                efficient and sustainable code that can adept to the changing
-                needs of a business.
+                I have experience in using React for building scalable and maintainable applications. This has allowed me to create
+                efficient and sustainable code that can adept to the changing needs of a business.
               </p>
             </div>
           </div>
