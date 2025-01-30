@@ -1,4 +1,4 @@
-export function spliteStringRegExp(string) {
+function spliteStringRegExp(string) {
     const characters = [];
     const regex = /[\s\S]/gu;
 
@@ -11,3 +11,5 @@ export function spliteStringRegExp(string) {
 
     return characters;
 }
+
+export default spliteStringRegExp;

@@ -13,7 +13,10 @@ const Promo = ({ setIsOpen }) => {
         className="promo__content"
       >
         <TypingText className={'promo__title'} text={"Hey Folks, I'm Anton Zhilin, a Frontend Developer!"}/>
-        {/* <strong className="promo__title">Hey Folks, I'm Anton Zhilin, a Frontend Developer!</strong> */}
+
+        {/* <TypingText className={"promo__text"} text={`
+          
+        `}/> */}
         <p className="promo__text">
           Welcome to a world where pixels come alive and digital dreams become
           reality. Step into my realm and let me weave captivating designs with

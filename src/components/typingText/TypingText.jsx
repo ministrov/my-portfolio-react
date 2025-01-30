@@ -1,8 +1,32 @@
+import { motion } from 'framer-motion';
+import spliteStringRegExp from '../../utils/stplitStringRegExp';
 import "./style.css";
 
+const charVariants = {
+  hidden: { opacity: 0 },
+  reveal: { opacity: 1 },
+};
+
 const TypingText = ({ className, text }) => {
+  const textChars = spliteStringRegExp(text);
+
   return (
-    <strong className={className}>{text}</strong>
+    <motion.strong 
+      className={className} 
+      initial="hidden" 
+      whileInView="reveal"
+      transition={{ staggerChildren: .02 }}
+    >
+      {textChars.map((char) => (
+        <motion.span 
+          key={char} 
+          transition={{ duration: 0.5 }}
+          variants={charVariants}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </motion.strong>
   )
 }
 
