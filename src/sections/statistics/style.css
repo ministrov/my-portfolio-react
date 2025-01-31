@@ -9,36 +9,6 @@
   gap: 2rem;
 }
 
-.statistics__item {
-  display: flex;
-  gap: 2rem;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-}
-
-.statistics__count {
-  font-size: 3.7rem;
-  line-height: 1.3;
-  font-weight: 800;
-  color: var(--light-blue-100);
-}
-
-.statistics__desc {
-  margin: 0;
-  font-size: 2rem;
-  line-height: 1.3;
-  color: var(--light-blue-100);
-}
-
-.max-width-100 {
-  max-width: 100px;
-}
-
-.max-width-150 {
-  max-width: 150px;
-}
-
 @media only screen and (max-width: 876px) {
   .statistics {
     padding-top: 8rem;
