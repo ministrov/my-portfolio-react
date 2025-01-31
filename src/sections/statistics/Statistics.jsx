@@ -8,16 +8,16 @@ const Statistics = () => {
       <h2 className="visually-hidden">Section for a Statistics</h2>
       <div className="container">
         <div className="statistics__list">
-          {statistics.map((stat, index) => (
-            <div className="statistics__item" key={index}>
+          {statistics.map((stats, index) => (
+            <div className="statistics__item" key={index + 1}>
               <CountUp
-                end={stat.num}
+                end={stats.num}
                 duration={5}
                 delay={2}
                 className="statistics__count"
               />
-              <p className={`statistics__desc ${stat.text.length < 15 ?"max-width-100" : "max-width-150"}`}>
-                {stat.text}
+              <p className={`statistics__desc ${stats.text.length < 15 ? "max-width-100" : "max-width-150"}`}>
+                {stats.text}
               </p>
             </div>
           ))}
