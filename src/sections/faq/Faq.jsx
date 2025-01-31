@@ -8,6 +8,7 @@ const Faq = () => {
   const [ activeIndex, setActiveIndex ] = useState(-1);
   return (
     <section className="faq">
+      <h2 className="visually-hidden">Frequantly Asked Questions section</h2>
       <div className="container">
         <Heading 
           title={"Frequantly Asked Questions"} 
@@ -27,7 +28,7 @@ const Faq = () => {
                 }}
               >
                 <div className="faq__question">
-                  <h3>{item.title}</h3>
+                  <h4>{item.title}</h4>
                   {
                     activeIndex === index ?
                       <div className="faq__icon">
