@@ -40,7 +40,7 @@ const Promo = ({ setIsOpen }) => {
       <MouseScroll />
 
       <div className="promo__socials">
-        <SocialList/>
+        <SocialList className={"socials__list"}/>
       </div>
     </section>
   );
