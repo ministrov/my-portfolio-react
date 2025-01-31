@@ -25,7 +25,7 @@ const ServicesListItem = ({ service }) => {
                 {isShort ? 'Hide ever' : 'Show more'}
             </button>
         </li>
-  )
+    )
 }
 
 export default ServicesListItem
