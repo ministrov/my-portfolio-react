@@ -5,7 +5,6 @@
 .skills__wrapper {
   display: grid;
   grid-template-columns: auto auto;
-  /* grid-gap: 3rem */
 }
 
 .skills__left {
