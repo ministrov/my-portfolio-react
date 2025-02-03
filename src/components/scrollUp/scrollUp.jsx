@@ -3,13 +3,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FaLongArrowAltUp } from "react-icons/fa";
 import './style.css';
 
-const ScrollToTop = () => {
+const ScrollUp = () => {
+ 
   const [isShowed, setIsShowed] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY >= 300) {
@@ -47,4 +49,4 @@ const ScrollToTop = () => {
   )
 }
 
-export default ScrollToTop;
+export default ScrollUp;

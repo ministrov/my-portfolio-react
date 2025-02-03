@@ -4,7 +4,7 @@ import About from "../sections/about/About";
 import Modal from "../components/modal/Modal";
 import Skills from "../sections/skills/Skills";
 import Testimonials from "../sections/testimonials/Testimonials";
-import ScrollToTop from "../components/scrollToTop/ScrollToTop";
+import ScrollUp from "../components/scrollUp/scrollUp";
 import Faq from "../sections/faq/Faq";
 import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
@@ -52,7 +52,7 @@ const Home = () => {
 
         <Faq/>
 
-        <ScrollToTop/>
+        <ScrollUp/>
       </main>
 
       <Modal open={isOpen} onClose={onCloseHandler}>

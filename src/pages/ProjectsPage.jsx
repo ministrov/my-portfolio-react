@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Projects from "../sections/projects/Projects";
-import ScrollToTop from '../components/scrollToTop/ScrollToTop';
+import ScrollUp from "../components/scrollUp/scrollUp";
 
 const ProjectsPage = () => {
   return (
@@ -14,7 +14,7 @@ const ProjectsPage = () => {
 
       <Projects />
 
-      <ScrollToTop/>
+      <ScrollUp/>
     </motion.main>
   );
 };
