@@ -11,7 +11,7 @@ const ProjectPage = () => {
   const project = projects[id];
 
   return (
-    <motion.main
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -64,7 +64,7 @@ const ProjectPage = () => {
       </div>
 
       <ScrollUp/>
-    </motion.main>
+    </motion.div>
   );
 };
 

@@ -4,7 +4,7 @@ import ScrollUp from "../components/scrollUp/scrollUp";
 
 const ProjectsPage = () => {
   return (
-    <motion.main
+    <motion.div
       className='projects-page'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -15,7 +15,7 @@ const ProjectsPage = () => {
       <Projects />
 
       <ScrollUp/>
-    </motion.main>
+    </motion.div>
   );
 };
 

@@ -33,27 +33,23 @@ const Home = () => {
 
   return (
     <>
-      <main
-        className="home-page"
-      >
-        <h1 className="visually-hidden">Home page of the author</h1>
+      <h1 className="visually-hidden">Home page of the author</h1>
 
-        <Promo setIsOpen={setIsOpen} />
+      <Promo setIsOpen={setIsOpen} />
 
-        <Statistics />
+      <Statistics />
 
-        <About />
+      <About />
 
-        <Services />
+      <Services />
 
-        <Skills />
+      <Skills />
 
-        <Testimonials />
+      <Testimonials />
 
-        <Faq/>
+      <Faq/>
 
-        <ScrollUp/>
-      </main>
+      <ScrollUp/>
 
       <Modal open={isOpen} onClose={onCloseHandler}>
         <p>
