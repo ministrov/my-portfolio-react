@@ -1,3 +1,4 @@
+import TypingText from '../../components/typingText/TypingText';
 import Heading from "../../components/heading/Heading";
 import Photo from "../../components/photo/Photo";
 import "./style.css";
@@ -20,7 +21,7 @@ const About = () => {
             className="about__left"
           >
             <p className="about__description">
-              <span className="about__greeting">Greeting, new customers</span>
+              <TypingText className={"about__greeting"} text={"Greeting, new customers"}/>
               <br />
               <br />
               With several years spent weaving pixels and lines of code into captivating experiences, I've honed my skills as a frontend developer who transforms visions into interactive realities. My job is to help the customer realize his idea and
