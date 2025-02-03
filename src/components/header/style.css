@@ -18,6 +18,12 @@
   max-width: fit-content;
 }
 
+.main-nav__logo:focus {
+  border: none;
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+
 .main-nav__logo:hover .logo__name {
   color: var(--light-blue-100);
   transition: color 0.3s ease-in;
