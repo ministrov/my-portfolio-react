@@ -1,5 +1,6 @@
 import { FaReact, FaCss3Alt } from 'react-icons/fa';
-import { SiJavascript, SiRedux, SiNextdotjs, SiMobxstatetree  } from 'react-icons/si';
+import { SiRedux, SiNextdotjs, SiMobxstatetree  } from 'react-icons/si';
+import { RiJavascriptLine } from "react-icons/ri";
 import { TbBrandTypescript } from "react-icons/tb";
 import { ImHtmlFive } from 'react-icons/im';
 import { v4 as uuidv4 } from 'uuid';
@@ -18,12 +19,12 @@ export const skills = [
   {
     id: uuidv4(),
     tech: 'JavaScript',
-    icon: <SiJavascript color='orange' />
+    icon: <RiJavascriptLine color='orange' />
   },
   {
     id: uuidv4(),
     tech: 'TypeScript',
-    icon: <TbBrandTypescript />
+    icon: <TbBrandTypescript color='blue' />
   },
   {
     id: uuidv4(),
