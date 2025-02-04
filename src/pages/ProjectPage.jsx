@@ -18,7 +18,7 @@ const ProjectPage = () => {
         <title>{`${project.title}`}</title>
         <meta
           name="description"
-          content={`A page of the name: ${project.title}`}
+          content={`Page of the project name: ${project.title}`}
           data-rh="true"
         />
         <link rel="canonical" href="/product/:id" />  
