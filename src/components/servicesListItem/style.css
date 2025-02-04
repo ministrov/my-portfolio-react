@@ -36,7 +36,7 @@
   color: transparent;
 }
 
-.services__item-link {
+.services__arrow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,13 +45,14 @@
   background-color: var(--light-blue-100);
   border-radius: 50%;
   transition: all .5s ease-in;
+  cursor: pointer;
 }
 
-.services__item-link .services__item-icon:hover {
+.services__arrow .services__arrow-icon:hover {
   transform: rotate(-45deg);
 }
 
-.services__item-icon {
+.services__arrow-icon {
   font-size: 1.6rem;
   line-height: 1.4;
   color: var(--white);

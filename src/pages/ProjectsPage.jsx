@@ -1,21 +1,29 @@
 import { motion } from "framer-motion";
 import Projects from "../sections/projects/Projects";
-import ScrollToTop from '../components/scrollToTop/ScrollToTop';
+import ScrollUp from "../components/scrollUp/scrollUp";
+import { Helmet } from 'react-helmet';
 
 const ProjectsPage = () => {
   return (
-    <motion.main
-      className='projects-page'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <h1 className="visually-hidden">Page about author's projects</h1>
+    <>
+      <Helmet>
+        <title>Page of the all projects</title>
+        <meta name="description" content="This is my awesome React app description." />
+      </Helmet>
 
-      <Projects />
+      <motion.div
+        className='projects-page'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <h1 className="visually-hidden">Page about author's projects</h1>
 
-      <ScrollToTop/>
-    </motion.main>
+        <Projects />
+
+        <ScrollUp/>
+      </motion.div>
+    </>
   );
 };
 

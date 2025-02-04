@@ -8,6 +8,7 @@ const SocialList = ({ className }) => {
     <ul className={`${className} socials`}>
       {socials.map((social) => (
         <SocialListItem 
+          tabIndex={0}
           key={uuidv4()} 
           social={social}
         />

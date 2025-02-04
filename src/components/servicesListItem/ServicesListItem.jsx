@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
 import { BsArrowDownRight } from "react-icons/bs";
 import './style.css';
 
@@ -12,9 +11,9 @@ const ServicesListItem = ({ service }) => {
         >
             <div className="services__item-block">
                 <div className="services__item-text text-outline">{service.num}</div>
-                <Link className="services__item-link" href={service.href}>
-                    <BsArrowDownRight className="services__item-icon"/>
-                </Link>
+                <div className="services__arrow" href={service.href}>
+                    <BsArrowDownRight className="services__arrow-icon"/>
+                </div>
             </div>
 
             <h2 className="services__subheading">{service.title}</h2>

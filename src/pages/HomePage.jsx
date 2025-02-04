@@ -4,7 +4,7 @@ import About from "../sections/about/About";
 import Modal from "../components/modal/Modal";
 import Skills from "../sections/skills/Skills";
 import Testimonials from "../sections/testimonials/Testimonials";
-import ScrollToTop from "../components/scrollToTop/ScrollToTop";
+import ScrollUp from "../components/scrollUp/scrollUp";
 import Faq from "../sections/faq/Faq";
 import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
@@ -33,27 +33,23 @@ const Home = () => {
 
   return (
     <>
-      <main
-        className="home-page"
-      >
-        <h1 className="visually-hidden">Home page of the author</h1>
+      <h1 className="visually-hidden">Home page of the author</h1>
 
-        <Promo setIsOpen={setIsOpen} />
+      <Promo setIsOpen={setIsOpen} />
 
-        <Statistics />
+      <Statistics />
 
-        <About />
+      <About />
 
-        <Services />
+      <Services />
 
-        <Skills />
+      <Skills />
 
-        <Testimonials />
+      <Testimonials />
 
-        <Faq/>
+      <Faq/>
 
-        <ScrollToTop/>
-      </main>
+      <ScrollUp/>
 
       <Modal open={isOpen} onClose={onCloseHandler}>
         <p>

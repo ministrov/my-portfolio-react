@@ -66,6 +66,10 @@
   color: white;
 }
 
+.main-footer__lower a:hover {
+  opacity: 0.7;
+}
+
 .main-footer__social {
   display: flex;
   column-gap: 1.875rem;

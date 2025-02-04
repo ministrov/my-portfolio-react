@@ -3,7 +3,7 @@ import Button from "../components/button/Button";
 
 const Page404 = () => {
   return (
-    <div className="page-404 container">
+    <section className="page-404 container">
       <ErrorMessage />
       <p style={{ textAlign: "center", fontWeight: "bold", fontSize: "24px" }}>
         Page doesn't exist
@@ -14,7 +14,7 @@ const Page404 = () => {
         href={"/"}
         className={"btn--med btn--theme"}
       />
-    </div>
+    </section>
   );
 };
 

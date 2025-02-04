@@ -14,6 +14,12 @@
   background-color: var(--light-blue-100);
 }
 
+.logo__link:focus {
+  border: none;
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+
 .logo__name {
   padding: 0.4em 2.5em;
   font-size: 1.8rem;
