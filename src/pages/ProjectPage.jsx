@@ -15,13 +15,12 @@ const ProjectPage = () => {
     <>
       <Helmet>
         <title>{`${project.title}`}</title>
-        <meta name="description" content="This is my awesome React app description." />
       </Helmet>
 
       <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
       >
         <h1 className="visually-hidden">Page about single author's project</h1>
         <div className="container">
