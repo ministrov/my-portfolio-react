@@ -8,6 +8,7 @@ import ScrollUp from "../components/scrollUp/scrollUp";
 import Faq from "../sections/faq/Faq";
 import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +34,16 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>A Home page of Anton Zhilin professional portfolio</title>
+        <meta
+          name="description"
+          content="A Home page of the frontend developer portfolio about developing a stunning apps and web applications"
+          data-rh="true"
+        />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <h1 className="visually-hidden">Home page of the author</h1>
 
       <Promo setIsOpen={setIsOpen} />

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 import Heading from "../components/heading/Heading";
 import Button from "../components/button/Button";
 import Image from '../components/image/Image';
@@ -16,6 +16,12 @@ const ProjectPage = () => {
     <>
       <Helmet>
         <title>{`${project.title}`}</title>
+        <meta
+          name="description"
+          content={`A page of the name: ${project.title}`}
+          data-rh="true"
+        />
+        <link rel="canonical" href="/product/:id" />  
       </Helmet>
 
       <motion.div

@@ -8,6 +8,12 @@ const ProjectsPage = () => {
     <>
       <Helmet>
         <title>Page of the all projects</title>
+        <meta
+          name="description"
+          content="A stunning list of the incredible projects of the frontend developer that call Anton Zhilin"
+          data-rh="true"
+        />
+        <link rel="canonical" href="/products" />  
       </Helmet>
 
       <motion.div
