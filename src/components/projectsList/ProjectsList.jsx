@@ -12,7 +12,13 @@ const ProjectsList = ({ projects }) => {
           animate={{ opacity: 1, translateX: 0, translateY: 0 }}
           transition={{ duration: 1.3, delay: index * 0.3 }}
         >
-          <ProjectCard title={project.title} img={project.img} index={index} imageAlt={project.title} />
+          <ProjectCard 
+            title={project.title} 
+            img={project.img} 
+            wepImg={project.webpImg} 
+            index={index} 
+            imageAlt={project.title} 
+          />
         </motion.div>
       ))}
     </ul>

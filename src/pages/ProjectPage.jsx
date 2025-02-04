@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import Heading from "../components/heading/Heading";
 import Button from "../components/button/Button";
+import Image from '../components/image/Image';
 import SkillComponet from "../components/skillComponent/SkillComponent";
 import ScrollUp from '../components/scrollUp/scrollUp';
 import { projects } from "../data/projects";
@@ -31,10 +32,11 @@ const ProjectPage = () => {
               href={"/projects"}
             />
             <Heading title={project.title} slogan={project.slogan} />
-            <img
-              src={project.imgBig}
-              alt={project.title}
+            <Image 
               className="project-details__cover"
+              src={project.webpBig}
+              fallback={project.fullImg}
+              alt={project.title}
             />
             <div className="project-details__content">
               <h2 className="project-detail__overview">Project Overview</h2>
