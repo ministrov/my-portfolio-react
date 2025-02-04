@@ -3,7 +3,7 @@ import "./style.css";
 
 const Logo = ({ type = null }) => {
   return (
-    <div className="main-nav__logo logo" tabIndex={0}>
+    <div className="main-nav__logo logo">
       <Link to="/" className={`logo__name ${type}`}>
         Anton Zhilin
       </Link>
