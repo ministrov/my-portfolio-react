@@ -8,6 +8,10 @@
     border-radius: 8px;
 }
 
+.filter__btn:focus {
+    text-shadow: 1px 0 0,.3px 0 0;
+}
+
 .filter__btn--active {
     color: var(--white);
     background-color: var(--light-blue-100);

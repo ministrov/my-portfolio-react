@@ -45,7 +45,7 @@ const Projects = () => {
 
         <div className="projects__filter">
           <ul className="projects__filter-list">
-            <li className={`projects__filter-list-item`}>
+            <li className={`projects__filter-list-item filter`}>
               <FilterButton
                 active={active}
                 currentBtn={'All'}
