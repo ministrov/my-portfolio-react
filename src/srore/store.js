@@ -3,8 +3,6 @@ import couterSlice from './counter.slice';
 
 export const store = configureStore({
     reducer: {
-        counter: couterSlice
+        likes: couterSlice
     }
 });
-
-// console.log(store.getState());
