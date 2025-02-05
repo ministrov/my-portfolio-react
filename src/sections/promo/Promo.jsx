@@ -1,9 +1,12 @@
+import TypingText from '../../components/typingText/TypingText';
+import Image from '../../components/image/Image';
 import Button from "../../components/button/Button";
 import SocialList from "../../components/socials/SocialList";
 import MouseScroll from "../../components/mouseScroll/MouseScroll";
 import MyAvatar from "../../assets/png/my-avatar.png";
+import MyAvatar1 from "../../assets/png/my-avatar.webp";
+// import MyAvatar2 from "../../assets/png/my-avatar.avif";
 import "./style.css";
-import TypingText from '../../components/typingText/TypingText';
 
 const Promo = ({ setIsOpen }) => {
   return (
@@ -34,7 +37,7 @@ const Promo = ({ setIsOpen }) => {
         </div>
       </div>
       <div className="promo__image-wrapper">
-        <img src={MyAvatar} className="promo__image" alt="Avatar img" />
+        <Image src={MyAvatar1} fallback={MyAvatar} width={252} height={252} alt={"A funny pixel men with a laptop in his hands"}/>
       </div>
 
       <MouseScroll />
