@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { Helmet } from 'react-helmet';
 import Layout from './Layout';
-import ScrollToTop from './components/scrollToTop/ScrollToTop';
+// import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectPage from "./pages/ProjectPage";
@@ -11,7 +10,7 @@ import "./styles/main.css";
 const App = () => {
   return (
     <BrowserRouter>
-      <ScrollToTop/>
+      {/* <ScrollToTop/> */}
       <Routes >
         <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />

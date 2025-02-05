@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Heading from "../components/heading/Heading";
 import Button from "../components/button/Button";
 import Image from '../components/image/Image';

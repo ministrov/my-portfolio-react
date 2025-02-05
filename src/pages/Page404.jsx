@@ -1,6 +1,6 @@
+import { Helmet } from "react-helmet-async";
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
 import Button from "../components/button/Button";
-import { Helmet } from 'react-helmet';
 
 const Page404 = () => {
   return (

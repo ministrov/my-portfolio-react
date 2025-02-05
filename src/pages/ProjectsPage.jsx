@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Projects from "../sections/projects/Projects";
 import ScrollUp from "../components/scrollUp/scrollUp";

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
 import Modal from "../components/modal/Modal";
@@ -8,7 +9,6 @@ import ScrollUp from "../components/scrollUp/scrollUp";
 import Faq from "../sections/faq/Faq";
 import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
-import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
