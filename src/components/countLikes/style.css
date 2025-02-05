@@ -1,0 +1,10 @@
+.countLikes {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 3rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--light-blue-100);
+    background-color: teal;
+}
