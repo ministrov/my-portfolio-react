@@ -1,64 +1,36 @@
 import { motion } from "framer-motion";
-// import myPicture from "../../assets/png/my-photo.png";
-import myPicture from "../../assets/png/photo.png";
+import Image from '../image/Image';
+import authorPhoto from "../../assets/png/photo.png";
+import webPPhoto from "../../assets/png/photo.webp";
 import "./style.css";
 
 const Photo = () => {
   return (
-    <div className="about__image-block">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { delay: 2, duration: 0.4, ease: "easeIn"}
-        }}
-      >
-
-        <img
+    <motion.div
+      className="about__image-block"
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 2, duration: 0.4, ease: "easeIn"}
+      }}
+    >
+      <Image 
+        className="about__image"
+        width={500}
+        height={500}
+        fallback={authorPhoto}
+        src={webPPhoto}
+        alt={"Focus on author's face"}
+      />
+        {/* <img
           className="about__image"
-          src={myPicture}
+          width={500}
+          height={500}
+          src={authorPhoto}
           alt="Focus on author's face"
-        />
-
-        {/* <motion.svg
-          className="about__svg"
-          fill="transparent"
-          viewBox="0 0 506 506"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <motion.circle
-            cx="300"
-            cy="300"
-            r="300"
-            stroke="#0062b9"
-            strokeWidth="4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            initial={{ strokeDasharray: "24 10 1 2"}}
-            animate={{
-              strokeDasharray: ["15 120 25 25", "16 25 92 72", "4 250 22 22"],
-              rotate: [120, 360]
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
-        </motion.svg>
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" }
-          }}
-          className="about__image-wrapper"
-        >
-          
-        </motion.div> */} 
-      </motion.div>
-    </div>
+        />  */}
+    </motion.div>
   )
 }
 
-export default Photo
+export default Photo;

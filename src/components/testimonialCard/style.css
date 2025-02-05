@@ -60,6 +60,7 @@
 
 .testimonial-card__client-picture {
   max-width: 12rem;
+  max-height: 124px;
   border-radius: 50%;
   background-color: var(--light-blue-100);;
 }

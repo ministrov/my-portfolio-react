@@ -1,20 +1,33 @@
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
 import Button from "../components/button/Button";
+import { Helmet } from 'react-helmet';
 
 const Page404 = () => {
   return (
-    <section className="page-404 container">
-      <ErrorMessage />
-      <p style={{ textAlign: "center", fontWeight: "bold", fontSize: "24px" }}>
-        Page doesn't exist
-      </p>
+    <>
+      <Helmet>
+        <title>A Not Found Page</title>
+        <meta
+          name="description"
+          content="A page for rendering a not found page"
+          data-rh="true"
+        />
+        <link rel="canonical" href="*" />
+      </Helmet>
 
-      <Button
-        text={"Back to main page"}
-        href={"/"}
-        className={"btn--med btn--theme"}
-      />
-    </section>
+      <section className="page-404 container">
+        <ErrorMessage />
+        <p style={{ textAlign: "center", fontWeight: "bold", fontSize: "24px" }}>
+          Page doesn't exist
+        </p>
+
+        <Button
+          text={"Back to main page"}
+          href={"/"}
+          className={"btn--med btn--theme"}
+        />
+      </section>
+    </>
   );
 };
 

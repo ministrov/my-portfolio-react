@@ -1,14 +1,19 @@
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import Projects from "../sections/projects/Projects";
 import ScrollUp from "../components/scrollUp/scrollUp";
-import { Helmet } from 'react-helmet';
 
 const ProjectsPage = () => {
   return (
     <>
       <Helmet>
         <title>Page of the all projects</title>
-        <meta name="description" content="This is my awesome React app description." />
+        <meta
+          name="description"
+          content="A stunning list of the incredible projects of the frontend developer that call Anton Zhilin"
+          data-rh="true"
+        />
+        <link rel="canonical" href="/products" />  
       </Helmet>
 
       <motion.div

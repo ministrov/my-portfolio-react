@@ -4,7 +4,6 @@ import { FaLongArrowAltUp } from "react-icons/fa";
 import './style.css';
 
 const ScrollUp = () => {
- 
   const [isShowed, setIsShowed] = useState(false);
 
   const scrollToTop = () => {

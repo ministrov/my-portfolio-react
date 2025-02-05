@@ -3,7 +3,6 @@
   z-index: 1000;
   width: 100%;
   background-color: var(--header-bg);
-  /* box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1); */
   box-shadow: 70px 17px 62px rgba(0, 0, 0, 0.1);
 }
 
@@ -69,7 +68,7 @@
 }
 
 .nav-list__link:focus {
-  outline-offset: -1px;
+  text-shadow: 1px 0 0,.3px 0 0;
 }
 
 .nav-list__link::before {

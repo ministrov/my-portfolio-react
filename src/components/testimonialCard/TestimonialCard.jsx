@@ -15,7 +15,7 @@ const TestimonialCard = ({ content }) => {
       <p className="testimonial-card__paragraph">{content}</p>
       <div className="testimonial-card__client-info">
         <div className="testimonial-card__client-picture">
-          <img src={clientAvatar} alt="Client avatar in focus" />
+          <img src={clientAvatar} width={125} height={125} alt="Client avatar in focus" />
         </div>
         <div className="testimonial-card__client-details">
           <h3 className="testimonial-card__client-details-title">Ronald Row</h3>
