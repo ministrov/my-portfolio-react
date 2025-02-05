@@ -25,7 +25,7 @@ const dropIn = {
   },
 };
 
-const Modal = ({ open, children, onClose }) => {
+const Modal = ({ open, formatedDate, onClose }) => {
   if (!open) return null;
 
   return createPortal(
@@ -38,7 +38,11 @@ const Modal = ({ open, children, onClose }) => {
         exit="exit"
         onClick={(e) => e.stopPropagation()}
       >
-        {children}
+        <div className="modal__content">
+          <div>
+            {formatedDate}
+          </div>
+        </div>
         <Button
           onClick={onClose}
           text={"Close me"}
