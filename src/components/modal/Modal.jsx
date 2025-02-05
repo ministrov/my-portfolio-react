@@ -40,7 +40,7 @@ const Modal = ({ open, formatedDate, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal__content">
-          <div>
+          <div className="modal__date">
             {formatedDate}
           </div>
           <FaRegHeart className="modal__heart" size={200} color='purple'/>

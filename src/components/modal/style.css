@@ -12,11 +12,15 @@
 .modal__content {
   display: flex;
   flex-direction: column;
+  gap: 4rem;
 }
 
 .modal__date {
   max-width: 50rem;
   margin: 0 auto;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--light-blue-100);
 }
 
 .modal__btn {
