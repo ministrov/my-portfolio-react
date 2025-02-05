@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import { FaRegHeart } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Button from "../button/Button";
 import Backdrop from "../backdrop/Backdrop";
@@ -42,6 +43,8 @@ const Modal = ({ open, formatedDate, onClose }) => {
           <div>
             {formatedDate}
           </div>
+          <FaRegHeart className="modal__heart" size={200} color='purple'/>
+          <span className="modal__likes">{`Count likes: ${formatedDate}`}</span>
         </div>
         <Button
           onClick={onClose}
