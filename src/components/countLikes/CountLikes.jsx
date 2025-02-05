@@ -8,8 +8,8 @@ const CountLikes = () => {
     console.log(likes);
     return (
         <div className="countLikes">
-            <PiHeartbeatLight size={35} color="lightblue"/>
-            {likes.counter}
+            <PiHeartbeatLight size={45} color="#0062b9"/>
+            {`Your likes: ${likes.counter}`}
         </div>
     )
 }
