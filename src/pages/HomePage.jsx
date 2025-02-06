@@ -46,7 +46,7 @@ const Home = () => {
 
       <h1 className="visually-hidden">Home page of the author</h1>
 
-      <Promo setIsOpen={setIsOpen} />
+      <Promo />
 
       <Statistics />
 
