@@ -1,5 +1,4 @@
 import { createPortal } from "react-dom";
-import { FaRegHeart } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Button from "../button/Button";
 import Backdrop from "../backdrop/Backdrop";
@@ -26,7 +25,7 @@ const dropIn = {
   },
 };
 
-const Modal = ({ open, formatedDate, onClose }) => {
+const Modal = ({ open, onClose }) => {
   if (!open) return null;
 
   return createPortal(
@@ -40,17 +39,14 @@ const Modal = ({ open, formatedDate, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal__content">
-          <div className="modal__date">
-            {formatedDate}
-          </div>
-          <FaRegHeart className="modal__heart" size={200} color='purple'/>
-          <span className="modal__likes">{`Count likes: ${formatedDate}`}</span>
+          <h2>Call me if you need help</h2>
+          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt quos, nulla fuga nihil et facilis at libero nam sapiente accusantium ratione modi sequi, exercitationem illo doloremque amet esse. Illum repudiandae aut nihil officia, aspernatur eligendi facere obcaecati tempora minima. Non enim earum voluptatibus asperiores illum!</p>
+          <Button
+            onClick={onClose}
+            text={"Close me"}
+            className={"modal__btn btn--theme"}
+          />
         </div>
-        <Button
-          onClick={onClose}
-          text={"Close me"}
-          className={"modal__btn btn--theme"}
-        />
       </motion.div>
     </Backdrop>,
     document.getElementById("portal")

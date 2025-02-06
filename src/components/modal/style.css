@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(90rem, 48rem, 109%);
-  height: 50rem;
+  max-width: 335px;
   padding: 2.5rem;
   background-color: var(--white);
   border-radius:  var(--border-rs);
@@ -15,12 +14,18 @@
   gap: 4rem;
 }
 
-.modal__date {
-  max-width: 50rem;
-  margin: 0 auto;
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--light-blue-100);
+.modal__content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.2;
+  color: var( --deep-black-100);
+}
+
+.modal__content p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var( --deep-black-100);
 }
 
 .modal__btn {
@@ -29,11 +34,11 @@
 
 @media (max-width: 36rem) {
   .modal {
-    width: clamp(36rem, 34rem, 66%);
-    height: auto;
+    width: 100%;
+    max-width: 70%;
   }
 
   .modal div {
-    font-size: 4rem;
+    font-size: 2rem;
   }
 }

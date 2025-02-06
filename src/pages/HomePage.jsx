@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
-// import Modal from "../components/modal/Modal";
+import Modal from "../components/modal/Modal";
 import Skills from "../sections/skills/Skills";
 import Testimonials from "../sections/testimonials/Testimonials";
 import ScrollUp from "../components/scrollUp/scrollUp";
@@ -63,11 +63,9 @@ const Home = () => {
 
       <ScrollUp/>
 
-      {/* <Modal 
-        open={isOpen} 
-        formatedDate={formatedDate} 
-        onClose={onCloseHandler}
-      /> */}
+      <Modal 
+        open
+      />
     </section>
   );
 };
