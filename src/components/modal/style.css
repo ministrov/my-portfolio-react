@@ -9,22 +9,22 @@
   border-radius:  var(--border-rs);
 }
 
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
 .modal__date {
   max-width: 50rem;
   margin: 0 auto;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--light-blue-100);
 }
 
 .modal__btn {
   margin-top: auto;
-}
-
-.modal div {
-  max-width: 25rem;
-  margin: 0 auto;
-}
-
-.modal p {
-  margin-bottom: 3rem;
 }
 
 @media (max-width: 36rem) {

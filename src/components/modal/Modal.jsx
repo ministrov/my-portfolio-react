@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import { FaRegHeart } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Button from "../button/Button";
 import Backdrop from "../backdrop/Backdrop";
@@ -25,7 +26,7 @@ const dropIn = {
   },
 };
 
-const Modal = ({ open, children, onClose }) => {
+const Modal = ({ open, formatedDate, onClose }) => {
   if (!open) return null;
 
   return createPortal(
@@ -38,7 +39,13 @@ const Modal = ({ open, children, onClose }) => {
         exit="exit"
         onClick={(e) => e.stopPropagation()}
       >
-        {children}
+        <div className="modal__content">
+          <div className="modal__date">
+            {formatedDate}
+          </div>
+          <FaRegHeart className="modal__heart" size={200} color='purple'/>
+          <span className="modal__likes">{`Count likes: ${formatedDate}`}</span>
+        </div>
         <Button
           onClick={onClose}
           text={"Close me"}

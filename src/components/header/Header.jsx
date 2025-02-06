@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import CountLikes from '../countLikes/CountLikes';
 import Logo from "../logo/Logo";
 import "./style.css";
 
@@ -27,6 +28,7 @@ const Header = () => {
         <Logo />
 
         {/* Need to decomposite nav-list to own component */}
+        <CountLikes/>
 
         <ul className={`main-nav__list ${active}`}>
           <li className="nav-list__item">

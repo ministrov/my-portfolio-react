@@ -1,6 +1,6 @@
+import { Helmet } from "react-helmet-async";
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
 import Button from "../components/button/Button";
-import { Helmet } from 'react-helmet';
 
 const Page404 = () => {
   return (
@@ -15,7 +15,7 @@ const Page404 = () => {
         <link rel="canonical" href="*" />
       </Helmet>
 
-      <section className="page-404 container">
+      <section className="page-404">
         <ErrorMessage />
         <p style={{ textAlign: "center", fontWeight: "bold", fontSize: "24px" }}>
           Page doesn't exist

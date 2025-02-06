@@ -1,0 +1,13 @@
+.likes {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 2rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--light-blue-100);
+}
+
+.likes__heart {
+    cursor: pointer;
+}

@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { Helmet } from 'react-helmet';
 import Layout from './Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from "./pages/HomePage";

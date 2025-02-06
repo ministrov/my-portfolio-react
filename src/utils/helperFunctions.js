@@ -1,119 +1,95 @@
-// const Direction = {
-//     LEFT: 'left',
-//     RIGHT: 'right',
-//     UP: 'up',
-//     DOWN: 'down'
+// const sumTwo = (nums, target) => {
+//     let result = [];
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if ((nums[i] + nums[i + 1]) === target) {
+//             result.push(nums[i].indexOf());
+//         }
+//     }
+
+//     return result;
 // };
 
-function debounce(func, delay) {
-    let timeout;
+// // Input: nums = [2, 7, 11, 15], target = 9
+// // Output: [0, 1];
 
-    return function (...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func(...args), delay);
-    }
-}
+// function debounce(func, delay) {
+//     let timeout;
 
-function onResize() {
-    console.log('Window screen size was changed');
-}
-
-// function getDirection(direction) {
-//     switch (direction) {
-//         case Direction.LEFT:
-//             return 1;
-//         case Direction.RIGHT:
-//             return 2;
-//         case Direction.UP:
-//             return 3;
-//         case Direction.DOWN:
-//             return 4;
-//         default:
-//             return -1;
+//     return function (...args) {
+//         clearTimeout(timeout);
+//         timeout = setTimeout(() => func(...args), delay);
 //     }
 // }
 
-const sumTwo = (nums, target) => {
-    let result = [];
+// const deb = debounce(() => { console.log('callback')}, 5000);
 
-    for (let i = 0; i < nums.length; i++) {
-        if ((nums[i] + nums[i + 1]) === target) {
-            result.push(nums[i].indexOf());
-        }
-    }
+// function replaceSubstringImperativeWay(str, search, replace) {
+//     let result = '';
 
-    return result;
-};
+//     for (let i = 0; i < str.length; i++) {
+//         if (str.substring(i, i + search.length) === search) {
+//             result += replace;
+//             i += search.length - 1;
+//         } else {
+//             result += str[i];
+//         }
+//     }
 
-// Input: nums = [2, 7, 11, 15], target = 9
-// Output: [0, 1];
+//     return result;
+// }
 
-function replaceSubstringImperativeWay(str, search, replace) {
-    let result = '';
+// console.log(replaceSubstringImperativeWay('hello world', 'world', 'there'))
 
-    for (let i = 0; i < str.length; i++) {
-        if (str.substring(i, i + search.length) === search) {
-            result += replace;
-            i += search.length - 1;
-        } else {
-            result += str[i];
-        }
-    }
+// function replateSubstring(str, search, replace) {
+//     return str.split(search).join(replace);
+// }
 
-    return result;
-}
+// console.log(replateSubstring('hello world', 'world', 'there'));
 
-console.log(replaceSubstringImperativeWay('hello world', 'world', 'there'))
+// function isPalindrome(str) {
+//     const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, '');
 
-function replateSubstring(str, search, replace) {
-    return str.split(search).join(replace);
-}
+//     return cleaned === cleaned.split('').reverse().join('');
+// }
 
-console.log(replateSubstring('hello world', 'world', 'there'));
+// console.log(isPalindrome('hello'));
 
-function isPalindrome(str) {
-    const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+// function isPalindromeImperativeWay(str) {
+//     let cleanedStr = str.replace(/[^a-z0-9]/g, '').toLowerCase();
 
-    return cleaned === cleaned.split('').reverse().join('');
-}
+//     for (let i = 0; i < Math.floor(cleanedStr.length / 2); i++) {
+//         if (cleanedStr[i] !== cleanedStr[cleanedStr.length - 1 - i]) {
+//             return false;
+//         }
+//     }
 
-console.log(isPalindrome('hello'));
+//     return true;
+// }
 
-function isPalindromeImperativeWay(str) {
-    let cleanedStr = str.replace(/[^a-z0-9]/g, '').toLowerCase();
+// console.log(isPalindromeImperativeWay('hello'));
 
-    for (let i = 0; i < Math.floor(cleanedStr.length / 2); i++) {
-        if (cleanedStr[i] !== cleanedStr[cleanedStr.length - 1 - i]) {
-            return false;
-        }
-    }
+// // eslint-disable-next-line no-extend-native
+// Array.prototype.myFilter = function(callback) {
+//     const result = [];
 
-    return true;
-}
+//     for (let i = 0; i < this.length; i++) {
+//         if (callback(this[i], i, this)) {
+//             result.push(this[i]);
+//         }
+//     }
 
-console.log(isPalindromeImperativeWay('hello'));
+//     return result;
+// }
 
-// eslint-disable-next-line no-extend-native
-Array.prototype.myFilter = function(callback) {
-    const result = [];
+// const arr = [1, 2, 3, 4, 5];
+// const filteredArr = arr.myFilter(x => x > 2);
 
-    for (let i = 0; i < this.length; i++) {
-        if (callback(this[i], i, this)) {
-            result.push(this[i]);
-        }
-    }
+// console.log(filteredArr);
 
-    return result;
-}
-
-const arr = [1, 2, 3, 4, 5];
-const filteredArr = arr.myFilter(x => x > 2);
-
-console.log(filteredArr);
-
-export {
-    debounce,
-    onResize,
-    sumTwo
-}
+// export {
+//     debounce,
+//     deb,
+//     sumTwo
+// }
 
