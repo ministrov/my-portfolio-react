@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
-import Modal from "../components/modal/Modal";
+// import Modal from "../components/modal/Modal";
 import Skills from "../sections/skills/Skills";
 import Testimonials from "../sections/testimonials/Testimonials";
 import ScrollUp from "../components/scrollUp/scrollUp";
@@ -12,13 +12,14 @@ import Statistics from "../sections/statistics/Statistics";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const formatedDate = new Intl.DateTimeFormat("ru-Ru").format();
+  // const formatedDate = new Intl.DateTimeFormat("ru-Ru").format();
 
-  const onCloseHandler = (event) => {
-    const target = event.target;
+  // const onCloseHandler = (event) => {
+  //   const target = event.target;
 
-    if (target) setIsOpen(false);
-  };
+  //   if (target) setIsOpen(false);
+  // };
+  console.log(setIsOpen);
 
   useEffect(() => {
     if (isOpen) {
@@ -33,7 +34,7 @@ const Home = () => {
   }, [isOpen]);
 
   return (
-    <>
+    <section className="main-page">
       <Helmet>
         <title>A Home page of Anton Zhilin professional portfolio</title>
         <meta
@@ -62,12 +63,12 @@ const Home = () => {
 
       <ScrollUp/>
 
-      <Modal 
+      {/* <Modal 
         open={isOpen} 
         formatedDate={formatedDate} 
         onClose={onCloseHandler}
-      />
-    </>
+      /> */}
+    </section>
   );
 };
 

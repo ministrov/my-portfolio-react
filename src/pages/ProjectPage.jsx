@@ -13,7 +13,7 @@ const ProjectPage = () => {
   const project = projects[id];
 
   return (
-    <>
+    <section className="project-page">
       <Helmet>
         <title>{`${project.title}`}</title>
         <meta
@@ -79,7 +79,7 @@ const ProjectPage = () => {
 
         <ScrollUp/>
       </motion.div>
-    </>
+    </section>
   );
 };
 
