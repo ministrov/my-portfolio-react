@@ -1,17 +1,32 @@
-// const sumTwo = (nums, target) => {
-//     let result = [];
+const sumTwo = (nums, target) => {
+    let targetFirstIndex, targetLastIndex;
 
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if ((nums[i] + nums[j]) === target) {
+                targetFirstIndex = i;
+                targetLastIndex = j;
+            }
+        }
+    }
+
+    return [targetFirstIndex, targetLastIndex];
+}
+
+// var twoSum = function (nums, target) {
 //     for (let i = 0; i < nums.length; i++) {
-//         if ((nums[i] + nums[i + 1]) === target) {
-//             result.push(nums[i].indexOf());
+//         for (let j = i + 1; j < nums.length; j++) {
+//             if (nums[j] === target - nums[i]) {
+//                 return [i, j];
+//             }
 //         }
 //     }
-
-//     return result;
+//     // Return an empty array if no solution is found
+//     return [];
 // };
 
-// // Input: nums = [2, 7, 11, 15], target = 9
-// // Output: [0, 1];
+// Input: nums = [2, 7, 11, 15], target = 9
+// Output: [0, 1];
 
 // function debounce(func, delay) {
 //     let timeout;
@@ -87,9 +102,9 @@
 
 // console.log(filteredArr);
 
-// export {
-//     debounce,
-//     deb,
-//     sumTwo
-// }
+export {
+    // debounce,
+    // deb,
+    sumTwo
+}
 
