@@ -43,93 +43,7 @@
   flex-wrap: wrap;
 }
 
-.nav-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.nav-list__link {
-  position: relative;
-  display: inline-block;
-  padding: 2.2rem 3rem;
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: inherit;
-  color: var(--light-blue-100);
-  transition: color .3s;
-}
-
-.nav-list__link:hover {
-  color: var(--light-blue-200);
-  transition: color 0.5s ease-in;
-}
-
-.nav-list__link:focus {
-  text-shadow: 1px 0 0,.3px 0 0;
-}
-
-.nav-list__link::before {
-  content: '';
-  position: absolute;
-  left: 15px;
-  bottom: 10px;
-  width: 76%;
-  height: 3px;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform .3s ease-in-out;
-  background-color: var(--light-blue-200);
-}
-
-.nav-list__link:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-
-.nav-list__link--active {
-  position: relative;
-}
-
-.nav-list__link--active::before {
-  background-color: var(--light-blue-100);;
-  transform: none;
-}
-
-.nav__toggler div {
-  width: 3rem;
-  height: 3px;
-  margin: 5px;
-  background-color: var(--light-blue-100);
-  transition: all .5s ease-in;
-}
-
-.nav__toggler {
-  display: none;
-  cursor: pointer;
-}
-
-.nav-list__active {
-  transform: translateX(0);
-}
-
-/* Toggle burger menu line animation*/
-
-.toggle .line1 {
-  transform: rotate(-45deg) translate(-4px, 5px);
-}
-
-.toggle .line2 {
-  opacity: 0;
-}
-
-.toggle .line3 {
-  transform: rotate(45deg) translate(-4px, -5px);
-}
-
-@media only screen and (max-width: 56.25em) {
+/* @media only screen and (max-width: 56.25em) {
   .main-nav {
     padding: 2rem 2rem;
   }
@@ -183,4 +97,4 @@
   .nav-list {
     top: 84px;
   }
-}
+} */

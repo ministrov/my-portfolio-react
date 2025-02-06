@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import CountLikes from '../countLikes/CountLikes';
 import Logo from "../logo/Logo";
 import "./style.css";
+import MainNav from '../mainNav/MainNav';
 
 const Header = () => {
   const [active, setActive] = useState("nav-list");
@@ -27,29 +27,9 @@ const Header = () => {
       <nav className="header__nav main-nav">
         <Logo />
 
-        {/* Need to decomposite nav-list to own component */}
         <CountLikes/>
 
-        <ul className={`main-nav__list ${active}`}>
-          <li className="nav-list__item">
-            <NavLink
-              to="/"
-              className={"nav-list__link"}
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className="nav-list__item">
-            <NavLink
-              to="/projects"
-              className={({ isActive }) =>
-                isActive ? 'nav-list__link nav-list__link--active' : 'nav-list__link'
-              }
-            >
-              Projects
-            </NavLink>
-          </li>
-        </ul>
+        <MainNav active={active} />
 
         <div role='menu' onClick={toggleNav} className={toggleIcon} tabIndex={0}>
           <div className="line1"></div>
