@@ -12,13 +12,6 @@ import Statistics from "../sections/statistics/Statistics";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const formatedDate = new Intl.DateTimeFormat("ru-Ru").format();
-
-  // const onCloseHandler = (event) => {
-  //   const target = event.target;
-
-  //   if (target) setIsOpen(false);
-  // };
   console.log(setIsOpen);
 
   useEffect(() => {
@@ -64,7 +57,7 @@ const Home = () => {
       <ScrollUp/>
 
       <Modal 
-        open
+        open={false}
       />
     </section>
   );
