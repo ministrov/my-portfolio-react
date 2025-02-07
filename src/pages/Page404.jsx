@@ -4,7 +4,7 @@ import Button from "../components/button/Button";
 
 const Page404 = () => {
   return (
-    <>
+    <section className="page-not-found">
       <Helmet>
         <title>A Not Found Page</title>
         <meta
@@ -27,7 +27,7 @@ const Page404 = () => {
           className={"btn--med btn--theme"}
         />
       </section>
-    </>
+    </section>
   );
 };
 

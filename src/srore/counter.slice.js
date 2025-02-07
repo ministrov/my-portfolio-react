@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { loadState } from './localStorage';
 
 const initialState = {
-    counter: 0
+    counter: loadState('likes')?.name || 0
 };
 
 export const likesCounterSlice  = createSlice({

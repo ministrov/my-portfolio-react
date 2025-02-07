@@ -121,3 +121,9 @@
     display: none;
   }
 }
+
+@media only screen and (max-width: 26.5em) {
+  button.btn--big {
+    display: none;
+  }
+}

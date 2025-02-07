@@ -11,3 +11,9 @@
 .likes__heart {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 36.25em) {
+  .likes {
+    display: none;
+  }
+}

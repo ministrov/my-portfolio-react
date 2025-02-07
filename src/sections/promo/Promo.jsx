@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { incrementLike } from '../../srore/counter.slice';
 import TypingText from '../../components/typingText/TypingText';
 import Image from '../../components/image/Image';
 import Button from "../../components/button/Button";
@@ -5,10 +7,10 @@ import SocialList from "../../components/socials/SocialList";
 import MouseScroll from "../../components/mouseScroll/MouseScroll";
 import MyAvatar from "../../assets/png/my-avatar.png";
 import MyAvatar1 from "../../assets/png/my-avatar.webp";
-// import MyAvatar2 from "../../assets/png/my-avatar.avif";
 import "./style.css";
 
-const Promo = ({ setIsOpen }) => {
+const Promo = () => {
+  const dispatch = useDispatch();
   return (
     <section className="promo">
       <h2 className="visually-hidden">A promo section to introduction</h2>
@@ -30,8 +32,8 @@ const Promo = ({ setIsOpen }) => {
             className={"btn--big"}
           />
           <Button
-            onClick={() => setIsOpen(true)}
-            text={"Click me"}
+            onClick={() => dispatch(incrementLike())}
+            text={"Give a like"}
             className={"btn--big"}
           />
         </div>

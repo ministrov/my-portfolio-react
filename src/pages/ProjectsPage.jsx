@@ -5,7 +5,7 @@ import ScrollUp from "../components/scrollUp/scrollUp";
 
 const ProjectsPage = () => {
   return (
-    <>
+    <section className="projects-page">
       <Helmet>
         <title>Page of the all projects</title>
         <meta
@@ -28,7 +28,7 @@ const ProjectsPage = () => {
 
         <ScrollUp/>
       </motion.div>
-    </>
+    </section>
   );
 };
 

@@ -12,13 +12,7 @@ import Statistics from "../sections/statistics/Statistics";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const formatedDate = new Intl.DateTimeFormat("ru-Ru").format();
-
-  const onCloseHandler = (event) => {
-    const target = event.target;
-
-    if (target) setIsOpen(false);
-  };
+  console.log(setIsOpen);
 
   useEffect(() => {
     if (isOpen) {
@@ -33,7 +27,7 @@ const Home = () => {
   }, [isOpen]);
 
   return (
-    <>
+    <section className="main-page">
       <Helmet>
         <title>A Home page of Anton Zhilin professional portfolio</title>
         <meta
@@ -46,7 +40,7 @@ const Home = () => {
 
       <h1 className="visually-hidden">Home page of the author</h1>
 
-      <Promo setIsOpen={setIsOpen} />
+      <Promo />
 
       <Statistics />
 
@@ -63,11 +57,9 @@ const Home = () => {
       <ScrollUp/>
 
       <Modal 
-        open={isOpen} 
-        formatedDate={formatedDate} 
-        onClose={onCloseHandler}
+        open={false}
       />
-    </>
+    </section>
   );
 };
 
