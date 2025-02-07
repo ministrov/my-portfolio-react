@@ -75,6 +75,22 @@ const romanToInt = function (string) {
 
 console.log(romanToInt('IV'));
 
+const findlongestCommonPrefix = function(strs) {
+    if (!strs.length) return "";
+
+    let prefix = strs[0];
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(prefix) !== 0) {
+            prefix = prefix.slice(0, -1);
+            if (prefix === "") return "";
+        }
+    }
+
+    return prefix;
+}
+
+console.log(findlongestCommonPrefix(["flower","flow","flight"]));
+
 // Input: nums = [2, 7, 11, 15], target = 9
 // Output: [0, 1];
 
