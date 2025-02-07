@@ -91,6 +91,33 @@ const findlongestCommonPrefix = function(strs) {
 
 console.log(findlongestCommonPrefix(["flower","flow","flight"]));
 
+const isValidParentheses = function (string) {
+    const stack = [];
+
+    for (let i = 0; i < string.length; i++) {
+        let curChar = string[i];
+
+        switch (curChar) {
+            case '(': 
+                stack.push(')');
+                break;
+            case '[': 
+                stack.push(']');
+                break;
+            case '{': 
+                stack.push('}');
+                break;
+            default:
+                const topElement = stack.pop();
+                if (curChar !== topElement) return false;
+        }
+    }
+
+    return stack.length === 0
+}
+
+console.log(isValidParentheses('(}'));
+
 // Input: nums = [2, 7, 11, 15], target = 9
 // Output: [0, 1];
 
