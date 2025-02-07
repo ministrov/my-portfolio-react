@@ -118,6 +118,30 @@ const isValidParentheses = function (string) {
 
 console.log(isValidParentheses('(}'));
 
+function doBinarySearch(array, num) {
+    let start = 0;
+    let end = array.length - 1;
+
+    while (start <= end) {
+       let middle = (start + end) / 2;
+       const guess = array[middle];
+
+       if (guess === num) {
+            return middle;
+       } 
+
+       if (guess > middle) {
+            return end = middle - 1;
+       } else {
+            return start = middle + 1;
+       }
+    }
+
+    return null;
+}
+
+console.log(doBinarySearch([1, 2, 3, 4, 5, 6, 7], 5));
+
 // Input: nums = [2, 7, 11, 15], target = 9
 // Output: [0, 1];
 
