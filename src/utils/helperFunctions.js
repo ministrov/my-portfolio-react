@@ -6,6 +6,8 @@ const sumTwo = (nums, target) => {
             if ((nums[i] + nums[j]) === target) {
                 targetFirstIndex = i;
                 targetLastIndex = j;
+            } else {
+                return [targetFirstIndex = false, targetLastIndex = false];
             }
         }
     }

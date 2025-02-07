@@ -5,7 +5,6 @@ import './style.css';
 const CountLikes = () => {
     const likes = useSelector((state) => state.likes);
 
-    console.log(likes);
     return (
         <div className="likes">
             <div className="likes__heart">
