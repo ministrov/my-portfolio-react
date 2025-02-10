@@ -32,11 +32,6 @@ const ProjectPage = () => {
         <h1 className="visually-hidden">Page about single author's project</h1>
         <div className="container">
           <div className="project-details">
-            <Button
-              text={"Back to Projects"}
-              className={"project-details__btn btn--theme"}
-              href={"/projects"}
-            />
             <Heading title={project.title} slogan={project.slogan} />
             <Image 
               className="project-details__cover"
