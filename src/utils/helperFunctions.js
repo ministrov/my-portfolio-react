@@ -6,6 +6,8 @@ const sumTwo = (nums, target) => {
             if ((nums[i] + nums[j]) === target) {
                 targetFirstIndex = i;
                 targetLastIndex = j;
+            } else {
+                return [targetFirstIndex = false, targetLastIndex = false];
             }
         }
     }
@@ -13,17 +15,132 @@ const sumTwo = (nums, target) => {
     return [targetFirstIndex, targetLastIndex];
 }
 
-// var twoSum = function (nums, target) {
-//     for (let i = 0; i < nums.length; i++) {
-//         for (let j = i + 1; j < nums.length; j++) {
-//             if (nums[j] === target - nums[i]) {
-//                 return [i, j];
-//             }
-//         }
-//     }
-//     // Return an empty array if no solution is found
-//     return [];
-// };
+var twoSum = function (nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[j] === target - nums[i]) {
+                return [i, j];
+            }
+        }
+    }
+    // Return an empty array if no solution is found
+    return [];
+};
+
+console.log(twoSum);
+
+const isPalindromeNum = function (num) {
+    const s = String(num);
+    let l = 0, reverse = s.length - 1;
+
+    while (l <= reverse) {
+        if (s[l] !== s[reverse]) {
+            return false;
+        }
+        l++;
+        reverse--;
+    }
+
+    return true;
+}
+
+console.log(isPalindromeNum(232));
+
+const romanToInt = function (string) {
+    let result = 0, current = 0, previous = 0;
+    const values = new Map([
+        ['I', 1],
+        ['V', 5],
+        ['X', 10],
+        ['L', 50],
+        ['C', 100],
+        ['D', 500],
+        ['M', 1000],
+    ]);
+
+    for (const char of string.split('').reverse()) {
+        current = values.get(char);
+
+        if (current >= previous) {
+            result += current;
+        } else {
+            result -= current;
+        }
+
+        previous = current;
+    }
+
+    return result;
+}
+
+console.log(romanToInt('IV'));
+
+const findlongestCommonPrefix = function(strs) {
+    if (!strs.length) return "";
+
+    let prefix = strs[0];
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(prefix) !== 0) {
+            prefix = prefix.slice(0, -1);
+            if (prefix === "") return "";
+        }
+    }
+
+    return prefix;
+}
+
+console.log(findlongestCommonPrefix(["flower","flow","flight"]));
+
+const isValidParentheses = function (string) {
+    const stack = [];
+
+    for (let i = 0; i < string.length; i++) {
+        let curChar = string[i];
+
+        switch (curChar) {
+            case '(': 
+                stack.push(')');
+                break;
+            case '[': 
+                stack.push(']');
+                break;
+            case '{': 
+                stack.push('}');
+                break;
+            default:
+                const topElement = stack.pop();
+                if (curChar !== topElement) return false;
+        }
+    }
+
+    return stack.length === 0
+}
+
+console.log(isValidParentheses('(}'));
+
+function doBinarySearch(array, num) {
+    let start = 0;
+    let end = array.length - 1;
+
+    while (start <= end) {
+       let middle = (start + end) / 2;
+       const guess = array[middle];
+
+       if (guess === num) {
+            return middle;
+       } 
+
+       if (guess > middle) {
+            return end = middle - 1;
+       } else {
+            return start = middle + 1;
+       }
+    }
+
+    return null;
+}
+
+console.log(doBinarySearch([1, 2, 3, 4, 5, 6, 7], 5));
 
 // Input: nums = [2, 7, 11, 15], target = 9
 // Output: [0, 1];
