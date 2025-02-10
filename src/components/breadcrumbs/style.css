@@ -1,0 +1,42 @@
+.breadcrumbs,
+.item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.link,
+.curent {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.curent {
+  color: var( --deep-black-100);
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+}
+
+.link {
+  color: var(--blue-light-100);
+}
+
+.link:hover {
+  color: var(--blue-light-100);
+}
+
+.link:active {
+  /* color: var(--blue-dark); */
+  color: blue;
+}
+
+@media screen and (max-width: 768px) {
+  .link,
+  .curent {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

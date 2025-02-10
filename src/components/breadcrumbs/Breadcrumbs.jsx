@@ -1,3 +1,4 @@
+import { RxDoubleArrowRight } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -14,7 +15,7 @@ const Breadcrumbs = ({ items, ...props}) => {
               {" "}
               {item.name}
             </Link>
-            {/* <Icon.ArrowWithTailIcon className={styles.icon} /> */}
+            <RxDoubleArrowRight />
           </div>
         ) : (
           <span key={item.name} className="curent">
