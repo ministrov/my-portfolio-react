@@ -29,7 +29,6 @@
 }
 
 .link:active {
-  /* color: var(--blue-dark); */
   color: blue;
 }
 
