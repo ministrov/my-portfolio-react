@@ -14,7 +14,7 @@ const Projects = () => {
   let navigate = useNavigate();
   let location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const BREADCRUMBS = [{ name: "Home", link: "/" }, { name: "Products" }];
+  const BREADCRUMBS = [{ id: 1, name: "Home", link: "/" }, { id: 2, name: "Products" }];
 
   const handleFilterClick = (name) => {
     if (name === 'All') {
