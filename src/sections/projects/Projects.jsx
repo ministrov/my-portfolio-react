@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from "../../components/heading/Heading";
+import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import ProjectsList from "../../components/projectsList/ProjectsList";
 import { projects } from "../../data/projects";
 import "./style.css";
@@ -13,6 +14,7 @@ const Projects = () => {
   let navigate = useNavigate();
   let location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+  const BREADCRUMBS = [{ name: "Home", link: "/" }, { name: "Products" }];
 
   const handleFilterClick = (name) => {
     if (name === 'All') {
@@ -35,6 +37,7 @@ const Projects = () => {
     <section className="projects">
       <h2 className="visually-hidden">A lists of projects of an author</h2>
       <div className="container">
+        <Breadcrumbs items={BREADCRUMBS}/>
         <Heading
           title={"Projects"}
           className="projects__title"
