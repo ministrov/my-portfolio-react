@@ -1,4 +1,5 @@
-import { RxDoubleArrowRight } from "react-icons/rx";
+// import { RxDoubleArrowRight } from "react-icons/rx";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -15,7 +16,7 @@ const Breadcrumbs = ({ items, ...props}) => {
               {" "}
               {item.name}
             </Link>
-            <RxDoubleArrowRight />
+            <MdOutlineKeyboardArrowRight color='#0062b9' />
           </div>
         ) : (
           <span key={item.name} className="curent">
