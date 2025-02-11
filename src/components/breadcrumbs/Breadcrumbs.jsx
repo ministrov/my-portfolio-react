@@ -16,7 +16,7 @@ const Breadcrumbs = ({ items, ...props}) => {
               {" "}
               {item.name}
             </Link>
-            <MdOutlineKeyboardArrowRight color='#0062b9' />
+            <MdOutlineKeyboardArrowRight className='arrow-right' color='#0062b9' />
           </div>
         ) : (
           <span key={item.name} className="curent">

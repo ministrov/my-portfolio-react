@@ -12,8 +12,12 @@
 }
 
 .curent {
-  /* color: var( --deep-black-100); */
   color: var(--light-blue-200);
+}
+
+.arrow-right {
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .icon {
