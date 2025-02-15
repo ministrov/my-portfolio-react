@@ -11,8 +11,7 @@ import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  console.log(setIsOpen);
+  const [isOpen] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -28,6 +27,7 @@ const Home = () => {
 
   return (
     <section className="main-page">
+      <h1 className="visually-hidden">Home page of the author portfolio</h1>
       <Helmet>
         <title>A Home page of Anton Zhilin professional portfolio</title>
         <meta
@@ -37,8 +37,6 @@ const Home = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
-      <h1 className="visually-hidden">Home page of the author portfolio</h1>
 
       <Promo />
 

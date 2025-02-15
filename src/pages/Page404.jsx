@@ -16,18 +16,14 @@ const Page404 = () => {
         <link rel="canonical" href="*" />
       </Helmet>
 
-      <section className="page-404">
-        <ErrorMessage />
-        <p style={{ textAlign: "center", fontWeight: "bold", fontSize: "24px" }}>
-          Page doesn't exist
-        </p>
+      <ErrorMessage />
+      <p className="page-not-found__text">Page doesn't exist</p>
 
-        <Button
-          text={"Back to main page"}
-          href={"/"}
-          className={"btn--med btn--theme"}
-        />
-      </section>
+      <Button
+        text={"Back to main page"}
+        href={"/"}
+        className={"btn--med btn--theme"}
+      />
     </section>
   );
 };
