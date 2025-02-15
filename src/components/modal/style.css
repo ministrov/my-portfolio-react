@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   max-width: 335px;
-  padding: 3rem;
+  padding: 4rem;
   background-color: var(--light-blue-100);
   border-radius:  var(--border-rs);
 }
@@ -11,7 +11,7 @@
 .modal__content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .modal__content h2 {
@@ -22,7 +22,7 @@
 }
 
 .modal__content p {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: 500;
   line-height: 1.4;
   color: var(--white);

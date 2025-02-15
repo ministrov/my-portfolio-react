@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Button from "../button/Button";
 import Backdrop from "../backdrop/Backdrop";
 import "./style.css";
+import SocialList from '../socials/SocialList';
 
 const dropIn = {
   hidden: {
@@ -39,8 +40,11 @@ const Modal = ({ open, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal__content">
-          <h2>Call me if you need help</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt quos, nulla fuga nihil et facilis at libero nam sapiente accusantium ratione modi sequi, exercitationem illo doloremque amet esse. Illum repudiandae aut nihil officia, aspernatur eligendi facere obcaecati tempora minima. Non enim earum voluptatibus asperiores illum!</p>
+          <h2>Reach out to me in any socials</h2>
+          <p>Facing difficulties? Remember that I'm always available to offer guidance and assistance. No matter how big or small your problem may seem, I’m here to provide support. Reach out today, and let's tackle it together.</p>
+          <div className="modal__socials">
+            <SocialList/>
+          </div>
           <Button
             onClick={onClose}
             text={"Close me"}

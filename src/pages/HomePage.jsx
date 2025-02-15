@@ -11,7 +11,7 @@ import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
 
 const Home = () => {
-  const [isOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -20,9 +20,15 @@ const Home = () => {
       document.body.style.overflow = "auto";
     }
 
+    let timeout = setTimeout(() => {
+      setIsOpen(true);
+    }, 30000);
+
     return () => {
       document.body.style.overflow = "auto";
+      clearTimeout(timeout);
     };
+
   }, [isOpen]);
 
   return (
@@ -55,7 +61,8 @@ const Home = () => {
       <ScrollUp/>
 
       <Modal 
-        open={true}
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
       />
     </section>
   );
