@@ -55,7 +55,7 @@ const Home = () => {
       <ScrollUp/>
 
       <Modal 
-        open={false}
+        open={true}
       />
     </section>
   );

@@ -7,11 +7,10 @@ const OVERLAY_STYLES = {
   bottom: 0,
   right: 0,
   display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  alignItems: "self-end",
+  justifyContent: "flex-end",
   width: "100%",
   height: "100%",
-  backgroundColor: "rgba(0, 0, 0, 0.7)",
   zIndex: 1000,
   opacity: 1,
 };
