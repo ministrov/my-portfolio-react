@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="header__nav main-nav">
-        <Logo />
+        <Logo className={"main-nav"}/>
 
         <CountLikes/>
 
