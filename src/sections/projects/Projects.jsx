@@ -35,7 +35,6 @@ const Projects = () => {
 
   return (
     <section className="projects">
-      <h2 className="visually-hidden">A lists of projects of an author</h2>
       <div className="container">
         <Breadcrumbs items={BREADCRUMBS}/>
         <Heading

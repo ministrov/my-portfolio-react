@@ -5,6 +5,7 @@ import Button from "../components/button/Button";
 const Page404 = () => {
   return (
     <section className="page-not-found">
+      <h2 className='visually-hidden'>A not found page section</h2>
       <Helmet>
         <title>A Not Found Page</title>
         <meta

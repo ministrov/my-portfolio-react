@@ -38,7 +38,7 @@ const Home = () => {
         <link rel="canonical" href="/" />
       </Helmet>
 
-      <h1 className="visually-hidden">Home page of the author</h1>
+      <h1 className="visually-hidden">Home page of the author portfolio</h1>
 
       <Promo />
 
