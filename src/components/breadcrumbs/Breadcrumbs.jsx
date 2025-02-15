@@ -1,21 +1,20 @@
-import { RxDoubleArrowRight } from "react-icons/rx";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./style.css";
 
 const Breadcrumbs = ({ items, ...props}) => {
   return (
-    <div className="breadcrumbs" {...props}>
+    <div className="breadcrumbs" {...props} aria-label="breadcrumbs">
       {items.map((item) => {
         return item.link ? (
-          <div key={item.link} className="item">
+          <div key={item.id} className="item">
             <Link
-              href={item.isCategory ? `/category/${item.link}` : item.link}
+              to={`${item.link}`}
               className="link"
             >
-              {" "}
               {item.name}
             </Link>
-            <RxDoubleArrowRight />
+            <MdOutlineKeyboardArrowRight className='arrow-right' color='#0062b9' />
           </div>
         ) : (
           <span key={item.name} className="curent">

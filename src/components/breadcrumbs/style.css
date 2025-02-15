@@ -12,7 +12,12 @@
 }
 
 .curent {
-  color: var( --deep-black-100);
+  color: var(--light-blue-200);
+}
+
+.arrow-right {
+  width: 2rem;
+  height: 2rem;
 }
 
 .icon {
@@ -21,15 +26,24 @@
 }
 
 .link {
-  color: var(--blue-light-100);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--light-blue-100);
 }
 
 .link:hover {
-  color: var(--blue-light-100);
+  color: var(--light-blue-200);
+}
+
+.link:focus {
+  opacity: 0.8;
+  color: var(--light-blue-200);
 }
 
 .link:active {
-  color: blue;
+  opacity: 0.6;
+  color: var(--light-blue-200);
 }
 
 @media screen and (max-width: 768px) {

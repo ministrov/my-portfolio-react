@@ -7,10 +7,12 @@ import SkillComponet from "../components/skillComponent/SkillComponent";
 import ScrollUp from '../components/scrollUp/scrollUp';
 import { projects } from "../data/projects";
 import { motion } from "framer-motion";
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 
 const ProjectPage = () => {
   const { id } = useParams();
   const project = projects[id];
+  const BREADCRUMBS = [{ id: 1, name: "Home", link: "/" }, { id: 2, name: "Projects", link: "/projects" }, { id: 3, name: "Project" }];
 
   return (
     <section className="project-page">
@@ -32,6 +34,7 @@ const ProjectPage = () => {
         <h1 className="visually-hidden">Page about single author's project</h1>
         <div className="container">
           <div className="project-details">
+            <Breadcrumbs items={BREADCRUMBS}/>
             <Heading title={project.title} slogan={project.slogan} />
             <Image 
               className="project-details__cover"
