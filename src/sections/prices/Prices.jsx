@@ -1,4 +1,5 @@
 import Heading from '../../components/heading/Heading';
+import PricesList from '../../components/pricesList/PricesLIst';
 import "./style.css";
 
 const Prices = () => {
@@ -8,6 +9,7 @@ const Prices = () => {
         <Heading title={"Prices"} slogan={"Give you a best prices for professional web developing"} />
 
         {/* Pricing card list */}
+        <PricesList/>
       </div>
     </section>
   )
