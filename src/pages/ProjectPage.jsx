@@ -47,8 +47,6 @@ const ProjectPage = () => {
 
               <p className="project-detail__text-overview">{project.overview}</p>
 
-              <p className="project-detail__text-overview">{project.overview}</p>
-
               <h3 className="project-detail__overview">Tools Used</h3>
 
               <ul className="project-detail__tools-list">

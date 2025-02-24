@@ -6,7 +6,6 @@ import "./style.css";
 const About = () => {
   return (
     <section className="about">
-      <h2 className="visually-hidden">About author section</h2>
       <div className="container">
         <Heading
           title={"About"}

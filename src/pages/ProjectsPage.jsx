@@ -6,6 +6,7 @@ import ScrollUp from "../components/scrollUp/scrollUp";
 const ProjectsPage = () => {
   return (
     <section className="projects-page">
+      <h1 className="visually-hidden">Page about author's projects</h1>
       <Helmet>
         <title>Page of the all projects</title>
         <meta
@@ -22,8 +23,6 @@ const ProjectsPage = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <h1 className="visually-hidden">Page about author's projects</h1>
-
         <Projects />
 
         <ScrollUp/>

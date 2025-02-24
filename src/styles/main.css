@@ -175,13 +175,21 @@ body {
   margin-bottom: 6rem;
 }
 
-.page-404 {
+.page-not-found {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6rem;
   padding: 12rem 0;
   min-height: 80vh;
+  text-align: center;
+}
+
+.page-not-found__text {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--light-blue-100);
 }
 
 @media only screen and (max-width: 98.25em) {

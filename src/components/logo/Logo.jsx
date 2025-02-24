@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "./style.css";
 
-const Logo = ({ type = null }) => {
+const Logo = ({ type = null, className }) => {
   return (
-    <div className="main-nav__logo logo">
+    <div className={`${className}__logo logo`}>
       <Link to="/" className={`logo__name ${type}`}>
         Anton Zhilin
       </Link>

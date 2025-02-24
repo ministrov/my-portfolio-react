@@ -14,7 +14,7 @@ const Footer = () => {
             <SocialList className={'main-footer__list'}/>
           </div>
           <div className="main-footer__row main-footer__row-2">
-            <Logo type={'logo__name--second'}/>
+            <Logo className={"main-footer"} type={'logo__name--second'}/>
             <p className="main-footer__short-desc">
               Creating Intuitive User Experiences Through Clean Code and Modern Design
             </p>

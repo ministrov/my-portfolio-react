@@ -12,7 +12,6 @@ import Statistics from "../sections/statistics/Statistics";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(setIsOpen);
 
   useEffect(() => {
     if (isOpen) {
@@ -21,13 +20,20 @@ const Home = () => {
       document.body.style.overflow = "auto";
     }
 
+    let timeout = setTimeout(() => {
+      setIsOpen(true);
+    }, 30000);
+
     return () => {
       document.body.style.overflow = "auto";
+      clearTimeout(timeout);
     };
+
   }, [isOpen]);
 
   return (
     <section className="main-page">
+      <h1 className="visually-hidden">Home page of the author portfolio</h1>
       <Helmet>
         <title>A Home page of Anton Zhilin professional portfolio</title>
         <meta
@@ -37,8 +43,6 @@ const Home = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
-      <h1 className="visually-hidden">Home page of the author</h1>
 
       <Promo />
 
@@ -57,7 +61,8 @@ const Home = () => {
       <ScrollUp/>
 
       <Modal 
-        open={false}
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
       />
     </section>
   );

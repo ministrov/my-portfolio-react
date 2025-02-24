@@ -38,6 +38,11 @@ export const skills = [
   },
   {
     id: uuidv4(),
+    tech: 'RTK',
+    icon: <SiRedux color='purple'/>
+  },
+  {
+    id: uuidv4(),
     tech: 'Next',
     icon: <SiNextdotjs />
   },

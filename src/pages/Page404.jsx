@@ -5,6 +5,7 @@ import Button from "../components/button/Button";
 const Page404 = () => {
   return (
     <section className="page-not-found">
+      <h2 className='visually-hidden'>A not found page section</h2>
       <Helmet>
         <title>A Not Found Page</title>
         <meta
@@ -15,18 +16,14 @@ const Page404 = () => {
         <link rel="canonical" href="*" />
       </Helmet>
 
-      <section className="page-404">
-        <ErrorMessage />
-        <p style={{ textAlign: "center", fontWeight: "bold", fontSize: "24px" }}>
-          Page doesn't exist
-        </p>
+      <ErrorMessage />
+      <p className="page-not-found__text">Page doesn't exist</p>
 
-        <Button
-          text={"Back to main page"}
-          href={"/"}
-          className={"btn--med btn--theme"}
-        />
-      </section>
+      <Button
+        text={"Back to main page"}
+        href={"/"}
+        className={"btn--med btn--theme"}
+      />
     </section>
   );
 };
