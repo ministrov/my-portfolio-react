@@ -1,7 +1,17 @@
 .projects__list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 4rem;
-  padding-bottom: 2.5rem;
+  gap: 7rem;
+}
+
+@media screen and (max-width: 1874px) {
+  .projects__list {
+    gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 1224px) {
+  .projects__list {
+    justify-content: center;
+  }
 }

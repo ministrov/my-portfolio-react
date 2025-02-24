@@ -11,14 +11,14 @@ import { motion } from "framer-motion";
 
 const ProjectPage = () => {
   const { id } = useParams();
-  const project = projects[id];
+  const project = projects[id - 1];
   const BREADCRUMBS = [{ id: 1, name: "Home", link: "/" }, { id: 2, name: "Projects", link: "/projects" }, { id: 3, name: "Project" }];
 
   return (
     <section className="project-page">
       {console.log(project)}
       <Helmet>
-        <title>{`${project.title}`}</title>
+        <title>{`Page of the project: ${project.title}`}</title>
         <meta
           name="description"
           content={`Page of the project name: ${project.title}`}
