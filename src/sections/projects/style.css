@@ -18,3 +18,9 @@
   gap: 1rem;
   background-color: var(--light-blue-100);
 }
+
+@media screen and (max-width: 1088px) {
+  .projects__filter {
+    display: none;
+  }
+}

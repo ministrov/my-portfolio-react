@@ -195,6 +195,11 @@ body {
   html {
     font-size: 56%;
   }
+
+  .project-details__links {
+    flex-direction: column;
+    gap: 4rem;
+  }
 }
 
 @media only screen and (max-width: 37.5em) {
