@@ -1,0 +1,23 @@
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.not-found__image {
+    display: block;
+    width: 850px;
+    height: 550px;
+    object-fit: contain;
+}
+
+.not-found__text {
+    font-size: 3rem;
+    line-height: 1.2;
+    color: var(--light-blue-100);
+}
+
+.not-found__btn {
+    max-width: 20rem;
+}
