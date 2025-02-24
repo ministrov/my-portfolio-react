@@ -35,7 +35,6 @@
 }
 
 .btn--theme {
-  /* max-width: 15rem; */
   background: var(--light-blue-100);;
   color: #fff;
 }
@@ -46,4 +45,11 @@
   background: #fff;
   border: 2px solid var(--light-blue-100);;
   box-shadow: none;
+}
+
+@media screen and (max-width: 327px) {
+  .btn {
+    padding: 2rem 2rem;
+    font-size: 1.8rem;
+  }
 }
