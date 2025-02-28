@@ -36,12 +36,13 @@ const ProjectPage = () => {
           <div className="project-details">
             <Breadcrumbs items={BREADCRUMBS}/>
             <Heading title={project.title} slogan={project.slogan} />
-            <Image 
-              className="project-details__cover"
-              src={project.webpBig}
-              fallback={project.fullImg}
-              alt={project.title}
-            />
+            <div className="project-details__cover">
+              <Image 
+                src={project.webpBig}
+                fallback={project.fullImg}
+                alt={project.title}
+              />
+            </div>
             <div className="project-details__content">
               <h2 className="project-detail__overview">Project Overview</h2>
 

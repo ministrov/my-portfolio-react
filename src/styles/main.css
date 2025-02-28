@@ -67,10 +67,6 @@ textarea {
   resize: none;
 }
 
-img {
-  width: 100%;
-}
-
 html {
   font-size: 62.5%;
 }
@@ -83,6 +79,10 @@ body {
   scroll-behavior: smooth;
   /* Light mode */
   background-color: var(--page-bg);
+}
+
+img {
+  width: 100%;
 }
 
 /* General */
@@ -123,8 +123,9 @@ body {
 }
 
 .project-details__cover {
+  overflow: hidden;
   max-width: 100%;
-  margin-bottom: 40px;
+  max-height: 900px;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-rs);
 }
@@ -145,6 +146,7 @@ body {
 .project-detail__overview {
   font-weight: 700;
   font-size: 2.8rem;
+  line-height: 1.3;
   margin-bottom: 3rem;
   color: var(--deep-black);
 }

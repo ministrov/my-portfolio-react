@@ -5,6 +5,8 @@
 }
 
 .project-card__item {
+  min-width: 238px;
+  max-width: 338px;
   display: flex;
   flex-direction: column;
   padding: 3rem;
@@ -31,5 +33,13 @@
   color: var(--project-card-text);
   justify-content: center;
   overflow: hidden;
+}
+
+@media screen and (max-width: 688px) {
+  .project-card {
+    background-color: transparent;
+    box-shadow: none;
+    /* border-radius: var(--border-rs); */
+  }
 }
 

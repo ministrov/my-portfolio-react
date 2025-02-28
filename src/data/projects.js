@@ -10,6 +10,8 @@ import project05 from '../assets/projects/05-big.jpg';
 import project05Wep from '../assets/projects/05-big.webp';
 import project06 from '../assets/projects/06-big.jpg';
 import project06Wep from '../assets/projects/06-big.webp';
+import project07 from '../assets/projects/blog.jpg';
+// import project07Wep from '../assets/projects/06-big.webp';
 
 export const projects = [
   {
@@ -70,7 +72,7 @@ export const projects = [
   {
     id: 5,
     title: 'Choosing courses',
-    skills: 'TypeScript, Next, React, Framer Motion',
+    skills: 'Next, TypeScript, React, Framer Motion',
     img: project05,
     fullImg: project05,
     webpImg: project05Wep,
@@ -95,10 +97,10 @@ export const projects = [
   },
   {
     id: 7,
-    title: 'Gaming Comunity',
-    skills: 'React, PHP, MySQL',
-    img: project06,
-    fullImg: project06,
+    title: 'Personal Blog',
+    skills: 'Next, TypeScript, React, Framer Motion',
+    img: project07,
+    fullImg: project07,
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
