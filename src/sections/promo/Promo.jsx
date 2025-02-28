@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { incrementLike } from '../../srore/counter.slice';
+import { incrementLike } from '../../store/counter.slice';
 import TypingText from '../../components/typingText/TypingText';
 import Image from '../../components/image/Image';
 import Button from "../../components/button/Button";

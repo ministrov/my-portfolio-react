@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
 import App from "./App";
-import { store } from './srore/store';
+import { store } from './store/store';
 import "swiper/css";
 import "swiper/css/bundle";
 
