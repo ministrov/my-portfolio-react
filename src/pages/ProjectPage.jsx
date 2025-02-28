@@ -16,7 +16,6 @@ const ProjectPage = () => {
 
   return (
     <section className="project-page">
-      {console.log(project)}
       <Helmet>
         <title>{`Page of the project: ${project.title}`}</title>
         <meta

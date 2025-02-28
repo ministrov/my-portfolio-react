@@ -7,6 +7,7 @@
 @media screen and (max-width: 1874px) {
   .projects__list {
     gap: 5rem;
+    justify-content: center;
   }
 }
 
