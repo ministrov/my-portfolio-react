@@ -1,5 +1,3 @@
-// import { store } from './store';
-
 export const logIt = (store) => (next) => (action) => {
     console.log(`[${Date()}] — выполнено действие`);
     console.log(action);
