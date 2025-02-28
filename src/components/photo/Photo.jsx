@@ -22,13 +22,6 @@ const Photo = () => {
         src={webPPhoto}
         alt={"Focus on author's face"}
       />
-        {/* <img
-          className="about__image"
-          width={500}
-          height={500}
-          src={authorPhoto}
-          alt="Focus on author's face"
-        />  */}
     </motion.div>
   )
 }

@@ -5,6 +5,10 @@
   gap: 4px;
 }
 
+.breadcrumbs {
+  margin-bottom: 3rem;
+}
+
 .link,
 .curent {
   font-size: 18px;

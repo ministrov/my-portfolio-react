@@ -4,20 +4,21 @@ import Heading from "../components/heading/Heading";
 import Button from "../components/button/Button";
 import Image from '../components/image/Image';
 import SkillComponet from "../components/skillComponent/SkillComponent";
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import ScrollUp from '../components/scrollUp/scrollUp';
 import { projects } from "../data/projects";
 import { motion } from "framer-motion";
-import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 
 const ProjectPage = () => {
   const { id } = useParams();
-  const project = projects[id];
+  const project = projects[id - 1];
   const BREADCRUMBS = [{ id: 1, name: "Home", link: "/" }, { id: 2, name: "Projects", link: "/projects" }, { id: 3, name: "Project" }];
 
   return (
     <section className="project-page">
+      {console.log(project)}
       <Helmet>
-        <title>{`${project.title}`}</title>
+        <title>{`Page of the project: ${project.title}`}</title>
         <meta
           name="description"
           content={`Page of the project name: ${project.title}`}

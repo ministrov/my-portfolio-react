@@ -13,10 +13,11 @@ const ProjectsList = ({ projects }) => {
           transition={{ duration: 1.3, delay: index * 0.3 }}
         >
           <ProjectCard 
+            id={project.id}
             title={project.title} 
+            skills={project.skills}
             img={project.img} 
             wepImg={project.webpImg} 
-            index={index} 
             imageAlt={project.title} 
           />
         </motion.div>

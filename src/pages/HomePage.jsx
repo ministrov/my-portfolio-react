@@ -4,6 +4,7 @@ import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
 import Modal from "../components/modal/Modal";
 import Skills from "../sections/skills/Skills";
+import Prices from '../sections/prices/Prices';
 import Testimonials from "../sections/testimonials/Testimonials";
 import ScrollUp from "../components/scrollUp/scrollUp";
 import Faq from "../sections/faq/Faq";
@@ -41,6 +42,7 @@ const Home = () => {
           content="A Home page of the frontend developer portfolio about developing a stunning apps and web applications"
           data-rh="true"
         />
+        <meta name='keywords' content='HTML, web layout, outsourcing, development, web developer, Figma, PSD, frontend, order' />
         <link rel="canonical" href="/" />
       </Helmet>
 
@@ -53,6 +55,8 @@ const Home = () => {
       <Services />
 
       <Skills />
+
+      <Prices />
 
       <Testimonials />
 

@@ -38,7 +38,7 @@
 }
 
 .about__description {
-  position: relative;
+  /* position: relative; */
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 1.7;
@@ -46,12 +46,12 @@
 }
 
 .about__greeting {
-  position: absolute;
+  /* position: absolute;
   top: -41px;
   left: -274px;
-  width: max-content;
+  width: max-content; */
   padding: 6px;
-  font-size: 5.2rem;
+  font-size: 3.2rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--white);
@@ -76,7 +76,7 @@
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
-@media only screen and (max-width: 1842px) {
+/* @media only screen and (max-width: 1842px) {
   .about__description {
     position: initial;
   }
@@ -87,7 +87,7 @@
     left: 0;
     font-size: 3.2rem;
   }
-}
+} */
 
 @media only screen and (max-width: 56.25em) {
   .about {
