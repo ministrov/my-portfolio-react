@@ -23,7 +23,7 @@ const Home = () => {
 
     let timeout = setTimeout(() => {
       setIsOpen(true);
-    }, 30000);
+    }, 3000);
 
     return () => {
       document.body.style.overflow = "auto";

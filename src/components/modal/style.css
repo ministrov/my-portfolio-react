@@ -36,7 +36,7 @@
 @media (max-width: 36rem) {
   .modal {
     width: 100%;
-    max-width: 70%;
+    padding: 4rem;
   }
 
   .modal div {
