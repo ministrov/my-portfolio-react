@@ -12,6 +12,8 @@ import project06 from '../assets/projects/06-big.jpg';
 import project06Wep from '../assets/projects/06-big.webp';
 import project07 from '../assets/projects/blog.jpg';
 import project07Wep from '../assets/projects/blogWebp.webp';
+import project08 from '../assets/projects/ratingus.jpg';
+import project08Wep from '../assets/projects/ratingus.webp';
 
 export const projects = [
   {
@@ -84,12 +86,12 @@ export const projects = [
   },
   {
     id: 6,
-    title: 'Gaming Comunity',
-    skills: 'React, PHP, MySQL',
-    img: project06,
-    fullImg: project06,
-    webpImg: project06Wep,
-    webpBig: project06Wep,
+    title: 'Ratingus',
+    skills: 'Next, TypeScript, React, Zustand, Yup, Formik, Framer Motion',
+    img: project08,
+    fullImg: project08,
+    webpImg: project08Wep,
+    webpBig: project08Wep,
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
@@ -114,6 +116,8 @@ export const projects = [
     skills: 'Next, TypeScript, React, Framer Motion',
     img: project06,
     fullImg: project06,
+    webpImg: project06Wep,
+    webpBig: project06Wep,
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 

@@ -27,7 +27,7 @@ const Faq = () => {
                 }}
               >
                 <div className="faq__question">
-                  <h4>{item.title}</h4>
+                  <h3>{item.title}</h3>
                   {
                     activeIndex === index ?
                       <div className="faq__icon">
