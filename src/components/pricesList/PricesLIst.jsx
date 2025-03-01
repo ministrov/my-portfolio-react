@@ -5,14 +5,14 @@ import "./style.css";
 const PricesList = () => {
   return (
     <ul className="prices__list">
-        {prices.map((price) => (
-            <PricesListItem 
-                key={price.id} 
-                title={price.title} 
-                description={price.description} 
-                price={price.price}
-            />
-        ))}
+      {prices.map((price) => (
+        <PricesListItem 
+          key={price.id} 
+          title={price.title} 
+          description={price.description} 
+          price={price.price}
+        />
+      ))}
     </ul>
   )
 }

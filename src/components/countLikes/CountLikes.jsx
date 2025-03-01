@@ -7,10 +7,8 @@ const CountLikes = () => {
 
     return (
         <div className="likes">
-            <div className="likes__heart">
-                <PiHeartbeatLight size={45} color="#0062b9"/>
-            </div>
-            {`Your likes: ${likes.counter}`}
+            <PiHeartbeatLight size={45} color="#0062b9"/>
+            <span className="likes__count">{`${likes.counter}`}</span>
         </div>
     )
 }

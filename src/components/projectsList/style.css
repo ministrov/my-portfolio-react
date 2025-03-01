@@ -1,17 +1,20 @@
 .projects__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 380px));
+  column-gap: 5rem;
+  row-gap: 3rem;
 }
 
 @media screen and (max-width: 1874px) {
   .projects__list {
-    gap: 5rem;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
   }
 }
 
-@media screen and (max-width: 1224px) {
+@media screen and (max-width: 688px) {
   .projects__list {
-    justify-content: center;
+    grid-template-columns: 1fr;
+    justify-items:center;
   }
 }
