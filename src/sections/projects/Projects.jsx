@@ -71,6 +71,14 @@ const Projects = () => {
                 onClick={() => handleFilterClick("JavaScript")}
               />
             </li>
+            <li className={`projects__filter-list-item`}>
+              <FilterButton
+                active={active}
+                currentBtn={'Next'}
+                filterName={"Next"}
+                onClick={() => handleFilterClick("Next")}
+              />
+            </li>
           </ul>
         </div>
 

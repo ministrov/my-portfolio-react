@@ -1,8 +1,8 @@
 import { useState } from "react";
 import CountLikes from '../countLikes/CountLikes';
+import MainNav from '../mainNav/MainNav';
 import Logo from "../logo/Logo";
 import "./style.css";
-import MainNav from '../mainNav/MainNav';
 
 const Header = () => {
   const [active, setActive] = useState("nav-list");
