@@ -26,7 +26,6 @@
 .project-card__title {
   display: flex;
   flex-direction: column;
-  min-height: 8rem;
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.3;
@@ -35,11 +34,16 @@
   overflow: hidden;
 }
 
+.project-card__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 @media screen and (max-width: 688px) {
   .project-card {
     background-color: transparent;
     box-shadow: none;
-    /* border-radius: var(--border-rs); */
   }
 }
 
