@@ -29,6 +29,7 @@
 }
 
 .modal__btn {
+  align-self: flex-start;
   margin-top: auto;
   border: 2px solid var(--white);
 }
