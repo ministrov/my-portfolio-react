@@ -27,7 +27,6 @@
 }
 
 .project-card__image {
-  /* vertical-align: middle; */
   transition: transform .8s ease-in-out;
   border-radius: var(--border-rs);
 }
@@ -45,7 +44,7 @@
 .project-card__list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  align-content: flex-start;
   gap: 8px;
   margin-top: 2rem;
   min-height: 158px;

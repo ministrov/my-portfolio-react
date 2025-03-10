@@ -4,7 +4,6 @@ import Image from "../image/Image";
 import "./style.css";
 
 const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
-  console.log(skills);
   return (
     <NavLink to={`/project/${id}`}>
       <article className="project__card project-card"  tabIndex={0}>
