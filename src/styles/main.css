@@ -83,6 +83,7 @@ body {
 
 img {
   width: 100%;
+  vertical-align: middle;
 }
 
 /* General */

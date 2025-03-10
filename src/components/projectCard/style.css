@@ -4,17 +4,30 @@
   border-radius: var(--border-rs);
 }
 
+.project-card__title {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  color: var(--light-blue-100);
+}
+
 .project-card__item {
   min-width: 238px;
   max-width: 338px;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
   padding: 3rem;
   border: 2px solid var(--light-blue-100);
   border-radius: var(--border-rs);
 }
 
 .project-card__image {
+  /* vertical-align: middle; */
   transition: transform .8s ease-in-out;
   border-radius: var(--border-rs);
 }
@@ -23,21 +36,19 @@
   transform: scale(1.109);
 }
 
-.project-card__title {
-  display: flex;
-  flex-direction: column;
-  font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 1.3;
-  color: var(--project-card-text);
-  justify-content: center;
-  overflow: hidden;
+.project-card__skills .skill__text {
+  max-height: 24px;
+  margin-right: 0;
 }
+
 
 .project-card__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 2rem;
+  min-height: 158px;
 }
 
 @media screen and (max-width: 688px) {

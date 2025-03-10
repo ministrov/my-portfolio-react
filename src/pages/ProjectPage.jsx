@@ -40,6 +40,8 @@ const ProjectPage = () => {
               <Image 
                 src={project.webpBig}
                 fallback={project.fullImg}
+                width={1248}
+                height={900}
                 alt={project.title}
               />
             </div>
