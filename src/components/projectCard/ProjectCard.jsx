@@ -20,7 +20,7 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
           <h4 className="project-card__title">{title}</h4>
 
           <div className="project-card__skills">
-            <h4 className="project-card__title">Skills:</h4>
+            <h4 className="project-card__title">Tools:</h4>
             <ul className="project-card__list">
               {skills.map((skill) => (
                 <SkillComponet
