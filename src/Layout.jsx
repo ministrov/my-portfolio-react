@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Header from "./components/header/Header";
-import ScrollUp from './components/scrollUp/scrollUp';
+import Up from './components/Up/Up';
 import Footer from "./components/footer/Footer";
 
 const Layout = () => {
@@ -12,7 +12,7 @@ const Layout = () => {
         <Outlet/>
       </main>
 
-      <ScrollUp/>
+      <Up/>
       <Footer />
     </>
   )
