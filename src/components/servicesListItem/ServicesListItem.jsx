@@ -22,6 +22,10 @@ const ServicesListItem = ({ service }) => {
                 </div>
             </div>
 
+            <div className="services__icon">
+                {service.icon}
+            </div>
+
             <h2 className="services__subheading">{service.title}</h2>
 
             <p className={`services__description ${isShort ? 'services__description--long' : ''}`}>{service.description}</p>

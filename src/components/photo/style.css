@@ -10,6 +10,8 @@
 
 .about__image {
   object-fit: contain;
+  border-radius: 40%;
+  filter: grayscale(80%);
 }
 
 .about__svg {
