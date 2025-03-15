@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { motion } from 'framer-motion';
 import { v4 as uuidv4 } from 'uuid';
 import SkillComponet from "../skillComponent/SkillComponent";
 import Image from "../image/Image";
@@ -7,7 +8,11 @@ import "./style.css";
 const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
   return (
     <NavLink to={`/project/${id}`}>
-      <article className="project__card project-card"  tabIndex={0}>
+      <motion.article 
+        whileHover={{ scale: 1.04 , transition: 0.7 }}
+        className="project__card project-card"  
+        tabIndex={0}
+      >
         <li className="project-card__item">
           <Image 
             className="project-card__image" 
@@ -32,7 +37,7 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
             </ul> 
           </div>
         </li>
-      </article>
+      </motion.article>
     </NavLink>
   );
 };

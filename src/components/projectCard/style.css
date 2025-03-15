@@ -17,22 +17,15 @@
 
 .project-card__item {
   min-width: 238px;
-  max-width: 338px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 3rem;
-  border: 2px solid var(--light-blue-100);
+  padding: 1.6rem;
   border-radius: var(--border-rs);
 }
 
 .project-card__image {
-  transition: transform .8s ease-in-out;
   border-radius: var(--border-rs);
-}
-
-.project-card__image:hover {
-  transform: scale(1.109);
 }
 
 .project-card__skills .skill__text {
