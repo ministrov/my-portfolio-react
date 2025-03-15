@@ -4,18 +4,18 @@
 
 .services__list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(288px, 1fr));
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 3rem;
-}
-
-@media (max-width: 1024px) {
-  .services {
-    padding: 8rem 0;
-  }
 }
 
 @media (max-width: 1678px) {
   .services__list {
     grid-template-columns: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .services {
+    padding: 8rem 0;
   }
 }

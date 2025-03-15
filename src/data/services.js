@@ -13,12 +13,6 @@ export const services = [
   },
   {
     num: '03',
-    title: 'Logo Design',
-    description: 'I create distinctive logos that capture the essence of your brand, combining creativity with strategic thinking. Each logo is meticulously crafted to leave a lasting impression and effectively communicate your brand identity.',
-    href: ''
-  },
-  {
-    num: '04',
     title: 'SEO',
     description: 'I optimize websites to improve search engine rankings, driving organic traffic and increasing visibility online. By implementing effective SEO strategies, I ensure your content reaches its target audience and achieves maximum impact.',
     href: ''
