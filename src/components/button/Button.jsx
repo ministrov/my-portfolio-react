@@ -1,16 +1,27 @@
+import { motion } from 'framer-motion';
 import "./style.css";
 
 const Button = ({ href, onClick, text, className }) => {
   return (
     <>
       {href ? (
-        <a href={href} className={`btn ${className}`} rel="noreferrer">
+        <motion.a 
+          whileHover={{ scale: 1.05 }}
+          className={`btn ${className}`}
+          href={href}  
+          rel="noreferrer"
+        >
           {text}
-        </a>
+        </motion.a>
       ) : (
-        <button type="button" className={`btn ${className}`} onClick={onClick}>
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          className={`btn ${className}`}
+          type="button"  
+          onClick={onClick}
+        >
           {text}
-        </button>
+        </motion.button>
       )}
     </>
   );
