@@ -5,7 +5,6 @@ import Button from "../components/button/Button";
 import Image from '../components/image/Image';
 import SkillComponet from "../components/skillComponent/SkillComponent";
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
-import ScrollUp from '../components/scrollUp/scrollUp';
 import { projects } from "../data/projects";
 
 const ProjectPage = () => {
@@ -68,8 +67,6 @@ const ProjectPage = () => {
           </div>
         </div>
       </div>
-
-      <ScrollUp/>
     </section>
   );
 };

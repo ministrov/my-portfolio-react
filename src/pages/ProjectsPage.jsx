@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import Projects from "../sections/projects/Projects";
-import ScrollUp from "../components/scrollUp/scrollUp";
 
 const ProjectsPage = () => {
   return (
@@ -17,8 +16,6 @@ const ProjectsPage = () => {
       </Helmet>
 
       <Projects />
-
-      <ScrollUp/>
     </section>
   );
 };
