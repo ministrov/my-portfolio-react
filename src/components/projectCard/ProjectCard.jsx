@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 import SkillComponet from "../skillComponent/SkillComponent";
 import Image from "../image/Image";
 import "./style.css";
@@ -24,7 +25,7 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
             <ul className="project-card__list">
               {skills.map((skill) => (
                 <SkillComponet
-                  key={skill.title} 
+                  key={uuidv4()} 
                   skillName={skill}
                 />
               ))}
