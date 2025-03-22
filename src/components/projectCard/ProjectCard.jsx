@@ -12,7 +12,7 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
       className="project-card__item"
       tabIndex={0}
     >
-      <NavLink to={`/project/${id}`}>
+      <NavLink to={`/project/${id}`} className={"project-card__link"}>
         <Image 
           className="project-card__image" 
           width={338} 
@@ -25,7 +25,7 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
           
       <p class="project-card__division">Project type</p>
 
-      <h4 className="project-card__title">{title}</h4>
+      <h3 className="project-card__title">{title}</h3>
 
       <div className="project-card__skills">
         <h4 className="project-card__title">Tools:</h4>
