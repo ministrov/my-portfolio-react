@@ -13,6 +13,7 @@ const ProjectsList = ({ projects }) => {
           img={project.img} 
           wepImg={project.webpImg} 
           imageAlt={project.title} 
+          custom={index}
         />
       ))}
     </ul>

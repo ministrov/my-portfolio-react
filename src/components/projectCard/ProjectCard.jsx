@@ -5,10 +5,21 @@ import SkillComponet from "../skillComponent/SkillComponent";
 import Image from "../image/Image";
 import "./style.css";
 
-const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
+const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, custom }) => {
+  const variants = {
+    hidden: { opacity: 0 },
+    visible: (index) => ({
+      opacity: 1,
+      transition: { delay: index * 0.2 }
+    })
+  }
   return (
     <motion.li 
       whileHover={{ scale: 1.04 , transition: 0.7 }}
+      variants={variants}
+      initial={'hidden'}
+      animate={'visible'}
+      custom={custom}
       className="project-card__item"
       tabIndex={0}
     >
