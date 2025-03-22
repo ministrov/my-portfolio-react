@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FaLongArrowAltUp } from "react-icons/fa";
 import './style.css';
 
-const ScrollUp = () => {
+const Up = () => {
   const [isShowed, setIsShowed] = useState(false);
 
   const scrollToTop = () => {
@@ -37,7 +37,7 @@ const ScrollUp = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 50, opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.65 }}
           className="scroll-to"
           onClick={scrollToTop}
         >
@@ -48,4 +48,4 @@ const ScrollUp = () => {
   )
 }
 
-export default ScrollUp;
+export default Up;

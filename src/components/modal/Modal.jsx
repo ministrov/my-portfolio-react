@@ -47,7 +47,7 @@ const Modal = ({ open, onClose }) => {
           </div>
           <Button
             onClick={onClose}
-            text={"Close me"}
+            text={"Close"}
             className={"modal__btn btn--theme"}
           />
         </div>

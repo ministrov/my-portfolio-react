@@ -1,7 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
 import Projects from "../sections/projects/Projects";
-import ScrollUp from "../components/scrollUp/scrollUp";
 
 const ProjectsPage = () => {
   return (
@@ -17,16 +15,7 @@ const ProjectsPage = () => {
         <link rel="canonical" href="/products" />  
       </Helmet>
 
-      <motion.div
-        className='projects-page'
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <Projects />
-
-        <ScrollUp/>
-      </motion.div>
+      <Projects />
     </section>
   );
 };

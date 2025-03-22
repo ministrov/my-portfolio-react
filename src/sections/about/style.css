@@ -30,8 +30,11 @@
 }
 
 .about__right {
-  max-height: 498px;
-  height: fit-content;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--light-blue-100);
   border-radius: 50%;
   box-shadow: var(--box-shadow);

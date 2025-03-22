@@ -6,7 +6,6 @@ import Modal from "../components/modal/Modal";
 import Skills from "../sections/skills/Skills";
 import Prices from '../sections/prices/Prices';
 import Testimonials from "../sections/testimonials/Testimonials";
-import ScrollUp from "../components/scrollUp/scrollUp";
 import Faq from "../sections/faq/Faq";
 import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
@@ -61,8 +60,6 @@ const Home = () => {
       <Testimonials />
 
       <Faq/>
-
-      <ScrollUp/>
 
       <Modal 
         open={isOpen}

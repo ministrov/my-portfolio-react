@@ -8,8 +8,8 @@ import project04 from '../assets/projects/04-big.jpg';
 import project04Wep from '../assets/projects/04-big.webp';
 import project05 from '../assets/projects/05-big.jpg';
 import project05Wep from '../assets/projects/05-big.webp';
-import project06 from '../assets/projects/06-big.jpg';
-import project06Wep from '../assets/projects/06-big.webp';
+import project06 from '../assets/projects/dictionary.jpg';
+import project06Wep from '../assets/projects/dictionary.webp';
 import project07 from '../assets/projects/blog.jpg';
 import project07Wep from '../assets/projects/blogWebp.webp';
 import project08 from '../assets/projects/ratingus.jpg';
@@ -112,8 +112,8 @@ export const projects = [
   },
   {
     id: 8,
-    title: 'Gaming Comunity',
-    skills: 'Next, TypeScript, React, Framer Motion',
+    title: 'A words dictionary',
+    skills: 'JavaScript, HTML, CSS',
     img: project06,
     fullImg: project06,
     webpImg: project06Wep,

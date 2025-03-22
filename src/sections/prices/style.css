@@ -1,3 +1,15 @@
 .prices {
     padding-bottom: 12rem;
 }
+
+.prices__advs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 760px;
+    font-size: 4rem;
+    line-height: 1.2;
+    color: var(--white);
+    border-radius: var(--border-rs);
+    background-color: grey;
+}

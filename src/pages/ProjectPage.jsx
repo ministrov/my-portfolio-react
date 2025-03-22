@@ -5,9 +5,7 @@ import Button from "../components/button/Button";
 import Image from '../components/image/Image';
 import SkillComponet from "../components/skillComponent/SkillComponent";
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
-import ScrollUp from '../components/scrollUp/scrollUp';
 import { projects } from "../data/projects";
-import { motion } from "framer-motion";
 
 const ProjectPage = () => {
   const { id } = useParams();
@@ -16,6 +14,7 @@ const ProjectPage = () => {
 
   return (
     <section className="project-page">
+      <h1 className="visually-hidden">Page about single author's project</h1>
       <Helmet>
         <title>{`Page of the project: ${project.title}`}</title>
         <meta
@@ -25,57 +24,49 @@ const ProjectPage = () => {
         />
         <link rel="canonical" href="/product/:id" />  
       </Helmet>
+      <div className="container">
+        <div className="project-details">
+          <Breadcrumbs items={BREADCRUMBS}/>
+          <Heading title={project.title} slogan={project.slogan} />
+          <div className="project-details__cover">
+            <Image 
+              src={project.webpBig}
+              fallback={project.fullImg}
+              width={1248}
+              height={900}
+              alt={project.title}
+            />
+          </div>
+          <div className="project-details__content">
+            <h2 className="project-detail__overview">Project Overview</h2>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <h1 className="visually-hidden">Page about single author's project</h1>
-        <div className="container">
-          <div className="project-details">
-            <Breadcrumbs items={BREADCRUMBS}/>
-            <Heading title={project.title} slogan={project.slogan} />
-            <div className="project-details__cover">
-              <Image 
-                src={project.webpBig}
-                fallback={project.fullImg}
-                alt={project.title}
+            <p className="project-detail__text-overview">{project.overview}</p>
+
+            <h3 className="project-detail__overview">Tools Used</h3>
+
+            <ul className="project-detail__tools-list">
+              {project.skills.split(", ").map((item) => (
+                <SkillComponet key={item} skillName={item} />
+              ))}
+            </ul>
+
+            <h4 className="project-detail__overview">See Live</h4>
+
+            <div className="project-details__links">
+              <Button
+                text={"Live Link"}
+                href={"/"}
+                className={"project-detail__btn btn--med btn--theme"}
               />
-            </div>
-            <div className="project-details__content">
-              <h2 className="project-detail__overview">Project Overview</h2>
-
-              <p className="project-detail__text-overview">{project.overview}</p>
-
-              <h3 className="project-detail__overview">Tools Used</h3>
-
-              <ul className="project-detail__tools-list">
-                {project.skills.split(", ").map((item) => (
-                  <SkillComponet key={item} skillName={item} />
-                ))}
-              </ul>
-
-              <h4 className="project-detail__overview">See Live</h4>
-
-              <div className="project-details__links">
-                <Button
-                  text={"Live Link"}
-                  href={"/"}
-                  className={"project-detail__btn btn--med btn--theme"}
-                />
-                <Button
-                  text={"Code Link"}
-                  href={"/"}
-                  className={"project-detail__btn btn--med btn--theme-inv"}
-                />
-              </div>
+              <Button
+                text={"Code Link"}
+                href={"/"}
+                className={"project-detail__btn btn--med btn--theme-inv"}
+              />
             </div>
           </div>
         </div>
-
-        <ScrollUp/>
-      </motion.div>
+      </div>
     </section>
   );
 };

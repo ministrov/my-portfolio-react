@@ -6,6 +6,7 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import ProjectsList from "../../components/projectsList/ProjectsList";
 import { projects } from "../../data/projects";
 import "./style.css";
+import { filters } from '../../data/filters';
 
 const Projects = () => {
   const storedList = JSON.parse(localStorage.getItem('list')) || projects;
@@ -47,38 +48,16 @@ const Projects = () => {
 
         <div className="projects__filter">
           <ul className="projects__filter-list">
-            <li className={`projects__filter-list-item filter`}>
-              <FilterButton
-                active={active}
-                currentBtn={'All'}
-                filterName={'All'}
-                onClick={() => handleFilterClick("All")}
-              />
+            {filters.map((filter) => (
+              <li key={filter.id} className={"projects__filter-list-item filter"}>
+                <FilterButton
+                  active={active}
+                  currentBtn={filter.name}
+                  filterName={filter.name}
+                  onClick={() => handleFilterClick(filter.name)}
+                />
             </li>
-            <li className={`projects__filter-list-item`}>
-              <FilterButton
-                active={active}
-                currentBtn={'React'}
-                filterName={'React'}
-                onClick={() => handleFilterClick("React")}
-              />
-            </li>
-            <li className={`projects__filter-list-item`}>
-              <FilterButton
-                active={active}
-                currentBtn={'JavaScript'}
-                filterName={"JavaScript"}
-                onClick={() => handleFilterClick("JavaScript")}
-              />
-            </li>
-            <li className={`projects__filter-list-item`}>
-              <FilterButton
-                active={active}
-                currentBtn={'Next'}
-                filterName={"Next"}
-                onClick={() => handleFilterClick("Next")}
-              />
-            </li>
+            ))}
           </ul>
         </div>
 
