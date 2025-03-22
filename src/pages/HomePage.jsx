@@ -4,7 +4,7 @@ import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
 import Modal from "../components/modal/Modal";
 import Skills from "../sections/skills/Skills";
-import Prices from '../sections/prices/Prices';
+import Advertisement from '../sections/advertisement/Advertisement';
 import Testimonials from "../sections/testimonials/Testimonials";
 import Faq from "../sections/faq/Faq";
 import Services from "../sections/services/Services";
@@ -55,7 +55,7 @@ const Home = () => {
 
       <Skills />
 
-      <Prices />
+      <Advertisement />
 
       <Testimonials />
 

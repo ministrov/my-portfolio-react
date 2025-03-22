@@ -1,12 +1,12 @@
-.prices {
+.advertisement {
     padding-bottom: 12rem;
 }
 
-.prices__advs {
+.advertisement__advs {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 760px;
+    height: 560px;
     font-size: 4rem;
     line-height: 1.2;
     color: var(--white);

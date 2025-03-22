@@ -1,7 +1,7 @@
-import { useDispatch } from 'react-redux';
-import { incrementLike } from '../../store/counter.slice';
-import TypingText from '../../components/typingText/TypingText';
-import Image from '../../components/image/Image';
+import { useDispatch } from "react-redux";
+import { incrementLike } from "../../store/counter.slice";
+import TypingText from "../../components/typingText/TypingText";
+import Image from "../../components/image/Image";
 import Button from "../../components/button/Button";
 import SocialList from "../../components/socials/SocialList";
 import MouseScroll from "../../components/mouseScroll/MouseScroll";
@@ -13,7 +13,7 @@ const Promo = () => {
   const dispatch = useDispatch();
   return (
     <section className="promo">
-      <h2 className="visually-hidden">A promo section to introduction</h2>
+      <h2 className="visually-hidden">A promo section for introduction of the author</h2>
       <div
         className="promo__content"
       >
