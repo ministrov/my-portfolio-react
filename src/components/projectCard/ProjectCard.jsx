@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { motion } from 'framer-motion';
-import { v4 as uuidv4 } from 'uuid';
+import { motion } from "framer-motion";
+import { v4 as uuidv4 } from "uuid";
 import SkillComponet from "../skillComponent/SkillComponent";
 import Image from "../image/Image";
 import "./style.css";
