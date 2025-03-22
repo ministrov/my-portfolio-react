@@ -14,28 +14,30 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
     >
       <NavLink to={`/project/${id}`}>
         <Image 
-            className="project-card__image" 
-            width={338} 
-            height={224} 
-            src={wepImg} 
-            fallback={img} 
-            alt={imageAlt}
-          />
-          
-          <h4 className="project-card__title">{title}</h4>
-
-          <div className="project-card__skills">
-            <h4 className="project-card__title">Tools:</h4>
-            <ul className="project-card__list">
-              {skills.map((skill) => (
-                <SkillComponet
-                  key={uuidv4()} 
-                  skillName={skill}
-                />
-              ))}
-            </ul> 
-          </div>
+          className="project-card__image" 
+          width={338} 
+          height={224} 
+          src={wepImg} 
+          fallback={img} 
+          alt={imageAlt}
+        />
       </NavLink>
+          
+      <p class="project-card__division">Project type</p>
+
+      <h4 className="project-card__title">{title}</h4>
+
+      <div className="project-card__skills">
+        <h4 className="project-card__title">Tools:</h4>
+        <ul className="project-card__list">
+          {skills.map((skill) => (
+            <SkillComponet
+              key={uuidv4()} 
+              skillName={skill}
+            />
+          ))}
+        </ul> 
+      </div>
     </motion.li>
   );
 };

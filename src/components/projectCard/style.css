@@ -37,7 +37,6 @@
   align-content: flex-start;
   gap: 8px;
   margin-top: 2rem;
-  min-height: 158px;
 }
 
 @media screen and (max-width: 688px) {
