@@ -99,7 +99,7 @@
   .nav-list {
     z-index: 5;
     position: fixed;
-    top: 73px;
+    top: 7%;
     right: 0;
     width: 100%;
     display: block;
@@ -135,8 +135,8 @@
   }
 }
 
-@media only screen and (max-width: 26.25em) {
+@media only screen and (max-width: 590px) {
   .nav-list {
-    top: 66px;
+    top: 6%;
   }
 }
