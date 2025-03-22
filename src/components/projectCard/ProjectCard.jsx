@@ -23,7 +23,7 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt }) => {
         />
       </NavLink>
           
-      <p class="project-card__division">Project type</p>
+      <p className="project-card__division">Project type</p>
 
       <h3 className="project-card__title">{title}</h3>
 
