@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import SocialListItem from './SocialListItem.jsx';
-import { socials } from "../../data/socials.js";
+import { socials } from '../../helpers/mocks/socials.js';
 import "./style.css";
 
 const SocialList = ({ className }) => {

@@ -5,7 +5,7 @@ import Button from "../components/button/Button";
 import Image from '../components/image/Image';
 import SkillComponet from "../components/skillComponent/SkillComponent";
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
-import { projects } from "../data/projects";
+import { projects } from "../helpers/mocks/projects";
 
 const ProjectPage = () => {
   const { id } = useParams();
