@@ -1,19 +1,19 @@
-import project01 from '../assets/projects/01-big.jpg';
-import project01Wep from '../assets/projects/01-big.webp';
-import project02 from '../assets/projects/02-big.jpg';
-import project02Wep from '../assets/projects/02-big.webp';
-import project03 from '../assets/projects/03-big.jpg';
-import project03Wep from '../assets/projects/03-big.webp';
-import project04 from '../assets/projects/04-big.jpg';
-import project04Wep from '../assets/projects/04-big.webp';
-import project05 from '../assets/projects/05-big.jpg';
-import project05Wep from '../assets/projects/05-big.webp';
-import project06 from '../assets/projects/dictionary.jpg';
-import project06Wep from '../assets/projects/dictionary.webp';
-import project07 from '../assets/projects/blog.jpg';
-import project07Wep from '../assets/projects/blogWebp.webp';
-import project08 from '../assets/projects/ratingus.jpg';
-import project08Wep from '../assets/projects/ratingus.webp';
+import project01 from '../../assets/projects/01-big.jpg';
+import project01Wep from '../../assets/projects/01-big.webp';
+import project02 from '../../assets/projects/02-big.jpg';
+import project02Wep from '../../assets/projects/02-big.webp';
+import project03 from '../../assets/projects/03-big.jpg';
+import project03Wep from '../../assets/projects/03-big.webp';
+import project04 from '../../assets/projects/04-big.jpg';
+import project04Wep from '../../assets/projects/04-big.webp';
+import project05 from '../../assets/projects/05-big.jpg';
+import project05Wep from '../../assets/projects/05-big.webp';
+import project06 from '../../assets/projects/dictionary.jpg';
+import project06Wep from '../../assets/projects/dictionary.webp';
+import project07 from '../../assets/projects/blog.jpg';
+import project07Wep from '../../assets/projects/blogWebp.webp';
+import project08 from '../../assets/projects/ratingus.jpg';
+import project08Wep from '../../assets/projects/ratingus.webp';
 
 export const projects = [
   {

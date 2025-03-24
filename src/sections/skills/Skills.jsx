@@ -1,6 +1,6 @@
 import Heading from "../../components/heading/Heading";
 import SkillComponet from "../../components/skillComponent/SkillComponent";
-import { skills } from "../../data/skills";
+import { skills } from "../../helpers/mocks/skills";
 import "./style.css";
 
 const Skills = () => {
