@@ -22,8 +22,9 @@
   transition: color 0.5s ease-in;
 }
 
-.nav-list__link:focus {
-  text-shadow: 1px 0 0,.3px 0 0;
+.nav-list__link:focus,
+.nav-list__link:active {
+  color: var(--light-blue-300);
 }
 
 .nav-list__link::before {
