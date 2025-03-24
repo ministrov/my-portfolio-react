@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import FilterButton from '../../components/filterButton/FilterButton';
+import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import FilterButton from "../../components/filterButton/FilterButton";
 import Heading from "../../components/heading/Heading";
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import ProjectsList from "../../components/projectsList/ProjectsList";
+import { filters } from "../../data/filters";
 import { projects } from "../../data/projects";
 import "./style.css";
-import { filters } from '../../data/filters';
 
 const Projects = () => {
   const storedList = JSON.parse(localStorage.getItem('list')) || projects;
