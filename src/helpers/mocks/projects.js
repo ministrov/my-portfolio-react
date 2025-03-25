@@ -4,8 +4,8 @@ import project02 from '../../assets/projects/02-big.jpg';
 import project02Wep from '../../assets/projects/02-big.webp';
 import project03 from '../../assets/projects/03-big.jpg';
 import project03Wep from '../../assets/projects/03-big.webp';
-import project04 from '../../assets/projects/04-big.jpg';
-import project04Wep from '../../assets/projects/04-big.webp';
+import project04 from '../../assets/projects/personal-diary.jpg';
+import project04Wep from '../../assets/projects/personal-diary.webp';
 import project05 from '../../assets/projects/05-big.jpg';
 import project05Wep from '../../assets/projects/05-big.webp';
 import project06 from '../../assets/projects/dictionary.jpg';
@@ -60,8 +60,8 @@ export const projects = [
   },
   {
     id: 4,
-    title: 'Dating App',
-    skills: 'React Native',
+    title: 'Personal Diary',
+    skills: 'React, React-id-Generatore, classnames',
     img: project04,
     fullImg: project04,
     webpImg: project04Wep,
