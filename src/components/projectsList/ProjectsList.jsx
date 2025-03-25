@@ -14,6 +14,7 @@ const ProjectsList = ({ projects }) => {
           wepImg={project.webpImg} 
           imageAlt={project.title} 
           custom={index}
+          isProduction={project.isProduction}
         />
       ))}
     </ul>

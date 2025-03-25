@@ -6,7 +6,8 @@ import { Tag } from "../tag/Tag.tsx";
 import Image from "../image/Image";
 import "./style.css";
 
-const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, custom }) => {
+const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, isProduction, custom }) => {
+  console.log(isProduction);
   const variants = {
     hidden: { opacity: 0 },
     visible: (index) => ({
@@ -35,7 +36,7 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, custom }) => {
         />
       </NavLink>
           
-      <Tag color={'red'}>{'Production'}</Tag>
+      {isProduction ? <Tag color={'red'}>{'Production'}</Tag> : <Tag color={'purple'}>{'Pet project'}</Tag>}
 
       <h3 className="project-card__title">{title}</h3>
 
