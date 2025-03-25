@@ -14,6 +14,8 @@ import project07 from '../../assets/projects/blog.jpg';
 import project07Wep from '../../assets/projects/blogWebp.webp';
 import project08 from '../../assets/projects/ratingus.jpg';
 import project08Wep from '../../assets/projects/ratingus.webp';
+import project09 from '../../assets/projects/waterdel.jpg';
+import project09Wep from '../../assets/projects/waterdel.webp';
 
 export const projects = [
   {
@@ -47,7 +49,7 @@ export const projects = [
   {
     id: 3,
     title: 'Video Portal',
-    skills: 'JavaScript, Node.js, MongoDB',
+    skills: 'JavaScript, HTML, CSS',
     img: project03,
     fullImg: project03,
     webpImg: project03Wep,
@@ -61,7 +63,7 @@ export const projects = [
   {
     id: 4,
     title: 'Personal Diary',
-    skills: 'React, React-id-Generatore, classnames',
+    skills: 'React, React-id-Generator, classnames',
     img: project04,
     fullImg: project04,
     webpImg: project04Wep,
@@ -119,6 +121,19 @@ export const projects = [
     webpImg: project06Wep,
     webpBig: project06Wep,
     slogan: 'Gaming streaming portal',
+    overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
+  },
+  {
+    id: 9,
+    title: 'Waterdel',
+    skills: 'JavaScript, HTML, CSS',
+    img: project09,
+    fullImg: project09,
+    webpImg: project09Wep,
+    webpBig: project09Wep,
+    slogan: 'An e-commerce platform for puryfing systems',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
