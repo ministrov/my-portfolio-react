@@ -6,6 +6,7 @@ import App from "./App";
 import { store } from './store/store';
 import "swiper/css";
 import "swiper/css/bundle";
+import "./utils/i18n";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

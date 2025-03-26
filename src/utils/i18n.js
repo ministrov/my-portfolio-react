@@ -7,12 +7,14 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
-      "Welcome to React": "Welcome to React and react-i18next"
+      welcomeMessage: "Welcome to React and react-i18next",
+      logoName: "Anton Zhilin"
     }
   },
-  fr: {
+  ru: {
     translation: {
-      "Welcome to React": "Bienvenue à React et react-i18next"
+      welcomeMessage: "Добро пожаловать в React и react-i18next!",
+      logoName: "Антон Жилин"
     }
   }
 };
