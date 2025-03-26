@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import './styles.css';
 
 export const ToggleLang = () => {
-  return (
-    <div className="toggleLang">
-        <button>En</button>
-        <button>Ru</button>
-    </div>
-  )
+    const [toggled, setToggled] = useState(false);
+
+    return (
+        <button className={`toggle-btn ${toggled ? '' : ''}`} onClick={() => setToggled(!toggled)}>
+            <div className="thumb">{toggled ? 'Ru' : 'En'}</div>
+        </button>
+    );
 }
