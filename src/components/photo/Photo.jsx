@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import Image from '../image/Image';
-import authorPhoto from "./my-photo.png";
-import webPPhoto from "./my-photo.png";
+import Image from "../image/Image";
+import authorPhoto from "../../assets/png/photo.png";
+import webPPhoto from "../../assets/png/photo.webp";
 import "./style.css";
 
 const Photo = () => {
@@ -16,8 +16,8 @@ const Photo = () => {
     >
       <Image 
         className="about__image"
-        width={350}
-        height={350}
+        width={450}
+        height={450}
         fallback={authorPhoto}
         src={webPPhoto}
         alt={"Focus on author's face"}

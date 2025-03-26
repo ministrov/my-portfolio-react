@@ -1,19 +1,21 @@
-import project01 from '../assets/projects/01-big.jpg';
-import project01Wep from '../assets/projects/01-big.webp';
-import project02 from '../assets/projects/02-big.jpg';
-import project02Wep from '../assets/projects/02-big.webp';
-import project03 from '../assets/projects/03-big.jpg';
-import project03Wep from '../assets/projects/03-big.webp';
-import project04 from '../assets/projects/04-big.jpg';
-import project04Wep from '../assets/projects/04-big.webp';
-import project05 from '../assets/projects/05-big.jpg';
-import project05Wep from '../assets/projects/05-big.webp';
-import project06 from '../assets/projects/dictionary.jpg';
-import project06Wep from '../assets/projects/dictionary.webp';
-import project07 from '../assets/projects/blog.jpg';
-import project07Wep from '../assets/projects/blogWebp.webp';
-import project08 from '../assets/projects/ratingus.jpg';
-import project08Wep from '../assets/projects/ratingus.webp';
+import project01 from '../../assets/projects/01-big.jpg';
+import project01Wep from '../../assets/projects/01-big.webp';
+import project02 from '../../assets/projects/02-big.jpg';
+import project02Wep from '../../assets/projects/02-big.webp';
+import project03 from '../../assets/projects/03-big.jpg';
+import project03Wep from '../../assets/projects/03-big.webp';
+import project04 from '../../assets/projects/personal-diary.jpg';
+import project04Wep from '../../assets/projects/personal-diary.webp';
+import project05 from '../../assets/projects/05-big.jpg';
+import project05Wep from '../../assets/projects/05-big.webp';
+import project06 from '../../assets/projects/dictionary.jpg';
+import project06Wep from '../../assets/projects/dictionary.webp';
+import project07 from '../../assets/projects/blog.jpg';
+import project07Wep from '../../assets/projects/blogWebp.webp';
+import project08 from '../../assets/projects/ratingus.jpg';
+import project08Wep from '../../assets/projects/ratingus.webp';
+import project09 from '../../assets/projects/waterdel.jpg';
+import project09Wep from '../../assets/projects/waterdel.webp';
 
 export const projects = [
   {
@@ -28,7 +30,8 @@ export const projects = [
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: false
   },
   {
     id: 2,
@@ -42,12 +45,13 @@ export const projects = [
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: false
   },
   {
     id: 3,
     title: 'Video Portal',
-    skills: 'JavaScript, Node.js, MongoDB',
+    skills: 'JavaScript, HTML, CSS',
     img: project03,
     fullImg: project03,
     webpImg: project03Wep,
@@ -56,12 +60,13 @@ export const projects = [
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: false
   },
   {
     id: 4,
-    title: 'Dating App',
-    skills: 'React Native',
+    title: 'Personal Diary',
+    skills: 'React, React-id-Generator, classnames',
     img: project04,
     fullImg: project04,
     webpImg: project04Wep,
@@ -69,7 +74,8 @@ export const projects = [
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: false
   },
   {
     id: 5,
@@ -82,7 +88,8 @@ export const projects = [
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: true
   },
   {
     id: 6,
@@ -95,7 +102,8 @@ export const projects = [
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: true
   },
   {
     id: 7,
@@ -108,7 +116,8 @@ export const projects = [
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: false
   },
   {
     id: 8,
@@ -121,6 +130,21 @@ export const projects = [
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: false
+  },
+  {
+    id: 9,
+    title: 'Waterdel',
+    skills: 'JavaScript, HTML, CSS',
+    img: project09,
+    fullImg: project09,
+    webpImg: project09Wep,
+    webpBig: project09Wep,
+    slogan: 'An e-commerce platform for puryfing systems',
+    overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: true
   }
 ];

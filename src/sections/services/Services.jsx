@@ -1,6 +1,6 @@
 import ServicesListItem from '../../components/servicesListItem/ServicesListItem';
 import { motion } from "framer-motion";
-import { services } from "../../data/services";
+import { services } from "../../helpers/mocks/services";
 import "./style.css";
 
 const Services = () => {

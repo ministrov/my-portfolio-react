@@ -4,8 +4,8 @@ import FilterButton from "../../components/filterButton/FilterButton";
 import Heading from "../../components/heading/Heading";
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import ProjectsList from "../../components/projectsList/ProjectsList";
-import { filters } from "../../data/filters";
-import { projects } from "../../data/projects";
+import { filters } from '../../helpers/mocks';
+import { projects } from '../../helpers/mocks/projects';
 import "./style.css";
 
 const Projects = () => {

@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from 'swiper/modules';
+import { Autoplay, EffectFade } from "swiper/modules";
 import TestimonialCard from "../testimonialCard/TestimonialCard";
-import { testimonials } from '../../data/testimonials';
+import { testimonials } from "../../helpers/mocks";
 import "./style.css";
 
 const Carousel = ({ className }) => {

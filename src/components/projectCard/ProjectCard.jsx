@@ -2,10 +2,12 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 import SkillComponet from "../skillComponent/SkillComponent";
+import { Tag } from "../tag/Tag.tsx";
 import Image from "../image/Image";
 import "./style.css";
 
-const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, custom }) => {
+const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, isProduction, custom }) => {
+  console.log(isProduction);
   const variants = {
     hidden: { opacity: 0 },
     visible: (index) => ({
@@ -34,7 +36,7 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, custom }) => {
         />
       </NavLink>
           
-      <p className="project-card__division">Project type</p>
+      {isProduction ? <Tag color={'red'}>{'Production'}</Tag> : <Tag color={'purple'}>{'Pet project'}</Tag>}
 
       <h3 className="project-card__title">{title}</h3>
 

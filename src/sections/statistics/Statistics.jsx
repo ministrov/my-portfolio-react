@@ -1,5 +1,5 @@
 import StatisticListItem from "../../components/statisticsListItem/StatisticListItem.jsx";
-import { statistics } from "../../data/stats.js";
+import { statistics } from '../../helpers/mocks/index.js';
 import "./style.css";
 
 const Statistics = () => {

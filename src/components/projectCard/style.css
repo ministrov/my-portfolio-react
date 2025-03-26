@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 24px;
-  color: var(--deep-black-100);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px; 
+  color: #1a1a1a;
 }
 
 .project-card__list {
@@ -56,6 +56,9 @@
   max-height: 24px;
   margin-right: 0;
   padding: 0.5rem 1rem;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 @media screen and (max-width: 688px) {

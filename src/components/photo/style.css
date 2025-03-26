@@ -3,15 +3,8 @@
   mix-blend-mode: lighten;
 }
 
-.about__image-wrapper {
-  width: 498px;
-  height: 498px;
-}
-
 .about__image {
-  object-fit: contain;
-  border-radius: 40%;
-  filter: grayscale(80%);
+  filter: grayscale(34%);
 }
 
 .about__svg {
