@@ -87,10 +87,6 @@
 
 
 @media only screen and (max-width: 56.25em) {
-  .main-nav {
-    padding: 2rem 2rem;
-  }
-
   .nav__toggler {
     display: block;
   }
@@ -98,7 +94,7 @@
   .nav-list {
     z-index: 5;
     position: fixed;
-    top: 7%;
+    top: 14%;
     right: 0;
     width: 100%;
     display: block;
@@ -131,11 +127,5 @@
 
   .nav-list__link--active::before {
     display: none;
-  }
-}
-
-@media only screen and (max-width: 590px) {
-  .nav-list {
-    top: 6%;
   }
 }

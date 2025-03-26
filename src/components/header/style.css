@@ -42,3 +42,9 @@
   row-gap: 1rem;
   flex-wrap: wrap;
 }
+
+@media only screen and (max-width: 56.25em) {
+  .main-nav {
+    padding: 2rem 2rem;
+  }
+}

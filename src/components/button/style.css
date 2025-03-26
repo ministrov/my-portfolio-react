@@ -47,4 +47,8 @@
     padding: 2rem 2rem;
     font-size: 1.8rem;
   }
+
+  .btn--big {
+    padding: 1.5rem 4rem;
+  }
 }
