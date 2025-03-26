@@ -6,6 +6,12 @@
   box-shadow: 70px 17px 62px rgba(0, 0, 0, 0.1);
 }
 
+.main-nav__block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .main-nav {
   display: flex;
   align-items: center;
