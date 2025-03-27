@@ -1,21 +1,15 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-// the translations
-// (tip move them in a JSON file and import them,
-// or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
+import EnLang from "./locales/en/en.json";
+import RuLang from "./locales/ru/ru.json";
+
 const resources = {
   en: {
-    translation: {
-      welcomeMessage: "Welcome to React and react-i18next",
-      logoName: "Anton Zhilin"
-    }
+    translation: EnLang
   },
   ru: {
-    translation: {
-      welcomeMessage: "Добро пожаловать в React и react-i18next!",
-      logoName: "Антон Жилин"
-    }
+    translation: RuLang
   }
 };
 
@@ -24,9 +18,7 @@ i18n
   .init({
     resources,
     fallbackLng: "en",
-    lng: "en", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
-    // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
-    // if you're using a language detector, do not define the lng option
+    lng: "ru",
 
     interpolation: {
       escapeValue: false // react already safes from xss
