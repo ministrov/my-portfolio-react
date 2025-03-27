@@ -8,6 +8,13 @@
     cursor: pointer;
 }
 
+.thumb {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: var(--light-blue-100);
+}
+
 .toggle-btn .thumb {
     position: absolute;
     left: 5px;
@@ -17,7 +24,6 @@
     justify-content: center;
     width: 28px;
     height: 28px;
-    color: var(--light-blue-100);
     border-radius: 99px;
     background-color: var(--white);
     transform: translateX(0);
