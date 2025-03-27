@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import couterSlice from './counter.slice';
+import { languageSlice } from './language.slice';
+import { likesCounterSlice } from './counter.slice';
 import { saveState } from './localStorage';
 import { logIt } from './middleware';
 
 export const store = configureStore({
     reducer: {
-        likes: couterSlice
+        language: languageSlice,
+        likes: likesCounterSlice
     },
     middleware: () => [logIt]
 });
