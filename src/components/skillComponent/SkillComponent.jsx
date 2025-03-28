@@ -9,9 +9,9 @@ const SkillComponet = ({ skill, variant, skillName }) => {
           <span className="skill__card-header">{skill.tech}</span>
         </li>
       ) : (
-        <div role="textbox" className="skill__text">
+        <li className="skill__text" aria-label="label of skills">
           {skillName}
-        </div>
+        </li>
       )}
     </>
   );
