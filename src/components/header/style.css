@@ -6,6 +6,12 @@
   box-shadow: 70px 17px 62px rgba(0, 0, 0, 0.1);
 }
 
+.main-nav__block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .main-nav {
   display: flex;
   align-items: center;
@@ -41,4 +47,10 @@
   column-gap: 2rem;
   row-gap: 1rem;
   flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .main-nav {
+    padding: 2rem 2rem;
+  }
 }

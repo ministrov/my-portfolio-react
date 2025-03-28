@@ -41,7 +41,6 @@
 }
 
 .about__description {
-  /* position: relative; */
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 1.7;
@@ -49,10 +48,6 @@
 }
 
 .about__greeting {
-  /* position: absolute;
-  top: -41px;
-  left: -274px;
-  width: max-content; */
   padding: 6px;
   font-size: 3.2rem;
   font-weight: 700;
@@ -79,18 +74,12 @@
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
-/* @media only screen and (max-width: 1842px) {
-  .about__description {
-    position: initial;
+@media only screen and (max-width: 1842px) {
+  .about__right {
+    width: inherit;
+    height: auto;
   }
-
-  .about__greeting {
-    position: initial;
-    top: 0;
-    left: 0;
-    font-size: 3.2rem;
-  }
-} */
+}
 
 @media only screen and (max-width: 56.25em) {
   .about {
@@ -113,3 +102,10 @@
     font-size: 2.2rem;
   }
 }
+
+/* @media screen and (max-width: 360px) {
+   .about__image {
+    width: 250px;
+    height: 250px;
+  }
+} */
