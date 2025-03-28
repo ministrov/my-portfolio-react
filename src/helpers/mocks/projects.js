@@ -2,8 +2,8 @@ import project01 from '../../assets/projects/01-big.jpg';
 import project01Wep from '../../assets/projects/01-big.webp';
 import project02 from '../../assets/projects/02-big.jpg';
 import project02Wep from '../../assets/projects/02-big.webp';
-import project03 from '../../assets/projects/03-big.jpg';
-import project03Wep from '../../assets/projects/03-big.webp';
+import project03 from '../../assets/projects/nike-ecommerce.jpg';
+import project03Wep from '../../assets/projects/nike-ecommerce.webp';
 import project04 from '../../assets/projects/personal-diary.jpg';
 import project04Wep from '../../assets/projects/personal-diary.webp';
 import project05 from '../../assets/projects/05-big.jpg';
@@ -50,14 +50,14 @@ export const projects = [
   },
   {
     id: 3,
-    title: 'Video Portal',
-    skills: 'JavaScript, HTML, CSS',
+    title: 'E-Commerse Shop',
+    skills: 'React, Tailwind CSS',
     img: project03,
     fullImg: project03,
     webpImg: project03Wep,
     webpBig: project03Wep,
-    gitHubLink: 'https://github.com',
-    slogan: 'Gaming streaming portal',
+    gitHubLink: 'https://github.com/ministrov/nike-react-tailwilnd',
+    slogan: 'A stunning Nike Shop',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
