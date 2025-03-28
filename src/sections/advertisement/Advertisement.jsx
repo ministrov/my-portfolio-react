@@ -7,7 +7,7 @@ const Advertisement = () => {
       <div className="container">
         <Heading title={"Advertisement"} slogan={"Give you the best place to your advertisement"} />
 
-        <div className="advertisement__advs">"Your advertisement could be here."</div>
+        <div className="advertisement__advs">Your advertisement could be here.</div>
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-// w3schools: "A closure is a function having a access to the parent scope, event after the parent function has closed";
+// w3schools: "A closure is a function having a access to the parent scope, even after the parent function has closed";
 
 // A closure is created when we define a function, not when a function is executed;
 

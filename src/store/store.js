@@ -10,8 +10,6 @@ export const store = configureStore({
     middleware: () => [logIt]
 });
 
-console.log(store.reducer);
-
 store.subscribe(() => {
     saveState({ name: store.getState().likes.counter }, 'likes');
 });

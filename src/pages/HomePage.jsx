@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
-import Modal from "../components/modal/Modal";
+// import Modal from "../components/modal/Modal";
 import Skills from "../sections/skills/Skills";
 import Advertisement from '../sections/advertisement/Advertisement';
 import Testimonials from "../sections/testimonials/Testimonials";
@@ -32,8 +32,7 @@ const Home = () => {
   }, [isOpen]);
 
   return (
-    <section className="main-page">
-      <h1 className="visually-hidden">Home page of the author portfolio</h1>
+    <>
       <Helmet>
         <title>A Home page of Anton Zhilin professional portfolio</title>
         <meta
@@ -44,28 +43,31 @@ const Home = () => {
         <meta name='keywords' content='HTML, web layout, outsourcing, development, web developer, Figma, PSD, frontend, order' />
         <link rel="canonical" href="/" />
       </Helmet>
+      <section className="main-page">
+        <h1 className="visually-hidden">Home page of the author portfolio</h1>
 
-      <Promo />
+        <Promo />
 
-      <Statistics />
+        <Statistics />
 
-      <About />
+        <About />
 
-      <Services />
+        <Services />
 
-      <Skills />
+        <Skills />
 
-      <Advertisement />
+        <Advertisement />
 
-      <Testimonials />
+        <Testimonials />
 
-      <Faq/>
+        <Faq />
 
-      <Modal 
+        {/* <Modal 
         open={isOpen}
         onClose={() => setIsOpen(false)}
-      />
-    </section>
+      /> */}
+      </section>
+    </>
   );
 };
 
