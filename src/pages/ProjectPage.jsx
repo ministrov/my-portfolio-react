@@ -61,7 +61,7 @@ const ProjectPage = () => {
                 />
                 <Button
                   text={"Code Link"}
-                  href={"/"}
+                  href={project.gitHubLink ?? '#'}
                   className={"project-detail__btn btn--med btn--theme-inv"}
                 />
               </div>
