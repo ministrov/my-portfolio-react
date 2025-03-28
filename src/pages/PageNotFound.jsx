@@ -3,8 +3,7 @@ import ErrorMessage from "../components/errorMessage/ErrorMessage";
 
 const PageNotFound = () => {
   return (
-    <section className="page-not-found">
-      <h2 className='visually-hidden'>A not found page section</h2>
+    <>
       <Helmet>
         <title>A Not Found Page</title>
         <meta
@@ -14,9 +13,12 @@ const PageNotFound = () => {
         />
         <link rel="canonical" href="*" />
       </Helmet>
+      <section className="page-not-found">
+        <h2 className='visually-hidden'>A not found page section</h2>
 
-      <ErrorMessage />
-    </section>
+        <ErrorMessage />
+      </section>    
+    </>
   );
 };
 
