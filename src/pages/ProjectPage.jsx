@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Heading from "../components/heading/Heading";
 import Button from "../components/button/Button";
-import Image from '../components/image/Image';
+import Image from "../components/image/Image";
 import SkillComponet from "../components/skillComponent/SkillComponent";
-import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
+import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import { projects } from "../helpers/mocks/projects";
 
 const ProjectPage = () => {
@@ -51,20 +51,24 @@ const ProjectPage = () => {
                 ))}
               </ul>
 
-              <h4 className="project-detail__overview">See Live</h4>
-
-              <div className="project-details__links">
-                <Button
-                  text={"Live Link"}
-                  href={"/"}
-                  className={"project-detail__btn btn--med btn--theme"}
-                />
-                <Button
-                  text={"Code Link"}
-                  href={project.gitHubLink ?? '#'}
-                  className={"project-detail__btn btn--med btn--theme-inv"}
-                />
-              </div>
+              {project.gitHubLink && (
+                <div className="project-details__links">
+                  <h4 className="project-detail__overview">See Live</h4>
+                  
+                  <div className="project-detail__btn-box">
+                    <Button
+                    text={"Live Link"}
+                    href={"/"}
+                    className={"btn--theme-inv"}
+                  />
+                  <Button
+                    text={"Code Link"}
+                    href={project.gitHubLink ?? '#'}
+                    className={"btn--theme-inv"}
+                  />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

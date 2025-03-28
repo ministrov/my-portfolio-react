@@ -154,6 +154,10 @@ img {
   color: var(--deep-black);
 }
 
+.project-details__links .project-detail__overview {
+  margin-bottom: 0;
+}
+
 .project-detail__text-overview {
   font-size: 1.8rem;
   line-height: 1.7;
@@ -173,12 +177,14 @@ img {
 
 .project-details__links {
   display: flex;
-  gap: 6rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3rem;
 }
 
-.project-details__btn {
-  max-width: 21rem;
-  margin-bottom: 6rem;
+.project-detail__btn-box {
+  display: flex;
+  gap: 3rem;
 }
 
 .page-not-found {

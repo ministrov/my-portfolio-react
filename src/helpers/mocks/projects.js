@@ -26,7 +26,7 @@ export const projects = [
     fullImg: project01,
     webpImg: project01Wep,
     webpBig: project01Wep,
-    gitHubLink: 'https://github.com',
+    // gitHubLink: 'https://github.com',
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
