@@ -3,7 +3,7 @@ import Layout from './Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
-import ProjectPage from "./pages/ProjectPage";
+import ProjectPage from "./pages/projectPage/ProjectPage";
 import PageNotFound from "./pages/pageNotFound/PageNotFound";
 import "./styles/main.css";
 

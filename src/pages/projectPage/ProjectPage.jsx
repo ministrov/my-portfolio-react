@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import Heading from "../components/heading/Heading";
-import Button from "../components/button/Button";
-import Image from "../components/image/Image";
-import SkillComponet from "../components/skillComponent/SkillComponent";
-import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
-import { projects } from "../helpers/mocks/projects";
+import Heading from "../../components/heading/Heading";
+import Button from "../../components/button/Button";
+import Image from "../../components/image/Image";
+import SkillComponet from "../../components/skillComponent/SkillComponent";
+import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
+import { projects } from "../../helpers/mocks/projects";
+import "./style.css";
 
 const ProjectPage = () => {
   const { id } = useParams();
