@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import ErrorMessage from "../components/errorMessage/ErrorMessage";
+import ErrorMessage from "../../components/errorMessage/ErrorMessage";
+import "./style.css";
 
 const PageNotFound = () => {
   return (

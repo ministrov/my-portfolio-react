@@ -4,7 +4,7 @@ import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectPage from "./pages/ProjectPage";
-import PageNotFound from "./pages/PageNotFound";
+import PageNotFound from "./pages/pageNotFound/PageNotFound";
 import "./styles/main.css";
 
 const App = () => {
