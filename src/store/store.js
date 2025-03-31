@@ -12,7 +12,7 @@ export const store = configureStore({
     middleware: () => [logIt]
 });
 
-console.log(store.getState().language);
+console.log(store.getState());
 
 store.subscribe(() => {
     saveState({ name: store.getState().likes.counter }, 'likes');

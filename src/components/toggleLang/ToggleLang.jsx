@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLanguage } from '../../store/language.slice';
+import { toggleLanguage } from '../../store/language.slice';
 import i18n from 'i18next';
 import './styles.css';
 
@@ -16,10 +16,10 @@ import './styles.css';
 
 export const ToggleLang = () => {
     const dispatch = useDispatch();
-    const currentLang = useSelector((state) => state.language.currentLang);
+    const currentLang = useSelector((state) => state.currentLang);
 
     const handleLanguageChange = (lang) => {
-        dispatch(setLanguage(lang));
+        dispatch(toggleLanguage(lang));
         i18n.changeLanguage(lang)
     }
     return (
@@ -34,7 +34,7 @@ export const ToggleLang = () => {
                 onClick={() => handleLanguageChange('ru')}
                 disabled={currentLang === 'ru'}
             >
-                Français
+                Russian
             </button>
         </div>
     );

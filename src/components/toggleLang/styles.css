@@ -1,4 +1,4 @@
-.toggle-btn {
+/* .toggle-btn {
     position: relative;
     width: 58px;
     height: 34px;
@@ -37,4 +37,4 @@
 
 .toggle-btn.toggled .thumb {
     left: calc(58px - 32px);
-}
+} */
