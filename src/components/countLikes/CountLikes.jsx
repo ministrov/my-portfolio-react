@@ -1,11 +1,9 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { PiHeartbeatLight } from "react-icons/pi";
-import './style.css';
+import "./style.css";
 
 const CountLikes = () => {
     const likes = useSelector((state) => state.likes.counter);
-
-    console.log(likes);
 
     return (
         <div className="likes">

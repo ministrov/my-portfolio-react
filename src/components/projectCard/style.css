@@ -22,7 +22,7 @@
   gap: 1.4rem;
   padding: 2rem;
   border-radius: var(--border-rs);
-  background-color: var(--project-card-bg);
+  /* background-color: var(--project-card-bg); */
   box-shadow: var(--box-shadow);
   border-radius: var(--border-rs);
 }
@@ -59,6 +59,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  color: #696969;
 }
 
 @media screen and (max-width: 688px) {

@@ -1,9 +1,9 @@
 import project01 from '../../assets/projects/01-big.jpg';
 import project01Wep from '../../assets/projects/01-big.webp';
-import project02 from '../../assets/projects/02-big.jpg';
-import project02Wep from '../../assets/projects/02-big.webp';
-import project03 from '../../assets/projects/03-big.jpg';
-import project03Wep from '../../assets/projects/03-big.webp';
+import project02 from '../../assets/projects/create-x-construction.jpg';
+import project02Wep from '../../assets/projects/create-x-construction.webp';
+import project03 from '../../assets/projects/nike-ecommerce.jpg';
+import project03Wep from '../../assets/projects/nike-ecommerce.webp';
 import project04 from '../../assets/projects/personal-diary.jpg';
 import project04Wep from '../../assets/projects/personal-diary.webp';
 import project05 from '../../assets/projects/05-big.jpg';
@@ -26,7 +26,7 @@ export const projects = [
     fullImg: project01,
     webpImg: project01Wep,
     webpBig: project01Wep,
-    gitHubLink: 'https://github.com',
+    // gitHubLink: 'https://github.com',
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
@@ -35,29 +35,29 @@ export const projects = [
   },
   {
     id: 2,
-    title: 'Video Service',
-    skills: 'React, PHP, MySQL',
+    title: 'Create-x Construction',
+    skills: 'JavaScript, HTML5, CSS3',
     img: project02,
     fullImg: project02,
     webpImg: project02Wep,
     webpBig: project02Wep,
-    gitHubLink: 'https://github.com',
+    gitHubLink: 'https://github.com/ministrov/createX-construction',
     slogan: 'Gaming streaming portal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
-    isProduction: false
+    isProduction: true
   },
   {
     id: 3,
-    title: 'Video Portal',
-    skills: 'JavaScript, HTML, CSS',
+    title: 'E-Commerse Shop',
+    skills: 'React, Tailwind CSS',
     img: project03,
     fullImg: project03,
     webpImg: project03Wep,
     webpBig: project03Wep,
-    gitHubLink: 'https://github.com',
-    slogan: 'Gaming streaming portal',
+    gitHubLink: 'https://github.com/ministrov/nike-react-tailwilnd',
+    slogan: 'A stunning Nike Shop',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
@@ -71,7 +71,8 @@ export const projects = [
     fullImg: project04,
     webpImg: project04Wep,
     webpBig: project04Wep,
-    slogan: 'Gaming streaming portal',
+    slogan: 'An online personal diary',
+    gitHubLink: 'https://github.com/ministrov/react-journal',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
@@ -85,7 +86,8 @@ export const projects = [
     fullImg: project05,
     webpImg: project05Wep,
     webpBig: project05Wep,
-    slogan: 'Gaming streaming portal',
+    slogan: 'Online platfor to choose It courses',
+    gitHubLink: 'https://github.com/ministrov/top-app-next-ts',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
@@ -99,7 +101,8 @@ export const projects = [
     fullImg: project08,
     webpImg: project08Wep,
     webpBig: project08Wep,
-    slogan: 'Gaming streaming portal',
+    slogan: 'A platform to rate any of web apps',
+    gitHubLink: 'https://github.com/PurpleSchoolPractice/ratingus-site',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
@@ -114,6 +117,7 @@ export const projects = [
     webpImg: project07Wep,
     webpBig: project07Wep,
     slogan: 'Gaming streaming portal',
+    gitHubLink: 'https://github.com/ministrov/personal-blog-next-ts',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
@@ -127,7 +131,7 @@ export const projects = [
     fullImg: project06,
     webpImg: project06Wep,
     webpBig: project06Wep,
-    slogan: 'Gaming streaming portal',
+    slogan: 'A searching word library',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,

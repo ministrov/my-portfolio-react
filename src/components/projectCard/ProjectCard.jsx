@@ -7,7 +7,7 @@ import Image from "../image/Image";
 import "./style.css";
 
 const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, isProduction, custom }) => {
-  console.log(isProduction);
+  // console.log(isProduction);
   const variants = {
     hidden: { opacity: 0 },
     visible: (index) => ({
