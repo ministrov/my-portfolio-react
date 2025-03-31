@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import i18n from '../utils/i18n';
 
 const initialState = {
   currentLanguage: 'en',
@@ -12,7 +11,6 @@ export const languageSlice  = createSlice({
         toggleLanguage: (state, action) => {
             state.currentLanguage = action.payload
         }
-        // setLanguage: (state, action) => {}
     }
 });
 
