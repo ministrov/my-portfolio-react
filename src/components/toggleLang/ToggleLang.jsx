@@ -25,16 +25,18 @@ export const ToggleLang = () => {
     return (
         <div className="toggle-btn">
             <button
+                className={currentLang === 'en' ? 'toggle-btn--current' : ''}
                 onClick={() => handleLanguageChange('en')}
                 disabled={currentLang === 'en'}
             >
-                English
+                En
             </button>
             <button
+                className={currentLang === 'ru' ? 'toggle-btn--current' : ''}
                 onClick={() => handleLanguageChange('ru')}
                 disabled={currentLang === 'ru'}
             >
-                Russian
+                Ru
             </button>
         </div>
     );

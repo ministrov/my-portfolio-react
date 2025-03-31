@@ -1,3 +1,16 @@
+.toggle-btn {
+    display: flex;
+    gap: 8px;
+}
+
+.toggle-btn--current {
+    color: var(--light-blue-100);
+}
+
+.toggle-btn button {
+    border: none;
+    background-color: transparent;
+}
 /* .toggle-btn {
     position: relative;
     width: 58px;
