@@ -1,5 +1,4 @@
-// import { useDispatch } from "react-redux";
-// import { incrementLike } from "../../store/counter.slice";
+import { useTranslation } from "react-i18next";
 import TypingText from "../../components/typingText/TypingText";
 import Image from "../../components/image/Image";
 import Button from "../../components/button/Button";
@@ -10,7 +9,7 @@ import MyAvatar1 from "../../assets/png/my-avatar.webp";
 import "./style.css";
 
 const Promo = () => {
-  // const dispatch = useDispatch();
+  const { t } = useTranslation();
   return (
     <section className="promo">
       <h2 className="visually-hidden">A promo section for introduction of the author</h2>
@@ -19,15 +18,11 @@ const Promo = () => {
       >
         <TypingText className={'promo__title'} text={"Hey Folks, I'm Anton Zhilin, a Frontend Developer!"} />
 
-        <p className="promo__text">
-          Welcome to a world where pixels come alive and digital dreams become
-          reality. Step into my realm and let me weave captivating designs with
-          code, creating seamless experiences that leave a lasting impression.
-        </p>
+        <p className="promo__text">{t("promoText")}</p>
 
         <div className="promo__btns">
           <Button
-            text={"Download CV"}
+            text={t("promoBtn")}
             href={require("../../assets/pdfs/my-cv.pdf")}
             className={"btn--big"}
           />
