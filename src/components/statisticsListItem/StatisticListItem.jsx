@@ -10,7 +10,7 @@ const StatisticListItem = ({ stats }) => {
         delay={2}
         className="statistics__count"
       />
-      <p className={`statistics__desc ${stats.text.length < 15 ? "max-width-100" : "max-width-150"}`}>
+      <p className={"statistics__desc"}>
       {stats.text}
       </p>
     </li>

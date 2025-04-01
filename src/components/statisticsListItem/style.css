@@ -3,7 +3,6 @@
   gap: 2rem;
   flex: 1;
   align-items: center;
-  justify-content: center;
 }
 
 .statistics__count {
@@ -20,14 +19,6 @@
   color: var(--light-blue-100);
 }
 
-.max-width-100 {
-  max-width: 100px;
-}
-
-.max-width-150 {
-  max-width: 150px;
-}
-
 @media only screen and (max-width: 876px) {
   .statistics__item {
     display: flex;
@@ -38,13 +29,5 @@
     padding: 1rem;
     border-radius: 8px;
     box-shadow: var(--box-shadow);
-  }
-
-  .max-width-100 {
-    max-width: 150px;
-  }
-
-  .max-width-150 {
-    max-width: 220px;
   }
 }
