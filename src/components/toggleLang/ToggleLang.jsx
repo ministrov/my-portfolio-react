@@ -5,17 +5,17 @@ import './styles.css';
 
 export const ToggleLang = () => {
     const dispatch = useDispatch();
-    const { currentLang, toggled } = useSelector((state) => state.currentLang);
+    const { currentLang, toggled } = useSelector((state) => state.language);
 
     console.log(currentLang);
 
-    const handleLanguageChange = (lang) => {
-        dispatch(toggleLanguage(lang));
-        i18n.changeLanguage(lang);
+    const handleLanguageChange = () => {
+        dispatch(toggleLanguage());
+        i18n.changeLanguage(currentLang === 'en' ? 'ru' : 'en');
     }
 
     return (
-        <button className={`toggle-btn ${toggled ? 'toggled' : ''}`} onClick={() => handleLanguageChange('ru')}>
+        <button className={`toggle-btn ${toggled ? 'toggled' : ''}`} onClick={handleLanguageChange}>
             <div className="thumb">{toggled ? 'Ru' : 'En'}</div>
         </button>
     );

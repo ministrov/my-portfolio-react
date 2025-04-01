@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  currentLanguage: 'en',
+  currentLang: 'en',
   toggled: false
 };
 
@@ -10,12 +10,12 @@ export const languageSlice  = createSlice({
     initialState,
     reducers: {
         toggleLanguage: (state) => {
-            state.currentLanguage = state.currentLanguage === 'en' ? 'ru' : 'en';
+            state.currentLang = state.currentLang === 'en' ? 'ru' : 'en';
             state.toggled = !state.toggled;
         }
     }
 });
 
 
-export const { toggleLanguage, setLanguage } = languageSlice.actions;
+export const { toggleLanguage } = languageSlice.actions;
 export default languageSlice.reducer;
