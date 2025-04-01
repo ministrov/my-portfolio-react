@@ -18,11 +18,11 @@ const Promo = () => {
       >
         <TypingText className={'promo__title'} text={"Hey Folks, I'm Anton Zhilin, a Frontend Developer!"} />
 
-        <p className="promo__text">{t("promoText")}</p>
+        <p className="promo__text">{t("promo.promoText")}</p>
 
         <div className="promo__btns">
           <Button
-            text={t("promoBtn")}
+            text={t("promo.promoBtn")}
             href={require("../../assets/pdfs/my-cv.pdf")}
             className={"btn--big"}
           />

@@ -29,7 +29,7 @@ const MainNav = () => {
                         to="/"
                         className={"nav-list__link"}
                     >
-                        {t("home")}
+                        {t("mainNav.home")}
                     </NavLink>
                 </li>
                 <li className="nav-list__item">
@@ -37,7 +37,7 @@ const MainNav = () => {
                         to="/blog"
                         className={"nav-list__link"}
                     >
-                        {t("blog")}
+                        {t("mainNav.blog")}
                     </NavLink>
                 </li>
                 <li className="nav-list__item">
@@ -45,7 +45,7 @@ const MainNav = () => {
                         to="/projects"
                         className={({ isActive }) => isActive ? 'nav-list__link nav-list__link--active' : 'nav-list__link'}
                     >
-                        {t("projects")}
+                        {t("mainNav.projects")}
                     </NavLink>
                 </li>
             </ul>

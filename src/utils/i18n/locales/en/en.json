@@ -1,14 +1,18 @@
 {
     "logoName": "Anton Zhilin",
-    "home": "Home",
-    "blog": "Blog",
-    "projects": "Projects",
-    "promoText": "Welcome to a world where pixels come alive and digital dreams become reality. Step into my realm and let me weave captivating designs with code, creating seamless experiences that leave a lasting impression.",
-    "promoBtn": "Download CV",
+    "mainNav": {
+        "home": "Home",
+        "blog": "Blog",
+        "projects": "Projects"
+    },
+    "promo": {
+        "promoText": "Welcome to a world where pixels come alive and digital dreams become reality. Step into my realm and let me weave captivating designs with code, creating seamless experiences that leave a lasting impression.",
+        "promoBtn": "Download CV"
+    },
     "statistics": {
-        "years_experience": "{{count}} Year of experience |||| {{count}} Years of experience",
-        "projects_completed": "{{count}} Project completed |||| {{count}} Projects completed",
-        "technologies_mastered": "{{count}} Technology mastered |||| {{count}} Technologies mastered",
-        "code_commits": "{{count}} Code commits |||| {{count}} Codes commits"
+        "years_experience": "Years of experience",
+        "projects_completed": "Projects completed",
+        "technologies_mastered": "Technologies mastered",
+        "code_commits": "Codes commits"
     }
 }
