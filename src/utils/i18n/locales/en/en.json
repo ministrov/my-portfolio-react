@@ -1,4 +1,6 @@
 {
-    "welcomeMessage": "Welcome to React and react-i18next",
-    "logoName": "Anton Zhilin"
+    "logoName": "Anton Zhilin",
+    "home": "Home",
+    "blog": "Blog",
+    "projects": "Projects"
 }

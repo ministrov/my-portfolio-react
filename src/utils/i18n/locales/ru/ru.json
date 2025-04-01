@@ -1,4 +1,6 @@
 {
-    "welcomeMessage": "Добро пожаловать в React и react-i18next!",
-    "logoName": "Антон Жилин"
+    "logoName": "Антон Жилин",
+    "home": "Главная",
+    "blog": "Блог",
+    "projects": "Проекты"
 }

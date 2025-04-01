@@ -7,7 +7,7 @@ export const ToggleLang = () => {
     const dispatch = useDispatch();
     const { currentLang, toggled } = useSelector((state) => state.language);
 
-    console.log(currentLang);
+    // console.log(currentLang);
 
     const handleLanguageChange = () => {
         dispatch(toggleLanguage());
