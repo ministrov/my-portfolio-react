@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Promo from "../sections/promo/Promo";
 import About from "../sections/about/About";
@@ -11,25 +11,25 @@ import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  // It needs for opening a modal window
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+  //   let timeout = setTimeout(() => {
+  //     setIsOpen(true);
+  //   }, 30000);
 
-    let timeout = setTimeout(() => {
-      setIsOpen(true);
-    }, 30000);
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //     clearTimeout(timeout);
+  //   };
 
-    return () => {
-      document.body.style.overflow = "auto";
-      clearTimeout(timeout);
-    };
-
-  }, [isOpen]);
+  // }, [isOpen]);
 
   return (
     <>

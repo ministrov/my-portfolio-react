@@ -51,22 +51,15 @@ export const filters = [
 ];
 
 export const prices = [
-    { id: 1, title: 'Promotional websites for marketing tasks', description: 'We develop short and long pages with responsiveness, fast loading speed, micro-animations, semantic structure, and SEO-friendly markup.', price: '25 $ / per hour' },
-    { id: 2, title: 'Online stores and corporate websites for businesses', description: 'We confidently handle high-traffic formats—pages with interactivity, forms, shopping carts. We always prioritize the user and create accessible interfaces.', price: '45 $ / per hour' },
-    { id: 3, title: 'Complex services and admin panels for product teams', description: 'We create media, aggregators, and charts. We work with a large number of pages with similar components, where there are many points of interaction with the user and complex logic.', price: '75 $ / per hour' },
-];
-
-export const statistics = [
-  { num: 2, text: "Years of experience"},
-  { num: 11, text: "Projects completed"},
-  { num: 8, text: "Technologies mastered"},
-  { num: 1938, text: "Code commits"},
+  { id: 1, title: 'Promotional websites for marketing tasks', description: 'We develop short and long pages with responsiveness, fast loading speed, micro-animations, semantic structure, and SEO-friendly markup.', price: '25 $ / per hour' },
+  { id: 2, title: 'Online stores and corporate websites for businesses', description: 'We confidently handle high-traffic formats—pages with interactivity, forms, shopping carts. We always prioritize the user and create accessible interfaces.', price: '45 $ / per hour' },
+  { id: 3, title: 'Complex services and admin panels for product teams', description: 'We create media, aggregators, and charts. We work with a large number of pages with similar components, where there are many points of interaction with the user and complex logic.', price: '75 $ / per hour' },
 ];
 
 export const testimonials = [
-    { id: 1, content: "I was amazed by the exceptional quality of service and attention to detail—truly a top-notch experience!" },
-    { id: 2, content: "Their professionalism and dedication made all the difference. I couldn't be happier with the results." },
-    { id: 3, content: "The level of expertise and care they provided exceeded my expectations, highly recommended!" },
-    { id: 4, content: "The level of expertise and care they provided exceeded my expectations, highly recommended!" },
-    { id: 5, content: "The level of expertise and care they provided exceeded my expectations, highly recommended!" },
+  { id: 1, content: "I was amazed by the exceptional quality of service and attention to detail—truly a top-notch experience!" },
+  { id: 2, content: "Their professionalism and dedication made all the difference. I couldn't be happier with the results." },
+  { id: 3, content: "The level of expertise and care they provided exceeded my expectations, highly recommended!" },
+  { id: 4, content: "The level of expertise and care they provided exceeded my expectations, highly recommended!" },
+  { id: 5, content: "The level of expertise and care they provided exceeded my expectations, highly recommended!" },
 ];
