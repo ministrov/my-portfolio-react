@@ -9,11 +9,8 @@ import Testimonials from "../sections/testimonials/Testimonials";
 import Faq from "../sections/faq/Faq";
 import Services from "../sections/services/Services";
 import Statistics from "../sections/statistics/Statistics";
-// import { useFetchData } from "../hooks/useFetchData";
 
 const Home = () => {
-  // const { data, loading, error } = useFetchData("https://dummyjson.com/users");
-
   // const [isOpen, setIsOpen] = useState(false);
   // It needs for opening a modal window
   // useEffect(() => {
@@ -51,10 +48,6 @@ const Home = () => {
       </Helmet>
       <section className="main-page">
         <h1 className="visually-hidden">Home page of the author portfolio</h1>
-
-        {/* {loading && <div>Loading....</div>}
-
-        {error && <div>Error: {error}</div>} */}
 
         <Promo />
 
