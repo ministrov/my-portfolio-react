@@ -6,37 +6,49 @@ import { Tag } from "../tag/Tag.tsx";
 import Image from "../image/Image";
 import "./style.css";
 
-const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, isProduction, custom }) => {
-  // console.log(isProduction);
+const ProjectCard = ({
+  id,
+  title,
+  skills,
+  img,
+  wepImg,
+  imageAlt,
+  isProduction,
+  custom,
+}) => {
   const variants = {
     hidden: { opacity: 0 },
     visible: (index) => ({
       opacity: 1,
-      transition: { delay: index * 0.2 }
-    })
-  }
+      transition: { delay: index * 0.2 },
+    }),
+  };
   return (
-    <motion.li 
-      whileHover={{ scale: 1.04 , transition: 0.7 }}
+    <motion.li
+      whileHover={{ scale: 1.04, transition: 0.7 }}
       variants={variants}
-      initial={'hidden'}
-      animate={'visible'}
+      initial={"hidden"}
+      animate={"visible"}
       custom={custom}
       className="project-card__item"
       tabIndex={0}
     >
       <NavLink to={`/project/${id}`} className={"project-card__link"}>
-        <Image 
-          className="project-card__image" 
-          width={338} 
-          height={224} 
-          src={wepImg} 
-          fallback={img} 
+        <Image
+          className="project-card__image"
+          width={338}
+          height={224}
+          src={wepImg}
+          fallback={img}
           alt={imageAlt}
         />
       </NavLink>
-          
-      {isProduction ? <Tag color={'red'}>{'Production'}</Tag> : <Tag color={'purple'}>{'Pet project'}</Tag>}
+
+      {isProduction ? (
+        <Tag color={"red"}>{"Production"}</Tag>
+      ) : (
+        <Tag color={"purple"}>{"Pet project"}</Tag>
+      )}
 
       <h3 className="project-card__title">{title}</h3>
 
@@ -44,12 +56,9 @@ const ProjectCard = ({ id, title, skills, img, wepImg, imageAlt, isProduction, c
         <h4 className="project-card__title">Tools:</h4>
         <ul className="project-card__list">
           {skills.map((skill) => (
-            <SkillComponet
-              key={uuidv4()} 
-              skillName={skill}
-            />
+            <SkillComponet key={uuidv4()} skillName={skill} />
           ))}
-        </ul> 
+        </ul>
       </div>
     </motion.li>
   );
