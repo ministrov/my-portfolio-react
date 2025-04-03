@@ -9,8 +9,8 @@ import { projects } from '../../helpers/mocks/projects';
 import './style.css';
 
 const Projects = () => {
-  const storedList = JSON.parse(localStorage.getItem('list')) || projects;
-  const [filteredProjects, setFilteredProjects] = useState(storedList);
+  // const storedList = JSON.parse(localStorage.getItem('list')) || projects;
+  const [filteredProjects, setFilteredProjects] = useState(projects);
   const [active, setActive] = useState('All');
   let navigate = useNavigate();
   let location = useLocation();
@@ -22,13 +22,13 @@ const Projects = () => {
 
   const handleFilterClick = (name) => {
     if (name === 'All') {
-      setFilteredProjects(storedList);
+      setFilteredProjects(projects);
     } else {
       const filteredItems = projects.filter((project) =>
         project.skills.includes(name)
       );
       setFilteredProjects(filteredItems);
-      localStorage.setItem('projects', JSON.stringify(filteredItems));
+      // localStorage.setItem('projects', JSON.stringify(filteredItems));
     }
 
     setActive(name);

@@ -14,10 +14,12 @@ const Faq = () => {
           slogan={'Get Answers to Your Burning Questions'}
           className="heading-sec__main--second"
         />
-        <div className="faq__list">
+        <ul className="faq__list">
           {faqs.map((item, index) => (
-            <div
-              className={`faq__item ${activeIndex === index ? 'faq__item--active' : ''}`}
+            <li
+              className={`faq__item ${
+                activeIndex === index ? 'faq__item--active' : ''
+              }`}
               key={index}
               onClick={() => {
                 if (activeIndex === index) {
@@ -41,9 +43,9 @@ const Faq = () => {
               <div className="faq__answer">
                 <p className="faq__muted">{item.description}</p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
