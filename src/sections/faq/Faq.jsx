@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import { FaPlus } from 'react-icons/fa6';
 import { faqs } from '../../helpers/mocks';
@@ -6,12 +7,14 @@ import './style.css';
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
+  const { t } = useTranslation();
+
   return (
     <section className="faq">
       <div className="container">
         <Heading
-          title={'Frequantly Asked Questions'}
-          slogan={'Get Answers to Your Burning Questions'}
+          title={t('heading.faq.name')}
+          slogan={t('heading.faq.subheading')}
           className="heading-sec__main--second"
         />
         <ul className="faq__list">

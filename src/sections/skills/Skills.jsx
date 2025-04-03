@@ -1,15 +1,18 @@
+import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import SkillComponet from '../../components/skillComponent/SkillComponent';
 import { skills } from '../../helpers/mocks/skills';
 import './style.css';
 
 const Skills = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="skills">
       <div className="container">
         <Heading
-          title={'My Skills'}
-          slogan={'Unleashing Potential Through Technology'}
+          title={t('heading.mySkills.name')}
+          slogan={t('heading.mySkills.subheading')}
           className="skills__title"
         ></Heading>
 

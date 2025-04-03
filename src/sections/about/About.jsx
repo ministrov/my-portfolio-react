@@ -1,15 +1,17 @@
+import { useTranslation } from 'react-i18next';
 import TypingText from '../../components/typingText/TypingText';
 import Heading from '../../components/heading/Heading';
 import Photo from '../../components/photo/Photo';
 import './style.css';
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <section className="about">
       <div className="container">
         <Heading
-          title={'About'}
-          slogan={'A Passion for Crafting Digital Experiences'}
+          title={t('heading.about.name')}
+          slogan={t('heading.about.subheading')}
           className="about__title"
         ></Heading>
 

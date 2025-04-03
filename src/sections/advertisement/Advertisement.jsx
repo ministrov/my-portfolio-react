@@ -1,17 +1,17 @@
-import { useWindowSize } from '../../hooks/useWindowSize';
+// import { useWindowSize } from '../../hooks/useWindowSize';
+import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import './style.css';
 
 const Advertisement = () => {
-  const windowSize = useWindowSize();
+  const { t } = useTranslation();
 
-  console.log(windowSize);
   return (
     <section className="advertisement">
       <div className="container">
         <Heading
-          title={'Advertisement'}
-          slogan={'Give you the best place to your advertisement'}
+          title={t('heading.advertisement.name')}
+          slogan={t('heading.advertisement.subheading')}
         />
 
         <div className="advertisement__advs">
