@@ -1,4 +1,5 @@
 // import { useState, useEffect } from "react";
+// import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
@@ -11,6 +12,8 @@ import Services from '../sections/services/Services';
 import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
+  // const [seachParams, setSearchParams] = useSearchParams();
+  // console.log(seachParams);
   // const [isOpen, setIsOpen] = useState(false);
   // It needs for opening a modal window
   // useEffect(() => {
