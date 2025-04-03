@@ -1,5 +1,5 @@
-import project01 from '../../assets/projects/01-big.jpg';
-import project01Wep from '../../assets/projects/01-big.webp';
+import project01 from '../../assets/projects/yeticave.jpg';
+import project01Wep from '../../assets/projects/yeticave.webp';
 import project02 from '../../assets/projects/create-x-construction.jpg';
 import project02Wep from '../../assets/projects/create-x-construction.webp';
 import project03 from '../../assets/projects/nike-ecommerce.jpg';
@@ -20,13 +20,14 @@ import project09Wep from '../../assets/projects/waterdel.webp';
 export const projects = [
   {
     id: 1,
-    title: 'Gaming streaming portal',
-    skills: 'React, Redux, RTK',
+    title: 'Online auction for buying things',
+    skills: 'JavaScript, PHP, HTML, CSS',
     img: project01,
     fullImg: project01,
     webpImg: project01Wep,
     webpBig: project01Wep,
-    slogan: 'Gaming streaming portal',
+    slogan: 'A service for selling and buing things',
+    gitHubLink: 'https://github.com/ministrov/yetycave-php',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
     isProduction: false,
   },
@@ -77,7 +78,7 @@ export const projects = [
     fullImg: project05,
     webpImg: project05Wep,
     webpBig: project05Wep,
-    slogan: 'Online platfor to choose It courses',
+    slogan: 'Online platform to choose courses',
     gitHubLink: 'https://github.com/ministrov/top-app-next-ts',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
     isProduction: true,
