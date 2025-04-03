@@ -16,10 +16,7 @@ const Promo = () => {
         A promo section for introduction of the author
       </h2>
       <div className="promo__content">
-        <TypingText
-          className={'promo__title'}
-          text={"Hey Folks, I'm Anton Zhilin, a Frontend Developer!"}
-        />
+        <TypingText className={'promo__title'} text={t('promo.promoTitle')} />
 
         <p className="promo__text">{t('promo.promoText')}</p>
 
