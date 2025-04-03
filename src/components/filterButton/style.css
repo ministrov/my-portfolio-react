@@ -1,19 +1,21 @@
 .filter__btn {
-    min-width: 170px;
-    height: 40px;
-    font-size: 1.7rem;
-    line-height: 1.4;
-    color: var(--light-blue-100);
-    background-color: var(--white);
-    border-radius: 8px;
+  min-width: 170px;
+  height: 40px;
+  font-size: 1.7rem;
+  line-height: 1.4;
+  color: var(--light-blue-100);
+  background-color: var(--white);
+  border-radius: 8px;
 }
 
 .filter__btn:focus {
-    text-shadow: 1px 0 0,.3px 0 0;
+  text-shadow:
+    1px 0 0,
+    0.3px 0 0;
 }
 
 .filter__btn--active {
-    color: var(--white);
-    background-color: var(--light-blue-100);
-    border: 2px solid var(--white);
+  color: var(--white);
+  background-color: var(--light-blue-100);
+  border: 2px solid var(--white);
 }

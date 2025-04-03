@@ -1,4 +1,3 @@
-
 // const obj = {
 //   a: {
 //     b: {
@@ -19,8 +18,6 @@
 //  (или undefined, если свойства не существует). Третий, опциональный аргумент функции — значение по умолчанию, которое
 // возвращается, если значения по указанному пути не существует.
 
-const getObjectValue = (obj, path, defaultValue = obj.a.b) => {
-
-}
+const getObjectValue = (obj, path, defaultValue = obj.a.b) => {};
 
 export default getObjectValue;

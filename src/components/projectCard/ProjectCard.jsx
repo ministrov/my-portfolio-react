@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
-import { v4 as uuidv4 } from "uuid";
-import SkillComponet from "../skillComponent/SkillComponent";
-import { Tag } from "../tag/Tag.tsx";
-import Image from "../image/Image";
-import "./style.css";
+import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { v4 as uuidv4 } from 'uuid';
+import SkillComponet from '../skillComponent/SkillComponent';
+import { Tag } from '../tag/Tag.tsx';
+import Image from '../image/Image';
+import './style.css';
 
 const ProjectCard = ({
   id,
@@ -27,13 +27,13 @@ const ProjectCard = ({
     <motion.li
       whileHover={{ scale: 1.04, transition: 0.7 }}
       variants={variants}
-      initial={"hidden"}
-      animate={"visible"}
+      initial={'hidden'}
+      animate={'visible'}
       custom={custom}
       className="project-card__item"
       tabIndex={0}
     >
-      <NavLink to={`/project/${id}`} className={"project-card__link"}>
+      <NavLink to={`/project/${id}`} className={'project-card__link'}>
         <Image
           className="project-card__image"
           width={338}
@@ -45,9 +45,9 @@ const ProjectCard = ({
       </NavLink>
 
       {isProduction ? (
-        <Tag color={"red"}>{"Production"}</Tag>
+        <Tag color={'red'}>{'Production'}</Tag>
       ) : (
-        <Tag color={"purple"}>{"Pet project"}</Tag>
+        <Tag color={'purple'}>{'Pet project'}</Tag>
       )}
 
       <h3 className="project-card__title">{title}</h3>

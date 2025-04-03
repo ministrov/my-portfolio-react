@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
-import Projects from "../sections/projects/Projects";
+import { Helmet } from 'react-helmet-async';
+import Projects from '../sections/projects/Projects';
 
 const ProjectsPage = () => {
   return (

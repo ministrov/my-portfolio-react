@@ -1,6 +1,6 @@
-import Logo from "../logo/Logo";
-import SocialList from "../socials/SocialList";
-import "./style.css";
+import Logo from '../logo/Logo';
+import SocialList from '../socials/SocialList';
+import './style.css';
 
 const Footer = () => {
   return (
@@ -11,12 +11,13 @@ const Footer = () => {
             <h2 className="main-footer__heading-sm">
               <span>Socials</span>
             </h2>
-            <SocialList className={'main-footer__list'}/>
+            <SocialList className={'main-footer__list'} />
           </div>
           <div className="main-footer__row main-footer__row-2">
-            <Logo className={"main-footer"} type={'logo__name--second'}/>
+            <Logo className={'main-footer'} type={'logo__name--second'} />
             <p className="main-footer__short-desc">
-              Creating Intuitive User Experiences Through Clean Code and Modern Design
+              Creating Intuitive User Experiences Through Clean Code and Modern
+              Design
             </p>
           </div>
         </div>

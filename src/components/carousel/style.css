@@ -9,7 +9,6 @@
   margin-bottom: 25px;
 }
 
-
 .carousel__controls {
   display: flex;
   gap: 2rem;
@@ -20,7 +19,7 @@
 .carousel__btn_next {
   display: flex;
   border-radius: var(--border-rs);
-  background-color: var(--light-blue-100);;
+  background-color: var(--light-blue-100);
 }
 
 .carousel__btn_prev:hover,

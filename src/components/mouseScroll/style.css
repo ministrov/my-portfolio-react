@@ -1,6 +1,6 @@
 .mouse {
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
   width: 25px;
   height: 40px;
   border: 2px solid #eee;
@@ -19,19 +19,19 @@
   border-radius: 50%;
   opacity: 1;
   animation: wheel 1.3s infinite;
-  -webkit-animation: wheel 1.3s infinite; 
+  -webkit-animation: wheel 1.3s infinite;
 }
 
 @keyframes wheel {
   to {
     opacity: 0;
-    top: 27px; 
-  } 
+    top: 27px;
+  }
 }
 
 @-webkit-keyframes wheel {
   to {
     opacity: 0;
-    top: 27px; 
-  } 
+    top: 27px;
+  }
 }

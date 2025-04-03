@@ -14,7 +14,7 @@
   letter-spacing: 1px;
   line-height: inherit;
   color: var(--light-blue-100);
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 .nav-list__link:hover {
@@ -36,7 +36,7 @@
   height: 3px;
   transform-origin: right;
   transform: scaleX(0);
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   background-color: var(--light-blue-200);
 }
 
@@ -50,7 +50,7 @@
 }
 
 .nav-list__link--active::before {
-  background-color: var(--light-blue-100);;
+  background-color: var(--light-blue-100);
   transform: none;
 }
 
@@ -59,7 +59,7 @@
   height: 3px;
   margin: 5px;
   background-color: var(--light-blue-100);
-  transition: all .5s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .nav__toggler {
@@ -84,7 +84,6 @@
 .toggle .line3 {
   transform: rotate(45deg) translate(-4px, -5px);
 }
-
 
 @media only screen and (max-width: 56.25em) {
   .nav__toggler {
@@ -119,7 +118,6 @@
     font-size: 1.8rem;
     border-bottom: 1px solid #eee;
   }
-
 
   .nav-list.nav-list__active {
     transform: translateX(0);

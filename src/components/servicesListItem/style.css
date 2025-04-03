@@ -26,7 +26,7 @@
 .services__item-block:hover .services__item-text,
 .services__item-block:focus .services__item-text {
   -webkit-text-stroke: 1px var(--light-blue-200);
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .services__item-text {
@@ -44,7 +44,7 @@
   height: 4rem;
   background-color: var(--light-blue-100);
   border-radius: 50%;
-  transition: all .5s ease-in;
+  transition: all 0.5s ease-in;
   cursor: pointer;
 }
 

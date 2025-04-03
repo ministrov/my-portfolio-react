@@ -10,11 +10,9 @@ const StatisticListItem = ({ stats }) => {
         delay={2}
         className="statistics__count"
       />
-      <p className={"statistics__desc"}>
-      {stats.text}
-      </p>
+      <p className={'statistics__desc'}>{stats.text}</p>
     </li>
-  )
-}
+  );
+};
 
 export default StatisticListItem;

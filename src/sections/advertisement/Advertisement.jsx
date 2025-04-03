@@ -1,6 +1,6 @@
-import { useWindowSize } from "../../hooks/useWindowSize";
-import Heading from "../../components/heading/Heading";
-import "./style.css";
+import { useWindowSize } from '../../hooks/useWindowSize';
+import Heading from '../../components/heading/Heading';
+import './style.css';
 
 const Advertisement = () => {
   const windowSize = useWindowSize();
@@ -10,8 +10,8 @@ const Advertisement = () => {
     <section className="advertisement">
       <div className="container">
         <Heading
-          title={"Advertisement"}
-          slogan={"Give you the best place to your advertisement"}
+          title={'Advertisement'}
+          slogan={'Give you the best place to your advertisement'}
         />
 
         <div className="advertisement__advs">

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 .logo__link {
@@ -22,7 +22,9 @@
   color: var(--light-blue-100);
   border: 2px solid var(--light-blue-100);
   border-radius: 6px;
-  transition: color .3s ease-in-out, border .3s ease-in-out;
+  transition:
+    color 0.3s ease-in-out,
+    border 0.3s ease-in-out;
 }
 
 .logo__name--second {
@@ -33,7 +35,9 @@
   color: var(--white);
   border: 2px solid var(--white);
   border-radius: 6px;
-  transition: color .3s ease-in-out, border .3s ease-in-out;
+  transition:
+    color 0.3s ease-in-out,
+    border 0.3s ease-in-out;
 }
 
 .logo__name:hover {

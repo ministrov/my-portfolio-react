@@ -1,14 +1,14 @@
 function spliteStringRegExp(string) {
-    const characters = [];
-    const regex = /[\s\S]/gu;
+  const characters = [];
+  const regex = /[\s\S]/gu;
 
-    let match;
+  let match;
 
-    while ((match = regex.exec(string)) !== null) {
-        characters.push(match[0]);
-    }
+  while ((match = regex.exec(string)) !== null) {
+    characters.push(match[0]);
+  }
 
-    return characters;
+  return characters;
 }
 
 export default spliteStringRegExp;

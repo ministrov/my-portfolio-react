@@ -1,17 +1,17 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
-import TestimonialCard from "../testimonialCard/TestimonialCard";
-import { testimonials } from "../../helpers/mocks";
-import "./style.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade } from 'swiper/modules';
+import TestimonialCard from '../testimonialCard/TestimonialCard';
+import { testimonials } from '../../helpers/mocks';
+import './style.css';
 
 const Carousel = ({ className }) => {
   return (
-    <Swiper 
+    <Swiper
       className={`${className} carousel`}
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{
-        delay: 2000
+        delay: 2000,
       }}
       modules={[Autoplay, EffectFade]}
     >

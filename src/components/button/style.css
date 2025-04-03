@@ -30,7 +30,7 @@
 }
 
 .btn--theme {
-  background: var(--light-blue-100);;
+  background: var(--light-blue-100);
   color: #fff;
 }
 
@@ -38,7 +38,7 @@
   padding: calc(1.5rem - 2px) calc(5rem - 2px);
   color: var(--light-blue-100);
   background: #fff;
-  border: 2px solid var(--light-blue-100);;
+  border: 2px solid var(--light-blue-100);
   box-shadow: none;
 }
 

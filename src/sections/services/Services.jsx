@@ -1,7 +1,7 @@
 import ServicesListItem from '../../components/servicesListItem/ServicesListItem';
-import { motion } from "framer-motion";
-import { services } from "../../helpers/mocks/services";
-import "./style.css";
+import { motion } from 'framer-motion';
+import { services } from '../../helpers/mocks/services';
+import './style.css';
 
 const Services = () => {
   return (
@@ -12,21 +12,17 @@ const Services = () => {
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { delay: 1.4, duration: 0.7, ease: 'easeIn' }
+            transition: { delay: 1.4, duration: 0.7, ease: 'easeIn' },
           }}
           className="services__list"
         >
           {services.map((service) => (
-              <ServicesListItem
-                key={service.num} 
-                service={service} 
-              />
-            ))
-          }
+            <ServicesListItem key={service.num} service={service} />
+          ))}
         </motion.ul>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Services;

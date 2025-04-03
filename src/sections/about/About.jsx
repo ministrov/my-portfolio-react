@@ -1,30 +1,32 @@
 import TypingText from '../../components/typingText/TypingText';
-import Heading from "../../components/heading/Heading";
-import Photo from "../../components/photo/Photo";
-import "./style.css";
+import Heading from '../../components/heading/Heading';
+import Photo from '../../components/photo/Photo';
+import './style.css';
 
 const About = () => {
   return (
     <section className="about">
       <div className="container">
         <Heading
-          title={"About"}
-          slogan={
-            "A Passion for Crafting Digital Experiences"
-          }
+          title={'About'}
+          slogan={'A Passion for Crafting Digital Experiences'}
           className="about__title"
         ></Heading>
 
         <div className="about__wrapper">
-          <div
-            className="about__left"
-          >
+          <div className="about__left">
             <p className="about__description">
-              <TypingText className={"about__greeting"} text={"Greeting, new customers"}/>
+              <TypingText
+                className={'about__greeting'}
+                text={'Greeting, new customers'}
+              />
               <br />
               <br />
-              With several years spent weaving pixels and lines of code into captivating experiences, I've honed my skills as a frontend developer who transforms visions into interactive realities. My job is to help the customer realize his idea and
-              make the product user-friendly.
+              With several years spent weaving pixels and lines of code into
+              captivating experiences, I've honed my skills as a frontend
+              developer who transforms visions into interactive realities. My
+              job is to help the customer realize his idea and make the product
+              user-friendly.
               <br />
               <br />
               To achieve this goal, I use the most modern technologies and
@@ -38,9 +40,7 @@ const About = () => {
             </p>
           </div>
 
-          <div
-            className="about__right"
-          >
+          <div className="about__right">
             <Photo />
           </div>
         </div>

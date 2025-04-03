@@ -1,4 +1,4 @@
-import "./style.css";
+import './style.css';
 
 const SkillComponet = ({ skill, variant, skillName }) => {
   return (

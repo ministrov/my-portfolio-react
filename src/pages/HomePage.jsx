@@ -1,14 +1,14 @@
 // import { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
-import Promo from "../sections/promo/Promo";
-import About from "../sections/about/About";
+import { Helmet } from 'react-helmet-async';
+import Promo from '../sections/promo/Promo';
+import About from '../sections/about/About';
 // import Modal from "../components/modal/Modal";
-import Skills from "../sections/skills/Skills";
-import Advertisement from "../sections/advertisement/Advertisement";
-import Testimonials from "../sections/testimonials/Testimonials";
-import Faq from "../sections/faq/Faq";
-import Services from "../sections/services/Services";
-import Statistics from "../sections/statistics/Statistics";
+import Skills from '../sections/skills/Skills';
+import Advertisement from '../sections/advertisement/Advertisement';
+import Testimonials from '../sections/testimonials/Testimonials';
+import Faq from '../sections/faq/Faq';
+import Services from '../sections/services/Services';
+import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
   // const [isOpen, setIsOpen] = useState(false);

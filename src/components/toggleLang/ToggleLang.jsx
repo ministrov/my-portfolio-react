@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { toggleLanguage } from "../../store/language.slice";
-import i18n from "i18next";
-import "./styles.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleLanguage } from '../../store/language.slice';
+import i18n from 'i18next';
+import './styles.css';
 
 export const ToggleLang = () => {
   const dispatch = useDispatch();
@@ -9,15 +9,15 @@ export const ToggleLang = () => {
 
   const handleLanguageChange = () => {
     dispatch(toggleLanguage());
-    i18n.changeLanguage(currentLang === "en" ? "ru" : "en");
+    i18n.changeLanguage(currentLang === 'en' ? 'ru' : 'en');
   };
 
   return (
     <button
-      className={`toggle-btn ${toggled ? "toggled" : ""}`}
+      className={`toggle-btn ${toggled ? 'toggled' : ''}`}
       onClick={handleLanguageChange}
     >
-      <div className="thumb">{toggled ? "Ru" : "En"}</div>
+      <div className="thumb">{toggled ? 'Ru' : 'En'}</div>
     </button>
   );
 };
