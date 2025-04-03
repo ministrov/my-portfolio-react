@@ -1,0 +1,26 @@
+{
+  "workbench.colorTheme": "React Theme",
+  "editor.fontSize": 18,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "git.autofetch": true,
+  "editor.wordWrap": "on",
+  "gitlens.views.commitDetails.files.layout": "tree",
+  "workbench.iconTheme": "material-icon-theme",
+  "git.openRepositoryInParentFolders": "never",
+  "editor.minimap.enabled": false,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorWidth": 3,
+  "files.autoSaveDelay": 500,
+  "files.autoSaveWhenNoErrors": true,
+  "files.autoSaveWorkspaceFilesOnly": true,
+  "editor.detectIndentation": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
