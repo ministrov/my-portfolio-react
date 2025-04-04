@@ -9,7 +9,6 @@ import './style.css';
 const Services = () => {
   // const { t } = useTranslation();
 
-  // console.log(t);
   const services = [
     {
       num: '01',
