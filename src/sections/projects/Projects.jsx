@@ -1,17 +1,15 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from '../../components/heading/Heading';
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import ProjectsList from '../../components/projectsList/ProjectsList';
 import { filters } from '../../helpers/mocks';
-import { projects } from '../../helpers/mocks/projects';
+import { ActionTypes, initialState, projectsReducer } from './projectsReduce';
 import './style.css';
 
 const Projects = () => {
-  // const storedList = JSON.parse(localStorage.getItem('list')) || projects;
-  const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [active, setActive] = useState('All');
+  const [state, dispatch] = useReducer(projectsReducer, initialState);
   let navigate = useNavigate();
   let location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -21,17 +19,7 @@ const Projects = () => {
   ];
 
   const handleFilterClick = (name) => {
-    if (name === 'All') {
-      setFilteredProjects(projects);
-    } else {
-      const filteredItems = projects.filter((project) =>
-        project.skills.includes(name)
-      );
-      setFilteredProjects(filteredItems);
-      // localStorage.setItem('projects', JSON.stringify(filteredItems));
-    }
-
-    setActive(name);
+    dispatch({ type: ActionTypes.SET_FILTER, payload: name });
 
     queryParams.set('filter', name);
     navigate({
@@ -59,7 +47,7 @@ const Projects = () => {
                 className={'projects__filter-list-item filter'}
               >
                 <FilterButton
-                  active={active}
+                  active={state.activeFilter}
                   currentBtn={filter.name}
                   filterName={filter.name}
                   onClick={() => handleFilterClick(filter.name)}
@@ -69,7 +57,7 @@ const Projects = () => {
           </ul>
         </div>
 
-        <ProjectsList projects={filteredProjects} />
+        <ProjectsList projects={state.filteredProjects} />
       </div>
     </section>
   );

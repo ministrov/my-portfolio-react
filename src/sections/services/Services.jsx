@@ -1,9 +1,38 @@
+import { useTranslation } from 'react-i18next';
 import ServicesListItem from '../../components/servicesListItem/ServicesListItem';
 import { motion } from 'framer-motion';
-import { services } from '../../helpers/mocks/services';
+import { SlGlobe } from 'react-icons/sl';
+import { SiAffinitydesigner } from 'react-icons/si';
+import { TbSeo } from 'react-icons/tb';
 import './style.css';
 
 const Services = () => {
+  const { t } = useTranslation();
+
+  const services = [
+    {
+      num: '01',
+      title: t('services.title.one'),
+      description: t('services.description.one'),
+      href: '',
+      icon: <SlGlobe color="white" size={25} />,
+    },
+    {
+      num: '02',
+      title: t('services.title.two'),
+      description: t('services.description.two'),
+      href: '',
+      icon: <SiAffinitydesigner color="white" size={25} />,
+    },
+    {
+      num: '03',
+      title: t('services.title.three'),
+      description: t('services.description.three'),
+      href: '',
+      icon: <TbSeo color="white" size={25} />,
+    },
+  ];
+
   return (
     <section className="services">
       <h2 className="visually-hidden">Section for a services</h2>
