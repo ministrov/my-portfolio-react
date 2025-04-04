@@ -13,6 +13,7 @@ import Services from '../sections/services/Services';
 import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
+  const userId = 2;
   // const [seachParams, setSearchParams] = useSearchParams();
   // console.log(seachParams);
   // const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +58,7 @@ const Home = () => {
 
         <Statistics />
 
-        <MyUserContextProvider>
+        <MyUserContextProvider value={{ userId }}>
           <About />
         </MyUserContextProvider>
         <Services />
