@@ -1,5 +1,3 @@
-
-
 // import React, { useReducer } from 'react';
 
 // // Исходные данные

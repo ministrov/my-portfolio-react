@@ -8,7 +8,7 @@
 
 .testimonial-card__top-left {
   position: absolute;
-  content: "";
+  content: '';
   top: -8px;
   left: -3px;
   display: flex;
@@ -21,7 +21,7 @@
 
 .testimonial-card__bottom-right {
   position: absolute;
-  content: "";
+  content: '';
   bottom: -7px;
   right: -10px;
   display: flex;
@@ -46,7 +46,7 @@
   font-size: 2rem;
   line-height: 1.2;
   text-align: center;
-  color: var(--light-blue-100);;
+  color: var(--light-blue-100);
 }
 
 .testimonial-card__client-info {
@@ -62,25 +62,25 @@
   max-width: 12rem;
   max-height: 124px;
   border-radius: 50%;
-  background-color: var(--light-blue-100);;
+  background-color: var(--light-blue-100);
 }
 
 .testimonial-card__client-picture img {
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 .testimonial-card__client-details-title {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.2;
-  color: var(--light-blue-100);;
+  color: var(--light-blue-100);
 }
 
 .testimonial-card__client-details-info {
   display: inline-block;
   font-size: 1.3rem;
   line-height: 1.2;
-  color: var(--light-blue-100);;
+  color: var(--light-blue-100);
 }
 
 @media only screen and (max-width: 86.25em) {

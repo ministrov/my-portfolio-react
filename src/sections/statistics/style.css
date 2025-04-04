@@ -14,7 +14,7 @@
     padding-top: 8rem;
     padding-bottom: 8rem;
   }
-  
+
   .statistics__list {
     display: grid;
     grid-template-columns: 1fr;

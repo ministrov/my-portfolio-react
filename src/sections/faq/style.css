@@ -28,7 +28,7 @@
   padding: 4rem 4rem;
   background-color: transparent;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   border: 2px solid var(--white);
   border-radius: 8px;
 }
@@ -72,7 +72,7 @@
   padding: 3rem;
 }
 
-.faq__item--active .faq__muted{
+.faq__item--active .faq__muted {
   color: var(--white);
 }
 

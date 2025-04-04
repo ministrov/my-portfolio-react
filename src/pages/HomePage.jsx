@@ -1,16 +1,19 @@
 // import { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
-import Promo from "../sections/promo/Promo";
-import About from "../sections/about/About";
+// import { useSearchParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import Promo from '../sections/promo/Promo';
+import About from '../sections/about/About';
 // import Modal from "../components/modal/Modal";
-import Skills from "../sections/skills/Skills";
+import Skills from '../sections/skills/Skills';
 import Advertisement from '../sections/advertisement/Advertisement';
-import Testimonials from "../sections/testimonials/Testimonials";
-import Faq from "../sections/faq/Faq";
-import Services from "../sections/services/Services";
-import Statistics from "../sections/statistics/Statistics";
+import Testimonials from '../sections/testimonials/Testimonials';
+import Faq from '../sections/faq/Faq';
+import Services from '../sections/services/Services';
+import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
+  // const [seachParams, setSearchParams] = useSearchParams();
+  // console.log(seachParams);
   // const [isOpen, setIsOpen] = useState(false);
   // It needs for opening a modal window
   // useEffect(() => {
@@ -40,7 +43,10 @@ const Home = () => {
           content="A Home page of the frontend developer portfolio about developing a stunning apps and web applications"
           data-rh="true"
         />
-        <meta name='keywords' content='HTML, web layout, outsourcing, development, web developer, Figma, PSD, frontend, order' />
+        <meta
+          name="keywords"
+          content="HTML, web layout, outsourcing, development, web developer, Figma, PSD, frontend, order"
+        />
         <link rel="canonical" href="/" />
       </Helmet>
       <section className="main-page">

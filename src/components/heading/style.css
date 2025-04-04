@@ -22,9 +22,9 @@
   background: var(--light-blue-100);
 }
 
-.heading-sec__main--second.heading-sec__main::after  {
+.heading-sec__main--second.heading-sec__main::after {
   background: var(--white);
-} 
+}
 
 .heading-sec__main--second {
   color: var(--white);
@@ -65,7 +65,7 @@
   .heading-sec__main {
     font-size: 3rem;
   }
-  
+
   .heading-sec__main::after {
     top: calc(100% + 1.2rem);
   }

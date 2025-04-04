@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import Image from "../image/Image";
-import authorPhoto from "../../assets/png/photo.png";
-import webPPhoto from "../../assets/png/photo.webp";
-import "./style.css";
+import { motion } from 'framer-motion';
+import Image from '../image/Image';
+import authorPhoto from '../../assets/png/photo.png';
+import webPPhoto from '../../assets/png/photo.webp';
+import './style.css';
 
 const Photo = () => {
   return (
@@ -11,10 +11,10 @@ const Photo = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2, duration: 0.4, ease: "easeIn"}
+        transition: { delay: 2, duration: 0.4, ease: 'easeIn' },
       }}
     >
-      <Image 
+      <Image
         className="about__image"
         width={450}
         height={450}
@@ -23,7 +23,7 @@ const Photo = () => {
         alt={"Focus on author's face"}
       />
     </motion.div>
-  )
-}
+  );
+};
 
 export default Photo;

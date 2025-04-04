@@ -3,13 +3,13 @@
   --deep-black: #000;
   --deep-black-100: #171718;
   --deep-black-200: #26292d;
-  --light-blue-50: #3538CD;
+  --light-blue-50: #3538cd;
   --light-blue-100: #0062b9;
   --light-blue-200: #3073c5;
   --light-blue-300: #0e4ad1;
-  --light-blue-400: #EEF4FF;
-  --light-red-100: #C11574;
-  --light-red-200: #FDF2FA;
+  --light-blue-400: #eef4ff;
+  --light-red-100: #c11574;
+  --light-red-200: #fdf2fa;
   --light-grey: #777;
 
   /* Nav */
@@ -37,7 +37,11 @@
   --project-card-bg: var(--white);
   --project-card-text: var(--deep-black-100);
   --box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
-  --gradient: linear-gradient(to right, rgba(0, 98, 185, 0.8), rgba(0,98, 185, 0.8));
+  --gradient: linear-gradient(
+    to right,
+    rgba(0, 98, 185, 0.8),
+    rgba(0, 98, 185, 0.8)
+  );
 }
 
 *,
@@ -77,7 +81,7 @@ html {
 
 body {
   min-width: 320px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.2;

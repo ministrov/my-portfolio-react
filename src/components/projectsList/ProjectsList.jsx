@@ -1,18 +1,18 @@
-import ProjectCard from "../projectCard/ProjectCard";
-import "./style.css";
+import ProjectCard from '../projectCard/ProjectCard';
+import './style.css';
 
 const ProjectsList = ({ projects }) => {
   return (
     <ul className="projects__list">
       {projects.map((project, index) => (
-        <ProjectCard 
+        <ProjectCard
           key={project.id}
           id={project.id}
-          title={project.title} 
+          title={project.title}
           skills={project.skills.split(',')}
-          img={project.img} 
-          wepImg={project.webpImg} 
-          imageAlt={project.title} 
+          img={project.img}
+          wepImg={project.webpImg}
+          imageAlt={project.title}
           custom={index}
           isProduction={project.isProduction}
         />

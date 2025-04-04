@@ -1,18 +1,46 @@
 {
-    "logoName": "Anton Zhilin",
-    "mainNav": {
-        "home": "Home",
-        "blog": "Blog",
-        "projects": "Projects"
+  "heading": {
+    "about": {
+      "name": "About",
+      "subheading": "A Passion for Crafting Digital Experiences"
     },
-    "promo": {
-        "promoText": "Welcome to a world where pixels come alive and digital dreams become reality. Step into my realm and let me weave captivating designs with code, creating seamless experiences that leave a lasting impression.",
-        "promoBtn": "Download CV"
+    "mySkills": {
+      "name": "My Skills",
+      "subheading": "Unleashing Potential Through Technology"
     },
-    "statistics": {
-        "years_experience": "Years of experience",
-        "projects_completed": "Projects completed",
-        "technologies_mastered": "Technologies mastered",
-        "code_commits": "Codes commits"
+    "advertisement": {
+      "name": "Advertisement",
+      "subheading": "Give you the best place to your advertisement"
+    },
+    "testimonials": {
+      "name": "Testimonials",
+      "subheading": "Satisfied Clients Speak Out"
+    },
+    "faq": {
+      "name": "Frequantly Asked Questions",
+      "subheading": "Get Answers to Your Burning Questions"
     }
+  },
+  "logoName": "Anton Zhilin",
+  "mainNav": {
+    "home": "Home",
+    "blog": "Blog",
+    "projects": "Projects"
+  },
+  "promo": {
+    "promoTitle": "Hey Folks, I'm Anton Zhilin, a Frontend Developer!",
+    "promoText": "Welcome to a world where pixels come alive and digital dreams become reality. Step into my realm and let me weave captivating designs with code, creating seamless experiences that leave a lasting impression.",
+    "promoBtn": "Download CV"
+  },
+  "about": {
+    "title": "Greeting, new customers! 🎉",
+    "descriptionOne": "With several years spent weaving pixels and lines of code into captivating experiences, I've honed my skills as a frontend developer who transforms visions into interactive realities. My job is to help the customer realize his idea and make the product user-friendly.",
+    "descriptionTwo": "To achieve this goal, I use the most modern technologies and tools. I also pay great attention to communication with the team and the customer in order to understand their needs and offer optimal solutions. I will be glad to discuss your project and contribute to its success.portfolio, I showcase a range of projects that demonstrate my technical proficiency, design skills, and ability to work collaboratively with teams to achieve projectgoals."
+  },
+  "statistics": {
+    "years_experience": "Years of experience",
+    "projects_completed": "Projects completed",
+    "technologies_mastered": "Technologies mastered",
+    "code_commits": "Codes commits"
+  }
 }

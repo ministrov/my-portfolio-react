@@ -1,41 +1,18 @@
-// w3schools: "A closure is a function having a access to the parent scope, even after the parent function has closed";
+// A ternary operator
 
-// A closure is created when we define a function, not when a function is executed;
+// let canVote;
+// const age = 18;
 
-let x = 1;
+// if (age >= 18) {
+//   canVote = "sfdsf";
+// } else {
+//   canVote = "fdfdsfsdfsdf";
+// }
 
-// function parentFunction() {
-//     // local scope
-//     let myValue = 2;
-//     console.log(x);
-//     console.log(myValue);
+// console.log(canVote);
 
-//     function childFunction() {
-//         console.log(x += 5);
-//         console.log(myValue += 1);
-//     }
+// const canVote2 = age >= 18 ? "You can vote" : "You are too small";
 
-//     childFunction();
-// }   
+// console.log(canVote2);
 
-// parentFunction();
-
-function parentFunction() {
-    // local scope
-    let myValue = 2;
-    console.log(x);
-    console.log(myValue);
-
-    function childFunction() {
-        console.log(x += 5);
-        console.log(myValue += 1);
-    }
-
-    return childFunction;
-}   
-
-const result = parentFunction();
-// This function result have the access to the value of parentFunction after the parent function was closed;
-result();
-
-export default parentFunction;
+//

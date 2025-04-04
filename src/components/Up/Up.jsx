@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FaLongArrowAltUp } from "react-icons/fa";
+import { FaLongArrowAltUp } from 'react-icons/fa';
 import './style.css';
 
 const Up = () => {
@@ -8,7 +8,7 @@ const Up = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  };
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
@@ -18,16 +18,16 @@ const Up = () => {
       } else {
         setIsShowed(false);
       }
-    }
+    };
 
-    scrollToTop(); 
+    scrollToTop();
 
     document.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -45,7 +45,7 @@ const Up = () => {
         </motion.button>
       )}
     </AnimatePresence>
-  )
-}
+  );
+};
 
 export default Up;
