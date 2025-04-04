@@ -1,11 +1,16 @@
+// import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import TypingText from '../../components/typingText/TypingText';
 import Heading from '../../components/heading/Heading';
 import Photo from '../../components/photo/Photo';
 import './style.css';
+// import { MyUserContext } from '../../context/userContext';
 
 const About = () => {
   const { t } = useTranslation();
+  // const { userId } = useContext(MyUserContext);
+
+  // console.log(userId);
   return (
     <section className="about">
       <div className="container">
@@ -36,6 +41,8 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      {/* {userId} */}
     </section>
   );
 };

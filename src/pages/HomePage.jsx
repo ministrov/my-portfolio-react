@@ -1,6 +1,7 @@
 // import { useState, useEffect } from "react";
 // import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { MyUserContextProvider } from '../context/userContext';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 // import Modal from "../components/modal/Modal";
@@ -56,8 +57,9 @@ const Home = () => {
 
         <Statistics />
 
-        <About />
-
+        <MyUserContextProvider>
+          <About />
+        </MyUserContextProvider>
         <Services />
 
         <Skills />
