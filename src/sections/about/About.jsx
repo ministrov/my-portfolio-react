@@ -17,18 +17,10 @@ const About = () => {
 
         <div className="about__wrapper">
           <div className="about__left">
-            <p className="about__description">
-              <TypingText
-                className={'about__greeting'}
-                text={t('about.title')}
-              />
-              <br />
-              <br />
-              {t('about.descriptionOne')}
-              <br />
-              <br />
-              {t('about.descriptionTwo')}
-            </p>
+            <TypingText className={'about__greeting'} text={t('about.title')} />
+
+            <p className="about__description">{t('about.descriptionOne')}</p>
+            <p className="about__description">{t('about.descriptionTwo')}</p>
           </div>
 
           <div className="about__right">
