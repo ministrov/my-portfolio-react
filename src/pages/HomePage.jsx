@@ -1,7 +1,6 @@
 // import { useState, useEffect } from "react";
 // import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { MyUserContextProvider } from '../context/userContext';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 // import Modal from "../components/modal/Modal";
@@ -13,7 +12,7 @@ import Services from '../sections/services/Services';
 import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
-  const userId = 10;
+  // const userId = 10;
   // const [seachParams, setSearchParams] = useSearchParams();
   // console.log(seachParams);
   // const [isOpen, setIsOpen] = useState(false);
@@ -51,32 +50,30 @@ const Home = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <MyUserContextProvider value={userId}>
-        <section className="main-page">
-          <h1 className="visually-hidden">Home page of the author portfolio</h1>
+      <section className="main-page">
+        <h1 className="visually-hidden">Home page of the author portfolio</h1>
 
-          <Promo />
+        <Promo />
 
-          <Statistics />
+        <Statistics />
 
-          <About />
+        <About />
 
-          <Services />
+        <Services />
 
-          <Skills />
+        <Skills />
 
-          <Advertisement />
+        <Advertisement />
 
-          <Testimonials />
+        <Testimonials />
 
-          <Faq />
+        <Faq />
 
-          {/* <Modal 
+        {/* <Modal 
         open={isOpen}
         onClose={() => setIsOpen(false)}
       /> */}
-        </section>
-      </MyUserContextProvider>
+      </section>
     </>
   );
 };
