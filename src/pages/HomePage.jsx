@@ -1,7 +1,7 @@
 // import { useState, useEffect } from "react";
 // import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { MyUserContextProvider } from '../context/userContext';
+// import { MyUserContextProvider } from '../context/userContext';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 // import Modal from "../components/modal/Modal";
@@ -13,7 +13,7 @@ import Services from '../sections/services/Services';
 import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
-  const userId = 2;
+  // const userId = 2;
   // const [seachParams, setSearchParams] = useSearchParams();
   // console.log(seachParams);
   // const [isOpen, setIsOpen] = useState(false);
@@ -58,9 +58,8 @@ const Home = () => {
 
         <Statistics />
 
-        <MyUserContextProvider value={{ userId }}>
-          <About />
-        </MyUserContextProvider>
+        <About />
+
         <Services />
 
         <Skills />
