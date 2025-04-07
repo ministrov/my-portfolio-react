@@ -26,6 +26,9 @@
 }
 
 .about__left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   width: 50%;
 }
 
@@ -48,6 +51,7 @@
 }
 
 .about__greeting {
+  max-width: fit-content;
   padding: 6px;
   font-size: 3.2rem;
   font-weight: 700;
@@ -71,9 +75,7 @@
 .about__link button:hover {
   color: var(--white);
   background-color: var(--title-1);
-  transition:
-    color 0.5s ease-in-out,
-    background-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 @media only screen and (max-width: 1842px) {

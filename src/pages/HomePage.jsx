@@ -12,6 +12,7 @@ import Services from '../sections/services/Services';
 import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
+  // const userId = 10;
   // const [seachParams, setSearchParams] = useSearchParams();
   // console.log(seachParams);
   // const [isOpen, setIsOpen] = useState(false);

@@ -33,7 +33,7 @@
     "promoBtn": "Download CV"
   },
   "about": {
-    "title": "Greeting, new customers! 🎉",
+    "title": "Greeting, new customers!",
     "descriptionOne": "With several years spent weaving pixels and lines of code into captivating experiences, I've honed my skills as a frontend developer who transforms visions into interactive realities. My job is to help the customer realize his idea and make the product user-friendly.",
     "descriptionTwo": "To achieve this goal, I use the most modern technologies and tools. I also pay great attention to communication with the team and the customer in order to understand their needs and offer optimal solutions. I will be glad to discuss your project and contribute to its success.portfolio, I showcase a range of projects that demonstrate my technical proficiency, design skills, and ability to work collaboratively with teams to achieve projectgoals."
   },
@@ -42,5 +42,17 @@
     "projects_completed": "Projects completed",
     "technologies_mastered": "Technologies mastered",
     "code_commits": "Codes commits"
+  },
+  "services": {
+    "title": {
+      "one": "Web Development",
+      "two": "UI/UX Design",
+      "three": "SEO"
+    },
+    "description": {
+      "one": "I craft responsive and intuitive web interfaces using cutting-edge technologies and best practices. My goal is to create websites that not only look stunning but also perform flawlessly across all devices.",
+      "two": "I design user-centric interfaces that prioritize usability and aesthetics, ensuring a smooth and enjoyable user experience. My focus is on creating visually appealing designs that enhance engagement and simplify interactions.",
+      "three": "I optimize websites to improve search engine rankings, driving organic traffic and increasing visibility online. By implementing effective SEO strategies, I ensure your content reaches its target audience and achieves maximum impact."
+    }
   }
 }
