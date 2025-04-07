@@ -102,5 +102,11 @@
       "name": "Can I contact you for consultation?",
       "answer": "Certainly! Feel free to reach out through the contact form on my website or send an email. I'll be happy to answer any questions and help assess the scope of work for your project."
     }
+  },
+  "footer": {
+    "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
+    "socials": "Socials",
+    "copyright": "Copyright 2021. Made by",
+    "author": "Anton Zhilin"
   }
 }
