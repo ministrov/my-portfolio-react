@@ -27,9 +27,9 @@ const Carousel = ({ className }) => {
       className={`${className} carousel`}
       spaceBetween={30}
       centeredSlides={true}
-      // autoplay={{
-      //   delay: 2000,
-      // }}
+      autoplay={{
+        delay: 2000,
+      }}
       modules={[Autoplay, EffectFade]}
     >
       {testimonials.map((testimonial) => (
