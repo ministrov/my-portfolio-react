@@ -60,5 +60,8 @@
     "titleTwo": "Get to know me!",
     "descriptionOne": "As a Developer, I have a wide range of experience in front-end development. I am proficient in HTML, CSS, JavaScript, React. My strong experience in building responsive and dynamic interfaces using React and Next, and some time I can use vanilly JS, if it needs to my clients. It is allowed me to create engaging and interactive web applications.",
     "descriptionTwo": "I have experience in using React for building scalable and maintainable applications. This has allowed me to create efficient and sustainable code that can adept to the changing needs of a business."
+  },
+  "advertisement": {
+    "content": "Your advertisement could be here."
   }
 }

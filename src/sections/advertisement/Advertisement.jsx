@@ -14,9 +14,7 @@ const Advertisement = () => {
           slogan={t('heading.advertisement.subheading')}
         />
 
-        <div className="advertisement__advs">
-          Your advertisement could be here.
-        </div>
+        <div className="advertisement__advs">{t('advertisement.content')}</div>
       </div>
     </section>
   );

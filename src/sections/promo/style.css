@@ -92,7 +92,6 @@
 
 @media only screen and (max-width: 940px) {
   .promo__content {
-    /* max-width: 90rem; */
     width: 92%;
     padding: 12rem 0 6rem 0;
     transform: translate(0, 0);
@@ -104,9 +103,9 @@
     height: auto;
   }
 
-  .promo__title {
-    font-size: 4rem;
-  }
+  /* .promo__content {
+    padding: 0rem 0 6rem 0;
+  } */
 
   .promo__text {
     max-width: 100%;
