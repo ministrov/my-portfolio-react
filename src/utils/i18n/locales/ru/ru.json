@@ -72,5 +72,39 @@
       "name": "Рональд Роу",
       "profession": "Дизайнер, LLC Team"
     }
+  },
+  "faqs": {
+    "question_1": {
+      "name": "",
+      "answer": ""
+    },
+    "question_2": {
+      "name": "",
+      "answer": ""
+    },
+    "question_3": {
+      "name": "",
+      "answer": ""
+    },
+    "question_4": {
+      "name": "",
+      "answer": ""
+    },
+    "question_5": {
+      "name": "",
+      "answer": ""
+    },
+    "question_6": {
+      "name": "",
+      "answer": ""
+    },
+    "question_7": {
+      "name": "",
+      "answer": ""
+    },
+    "question_8": {
+      "name": "",
+      "answer": ""
+    }
   }
 }
