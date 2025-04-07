@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import { FaPlus } from 'react-icons/fa6';
-// import { faqs } from '../../helpers/mocks';
 import './style.css';
 
 const Faq = () => {
@@ -11,46 +10,32 @@ const Faq = () => {
 
   const faqs = [
     {
-      question: 'What services do you offer?',
-      answer: `
-        I specialize in developing responsive web interfaces, creating user interfaces (UI), integrating with backends, optimizing performance, and ensuring cross-browser compatibility. I can also assist with setting up CI/CD processes and automating project deployments.
-      `,
+      question: t('faqs.question_1.name'),
+      answer: t('faqs.question_1.answer'),
     },
     {
-      question: 'Which technologies do you use?',
-      answer: `
-        In my work, I utilize modern technology stacks such as HTML5, CSS3/SASS, JavaScript (ES6+), TypeScript, React.js, Vue.js, as well as various build tools like Webpack and Git for version control.
-      `,
+      question: t('faqs.question_2.name'),
+      answer: t('faqs.question_2.answer'),
     },
     {
-      question: 'How long does it take to develop a project?',
-      answer: `
-        The timeline depends on the complexity of the task and the scope of work. For smaller projects, it may take several weeks, while larger ones could span over several months. I always strive to provide realistic timelines and keep clients informed about every stage of development.
-      `,
+      question: t('faqs.question_3.name'),
+      answer: t('faqs.question_3.answer'),
     },
     {
-      question: 'Do you work remotely?',
-      answer: `
-        Yes, I primarily work remotely. This allows me to collaborate with clients from all over the world and maintain a flexible working schedule.
-      `,
+      question: t('faqs.question_4.name'),
+      answer: t('faqs.question_4.answer'),
     },
     {
-      question: 'Do you provide support after project completion?',
-      answer: `
-        Absolutely! After completing a project, I offer maintenance and technical support for an agreed-upon period. This includes bug fixes, making changes, and enhancing functionality.
-      `,
+      question: t('faqs.question_5.name'),
+      answer: t('faqs.question_5.answer'),
     },
     {
-      question: 'What is your experience level?',
-      answer: `
-        I have more than X years of frontend development experience. Over this time, I've worked on numerous projects ranging from simple landing pages to complex corporate applications. You can view some of my projects in the 'Portfolio' section.
-      `,
+      question: t('faqs.question_6.name'),
+      answer: t('faqs.question_6.answer'),
     },
     {
-      question: 'Can I contact you for consultation?',
-      answer: `
-        Certainly! Feel free to reach out through the contact form on my website or send an email. I'll be happy to answer any questions and help assess the scope of work for your project.
-      `,
+      question: t('faqs.question_7.name'),
+      answer: t('faqs.question_7.answer'),
     },
   ];
 
