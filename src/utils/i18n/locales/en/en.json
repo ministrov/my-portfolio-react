@@ -63,5 +63,10 @@
   },
   "advertisement": {
     "content": "Your advertisement could be here."
+  },
+  "testimonials": {
+    "contentOne": "I was amazed by the exceptional quality of service and attention to detail—truly a top-notch experience!",
+    "contentTwo": "Their professionalism and dedication made all the difference. I couldn't be happier with the results.",
+    "contentThree": "The level of expertise and care they provided exceeded my expectations, highly recommended!"
   }
 }
