@@ -67,6 +67,10 @@
   "testimonials": {
     "contentOne": "I was amazed by the exceptional quality of service and attention to detail—truly a top-notch experience!",
     "contentTwo": "Their professionalism and dedication made all the difference. I couldn't be happier with the results.",
-    "contentThree": "The level of expertise and care they provided exceeded my expectations, highly recommended!"
+    "contentThree": "The level of expertise and care they provided exceeded my expectations, highly recommended!",
+    "user": {
+      "name": "Ronald Row",
+      "profession": "Designer, LLC Team"
+    }
   }
 }
