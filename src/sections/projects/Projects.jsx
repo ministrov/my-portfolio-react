@@ -16,8 +16,8 @@ const Projects = () => {
   let location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const BREADCRUMBS = [
-    { id: 1, name: 'Home', link: '/' },
-    { id: 2, name: 'Projects' },
+    { id: 1, name: t('breadcrumbs.home'), link: '/' },
+    { id: 2, name: t('breadcrumbs.projects') },
   ];
 
   const handleFilterClick = (name) => {

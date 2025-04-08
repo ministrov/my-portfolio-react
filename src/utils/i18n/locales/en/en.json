@@ -25,6 +25,10 @@
       "subheading": "Unleash the power of code and create extraordinary digital experiences."
     }
   },
+  "breadcrumbs": {
+    "home": "Home",
+    "projects": "Projects"
+  },
   "logoName": "Anton Zhilin",
   "mainNav": {
     "home": "Home",
