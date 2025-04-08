@@ -5,7 +5,7 @@ import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from '../../components/heading/Heading';
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import ProjectsList from '../../components/projectsList/ProjectsList';
-// import { filters } from '../../helpers/mocks';
+import { filters } from '../../helpers/mocks';
 import { ActionTypes, initialState, projectsReducer } from './projectsReduce';
 import './style.css';
 
@@ -18,13 +18,6 @@ const Projects = () => {
   const BREADCRUMBS = [
     { id: 1, name: t('breadcrumbs.home'), link: '/' },
     { id: 2, name: t('breadcrumbs.projects') },
-  ];
-
-  const filters = [
-    { id: 1, name: 'All' },
-    { id: 2, name: 'React' },
-    { id: 3, name: 'Next' },
-    { id: 4, name: 'JavaScript' },
   ];
 
   const handleFilterClick = (name) => {

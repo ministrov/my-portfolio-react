@@ -116,11 +116,5 @@
     "socials": "Socials",
     "copyright": "Copyright 2021. Made by",
     "author": "Anton Zhilin"
-  },
-  "filters": {
-    "all": "All",
-    "react": "React",
-    "next": "Next",
-    "javaScript": "JavaScript"
   }
 }
