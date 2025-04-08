@@ -10,8 +10,6 @@ export const initialState = {
 };
 
 export const projectsReducer = (state, action) => {
-  console.log(state);
-  console.log(action.payload);
   switch (action.type) {
     case ActionTypes.SET_FILTER:
       const filteredItems =

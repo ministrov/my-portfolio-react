@@ -2,12 +2,42 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import { FaPlus } from 'react-icons/fa6';
-import { faqs } from '../../helpers/mocks';
 import './style.css';
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const { t } = useTranslation();
+
+  const faqs = [
+    {
+      question: t('faqs.question_1.name'),
+      answer: t('faqs.question_1.answer'),
+    },
+    {
+      question: t('faqs.question_2.name'),
+      answer: t('faqs.question_2.answer'),
+    },
+    {
+      question: t('faqs.question_3.name'),
+      answer: t('faqs.question_3.answer'),
+    },
+    {
+      question: t('faqs.question_4.name'),
+      answer: t('faqs.question_4.answer'),
+    },
+    {
+      question: t('faqs.question_5.name'),
+      answer: t('faqs.question_5.answer'),
+    },
+    {
+      question: t('faqs.question_6.name'),
+      answer: t('faqs.question_6.answer'),
+    },
+    {
+      question: t('faqs.question_7.name'),
+      answer: t('faqs.question_7.answer'),
+    },
+  ];
 
   return (
     <section className="faq">
@@ -32,7 +62,7 @@ const Faq = () => {
               }}
             >
               <div className="faq__question">
-                <h3>{item.title}</h3>
+                <h3>{item.question}</h3>
                 {activeIndex === index ? (
                   <div className="faq__icon">
                     <FaPlus />
@@ -44,7 +74,7 @@ const Faq = () => {
                 )}
               </div>
               <div className="faq__answer">
-                <p className="faq__muted">{item.description}</p>
+                <p className="faq__muted">{item.answer}</p>
               </div>
             </li>
           ))}

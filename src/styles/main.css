@@ -29,7 +29,7 @@
   --border-rs: 8px;
 
   /* Light mode */
-  /* --page-bg: var(--white); */
+  --page-bg: var(--white);
   --text-color: var(--deep-black-100);
   --accent: var(--light-purple-100);
   --title-1: var(--accent);
@@ -86,7 +86,7 @@ body {
   font-weight: 400;
   line-height: 1.2;
   scroll-behavior: smooth;
-  /* background-color: var(--page-bg); */
+  background-color: var(--page-bg);
 }
 
 img {

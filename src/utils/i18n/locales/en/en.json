@@ -54,5 +54,59 @@
       "two": "I design user-centric interfaces that prioritize usability and aesthetics, ensuring a smooth and enjoyable user experience. My focus is on creating visually appealing designs that enhance engagement and simplify interactions.",
       "three": "I optimize websites to improve search engine rankings, driving organic traffic and increasing visibility online. By implementing effective SEO strategies, I ensure your content reaches its target audience and achieves maximum impact."
     }
+  },
+  "skills": {
+    "titleOne": "My Skills",
+    "titleTwo": "Get to know me!",
+    "descriptionOne": "As a Developer, I have a wide range of experience in front-end development. I am proficient in HTML, CSS, JavaScript, React. My strong experience in building responsive and dynamic interfaces using React and Next, and some time I can use vanilly JS, if it needs to my clients. It is allowed me to create engaging and interactive web applications.",
+    "descriptionTwo": "I have experience in using React for building scalable and maintainable applications. This has allowed me to create efficient and sustainable code that can adept to the changing needs of a business."
+  },
+  "advertisement": {
+    "content": "Your advertisement could be here."
+  },
+  "testimonials": {
+    "contentOne": "I was amazed by the exceptional quality of service and attention to detail—truly a top-notch experience!",
+    "contentTwo": "Their professionalism and dedication made all the difference. I couldn't be happier with the results.",
+    "contentThree": "The level of expertise and care they provided exceeded my expectations, highly recommended!",
+    "user": {
+      "name": "Ronald Row",
+      "profession": "Designer, LLC Team"
+    }
+  },
+  "faqs": {
+    "question_1": {
+      "name": "What services do you offer?",
+      "answer": "I specialize in developing responsive web interfaces, creating user interfaces (UI), integrating with backends, optimizing performance, and ensuring cross-browser compatibility. I can also assist with setting up CI/CD processes and automating project deployments."
+    },
+    "question_2": {
+      "name": "Which technologies do you use?",
+      "answer": "In my work, I utilize modern technology stacks such as HTML5, CSS3/SASS, JavaScript (ES6+), TypeScript, React.js, Vue.js, as well as various build tools like Webpack and Git for version control."
+    },
+    "question_3": {
+      "name": "How long does it take to develop a project?",
+      "answer": "The timeline depends on the complexity of the task and the scope of work. For smaller projects, it may take several weeks, while larger ones could span over several months. I always strive to provide realistic timelines and keep clients informed about every stage of development."
+    },
+    "question_4": {
+      "name": "Do you work remotely?",
+      "answer": "Yes, I primarily work remotely. This allows me to collaborate with clients from all over the world and maintain a flexible working schedule."
+    },
+    "question_5": {
+      "name": "Do you provide support after project completion?",
+      "answer": "Absolutely! After completing a project, I offer maintenance and technical support for an agreed-upon period. This includes bug fixes, making changes, and enhancing functionality."
+    },
+    "question_6": {
+      "name": "What is your experience level?",
+      "answer": "I have more than X years of frontend development experience. Over this time, I've worked on numerous projects ranging from simple landing pages to complex corporate applications. You can view some of my projects in the 'Portfolio' section."
+    },
+    "question_7": {
+      "name": "Can I contact you for consultation?",
+      "answer": "Certainly! Feel free to reach out through the contact form on my website or send an email. I'll be happy to answer any questions and help assess the scope of work for your project."
+    }
+  },
+  "footer": {
+    "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
+    "socials": "Socials",
+    "copyright": "Copyright 2021. Made by",
+    "author": "Anton Zhilin"
   }
 }

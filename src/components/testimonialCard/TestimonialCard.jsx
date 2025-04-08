@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { FaQuoteRight } from 'react-icons/fa';
 import { FaQuoteLeft } from 'react-icons/fa';
 import clientAvatar from '../../assets/png/john-doe.png';
 import './style.css';
 
 const TestimonialCard = ({ content }) => {
+  const { t } = useTranslation();
   return (
     <article className="testimonial-card">
       <div className="testimonial-card__top-left">
@@ -23,9 +25,11 @@ const TestimonialCard = ({ content }) => {
           />
         </div>
         <div className="testimonial-card__client-details">
-          <h3 className="testimonial-card__client-details-title">Ronald Row</h3>
+          <h3 className="testimonial-card__client-details-title">
+            {t('testimonials.user.name')}
+          </h3>
           <span className="testimonial-card__client-details-info">
-            Designer, LLC Team
+            {t('testimonials.user.profession')}
           </span>
         </div>
       </div>
