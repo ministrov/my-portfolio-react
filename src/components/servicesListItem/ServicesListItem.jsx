@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BsArrowDownRight } from 'react-icons/bs';
 import './style.css';
 
 const ServicesListItem = ({ service }) => {
   const [isShort, setIsShort] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <li className={`services__item ${isShort ? 'services__item--long' : ''}`}>
@@ -19,7 +21,9 @@ const ServicesListItem = ({ service }) => {
       <h2 className="services__subheading">{service.title}</h2>
 
       <p
-        className={`services__description ${isShort ? 'services__description--long' : ''}`}
+        className={`services__description ${
+          isShort ? 'services__description--long' : ''
+        }`}
       >
         {service.description}
       </p>
@@ -28,7 +32,7 @@ const ServicesListItem = ({ service }) => {
         className="services__more"
         onClick={() => setIsShort((current) => !current)}
       >
-        {isShort ? 'Hide' : 'Show more'}
+        {isShort ? t('services.hide') : t('services.showMore')}
       </button>
     </li>
   );
