@@ -19,7 +19,15 @@
     "faq": {
       "name": "Frequantly Asked Questions",
       "subheading": "Get Answers to Your Burning Questions"
+    },
+    "projects": {
+      "name": "Projects",
+      "subheading": "Unleash the power of code and create extraordinary digital experiences."
     }
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "projects": "Projects"
   },
   "logoName": "Anton Zhilin",
   "mainNav": {

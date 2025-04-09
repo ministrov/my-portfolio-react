@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
 import FilterButton from '../../components/filterButton/FilterButton';
 import Heading from '../../components/heading/Heading';
@@ -9,13 +10,14 @@ import { ActionTypes, initialState, projectsReducer } from './projectsReduce';
 import './style.css';
 
 const Projects = () => {
+  const { t } = useTranslation();
   const [state, dispatch] = useReducer(projectsReducer, initialState);
   let navigate = useNavigate();
   let location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const BREADCRUMBS = [
-    { id: 1, name: 'Home', link: '/' },
-    { id: 2, name: 'Projects' },
+    { id: 1, name: t('breadcrumbs.home'), link: '/' },
+    { id: 2, name: t('breadcrumbs.projects') },
   ];
 
   const handleFilterClick = (name) => {
@@ -32,11 +34,9 @@ const Projects = () => {
       <div className="container">
         <Breadcrumbs items={BREADCRUMBS} />
         <Heading
-          title={'Projects'}
+          title={t('heading.projects.name')}
           className="projects__title"
-          slogan={
-            'Unleash the power of code and create extraordinary digital experiences.'
-          }
+          slogan={t('heading.projects.subheading')}
         ></Heading>
 
         <div className="projects__filter">
