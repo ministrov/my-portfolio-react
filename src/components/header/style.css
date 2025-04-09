@@ -6,17 +6,18 @@
   box-shadow: 70px 17px 62px rgba(0, 0, 0, 0.1);
 }
 
-.main-nav__block {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
 .main-nav {
+  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 5rem;
+}
+
+.main-nav__block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .main-nav__logo {

@@ -91,9 +91,9 @@
   }
 
   .nav-list {
-    z-index: 5;
-    position: fixed;
-    top: 14%;
+    /* z-index: 5; */
+    position: absolute;
+    top: 0;
     right: 0;
     width: 100%;
     display: block;
@@ -120,6 +120,7 @@
   }
 
   .nav-list.nav-list__active {
+    top: 85%;
     transform: translateX(0);
   }
 
