@@ -27,7 +27,8 @@
   },
   "breadcrumbs": {
     "home": "Главная",
-    "projects": "Проекты"
+    "projects": "Проекты",
+    "project": "Проект"
   },
   "logoName": "Антон Жилин",
   "mainNav": {

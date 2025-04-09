@@ -27,7 +27,8 @@
   },
   "breadcrumbs": {
     "home": "Home",
-    "projects": "Projects"
+    "projects": "Projects",
+    "project": "Project"
   },
   "logoName": "Anton Zhilin",
   "mainNav": {
