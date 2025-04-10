@@ -88,6 +88,7 @@
 
 .services__more {
   display: flex;
+  max-width: fit-content;
   font-family: inherit;
   font-size: 1.6rem;
   line-height: 1.4;
