@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import Heading from '../../components/heading/Heading';
 import Button from '../../components/button/Button';
@@ -10,11 +11,12 @@ import './style.css';
 
 const ProjectPage = () => {
   const { id } = useParams();
+  const { t } = useTranslation();
   const project = projects[id - 1];
   const BREADCRUMBS = [
-    { id: 1, name: 'Home', link: '/' },
-    { id: 2, name: 'Projects', link: '/projects' },
-    { id: 3, name: 'Project' },
+    { id: 1, name: t('breadcrumbs.home'), link: '/' },
+    { id: 2, name: t('breadcrumbs.projects'), link: '/projects' },
+    { id: 3, name: t('breadcrumbs.project') },
   ];
 
   return (

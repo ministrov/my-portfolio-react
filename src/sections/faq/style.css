@@ -76,7 +76,17 @@
   color: var(--white);
 }
 
+@media screen and (max-width: 688px) {
+  .faq {
+    padding-bottom: 8rem;
+  }
+}
+
 @media only screen and (max-width: 37.5em) {
+  .faq {
+    padding-bottom: 6rem;
+  }
+
   .faq__question {
     padding: 2rem 2rem;
   }

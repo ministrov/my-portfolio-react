@@ -16,6 +16,8 @@ import project08 from '../../assets/projects/ratingus.jpg';
 import project08Wep from '../../assets/projects/ratingus.webp';
 import project09 from '../../assets/projects/waterdel.jpg';
 import project09Wep from '../../assets/projects/waterdel.webp';
+import project10 from '../../assets/projects/Shoppe.jpg';
+import project10Wep from '../../assets/projects/Shoppe.webp';
 
 export const projects = [
   {
@@ -132,5 +134,17 @@ export const projects = [
     slogan: 'An e-commerce platform for puryfing systems',
     overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
     isProduction: true,
+  },
+  {
+    id: 10,
+    title: 'Stunning Shoppe e-commerce shop',
+    skills: 'Next, TypeScript, React, React-Hook-Form, RTK, Framer Motion',
+    img: project10,
+    fullImg: project10,
+    webpImg: project10Wep,
+    webpBig: project10Wep,
+    slogan: 'E-commerce platform for buying a jewellry things',
+    overview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?`,
+    isProduction: false,
   },
 ];

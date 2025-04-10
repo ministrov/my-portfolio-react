@@ -11,14 +11,23 @@
   line-height: 1.2;
   color: var(--white);
   border-radius: var(--border-rs);
-  /* background-color: var(--light-blue-200); */
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }
 
 @media screen and (max-width: 668px) {
+  .advertisement {
+    padding-bottom: 8rem;
+  }
+
   .advertisement__advs {
     padding: 1rem;
     font-size: 2.4rem;
     text-align: center;
+  }
+}
+
+@media (max-width: 36rem) {
+  .advertisement {
+    padding-bottom: 6rem;
   }
 }
