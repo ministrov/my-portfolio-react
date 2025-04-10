@@ -85,6 +85,16 @@
   }
 }
 
+@media screen and (max-width: 688px) {
+  .about__right {
+    display: none;
+  }
+
+  .about__greeting {
+    font-size: 2.2rem;
+  }
+}
+
 @media only screen and (max-width: 56.25em) {
   .about {
     padding-bottom: 4rem;
@@ -100,16 +110,3 @@
     width: 100%;
   }
 }
-
-@media only screen and (max-width: 633px) {
-  .about__greeting {
-    font-size: 2.2rem;
-  }
-}
-
-/* @media screen and (max-width: 360px) {
-   .about__image {
-    width: 250px;
-    height: 250px;
-  }
-} */
