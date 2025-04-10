@@ -46,6 +46,12 @@
   margin-bottom: 3rem;
 }
 
+@media screen and (max-width: 688px) {
+  .skills {
+    padding-bottom: 8rem;
+  }
+}
+
 @media only screen and (max-width: 56.25em) {
   .skills__wrapper {
     grid-template-columns: 1fr;
@@ -55,7 +61,7 @@
 
 @media (max-width: 36rem) {
   .skills {
-    padding-bottom: 8rem;
+    padding-bottom: 6rem;
   }
 
   .skills__wrapper {

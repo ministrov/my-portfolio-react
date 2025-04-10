@@ -10,11 +10,6 @@
 }
 
 @media only screen and (max-width: 876px) {
-  .statistics {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-
   .statistics__list {
     display: grid;
     grid-template-columns: 1fr;
@@ -30,12 +25,17 @@
     border-radius: 8px;
     box-shadow: var(--box-shadow);
   }
+}
 
-  .max-width-100 {
-    max-width: 150px;
+@media screen and (max-width: 688px) {
+  .statistics {
+    padding-bottom: 8rem;
   }
+}
 
-  .max-width-150 {
-    max-width: 220px;
+@media (max-width: 36rem) {
+  .statistics {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 }
