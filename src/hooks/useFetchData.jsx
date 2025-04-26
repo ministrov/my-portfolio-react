@@ -8,7 +8,7 @@ export const useFetchData = (url) => {
   useEffect(() => {
     let isMounted = true; // flag to track mounted state
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       async function getData() {
         try {
           const res = await fetch(url);
@@ -39,6 +39,7 @@ export const useFetchData = (url) => {
 
     return () => {
       isMounted = false; // cleanup function
+      clearTimeout(timer);
     };
   }, [url]);
 
