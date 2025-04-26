@@ -30,4 +30,8 @@
   .advertisement {
     padding-bottom: 6rem;
   }
+
+  .advertisement__advs {
+    height: 236px;
+  }
 }

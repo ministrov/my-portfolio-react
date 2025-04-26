@@ -8,7 +8,7 @@
   gap: 3rem;
 }
 
-@media (max-width: 1678px) {
+@media (max-width: 1024px) {
   .services__list {
     grid-template-columns: auto;
   }
