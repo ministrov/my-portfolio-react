@@ -67,4 +67,8 @@
     background-color: transparent;
     box-shadow: none;
   }
+
+  .project-card__item {
+    min-width: initial;
+  }
 }
