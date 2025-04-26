@@ -1,5 +1,6 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Layout from './Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from './pages/HomePage';
@@ -7,11 +8,17 @@ import './styles/main.css';
 
 const ProjectsPageLazy = lazy(() => import('./pages/ProjectsPage'));
 const ProjectPageLazy = lazy(() => import('./pages/projectPage/ProjectPage'));
-const PageNotFoundLazy = lazy(
-  () => import('./pages/pageNotFound/PageNotFound')
+const PageNotFoundLazy = lazy(() =>
+  import('./pages/pageNotFound/PageNotFound')
 );
 
 const App = () => {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
   return (
     <BrowserRouter>
       <ScrollToTop />

@@ -35,7 +35,7 @@ const ProjectPage = () => {
         <div className="container">
           <div className="project-details">
             <Breadcrumbs items={BREADCRUMBS} />
-            <Heading title={project.title} slogan={project.slogan} />
+            <Heading title={t(project.title)} slogan={t(project.slogan)} />
             <div className="project-details__cover">
               <Image
                 src={project.webpBig}
@@ -49,7 +49,7 @@ const ProjectPage = () => {
               <h2 className="project-detail__overview">Project Overview</h2>
 
               <p className="project-detail__text-overview">
-                {project.overview}
+                {t(project.overview)}
               </p>
 
               <h3 className="project-detail__overview">Tools Used</h3>
