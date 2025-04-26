@@ -30,11 +30,6 @@ const MainNav = () => {
           </NavLink>
         </li>
         <li className="nav-list__item">
-          <NavLink to="/blog" className={'nav-list__link'}>
-            {t('mainNav.blog')}
-          </NavLink>
-        </li>
-        <li className="nav-list__item">
           <NavLink
             to="/projects"
             className={({ isActive }) =>
