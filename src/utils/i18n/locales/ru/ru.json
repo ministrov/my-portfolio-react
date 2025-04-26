@@ -124,5 +124,67 @@
     "react": "Реакт",
     "next": "Некст",
     "javaScript": "Скрипт"
+  },
+  "projects": {
+    "project1": {
+      "title": "",
+      "skills": "JavaScript, PHP, HTML, CSS",
+      "slogan": "",
+      "overview": ""
+    },
+    "project2": {
+      "title": "",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "",
+      "overview": ""
+    },
+    "project3": {
+      "title": "",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "",
+      "overview": ""
+    },
+    "project4": {
+      "title": "",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "",
+      "overview": ""
+    },
+    "project5": {
+      "title": "",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "",
+      "overview": ""
+    },
+    "project6": {
+      "title": "",
+      "skills": "",
+      "slogan": "Gaming streaming portal",
+      "overview": ""
+    },
+    "project7": {
+      "title": "",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "",
+      "overview": ""
+    },
+    "project8": {
+      "title": "",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "",
+      "overview": ""
+    },
+    "project9": {
+      "title": "",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "",
+      "overview": ""
+    },
+    "project10": {
+      "title": "",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "",
+      "overview": ""
+    }
   }
 }

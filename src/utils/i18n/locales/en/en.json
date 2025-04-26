@@ -118,5 +118,67 @@
     "socials": "Socials",
     "copyright": "Copyright 2021. Made by",
     "author": "Anton Zhilin"
+  },
+  "projects": {
+    "project1": {
+      "title": "Online auction for buying things",
+      "skills": "JavaScript, PHP, HTML, CSS",
+      "slogan": "A service for selling and buying things",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    },
+    "project2": {
+      "title": "Create-x Construction",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "Gaming streaming portal",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    },
+    "project3": {
+      "title": "Create-x Construction",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "Gaming streaming portal",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    },
+    "project4": {
+      "title": "Create-x Construction",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "Gaming streaming portal",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    },
+    "project5": {
+      "title": "Create-x Construction",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "Gaming streaming portal",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    },
+    "project6": {
+      "title": "Create-x Construction",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "Gaming streaming portal",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    },
+    "project7": {
+      "title": "Create-x Construction",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "Gaming streaming portal",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    },
+    "project8": {
+      "title": "Create-x Construction",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "Gaming streaming portal",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    },
+    "project9": {
+      "title": "Create-x Construction",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "Gaming streaming portal",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    },
+    "project10": {
+      "title": "Create-x Construction",
+      "skills": "JavaScript, HTML5, CSS3",
+      "slogan": "Gaming streaming portal",
+      "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+    }
   }
 }
