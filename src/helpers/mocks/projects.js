@@ -16,8 +16,8 @@ import project08 from '../../assets/projects/ratingus.jpg';
 import project08Wep from '../../assets/projects/ratingus.webp';
 import project09 from '../../assets/projects/waterdel.jpg';
 import project09Wep from '../../assets/projects/waterdel.webp';
-import project10 from '../../assets/projects/Shoppe.jpg';
-import project10Wep from '../../assets/projects/Shoppe.webp';
+import project10 from '../../assets/projects/bringitup.jpg';
+import project10Wep from '../../assets/projects/bringitup.webp';
 
 export const projects = [
   {
@@ -137,8 +137,8 @@ export const projects = [
   },
   {
     id: 10,
-    title: 'Stunning Shoppe e-commerce shop',
-    skills: 'Next, TypeScript, React, React-Hook-Form, RTK, Framer Motion',
+    title: 'Stunning promo landing page',
+    skills: 'JavaScript, HTML, CSS, OOP, SOLID',
     img: project10,
     fullImg: project10,
     webpImg: project10Wep,

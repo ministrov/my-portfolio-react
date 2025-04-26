@@ -15,11 +15,10 @@ const PageNotFoundLazy = lazy(() =>
 const App = () => {
   const { i18n } = useTranslation();
 
-  console.log(i18n);
-
   useEffect(() => {
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
