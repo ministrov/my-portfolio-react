@@ -1,20 +1,22 @@
-// import i18n from 'i18next';
+import { useLanguage } from '../../hooks/useLanguage';
+import i18n from 'i18next';
 import './styles.css';
 
 export const ToggleLang = () => {
-  let toggled;
+  const { lang, toggleLang } = useLanguage();
+  // let toggled;
 
   const handleLanguageChange = () => {
-    // dispatch(toggleLanguage());
-    // i18n.changeLanguage(currentLang === 'en' ? 'ru' : 'en');
+    toggleLang();
+    i18n.changeLanguage(lang === 'en' ? 'ru' : 'en');
   };
 
   return (
     <button
-      className={`toggle-btn ${toggled ? 'toggled' : ''}`}
+      className={`toggle-btn ${lang ? 'toggled' : ''}`}
       onClick={handleLanguageChange}
     >
-      <div className="thumb">{toggled ? 'Ru' : 'En'}</div>
+      <div className="thumb">{lang ? 'Ru' : 'En'}</div>
     </button>
   );
 };

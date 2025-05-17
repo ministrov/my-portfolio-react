@@ -1,7 +1,7 @@
 // Replace Redux with this in contexts/LanguageContext.tsx
 import { createContext, useContext, useState } from 'react';
 
-const LanguageContext = createContext({
+export const LanguageContext = createContext({
   lang: 'en',
   toggleLang: () => {},
 });
