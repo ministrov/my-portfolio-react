@@ -1,20 +1,20 @@
-export function loadState(key) {
-  try {
-    const jsonState = localStorage.getItem(key);
+// export function loadState(key) {
+//   try {
+//     const jsonState = localStorage.getItem(key);
 
-    if (!jsonState) {
-      return undefined;
-    }
+//     if (!jsonState) {
+//       return undefined;
+//     }
 
-    return JSON.parse(jsonState);
-  } catch (e) {
-    console.log(e);
+//     return JSON.parse(jsonState);
+//   } catch (e) {
+//     console.log(e);
 
-    return undefined;
-  }
-}
+//     return undefined;
+//   }
+// }
 
-export function saveState(state, key) {
-  const stringState = JSON.stringify(state);
-  localStorage.setItem(key, stringState);
-}
+// export function saveState(state, key) {
+//   const stringState = JSON.stringify(state);
+//   localStorage.setItem(key, stringState);
+// }
