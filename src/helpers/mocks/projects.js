@@ -58,6 +58,7 @@ export const projects = [
     slogan: 'projects.project3.slogan',
     overview: 'projects.project3.overview',
     isProduction: false,
+    demoLink: 'https://nike-react-tailwilnd.vercel.app/',
   },
   {
     id: 4,
