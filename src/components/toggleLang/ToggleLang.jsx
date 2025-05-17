@@ -4,7 +4,6 @@ import './styles.css';
 
 export const ToggleLang = () => {
   const { lang, toggleLang } = useLanguage();
-  // let toggled;
 
   const handleLanguageChange = () => {
     toggleLang();
@@ -13,10 +12,10 @@ export const ToggleLang = () => {
 
   return (
     <button
-      className={`toggle-btn ${lang ? 'toggled' : ''}`}
+      className={`toggle-btn ${lang === 'ru' ? 'toggled' : ''}`}
       onClick={handleLanguageChange}
     >
-      <div className="thumb">{lang ? 'Ru' : 'En'}</div>
+      <div className="thumb">{lang === 'ru' ? 'Ru' : 'En'}</div>
     </button>
   );
 };
