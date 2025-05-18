@@ -16,8 +16,8 @@ const Photo = () => {
     >
       <Image
         className="about__image"
-        width={450}
-        height={450}
+        width={500}
+        height={505}
         fallback={authorPhoto}
         src={webPPhoto}
         alt={"Focus on author's face"}

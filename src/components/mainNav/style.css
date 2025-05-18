@@ -18,14 +18,14 @@
 }
 
 .nav-list__link:hover {
-  color: var(--light-blue-200);
+  /* color: var(--light-blue-200); */
+  opacity: 0.6;
   transition: color 0.5s ease-in;
 }
 
-.nav-list__link:focus,
-.nav-list__link:active {
+/* .nav-list__link:focus {
   color: var(--light-blue-300);
-}
+} */
 
 .nav-list__link::before {
   content: '';
