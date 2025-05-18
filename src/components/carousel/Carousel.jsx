@@ -4,8 +4,6 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import TestimonialCard from '../testimonialCard/TestimonialCard';
 import './style.css';
 
-// Navigation
-
 const Carousel = ({ className }) => {
   const { t } = useTranslation();
 
@@ -13,14 +11,20 @@ const Carousel = ({ className }) => {
     {
       id: 1,
       content: t('testimonials.contentOne'),
+      user: t('testimonials.user1.name'),
+      profession: t('testimonials.user1.profession'),
     },
     {
       id: 2,
       content: t('testimonials.contentTwo'),
+      user: t('testimonials.user2.name'),
+      profession: t('testimonials.user2.profession'),
     },
     {
       id: 3,
       content: t('testimonials.contentThree'),
+      user: t('testimonials.user3.name'),
+      profession: t('testimonials.user3.profession'),
     },
   ];
 
@@ -37,16 +41,14 @@ const Carousel = ({ className }) => {
         pauseOnMouseEnter: true, // Пауза при наведении
       }}
       loop={true}
-      // spaceBetween={30}
-      // centeredSlides={true}
-      // autoplay={{
-      //   delay: 2000,
-      // }}
-      // modules={[Autoplay, EffectFade]}
     >
       {testimonials.map((testimonial) => (
         <SwiperSlide key={testimonial.id}>
-          <TestimonialCard content={testimonial.content} />
+          <TestimonialCard
+            content={testimonial.content}
+            user={testimonial.user}
+            profession={testimonial.profession}
+          />
         </SwiperSlide>
       ))}
     </Swiper>
