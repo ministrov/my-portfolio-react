@@ -1,9 +1,9 @@
 import { FaQuoteRight } from 'react-icons/fa';
 import { FaQuoteLeft } from 'react-icons/fa';
-import clientAvatar from '../../assets/png/john-doe.png';
+
 import './style.css';
 
-const TestimonialCard = ({ content, user, profession }) => {
+const TestimonialCard = ({ avatar, content, user, profession }) => {
   return (
     <article className="testimonial-card">
       <div className="testimonial-card__top-left">
@@ -16,7 +16,7 @@ const TestimonialCard = ({ content, user, profession }) => {
       <div className="testimonial-card__client-info">
         <div className="testimonial-card__client-picture">
           <img
-            src={clientAvatar}
+            src={avatar}
             width={125}
             height={125}
             alt="Client avatar in focus"

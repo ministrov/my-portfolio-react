@@ -9,8 +9,6 @@ const Layout = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { i18n } = useTranslation();
 
-  console.log(searchParams.get('lang'));
-
   useEffect(() => {
     const newParams = new URLSearchParams(searchParams);
     newParams.set('lang', i18n.language);
