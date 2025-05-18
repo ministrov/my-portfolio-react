@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 import Heading from '../../components/heading/Heading';
 import { FaPlus } from 'react-icons/fa6';
 import './style.css';
@@ -39,6 +40,14 @@ const Faq = () => {
     },
   ];
 
+  const toggleFAQ = (index) => {
+    if (activeIndex === index) {
+      setActiveIndex(-1);
+    } else {
+      setActiveIndex(index);
+    }
+  };
+
   return (
     <section className="faq">
       <div className="container">
@@ -54,28 +63,48 @@ const Faq = () => {
                 activeIndex === index ? 'faq__item--active' : ''
               }`}
               key={index}
-              onClick={() => {
-                if (activeIndex === index) {
-                  return setActiveIndex(-1);
-                }
-                setActiveIndex(index);
-              }}
             >
-              <div className="faq__question">
+              <motion.div
+                className="faq__question"
+                onClick={() => toggleFAQ(index)}
+                // whileHover={{ scale: 1.02 }}
+                // whileTap={{ scale: 0.98 }}
+              >
                 <h3>{item.question}</h3>
-                {activeIndex === index ? (
-                  <div className="faq__icon">
-                    <FaPlus />
-                  </div>
-                ) : (
-                  <div className="faq__icon faq__icon--cross">
-                    <FaPlus />
-                  </div>
+                <motion.div
+                  className="faq__icon"
+                  animate={{
+                    rotate: activeIndex === index ? 45 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaPlus />
+                </motion.div>
+              </motion.div>
+
+              <AnimatePresence>
+                {activeIndex === index && (
+                  <motion.div
+                    className="faq__answer"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{
+                      opacity: 1,
+                      height: 'auto',
+                    }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  >
+                    <motion.p
+                      className="faq__muted"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.2, duration: 0.2 }}
+                    >
+                      {item.answer}
+                    </motion.p>
+                  </motion.div>
                 )}
-              </div>
-              <div className="faq__answer">
-                <p className="faq__muted">{item.answer}</p>
-              </div>
+              </AnimatePresence>
             </li>
           ))}
         </ul>
