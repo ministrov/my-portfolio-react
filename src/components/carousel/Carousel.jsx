@@ -36,7 +36,7 @@ const Carousel = ({ className }) => {
       fadeEffect={{ crossFade: true }}
       speed={1000}
       autoplay={{
-        delay: 5000,
+        delay: 3000,
         disableOnInteraction: false,
         pauseOnMouseEnter: true, // Пауза при наведении
       }}

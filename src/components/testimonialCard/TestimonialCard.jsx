@@ -1,11 +1,9 @@
-// import { useTranslation } from 'react-i18next';
 import { FaQuoteRight } from 'react-icons/fa';
 import { FaQuoteLeft } from 'react-icons/fa';
 import clientAvatar from '../../assets/png/john-doe.png';
 import './style.css';
 
 const TestimonialCard = ({ content, user, profession }) => {
-  // const { t } = useTranslation();
   return (
     <article className="testimonial-card">
       <div className="testimonial-card__top-left">
