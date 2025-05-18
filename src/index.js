@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import { LanguageProvider } from './context/LanguageProvider';
 import 'swiper/css';
+import 'swiper/css/effect-fade';
 import 'swiper/css/bundle';
 import './utils/i18n/index';
 
