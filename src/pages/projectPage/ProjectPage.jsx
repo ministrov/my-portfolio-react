@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import Heading from '../../components/heading/Heading';
@@ -11,49 +12,76 @@ import './style.css';
 
 const ProjectPage = () => {
   const { id } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (id) {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.set('project_id', id);
+      setSearchParams(newParams);
+    }
+  }, [id, searchParams, setSearchParams]);
+
+  if (!projects[id - 1]) {
+    return <div className="container">Project not found</div>;
+  }
+
   const project = projects[id - 1];
+
   const BREADCRUMBS = [
     { id: 1, name: t('breadcrumbs.home'), link: '/' },
     { id: 2, name: t('breadcrumbs.projects'), link: '/projects' },
     { id: 3, name: t('breadcrumbs.project') },
   ];
 
+  const META_TAGS = {
+    title: `Page of the project: ${project.title}`,
+    description: `Detailed information about project: ${project.title}`,
+    canonical: `/project/${id}`,
+  };
+
   return (
     <>
       <Helmet>
-        <title>{`Page of the project: ${project.title}`}</title>
-        <meta
-          name="description"
-          content={`Page of the project name: ${project.title}`}
-          data-rh="true"
-        />
-        <link rel="canonical" href="/product/:id" />
+        <title>{META_TAGS.title}</title>
+        <meta name="description" content={META_TAGS.description} />
+        <link rel="canonical" href={META_TAGS.canonical} />
+
+        {/* OpenGraph мета-теги для соцсетей */}
+        <meta property="og:title" content={META_TAGS.title} />
+        <meta property="og:description" content={META_TAGS.description} />
+        <meta property="og:url" content={META_TAGS.canonical} />
       </Helmet>
+
       <section className="project-page">
-        <h1 className="visually-hidden">Page about single author's project</h1>
+        <h1 className="visually-hidden">Page about {project.title} project</h1>
         <div className="container">
           <div className="project-details">
             <Breadcrumbs items={BREADCRUMBS} />
+
             <Heading title={t(project.title)} slogan={t(project.slogan)} />
+
             <div className="project-details__cover">
               <Image
                 src={project.webpBig}
                 fallback={project.fullImg}
                 width={1200}
-                height={'auto'}
+                height="auto"
                 alt={project.title}
+                loading="lazy"
               />
             </div>
-            <div className="project-details__content">
-              <h2 className="project-detail__overview">Project Overview</h2>
 
+            <div className="project-details__content">
+              {/* <h2 className="project-detail__overview">
+                {t(project.overview)}
+              </h2> */}
               <p className="project-detail__text-overview">
                 {t(project.overview)}
               </p>
 
-              <h3 className="project-detail__overview">Tools Used</h3>
-
+              <h3 className="project-detail__overview">{t(project.tools)}</h3>
               <ul className="project-detail__tools-list">
                 {project.skills.split(', ').map((item) => (
                   <SkillComponet key={item} skillName={item} />
@@ -62,18 +90,16 @@ const ProjectPage = () => {
 
               {project.gitHubLink && (
                 <div className="project-details__links">
-                  <h4 className="project-detail__overview">See Live</h4>
-
                   <div className="project-detail__btn-box">
                     <Button
-                      text={'Live Link'}
-                      href={'/'}
-                      className={'btn--theme-inv'}
+                      text={'Live'}
+                      href={project.demoLink || '#'}
+                      className="btn--theme-inv"
                     />
                     <Button
-                      text={'Code Link'}
-                      href={project.gitHubLink ?? '#'}
-                      className={'btn--theme-inv'}
+                      text={'GitHub'}
+                      href={project.gitHubLink}
+                      className="btn--theme-inv"
                     />
                   </div>
                 </div>
