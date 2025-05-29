@@ -3,10 +3,6 @@
   mix-blend-mode: lighten;
 }
 
-.about__image {
-  filter: grayscale(30%);
-}
-
 .about__svg {
   position: absolute;
   top: 0;
