@@ -6,7 +6,7 @@ import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
 import MyAvatar from '../../assets/png/my-avatar.png';
 import MyAvatar1 from '../../assets/png/my-avatar.webp';
-import cvPdf from '../../assets/pdf/my-cv.pdf';
+import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
 const Promo = () => {
