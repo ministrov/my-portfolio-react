@@ -4,7 +4,13 @@ import ProjectsList from '../../components/projectsList/ProjectsList';
 import ProjectsLayout from './ProjectsLayout';
 import ProjectsHeader from './ProjectsHeader';
 import FilterList from './FilterList';
-import './style.css';
+
+const filters = [
+  { id: 1, name: 'All' },
+  { id: 2, name: 'React' },
+  { id: 3, name: 'Next' },
+  { id: 4, name: 'JavaScript' },
+];
 
 const Projects = () => {
   const { state, handleFilterClick } = useProjectsFilter();
@@ -23,7 +29,7 @@ const Projects = () => {
       />
 
       <FilterList
-        filters={[]}
+        filters={filters}
         activeFilter={state.activeFilter}
         onFilterClick={handleFilterClick}
       />
