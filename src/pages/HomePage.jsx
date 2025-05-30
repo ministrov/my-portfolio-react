@@ -48,7 +48,7 @@ const Home = () => {
           name="keywords"
           content="HTML, web layout, outsourcing, development, web developer, Figma, PSD, frontend, order"
         />
-        <link rel="canonical" href="/" />
+        <link rel="canonical" href={`${window.location.origin}/`} />
       </Helmet>
       <section className="main-page">
         <h1 className="visually-hidden">Home page of the author portfolio</h1>

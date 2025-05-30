@@ -1,6 +1,6 @@
 .about__image-block {
   position: relative;
-  mix-blend-mode: lighten;
+  /* mix-blend-mode: lighten; */
 }
 
 .about__svg {
