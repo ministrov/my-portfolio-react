@@ -54,3 +54,9 @@
     padding: 2rem 2rem;
   }
 }
+
+@media only screen and (max-width: 428px) {
+  .main-nav__block {
+    gap: 0.5rem;
+  }
+}

@@ -1,35 +1,27 @@
-import { FaQuoteRight } from 'react-icons/fa';
-import { FaQuoteLeft } from 'react-icons/fa';
-
+import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 import './style.css';
 
 const TestimonialCard = ({ avatar, content, user, profession }) => {
   return (
     <article className="testimonial-card">
-      <div className="testimonial-card__top-left">
-        <FaQuoteRight />
+      <div className="testimonial-card__quotes">
+        <FaQuoteRight className="testimonial-card__quote testimonial-card__quote--top" />
+        <FaQuoteLeft className="testimonial-card__quote testimonial-card__quote--bottom" />
       </div>
-      <div className="testimonial-card__bottom-right">
-        <FaQuoteLeft />
-      </div>
-      <p className="testimonial-card__paragraph">{content}</p>
-      <div className="testimonial-card__client-info">
-        <div className="testimonial-card__client-picture">
-          <img
-            src={avatar}
-            width={125}
-            height={125}
-            alt="Client avatar in focus"
-          />
-        </div>
-        <div className="testimonial-card__client-details">
-          <h3 className="testimonial-card__client-details-title">{user}</h3>
-          <span className="testimonial-card__client-details-info">
-            {profession}
-          </span>
+      <p className="testimonial-card__content">{content}</p>
+      <div className="testimonial-card__client">
+        <img
+          src={avatar}
+          className="testimonial-card__avatar"
+          alt={`${user}, ${profession}`}
+        />
+        <div className="testimonial-card__client-info">
+          <h3 className="testimonial-card__name">{user}</h3>
+          <span className="testimonial-card__profession">{profession}</span>
         </div>
       </div>
     </article>
   );
 };
+
 export default TestimonialCard;

@@ -12,7 +12,13 @@
   }
 }
 
-@media screen and (max-width: 688px) {
+@media screen and (max-width: 1224px) {
+  .projects__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 588px) {
   .projects__list {
     grid-template-columns: 1fr;
   }
