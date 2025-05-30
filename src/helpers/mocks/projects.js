@@ -41,10 +41,9 @@ export const projects = [
     fullImg: project02,
     webpImg: project02Wep,
     webpBig: project02Wep,
-    // gitHubLink: 'https://github.com/ministrov/createX-construction',
     demoLink: 'https://create-x-construction.vercel.app/',
     slogan: 'projects.project2.slogan',
-    overview: '',
+    overview: 'projects.project2.overview',
     isProduction: true,
   },
   {

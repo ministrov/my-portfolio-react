@@ -88,22 +88,18 @@ const ProjectPage = () => {
                 ))}
               </ul>
 
-              {project.gitHubLink && (
-                <div className="project-details__links">
-                  <div className="project-detail__btn-box">
-                    <Button
-                      text={'Live'}
-                      href={project.demoLink || '#'}
-                      className="btn--theme-inv"
-                    />
-                    <Button
-                      text={'GitHub'}
-                      href={project.gitHubLink}
-                      className="btn--theme-inv"
-                    />
-                  </div>
-                </div>
-              )}
+              <div className="project-detail__btn-box">
+                <Button
+                  text={'Live'}
+                  href={project.demoLink || '#'}
+                  className="btn--theme-inv"
+                />
+                <Button
+                  text={'GitHub'}
+                  href={project.gitHubLink}
+                  className="btn--theme-inv"
+                />
+              </div>
             </div>
           </div>
         </div>
