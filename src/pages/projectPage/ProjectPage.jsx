@@ -48,7 +48,6 @@ const ProjectPage = () => {
         <meta name="description" content={META_TAGS.description} />
         <link rel="canonical" href={META_TAGS.canonical} />
 
-        {/* OpenGraph мета-теги для соцсетей */}
         <meta property="og:title" content={META_TAGS.title} />
         <meta property="og:description" content={META_TAGS.description} />
         <meta property="og:url" content={META_TAGS.canonical} />
@@ -74,9 +73,6 @@ const ProjectPage = () => {
             </div>
 
             <div className="project-details__content">
-              {/* <h2 className="project-detail__overview">
-                {t(project.overview)}
-              </h2> */}
               <p className="project-detail__text-overview">
                 {t(project.overview)}
               </p>
@@ -89,16 +85,20 @@ const ProjectPage = () => {
               </ul>
 
               <div className="project-detail__btn-box">
-                <Button
-                  text={'Live'}
-                  href={project.demoLink || '#'}
-                  className="btn--theme-inv"
-                />
-                <Button
-                  text={'GitHub'}
-                  href={project.gitHubLink}
-                  className="btn--theme-inv"
-                />
+                {project.demoLink && (
+                  <Button
+                    text={'Demo'}
+                    href={project.demoLink || '#'}
+                    className="btn--theme-inv"
+                  />
+                )}
+                {project.gitHubLink && (
+                  <Button
+                    text={'GitHub'}
+                    href={project.gitHubLink}
+                    className="btn--theme-inv"
+                  />
+                )}
               </div>
             </div>
           </div>
