@@ -1,18 +1,15 @@
 .projects__list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 3rem;
   row-gap: 3rem;
 }
 
-@media screen and (max-width: 1874px) {
-  .projects__list {
-    grid-template-columns: repeat(3, auto);
-    justify-content: center;
-  }
+.projects__list li:last-child {
+  grid-column: 2;
 }
 
-@media screen and (max-width: 1224px) {
+@media screen and (max-width: 968px) {
   .projects__list {
     grid-template-columns: repeat(2, 1fr);
   }
