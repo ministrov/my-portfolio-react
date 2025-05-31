@@ -2,7 +2,7 @@
   position: relative;
   min-width: min(18rem, 100%);
   border: 0.5rem solid var(--light-blue-100);
-  border-radius: 4.5rem;
+  border-radius: var(--border-rs);
   padding: 5rem 3rem 3rem;
   margin: 2rem;
   background: var(--page-bg);

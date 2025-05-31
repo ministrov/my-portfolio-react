@@ -29,7 +29,7 @@
   background-color: transparent;
   cursor: pointer;
   border: 2px solid var(--white);
-  border-radius: 8px;
+  border-radius: var(--border-rs);
 }
 
 .faq__question .faq__icon {

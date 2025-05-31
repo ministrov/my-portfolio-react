@@ -8,7 +8,7 @@
   padding: 1rem;
   margin-bottom: 8rem;
   background-color: var(--light-blue-100);
-  border-radius: 8px;
+  border-radius: var(--border-rs);
 }
 
 .projects__filter-list {

@@ -5,13 +5,11 @@
   line-height: 1.4;
   color: var(--light-blue-100);
   background-color: var(--white);
-  border-radius: 8px;
+  border-radius: var(--border-rs);
 }
 
 .filter__btn:focus {
-  text-shadow:
-    1px 0 0,
-    0.3px 0 0;
+  text-shadow: 1px 0 0, 0.3px 0 0;
 }
 
 .filter__btn--active {
