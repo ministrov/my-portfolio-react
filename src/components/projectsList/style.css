@@ -15,8 +15,13 @@
   }
 }
 
-@media screen and (max-width: 588px) {
+@media screen and (max-width: 488px) {
   .projects__list {
-    grid-template-columns: 1fr;
+    display: block;
+    /* width: 100%; */
+  }
+
+  .projects__list li:not(:last-child) {
+    margin-bottom: 2rem;
   }
 }
