@@ -35,14 +35,13 @@
 }
 
 .btn--theme-inv {
-  /* padding: calc(1.5rem - 2px) calc(5rem - 2px); */
   color: var(--light-blue-100);
   background: #fff;
   border: 2px solid var(--light-blue-100);
   box-shadow: none;
 }
 
-@media screen and (max-width: 327px) {
+@media screen and (max-width: 338px) {
   .btn {
     padding: 2rem 2rem;
     font-size: 1.8rem;
