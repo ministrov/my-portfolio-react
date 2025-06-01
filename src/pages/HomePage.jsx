@@ -1,9 +1,9 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 // import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
-// import Modal from "../components/modal/Modal";
+import Modal from '../components/modal/Modal';
 import Skills from '../sections/skills/Skills';
 import Advertisement from '../sections/advertisement/Advertisement';
 import Testimonials from '../sections/testimonials/Testimonials';
@@ -12,28 +12,24 @@ import Services from '../sections/services/Services';
 import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
-  // const userId = 10;
-  // const [seachParams, setSearchParams] = useSearchParams();
-  // console.log(seachParams);
-  // const [isOpen, setIsOpen] = useState(false);
-  // It needs for opening a modal window
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
+  const [isOpen, setIsOpen] = useState(false);
 
-  //   let timeout = setTimeout(() => {
-  //     setIsOpen(true);
-  //   }, 30000);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
 
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //     clearTimeout(timeout);
-  //   };
+    let timeout = setTimeout(() => {
+      setIsOpen(true);
+    }, 60000);
 
-  // }, [isOpen]);
+    return () => {
+      document.body.style.overflow = 'auto';
+      clearTimeout(timeout);
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -69,10 +65,7 @@ const Home = () => {
 
         <Faq />
 
-        {/* <Modal 
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-      /> */}
+        <Modal open={isOpen} onClose={() => setIsOpen(false)} />
       </section>
     </>
   );
