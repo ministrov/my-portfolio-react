@@ -90,13 +90,13 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>{t('metadata.title')}</title>
+        <title>{t('metadata.home.title')}</title>
         <meta
           name="description"
-          content={t('metadata.description')}
+          content={t('metadata.home.description')}
           data-rh="true"
         />
-        <meta name="keywords" content={t('metadata.keywords')} />
+        <meta name="keywords" content={t('metadata.home.keywords')} />
         <link rel="canonical" href={`${window.location.origin}/`} />
       </Helmet>
       <section className="main-page">

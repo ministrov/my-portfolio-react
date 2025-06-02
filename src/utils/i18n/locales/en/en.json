@@ -1,8 +1,10 @@
 {
   "metadata": {
-    "title": "A Home page of Anton Zhilin professional portfolio",
-    "description": "A Home page of the frontend developer portfolio about developing stunning apps and web applications",
-    "keywords": "HTML, web layout, outsourcing, development, web developer, Figma, PSD, frontend, order"
+    "home": {
+      "title": "A Home page of Anton Zhilin professional portfolio",
+      "description": "A Home page of the frontend developer portfolio about developing stunning apps and web applications",
+      "keywords": "HTML, JavaScript, CSS, web layout, outsourcing, development, web development, Figma, PSD, build a site"
+    }
   },
   "heading": {
     "about": {
