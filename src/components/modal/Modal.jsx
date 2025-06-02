@@ -32,7 +32,7 @@ const Modal = ({ open, onClose }) => {
   if (!open) return null;
 
   return createPortal(
-    <Backdrop onClick={onClose}>
+    <Backdrop>
       <motion.div
         className="modal"
         variants={dropIn}
@@ -49,7 +49,7 @@ const Modal = ({ open, onClose }) => {
           </div>
           <Button
             onClick={onClose}
-            text={'Close'}
+            text={t('modal.close')}
             className={'modal__btn btn--theme'}
           />
         </div>
