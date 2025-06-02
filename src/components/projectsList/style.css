@@ -1,27 +1,7 @@
 .projects__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   column-gap: 3rem;
   row-gap: 3rem;
-}
-
-.projects__list li:last-child {
-  grid-column: 2;
-}
-
-@media screen and (max-width: 968px) {
-  .projects__list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 488px) {
-  .projects__list {
-    display: block;
-    /* width: 100%; */
-  }
-
-  .projects__list li:not(:last-child) {
-    margin-bottom: 2rem;
-  }
 }
