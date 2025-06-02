@@ -192,5 +192,9 @@
       "slogan": "Educational platform landing page",
       "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?"
     }
+  },
+  "modal": {
+    "title": "Reach out to me in any socials.",
+    "text": "Facing difficulties? Remember that I'm always available to offer guidance and assistance. No matter how big or small your problem mayseem, I’m here to provide support. Reach out today, and let's tackle it together."
   }
 }
