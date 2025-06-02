@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 // import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Promo from '../sections/promo/Promo';
@@ -33,6 +33,9 @@ const Home = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isModalShown, setIsModalShown] = useState(false);
+  const scrollTriggered = useRef(false);
+  const timeoutRef = useRef(null);
+  const autoCloseRef = useRef(null);
 
   // Проверяем localStorage при загрузке
   useEffect(() => {
@@ -42,37 +45,44 @@ const Home = () => {
     }
   }, []);
 
-  // Открытие модального окна с учетом поведения пользователя
+  // Обработка открытия/закрытия модального окна
   useEffect(() => {
-    if (isModalShown) return;
-
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
+  }, [isOpen]);
+
+  // Логика показа модального окна
+  useEffect(() => {
+    if (isModalShown) return;
 
     const handleScroll = () => {
-      // Открываем модалку при скролле до 50% страницы
+      if (scrollTriggered.current || isModalShown) return;
+
       const scrollPosition = window.scrollY + window.innerHeight;
       const pageHeight = document.documentElement.scrollHeight;
+
       if (scrollPosition >= pageHeight * 0.5) {
+        scrollTriggered.current = true;
         openModal();
         window.removeEventListener('scroll', handleScroll);
       }
     };
 
-    const timeout = setTimeout(() => {
-      // Открываем через 30 сек, если пользователь не проскроллил
-      if (!isOpen) {
+    window.addEventListener('scroll', handleScroll);
+
+    // Таймер для отложенного показа
+    timeoutRef.current = setTimeout(() => {
+      if (!scrollTriggered.current && !isModalShown && !isOpen) {
         openModal();
       }
     }, 30000);
 
-    window.addEventListener('scroll', handleScroll);
-
     return () => {
-      clearTimeout(timeout);
+      clearTimeout(timeoutRef.current);
+      clearTimeout(autoCloseRef.current);
       window.removeEventListener('scroll', handleScroll);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,23 +92,17 @@ const Home = () => {
     if (isModalShown || isOpen) return;
 
     setIsOpen(true);
-    // document.body.style.overflow = 'hidden';
 
-    // Закрытие через 15 секунд, если пользователь не взаимодействовал
-    const autoCloseTimer = setTimeout(() => {
-      if (isOpen) {
-        closeModal();
-      }
+    autoCloseRef.current = setTimeout(() => {
+      closeModal();
     }, 15000);
-
-    return () => clearTimeout(autoCloseTimer);
   };
 
   const closeModal = () => {
     setIsOpen(false);
     setIsModalShown(true);
-    document.body.style.overflow = 'auto';
     localStorage.setItem('modalShown', 'true');
+    clearTimeout(autoCloseRef.current);
   };
 
   return (
