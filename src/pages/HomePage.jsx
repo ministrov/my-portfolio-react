@@ -46,6 +46,12 @@ const Home = () => {
   useEffect(() => {
     if (isModalShown) return;
 
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
     const handleScroll = () => {
       // Открываем модалку при скролле до 50% страницы
       const scrollPosition = window.scrollY + window.innerHeight;
@@ -76,7 +82,7 @@ const Home = () => {
     if (isModalShown || isOpen) return;
 
     setIsOpen(true);
-    document.body.style.overflow = 'hidden';
+    // document.body.style.overflow = 'hidden';
 
     // Закрытие через 15 секунд, если пользователь не взаимодействовал
     const autoCloseTimer = setTimeout(() => {
