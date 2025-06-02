@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import ServicesListItem from '../../components/servicesListItem/ServicesListItem';
+import Heading from '../../components/heading/Heading';
 import { motion } from 'framer-motion';
 import { SlGlobe } from 'react-icons/sl';
 import { SiAffinitydesigner } from 'react-icons/si';
@@ -37,6 +38,11 @@ const Services = () => {
     <section className="services">
       <h2 className="visually-hidden">Section for a services</h2>
       <div className="container">
+        <Heading
+          title={t('heading.myServices.name')}
+          slogan={t('heading.myServices.subheading')}
+          className="services__title"
+        ></Heading>
         <motion.ul
           initial={{ opacity: 0 }}
           animate={{

@@ -1,9 +1,10 @@
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Button from '../button/Button';
+import SocialList from '../socials/SocialList';
 import Backdrop from '../backdrop/Backdrop';
 import './style.css';
-import SocialList from '../socials/SocialList';
 
 const dropIn = {
   hidden: {
@@ -27,10 +28,11 @@ const dropIn = {
 };
 
 const Modal = ({ open, onClose }) => {
+  const { t } = useTranslation();
   if (!open) return null;
 
   return createPortal(
-    <Backdrop onClick={onClose}>
+    <Backdrop>
       <motion.div
         className="modal"
         variants={dropIn}
@@ -40,19 +42,14 @@ const Modal = ({ open, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal__content">
-          <h2>Reach out to me in any socials</h2>
-          <p>
-            Facing difficulties? Remember that I'm always available to offer
-            guidance and assistance. No matter how big or small your problem may
-            seem, I’m here to provide support. Reach out today, and let's tackle
-            it together.
-          </p>
+          <h2>{t('modal.title')}</h2>
+          <p>{t('modal.text')}</p>
           <div className="modal__socials">
             <SocialList />
           </div>
           <Button
             onClick={onClose}
-            text={'Close'}
+            text={t('modal.close')}
             className={'modal__btn btn--theme'}
           />
         </div>

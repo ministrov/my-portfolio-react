@@ -1,4 +1,15 @@
 {
+  "metadata": {
+    "home": {
+      "title": "A Home page of Anton Zhilin professional portfolio",
+      "description": "A Home page of the frontend developer portfolio about developing stunning apps and web applications",
+      "keywords": "HTML, JavaScript, CSS, web layout, outsourcing, development, web development, Figma, PSD, build a site"
+    },
+    "projects": {
+      "title": "Page of the all projects",
+      "description": "A stunning list of the incredible projects of the frontend developer that call Anton Zhilin"
+    }
+  },
   "heading": {
     "about": {
       "name": "About",
@@ -7,6 +18,10 @@
     "mySkills": {
       "name": "My Skills",
       "subheading": "Unleashing Potential Through Technology"
+    },
+    "myServices": {
+      "name": "My Services",
+      "subheading": "Professional Solutions for Your Needs"
     },
     "advertisement": {
       "name": "Advertisement",
@@ -123,7 +138,7 @@
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
     "socials": "Socials",
-    "copyright": "Copyright 2021. Made by",
+    "copyright": "Copyright 2025. Made by",
     "author": "Anton Zhilin"
   },
   "projects": {
@@ -177,5 +192,10 @@
       "slogan": "Educational platform landing page",
       "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias tenetur minus quaerat aliquid, aut provident blanditiis, deleniti aspernatur ipsam eaque veniam voluptatem corporis vitae mollitia laborum corrupti ullam rem?"
     }
+  },
+  "modal": {
+    "title": "Reach out to me in any socials.",
+    "text": "Facing difficulties? Remember that I'm always available to offer guidance and assistance. No matter how big or small your problem mayseem, I’m here to provide support. Reach out today, and let's tackle it together.",
+    "close": "Close"
   }
 }

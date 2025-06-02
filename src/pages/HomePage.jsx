@@ -1,9 +1,9 @@
-// import { useState, useEffect } from "react";
-// import { useSearchParams } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
-// import Modal from "../components/modal/Modal";
+import Modal from '../components/modal/Modal';
 import Skills from '../sections/skills/Skills';
 import Advertisement from '../sections/advertisement/Advertisement';
 import Testimonials from '../sections/testimonials/Testimonials';
@@ -12,42 +12,91 @@ import Services from '../sections/services/Services';
 import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
-  // const userId = 10;
-  // const [seachParams, setSearchParams] = useSearchParams();
-  // console.log(seachParams);
-  // const [isOpen, setIsOpen] = useState(false);
-  // It needs for opening a modal window
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
+  const [isOpen, setIsOpen] = useState(false);
+  const [isModalShown, setIsModalShown] = useState(false);
+  const scrollTriggered = useRef(false);
+  const timeoutRef = useRef(null);
+  const autoCloseRef = useRef(null);
+  const { t } = useTranslation();
 
-  //   let timeout = setTimeout(() => {
-  //     setIsOpen(true);
-  //   }, 30000);
+  // Проверяем localStorage при загрузке
+  useEffect(() => {
+    const modalShown = localStorage.getItem('modalShown');
+    if (modalShown) {
+      setIsModalShown(true);
+    }
+  }, []);
 
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //     clearTimeout(timeout);
-  //   };
+  // Обработка открытия/закрытия модального окна
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen]);
 
-  // }, [isOpen]);
+  // Логика показа модального окна
+  useEffect(() => {
+    if (isModalShown) return;
+
+    const handleScroll = () => {
+      if (scrollTriggered.current || isModalShown) return;
+
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const pageHeight = document.documentElement.scrollHeight;
+
+      if (scrollPosition >= pageHeight * 0.5) {
+        scrollTriggered.current = true;
+        openModal();
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Таймер для отложенного показа
+    timeoutRef.current = setTimeout(() => {
+      if (!scrollTriggered.current && !isModalShown && !isOpen) {
+        openModal();
+      }
+    }, 30000);
+
+    return () => {
+      clearTimeout(timeoutRef.current);
+      clearTimeout(autoCloseRef.current);
+      window.removeEventListener('scroll', handleScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isModalShown, isOpen]);
+
+  const openModal = () => {
+    if (isModalShown || isOpen) return;
+
+    setIsOpen(true);
+
+    autoCloseRef.current = setTimeout(() => {
+      closeModal();
+    }, 15000);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setIsModalShown(true);
+    localStorage.setItem('modalShown', 'true');
+    clearTimeout(autoCloseRef.current);
+  };
 
   return (
     <>
       <Helmet>
-        <title>A Home page of Anton Zhilin professional portfolio</title>
+        <title>{t('metadata.home.title')}</title>
         <meta
           name="description"
-          content="A Home page of the frontend developer portfolio about developing a stunning apps and web applications"
+          content={t('metadata.home.description')}
           data-rh="true"
         />
-        <meta
-          name="keywords"
-          content="HTML, web layout, outsourcing, development, web developer, Figma, PSD, frontend, order"
-        />
+        <meta name="keywords" content={t('metadata.home.keywords')} />
         <link rel="canonical" href={`${window.location.origin}/`} />
       </Helmet>
       <section className="main-page">
@@ -59,9 +108,9 @@ const Home = () => {
 
         <About />
 
-        <Services />
-
         <Skills />
+
+        <Services />
 
         <Advertisement />
 
@@ -69,10 +118,11 @@ const Home = () => {
 
         <Faq />
 
-        {/* <Modal 
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-      /> */}
+        <Modal
+          open={isOpen}
+          onClose={() => setIsOpen(false)}
+          autoCloseDelay={15000}
+        />
       </section>
     </>
   );

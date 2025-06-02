@@ -1,19 +1,27 @@
 .services__item {
   display: flex;
   flex-direction: column;
-  /* flex: 1 1; */
   gap: 2rem;
-  max-height: 237px;
-  padding: 4rem;
+  max-height: 238px;
+  padding: 3rem;
   font-size: 1rem;
   line-height: 1.2;
   color: var(--light-blue-100);
   box-shadow: var(--box-shadow);
-  border-radius: 8px;
+  border-radius: var(--border-rs);
+  overflow: hidden;
+  transition: max-height 0.4s ease, box-shadow 0.3s ease;
+  will-change: max-height;
 }
 
 .services__item--short {
-  max-height: max-content;
+  max-height: 1000px; /* Достаточно большое значение вместо max-content для плавной анимации */
+}
+
+.services__item.services__item--short .services__description {
+  overflow: initial;
+  text-overflow: initial;
+  white-space: initial;
 }
 
 .services__item-block {
@@ -33,6 +41,7 @@
   font-weight: 800;
   line-height: 1.4;
   color: transparent;
+  transition: all 0.3s ease;
 }
 
 .services__arrow {
@@ -43,18 +52,24 @@
   height: 4rem;
   background-color: var(--light-blue-100);
   border-radius: 50%;
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.services__arrow .services__arrow-icon:hover {
-  transform: rotate(-45deg);
+.services__arrow:hover {
+  transform: scale(1.05);
+  background-color: var(--light-blue-200);
 }
 
 .services__arrow-icon {
   font-size: 1.6rem;
   line-height: 1.4;
   color: var(--white);
+  transition: transform 0.3s ease;
+}
+
+.services__arrow:hover .services__arrow-icon {
+  transform: rotate(-45deg);
 }
 
 .services__icon {
@@ -65,25 +80,27 @@
   padding: 8px;
   border-radius: var(--border-rs);
   background-color: var(--light-blue-100);
+  transition: background-color 0.3s ease;
+}
+
+.services__icon:hover {
+  background-color: var(--light-blue-200);
 }
 
 .services__subheading {
   font-size: 1.7rem;
   line-height: 1.4;
+  margin: 0;
 }
 
 .services__description {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin: 0;
   font-size: 1.6rem;
   line-height: 1.4;
-}
-
-.services__item.services__item--short .services__description {
-  overflow: initial;
-  text-overflow: initial;
-  white-space: initial;
+  transition: all 0.3s ease;
 }
 
 .services__more {
@@ -96,11 +113,16 @@
   border: none;
   background-color: transparent;
   text-decoration-line: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-top: auto;
+  transition: all 0.3s ease;
 }
 
 .services__more:hover {
   opacity: 0.7;
   text-decoration-line: none;
+  color: var(--light-blue-200);
 }
 
 .text-outline {
@@ -109,32 +131,76 @@
 
 @media screen and (max-width: 1024px) {
   .services__item {
-    flex: initial;
-    width: 50%;
-    gap: 2rem;
-    height: auto;
-    padding: 0;
-    box-shadow: none;
-    border-radius: 0;
+    flex: 0 0 calc(50% - 2rem);
+    width: auto;
+    gap: 1.5rem;
+    padding: 2rem;
+    box-shadow: var(--box-shadow-mobile);
+    border-radius: var(--border-rs);
+    margin: 1rem;
   }
 
-  .services__item .services__description.services__description--long {
-    min-height: 140px;
+  .services__description {
+    overflow: initial;
+    text-overflow: initial;
+    white-space: initial;
+  }
+
+  .services__more {
+    display: none;
   }
 }
 
 @media screen and (max-width: 780px) {
   .services__item {
-    width: 100%;
+    flex: 0 0 100%;
+    margin: 0.5rem 0;
+    max-height: 200px;
+  }
+
+  .services__item--short {
+    max-height: 800px;
   }
 
   .services__description {
-    max-width: 404px;
+    max-width: 100%;
   }
 }
 
-@media screen and (max-width: 462px) {
+@media screen and (max-width: 602px) {
+  .services__item {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
   .services__description {
-    max-width: 265px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.4rem;
+  }
+
+  .services__more {
+    display: flex;
+    font-size: 1.4rem;
   }
 }
+
+/* @media screen and (max-width: 462px) {
+  .services__item {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .services__description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.4rem;
+  }
+
+  .services__more {
+    display: flex;
+    font-size: 1.4rem;
+  }
+} */

@@ -16,10 +16,11 @@
 }
 
 .project-card__item {
-  min-width: 238px;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  min-width: 175px;
+  width: 357px;
   padding: 1.8rem 18.72px;
   background-color: var(--light-blue-100);
   border-radius: var(--border-rs);
@@ -70,5 +71,11 @@
 
   .project-card__item {
     min-width: initial;
+  }
+}
+
+@media screen and (max-width: 488px) {
+  .project-card__item {
+    width: 100%;
   }
 }

@@ -6,9 +6,9 @@ const Statistics = () => {
   const { t } = useTranslation();
   const statistics = [
     { num: 2, text: t('statistics.years_experience') },
-    { num: 11, text: t('statistics.projects_completed') },
-    { num: 8, text: t('statistics.technologies_mastered') },
-    { num: 1938, text: t('statistics.code_commits') },
+    { num: 16, text: t('statistics.projects_completed') },
+    { num: 12, text: t('statistics.technologies_mastered') },
+    { num: 2948, text: t('statistics.code_commits') },
   ];
 
   return (

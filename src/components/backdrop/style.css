@@ -1,8 +1,8 @@
 .backdrop {
   position: fixed;
   z-index: 1000;
-  top: 0;
-  left: 0;
+  top: -2rem;
+  left: -2rem;
   bottom: 0;
   right: 0;
   display: flex;
@@ -15,6 +15,8 @@
 
 @media screen and (max-width: 940px) {
   .backdrop {
+    top: 0;
+    left: 0;
     align-items: center;
     justify-content: center;
   }

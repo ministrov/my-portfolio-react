@@ -11,10 +11,7 @@ const Footer = () => {
       <div className="container">
         <div className="main-footer__upper">
           <div className="main-footer__row main-footer__row-1">
-            <h2 className="main-footer__heading-sm">
-              {/* <span>Socials</span> */}
-              {t('footer.socials')}
-            </h2>
+            <h2 className="main-footer__heading-sm">{t('footer.socials')}</h2>
             <SocialList className={'main-footer__list'} />
           </div>
           <div className="main-footer__row main-footer__row-2">
