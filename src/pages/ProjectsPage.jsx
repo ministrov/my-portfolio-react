@@ -11,7 +11,6 @@ const ProjectsPage = () => {
           content="A stunning list of the incredible projects of the frontend developer that call Anton Zhilin"
           data-rh="true"
         />
-        {/* <link rel="canonical" href="/products" /> */}
         <link rel="canonical" href={`${window.location.origin}/`} />
       </Helmet>
       <section className="projects-page">

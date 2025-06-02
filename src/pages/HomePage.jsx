@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-// import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 import Modal from '../components/modal/Modal';
@@ -12,30 +12,12 @@ import Services from '../sections/services/Services';
 import Statistics from '../sections/statistics/Statistics';
 
 const Home = () => {
-  // const [isOpen, setIsOpen] = useState(false);
-
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.style.overflow = 'hidden';
-  //   } else {
-  //     document.body.style.overflow = 'auto';
-  //   }
-
-  //   let timeout = setTimeout(() => {
-  //     setIsOpen(true);
-  //   }, 60000);
-
-  //   return () => {
-  //     document.body.style.overflow = 'auto';
-  //     clearTimeout(timeout);
-  //   };
-  // }, [isOpen]);
-
   const [isOpen, setIsOpen] = useState(false);
   const [isModalShown, setIsModalShown] = useState(false);
   const scrollTriggered = useRef(false);
   const timeoutRef = useRef(null);
   const autoCloseRef = useRef(null);
+  const { t } = useTranslation();
 
   // Проверяем localStorage при загрузке
   useEffect(() => {
@@ -108,16 +90,13 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>A Home page of Anton Zhilin professional portfolio</title>
+        <title>{t('metadata.title')}</title>
         <meta
           name="description"
-          content="A Home page of the frontend developer portfolio about developing a stunning apps and web applications"
+          content={t('metadata.description')}
           data-rh="true"
         />
-        <meta
-          name="keywords"
-          content="HTML, web layout, outsourcing, development, web developer, Figma, PSD, frontend, order"
-        />
+        <meta name="keywords" content={t('metadata.keywords')} />
         <link rel="canonical" href={`${window.location.origin}/`} />
       </Helmet>
       <section className="main-page">
