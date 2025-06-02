@@ -1,9 +1,9 @@
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import Button from '../button/Button';
+import SocialList from '../socials/SocialList';
 import Backdrop from '../backdrop/Backdrop';
 import './style.css';
-import SocialList from '../socials/SocialList';
 
 const dropIn = {
   hidden: {
