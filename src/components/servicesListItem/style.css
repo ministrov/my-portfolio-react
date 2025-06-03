@@ -15,7 +15,7 @@
 }
 
 .services__item--short {
-  max-height: 1000px; /* Достаточно большое значение вместо max-content для плавной анимации */
+  max-height: 1000px;
 }
 
 .services__item.services__item--short .services__description {
@@ -88,9 +88,9 @@
 }
 
 .services__subheading {
-  font-size: 1.7rem;
-  line-height: 1.4;
   margin: 0;
+  font-size: 2rem;
+  line-height: 1.4;
 }
 
 .services__description {
@@ -98,8 +98,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0;
-  font-size: 1.6rem;
-  line-height: 1.4;
+  font-size: 1.8rem;
+  line-height: 1.2;
   transition: all 0.3s ease;
 }
 
@@ -108,7 +108,7 @@
   max-width: fit-content;
   font-family: inherit;
   font-size: 1.6rem;
-  line-height: 1.4;
+  line-height: 1.2;
   color: var(--light-blue-100);
   border: none;
   background-color: transparent;
@@ -177,30 +177,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 
   .services__more {
     display: flex;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 }
-
-/* @media screen and (max-width: 462px) {
-  .services__item {
-    padding: 1.5rem;
-    gap: 1rem;
-  }
-
-  .services__description {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 1.4rem;
-  }
-
-  .services__more {
-    display: flex;
-    font-size: 1.4rem;
-  }
-} */

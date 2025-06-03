@@ -49,7 +49,7 @@
 }
 
 .faq__answer .faq__muted {
-  padding: 3rem;
+  padding: 1rem;
 }
 
 .faq__item--active .faq__muted {
@@ -72,11 +72,11 @@
   }
 
   .faq__question h3 {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   .faq__icon svg {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.2em;
+    height: 1.2em;
   }
 }

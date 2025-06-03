@@ -7,8 +7,9 @@
   align-items: center;
   justify-content: center;
   height: 560px;
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 1.2;
+  text-align: center;
   color: var(--white);
   border-radius: var(--border-rs);
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
@@ -22,7 +23,6 @@
   .advertisement__advs {
     padding: 1rem;
     font-size: 2.4rem;
-    text-align: center;
   }
 }
 
