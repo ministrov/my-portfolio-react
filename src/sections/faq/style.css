@@ -67,6 +67,10 @@
     padding-bottom: 6rem;
   }
 
+  .faq__muted {
+    font-size: 1.6rem;
+  }
+
   .faq__question {
     padding: 2rem 2rem;
   }
