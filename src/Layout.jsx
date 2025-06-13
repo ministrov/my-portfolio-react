@@ -15,7 +15,7 @@ const Layout = () => {
     setSearchParams(newParams);
   }, [i18n.language, searchParams, setSearchParams]);
   return (
-    <>
+    <div className='layout-wrapper'>
       <Header />
 
       <main>
@@ -24,7 +24,7 @@ const Layout = () => {
 
       <Up />
       <Footer />
-    </>
+    </div>
   );
 };
 

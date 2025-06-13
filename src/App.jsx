@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Layout from './Layout';
+import Loader from './components/loader/Loader.jsx';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from './pages/HomePage';
 
@@ -29,7 +30,7 @@ const App = () => {
           <Route
             path="/projects"
             element={
-              <Suspense>
+              <Suspense fallback={<Loader/>}>
                 <ProjectsPageLazy />
               </Suspense>
             }
@@ -37,7 +38,7 @@ const App = () => {
           <Route
             path="/project/:id"
             element={
-              <Suspense>
+              <Suspense fallback={<Loader/>}>
                 <ProjectPageLazy />
               </Suspense>
             }
