@@ -16,8 +16,10 @@
 .main-nav__block {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  min-width: 348px;
+}
+
+.main-nav__list-wrapper {
+  min-width: 287px;
 }
 
 .main-nav__logo {
@@ -55,7 +57,7 @@
     padding: 2rem 2rem;
   }
 
-  .main-nav__block {
+  .main-nav__list-wrapper {
     min-width: initial;
   }
 

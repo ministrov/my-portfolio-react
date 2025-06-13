@@ -15,7 +15,7 @@ export const ToggleLang = () => {
       className={`toggle-btn ${lang === 'ru' ? 'toggled' : ''}`}
       onClick={handleLanguageChange}
     >
-      <div className="thumb">{lang === 'ru' ? 'Ru' : 'En'}</div>
+      <div className="thumb">{lang === 'ru' ? 'Ру' : 'En'}</div>
     </button>
   );
 };
