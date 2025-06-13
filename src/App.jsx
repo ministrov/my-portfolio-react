@@ -4,13 +4,14 @@ import { useTranslation } from 'react-i18next';
 import Layout from './Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from './pages/HomePage';
-import './styles/main.css';
 
-const ProjectsPageLazy = lazy(() => import('./pages/ProjectsPage'));
-const ProjectPageLazy = lazy(() => import('./pages/projectPage/ProjectPage'));
+import './styles/main.css';
+const ProjectsPageLazy = lazy(() => import('./pages/ProjectsPage.jsx'));
+const ProjectPageLazy = lazy(() => import('./pages/projectPage/ProjectPage.jsx'));
 const PageNotFoundLazy = lazy(() =>
-  import('./pages/pageNotFound/PageNotFound')
+  import('./pages/pageNotFound/PageNotFound.jsx')
 );
+
 
 const App = () => {
   const { i18n } = useTranslation();
@@ -28,7 +29,7 @@ const App = () => {
           <Route
             path="/projects"
             element={
-              <Suspense fallback={<>Loading...</>}>
+              <Suspense>
                 <ProjectsPageLazy />
               </Suspense>
             }
