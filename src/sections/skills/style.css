@@ -4,8 +4,8 @@
 
 .skills__wrapper {
   display: grid;
-  grid-template-columns: 45% 50%;
-  gap: 5%;
+  /* grid-template-columns: 45% 50%; */
+  gap: 10%;
 }
 
 .skills__left {
@@ -30,7 +30,6 @@
 .skills__list {
   display: flex;
   flex-wrap: wrap;
-  flex: 0;
   gap: 2rem;
 }
 

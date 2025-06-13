@@ -23,7 +23,6 @@ const Skills = () => {
             <ul className="skills__list">
               {skills.map((skill) => (
                 <SkillComponet
-                  variant={'skill-icon'}
                   key={skill.id}
                   skill={skill}
                 />
