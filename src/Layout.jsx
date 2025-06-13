@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Header from './components/header/Header';
-import Up from './components/up/Up';
+import Up from './components/Up/Up';
 import Footer from './components/footer/Footer';
 
 const Layout = () => {
