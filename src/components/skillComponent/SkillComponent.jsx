@@ -2,8 +2,10 @@ import CountUp from 'react-countup';
 import './style.css';
 
 const SkillComponet = ({ skill }) => {
+  if (!skill) return null;
+
   return (
-    <li key={skill.id} className="skill__card" aria-label={`${skill.tech}`}>
+    <li key={skill.id} className="skill__card" aria-label={skill.tech}>
       <div className="skill__left">
         <div className="skill__card-icon">{skill.icon}</div>
         <span className="skill__card-header">{skill.tech}</span>
