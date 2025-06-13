@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+  min-width: 348px;
 }
 
 .main-nav__logo {
@@ -52,6 +53,18 @@
 @media only screen and (max-width: 56.25em) {
   .main-nav {
     padding: 2rem 2rem;
+  }
+
+  .main-nav__block {
+    min-width: initial;
+  }
+
+  .toggle-btn {
+    order: 1;
+  }
+
+  .main-nav__list-wrapper {
+    order: 2;
   }
 }
 

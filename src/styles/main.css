@@ -115,9 +115,9 @@ img {
   min-height: 100vh;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
 
 @media only screen and (max-width: 98.25em) {
   html {
