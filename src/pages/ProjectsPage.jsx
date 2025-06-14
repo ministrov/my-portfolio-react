@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import Projects from '../sections/projects/Projects';
+import Projects from '../sections/projects/Projects.jsx';
 
 const ProjectsPage = () => {
   const { t } = useTranslation();
