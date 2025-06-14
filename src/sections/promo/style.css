@@ -16,17 +16,17 @@
 
 .promo__greeting {
   margin-bottom: 2rem;
-  font-size: 8rem;
+  font-size: 6rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 5px;
-  /* text-align: center; */
+  letter-spacing: 1px;
   color: var(--white);
 }
 
-/* .promo__greeting span {
-  display: block;
-} */
+.promo__greeting span:first-child {
+  display: inline-block;
+  margin-right: 20px;
+}
 
 .promo__slogan {
   margin-bottom: 2rem;
@@ -97,7 +97,20 @@
   }
 }
 
+@media only screen and (max-width: 940px) {
+  .promo__content {
+    width: 92%;
+    padding: 8rem 0 6rem 0;
+    transform: translate(0, 0);
+  }
+}
+
+
 @media only screen and (max-width: 56.25em) {
+  .promo__greeting span {
+    display: block;
+  }
+
   .promo__btns {
     flex-direction: column;
   }
@@ -107,27 +120,28 @@
   }
 }
 
-@media only screen and (max-width: 940px) {
-  .promo__content {
-    width: 92%;
-    padding: 8rem 0 6rem 0;
-    transform: translate(0, 0);
-  }
-}
-
 @media only screen and (max-width: 37.5em) {
   .promo {
     height: auto;
     min-height: 70rem;
   }
 
+  .promo__greeting {
+    font-size: 5rem;
+  }
+
   .promo__content {
     padding: 0;
   }
 
-  .promo__text {
+  .promo__slogan {
+    font-size: 16px;
     text-align: initial;
-    font-size: 2rem;
+  }
+
+  .promo__text {
+    font-size: 16px;
+    text-align: initial;
   }
 
   .promo__mouse-scroll-cont {
@@ -135,7 +149,17 @@
   }
 }
 
+@media screen and (max-width: 509px) {
+  .promo__greeting {
+    font-size: 4rem;
+  }
+}
+
 @media only screen and (max-width: 26.5em) {
+  .promo__greeting {
+    font-size: 3rem;
+  }
+
   button.btn--big {
     display: none;
   }

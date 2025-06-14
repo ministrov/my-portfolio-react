@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import TypingText from '../../components/typingText/TypingText';
+import PromoTyping from './PromoTyping';
 import Image from '../../components/image/Image';
 import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
@@ -17,7 +17,7 @@ const Promo = () => {
         A promo section for introduction of the author
       </h2>
       <div className="promo__content">
-        <TypingText className={'promo__greeting'} text={t('promo.promoGreeting')} />
+        <PromoTyping className={'promo__greeting'} />
 
         <p className="promo__slogan">{t('promo.promoSlogan')}</p>
 
