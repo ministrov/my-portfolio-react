@@ -74,13 +74,6 @@
   opacity: 0.8;
 }
 
-/* @media screen and (max-width: 1492px) {
-  .testimonial-card__quote--bottom {
-    bottom: -25rem;
-    right: -4rem;
-  }
-} */
-
 @media screen and (max-width: 1024px) {
   .testimonial-card {
     border: none;

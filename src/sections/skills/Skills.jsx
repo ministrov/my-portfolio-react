@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import SkillComponet from '../../components/skillComponent/SkillComponent';
-import { skills } from '../../helpers/mocks/skills';
+import { skills } from './skills';
 import './style.css';
 
 const Skills = () => {

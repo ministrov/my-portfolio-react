@@ -4,7 +4,6 @@
 
 .skills__wrapper {
   display: grid;
-  /* grid-template-columns: 45% 50%; */
   gap: 10%;
 }
 

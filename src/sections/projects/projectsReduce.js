@@ -1,4 +1,4 @@
-import { projects } from '../../helpers/mocks/projects';
+import { projects } from './projects';
 
 export const ActionTypes = {
   SET_FILTER: 'SET_FILTER',

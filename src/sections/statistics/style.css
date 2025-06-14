@@ -22,9 +22,6 @@
     flex: 1 1;
     align-items: flex-start;
     gap: 1rem;
-    /* padding: 1rem; */
-    /* border-radius: var(--border-rs);
-    box-shadow: var(--box-shadow); */
   }
 
   .statistics__desc {

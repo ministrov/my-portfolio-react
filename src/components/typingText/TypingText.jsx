@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import spliteStringRegExp from '../../utils/stplitStringRegExp';
-import './style.css';
+// import './style.css';
 
 const charVariants = {
   hidden: { opacity: 0 },

@@ -20,14 +20,12 @@
     outline 0.1s ease;
 }
 
-/* Состояния взаимодействия */
 .socials__link:hover,
 .socials__link:focus-visible {
   opacity: 0.7;
   transform: translateY(-2px);
 }
 
-/* Клавиатурный фокус */
 .socials__link:focus-visible {
   outline: 3px solid var(--light-blue-100);
   outline-offset: 2px;
@@ -42,43 +40,3 @@
     font-size: 3rem;
   }
 }
-
-/* .socials {
-  display: flex;
-  gap: 2rem;
-}
-
-.socials__item:focus {
-  border: none;
-  outline: none;
-}
-
-.socials__link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3.6rem;
-  line-height: 1.4;
-  color: var(--white);
-}
-
-.socials__link:hover {
-  opacity: 0.7;
-  transition: opacity 0.8s ease;
-}
-
-.socials__link:hover svg {
-  opacity: 0.7;
-  transition: opacity 0.8s ease;
-}
-
-.socials__item:focus .socials__link {
-  border: 1px solid var(--light-blue-100);
-  /* box-shadow: var(--box-shadow); */
-/* }
-
-@media only screen and (max-width: 354px) {
-  .socials {
-    gap: 1rem;
-  }
-} */

@@ -6,19 +6,16 @@ export const useWindowSize = () => {
   });
 
   useEffect(() => {
-    // Обработчик события изменения размера окна
     function handleResize() {
       setWindowSize({
         width: window.innerWidth,
       });
     }
 
-    // Добавляем обработчик события
     window.addEventListener('resize', handleResize);
 
-    // Убираем обработчик события при размонтировании компонента
     return () => window.removeEventListener('resize', handleResize);
-  }, []); // Пустой массив зависимостей указывает на выполнение эффекта только при монтировании
+  }, []);
 
-  return windowSize; // Возвращаем текущее значение размера окна
+  return windowSize;
 };

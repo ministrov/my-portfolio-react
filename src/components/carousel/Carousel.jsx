@@ -37,14 +37,14 @@ const Carousel = ({ className }) => {
   return (
     <Swiper
       className={`${className} carousel`}
-      modules={[Autoplay, EffectFade]} // Только нужные модули
+      modules={[Autoplay, EffectFade]}
       effect="fade"
       fadeEffect={{ crossFade: true }}
       speed={1000}
       autoplay={{
         delay: 3000,
         disableOnInteraction: false,
-        pauseOnMouseEnter: true, // Пауза при наведении
+        pauseOnMouseEnter: true,
       }}
       loop={true}
     >

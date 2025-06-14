@@ -9,15 +9,10 @@
   padding: 8rem 0;
 }
 
-/* .main-footer__row-1 {
-  order: 2;
-} */
-
 .main-footer__row-2 {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  /* order: 1; */
   width: 40%;
   max-width: 50rem;
 }
