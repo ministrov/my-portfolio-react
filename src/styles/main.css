@@ -69,18 +69,12 @@ button {
   cursor: pointer;
 }
 
-/* html {
-  font-size: 62.5%;
-  height: 100%;
-} */
-
 body {
   min-width: 320px;
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.2;
-  /* scroll-behavior: smooth; */
   background-color: var(--page-bg);
 }
 

@@ -9,7 +9,7 @@ const SocialListItem = ({ social }) => {
         rel="noopener noreferrer"
         aria-label={`${social.name} (открывается в новой вкладке)`}
         className="socials__link"
-        tabIndex={0} // Правильное расположение tabIndex
+        tabIndex={0}
       >
         {social.icon}
       </a>
