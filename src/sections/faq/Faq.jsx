@@ -67,8 +67,6 @@ const Faq = () => {
               <motion.div
                 className="faq__question"
                 onClick={() => toggleFAQ(index)}
-                // whileHover={{ scale: 1.02 }}
-                // whileTap={{ scale: 0.98 }}
               >
                 <h3>{item.question}</h3>
                 <motion.div

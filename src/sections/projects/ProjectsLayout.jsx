@@ -1,5 +1,3 @@
-// import './style.css';
-
 const ProjectsLayout = ({ children }) => {
   return (
     <section className="projects">

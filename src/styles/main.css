@@ -59,10 +59,8 @@ li {
   list-style: none;
 }
 
-input:focus,
 button:focus,
-a:focus,
-textarea:focus {
+a:focus {
   outline: none;
 }
 
@@ -71,21 +69,12 @@ button {
   cursor: pointer;
 }
 
-textarea {
-  resize: none;
-}
-
-html {
-  font-size: 62.5%;
-}
-
 body {
   min-width: 320px;
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.2;
-  scroll-behavior: smooth;
   background-color: var(--page-bg);
 }
 
@@ -112,6 +101,12 @@ img {
 .container {
   max-width: 120rem;
   margin: 0 auto;
+}
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 ::-webkit-scrollbar {

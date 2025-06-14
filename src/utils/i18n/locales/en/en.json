@@ -50,7 +50,9 @@
     "projects": "Projects"
   },
   "promo": {
-    "promoTitle": "Hey Folks, I'm Anton Zhilin, a Frontend Developer!",
+    "part1": "Hey!",
+    "part2": "I'm Anton Zhilin.",
+    "promoSlogan": "A Moskow based front-end developer passionate about building accessible and user friendly websites.",
     "promoText": "Welcome to a world where pixels come alive and digital dreams become reality. Step into my realm and let me weave captivating designs with code, creating seamless experiences that leave a lasting impression.",
     "promoBtn": "Download CV"
   },

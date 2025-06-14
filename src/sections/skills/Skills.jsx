@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import SkillComponet from '../../components/skillComponent/SkillComponent';
-import { skills } from '../../helpers/mocks/skills';
+import { skills } from './skills';
 import './style.css';
 
 const Skills = () => {
@@ -23,7 +23,6 @@ const Skills = () => {
             <ul className="skills__list">
               {skills.map((skill) => (
                 <SkillComponet
-                  variant={'skill-icon'}
                   key={skill.id}
                   skill={skill}
                 />

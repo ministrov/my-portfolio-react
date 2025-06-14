@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 import Modal from '../components/modal/Modal';
-import Skills from '../sections/skills/Skills';
+import Skills from '../sections/skills/Skills.jsx';
 import Advertisement from '../sections/advertisement/Advertisement';
 import Testimonials from '../sections/testimonials/Testimonials';
 import Faq from '../sections/faq/Faq';
@@ -19,7 +19,6 @@ const Home = () => {
   const autoCloseRef = useRef(null);
   const { t } = useTranslation();
 
-  // Проверяем localStorage при загрузке
   useEffect(() => {
     const modalShown = localStorage.getItem('modalShown');
     if (modalShown) {
@@ -27,7 +26,6 @@ const Home = () => {
     }
   }, []);
 
-  // Обработка открытия/закрытия модального окна
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -36,7 +34,6 @@ const Home = () => {
     }
   }, [isOpen]);
 
-  // Логика показа модального окна
   useEffect(() => {
     if (isModalShown) return;
 

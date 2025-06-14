@@ -1,16 +1,14 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Layout from './Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from './pages/HomePage';
-import './styles/main.css';
+import ProjectsPage from './pages/ProjectsPage.jsx';
+import ProjectPage from './pages/projectPage/ProjectPage.jsx';
+import PageNotFound from './pages/pageNotFound/PageNotFound.jsx';
 
-const ProjectsPageLazy = lazy(() => import('./pages/ProjectsPage'));
-const ProjectPageLazy = lazy(() => import('./pages/projectPage/ProjectPage'));
-const PageNotFoundLazy = lazy(() =>
-  import('./pages/pageNotFound/PageNotFound')
-);
+import './styles/main.css';
 
 const App = () => {
   const { i18n } = useTranslation();
@@ -27,27 +25,15 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route
             path="/projects"
-            element={
-              <Suspense fallback={<>Loading...</>}>
-                <ProjectsPageLazy />
-              </Suspense>
-            }
+            element={<ProjectsPage/>}
           />
           <Route
             path="/project/:id"
-            element={
-              <Suspense>
-                <ProjectPageLazy />
-              </Suspense>
-            }
+            element={<ProjectPage/>}
           />
           <Route
             path="*"
-            element={
-              <Suspense>
-                <PageNotFoundLazy />
-              </Suspense>
-            }
+            element={<PageNotFound/>}
           />
         </Route>
       </Routes>

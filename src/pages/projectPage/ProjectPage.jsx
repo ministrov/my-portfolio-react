@@ -7,7 +7,7 @@ import Button from '../../components/button/Button';
 import Image from '../../components/image/Image';
 import SkillComponet from '../../components/skillComponent/SkillComponent';
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
-import { projects } from '../../helpers/mocks/projects';
+import { projects } from '../../sections/projects/projects';
 import './style.css';
 
 const ProjectPage = () => {

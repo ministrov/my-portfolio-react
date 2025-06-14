@@ -1,4 +1,3 @@
-// import { useWindowSize } from '../../hooks/useWindowSize';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import './style.css';
