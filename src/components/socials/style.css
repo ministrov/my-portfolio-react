@@ -12,14 +12,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 4rem;
-  height: 4rem;
-  padding: 1rem 1rem;
   font-size: 3.6rem;
-  line-height: 4;
+  line-height: 1.4;
   color: var(--white);
-  border: 1px solid var(--white);
-  border-radius: 50%;
 }
 
 .socials__link:hover {
