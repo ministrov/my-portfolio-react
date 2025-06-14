@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import spliteStringRegExp from '../../utils/stplitStringRegExp';
-// import './style.css';
+import spliteStringRegExp from '../../utils/spliteStringRegExp';
 
 const charVariants = {
   hidden: { opacity: 0 },
@@ -11,7 +10,7 @@ const TypingText = ({ className, text }) => {
   const characters = spliteStringRegExp(text);
 
   return (
-    <motion.strong
+    <motion.p
       className={className}
       initial="hidden"
       whileInView="reveal"
@@ -26,7 +25,7 @@ const TypingText = ({ className, text }) => {
           {char}
         </motion.span>
       ))}
-    </motion.strong>
+    </motion.p>
   );
 };
 
