@@ -14,7 +14,7 @@
   will-change: max-height;
 }
 
-.services__item--short {
+.services__item.services__item--short {
   max-height: 1000px;
 }
 
@@ -127,6 +127,12 @@
 
 .text-outline {
   -webkit-text-stroke: 1px var(--light-blue-100);
+}
+
+@media screen and (max-width: 1492px) {
+  .services__item {
+    max-height: 209px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
