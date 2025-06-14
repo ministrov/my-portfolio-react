@@ -8,7 +8,7 @@ const charVariants = {
 };
 
 const TypingText = ({ className, text }) => {
-  const textChars = spliteStringRegExp(text);
+  const characters = spliteStringRegExp(text);
 
   return (
     <motion.strong
@@ -17,7 +17,7 @@ const TypingText = ({ className, text }) => {
       whileInView="reveal"
       transition={{ staggerChildren: 0.02 }}
     >
-      {textChars.map((char, index) => (
+      {characters.map((char, index) => (
         <motion.span
           key={index + 1}
           transition={{ duration: 0.5 }}
