@@ -9,15 +9,15 @@
   padding: 8rem 0;
 }
 
-.main-footer__row-1 {
+/* .main-footer__row-1 {
   order: 2;
-}
+} */
 
 .main-footer__row-2 {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  order: 1;
+  /* order: 1; */
   width: 40%;
   max-width: 50rem;
 }
@@ -100,6 +100,15 @@
 
 @media only screen and (max-width: 37.5em) {
   .main-footer__upper {
-    display: block;
+    flex-direction: column;
+  }
+
+  .main-footer__row-1 {
+    margin-top: 5rem;
+    margin-bottom: 0;
+  }
+
+  .main-footer__heading-sm {
+    display: none;
   }
 }

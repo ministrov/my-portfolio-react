@@ -1,17 +1,18 @@
-import { Link } from 'react-router-dom';
 import './style.css';
 
-const SocialListItem = ({ social, ...props }) => {
+const SocialListItem = ({ social }) => {
   return (
-    <li {...props} className="socials__item">
-      <Link
-        to={social.path}
+    <li className="socials__item">
+      <a
+        href={social.path}
         target="_blank"
-        aria-label="Go to link path"
+        rel="noopener noreferrer"
+        aria-label={`${social.name} (открывается в новой вкладке)`}
         className="socials__link"
+        tabIndex={0} // Правильное расположение tabIndex
       >
         {social.icon}
-      </Link>
+      </a>
     </li>
   );
 };
