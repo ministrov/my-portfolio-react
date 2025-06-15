@@ -20,22 +20,6 @@ const item = {
   show: { opacity: 1 }
 }
 
-// return (
-//   <motion.ol
-//     variants={container}
-//     initial="hidden"
-//     animate="show"
-//   >
-//     <motion.li variants={item} />
-//     <motion.li variants={item} />
-//   </motion.ol>
-// )
-
-// const charVariants = {
-//   hidden: { opacity: 0 },
-//   reveal: { opacity: 1 },
-// };
-
 const Skills = () => {
   const { t } = useTranslation();
 
