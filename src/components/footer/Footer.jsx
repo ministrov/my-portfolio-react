@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container">
         <div className="main-footer__upper">
           <div className="main-footer__row main-footer__row-2">
-            <Logo className={'main-footer'} type={'logo__name--second'} />
+            <Logo className={'logo__link--second'} />
             <p className="main-footer__short-desc">{t('footer.description')}</p>
           </div>
           <div className="main-footer__row main-footer__row-1">

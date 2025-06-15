@@ -16,9 +16,8 @@
 
 .promo__greeting {
   margin-bottom: 2rem;
-  font-size: 11rem;
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
+  font-size: 7rem;
+  font-family: "Oswald", sans-serif;
   font-style: normal;
   line-height: 90%;
   text-transform: uppercase;
@@ -130,7 +129,7 @@
   }
 
   .promo__greeting {
-    font-size: 8rem;
+    font-size: 6rem;
   }
 
   .promo__content {
@@ -154,13 +153,13 @@
 
 @media screen and (max-width: 509px) {
   .promo__greeting {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 }
 
 @media only screen and (max-width: 26.5em) {
   .promo__greeting {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   button.btn--big {

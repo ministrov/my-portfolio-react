@@ -17,7 +17,6 @@
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
     "swiper": "^11.0.7",
-    "uuid": "^9.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -25,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prod": "npm run build && serve -s build"
+    "prod": "npm run build && serve -s build",
+    "analyze": "source-map-explorer build/static/js/*.js"
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "source-map-explorer": "^2.5.3"
   }
 }

@@ -52,7 +52,6 @@ const Home = () => {
 
     window.addEventListener('scroll', handleScroll);
 
-    // Таймер для отложенного показа
     timeoutRef.current = setTimeout(() => {
       if (!scrollTriggered.current && !isModalShown && !isOpen) {
         openModal();

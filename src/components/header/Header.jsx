@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="header__nav main-nav">
-        <Logo className="main-nav" />
+        <Logo />
 
         <CountLikes />
 

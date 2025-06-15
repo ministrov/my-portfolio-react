@@ -5,7 +5,7 @@ const SkillComponet = ({ skill }) => {
   if (!skill) return null;
 
   return (
-    <li key={skill.id} className="skill__card" aria-label={skill.tech}>
+    <>
       <div className="skill__left">
         <div className="skill__card-icon">{skill.icon}</div>
         <span className="skill__card-header">{skill.tech}</span>
@@ -19,7 +19,7 @@ const SkillComponet = ({ skill }) => {
           className="skill__percent-num"
         />%
       </p>
-    </li>
+    </>
   );
 };
 

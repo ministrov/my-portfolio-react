@@ -8,11 +8,12 @@
   position: relative;
   display: inline-block;
   padding: 2.2rem 3rem;
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: inherit;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
   color: var(--light-blue-100);
   transition: color 0.3s;
 }
@@ -87,7 +88,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
+    width: 45%;
+    height: 100vh;
     display: block;
     text-align: right;
     background-color: var(--header-bg);
