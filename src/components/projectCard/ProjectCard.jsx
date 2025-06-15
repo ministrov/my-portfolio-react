@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { v4 as uuidv4 } from 'uuid';
-import SkillComponet from '../skillComponent/SkillComponent';
+// import SkillComponet from '../skillComponent/SkillComponent';
 import { Tag } from '../tag/Tag.tsx';
 import Image from '../image/Image';
 import './style.css';
@@ -20,7 +19,7 @@ const ProjectCard = ({
     hidden: { opacity: 0 },
     visible: (index) => ({
       opacity: 1,
-      transition: { delay: index * 0.2 },
+      transition: { delay: index * 0.5 },
     }),
   };
   return (
@@ -54,11 +53,11 @@ const ProjectCard = ({
 
       <div className="project-card__skills">
         <h4 className="project-card__title">Tools:</h4>
-        <ul className="project-card__list">
+        {/* <ul className="project-card__list">
           {skills.map((skill) => (
             <SkillComponet key={uuidv4()} skillName={skill} />
           ))}
-        </ul>
+        </ul> */}
       </div>
     </motion.li>
   );

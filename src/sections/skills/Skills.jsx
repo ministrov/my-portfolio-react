@@ -21,9 +21,10 @@ const Skills = () => {
             <h3 className="skills__left-heading">{t('skills.titleOne')}</h3>
 
             <ul className="skills__list">
-              {skills.map((skill) => (
+              {skills.map((skill, index) => (
                 <SkillComponet
                   key={skill.id}
+                  custom={index}
                   skill={skill}
                 />
               ))}

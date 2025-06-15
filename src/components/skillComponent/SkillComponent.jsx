@@ -1,11 +1,28 @@
+import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import './style.css';
 
-const SkillComponet = ({ skill }) => {
+const variants = {
+  hidden: { opacity: 0 },
+  visible: (index) => ({
+    opacity: 1,
+    transition: { delay: index * 0.6 },
+  }),
+};
+
+const SkillComponet = ({ skill, custom }) => {
   if (!skill) return null;
 
   return (
-    <li key={skill.id} className="skill__card" aria-label={skill.tech}>
+    <motion.li
+      key={skill.id}
+      variants={variants}
+      initial={'hidden'}
+      animate={'visible'}
+      className="skill__card"
+      custom={custom}
+      aria-label={skill.tech}
+    >
       <div className="skill__left">
         <div className="skill__card-icon">{skill.icon}</div>
         <span className="skill__card-header">{skill.tech}</span>
@@ -19,7 +36,7 @@ const SkillComponet = ({ skill }) => {
           className="skill__percent-num"
         />%
       </p>
-    </li>
+    </motion.li>
   );
 };
 
