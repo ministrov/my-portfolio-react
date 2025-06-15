@@ -13,10 +13,6 @@ const MainNav = () => {
       ? setActive('nav-list nav-list__active')
       : setActive('nav-list');
 
-    /**
-     * Toggle animation
-     */
-
     toggleIcon === 'nav__toggler'
       ? setToggleIcon('nav__toggler toggle')
       : setToggleIcon('nav__toggler');

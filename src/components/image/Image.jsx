@@ -1,8 +1,8 @@
 const Image = ({ src, fallback, type = 'image/webp', alt, ...props }) => {
   return (
-    <picture>
+    <picture {...props}>
       <source srcSet={src} type={type} />
-      <img src={fallback} {...props} alt={alt} />
+      <img src={fallback} alt={alt} />
     </picture>
   );
 };
