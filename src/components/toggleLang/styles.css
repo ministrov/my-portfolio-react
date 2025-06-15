@@ -11,9 +11,10 @@
 }
 
 .thumb {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
   color: var(--light-blue-100);
 }
 
