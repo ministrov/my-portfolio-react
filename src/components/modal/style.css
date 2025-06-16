@@ -22,6 +22,7 @@
   height: 100vh;
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s ease-out;
 }
 
 .modal__content {
@@ -48,6 +49,11 @@
   align-self: flex-start;
   margin-top: auto;
   border: 2px solid var(--white);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (max-width: 36rem) {
