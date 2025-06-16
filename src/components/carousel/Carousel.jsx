@@ -41,12 +41,12 @@ const Carousel = ({ className }) => {
       effect="fade"
       fadeEffect={{ crossFade: true }}
       speed={1000}
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      }}
-      loop={true}
+      // autoplay={{
+      //   delay: 3000,
+      //   disableOnInteraction: false,
+      //   pauseOnMouseEnter: true,
+      // }}
+      // loop={true}
     >
       {testimonials.map((testimonial) => (
         <SwiperSlide key={testimonial.id}>
