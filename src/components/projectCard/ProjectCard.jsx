@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Tag from '../tag/Tag';
 import Image from '../image/Image';
@@ -13,6 +13,7 @@ const ProjectCard = ({
   imageAlt,
   isProduction,
   custom,
+  onImageClick
 }) => {
   const variants = {
     hidden: { opacity: 0 },
@@ -31,7 +32,15 @@ const ProjectCard = ({
       className="project-card__item"
       tabIndex={0}
     >
-      <NavLink to={`/project/${id}`} className={'project-card__link'}>
+      {/* Обработчик клика на изображение */}
+      <div
+        className="project-card__image-wrapper"
+        onClick={() => onImageClick(id)}
+        role="button"
+        aria-label={`View details of ${title}`}
+        tabIndex={0}
+        onKeyDown={(e) => e.key === 'Enter' && onImageClick(id)}
+      >
         <Image
           className="project-card__image"
           width={338}
@@ -40,7 +49,17 @@ const ProjectCard = ({
           fallback={img}
           alt={imageAlt}
         />
-      </NavLink>
+      </div>
+      {/* <NavLink to={`/project/${id}`} className={'project-card__link'}>
+        <Image
+          className="project-card__image"
+          width={338}
+          height={224}
+          src={wepImg}
+          fallback={img}
+          alt={imageAlt}
+        />
+      </NavLink> */}
 
       {isProduction ? (
         <Tag color={'red'}>{'Production'}</Tag>
