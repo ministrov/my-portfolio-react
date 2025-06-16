@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Button from '../button/Button';
 import SocialList from '../socials/SocialList';
-import Backdrop from '../backdrop/Backdrop';
+// import Backdrop from '../backdrop/Backdrop';
 import './style.css';
 
 const dropIn = {
@@ -32,7 +32,12 @@ const Modal = ({ open, onClose }) => {
   if (!open) return null;
 
   return createPortal(
-    <Backdrop>
+    <motion.div
+      className="backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <motion.div
         className="modal"
         variants={dropIn}
@@ -54,7 +59,7 @@ const Modal = ({ open, onClose }) => {
           />
         </div>
       </motion.div>
-    </Backdrop>,
+    </motion.div>,
     document.getElementById('portal')
   );
 };
