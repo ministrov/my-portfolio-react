@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import ProjectCard from '../projectCard/ProjectCard';
 import './style.css';
 
-const ProjectsList = ({ projects, onImageClick }) => {
+const ProjectsList = ({ projects }) => {
   const { t } = useTranslation();
 
   return (
@@ -18,7 +18,6 @@ const ProjectsList = ({ projects, onImageClick }) => {
           imageAlt={project.title}
           custom={index}
           isProduction={project.isProduction}
-          onImageClick={project.id}
         />
       ))}
     </ul>

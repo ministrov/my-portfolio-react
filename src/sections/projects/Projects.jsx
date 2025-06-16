@@ -36,7 +36,6 @@ const Projects = ({ onImageClick }) => {
 
       <ProjectsList
         projects={state.filteredProjects}
-        onImageClick={onImageClick}
        />
     </ProjectsLayout>
   );

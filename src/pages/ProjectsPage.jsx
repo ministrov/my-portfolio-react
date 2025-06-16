@@ -1,39 +1,21 @@
-import { useState, useEffect, Suspense } from 'react';
+// import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Projects from '../sections/projects/Projects.jsx';
-import ProjectModal from '../components/projectModal/ProjectModal.jsx';
-import { projects } from '../sections/projects/projects.js';
-
-const clonedProjects = projects;
+// import ProjectModal from '../components/projectModal/ProjectModal.jsx';
 
 const ProjectsPage = () => {
-  const [projects, setProjects] = useState([...clonedProjects]);
-  const [selectedProject, setSelectedProject] = useState(null);
+  // const [selectedProject, setSelectedProject] = useState(null);
   const { t } = useTranslation();
 
-  console.log(projects);
+  // const handleProjectClick = (projectId) => {
+  //   const project = projects.find(p => p.id === projectId);
+  //   setSelectedProject(project);
+  // };
 
-  useEffect(() => {
-    try {
-      // Здесь должна быть реальная загрузка данных
-      // Например: const response = await api.get('/projects');
-      setProjects();
-    } catch (err) {
-      // setError(t('projectsPage.loadError'));
-    } finally {
-      // setIsLoading(false);
-    }
-  }, []);
-
-  const handleProjectClick = (projectId) => {
-    const project = projects.find(p => p.id === projectId);
-    setSelectedProject(project);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedProject(null);
-  };
+  // const handleCloseModal = () => {
+  //   setSelectedProject(null);
+  // };
 
   return (
     <>
@@ -49,18 +31,18 @@ const ProjectsPage = () => {
       <section className="projects-page">
         <h1 className="visually-hidden">Page about author's projects</h1>
 
-        <Projects onImageClick={handleProjectClick}/>
+        <Projects />
       </section>
 
-      {/* Модалка с Suspense для ленивой загрузки */}
-      <Suspense fallback={<div className="modal-loading">Loading...</div>}>
+      {/* Ленивая загрузка модалки
+      <Suspense fallback={null}>
         {selectedProject && (
           <ProjectModal
             project={selectedProject}
             onClose={handleCloseModal}
           />
         )}
-      </Suspense>
+      </Suspense> */}
     </>
   );
 };
