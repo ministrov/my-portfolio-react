@@ -60,50 +60,48 @@ const Modal = ({ open, onClose }) => {
     }
   }, [open, handleKeyDown]);
 
-  if (!open) return null;
-
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) onClose();
   };
 
   return createPortal(
     <AnimatePresence>
-      <motion.div
-        className="backdrop"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        onClick={handleBackdropClick}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-      >
+      {open && (
         <motion.div
-          ref={modalRef}
-          className="modal"
-          variants={dropIn}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          onClick={(e) => e.stopPropagation()}
-          tabIndex={-1}
+          className="backdrop"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={handleBackdropClick}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={titleId}
         >
-          <div className="modal__content">
-            <h2>{t('modal.title')}</h2>
-            <p>{t('modal.text')}</p>
-            <div className="modal__socials">
-              <SocialList />
+          <motion.div
+            ref={modalRef}
+            className="modal"
+            variants={dropIn}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            onClick={(e) => e.stopPropagation()}
+            tabIndex={-1}
+          >
+            <div className="modal__content">
+              <h2>{t('modal.title')}</h2>
+              <p>{t('modal.text')}</p>
+              <div className="modal__socials">
+                <SocialList />
+              </div>
+              <Button
+                onClick={onClose}
+                text={t('modal.close')}
+                className={'modal__btn btn--theme'}
+              />
             </div>
-            <Button
-              // ref={closeButtonRef}
-              onClick={onClose}
-              text={t('modal.close')}
-              className={'modal__btn btn--theme'}
-              // autoFocus // Автоматический фокус при открытии
-            />
-          </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
     </AnimatePresence>,
     document.getElementById('portal')
   );
