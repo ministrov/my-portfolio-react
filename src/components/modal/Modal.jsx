@@ -1,11 +1,9 @@
 import { useEffect, useRef, useCallback } from 'react';
-
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import Button from '../button/Button';
+// import Button from '../button/Button';
 import SocialList from '../socials/SocialList';
-// import Backdrop from '../backdrop/Backdrop';
 import './style.css';
 
 const dropIn = {
@@ -32,26 +30,18 @@ const dropIn = {
 const Modal = ({ open, onClose }) => {
   const { t } = useTranslation();
   const modalRef = useRef(null);
-  // const closeButtonRef = useRef(null);
   const titleId = 'modal-title';
 
-  // Закрытие по Esc
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') onClose();
 
     console.log(e.key);
   }, [onClose]);
 
-  // Ловушка фокуса
   useEffect(() => {
     if (open) {
       document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden'; // Блокировка скролла
-
-      // // Автофокус при открытии
-      // if (closeButtonRef.current) {
-      //   closeButtonRef.current.focus();
-      // }
+      document.body.style.overflow = 'hidden';
 
       return () => {
         document.removeEventListener('keydown', handleKeyDown);
@@ -87,18 +77,30 @@ const Modal = ({ open, onClose }) => {
             onClick={(e) => e.stopPropagation()}
             tabIndex={-1}
           >
-            <div className="modal__content">
+            <header className="modal__header">
               <h2>{t('modal.title')}</h2>
-              <p>{t('modal.text')}</p>
-              <div className="modal__socials">
-                <SocialList />
-              </div>
-              <Button
+
+              <button
+                className="modal-close"
+                onClick={onClose}
+                aria-label={t('modal.close')}
+              >
+                &times;
+              </button>
+            </header>
+
+            <p>{t('modal.text')}</p>
+            <div className="modal__socials">
+              <SocialList />
+            </div>
+            {/* <Button
                 onClick={onClose}
                 text={t('modal.close')}
                 className={'modal__btn btn--theme'}
-              />
-            </div>
+              /> */}
+            {/* <div className="modal__content">
+
+            </div> */}
           </motion.div>
         </motion.div>
       )}
