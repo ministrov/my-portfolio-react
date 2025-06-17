@@ -1,8 +1,8 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { IoCloseSharp } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
-// import Button from '../button/Button';
 import SocialList from '../socials/SocialList';
 import './style.css';
 
@@ -34,8 +34,6 @@ const Modal = ({ open, onClose }) => {
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') onClose();
-
-    console.log(e.key);
   }, [onClose]);
 
   useEffect(() => {
@@ -58,7 +56,7 @@ const Modal = ({ open, onClose }) => {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="backdrop"
+          className="backdrop modal"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -69,7 +67,7 @@ const Modal = ({ open, onClose }) => {
         >
           <motion.div
             ref={modalRef}
-            className="modal"
+            className="modal__wrapper"
             variants={dropIn}
             initial="hidden"
             animate="visible"
@@ -84,8 +82,11 @@ const Modal = ({ open, onClose }) => {
                 className="modal-close"
                 onClick={onClose}
                 aria-label={t('modal.close')}
+                tabIndex={0}
               >
-                &times;
+                <IoCloseSharp
+                  color='white'
+                />
               </button>
             </header>
 
@@ -93,14 +94,6 @@ const Modal = ({ open, onClose }) => {
             <div className="modal__socials">
               <SocialList />
             </div>
-            {/* <Button
-                onClick={onClose}
-                text={t('modal.close')}
-                className={'modal__btn btn--theme'}
-              /> */}
-            {/* <div className="modal__content">
-
-            </div> */}
           </motion.div>
         </motion.div>
       )}
