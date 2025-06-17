@@ -69,12 +69,22 @@
 }
 
 @media (max-width: 36rem) {
-  .modal {
-    width: 100%;
-    padding: 4rem;
+  .modal__wrapper {
+    width: 90%;
+    padding: 1rem;
+    max-width: 100%;
+    height: auto;
   }
 
-  .modal div {
+  .modal__wrapper h2 {
+    font-size: 3rem;
+  }
+
+  .modal__wrapper p {
     font-size: 2rem;
+  }
+
+  .modal-close {
+    font-size: 4rem;
   }
 }
