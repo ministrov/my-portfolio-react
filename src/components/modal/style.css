@@ -34,9 +34,12 @@
   font-size: 6rem;
   max-width: 50px;
   max-height: 50px;
-  border: none;
-  outline: none;
   background-color: transparent;
+}
+
+.modal-close:focus {
+  border: 1px solid var(--color-white);
+  outline: var(--color-white);
 }
 
 .backdrop {

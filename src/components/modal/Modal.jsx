@@ -73,7 +73,7 @@ const Modal = ({ open, onClose }) => {
             animate="visible"
             exit="exit"
             onClick={(e) => e.stopPropagation()}
-            tabIndex={-1}
+            tabIndex={0}
           >
             <header className="modal__header">
               <h2>{t('modal.title')}</h2>
