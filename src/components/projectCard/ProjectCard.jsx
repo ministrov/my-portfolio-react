@@ -12,8 +12,7 @@ const ProjectCard = ({
   wepImg,
   imageAlt,
   isProduction,
-  custom,
-  onImageClick
+  custom
 }) => {
   const variants = {
     hidden: { opacity: 0 },
@@ -24,7 +23,6 @@ const ProjectCard = ({
   };
   return (
     <motion.li
-      whileHover={{ scale: 1.04, transition: 0.7 }}
       variants={variants}
       initial={'hidden'}
       animate={'visible'}
@@ -32,49 +30,38 @@ const ProjectCard = ({
       className="project-card__item"
       tabIndex={0}
     >
-      {/* <div
-        className="project-card__image-wrapper"
-        onClick={() => onImageClick(id)}
-        role="button"
-        aria-label={`View details of ${title}`}
-        tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && onImageClick(id)}
+      <motion.div
+        whileHover={{ scale: 1.04, transition: 0.7 }}
+        className="project-card__image"
       >
-        <Image
-          className="project-card__image"
-          width={338}
-          height={224}
-          src={wepImg}
-          fallback={img}
-          alt={imageAlt}
-        />
-      </div> */}
-      <NavLink to={`/project/${id}`} className={'project-card__link'}>
-        <Image
-          className="project-card__image"
-          width={338}
-          height={224}
-          src={wepImg}
-          fallback={img}
-          alt={imageAlt}
-        />
-      </NavLink>
+        <NavLink to={`/project/${id}`} className={'project-card__link'}>
+          <Image
+            width={338}
+            height={224}
+            src={wepImg}
+            fallback={img}
+            alt={imageAlt}
+          />
+        </NavLink>
 
-      {isProduction ? (
-        <Tag color={'red'}>{'Production'}</Tag>
-      ) : (
-        <Tag color={'purple'}>{'Pet project'}</Tag>
-      )}
+        {isProduction ? (
+          <Tag color={'red'}>{'Production'}</Tag>
+        ) : (
+          <Tag color={'purple'}>{'Pet project'}</Tag>
+        )}
+      </motion.div>
 
-      <h3 className="project-card__title">{title}</h3>
+      <div className="project-card__info">
+        <h3 className="project-card__title">{title}</h3>
 
-      <div className="project-card__skills">
-        <h4 className="project-card__title">Tools:</h4>
-        <ul className="project-card__list">
-          {skills.map((skill, index) => (
-            <Tag key={`id - ${index}: ${skill}`}>{skill}</Tag>
-          ))}
-        </ul>
+        <div className="project-card__skills">
+          <h4 className="project-card__title">Tools:</h4>
+          <ul className="project-card__list">
+            {skills.map((skill, index) => (
+              <Tag key={`id - ${index}: ${skill}`}>{skill}</Tag>
+            ))}
+          </ul>
+        </div>
       </div>
     </motion.li>
   );
