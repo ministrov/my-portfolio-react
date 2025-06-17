@@ -17,10 +17,7 @@
 
 .project-card__item {
   display: flex;
-  flex-direction: column;
   gap: 1.6rem;
-  min-width: 175px;
-  width: 357px;
   padding: 1.8rem 18.72px;
   background-color: var(--color-blue-700);
   border-radius: var(--border-radius-s);

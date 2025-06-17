@@ -97,23 +97,14 @@ const Home = () => {
       </Helmet>
       <section className="main-page">
         <h1 className="visually-hidden">Home page of the author portfolio</h1>
-
         <Promo />
-
         <Statistics />
-
         <About />
-
         <Skills />
-
         <Services />
-
         <Advertisement />
-
         <Testimonials />
-
         <Faq />
-
         <Modal
           open={isOpen}
           onClose={() => setIsOpen(false)}

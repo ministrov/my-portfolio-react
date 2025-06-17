@@ -1,7 +1,5 @@
 .projects__list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  column-gap: 3rem;
-  row-gap: 3rem;
+  flex-direction: column;
+  gap: 120px;
 }
