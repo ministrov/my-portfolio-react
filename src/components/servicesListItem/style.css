@@ -175,8 +175,12 @@
 
 @media screen and (max-width: 602px) {
   .services__item {
-    padding: 1.5rem;
+    padding: 0;
     gap: 1rem;
+  }
+
+  .services__arrow {
+    display: none;
   }
 
   .services__description {
