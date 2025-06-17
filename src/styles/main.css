@@ -95,11 +95,6 @@ li {
   list-style: none;
 }
 
-button:focus,
-a:focus {
-  outline: none;
-}
-
 button {
   border: none;
   cursor: pointer;
@@ -135,7 +130,7 @@ img {
 }
 
 .container {
-  max-width: 120rem;
+  max-width: 1224px;
   margin: 0 auto;
 }
 
@@ -149,13 +144,27 @@ img {
   display: none;
 }
 
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 65%;
+  }
+}
+
 @media only screen and (max-width: 98.25em) {
   html {
     font-size: 56%;
   }
 
   .container {
+    max-width: 100%;
     width: 95%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
@@ -168,15 +177,5 @@ img {
 @media only screen and (max-width: 37.5em) {
   html {
     font-size: 59%;
-  }
-
-  .container {
-    width: 90%;
-  }
-}
-
-@media only screen and (min-width: 112.5em) {
-  html {
-    font-size: 65%;
   }
 }
