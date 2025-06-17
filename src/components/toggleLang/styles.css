@@ -2,7 +2,7 @@
   position: relative;
   width: 58px;
   height: 34px;
-  border: 2px solid var(--light-blue-100);
+  border: 2px solid var(--color-blue-700);
   border-radius: 99px;
   transition:
     backgroun-color 0.1s ease,
@@ -15,7 +15,7 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
 }
 
 .toggle-btn .thumb {
@@ -28,14 +28,14 @@
   width: 28px;
   height: 28px;
   border-radius: 99px;
-  background-color: var(--white);
+  background-color: var(--color-white);
   transform: translateX(0);
   transition: left 0.15s ease;
   transform: translateY(-50%);
 }
 
 .toggle-btn.toggled {
-  background-color: var(--light-blue-100);
+  background-color: var(--color-blue-700);
 }
 
 .toggle-btn.toggled .thumb {

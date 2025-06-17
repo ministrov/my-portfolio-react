@@ -7,16 +7,16 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--white);
-  border-radius: var(--border-rs);
+  color: var(--color-white);
+  border-radius: var(--border-radius-s);
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
 }
 
 .btn--big {
   max-height: 65px;
   padding: 2rem 3rem;
-  color: var(--light-blue-100);
-  background-color: var(--white);
+  color: var(--color-blue-700);
+  background-color: var(--color-white);
 }
 
 .btn--med {
@@ -30,14 +30,14 @@
 }
 
 .btn--theme {
-  background: var(--light-blue-100);
+  background: var(--color-blue-700);
   color: #fff;
 }
 
 .btn--theme-inv {
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
   background: #fff;
-  border: 2px solid var(--light-blue-100);
+  border: 2px solid var(--color-blue-700);
   box-shadow: none;
 }
 

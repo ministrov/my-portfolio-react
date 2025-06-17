@@ -7,7 +7,7 @@
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
 }
 
 .heading-sec__main::after {
@@ -18,16 +18,16 @@
   height: 5px;
   width: 3rem;
   transform: translateX(-50%);
-  border-radius: var(--border-rs);
-  background: var(--light-blue-100);
+  border-radius: var(--border-radius-s);
+  background: var(--color-blue-700);
 }
 
 .heading-sec__main--second.heading-sec__main::after {
-  background: var(--white);
+  background: var(--color-white);
 }
 
 .heading-sec__main--second {
-  color: var(--white);
+  color: var(--color-white);
 }
 
 .heading-sec__mb-med {
@@ -42,11 +42,11 @@
   font-weight: 500;
   line-height: 1.6;
   text-align: center;
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
 }
 
 .heading-sec__sub.heading-sec__main--second {
-  color: var(--white);
+  color: var(--color-white);
 }
 
 .heading-sm {

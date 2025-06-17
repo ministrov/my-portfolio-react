@@ -6,9 +6,9 @@
   padding: 3rem;
   font-size: 1rem;
   line-height: 1.2;
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
   box-shadow: var(--box-shadow);
-  border-radius: var(--border-rs);
+  border-radius: var(--border-radius-s);
   overflow: hidden;
   transition: max-height 0.4s ease, box-shadow 0.3s ease;
   will-change: max-height;
@@ -32,7 +32,7 @@
 
 .services__item-block:hover .services__item-text,
 .services__item-block:focus .services__item-text {
-  -webkit-text-stroke: 1px var(--light-blue-200);
+  -webkit-text-stroke: 1px var(--color-blue-300);
   transition: all 0.5s ease-in-out;
 }
 
@@ -50,7 +50,7 @@
   align-items: center;
   width: 4rem;
   height: 4rem;
-  background-color: var(--light-blue-100);
+  background-color: var(--color-blue-700);
   border-radius: 50%;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -58,13 +58,13 @@
 
 .services__arrow:hover {
   transform: scale(1.05);
-  background-color: var(--light-blue-200);
+  background-color: var(--color-blue-300);
 }
 
 .services__arrow-icon {
   font-size: 1.6rem;
   line-height: 1.4;
-  color: var(--white);
+  color: var(--color-white);
   transition: transform 0.3s ease;
 }
 
@@ -78,13 +78,13 @@
   justify-content: center;
   width: 50px;
   padding: 8px;
-  border-radius: var(--border-rs);
-  background-color: var(--light-blue-100);
+  border-radius: var(--border-radius-s);
+  background-color: var(--color-blue-700);
   transition: background-color 0.3s ease;
 }
 
 .services__icon:hover {
-  background-color: var(--light-blue-200);
+  background-color: var(--color-blue-300);
 }
 
 .services__subheading {
@@ -109,7 +109,7 @@
   font-family: inherit;
   font-size: 1.6rem;
   line-height: 1.2;
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
   border: none;
   background-color: transparent;
   text-decoration-line: underline;
@@ -122,11 +122,11 @@
 .services__more:hover {
   opacity: 0.7;
   text-decoration-line: none;
-  color: var(--light-blue-200);
+  color: var(--color-blue-300);
 }
 
 .text-outline {
-  -webkit-text-stroke: 1px var(--light-blue-100);
+  -webkit-text-stroke: 1px var(--color-blue-700);
 }
 
 @media screen and (max-width: 1492px) {
@@ -142,7 +142,7 @@
     gap: 1.5rem;
     padding: 2rem;
     box-shadow: var(--box-shadow-mobile);
-    border-radius: var(--border-rs);
+    border-radius: var(--border-radius-s);
     margin: 1rem;
   }
 

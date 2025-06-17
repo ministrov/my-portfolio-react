@@ -5,7 +5,7 @@
   font-size: 18px;
   font-weight: 600;
   line-height: 24px;
-  color: var(--page-bg);
+  color: var(--color-white);
 }
 
 .project-card__list {
@@ -22,10 +22,10 @@
   min-width: 175px;
   width: 357px;
   padding: 1.8rem 18.72px;
-  background-color: var(--light-blue-100);
-  border-radius: var(--border-rs);
+  background-color: var(--color-blue-700);
+  border-radius: var(--border-radius-s);
   box-shadow: var(--box-shadow);
-  border-radius: var(--border-rs);
+  border-radius: var(--border-radius-s);
 }
 
 .project-card__image {
@@ -33,14 +33,14 @@
   max-width: 100%;
   height: 200px;
   background-color: var(--light-gray);
-  border-radius: var(--border-rs);
+  border-radius: var(--border-radius-s);
 }
 
 .project-card__division {
   font-family: inherit;
   font-size: 14px;
   line-height: 20px;
-  color: var(--light-grey);
+  color: var(--color-gray-500);
 }
 
 .project-card__link {
@@ -60,7 +60,7 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
-  color: var(--page-bg);
+  color: var(--color-white);
 }
 
 @media screen and (max-width: 688px) {

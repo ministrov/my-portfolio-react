@@ -10,8 +10,8 @@
   font-size: 3rem;
   line-height: 1.2;
   text-align: center;
-  color: var(--white);
-  border-radius: var(--border-rs);
+  color: var(--color-white);
+  border-radius: var(--border-radius-s);
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }
 

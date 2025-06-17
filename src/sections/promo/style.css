@@ -22,7 +22,7 @@
   line-height: 90%;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--white);
+  color: var(--color-white);
 }
 
 .promo__greeting span:first-child {
@@ -35,14 +35,14 @@
   font-size: 18px;
   text-align: center;
   line-height: 24px;
-  color: var(--white);
+  color: var(--color-white);
 }
 
 .promo__text {
   font-size: 18px;
   text-align: center;
   line-height: 24px;
-  color: var(--white);
+  color: var(--color-white);
 }
 
 .promo__image-wrapper {
@@ -52,7 +52,7 @@
   max-width: 23rem;
   padding: 0.3rem;
   box-shadow: var(--box-shadow);
-  background-color: var(--white);
+  background-color: var(--color-white);
   transform: translate(-50%, -50%) rotate(45deg);
 }
 

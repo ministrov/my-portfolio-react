@@ -13,12 +13,12 @@
 }
 
 .purple {
-  color: var(--light-blue-50);
-  background-color: var(--light-blue-400);
+  color: var(--color-blue-400);
+  background-color: var(--color-blue-100);
 }
 
 .red {
   font-weight: 600;
-  color: var(--light-red-100);
-  background-color: var(--light-red-200);
+  color: var(--color-red-500);
+  background-color: var(--color-red-100);
 }

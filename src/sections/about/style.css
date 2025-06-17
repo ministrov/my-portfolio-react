@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--light-blue-100);
+  background-color: var(--color-blue-700);
   border-radius: 50%;
   box-shadow: var(--box-shadow);
 }
@@ -47,7 +47,7 @@
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 1.7;
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
 }
 
 .about__greeting {
@@ -56,10 +56,10 @@
   font-size: 3.2rem;
   font-weight: 700;
   line-height: 1.2;
-  color: var(--white);
-  border: 2px solid var(--light-blue-100);
-  border-radius: var(--border-rs);
-  background-color: var(--light-blue-100);
+  color: var(--color-white);
+  border: 2px solid var(--color-blue-700);
+  border-radius: var(--border-radius-s);
+  background-color: var(--color-blue-700);
 }
 
 .about__link button {
@@ -68,13 +68,13 @@
   padding-bottom: 0.6rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  border: 1px solid var(--title-1);
-  color: var(--title-1);
+  border: 1px solid var(--color-blue-300);
+  color: var(--color-blue-300);
 }
 
 .about__link button:hover {
-  color: var(--white);
-  background-color: var(--title-1);
+  color: var(--color-white);
+  background-color: var(--color-blue-300);
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 

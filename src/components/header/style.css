@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 1000;
   width: 100%;
-  background-color: var(--header-bg);
+  background-color: var(--color-white);
   box-shadow: 70px 17px 62px rgba(0, 0, 0, 0.1);
 }
 
@@ -33,12 +33,12 @@
 }
 
 .main-nav__logo:hover .logo__name {
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
   transition: color 0.3s ease-in;
 }
 
 .main-nav__logo:hover .logo__name--second {
-  color: var(--white);
+  color: var(--color-white);
   opacity: 0.8;
   transition: color 0.3s ease-in;
 }
