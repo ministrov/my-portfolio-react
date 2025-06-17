@@ -18,3 +18,15 @@
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
 }
+
+.scroll-to:focus-visible {
+  box-shadow: 0 0 0 4px rgba(var(--color-blue-700), 0.6);
+  outline: none;
+}
+
+.scroll-to:focus {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--color-white);
+  outline: none;
+}

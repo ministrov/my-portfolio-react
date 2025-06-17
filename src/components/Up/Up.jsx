@@ -10,7 +10,19 @@ const Up = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const handleKeyDown = (e) => {
+    switch (e.key) {
+      case 'Escape':
+        setIsShowed(false);
+        break;
+      case 'Enter':
+        if (isShowed) scrollToTop();;
+        break;
+      default:
+        break;
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY >= 300) {
@@ -20,12 +32,12 @@ const Up = () => {
       }
     };
 
-    scrollToTop();
-
-    document.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('keydown', handleKeyDown);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('keydown', handleKeyDown);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -40,6 +52,7 @@ const Up = () => {
           transition={{ duration: 0.65 }}
           className="scroll-to"
           onClick={scrollToTop}
+          tabIndex={0}
         >
           <FaLongArrowAltUp />
         </motion.button>
