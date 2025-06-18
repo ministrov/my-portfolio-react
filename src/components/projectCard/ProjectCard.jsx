@@ -57,11 +57,34 @@ const ProjectCard = ({
       </motion.div>
 
       <div className="project-card__info">
-        <h3 className="project-card__title">{title}</h3>
+        <h3 className="project-card__info-title">{title}</h3>
 
-        <div className="project-card__skills">
-          <h4 className="project-card__title">Tools:</h4>
-          <ul className="project-card__list">
+        <p className="project-card__info-desc">
+          Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.
+        </p>
+
+        <div className="project-card__info-box">
+          <h4>Project Info</h4>
+
+          <div className="projcet-card__info-box-table">
+            <div className="projcet-card__info-box-table-row">
+              <span>Year</span>
+              <span>2023</span>
+            </div>
+            <div className="projcet-card__info-box-table-row">
+              <span>Role</span>
+              <span>Front-end Developer</span>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="project-card__info-links">
+
+        </div> */}
+
+        <div className="project-card__tools">
+          <h4 className="project-card__tools-title">Project Tools</h4>
+          <ul className="project-card__tools-list">
             {skills.map((skill, index) => (
               <Tag key={`id - ${index}: ${skill}`}>{skill}</Tag>
             ))}
