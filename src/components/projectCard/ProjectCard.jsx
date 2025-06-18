@@ -36,8 +36,8 @@ const ProjectCard = ({
       >
         <NavLink to={`/project/${id}`} className={'project-card__link'}>
           <Image
-            width={338}
-            height={224}
+            width={486}
+            height={347}
             src={wepImg}
             fallback={img}
             alt={imageAlt}
@@ -45,9 +45,13 @@ const ProjectCard = ({
         </NavLink>
 
         {isProduction ? (
-          <Tag color={'red'}>{'Production'}</Tag>
+          <div className="project-card__tag-box">
+            <Tag color={'red'}>{'Production'}</Tag>
+          </div>
         ) : (
-          <Tag color={'purple'}>{'Pet project'}</Tag>
+          <div className="project-card__tag-box">
+            <Tag color={'purple'}>{'Pet project'}</Tag>
+          </div>
         )}
       </motion.div>
 
