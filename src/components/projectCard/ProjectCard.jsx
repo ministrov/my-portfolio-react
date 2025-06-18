@@ -36,6 +36,7 @@ const ProjectCard = ({
       >
         <NavLink to={`/project/${id}`} className={'project-card__link'}>
           <Image
+            className={"project-card__img"}
             width={486}
             height={347}
             src={wepImg}
