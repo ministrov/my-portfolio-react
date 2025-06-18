@@ -17,6 +17,7 @@ const Project = ({ project }) => {
       <div className="project__content">
         <div className="project__image">
           <Image
+            className="project__img"
             src={project.wepImg}
             fallback={project.img}
             alt={project.imageAlt}
