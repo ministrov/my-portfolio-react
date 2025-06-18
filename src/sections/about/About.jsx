@@ -23,7 +23,7 @@ const About = () => {
             <p className="about__description">{t('about.descriptionTwo')}</p>
           </div>
 
-          <div className="about__right">
+          <div className="about__right nebo nebo--br">
             <Photo />
           </div>
         </div>

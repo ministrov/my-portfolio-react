@@ -34,13 +34,11 @@
 
 .about__right {
   width: 500px;
-  height: 490px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-blue-700);
-  border-radius: 50%;
-  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-s);
 }
 
 .about__description {
@@ -81,7 +79,6 @@
 @media only screen and (max-width: 1842px) {
   .about__right {
     width: inherit;
-    height: auto;
   }
 }
 

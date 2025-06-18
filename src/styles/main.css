@@ -43,6 +43,8 @@
   font-display: swap;
 }
 
+@import url('./nebo.css');
+
 :root {
   /* Базовые цвета */
   --color-white: #fff;
