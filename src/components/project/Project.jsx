@@ -21,7 +21,8 @@ const Project = ({ project }) => {
             fallback={project.img}
             alt={project.imageAlt}
             width={1200}
-            height={800}
+            height={700}
+            loading="lazy"
           />
         </div>
 
@@ -32,34 +33,13 @@ const Project = ({ project }) => {
           <div className="project__technologies">
             <h3>{t('project-technologies')}:</h3>
             <div className="tags-container">
-              {project.skills.map((skill, index) => (
+              {project.skills.split(',').map((skill, index) => (
                 <span key={index} className="tech-tag">{skill}</span>
               ))}
             </div>
           </div>
 
-          <div className="project__-links">
-            {/* {project.demoUrl && (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="demo-link"
-                  >
-                    {t('projectproject__.liveDemo')}
-                  </a>
-                )}
-                {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="github-link"
-                  >
-                    GitHub
-                  </a>
-                )} */}
-          </div>
+          <div className="project__links"></div>
         </div>
       </div>
     </motion.div>
