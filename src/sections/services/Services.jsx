@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import ServicesListItem from '../../components/servicesListItem/ServicesListItem';
+// import ExpandableCard from '../../components/ExpandableCard/ExpandableCard';
 import Heading from '../../components/heading/Heading';
 import { motion } from 'framer-motion';
 import { SlGlobe } from 'react-icons/sl';
