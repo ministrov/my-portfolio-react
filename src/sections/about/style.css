@@ -39,6 +39,8 @@
   justify-content: center;
   background-color: var(--color-blue-700);
   border-radius: var(--border-radius-s);
+  border-bottom-left-radius: 251px;
+  border-bottom-right-radius: 251px;
 }
 
 .about__description {
