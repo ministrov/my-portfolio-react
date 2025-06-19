@@ -1,21 +1,15 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsArrowDownRight } from 'react-icons/bs';
 import './style.css';
 
-const ServicesListItem = ({ service }) => {
-  const { num, href, icon, title, description } = service;
-  const [isOpen, setOpen] = useState(false);
+const ServicesListItem = ({ service, open, onClick }) => {
+  const { id, href, icon, title, description } = service;
   const { t } = useTranslation();
 
-  const toggleExpand = () => {
-    setOpen((current) => !current);
-  };
-
   return (
-    <li className={`services__item ${isOpen ? "services__expanded" : ""}`}>
+    <li className={`services__item ${open ? "services__expanded" : ""}`}>
       <div className="services__item-block">
-        <div className="services__item-text text-outline">{num}</div>
+        <div className="services__item-text text-outline">{`0${id}`}</div>
         <div className="services__arrow" href={href}>
           <BsArrowDownRight className="services__arrow-icon" />
         </div>
@@ -26,10 +20,10 @@ const ServicesListItem = ({ service }) => {
 
       <button
         className="services__more"
-        onClick={toggleExpand}
-        aria-expanded={isOpen}
+        onClick={(e) => onClick(e.target)}
+        aria-expanded={open}
       >
-        {isOpen ? t('services.hide') : t('services.showMore')}
+        {open ? t('services.hide') : t('services.showMore')}
       </button>
     </li>
   );

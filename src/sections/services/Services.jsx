@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ServicesListItem from '../../components/servicesListItem/ServicesListItem';
-// import ExpandableCard from '../../components/ExpandableCard/ExpandableCard';
 import Heading from '../../components/heading/Heading';
 import { motion } from 'framer-motion';
 import { SlGlobe } from 'react-icons/sl';
@@ -9,25 +9,31 @@ import { TbSeo } from 'react-icons/tb';
 import './style.css';
 
 const Services = () => {
+  const [isOpen, setOpen] = useState(false);
   const { t } = useTranslation();
+
+  const toggleExpand = () => {
+    // console.log(e.target)
+    setOpen((current) => !current);
+  };
 
   const services = [
     {
-      num: '01',
+      id: 1,
       title: t('services.title.one'),
       description: t('services.description.one'),
       href: '',
       icon: <SlGlobe color="white" size={25} />,
     },
     {
-      num: '02',
+      id: 2,
       title: t('services.title.two'),
       description: t('services.description.two'),
       href: '',
       icon: <SiAffinitydesigner color="white" size={25} />,
     },
     {
-      num: '03',
+      id: 3,
       title: t('services.title.three'),
       description: t('services.description.three'),
       href: '',
@@ -53,7 +59,12 @@ const Services = () => {
           className="services__list"
         >
           {services.map((service) => (
-            <ServicesListItem key={service.num} service={service} />
+            <ServicesListItem
+              key={service.id}
+              service={service}
+              open={isOpen}
+              onClick={toggleExpand}
+            />
           ))}
         </motion.ul>
       </div>
