@@ -4,6 +4,7 @@ import { BsArrowDownRight } from 'react-icons/bs';
 import './style.css';
 
 const ServicesListItem = ({ service }) => {
+  const { num, href, icon, title, description } = service;
   const [isOpen, setOpen] = useState(false);
   const { t } = useTranslation();
 
@@ -14,14 +15,14 @@ const ServicesListItem = ({ service }) => {
   return (
     <li className={`services__item ${isOpen ? "services__expanded" : ""}`}>
       <div className="services__item-block">
-        <div className="services__item-text text-outline">{service.num}</div>
-        <div className="services__arrow" href={service.href}>
+        <div className="services__item-text text-outline">{num}</div>
+        <div className="services__arrow" href={href}>
           <BsArrowDownRight className="services__arrow-icon" />
         </div>
       </div>
-      <div className="services__icon">{service.icon}</div>
-      <h2 className="services__subheading">{service.title}</h2>
-      <p className="services__description">{service.description}</p>
+      <div className="services__icon">{icon}</div>
+      <h2 className="services__subheading">{title}</h2>
+      <p className="services__description">{description}</p>
 
       <button
         className="services__more"
