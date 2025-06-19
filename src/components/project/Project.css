@@ -12,6 +12,13 @@
   border-radius: var(--border-radius-s);
 }
 
+.project__details{
+  height: 450px;
+  padding: 6rem;
+  background-color: tomato;
+  border-radius: var(--border-radius-s);
+}
+
 /* @media (max-width: 768px) {
 
 } */

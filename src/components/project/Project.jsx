@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import Image from '../image/Image';
 import './Project.css';
 
 const Project = ({ project }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   return (
     <motion.div
@@ -27,21 +27,21 @@ const Project = ({ project }) => {
           />
         </div>
 
-        <div className="project__details">
-          <h2 id="project__title">{project.title}</h2>
-          <p className="project__description">{project.description}</p>
+        <div className="project__details nebo nebo--tl">
+          <h4>Project Info</h4>
 
-          <div className="project__technologies">
-            <h3>{t('project-technologies')}:</h3>
-            <div className="tags-container">
-              {project.skills.split(',').map((skill, index) => (
-                <span key={index} className="tech-tag">{skill}</span>
-              ))}
+          <div className="project__details-table">
+            <div className="project__details-table-row">
+              <span>Year</span>
+              <span>2023</span>
+            </div>
+            <div className="project__details-table-row">
+              <span>Role</span>
+              <span>Front-end Developer</span>
             </div>
           </div>
-
-          <div className="project__links"></div>
         </div>
+          <div className="project__links"></div>
       </div>
     </motion.div>
   );
