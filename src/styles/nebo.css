@@ -1,7 +1,7 @@
 .nebo {
-  --nb-r: 48px;
-  --nb-w: 20px;
-  --nb-h: 20px;
+  --nb-r: 22px;
+  --nb-w: 227px;
+  --nb-h: 0px;
 
   /* Fine-tuned radiuses */
   --nb-cor1-rw: var(--nb-r);
