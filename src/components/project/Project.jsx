@@ -15,7 +15,7 @@ const Project = ({ project }) => {
       data-testid="project"
     >
       <div className="project__content">
-        <div className="project__image">
+        <div className="project__image nebo nebo--br">
           <Image
             className="project__img"
             src={project.wepImg}

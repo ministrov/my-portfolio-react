@@ -23,9 +23,8 @@
 .project-card__image {
   position: relative;
   width: 600px;
-  max-height: 600px;
   padding-top: 126px;
-  padding-bottom: 126px;
+  padding-bottom: 116px;
   padding-left: 57px;
   padding-right: 57px;
   background-color: var(--color-blue-700);
