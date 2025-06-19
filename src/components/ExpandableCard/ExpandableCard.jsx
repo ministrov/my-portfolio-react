@@ -1,14 +1,9 @@
 import { useState } from 'react';
-import './ExpandableCard.css'; // импорт стилей компонента
+import './ExpandableCard.css';
 
-const ExpandableCard = ({
-  title,
-  content,
-  isExpanded = false,
-  icon = null,
-  className = ''
-}) => {
-  const [expanded, setExpanded] = useState(isExpanded);
+const ExpandableCard = ({ service, className }) => {
+  const { num, href, icon, title, description } = service;
+  const [expanded, setExpanded] = useState(false);
 
   const handleToggle = () => {
     setExpanded(prevState => !prevState);
@@ -19,6 +14,8 @@ const ExpandableCard = ({
       <header className="card-header">
         {icon && <span className="card-icon">{icon}</span>}
         <h3 className="card-title">{title}</h3>
+        <p>{num}</p>
+        <p>{href}</p>
         <button
           type="button"
           className="card-toggle-btn"
@@ -32,7 +29,7 @@ const ExpandableCard = ({
         className={`card-body ${expanded ? 'show' : 'hide'}`}
         style={{ maxHeight: expanded ? 'none' : '0', overflow: 'hidden' }}
       >
-        {content}
+        {description}
       </div>
     </div>
   );
