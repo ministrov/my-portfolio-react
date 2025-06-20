@@ -115,20 +115,13 @@
   }
 }
 
-@media screen and (max-width: 1492px) {
-  .services__item {
-    max-height: 209px;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   .services__item {
     flex: 0 0 calc(50% - 2rem);
     width: auto;
     gap: 1.5rem;
     padding: 2rem;
-    /* box-shadow: var(--box-shadow-mobile); */
-    border-radius: var(--border-radius-s);
+    box-shadow: var(--box-shadow-mobile);
     margin: 1rem;
   }
 
