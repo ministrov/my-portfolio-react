@@ -12,10 +12,7 @@ const Services = () => {
   const [openCards, setOpenCards] = useState({});
   const { t } = useTranslation();
 
-  console.log(openCards);
-
   const toggleExpand = (id) => {
-    console.log(id);
     setOpenCards(prevState => ({
       ...prevState,
       [id]: !prevState[id]
