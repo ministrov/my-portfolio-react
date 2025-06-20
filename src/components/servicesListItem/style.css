@@ -30,13 +30,9 @@
   white-space: initial;
 }
 
-.services__expanded {
-  position: relative;
-  animation: fadeInUp 0.4s forwards;
-}
-
 .services__item.services__expanded {
   z-index: 100;
+  animation: fadeInUp 0.4s forwards;
 }
 
 .services__item-block {

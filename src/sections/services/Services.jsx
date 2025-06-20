@@ -10,10 +10,12 @@ import './style.css';
 
 const Services = () => {
   const [openCards, setOpenCards] = useState({});
-  // const [isOpen, setOpen] = useState(false);
   const { t } = useTranslation();
 
+  console.log(openCards);
+
   const toggleExpand = (id) => {
+    console.log(id);
     setOpenCards(prevState => ({
       ...prevState,
       [id]: !prevState[id]
@@ -25,21 +27,18 @@ const Services = () => {
       id: 1,
       title: t('services.title.one'),
       description: t('services.description.one'),
-      href: '',
       icon: <SlGlobe color="white" size={25} />,
     },
     {
       id: 2,
       title: t('services.title.two'),
       description: t('services.description.two'),
-      href: '',
       icon: <SiAffinitydesigner color="white" size={25} />,
     },
     {
       id: 3,
       title: t('services.title.three'),
       description: t('services.description.three'),
-      href: '',
       icon: <TbSeo color="white" size={25} />,
     },
   ];
