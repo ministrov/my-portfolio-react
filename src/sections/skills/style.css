@@ -1,5 +1,5 @@
 .skills {
-  padding-bottom: 12rem;
+  margin-bottom: 12rem;
 }
 
 .skills__wrapper {
@@ -56,6 +56,12 @@
   background-color: var(--color-white);
 }
 
+@media screen and (max-width: 768px) {
+  .skills {
+    margin-bottom: 8rem;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .skill__card {
     width: 100%;
@@ -63,11 +69,7 @@
   }
 }
 
-@media screen and (max-width: 688px) {
-  .skills {
-    padding-bottom: 8rem;
-  }
-}
+
 
 @media only screen and (max-width: 56.25em) {
   .skills__wrapper {
@@ -78,10 +80,16 @@
 
 @media (max-width: 36rem) {
   .skills {
-    padding-bottom: 6rem;
+    margin-bottom: 6rem;
   }
 
   .skills__wrapper {
     gap: 6rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .skills {
+    margin-bottom: 4rem;
   }
 }
