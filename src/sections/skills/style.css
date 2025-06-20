@@ -1,5 +1,5 @@
 .skills {
-  margin-bottom: 12rem;
+  padding-bottom: 12rem;
 }
 
 .skills__wrapper {
@@ -58,7 +58,7 @@
 
 @media screen and (max-width: 768px) {
   .skills {
-    margin-bottom: 8rem;
+    padding-bottom: 8rem;
   }
 }
 
@@ -80,7 +80,7 @@
 
 @media (max-width: 36rem) {
   .skills {
-    margin-bottom: 6rem;
+    padding-bottom: 6rem;
   }
 
   .skills__wrapper {
@@ -90,6 +90,6 @@
 
 @media screen and (max-width: 375px) {
   .skills {
-    margin-bottom: 4rem;
+    padding-bottom: 4rem;
   }
 }

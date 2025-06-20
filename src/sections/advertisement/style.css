@@ -15,7 +15,7 @@
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 768px) {
   .advertisement {
     padding-bottom: 8rem;
   }
@@ -33,5 +33,11 @@
 
   .advertisement__advs {
     height: 236px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .advertisement {
+    padding-bottom: 4rem;
   }
 }

@@ -1,6 +1,6 @@
 .statistics {
-  margin-top: 12rem;
-  margin-bottom: 12rem;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
 }
 
 .statistics__list {
@@ -11,7 +11,7 @@
 
 @media screen and (max-width: 768px) {
   .statistics {
-    margin-bottom: 8rem;
+    padding-bottom: 8rem;
   }
 
   .statistics__list {
@@ -35,8 +35,8 @@
 
 @media (max-width: 36rem) {
   .statistics {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 
   .statistics__list {
@@ -50,7 +50,7 @@
 
 @media screen and (max-width: 375px) {
   .statistics {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }

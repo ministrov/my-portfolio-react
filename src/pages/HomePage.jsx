@@ -95,22 +95,21 @@ const Home = () => {
         <meta name="keywords" content={t('metadata.home.keywords')} />
         <link rel="canonical" href={`${window.location.origin}/`} />
       </Helmet>
-      <section className="main-page">
-        <h1 className="visually-hidden">Home page of the author portfolio</h1>
-        <Promo />
-        <Statistics />
-        <About />
-        <Skills />
-        <Services />
-        <Advertisement />
-        <Testimonials />
-        <Faq />
-        <Modal
-          open={isOpen}
-          onClose={() => setIsOpen(false)}
-          autoCloseDelay={15000}
-        />
-      </section>
+
+      <h1 className="visually-hidden">Home page of the author portfolio</h1>
+      <Promo />
+      <Statistics />
+      <About />
+      <Skills />
+      <Services />
+      <Advertisement />
+      <Testimonials />
+      <Faq />
+      <Modal
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        autoCloseDelay={15000}
+      />
     </>
   );
 };

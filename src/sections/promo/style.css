@@ -88,8 +88,8 @@
   }
 
   .promo__socials {
-    bottom: 6%;
-    right: 25%;
+    bottom: 11%;
+    right: 22%;
     transform: translate(-50%, -50%);
   }
 
@@ -103,7 +103,6 @@
   .promo__content {
     width: 92%;
     padding: 8rem 0 6rem 0;
-    /* transform: translate(0, 0); */
   }
 }
 
