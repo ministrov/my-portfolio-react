@@ -9,12 +9,15 @@ import { TbSeo } from 'react-icons/tb';
 import './style.css';
 
 const Services = () => {
-  const [isOpen, setOpen] = useState(false);
+  const [openCards, setOpenCards] = useState({});
+  // const [isOpen, setOpen] = useState(false);
   const { t } = useTranslation();
 
-  const toggleExpand = () => {
-    // console.log(e.target)
-    setOpen((current) => !current);
+  const toggleExpand = (id) => {
+    setOpenCards(prevState => ({
+      ...prevState,
+      [id]: !prevState[id]
+    }));
   };
 
   const services = [
@@ -62,8 +65,8 @@ const Services = () => {
             <ServicesListItem
               key={service.id}
               service={service}
-              open={isOpen}
-              onClick={toggleExpand}
+              open={openCards[service.id]}
+              onClick={() => toggleExpand(service.id)}
             />
           ))}
         </motion.ul>
