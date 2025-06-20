@@ -40,7 +40,7 @@
 
 .project-card__info-title {
   margin-bottom: 16px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 38px;
@@ -60,7 +60,7 @@
 
 .project-card__info-box h4 {
   margin-bottom: 16px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 22px;
@@ -111,7 +111,7 @@
 
 .project-card__tools-title {
   margin-bottom: 16px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 22px;
@@ -124,7 +124,19 @@
   gap: 16px;
 }
 
-@media screen and (max-width: 688px) {
+@media screen and (max-width: 1024px) {
+  .project-card__image {
+    width: 536px;
+  }
+
+  .project-card__info {
+    width: 376px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .project-card {
     background-color: transparent;
     box-shadow: none;
@@ -132,11 +144,44 @@
 
   .project-card__item {
     min-width: initial;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .project-card__image {
+    width: 100%;
+    padding-top: 68px;
+    padding-bottom: 68px;
+    padding-left: 46px;
+    padding-right: 46px;
+  }
+
+  .project-card__info {
+    width: 100%;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
 }
 
-@media screen and (max-width: 488px) {
+@media screen and (max-width: 375px) {
   .project-card__item {
-    width: 100%;
+    gap: 24px;
+  }
+
+  .project-card__image {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .project-card__info {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .project-card__img {
+    width: 290px;
+    height: 255px;
   }
 }

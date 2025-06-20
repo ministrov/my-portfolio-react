@@ -74,12 +74,6 @@
   display: block;
 }
 
-/* .project-card__tag-box {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-} */
-
 .project-card__img {
   border-radius: var(--border-radius-s);
 }
@@ -89,12 +83,9 @@
   flex-direction: column;
 }
 
-/* .project__details-tools-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-} */
-
-/* @media (max-width: 768px) {
-
-} */
+@media screen and (max-width: 1024px) {
+  .projects__filter-list {
+    flex-wrap: wrap;
+    margin-bottom: 7rem;
+  }
+}

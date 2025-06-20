@@ -1,5 +1,5 @@
 .projects {
-  padding: 12rem 0;
+  padding: 16rem 0;
 }
 
 .projects__filter {
@@ -19,8 +19,32 @@
   background-color: var(--color-blue-700);
 }
 
-@media screen and (max-width: 1088px) {
+@media screen and (max-width: 1024px) {
+  .projects {
+    padding: 14rem 0;
+  }
+
   .projects__filter {
-    display: none;
+    margin-bottom: 7rem;
+  }
+
+  .projects__filter-list {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects {
+    padding: 12rem 0;
+  }
+
+  .projects__filter {
+    margin-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .projects__filter {
+    margin-bottom: 3rem;
   }
 }
