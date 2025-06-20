@@ -9,7 +9,7 @@
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }
 
-.promo__content{
+.promo__content {
   max-width: 80rem;
   margin: 0 auto;
 }
@@ -17,7 +17,7 @@
 .promo__greeting {
   margin-bottom: 2rem;
   font-size: 7rem;
-  font-family: "Oswald", sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-style: normal;
   line-height: 90%;
   text-transform: uppercase;
@@ -103,10 +103,9 @@
   .promo__content {
     width: 92%;
     padding: 8rem 0 6rem 0;
-    transform: translate(0, 0);
+    /* transform: translate(0, 0); */
   }
 }
-
 
 @media only screen and (max-width: 56.25em) {
   .promo__greeting span {
@@ -122,12 +121,39 @@
   }
 }
 
-@media only screen and (max-width: 37.5em) {
+@media screen and (max-width: 768px) {
   .promo {
-    height: auto;
     min-height: 70rem;
   }
 
+  .promo__slogan {
+    max-width: 448px;
+    text-align: start;
+  }
+  .promo__text {
+    max-width: 616px;
+    text-align: start;
+  }
+
+  .promo__btns {
+    align-items: flex-start;
+  }
+
+  .promo__content {
+    padding: 4rem 0 4rem 0;
+  }
+
+  .promo__socials {
+    display: flex;
+  }
+
+  .promo__socials {
+    bottom: 20%;
+    right: -7%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
   .promo__greeting {
     font-size: 6rem;
   }
@@ -149,20 +175,14 @@
   .promo__mouse-scroll-cont {
     display: none;
   }
-}
 
-@media screen and (max-width: 509px) {
-  .promo__greeting {
-    font-size: 5rem;
+  .promo__socials {
+    display: none;
   }
 }
 
 @media only screen and (max-width: 26.5em) {
   .promo__greeting {
     font-size: 4rem;
-  }
-
-  button.btn--big {
-    display: none;
   }
 }
