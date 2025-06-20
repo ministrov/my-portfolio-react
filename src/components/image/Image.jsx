@@ -1,3 +1,5 @@
+// import './style.css';
+
 const Image = ({ src, fallback, type = 'image/webp', alt, ...props }) => {
   return (
     <picture>

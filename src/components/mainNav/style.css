@@ -14,7 +14,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
   transition: color 0.3s;
 }
 
@@ -33,7 +33,7 @@
   transform-origin: right;
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;
-  background-color: var(--light-blue-200);
+  background-color: var(--color-blue-300);
 }
 
 .nav-list__link:hover::before {
@@ -46,7 +46,7 @@
 }
 
 .nav-list__link--active::before {
-  background-color: var(--light-blue-100);
+  background-color: var(--color-blue-700);
   transform: none;
 }
 
@@ -54,7 +54,7 @@
   width: 3rem;
   height: 3px;
   margin: 5px;
-  background-color: var(--light-blue-100);
+  background-color: var(--color-blue-700);
   transition: all 0.5s ease-in;
 }
 
@@ -92,7 +92,7 @@
     height: 100vh;
     display: block;
     text-align: right;
-    background-color: var(--header-bg);
+    background-color: var(--color-white);
     transform: translateX(100%);
     transition: 0.5s ease-in;
   }

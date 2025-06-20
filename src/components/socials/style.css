@@ -12,7 +12,7 @@
   align-items: center;
   font-size: 3.6rem;
   line-height: 1.4;
-  color: var(--white);
+  color: var(--color-white);
   text-decoration: none;
   border-radius: 4px;
   transition:
@@ -27,7 +27,7 @@
 }
 
 .socials__link:focus-visible {
-  outline: 3px solid var(--light-blue-100);
+  outline: 3px solid var(--color-blue-700);
   outline-offset: 2px;
 }
 

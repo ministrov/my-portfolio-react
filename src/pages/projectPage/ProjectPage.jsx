@@ -3,9 +3,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import Heading from '../../components/heading/Heading';
-import Button from '../../components/button/Button';
-import Image from '../../components/image/Image';
-import SkillComponet from '../../components/skillComponent/SkillComponent';
+import Project from '../../components/project/Project';
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import { projects } from '../../sections/projects/projects';
 import './style.css';
@@ -61,46 +59,7 @@ const ProjectPage = () => {
 
             <Heading title={t(project.title)} slogan={t(project.slogan)} />
 
-            <div className="project-details__cover">
-              <Image
-                src={project.webpBig}
-                fallback={project.fullImg}
-                width={1200}
-                height="auto"
-                alt={project.title}
-                loading="lazy"
-              />
-            </div>
-
-            <div className="project-details__content">
-              <p className="project-detail__text-overview">
-                {t(project.overview)}
-              </p>
-
-              <h3 className="project-detail__overview">{t(project.tools)}</h3>
-              <ul className="project-detail__tools-list">
-                {project.skills.split(', ').map((item) => (
-                  <SkillComponet key={item} skillName={item} />
-                ))}
-              </ul>
-
-              <div className="project-detail__btn-box">
-                {project.demoLink && (
-                  <Button
-                    text={'Demo'}
-                    href={project.demoLink || '#'}
-                    className="btn--theme-inv"
-                  />
-                )}
-                {project.gitHubLink && (
-                  <Button
-                    text={'GitHub'}
-                    href={project.gitHubLink}
-                    className="btn--theme-inv"
-                  />
-                )}
-              </div>
-            </div>
+            <Project project={project}/>
           </div>
         </div>
       </section>

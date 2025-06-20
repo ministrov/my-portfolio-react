@@ -14,7 +14,7 @@
   }
 }
 
-@media screen and (max-width: 688px) {
+@media screen and (max-width: 768px) {
   .services {
     padding-bottom: 8rem;
   }
@@ -23,5 +23,11 @@
 @media (max-width: 36rem) {
   .services {
     padding-bottom: 6rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .services {
+    padding-bottom: 4px;
   }
 }

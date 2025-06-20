@@ -2,8 +2,20 @@
   padding-bottom: 12rem;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media screen and (max-width: 768px) {
   .testimonials {
     padding-bottom: 8rem;
+  }
+}
+
+@media (max-width: 36rem) {
+  .testimonials {
+    padding-bottom: 6rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .testimonials {
+    padding-bottom: 4rem;
   }
 }

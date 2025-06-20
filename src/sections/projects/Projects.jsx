@@ -12,7 +12,7 @@ const filters = [
   { id: 4, name: 'JavaScript' },
 ];
 
-const Projects = () => {
+const Projects = ({ onImageClick }) => {
   const { state, handleFilterClick } = useProjectsFilter();
   const { t } = useTranslation();
   const BREADCRUMBS = [
@@ -34,7 +34,9 @@ const Projects = () => {
         onFilterClick={handleFilterClick}
       />
 
-      <ProjectsList projects={state.filteredProjects} />
+      <ProjectsList
+        projects={state.filteredProjects}
+       />
     </ProjectsLayout>
   );
 };

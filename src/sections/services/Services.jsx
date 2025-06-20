@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ServicesListItem from '../../components/servicesListItem/ServicesListItem';
 import Heading from '../../components/heading/Heading';
@@ -8,28 +9,33 @@ import { TbSeo } from 'react-icons/tb';
 import './style.css';
 
 const Services = () => {
+  const [openCards, setOpenCards] = useState({});
   const { t } = useTranslation();
+
+  const toggleExpand = (id) => {
+    setOpenCards(prevState => ({
+      ...prevState,
+      [id]: !prevState[id]
+    }));
+  };
 
   const services = [
     {
-      num: '01',
+      id: 1,
       title: t('services.title.one'),
       description: t('services.description.one'),
-      href: '',
       icon: <SlGlobe color="white" size={25} />,
     },
     {
-      num: '02',
+      id: 2,
       title: t('services.title.two'),
       description: t('services.description.two'),
-      href: '',
       icon: <SiAffinitydesigner color="white" size={25} />,
     },
     {
-      num: '03',
+      id: 3,
       title: t('services.title.three'),
       description: t('services.description.three'),
-      href: '',
       icon: <TbSeo color="white" size={25} />,
     },
   ];
@@ -52,7 +58,12 @@ const Services = () => {
           className="services__list"
         >
           {services.map((service) => (
-            <ServicesListItem key={service.num} service={service} />
+            <ServicesListItem
+              key={service.id}
+              service={service}
+              open={openCards[service.id]}
+              onClick={() => toggleExpand(service.id)}
+            />
           ))}
         </motion.ul>
       </div>

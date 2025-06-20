@@ -1,26 +1,41 @@
 {
   "workbench.colorTheme": "React Theme",
   "editor.fontSize": 18,
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single",
-  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // Используем Prettier как основной форматировщик для TypeScript+React
   "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "git.autofetch": true,
-  "editor.wordWrap": "on",
-  "gitlens.views.commitDetails.files.layout": "tree",
-  "workbench.iconTheme": "material-icon-theme",
-  "git.openRepositoryInParentFolders": "never",
-  "editor.minimap.enabled": false,
+
+  // Настройки Prettier для форматов JSX и общих правил форматирования
+  "prettier.singleQuote": true, // Одинарные кавычки
+  "prettier.printWidth": 120, // Максимальная длина строки (ограничение)
+  "prettier.semi": true, // Использование точки с запятой
+  "prettier.useTabs": false, // Пробелы вместо табуляций
+  "prettier.tabWidth": 2, // Размер табуляции = 2 пробела
+  "prettier.bracketSpacing": true, // Пространство внутри фигурных скобок
+  "prettier.jsxSingleQuote": true, // Одинарные кавычки в JSX
+  "prettier.htmlWhitespaceSensitivity": "css", // HTML whitespace rules from CSS spec
+  "prettier.endOfLine": "lf", // Тип конца строки Unix-style LF
+
+  // Общие редакторские настройки
+  "editor.wordWrap": "bounded", // Перенос строк с ограничением длины
+  "editor.wordWrapColumn": 120, // Ширина строки ~120 символов
+  "editor.detectIndentation": true, // Автоопределение отступов
+  "editor.insertSpaces": true, // Вместо tab-вставлять пробелы
+  "editor.tabSize": 2, // Размер отступа 2 пробела
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Основной форматировщик — Prettier
+  "editor.formatOnSave": true, // Форматировать при сохранении
+
+  // Дополнительные Git и gitLens настройки
+  // "git.autofetch": true, // Автозагрузка изменений репозитория
+  // "gitlens.views.commitDetails.files.layout": "tree", // Вид структуры коммитов
+  // "workbench.iconTheme": "material-icon-theme", // Темы иконок
+  // "git.openRepositoryInParentFolders": "never", // Открытие проекта без вложенных папок
+  "editor.minimap.enabled": false, // Выключаем мини-карту
   "editor.cursorBlinking": "smooth",
   "editor.cursorWidth": 3,
   "files.autoSaveDelay": 500,
   "files.autoSaveWhenNoErrors": true,
-  "files.autoSaveWorkspaceFilesOnly": true,
-  "editor.detectIndentation": true,
-  "editor.insertSpaces": true,
-  "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "files.autoSaveWorkspaceFilesOnly": true
 }

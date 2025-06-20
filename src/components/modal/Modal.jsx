@@ -1,9 +1,9 @@
+import { useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { IoCloseSharp } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
-import Button from '../button/Button';
 import SocialList from '../socials/SocialList';
-import Backdrop from '../backdrop/Backdrop';
 import './style.css';
 
 const dropIn = {
@@ -29,32 +29,75 @@ const dropIn = {
 
 const Modal = ({ open, onClose }) => {
   const { t } = useTranslation();
-  if (!open) return null;
+  const modalRef = useRef(null);
+  const titleId = 'modal-title';
+
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') onClose();
+  }, [onClose]);
+
+  useEffect(() => {
+    if (open) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [open, handleKeyDown]);
+
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) onClose();
+  };
 
   return createPortal(
-    <Backdrop>
-      <motion.div
-        className="modal"
-        variants={dropIn}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="modal__content">
-          <h2>{t('modal.title')}</h2>
-          <p>{t('modal.text')}</p>
-          <div className="modal__socials">
-            <SocialList />
-          </div>
-          <Button
-            onClick={onClose}
-            text={t('modal.close')}
-            className={'modal__btn btn--theme'}
-          />
-        </div>
-      </motion.div>
-    </Backdrop>,
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="backdrop modal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={handleBackdropClick}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={titleId}
+        >
+          <motion.div
+            ref={modalRef}
+            className="modal__wrapper"
+            variants={dropIn}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            onClick={(e) => e.stopPropagation()}
+            tabIndex={0}
+          >
+            <header className="modal__header">
+              <h2>{t('modal.title')}</h2>
+
+              <button
+                className="modal-close"
+                onClick={onClose}
+                aria-label={t('modal.close')}
+                tabIndex={0}
+              >
+                <IoCloseSharp
+                  color='white'
+                />
+              </button>
+            </header>
+
+            <p>{t('modal.text')}</p>
+            <div className="modal__socials">
+              <SocialList />
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>,
     document.getElementById('portal')
   );
 };

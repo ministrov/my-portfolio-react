@@ -10,12 +10,12 @@
   font-size: 3rem;
   line-height: 1.2;
   text-align: center;
-  color: var(--white);
-  border-radius: var(--border-rs);
+  color: var(--color-white);
+  border-radius: var(--border-radius-s);
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 768px) {
   .advertisement {
     padding-bottom: 8rem;
   }
@@ -33,5 +33,11 @@
 
   .advertisement__advs {
     height: 236px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .advertisement {
+    padding-bottom: 4rem;
   }
 }
