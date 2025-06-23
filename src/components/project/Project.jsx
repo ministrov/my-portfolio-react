@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 // import { useTranslation } from 'react-i18next';
+import { BsBoxArrowInUpRight } from "react-icons/bs";
+import { FaGithub } from 'react-icons/fa';
 import Image from '../image/Image';
+import Button from '../button/Button';
 import './Project.css';
 
 const Project = ({ project }) => {
@@ -28,8 +31,6 @@ const Project = ({ project }) => {
         </div>
 
         <div className="project__details-wrap nebo nebo--tl">
-          {/* <h3 className="project-card__info-title">{title}</h3> */}
-
           <p className="project__details-desc">
             Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.
           </p>
@@ -49,7 +50,25 @@ const Project = ({ project }) => {
             </div>
           </div>
 
-          <div className="project__links"></div>
+          <div className="project__links">
+            {project.demoLink && (
+              <Button
+                className={"project__link"}
+                text={'Live Demo'}
+                icon={<BsBoxArrowInUpRight width={20} height={20} />}
+                href={project.demoLink || null}
+              />
+            )}
+
+            {project.gitHubLink && (
+              <Button
+                className={'project__link'}
+                text={'See on Github'}
+                icon={<FaGithub width={20} height={20} />}
+                href={project.gitHubLink || null}
+              />
+            )}
+          </div>
         </div>
       </div>
     </motion.div>

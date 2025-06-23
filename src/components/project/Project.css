@@ -37,6 +37,10 @@
   color: var(--color-blue-700);
 }
 
+.project__details {
+  margin-bottom: 48px;
+}
+
 .project__details-box {
   margin-bottom: 48px;
 }
@@ -73,14 +77,22 @@
   color: var(--color-blue-700);
 }
 
-.project-card__link {
-  display: block;
+.project__links {
+  display: flex;
+  gap: 24px;
+  /* max-width: 238px; */
 }
 
-.project__details-tools {
+.project__link {
+  color: var(--color-blue-700);
+  border-bottom: 2px solid var(--color-blue-700);
+  cursor: pointer;
+}
+
+/* .project__details-tools {
   display: flex;
   flex-direction: column;
-}
+} */
 
 @media screen and (max-width: 1268px) {
   .project__details-wrap {
@@ -145,5 +157,9 @@
   .project__details h4 {
     font-size: 24px;
     line-height: 30px;
+  }
+
+  .project__links {
+    padding-left: 16px;
   }
 }
