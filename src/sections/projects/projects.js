@@ -4,7 +4,7 @@ import project02 from '../../assets/projects/create-x-construction.jpg';
 import project02Wep from '../../assets/projects/create-x-construction.webp';
 import project03 from '../../assets/projects/nike-ecommerce.jpg';
 import project03Wep from '../../assets/projects/nike-ecommerce.webp';
-import project04 from '../../assets/projects/personal-diary.jpg';
+// import project04 from '../../assets/projects/personal-diary.jpg';
 import project04Wep from '../../assets/projects/personal-diary.webp';
 import project05 from '../../assets/projects/05-big.jpg';
 import project05Wep from '../../assets/projects/05-big.webp';
@@ -58,7 +58,7 @@ export const projects = [
     id: 4,
     title: 'projects.project4.title',
     skills: 'React, React-id-Generator, classnames',
-    img: project04,
+    img: project04Wep,
     webpImg: project04Wep,
     slogan: 'projects.project4.slogan',
     gitHubLink: 'https://github.com/ministrov/react-journal',
