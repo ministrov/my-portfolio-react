@@ -17,3 +17,9 @@
   background-color: var(--color-blue-700);
   border: 2px solid var(--color-white);
 }
+
+@media screen and (max-width: 768px) {
+  .filter__btn {
+    min-width: 265px;
+  }
+}
