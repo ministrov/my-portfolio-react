@@ -13,7 +13,10 @@
 }
 
 .project__details-wrap {
-  padding: 26rem;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  padding-left: 26rem;
+  padding-right: 26rem;
   background-color: var(--color-gray-200);
   border-radius: var(--border-radius-s);
 }
