@@ -31,6 +31,10 @@
   .projects__filter-list {
     flex-wrap: wrap;
   }
+
+  /* .projects__filter-list {
+    flex-wrap: wrap;
+  } */
 }
 
 @media screen and (max-width: 768px) {
@@ -40,6 +44,11 @@
 
   .projects__filter {
     margin-bottom: 5rem;
+  }
+
+  .projects__filter-list {
+    align-items: center;
+    justify-content: center;
   }
 }
 
