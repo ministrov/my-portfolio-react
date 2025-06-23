@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { BsBoxArrowInUpRight } from "react-icons/bs";
 import PromoTyping from './PromoTyping';
 import Image from '../../components/image/Image';
 import Button from '../../components/button/Button';
@@ -28,7 +29,7 @@ const Promo = () => {
             text={t('promo.promoBtn')}
             href={cvPdf}
             download={cvPdf}
-            className={'btn--big'}
+            icon={<BsBoxArrowInUpRight width={20} height={20}/>}
           />
         </div>
       </div>
