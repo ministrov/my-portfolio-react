@@ -1,10 +1,8 @@
-import { motion } from 'framer-motion';
 import './style.css';
 
 const Button = ({ href = null, text, icon, className = null }) => {
   return (
-    <motion.a
-      whileHover={{ scale: 1.05 }}
+    <a
       className={`btn ${className}`}
       href={href}
       title="Opens in a new tab"
@@ -13,7 +11,7 @@ const Button = ({ href = null, text, icon, className = null }) => {
     >
       {text}
       <span className="btn__icon">{icon}</span>
-    </motion.a>
+    </a>
   );
 };
 

@@ -9,6 +9,12 @@
   text-transform: uppercase;
   color: var(--color-white);
   border-bottom: 2px solid var(--color-white);
+  transition: border-bottom 0.5s ease-in-out;
+}
+
+.btn:hover {
+  border-bottom: 2px solid transparent;
+  transform: scale(1.05);
 }
 
 .btn__icon {
