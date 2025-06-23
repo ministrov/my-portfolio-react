@@ -112,3 +112,11 @@
   --_nb-curve-pos: var(--_nb-curve-pos-br);
   --_nb-mask-position: var(--_nb-mask-position-br);
 }
+
+@media screen and (max-width: 1268px) {
+  .nebo {
+    --nb-r: 0;
+    --nb-w: 0;
+    --nb-h: 0;
+  }
+}

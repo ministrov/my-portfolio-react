@@ -69,7 +69,17 @@
   gap: 3rem;
 }
 
+@media screen and (max-width: 768px) {
+  .project-details {
+    padding: 14rem 0;
+  }
+}
+
 @media screen and (max-width: 474px) {
+  .project-details {
+    padding: 12rem 0;
+  }
+  
   .project-detail__btn-box {
     flex-direction: column;
     gap: 2rem;
