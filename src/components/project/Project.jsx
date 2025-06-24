@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
 import { FaGithub } from 'react-icons/fa';
 import Image from '../image/Image';
+import Tag from '../tag/Tag';
 import Button from '../button/Button';
 import './Project.css';
 
@@ -48,6 +49,15 @@ const Project = ({ project }) => {
                 <span>Front-end Developer</span>
               </div>
             </div>
+          </div>
+
+          <div className="project__tools">
+            <h4>Project Tools</h4>
+            <ul className="project__tools-list">
+              {project.skills.split(',').map((skill, index) => (
+                <Tag key={`id - ${index}: ${skill}`}>{skill}</Tag>
+              ))}
+            </ul>
           </div>
 
           <div className="project__links">

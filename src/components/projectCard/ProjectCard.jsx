@@ -78,10 +78,6 @@ const ProjectCard = ({
           </div>
         </div>
 
-        {/* <div className="project-card__info-links">
-
-        </div> */}
-
         <div className="project-card__tools">
           <h4 className="project-card__tools-title">Project Tools</h4>
           <ul className="project-card__tools-list">
