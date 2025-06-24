@@ -3,11 +3,11 @@
   mix-blend-mode: lighten;
 }
 
-.about__svg {
+/* .about__svg {
   position: absolute;
   top: 0;
   left: 0;
-}
+} */
 
 @media screen and (max-width: 600px) {
   .about__image-wrapper {
