@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
 import PromoTyping from './PromoTyping';
-import Image from '../../components/image/Image';
+// import Image from '../../components/image/Image';
 import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
-import MyAvatar from '../../assets/png/my-avatar.png';
-import MyAvatar1 from '../../assets/png/my-avatar.webp';
+// import MyAvatar from '../../assets/png/my-avatar.png';
+import avatar from '../../assets/png/my-avatar.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -34,9 +34,15 @@ const Promo = () => {
         </div>
       </div>
       <div className="promo__image-wrapper">
-        <Image
-          src={MyAvatar1}
-          fallback={MyAvatar}
+        {/* <Image
+          src={avatar}
+          // fallback={MyAvatar}
+          width={252}
+          height={252}
+          alt={'A funny pixel men with a laptop in his hands'}
+        /> */}
+        <img
+          src={avatar}
           width={252}
           height={252}
           alt={'A funny pixel men with a laptop in his hands'}

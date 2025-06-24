@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import Image from '../image/Image';
-import authorPhoto from '../../assets/png/photo.png';
-import webPPhoto from '../../assets/png/photo.webp';
+import author from '../../assets/png/photo.webp';
 import './style.css';
 
 const Photo = () => {
@@ -11,15 +9,14 @@ const Photo = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2, duration: 0.4, ease: 'easeIn' },
+        transition: { delay: 1, duration: 1, ease: 'easeInOut' },
       }}
     >
-      <Image
+      <img
         className="about__image"
+        src={author}
         width={500}
         height={500}
-        fallback={authorPhoto}
-        src={webPPhoto}
         alt={"Focus on author's face"}
       />
     </motion.div>

@@ -49,7 +49,6 @@
   position: absolute;
   top: 50%;
   left: 13%;
-  max-width: 23rem;
   padding: 0.3rem;
   box-shadow: var(--box-shadow);
   background-color: var(--color-white);
