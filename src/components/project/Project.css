@@ -92,7 +92,9 @@
 
 .project__tools-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
+  max-width: 80%;
 }
 
 .project__links {

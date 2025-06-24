@@ -17,7 +17,7 @@
 }
 
 .tag--big {
-  width: 145px;
+  min-width: 145px;
   height: 37px;
   font-size: 18px;
   line-height: 34px;
