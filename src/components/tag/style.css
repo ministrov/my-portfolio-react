@@ -30,3 +30,15 @@
   color: var(--color-red-500);
   background-color: var(--color-red-100);
 }
+
+@media screen and (max-width: 375px) {
+  .tag--big {
+    min-width: initial;
+    height: auto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    border: 1px solid var(--color-blue-700);
+    border-radius: 20px;
+  }
+}
