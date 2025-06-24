@@ -5,8 +5,7 @@ const Button = ({ href = null, text, icon, className = null }) => {
     <a
       className={`btn ${className}`}
       href={href}
-      title="Opens in a new tab"
-      target="_blank"
+      target={href && "_blank"}
       rel="noopener noreferrer"
     >
       {text}

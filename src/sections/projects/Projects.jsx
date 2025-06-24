@@ -12,7 +12,7 @@ const filters = [
   { id: 4, name: 'JavaScript' },
 ];
 
-const Projects = ({ onImageClick }) => {
+const Projects = () => {
   const { state, handleFilterClick } = useProjectsFilter();
   const { t } = useTranslation();
   const BREADCRUMBS = [
