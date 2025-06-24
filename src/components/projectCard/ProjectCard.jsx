@@ -20,16 +20,11 @@ const ProjectCard = ({
       opacity: 1,
       transition: { delay: 0.3 }
     }
-    // visible: (index) => ({
-    //   opacity: 1,
-    //   transition: { delay: index * 0.3 },
-    // }),
   };
   return (
     <motion.li
       variants={variants}
       initial={'hidden'}
-      // animate={'visible'}
       whileInView={'visible'}
       custom={custom}
       className="project-card__item"

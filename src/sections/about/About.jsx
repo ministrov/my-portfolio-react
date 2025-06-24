@@ -1,7 +1,9 @@
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import author from '../../assets/png/photo.webp';
 import TypingText from '../../components/typingText/TypingText';
 import Heading from '../../components/heading/Heading';
-import Photo from '../../components/photo/Photo';
+// import Photo from '../../components/photo/Photo';
 import './style.css';
 
 const About = () => {
@@ -23,8 +25,21 @@ const About = () => {
             <p className="about__description">{t('about.descriptionTwo')}</p>
           </div>
 
-          <div className="about__right">
-            <Photo />
+          <div
+            className="about__right"
+          >
+            <motion.img
+              initial={{ opacity: 0 }}
+              whileInView={{
+                opacity: 1,
+                transition: { delay: 0.8, duration: 0.5, ease: 'easeInOut' },
+              }}
+              className="about__image"
+              src={author}
+              width={500}
+              height={500}
+              alt={"Focus on author's face"}
+            />
           </div>
         </div>
       </div>

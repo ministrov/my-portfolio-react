@@ -34,6 +34,11 @@
   border-bottom-right-radius: 251px;
 }
 
+.about__image {
+  position: relative;
+  mix-blend-mode: lighten;
+}
+
 .about__description {
   font-size: 1.8rem;
   font-weight: 500;
@@ -84,6 +89,13 @@
     font-size: 2.2rem;
   }
 }
+
+/* @media screen and (max-width: 600px) {
+  .about__image-wrapper {
+    width: 298px;
+    height: 298px;
+  }
+} */
 
 @media only screen and (max-width: 56.25em) {
   .about__wrapper {
