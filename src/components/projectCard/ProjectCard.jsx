@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Tag from '../tag/Tag';
-// import Image from '../image/Image';
 import './style.css';
 
 const ProjectCard = ({
@@ -11,6 +10,8 @@ const ProjectCard = ({
   img,
   imageAlt,
   isProduction,
+  year,
+  role,
   custom
 }) => {
   const variants = {
@@ -34,15 +35,13 @@ const ProjectCard = ({
         className="project-card__image"
       >
         <NavLink to={`/project/${id}`} className={'project-card__link'}>
-          {/* <Image
+          <img
             className={"project-card__img"}
+            src={img}
             width={486}
             height={347}
-            src={wepImg}
-            fallback={img}
             alt={imageAlt}
-          /> */}
-          <img className={"project-card__img"} src={img} width={486} height={347} alt={imageAlt} />
+          />
         </NavLink>
 
         {isProduction ? (
@@ -69,11 +68,11 @@ const ProjectCard = ({
           <div className="projcet-card__info-box-table">
             <div className="projcet-card__info-box-table-row">
               <span>Year</span>
-              <span>2023</span>
+              <span>{year}</span>
             </div>
             <div className="projcet-card__info-box-table-row">
               <span>Role</span>
-              <span>Front-end Developer</span>
+              <span>{role}</span>
             </div>
           </div>
         </div>

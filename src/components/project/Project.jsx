@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 // import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
 import { FaGithub } from 'react-icons/fa';
-import Image from '../image/Image';
 import Tag from '../tag/Tag';
 import Button from '../button/Button';
 import './Project.css';
@@ -20,13 +19,21 @@ const Project = ({ project }) => {
     >
       <div className="project__content">
         <div className="project__image nebo nebo--br">
-          <Image
+          {/* <Image
             className="project__img"
             src={project.wepImg}
             fallback={project.img}
             alt={project.imageAlt}
             width={1200}
             height={700}
+            loading="lazy"
+          /> */}
+          <img
+            className="project__img"
+            src={project.img}
+            width={1200}
+            height={700}
+            alt={project.imageAlt}
             loading="lazy"
           />
         </div>
@@ -42,11 +49,11 @@ const Project = ({ project }) => {
             <div className="project__details-table">
               <div className="project__details-table-row">
                 <span>Year</span>
-                <span>2023</span>
+                <span>{project.year}</span>
               </div>
               <div className="project__details-table-row">
                 <span>Role</span>
-                <span>Front-end Developer</span>
+                <span>{project.role}</span>
               </div>
             </div>
           </div>

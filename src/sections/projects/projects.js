@@ -19,6 +19,8 @@ export const projects = [
     gitHubLink: 'https://github.com/ministrov/yetycave-php',
     overview: 'projects.project1.overview',
     isProduction: false,
+    year: 2023,
+    role: 'intern Front-end Developer'
   },
   {
     id: 2,
@@ -29,6 +31,8 @@ export const projects = [
     slogan: 'projects.project2.slogan',
     overview: 'projects.project2.overview',
     isProduction: true,
+    year: 2021,
+    role: 'intern Front-end Developer'
   },
   {
     id: 3,
@@ -40,26 +44,32 @@ export const projects = [
     overview: 'projects.project3.overview',
     isProduction: false,
     demoLink: 'https://nike-react-tailwilnd.vercel.app/',
+    year: 2022,
+    role: 'Front-end Developer'
   },
   {
     id: 4,
     title: 'projects.project4.title',
-    skills: 'React, React-id-Generator, classnames',
+    skills: 'React, React-Router, classnames',
     img: personalDiary,
     slogan: 'projects.project4.slogan',
     gitHubLink: 'https://github.com/ministrov/react-journal',
     overview: 'projects.project4.overview',
     isProduction: false,
+    year: 2022,
+    role: 'Front-end Developer'
   },
   {
     id: 5,
     title: 'projects.project5.title',
-    skills: 'Next, TypeScript, React, Framer Motion',
+    skills: 'Next, TypeScript, React, Framer Motion, React Hook Form',
     img: topApp,
     slogan: 'projects.project5.slogan',
     gitHubLink: 'https://github.com/ministrov/top-app-next-ts',
     overview: 'projects.project5.overview',
     isProduction: true,
+    year: 2025,
+    role: 'Front-end Developer'
   },
   {
     id: 6,
@@ -71,6 +81,8 @@ export const projects = [
     demoLink: 'https://ratingus.ru/',
     overview: 'projects.project6.overview',
     isProduction: true,
+    year: 2024,
+    role: 'Front-end Developer'
   },
   {
     id: 7,
@@ -81,6 +93,8 @@ export const projects = [
     gitHubLink: 'https://github.com/ministrov/personal-blog-next-ts',
     overview: 'projects.project7.overview',
     isProduction: false,
+    year: 2025,
+    role: 'Front-end Developer'
   },
   {
     id: 8,
@@ -90,6 +104,8 @@ export const projects = [
     slogan: 'projects.project8.slogan',
     overview: 'projects.project8.overview',
     isProduction: false,
+    year: 2021,
+    role: 'intern Front-end Developer'
   },
   {
     id: 9,
@@ -100,6 +116,8 @@ export const projects = [
     overview: 'projects.project9.overview',
     demoLink: 'https://waterdel.ru/',
     isProduction: true,
+    year: 2022,
+    role: 'intern Front-end Developer'
   },
   {
     id: 10,
@@ -109,5 +127,7 @@ export const projects = [
     slogan: 'projects.project10.slogan',
     overview: 'projects.project10.overview',
     isProduction: false,
+    year: 2024,
+    role: 'Front-end Developer'
   },
 ];
