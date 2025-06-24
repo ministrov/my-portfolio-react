@@ -1,5 +1,4 @@
 .tag {
-  max-width: fit-content;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 2px;
@@ -15,6 +14,15 @@
 .purple {
   color: var(--color-blue-400);
   background-color: var(--color-blue-100);
+}
+
+.tag--big {
+  width: 145px;
+  height: 37px;
+  font-size: 18px;
+  line-height: 34px;
+  color: var(--color-blue-700);
+  background-color: var(--color-white);
 }
 
 .red {

@@ -55,7 +55,7 @@ const Project = ({ project }) => {
             <h4>Project Tools</h4>
             <ul className="project__tools-list">
               {project.skills.split(',').map((skill, index) => (
-                <Tag key={`id - ${index}: ${skill}`}>{skill}</Tag>
+                <Tag key={`id - ${index}: ${skill}`} size={'big'}>{skill}</Tag>
               ))}
             </ul>
           </div>
