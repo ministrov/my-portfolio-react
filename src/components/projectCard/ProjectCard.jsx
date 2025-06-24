@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Tag from '../tag/Tag';
-import Image from '../image/Image';
+// import Image from '../image/Image';
 import './style.css';
 
 const ProjectCard = ({
@@ -9,7 +9,6 @@ const ProjectCard = ({
   title,
   skills,
   img,
-  wepImg,
   imageAlt,
   isProduction,
   custom
@@ -35,14 +34,15 @@ const ProjectCard = ({
         className="project-card__image"
       >
         <NavLink to={`/project/${id}`} className={'project-card__link'}>
-          <Image
+          {/* <Image
             className={"project-card__img"}
             width={486}
             height={347}
             src={wepImg}
             fallback={img}
             alt={imageAlt}
-          />
+          /> */}
+          <img className={"project-card__img"} src={img} width={486} height={347} alt={imageAlt} />
         </NavLink>
 
         {isProduction ? (
