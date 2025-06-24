@@ -16,22 +16,31 @@ const ProjectCard = ({
 }) => {
   const variants = {
     hidden: { opacity: 0 },
-    visible: (index) => ({
+    visible: {
       opacity: 1,
-      transition: { delay: index * 0.5 },
-    }),
+      transition: { delay: 0.3 }
+    }
+    // visible: (index) => ({
+    //   opacity: 1,
+    //   transition: { delay: index * 0.3 },
+    // }),
   };
   return (
     <motion.li
       variants={variants}
       initial={'hidden'}
-      animate={'visible'}
+      // animate={'visible'}
+      whileInView={'visible'}
       custom={custom}
       className="project-card__item"
       tabIndex={0}
     >
       <motion.div
-        whileHover={{ scale: 1.04, transition: 0.7 }}
+        whileHover={
+          window.matchMedia('(min-width: 768px)').matches
+            ? { scale: 1.04, transition: { duration: 0.7 } }
+            : {}
+        }
         className="project-card__image"
       >
         <NavLink to={`/project/${id}`} className={'project-card__link'}>
@@ -81,7 +90,7 @@ const ProjectCard = ({
           <h4 className="project-card__tools-title">Project Tools</h4>
           <ul className="project-card__tools-list">
             {skills.map((skill, index) => (
-              <Tag key={`id - ${index}: ${skill}`}>{skill}</Tag>
+              <Tag key={`id - ${index}`}>{skill}</Tag>
             ))}
           </ul>
         </div>
