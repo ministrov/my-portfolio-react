@@ -13,8 +13,8 @@ const ServicesListItem = ({ service, open, onClick }) => {
         <BsArrowDownRight className="services__arrow" />
       </div>
       <div className="services__icon">{icon}</div>
-      <h2 className="services__subheading">{title}</h2>
-      <p className="services__description">{description}</p>
+      <h2 className="services__subheading">{t(title)}</h2>
+      <p className="services__description">{t(description)}</p>
 
       <button
         className="services__more"

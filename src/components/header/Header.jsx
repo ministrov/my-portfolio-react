@@ -1,4 +1,3 @@
-// import CountLikes from '../countLikes/CountLikes';
 import { PiHeartbeatLight } from 'react-icons/pi';
 import { ToggleLang } from '../toggleLang/ToggleLang';
 import MainNav from '../mainNav/MainNav';

@@ -2,37 +2,11 @@ import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import TestimonialCard from '../testimonialCard/TestimonialCard';
-import avatar1 from '../../assets/png/john-doe.webp';
-import avatar2 from '../../assets/png/ava-girl.webp';
-import avatar3 from '../../assets/png/john-doe2.webp';
+import { testimonials } from './testimonials';
 import './style.css';
 
 const Carousel = ({ className }) => {
   const { t } = useTranslation();
-
-  const testimonials = [
-    {
-      id: 1,
-      content: t('testimonials.contentOne'),
-      user: t('testimonials.user1.name'),
-      profession: t('testimonials.user1.profession'),
-      avatar: avatar1,
-    },
-    {
-      id: 2,
-      content: t('testimonials.contentTwo'),
-      user: t('testimonials.user2.name'),
-      profession: t('testimonials.user2.profession'),
-      avatar: avatar2,
-    },
-    {
-      id: 3,
-      content: t('testimonials.contentThree'),
-      user: t('testimonials.user3.name'),
-      profession: t('testimonials.user3.profession'),
-      avatar: avatar3,
-    },
-  ];
 
   return (
     <Swiper
@@ -51,9 +25,9 @@ const Carousel = ({ className }) => {
       {testimonials.map((testimonial) => (
         <SwiperSlide key={testimonial.id}>
           <TestimonialCard
-            content={testimonial.content}
-            user={testimonial.user}
-            profession={testimonial.profession}
+            content={t(testimonial.content)}
+            user={t(testimonial.user)}
+            profession={t(testimonial.profession)}
             avatar={testimonial.avatar}
           />
         </SwiperSlide>

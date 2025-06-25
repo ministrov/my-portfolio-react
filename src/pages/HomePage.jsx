@@ -8,8 +8,8 @@ import Skills from '../sections/skills/Skills.jsx';
 import Advertisement from '../sections/advertisement/Advertisement';
 import Testimonials from '../sections/testimonials/Testimonials';
 import Faq from '../sections/faq/Faq';
-import Services from '../sections/services/Services';
-import Statistics from '../sections/statistics/Statistics';
+import Services from '../sections/services/Services.jsx';
+import Statistics from '../sections/statistics/Statistics.jsx';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
