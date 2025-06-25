@@ -19,15 +19,6 @@ const Project = ({ project }) => {
     >
       <div className="project__content">
         <div className="project__image nebo nebo--br">
-          {/* <Image
-            className="project__img"
-            src={project.wepImg}
-            fallback={project.img}
-            alt={project.imageAlt}
-            width={1200}
-            height={700}
-            loading="lazy"
-          /> */}
           <img
             className="project__img"
             src={project.img}

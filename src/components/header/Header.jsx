@@ -1,4 +1,5 @@
-import CountLikes from '../countLikes/CountLikes';
+// import CountLikes from '../countLikes/CountLikes';
+import { PiHeartbeatLight } from 'react-icons/pi';
 import { ToggleLang } from '../toggleLang/ToggleLang';
 import MainNav from '../mainNav/MainNav';
 import Logo from '../logo/Logo';
@@ -10,7 +11,9 @@ const Header = () => {
       <nav className="header__nav main-nav">
         <Logo />
 
-        <CountLikes />
+        <div className="main-nav__likes likes">
+          <PiHeartbeatLight size={45} color="#0062b9" />
+        </div>
 
         <div className="main-nav__block">
           <MainNav />

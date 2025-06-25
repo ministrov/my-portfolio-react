@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import author from '../../assets/png/photo.webp';
 import TypingText from '../../components/typingText/TypingText';
 import Heading from '../../components/heading/Heading';
-// import Photo from '../../components/photo/Photo';
 import './style.css';
 
 const About = () => {

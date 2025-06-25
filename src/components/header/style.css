@@ -13,6 +13,13 @@
   padding: 3rem 6rem;
 }
 
+.main-nav__likes {
+  position: relative;
+  display: flex;
+  width: 45px;
+  height: 45px;
+}
+
 .main-nav__block {
   display: flex;
   align-items: center;
@@ -21,12 +28,6 @@
 .main-nav__list-wrapper {
   min-width: 287px;
 }
-
-/* .main-nav__logo:focus {
-  border: none;
-  outline: none;
-  box-shadow: var(--box-shadow);
-} */
 
 .main-nav__row {
   display: flex;
@@ -56,5 +57,11 @@
 
   .main-nav__list-wrapper {
     order: 2;
+  }
+}
+
+@media only screen and (max-width: 36.25em) {
+  .main-nav__likes {
+    display: none;
   }
 }
