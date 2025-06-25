@@ -44,12 +44,8 @@
 }
 
 .faq__answer {
-  width: 100%;
+  width: 94%;
   overflow: hidden;
-}
-
-.faq__answer .faq__muted {
-  padding: 1rem;
 }
 
 .faq__item--active .faq__muted {
@@ -67,9 +63,16 @@
     padding-bottom: 6rem;
   }
 
-  .faq__muted {
-    font-size: 1.6rem;
+  .faq__answer {
+    width: 83%;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
   }
+
+  /* .faq__item.faq__item--active .faq__answer {
+    padding: 24px;
+  } */
 
   .faq__question {
     padding: 2rem 2rem;

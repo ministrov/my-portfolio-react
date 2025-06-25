@@ -11,30 +11,37 @@ const Faq = () => {
 
   const faqs = [
     {
+      id: 1,
       question: t('faqs.question_1.name'),
       answer: t('faqs.question_1.answer'),
     },
     {
+      id: 2,
       question: t('faqs.question_2.name'),
       answer: t('faqs.question_2.answer'),
     },
     {
+      id: 3,
       question: t('faqs.question_3.name'),
       answer: t('faqs.question_3.answer'),
     },
     {
+      id: 4,
       question: t('faqs.question_4.name'),
       answer: t('faqs.question_4.answer'),
     },
     {
+      id: 5,
       question: t('faqs.question_5.name'),
       answer: t('faqs.question_5.answer'),
     },
     {
+      id: 6,
       question: t('faqs.question_6.name'),
       answer: t('faqs.question_6.answer'),
     },
     {
+      id: 7,
       question: t('faqs.question_7.name'),
       answer: t('faqs.question_7.answer'),
     },
@@ -62,7 +69,7 @@ const Faq = () => {
               className={`faq__item ${
                 activeIndex === index ? 'faq__item--active' : ''
               }`}
-              key={index}
+              key={item.id}
             >
               <motion.div
                 className="faq__question"
@@ -84,22 +91,16 @@ const Faq = () => {
                 {activeIndex === index && (
                   <motion.div
                     className="faq__answer"
-                    initial={{ opacity: 0, height: 0 }}
+                    initial={{ opacity: 0, height: 0, padding: 0 }}
                     animate={{
                       opacity: 1,
                       height: 'auto',
+                      padding: 24
                     }}
-                    exit={{ opacity: 0, height: 0 }}
+                    exit={{ opacity: 0, height: 0, padding: 0 }}
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
                   >
-                    <motion.p
-                      className="faq__muted"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3, duration: 0.5 }}
-                    >
-                      {item.answer}
-                    </motion.p>
+                    {item.answer}
                   </motion.div>
                 )}
               </AnimatePresence>
