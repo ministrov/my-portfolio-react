@@ -29,7 +29,7 @@
   left: 15px;
   bottom: 10px;
   width: 76%;
-  height: 3px;
+  height: 2px;
   transform-origin: right;
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;
