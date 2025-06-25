@@ -153,7 +153,7 @@
   }
 
   .services__item.services__expanded .services__description {
-    max-width: 230px;
+    max-width: 255px;
   }
 }
 
