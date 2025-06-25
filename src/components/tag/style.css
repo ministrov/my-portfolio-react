@@ -1,5 +1,4 @@
 .tag {
-  max-width: fit-content;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 2px;
@@ -13,12 +12,33 @@
 }
 
 .purple {
-  color: var(--light-blue-50);
-  background-color: var(--light-blue-400);
+  color: var(--color-blue-400);
+  background-color: var(--color-blue-100);
+}
+
+.tag--big {
+  min-width: 145px;
+  height: 37px;
+  font-size: 18px;
+  line-height: 34px;
+  color: var(--color-blue-700);
+  background-color: var(--color-white);
 }
 
 .red {
   font-weight: 600;
-  color: var(--light-red-100);
-  background-color: var(--light-red-200);
+  color: var(--color-red-500);
+  background-color: var(--color-red-100);
+}
+
+@media screen and (max-width: 375px) {
+  .tag--big {
+    min-width: initial;
+    height: auto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    border: 1px solid var(--color-blue-700);
+    border-radius: 20px;
+  }
 }

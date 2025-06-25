@@ -4,13 +4,7 @@ import ProjectsList from '../../components/projectsList/ProjectsList';
 import ProjectsLayout from './ProjectsLayout';
 import ProjectsHeader from './ProjectsHeader';
 import FilterList from './FilterList';
-
-const filters = [
-  { id: 1, name: 'All' },
-  { id: 2, name: 'React' },
-  { id: 3, name: 'Next' },
-  { id: 4, name: 'JavaScript' },
-];
+import { filters } from './filters';
 
 const Projects = () => {
   const { state, handleFilterClick } = useProjectsFilter();
@@ -34,7 +28,9 @@ const Projects = () => {
         onFilterClick={handleFilterClick}
       />
 
-      <ProjectsList projects={state.filteredProjects} />
+      <ProjectsList
+        projects={state.filteredProjects}
+       />
     </ProjectsLayout>
   );
 };

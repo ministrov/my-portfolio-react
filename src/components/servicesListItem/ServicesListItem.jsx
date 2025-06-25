@@ -1,37 +1,27 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsArrowDownRight } from 'react-icons/bs';
 import './style.css';
 
-const ServicesListItem = ({ service }) => {
-  const [isOpen, setOpen] = useState(false);
+const ServicesListItem = ({ service, open, onClick }) => {
+  const { id, icon, title, description } = service;
   const { t } = useTranslation();
 
-  const toggleExpand = () => {
-    setOpen((current) => !current);
-  };
-
   return (
-    <li className={`services__item ${isOpen ? 'services__item--short' : ''}`}>
+    <li className={`services__item ${open ? "services__expanded" : ""}`}>
       <div className="services__item-block">
-        <div className="services__item-text text-outline">{service.num}</div>
-        <div className="services__arrow" href={service.href}>
-          <BsArrowDownRight className="services__arrow-icon" />
-        </div>
+        <div className="services__item-text text-outline">{`0${id}`}</div>
+        <BsArrowDownRight className="services__arrow" />
       </div>
-
-      <div className="services__icon">{service.icon}</div>
-
-      <h2 className="services__subheading">{service.title}</h2>
-
-      <p className="services__description">{service.description}</p>
+      <div className="services__icon">{icon}</div>
+      <h2 className="services__subheading">{t(title)}</h2>
+      <p className="services__description">{t(description)}</p>
 
       <button
         className="services__more"
-        onClick={toggleExpand}
-        aria-expanded={isOpen}
+        onClick={onClick}
+        aria-expanded={open}
       >
-        {isOpen ? t('services.hide') : t('services.showMore')}
+        {open ? t('services.hide') : t('services.showMore')}
       </button>
     </li>
   );

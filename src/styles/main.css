@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Oswald';
-  src:
-    url('../assets/fonts/Oswald/Oswald-Regular.woff2') format('woff2'),
+  src: url('../assets/fonts/Oswald/Oswald-Regular.woff2') format('woff2'),
     url('../assets/fonts/Oswald/Oswald-Regular.woff') format('woff');
   font-weight: 400;
   font-display: swap;
@@ -9,8 +8,7 @@
 
 @font-face {
   font-family: 'Inter';
-  src:
-    url('../assets/fonts/Inter/Inter-Medium.woff2') format('woff2'),
+  src: url('../assets/fonts/Inter/Inter-Medium.woff2') format('woff2'),
     url('../assets/fonts/Inter/Inter-Medium.woff') format('woff');
   font-weight: 500;
   font-display: swap;
@@ -18,8 +16,7 @@
 
 @font-face {
   font-family: 'Open Sans';
-  src:
-    url('../assets/fonts/OpenSans/OpenSans-Regular.woff2') format('woff2'),
+  src: url('../assets/fonts/OpenSans/OpenSans-Regular.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-Regular.woff') format('woff');
   font-weight: 400;
   font-display: swap;
@@ -27,8 +24,7 @@
 
 @font-face {
   font-family: 'Open Sans';
-  src:
-    url('../assets/fonts/OpenSans/OpenSans-SemiBold.woff2') format('woff2'),
+  src: url('../assets/fonts/OpenSans/OpenSans-SemiBold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-SemiBold.woff') format('woff');
   font-weight: 600;
   font-display: swap;
@@ -36,53 +32,41 @@
 
 @font-face {
   font-family: 'Open Sans';
-  src:
-    url('../assets/fonts/OpenSans/OpenSans-Bold.woff2') format('woff2'),
+  src: url('../assets/fonts/OpenSans/OpenSans-Bold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-Bold.woff') format('woff');
   font-weight: 700;
   font-display: swap;
 }
 
+@import url('./nebo.css');
 
 :root {
-  --white: #fff;
-  --deep-black: #000;
-  --deep-black-100: #171718;
-  --deep-black-200: #26292d;
-  --light-blue-50: #3538cd;
-  --light-blue-100: #0062b9;
-  --light-blue-200: #3073c5;
-  --light-blue-300: #0e4ad1;
-  --light-blue-400: #eef4ff;
-  --light-red-100: #c11574;
-  --light-red-200: #fdf2fa;
-  --light-grey: #777;
+  /* Базовые цвета */
+  --color-white: #fff;
+  --color-black: #000;
 
-  /* Nav */
-  --nav-bg: var(--deep-black-100);
-  --nav-border: var(--deep-black-200);
-  --nav-text: var(--deep-black);
+  /* Серые оттенки */
+  --color-gray-100: #fafafa;
+  --color-gray-200: #eef4ff;
+  --color-gray-500: #777;
+  --color-gray-800: #26292d;
+  --color-gray-900: #171718;
 
-  /* Header */
-  --header-bg: var(--white);
-  --header-text: var(--white);
+  /* Синяя палитра */
+  --color-blue-100: #eef4ff;
+  --color-blue-300: #3073c5;
+  --color-blue-400: #3538cd;
+  --color-blue-500: #0e4ad1;
+  --color-blue-700: #0058a7;
 
-  /* Footer */
-  --footer-bg: var(--deep-black-100);
-  --footer-text: var(--white);
+  /* Красная палитра */
+  --color-red-100: #fdf2fa;
+  --color-red-500: #c11574;
+  /*
+  /* Радиусы */
+  --border-radius-s: 8px;
 
-  /* Border-radius */
-  --border-rs: 8px;
-
-  /* Light mode */
-  --page-bg: var(--white);
-  --text-color: var(--deep-black-100);
-  --accent: var(--light-purple-100);
-  --title-1: var(--accent);
-  --grey: #fafafa;
-  --project-card-bg: var(--white);
-  --project-card-text: var(--deep-black-100);
-  --box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
+  --box-shadow: 0px 0px 8px 0px #00000026;
   --gradient: linear-gradient(
     to right,
     rgba(0, 98, 185, 0.8),
@@ -105,11 +89,6 @@ li {
   list-style: none;
 }
 
-button:focus,
-a:focus {
-  outline: none;
-}
-
 button {
   border: none;
   cursor: pointer;
@@ -121,7 +100,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.2;
-  background-color: var(--page-bg);
+  background-color: var(--color-white);
 }
 
 img {
@@ -145,7 +124,7 @@ img {
 }
 
 .container {
-  max-width: 120rem;
+  max-width: 1224px;
   margin: 0 auto;
 }
 
@@ -159,13 +138,29 @@ img {
   display: none;
 }
 
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 65%;
+  }
+}
+
 @media only screen and (max-width: 98.25em) {
   html {
     font-size: 56%;
   }
+}
 
+@media only screen and (max-width: 1268px) {
   .container {
-    width: 95%;
+    max-width: 1068px;
+  }
+}
+
+@media only screen and (max-width: 1096px) {
+  .container {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
@@ -178,15 +173,5 @@ img {
 @media only screen and (max-width: 37.5em) {
   html {
     font-size: 59%;
-  }
-
-  .container {
-    width: 90%;
-  }
-}
-
-@media only screen and (min-width: 112.5em) {
-  html {
-    font-size: 65%;
   }
 }

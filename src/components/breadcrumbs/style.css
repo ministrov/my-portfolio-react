@@ -15,11 +15,11 @@
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.6;
-  color: var(--light-blue-100);
+  color: var(--color-blue-700);
 }
 
 .curent {
-  color: var(--light-blue-200);
+  color: var(--color-blue-300);
 }
 
 .arrow-right {
@@ -33,17 +33,17 @@
 }
 
 .link:hover {
-  color: var(--light-blue-200);
+  color: var(--color-blue-300);
 }
 
 .link:focus {
   opacity: 0.8;
-  color: var(--light-blue-200);
+  color: var(--color-blue-300);
 }
 
 .link:active {
   opacity: 0.6;
-  color: var(--light-blue-200);
+  color: var(--color-blue-300);
 }
 
 @media screen and (max-width: 768px) {

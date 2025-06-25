@@ -9,7 +9,11 @@
   gap: 2rem;
 }
 
-@media only screen and (max-width: 876px) {
+@media screen and (max-width: 768px) {
+  .statistics {
+    padding-bottom: 8rem;
+  }
+
   .statistics__list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -29,12 +33,6 @@
   }
 }
 
-@media screen and (max-width: 688px) {
-  .statistics {
-    padding-bottom: 8rem;
-  }
-}
-
 @media (max-width: 36rem) {
   .statistics {
     padding-top: 6rem;
@@ -47,5 +45,12 @@
 
   .statistics__item {
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .statistics {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }

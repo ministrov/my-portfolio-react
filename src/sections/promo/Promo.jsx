@@ -1,11 +1,10 @@
 import { useTranslation } from 'react-i18next';
+import { BsBoxArrowInUpRight } from "react-icons/bs";
 import PromoTyping from './PromoTyping';
-import Image from '../../components/image/Image';
 import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
-import MyAvatar from '../../assets/png/my-avatar.png';
-import MyAvatar1 from '../../assets/png/my-avatar.webp';
+import avatar from '../../assets/png/my-avatar.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -28,14 +27,13 @@ const Promo = () => {
             text={t('promo.promoBtn')}
             href={cvPdf}
             download={cvPdf}
-            className={'btn--big'}
+            icon={<BsBoxArrowInUpRight width={20} height={20}/>}
           />
         </div>
       </div>
       <div className="promo__image-wrapper">
-        <Image
-          src={MyAvatar1}
-          fallback={MyAvatar}
+        <img
+          src={avatar}
           width={252}
           height={252}
           alt={'A funny pixel men with a laptop in his hands'}

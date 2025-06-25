@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import Button from '../button/Button';
+import { BsBoxArrowInUpRight } from "react-icons/bs";
 import img from '../../assets/error.gif';
 import './style.css';
 
@@ -12,11 +14,13 @@ const ErrorMessage = () => {
         back home.
       </p>
 
-      <Button
-        text={'back Home'}
-        href={'/'}
-        className={'not-found__btn btn--med btn--theme'}
-      />
+      <Link to='/'>
+        <Button
+          text={'Home'}
+          className={'not-found__btn'}
+          icon={<BsBoxArrowInUpRight width={20} height={20} />}
+        />
+      </Link>
     </section>
   );
 };

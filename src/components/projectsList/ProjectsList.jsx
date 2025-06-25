@@ -14,10 +14,11 @@ const ProjectsList = ({ projects }) => {
           title={t(project.title)}
           skills={project.skills.split(',')}
           img={project.img}
-          wepImg={project.webpImg}
           imageAlt={project.title}
-          custom={index}
           isProduction={project.isProduction}
+          year={project.year}
+          role={project.role}
+          custom={index}
         />
       ))}
     </ul>

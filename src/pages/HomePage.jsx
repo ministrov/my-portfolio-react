@@ -8,8 +8,8 @@ import Skills from '../sections/skills/Skills.jsx';
 import Advertisement from '../sections/advertisement/Advertisement';
 import Testimonials from '../sections/testimonials/Testimonials';
 import Faq from '../sections/faq/Faq';
-import Services from '../sections/services/Services';
-import Statistics from '../sections/statistics/Statistics';
+import Services from '../sections/services/Services.jsx';
+import Statistics from '../sections/statistics/Statistics.jsx';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,31 +95,21 @@ const Home = () => {
         <meta name="keywords" content={t('metadata.home.keywords')} />
         <link rel="canonical" href={`${window.location.origin}/`} />
       </Helmet>
-      <section className="main-page">
-        <h1 className="visually-hidden">Home page of the author portfolio</h1>
 
-        <Promo />
-
-        <Statistics />
-
-        <About />
-
-        <Skills />
-
-        <Services />
-
-        <Advertisement />
-
-        <Testimonials />
-
-        <Faq />
-
-        <Modal
-          open={isOpen}
-          onClose={() => setIsOpen(false)}
-          autoCloseDelay={15000}
-        />
-      </section>
+      <h1 className="visually-hidden">Home page of the author portfolio</h1>
+      <Promo />
+      <Statistics />
+      <About />
+      <Skills />
+      <Services />
+      <Advertisement />
+      <Testimonials />
+      <Faq />
+      <Modal
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        autoCloseDelay={15000}
+      />
     </>
   );
 };

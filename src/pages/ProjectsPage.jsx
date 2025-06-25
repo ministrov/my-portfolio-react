@@ -4,6 +4,7 @@ import Projects from '../sections/projects/Projects.jsx';
 
 const ProjectsPage = () => {
   const { t } = useTranslation();
+
   return (
     <>
       <Helmet>
@@ -15,11 +16,10 @@ const ProjectsPage = () => {
         />
         <link rel="canonical" href={`${window.location.origin}/`} />
       </Helmet>
-      <section className="projects-page">
-        <h1 className="visually-hidden">Page about author's projects</h1>
 
-        <Projects />
-      </section>
+      <h1 className="visually-hidden">Page about author's projects</h1>
+
+      <Projects />
     </>
   );
 };
