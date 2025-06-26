@@ -12,14 +12,14 @@ const ProjectCard = ({
   isProduction,
   year,
   role,
-  custom
+  custom,
 }) => {
   const variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { delay: 0.3 }
-    }
+      transition: { delay: 0.3 },
+    },
   };
   return (
     <motion.li
@@ -40,7 +40,7 @@ const ProjectCard = ({
       >
         <NavLink to={`/project/${id}`} className={'project-card__link'}>
           <img
-            className={"project-card__img"}
+            className={'project-card__img'}
             src={img}
             width={486}
             height={347}
@@ -54,7 +54,7 @@ const ProjectCard = ({
           </div>
         ) : (
           <div className="project-card__tag-box">
-            <Tag color={'purple'}>{'Pet project'}</Tag>
+            <Tag>{'Pet project'}</Tag>
           </div>
         )}
       </motion.div>
@@ -63,7 +63,10 @@ const ProjectCard = ({
         <h3 className="project-card__info-title">{title}</h3>
 
         <p className="project-card__info-desc">
-          Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.
+          Teamed up with a designer to breathe life into a promotional webpage
+          for our beloved show, Adventure Time. Delivered a fully responsive
+          design with dynamic content capabilities, seamlessly integrating a
+          newsletter feature to keep fans updated with the latest adventures.
         </p>
 
         <div className="project-card__info-box">
