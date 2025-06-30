@@ -1,9 +1,9 @@
 .heading-sec__main {
   position: relative;
   display: block;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
   font-family: "Oswald", sans-serif;
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
@@ -13,7 +13,7 @@
 .heading-sec__main::after {
   position: absolute;
   content: '';
-  top: calc(100% + 1.5rem);
+  top: calc(100% + 2rem);
   left: 50%;
   height: 5px;
   width: 3rem;
@@ -31,28 +31,22 @@
 }
 
 .heading-sec__mb-med {
-  margin-bottom: 8rem;
+  margin-bottom: 6rem;
 }
 
 .heading-sec__sub {
   display: block;
   max-width: 80rem;
   margin: auto;
-  font-size: 2rem;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 24px;
   text-align: center;
   color: var(--color-blue-700);
 }
 
 .heading-sec__sub.heading-sec__main--second {
   color: var(--color-white);
-}
-
-.heading-sm {
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 @media only screen and (max-width: 56.25em) {
