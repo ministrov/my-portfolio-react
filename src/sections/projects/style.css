@@ -31,10 +31,6 @@
   .projects__filter-list {
     flex-wrap: wrap;
   }
-
-  /* .projects__filter-list {
-    flex-wrap: wrap;
-  } */
 }
 
 @media screen and (max-width: 768px) {

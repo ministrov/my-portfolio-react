@@ -73,10 +73,6 @@
   color: var(--color-blue-700);
 }
 
-.project-card__link {
-  display: block;
-}
-
 .project-card__tag-box {
   position: absolute;
   top: 16px;
@@ -112,7 +108,7 @@
   .project-card__item {
     gap: 36px;
   }
-  
+
   .project-card__image {
     padding-left: 36px;
     padding-right: 36px;
@@ -140,12 +136,6 @@
     border-bottom: none;
   }
 }
-
-/* @media screen and (max-width: 886px) {
-
-
-
-} */
 
 @media screen and (max-width: 768px) {
   .project-card {

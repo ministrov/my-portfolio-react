@@ -90,13 +90,6 @@
   }
 }
 
-/* @media screen and (max-width: 600px) {
-  .about__image-wrapper {
-    width: 298px;
-    height: 298px;
-  }
-} */
-
 @media only screen and (max-width: 56.25em) {
   .about__wrapper {
     flex-direction: column;

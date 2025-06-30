@@ -1,4 +1,4 @@
-.project-details {
+/* .project-details {
   padding: 16rem 0;
 }
 
@@ -79,7 +79,7 @@
   .project-details {
     padding: 12rem 0;
   }
-  
+
   .project-detail__btn-box {
     flex-direction: column;
     gap: 2rem;

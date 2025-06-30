@@ -4,7 +4,7 @@ import ShowcasingCard from '../showcasingCard/ShowcasingCard';
 import { projects } from '../../sections/projects/projects';
 import './style.css';
 
-const Carousel = ({ className }) => {
+const Carousel = () => {
   return (
     <Swiper
       modules={[Autoplay, EffectFade]}
