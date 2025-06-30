@@ -10,7 +10,6 @@ const ProjectsList = ({ projects }) => {
       {projects.map((project, index) => (
         <ProjectCard
           key={project.id}
-          id={project.id}
           title={t(project.title)}
           skills={project.skills.split(',')}
           img={project.img}
@@ -19,6 +18,8 @@ const ProjectsList = ({ projects }) => {
           year={project.year}
           role={project.role}
           custom={index}
+          demoLink={project.demoLink}
+          gitHubLink={project.gitHubLink}
         />
       ))}
     </ul>

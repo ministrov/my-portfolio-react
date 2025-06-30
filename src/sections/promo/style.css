@@ -3,64 +3,66 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80rem;
   max-height: 120rem;
   height: 100vh;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }
 
-.promo__content {
-  max-width: 80rem;
-  margin: 0 auto;
-}
-
-.promo__greeting {
-  margin-bottom: 2rem;
-  font-size: 7rem;
-  font-family: 'Oswald', sans-serif;
-  font-style: normal;
-  line-height: 90%;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--color-white);
-}
-
-.promo__greeting span:first-child {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.promo__slogan {
-  margin-bottom: 2rem;
-  font-size: 18px;
-  text-align: center;
-  line-height: 24px;
-  color: var(--color-white);
+.promo__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5%;
 }
 
 .promo__text {
+  max-width: 55%;
+}
+
+.promo__image {
+  width: 546px;
+  height: 512px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-blue-700);
+  border-radius: var(--border-radius-s);
+}
+
+.promo__avatar {
+  width: 252px;
+  border-radius: var(--border-radius-s);
+}
+
+.promo__greeting {
+  margin-bottom: 36px;
+  font-size: 4rem;
+  font-family: 'Oswald', sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-white);
+}
+
+.promo__slogan {
+  margin-bottom: 24px;
   font-size: 18px;
-  text-align: center;
   line-height: 24px;
   color: var(--color-white);
 }
 
-.promo__image-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 13%;
-  padding: 0.3rem;
-  box-shadow: var(--box-shadow);
-  background-color: var(--color-white);
-  transform: translate(-50%, -50%) rotate(45deg);
+.promo__welcome {
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-white);
 }
 
 .promo__btns {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
-  margin-top: 5rem;
+  gap: 1rem;
 }
 
 .promo__mouse-scroll-cont {
@@ -68,17 +70,6 @@
   bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.promo__socials {
-  position: absolute;
-  bottom: 6rem;
-  right: 20rem;
-}
-
-.promo__socials .socials {
-  display: flex;
-  flex-direction: column;
 }
 
 @media only screen and (max-width: 90rem) {

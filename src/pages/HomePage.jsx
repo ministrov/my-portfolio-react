@@ -5,8 +5,7 @@ import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 import Modal from '../components/modal/Modal';
 import Skills from '../sections/skills/Skills.jsx';
-import Advertisement from '../sections/advertisement/Advertisement';
-import Testimonials from '../sections/testimonials/Testimonials';
+import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
 import Statistics from '../sections/statistics/Statistics.jsx';
@@ -21,8 +20,8 @@ const Home = () => {
 
   useEffect(() => {
     const modalShown = localStorage.getItem('modalShown');
-    if (modalShown) {
-      setIsModalShown(true);
+    if (!modalShown) {
+      setIsModalShown(false);
     }
   }, []);
 
@@ -102,8 +101,7 @@ const Home = () => {
       <About />
       <Skills />
       <Services />
-      <Advertisement />
-      <Testimonials />
+      <Showcasing />
       <Faq />
       <Modal
         open={isOpen}

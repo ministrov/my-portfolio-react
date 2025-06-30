@@ -23,13 +23,9 @@
       "name": "My Services",
       "subheading": "Professional Solutions for Your Needs"
     },
-    "advertisement": {
-      "name": "Advertisement",
-      "subheading": "Give you the best place to your advertisement"
-    },
-    "testimonials": {
-      "name": "Testimonials",
-      "subheading": "Satisfied Clients Speak Out"
+    "showcasing": {
+      "name": "Projects showcase",
+      "subheading": "Give you the best view of the projects"
     },
     "faq": {
       "name": "Frequantly Asked Questions",
@@ -86,26 +82,6 @@
     "titleTwo": "Get to know me!",
     "descriptionOne": "As a Developer, I have a wide range of experience in front-end development. I am proficient in HTML, CSS, JavaScript, React. My strong experience in building responsive and dynamic interfaces using React and Next, and some time I can use vanilly JS, if it needs to my clients. It is allowed me to create engaging and interactive web applications.",
     "descriptionTwo": "I have experience in using React for building scalable and maintainable applications. This has allowed me to create efficient and sustainable code that can adept to the changing needs of a business."
-  },
-  "advertisement": {
-    "content": "Your advertisement could be here."
-  },
-  "testimonials": {
-    "contentOne": "I was amazed by the exceptional quality of service and attention to detail—truly a top-notch experience!",
-    "contentTwo": "Their professionalism and dedication made all the difference. I couldn't be happier with the results.",
-    "contentThree": "The level of expertise and care they provided exceeded my expectations, highly recommended!",
-    "user1": {
-      "name": "Ronald Row",
-      "profession": "Designer, LLC Team"
-    },
-    "user2": {
-      "name": "Sarah Chen",
-      "profession": "Senior UX Designer, TechCorp"
-    },
-    "user3": {
-      "name": "Marcus Johnson",
-      "profession": "Art Director, TechCorp"
-    }
   },
   "faqs": {
     "question_1": {

@@ -1,17 +1,17 @@
 .statistics {
-  padding-top: 12rem;
-  padding-bottom: 12rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 
 .statistics__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 @media screen and (max-width: 768px) {
   .statistics {
-    padding-bottom: 8rem;
+    padding-bottom: 5rem;
   }
 
   .statistics__list {
@@ -22,21 +22,20 @@
   .statistics__item {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     flex: 1 1;
     align-items: flex-start;
     gap: 1rem;
   }
 
   .statistics__desc {
-    font-size: 1.8rem;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 36rem) {
   .statistics {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .statistics__list {
@@ -50,7 +49,7 @@
 
 @media screen and (max-width: 375px) {
   .statistics {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }

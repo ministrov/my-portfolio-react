@@ -1,5 +1,5 @@
 .skills {
-  padding-bottom: 12rem;
+  padding-bottom: 7rem;
 }
 
 .skills__wrapper {
@@ -13,35 +13,37 @@
 }
 
 .skills__left-heading {
-  margin-bottom: 3rem;
-  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  font-size: 32px;
   font-weight: 700;
+  line-height: 38px;
   color: var(--color-blue-700);
 }
 
 .skills__right-heading {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  font-size: 32px;
   font-weight: 700;
-  font-size: 2.8rem;
+  line-height: 38px;
   color: var(--color-blue-700);
 }
 
 .skills__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .skills__text {
   margin: 0;
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 1.7;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
   color: var(--color-blue-700);
 }
 
 .skills__text:not(:last-child) {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .skill__card {
@@ -58,7 +60,7 @@
 
 @media screen and (max-width: 768px) {
   .skills {
-    padding-bottom: 8rem;
+    padding-bottom: 5rem;
   }
 }
 
@@ -69,18 +71,16 @@
   }
 }
 
-
-
 @media only screen and (max-width: 56.25em) {
   .skills__wrapper {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 2rem;
   }
 }
 
 @media (max-width: 36rem) {
   .skills {
-    padding-bottom: 6rem;
+    padding-bottom: 4rem;
   }
 
   .skills__wrapper {
@@ -90,6 +90,6 @@
 
 @media screen and (max-width: 375px) {
   .skills {
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
   }
 }

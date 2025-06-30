@@ -3,22 +3,23 @@ import Carousel from '../../components/carousel/Carousel';
 import Heading from '../../components/heading/Heading';
 import './style.css';
 
-const Testimonials = () => {
+const Showcasing = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="testimonials">
+    <section className="showcasing">
       <div className="container">
         <Heading
-          title={t('heading.testimonials.name')}
-          slogan={t('heading.testimonials.subheading')}
-          className="testimonials__header"
-        ></Heading>
+          title={t('heading.showcasing.name')}
+          slogan={t('heading.showcasing.subheading')}
+        />
 
-        <Carousel className="testimonials__carousel" />
+        <div className="showcasing__wrapper">
+          <Carousel className="showcasing__carousel" />
+        </div>
       </div>
     </section>
   );
 };
 
-export default Testimonials;
+export default Showcasing;

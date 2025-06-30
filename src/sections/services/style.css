@@ -1,11 +1,11 @@
 .services {
-  padding-bottom: 12rem;
+  padding-bottom: 7rem;
 }
 
 .services__list {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
-  gap: 3rem;
+  gap: 2rem;
 }
 
 @media (max-width: 1024px) {
@@ -16,18 +16,12 @@
 
 @media screen and (max-width: 768px) {
   .services {
-    padding-bottom: 8rem;
-  }
-}
-
-@media (max-width: 36rem) {
-  .services {
-    padding-bottom: 6rem;
+    padding-bottom: 5rem;
   }
 }
 
 @media screen and (max-width: 375px) {
   .services {
-    padding-bottom: 4rem;
+    padding-bottom: 3rem;
   }
 }
