@@ -138,23 +138,6 @@ img {
   display: none;
 }
 
-/* @media only screen and (min-width: 112.5em) {
-  html {
-    font-size: 65%;
-  }
-} */
-
-/* @media only screen and (max-width: 112.5em) {
-  html {
-    font-size: 65%;
-  }
-}
-@media only screen and (max-width: 98.25em) {
-  html {
-    font-size: 56%;
-  }
-} */
-
 @media only screen and (max-width: 1268px) {
   .container {
     max-width: 1068px;
@@ -168,15 +151,3 @@ img {
     padding-right: 16px;
   }
 }
-
-/* @media only screen and (max-width: 56.25em) {
-  html {
-    font-size: 56%;
-  }
-}
-
-@media only screen and (max-width: 37.5em) {
-  html {
-    font-size: 59%;
-  }
-} */
