@@ -7,13 +7,10 @@
   font-weight: 500;
   line-height: 20px;
   text-align: center;
+  color: var(--color-blue-700);
+  background-color: var(--color-blue-100);
   border-radius: 20px;
   box-sizing: border-box;
-}
-
-.purple {
-  color: var(--color-blue-400);
-  background-color: var(--color-blue-100);
 }
 
 .tag--big {
