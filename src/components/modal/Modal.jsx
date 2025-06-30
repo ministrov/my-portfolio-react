@@ -56,7 +56,7 @@ const Modal = ({ open, onClose }) => {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="backdrop modal"
+          className="backdrop"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -67,7 +67,7 @@ const Modal = ({ open, onClose }) => {
         >
           <motion.div
             ref={modalRef}
-            className="modal__wrapper"
+            className="modal"
             variants={dropIn}
             initial="hidden"
             animate="visible"
@@ -76,10 +76,10 @@ const Modal = ({ open, onClose }) => {
             tabIndex={0}
           >
             <header className="modal__header">
-              <h2>{t('modal.title')}</h2>
+              <p className="modal__slogan">{t('modal.title')}</p>
 
               <button
-                className="modal-close"
+                className="modal__close"
                 onClick={onClose}
                 aria-label={t('modal.close')}
                 tabIndex={0}
@@ -90,7 +90,7 @@ const Modal = ({ open, onClose }) => {
               </button>
             </header>
 
-            <p>{t('modal.text')}</p>
+            <p className="modal__text">{t('modal.text')}</p>
             <div className="modal__socials">
               <SocialList />
             </div>
