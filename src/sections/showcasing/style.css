@@ -6,11 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 560px;
-  font-size: 3rem;
-  line-height: 1.2;
-  text-align: center;
-  color: var(--color-white);
+  min-height: 560px;
   border-radius: var(--border-radius-s);
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }

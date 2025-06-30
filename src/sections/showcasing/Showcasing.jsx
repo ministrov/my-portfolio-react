@@ -10,12 +10,12 @@ const Showcasing = () => {
     <section className="showcasing">
       <div className="container">
         <Heading
-          title={t('heading.advertisement.name')}
-          slogan={t('heading.advertisement.subheading')}
+          title={t('heading.showcasing.name')}
+          slogan={t('heading.showcasing.subheading')}
         />
 
         <div className="showcasing__wrapper">
-          <Carousel className="testimonials__carousel" />
+          <Carousel className="showcasing__carousel" />
         </div>
       </div>
     </section>
