@@ -1,5 +1,20 @@
-.scroll-to {
-  position: fixed;
+.scroll-to {position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  /* font-size: 2rem;
+  line-height: 1.2;
+  color: var(--white); */
+  border: none;
+  border-radius: 10px;
+  background-color: var(--color-blue-700);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  /* position: fixed;
   z-index: 100;
   bottom: 5rem;
   right: 5rem;
@@ -16,18 +31,11 @@
   border-radius: 50%;
   opacity: 0;
   cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out; */
 }
 
 .scroll-to:focus-visible {
   box-shadow: 0 0 0 4px rgba(var(--color-blue-700), 0.6);
-  outline: none;
-}
-
-.scroll-to:focus {
-  border-width: 2px;
-  border-style: solid;
-  border-color: var(--color-white);
   outline: none;
 }
 

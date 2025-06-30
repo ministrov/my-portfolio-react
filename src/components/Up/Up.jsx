@@ -16,7 +16,7 @@ const Up = () => {
         setIsShowed(false);
         break;
       case 'Enter':
-        if (isShowed) scrollToTop();;
+        if (isShowed) scrollToTop();
         break;
       default:
         break;
@@ -53,8 +53,9 @@ const Up = () => {
           className="scroll-to"
           onClick={scrollToTop}
           tabIndex={0}
+          aria-label='Наверх'
         >
-          <FaLongArrowAltUp />
+          <FaLongArrowAltUp size={20} color='white' />
         </motion.button>
       )}
     </AnimatePresence>
