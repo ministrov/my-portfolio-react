@@ -1,32 +1,14 @@
-.carousel {
+/* .carousel {
   overflow: hidden;
-}
+} */
 
-.carousel__inner {
+/* .carousel__inner {
   position: relative;
   display: flex;
   gap: 1rem;
   margin-bottom: 25px;
-}
-
-.carousel__controls {
-  display: flex;
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.carousel__btn_prev,
-.carousel__btn_next {
-  display: flex;
-  border-radius: var(--border-radius-s);
-  background-color: var(--color-blue-700);
-}
-
-.carousel__btn_prev:hover,
-.carousel__btn_next:hover {
-  opacity: 0.7;
-}
-
+} */
+/*
 @media only screen and (max-width: 56.25em) {
   .carousel__inner {
     gap: 2rem;
@@ -37,4 +19,4 @@
   .carousel__inner {
     gap: 3rem;
   }
-}
+} */

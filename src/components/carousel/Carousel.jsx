@@ -7,7 +7,6 @@ import './style.css';
 const Carousel = ({ className }) => {
   return (
     <Swiper
-      className={`${className} carousel`}
       modules={[Autoplay, EffectFade]}
       effect="fade"
       fadeEffect={{ crossFade: true }}

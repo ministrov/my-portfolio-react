@@ -3,10 +3,7 @@
 }
 
 .showcasing__wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 560px;
+  object-fit: contain;
   border-radius: var(--border-radius-s);
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }
@@ -16,10 +13,10 @@
     padding-bottom: 8rem;
   }
 
-  .showcasing__wrapper {
+  /* .showcasing__wrapper {
     padding: 1rem;
     font-size: 2.4rem;
-  }
+  } */
 }
 
 @media (max-width: 36rem) {
@@ -27,9 +24,9 @@
     padding-bottom: 6rem;
   }
 
-  .showcasing__wrapper {
+  /* .showcasing__wrapper {
     height: 236px;
-  }
+  } */
 }
 
 @media screen and (max-width: 375px) {
