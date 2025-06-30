@@ -3,8 +3,6 @@ import { statistics } from './statistics.js';
 import './style.css';
 
 const Statistics = () => {
-
-
   return (
     <section className="statistics">
       <h2 className="visually-hidden">
