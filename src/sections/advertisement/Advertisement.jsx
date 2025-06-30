@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import Carousel from '../../components/carousel/Carousel';
 import Heading from '../../components/heading/Heading';
 import './style.css';
 
@@ -13,7 +14,9 @@ const Advertisement = () => {
           slogan={t('heading.advertisement.subheading')}
         />
 
-        <div className="advertisement__advs">{t('advertisement.content')}</div>
+        <div className="advertisement__advs">
+          <Carousel className="testimonials__carousel" />
+        </div>
       </div>
     </section>
   );
