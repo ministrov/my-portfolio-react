@@ -3,18 +3,18 @@ import Carousel from '../../components/carousel/Carousel';
 import Heading from '../../components/heading/Heading';
 import './style.css';
 
-const Advertisement = () => {
+const Showcasing = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="advertisement">
+    <section className="showcasing">
       <div className="container">
         <Heading
           title={t('heading.advertisement.name')}
           slogan={t('heading.advertisement.subheading')}
         />
 
-        <div className="advertisement__advs">
+        <div className="showcasing__wrapper">
           <Carousel className="testimonials__carousel" />
         </div>
       </div>
@@ -22,4 +22,4 @@ const Advertisement = () => {
   );
 };
 
-export default Advertisement;
+export default Showcasing;

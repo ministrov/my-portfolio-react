@@ -1,8 +1,8 @@
-.advertisement {
+.showcasing {
   padding-bottom: 12rem;
 }
 
-.advertisement__advs {
+.showcasing__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,28 +16,28 @@
 }
 
 @media screen and (max-width: 768px) {
-  .advertisement {
+  .showcasing {
     padding-bottom: 8rem;
   }
 
-  .advertisement__advs {
+  .showcasing__wrapper {
     padding: 1rem;
     font-size: 2.4rem;
   }
 }
 
 @media (max-width: 36rem) {
-  .advertisement {
+  .showcasing {
     padding-bottom: 6rem;
   }
 
-  .advertisement__advs {
+  .showcasing__wrapper {
     height: 236px;
   }
 }
 
 @media screen and (max-width: 375px) {
-  .advertisement {
+  .showcasing {
     padding-bottom: 4rem;
   }
 }

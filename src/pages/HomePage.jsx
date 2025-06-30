@@ -5,7 +5,7 @@ import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 import Modal from '../components/modal/Modal';
 import Skills from '../sections/skills/Skills.jsx';
-import Advertisement from '../sections/advertisement/Advertisement';
+import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
 import Statistics from '../sections/statistics/Statistics.jsx';
@@ -101,7 +101,7 @@ const Home = () => {
       <About />
       <Skills />
       <Services />
-      <Advertisement />
+      <Showcasing />
       <Faq />
       <Modal
         open={isOpen}
