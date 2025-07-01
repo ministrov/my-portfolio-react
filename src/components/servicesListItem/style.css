@@ -48,8 +48,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0;
-  font-size: 18px;
-  line-height: 24px;
   transition: all 0.3s ease;
   color: var(--color-blue-700);
 }
@@ -128,7 +126,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 1.8rem;
+    font-size: 18px;
+    line-height: 24px;
   }
 }
 

@@ -51,30 +51,35 @@
   .skills {
     margin-bottom: 5rem;
   }
+
+  .skills__list {
+    justify-content: center;
+  }
+
+  .skills__left-heading,
+  .skills__right-heading {
+    margin-bottom: 1rem;
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 624px) {
+  .skills {
+    margin-bottom: 4rem;
+  }
+
   .skill__card {
     width: 100%;
     min-width: initial;
   }
 }
 
-@media only screen and (max-width: 56.25em) {
+@media screen and (max-width: 534px) {
   .skills__wrapper {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-}
-
-@media (max-width: 36rem) {
-  .skills {
-    margin-bottom: 4rem;
-  }
-
-  /* .skills__wrapper {
-    gap: 6rem;
-  } */
 }
 
 @media screen and (max-width: 375px) {
