@@ -1,6 +1,5 @@
 .projects {
-  /* padding: 9rem 0; */
-  margin-bottom: 6rem;
+  padding: 9rem 0;
 }
 
 .projects__filter {
@@ -30,13 +29,9 @@
   }
 }
 
-/* @media only screen and (max-width: 56.25em) {
-
-} */
-
 @media screen and (max-width: 768px) {
   .projects {
-    margin-bottom: 5rem;
+    padding-bottom: 5rem;
   }
 
   .projects__filter {
@@ -51,7 +46,8 @@
 
 @media screen and (max-width: 375px) {
   .projects {
-    margin-bottom: 2rem;
+    padding-top: 7rem;
+    padding-bottom: 2rem;
   }
 
   .projects__filter {

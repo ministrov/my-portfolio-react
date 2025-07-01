@@ -93,4 +93,23 @@
   .faq {
     padding-bottom: 2rem;
   }
+
+  .faq__list {
+    gap: 1rem;
+  }
+
+  .faq__question {
+    padding: 1rem 1rem;
+  }
+
+  .faq__question h3 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .faq__answer {
+    width: 83%;
+    font-size: 16px;
+    line-height: 20px;
+  }
 }

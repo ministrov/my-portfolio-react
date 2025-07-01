@@ -46,10 +46,10 @@
   color: var(--color-blue-300);
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .link,
   .curent {
     font-size: 14px;
     line-height: 20px;
   }
-}
+} */

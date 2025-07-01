@@ -51,9 +51,9 @@
 }
 
 .nav__toggler div {
-  width: 3rem;
-  height: 3px;
-  margin: 5px;
+  width: 2rem;
+  height: 2px;
+  margin: 6px;
   background-color: var(--color-blue-700);
   transition: all 0.5s ease-in;
 }
@@ -88,10 +88,9 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 45%;
+    width: 40%;
     height: 100vh;
     display: block;
-    text-align: right;
     background-color: var(--color-white);
     transform: translateX(100%);
     transition: 0.5s ease-in;
@@ -107,9 +106,10 @@
 
   .nav-list__link {
     display: flex;
-    justify-content: flex-end;
-    padding: 2.5rem 3rem;
-    font-size: 1.8rem;
+    justify-content: flex-start;
+    padding: 2rem 2rem;
+    font-size: 20px;
+    line-height: 26px;
     border-bottom: 1px solid #eee;
   }
 
@@ -120,5 +120,11 @@
 
   .nav-list__link--active::before {
     display: none;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .nav-list {
+    width: 100%;
   }
 }
