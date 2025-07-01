@@ -236,7 +236,13 @@
 
   .project-card__img {
     height: 256px;
-    /* border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0; */
+  }
+
+  .project-card__tools-list {
+    gap: 5px;
+  }
+
+  .project-card__skills {
+    max-width: 55%;
   }
 }
