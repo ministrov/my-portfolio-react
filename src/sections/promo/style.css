@@ -66,6 +66,21 @@
   gap: 1rem;
 }
 
+.promo__btn {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: var(--color-blue-700);
+  border-bottom: none;
+  background-color: var(--color-white);
+  border-radius: 40px;
+}
+
+.promo__btn:hover {
+  border-bottom: none;
+}
+
 .promo__mouse-scroll-cont {
   position: absolute;
   bottom: 3%;

@@ -18,12 +18,13 @@ const Promo = () => {
         <div className="promo__wrapper">
           <div className="promo__text">
             <strong className={'promo__greeting'}>
-              Привет,{<br/>} Я Антон Жилин.
+              Привет,{<br />} Я Антон Жилин.
             </strong>
             <p className="promo__slogan">{t('promo.promoSlogan')}</p>
             <p className="promo__welcome">{t('promo.promoText')}</p>
             <div className="promo__btns">
               <Button
+                className={'promo__btn'}
                 text={t('promo.promoBtn')}
                 href={cvPdf}
                 download={cvPdf}
