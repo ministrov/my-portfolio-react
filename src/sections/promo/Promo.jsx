@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
-import PromoTyping from './PromoTyping';
 import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
@@ -18,7 +17,9 @@ const Promo = () => {
       <div className="container">
         <div className="promo__wrapper">
           <div className="promo__text">
-            <PromoTyping className={'promo__greeting'} />
+            <strong className={'promo__greeting'}>
+              Привет,{<br/>} Я Антон Жилин.
+            </strong>
             <p className="promo__slogan">{t('promo.promoSlogan')}</p>
             <p className="promo__welcome">{t('promo.promoText')}</p>
             <div className="promo__btns">
