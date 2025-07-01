@@ -3,8 +3,9 @@
   display: block;
   margin-bottom: 3rem;
   font-family: "Oswald", sans-serif;
-  font-size: 4rem;
+  font-size: 76px;
   font-weight: 400;
+  line-height: 82px;
   text-transform: uppercase;
   text-align: center;
   color: var(--color-blue-700);
@@ -16,7 +17,7 @@
   top: calc(100% + 2rem);
   left: 50%;
   height: 5px;
-  width: 3rem;
+  width: 48px;
   transform: translateX(-50%);
   border-radius: var(--border-radius-s);
   background: var(--color-blue-700);
@@ -36,8 +37,6 @@
 
 .heading-sec__sub {
   display: block;
-  max-width: 80rem;
-  margin: auto;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -61,11 +60,11 @@
   }
 
   .heading-sec__main::after {
-    top: calc(100% + 1.2rem);
+    top: calc(100% + 1rem);
   }
 
   .heading-sec__sub {
-    font-size: 1.8rem;
+    font-size: 1rem;
   }
 }
 
