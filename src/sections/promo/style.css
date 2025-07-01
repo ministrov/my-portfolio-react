@@ -3,8 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 120rem;
-  height: 100vh;
+  height: 85vh;
   padding-top: 4rem;
   padding-bottom: 4rem;
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
@@ -22,7 +21,7 @@
 
 .promo__image {
   width: 546px;
-  height: 512px;
+  height: 470px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,30 +69,6 @@
   bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
-}
-
-@media only screen and (max-width: 90rem) {
-  .promo__image-wrapper {
-    display: none;
-  }
-
-  .promo__socials {
-    bottom: 11%;
-    right: 22%;
-    transform: translate(-50%, -50%);
-  }
-
-  .promo__socials .socials {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-}
-
-@media only screen and (max-width: 940px) {
-  .promo__content {
-    width: 92%;
-    padding: 8rem 0 6rem 0;
-  }
 }
 
 @media only screen and (max-width: 56.25em) {

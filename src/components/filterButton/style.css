@@ -1,8 +1,10 @@
 .filter__btn {
   min-width: 170px;
   height: 40px;
-  font-size: 1.7rem;
-  line-height: 1.4;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
   color: var(--color-blue-700);
   background-color: var(--color-white);
   border-radius: var(--border-radius-s);

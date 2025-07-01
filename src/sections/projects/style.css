@@ -1,12 +1,12 @@
 .projects {
-  padding: 16rem 0;
+  padding: 9rem 0;
 }
 
 .projects__filter {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  margin-bottom: 9rem;
+  margin-bottom: 4rem;
   background-color: var(--color-blue-700);
   border-radius: var(--border-radius-s);
 }

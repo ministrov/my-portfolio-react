@@ -104,6 +104,11 @@
   gap: 16px;
 }
 
+.project-card__link {
+  color: var(--color-blue-700);
+  border-bottom: 2px solid var(--color-blue-700);
+}
+
 @media screen and (max-width: 1024px) {
   .project-card__item {
     gap: 36px;
