@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 85vh;
-  padding-top: 4rem;
+  height: 80vh;
+  padding-top: 6rem;
   padding-bottom: 4rem;
   background: var(--gradient), url('../../assets/svg/common-bg.svg');
 }

@@ -86,12 +86,14 @@ const ProjectCard = ({
         </div>
 
         <div className="project-card__tools">
-          <h4 className="project-card__tools-title">Project Tools</h4>
-          <ul className="project-card__tools-list">
-            {skills.map((skill, index) => (
-              <Tag key={`id - ${index}`}>{skill}</Tag>
-            ))}
-          </ul>
+          <div className="project-card__skills">
+            <h4 className="project-card__tools-title">Project Tools</h4>
+            <ul className="project-card__tools-list">
+              {skills.map((skill, index) => (
+                <Tag key={`id - ${index}`}>{skill}</Tag>
+              ))}
+            </ul>
+          </div>
 
           <div className="project-card__links">
             {demoLink && (

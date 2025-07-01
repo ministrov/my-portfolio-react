@@ -85,7 +85,20 @@
 
 .project-card__tools {
   display: flex;
+  align-items: center;
+}
+
+.project-card__skills {
+  display: flex;
   flex-direction: column;
+  max-width: 348px;
+}
+
+.project-card__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: auto;
 }
 
 .project-card__tools-title {
