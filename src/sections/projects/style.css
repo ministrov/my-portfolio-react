@@ -1,12 +1,12 @@
 .projects {
-  padding: 16rem 0;
+  padding: 9rem 0;
 }
 
 .projects__filter {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  margin-bottom: 9rem;
+  margin-bottom: 4rem;
   background-color: var(--color-blue-700);
   border-radius: var(--border-radius-s);
 }
@@ -20,10 +20,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .projects {
-    padding: 14rem 0;
-  }
-
   .projects__filter {
     margin-bottom: 7rem;
   }
@@ -35,7 +31,7 @@
 
 @media screen and (max-width: 768px) {
   .projects {
-    padding: 12rem 0;
+    padding-bottom: 5rem;
   }
 
   .projects__filter {
@@ -49,6 +45,11 @@
 }
 
 @media screen and (max-width: 375px) {
+  .projects {
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+  }
+
   .projects__filter {
     margin-bottom: 3rem;
   }

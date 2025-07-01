@@ -85,7 +85,20 @@
 
 .project-card__tools {
   display: flex;
+  align-items: center;
+}
+
+.project-card__skills {
+  display: flex;
   flex-direction: column;
+  max-width: 348px;
+}
+
+.project-card__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: auto;
 }
 
 .project-card__tools-title {
@@ -104,6 +117,11 @@
   gap: 16px;
 }
 
+.project-card__link {
+  color: var(--color-blue-700);
+  border-bottom: 2px solid var(--color-blue-700);
+}
+
 @media screen and (max-width: 1024px) {
   .project-card__item {
     gap: 36px;
@@ -116,6 +134,17 @@
 
   .project-card__info {
     padding-top: 24px;
+  }
+
+  .project-card__info-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .project-card__info-desc {
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .project-card__info-box {
@@ -134,6 +163,10 @@
   .projcet-card__info-box-table-row:last-child {
     border-top: 1px solid var(--color-blue-700);
     border-bottom: none;
+  }
+
+  .project-card__skills {
+    max-width: 172px;
   }
 }
 
@@ -165,6 +198,10 @@
 
   .project-card__img {
     width: 100%;
+  }
+
+  .project-card__skills {
+    max-width: 100%;
   }
 }
 
@@ -199,7 +236,13 @@
 
   .project-card__img {
     height: 256px;
-    /* border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0; */
+  }
+
+  .project-card__tools-list {
+    gap: 5px;
+  }
+
+  .project-card__skills {
+    max-width: 55%;
   }
 }

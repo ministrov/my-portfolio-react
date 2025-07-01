@@ -1,5 +1,6 @@
 .showcasing {
-  padding-bottom: 12rem;
+  /* padding-bottom: 12rem; */
+  margin-bottom: 6rem;
 }
 
 .showcasing__wrapper {
@@ -10,27 +11,12 @@
 
 @media screen and (max-width: 768px) {
   .showcasing {
-    padding-bottom: 8rem;
+    margin-bottom: 5rem;
   }
-
-  /* .showcasing__wrapper {
-    padding: 1rem;
-    font-size: 2.4rem;
-  } */
-}
-
-@media (max-width: 36rem) {
-  .showcasing {
-    padding-bottom: 6rem;
-  }
-
-  /* .showcasing__wrapper {
-    height: 236px;
-  } */
 }
 
 @media screen and (max-width: 375px) {
   .showcasing {
-    padding-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 }

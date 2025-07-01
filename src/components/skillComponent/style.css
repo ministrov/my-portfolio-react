@@ -1,3 +1,15 @@
+.skill__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  min-width: 148px;
+  padding: 1rem 1rem;
+  border: 2px solid var(--color-blue-700);
+  border-radius: var(--border-radius-s);
+  background-color: var(--color-white);
+}
+
 .skill__card-header {
   font-size: 18px;
   font-weight: 600;
