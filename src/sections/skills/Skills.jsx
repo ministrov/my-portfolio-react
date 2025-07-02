@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
-// import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Heading from '../../components/heading/Heading';
-// import SkillComponet from '../../components/skillComponent/SkillComponent';
+import Skill from '../../components/skill/Skill';
 import { skills } from './skills';
 import './style.css';
 
@@ -19,8 +18,8 @@ const Skills = () => {
         ></Heading>
 
         <Swiper
-          spaceBetween={50}
-          slidesPerView={3}
+          spaceBetween={16}
+          slidesPerView={4}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >
@@ -28,17 +27,9 @@ const Skills = () => {
             className="skills__list"
           >
             {skills.map((skill) => (
-              <li
-                key={skill.id}
-                className="skill__card"
-                aria-label={skill.tech}
-              >
-                <SwiperSlide key={skill.id}>
-                  {/* <SkillComponet
-                    skill={skill}
-                  /> */}
-                </SwiperSlide>
-              </li>
+              <SwiperSlide key={skill.id}>
+                <Skill skill={skill}/>
+              </SwiperSlide>
             ))}
           </ul>
         </Swiper>
