@@ -14,7 +14,6 @@
   line-height: 34px;
   color: var(--color-white);
   text-decoration: none;
-  /* border-radius: 4px; */
   transition:
     opacity 0.3s ease,
     outline 0.1s ease;
@@ -26,17 +25,9 @@
   transform: translateY(-2px);
 }
 
-.socials__link:focus-visible {
+/* .socials__link:focus-visible {
   outline: 3px solid var(--color-blue-700);
   outline-offset: 2px;
-}
-
-/* @media only screen and (max-width: 354px) {
-  .socials {
-    gap: 1rem;
-  }
-
-  .socials__link {
-    font-size: 3rem;
-  }
 } */
+
+
