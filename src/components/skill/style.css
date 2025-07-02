@@ -10,6 +10,14 @@
   background-color: var(--color-gray-200);
 }
 
+.skill__card:hover {
+  cursor: pointer;
+  border: 2px solid var(--color-blue-500);
+  box-shadow: var(--box-shadow);
+  /* transform: scale(1.2); */
+  transition: all 0.5s ease-in-out;
+}
+
 .skill__left {
   display: flex;
   flex-direction: column;
