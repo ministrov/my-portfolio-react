@@ -41,14 +41,15 @@
   color: var(--color-blue-700);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .skill__card {
-    width: 65%;
     min-width: 128px;
+    max-width: 100%;
   }
 
   .skill__left {
     display: flex;
+    align-items: center;
     gap: 1rem;
   }
 }

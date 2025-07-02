@@ -22,26 +22,26 @@ const Skills = () => {
         ></Heading>
 
         <Swiper
-          modules={[Autoplay, A11y]} // Модуль доступности
-          speed={1650} // Скорость анимации
-          autoplay={{ // Параметры автоматической прокрутки
-            delay: 1000, // Задержка перед сменой слайда
-            disableOnInteraction: false, // Продолжать автопрокрутку при взаимодействии
-            pauseOnMouseEnter: true, // Остановить автопрокрутку при наведении мыши
+          modules={[Autoplay, A11y]}
+          speed={650} // Скорость анимации
+          autoplay={{
+            delay: 800,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
-          loop={true} // Включаем цикл воспроизведения
-          spaceBetween={16} // Расстояние между элементами
-          slidesPerView={'auto'} // Автоматически адаптируемое количество элементов
-          centeredSlides={false} // Отключение центрирования активных слайдов
-          breakpoints={{ // Адаптивные настройки
-            320: { slidesPerView: 1 }, // На маленьких экранах — два элемента
-            768: { slidesPerView: 2 }, // На планшетах — три элемента
-            1024: { slidesPerView: 4 }, // На больших экранах — четыре элемента
-            1224: { slidesPerView: 5 }, // На больших экранах — четыре элемента
+          loop={true}
+          spaceBetween={16}
+          slidesPerView={'auto'}
+          centeredSlides={false}
+          breakpoints={{
+            454: { slidesPerView: 1 },
+            455: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+            1224: { slidesPerView: 5 },
           }}
-          grabCursor={true} // Курсор захвата позволяет визуально показать, что слайдер доступен для перетаскивания
-        // onSlideChange={() => console.log('slide change')}
-        // onSwiper={(swiper) => console.log(swiper)}
+          grabCursor={true}
+
         >
           {skills.map((skill) => (
             <SwiperSlide key={skill.id}>

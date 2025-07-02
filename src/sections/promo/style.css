@@ -113,6 +113,8 @@
 
   .promo__greeting {
     margin-bottom: 12px;
+    font-size: 43px;
+    line-height: 49px;
   }
 
   .promo__slogan {
@@ -136,6 +138,12 @@
 }
 
 @media only screen and (max-width: 37.5em) {
+  .promo__welcome {
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  
   .promo__slogan {
     font-size: 16px;
     text-align: initial;
@@ -163,7 +171,7 @@
   }
 
   .promo__greeting {
-    font-size: 43px;
-    line-height: 49px;
+    font-size: 39px;
+    line-height: 45px;
   }
 }
