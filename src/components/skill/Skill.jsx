@@ -18,7 +18,6 @@ const Skill = ({ skill }) => {
           end={skill.percent}
           duration={5}
           delay={2}
-          className="skill__percent-num"
         />%
       </p>
     </li>
