@@ -1,24 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, A11y } from 'swiper/modules';
 import Heading from '../../components/heading/Heading';
-import SkillComponet from '../../components/skillComponent/SkillComponent';
+import Skill from '../../components/skill/Skill';
 import { skills } from './skills';
 import './style.css';
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.5
-    }
-  }
-}
-
-const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 }
-}
+import 'swiper/css';
+import 'swiper/css/a11y';
 
 const Skills = () => {
   const { t } = useTranslation();
@@ -32,41 +21,33 @@ const Skills = () => {
           className="skills__title"
         ></Heading>
 
-        <div className="skills__wrapper">
-          <div className="skills__left">
-            <h3 className="skills__left-heading">{t('skills.titleOne')}</h3>
-
-            <motion.ul
-              initial="hidden"
-              whileInView="show"
-              variants={container}
-              className="skills__list"
-            >
-              {skills.map((skill) => (
-                <motion.li
-                  key={skill.id}
-                  transition={{ duration: 0.5 }}
-                  variants={item}
-                  className="skill__card"
-                  aria-label={skill.tech}
-                >
-                  <SkillComponet
-                    key={skill.id}
-                    skill={skill}
-                  />
-                </motion.li>
-              ))}
-            </motion.ul>
-          </div>
-          <div className="skills__right">
-            <h3 className="skills__right-heading">{t('skills.titleTwo')}</h3>
-
-            <div className="skills__right-content">
-              <p className="skills__text">{t('skills.descriptionOne')}</p>
-              <p className="skills__text">{t('skills.descriptionTwo')}</p>
-            </div>
-          </div>
-        </div>
+        <Swiper
+          modules={[Autoplay, A11y]}
+          speed={650} // Скорость анимации
+          autoplay={{
+            delay: 800,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          loop={true}
+          spaceBetween={16}
+          slidesPerView={'auto'}
+          centeredSlides={false}
+          breakpoints={{
+            454: { slidesPerView: 1 },
+            455: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+            1224: { slidesPerView: 5 },
+          }}
+          grabCursor={true}
+        >
+          {skills.map((skill) => (
+            <SwiperSlide key={skill.id}>
+              <Skill skill={skill} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

@@ -13,3 +13,28 @@ const SocialList = ({ className }) => {
 };
 
 export default SocialList;
+
+
+// const coder = {
+//   name: 'Anton Zhilin',
+//   skills: ['React', 'NextJS', 'Redux', 'TypeScript',
+//     'REST API', 'Material UI', 'Docker', 'AWS'
+//   ],
+//   hardWorker: true,
+//   quickLearner: true,
+//   problemSolver: true,
+//   hireable() {
+//     return (
+//       this.hardWorker &&
+//       this.problemSolver &&
+//       this.skills.length >=
+//     );
+//   }
+// };
+
+
+
+
+
+
+

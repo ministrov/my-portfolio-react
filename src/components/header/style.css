@@ -10,14 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 3rem;
-}
-
-.main-nav__likes {
-  position: relative;
-  display: flex;
-  width: 45px;
-  height: 45px;
+  padding: 1rem 2rem;
 }
 
 .main-nav__block {
@@ -39,10 +32,6 @@
 }
 
 @media only screen and (max-width: 56.25em) {
-  .main-nav {
-    padding: 24px 16px;
-  }
-
   .main-nav__list-wrapper {
     min-width: initial;
   }
@@ -60,8 +49,12 @@
   }
 }
 
-@media only screen and (max-width: 36.25em) {
-  .main-nav__likes {
-    display: none;
+@media screen and (max-width: 375px) {
+  .main-nav {
+    padding: 1rem 1rem;
+  }
+
+  .main-nav__block {
+    gap: 8px;
   }
 }

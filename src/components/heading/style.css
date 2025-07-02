@@ -54,6 +54,13 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .heading-sec__main {
+    font-size: 56px;
+    line-height: 62px;
+  }
+}
+
 @media only screen and (max-width: 37.5em) {
   .heading-sec__main {
     margin-bottom: 2rem;
