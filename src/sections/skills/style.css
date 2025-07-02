@@ -2,11 +2,11 @@
   margin-bottom: 6rem;
 }
 
-.skills__list {
+/* .skills__list {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-}
+} */
 
 .skills__text {
   margin: 0;
@@ -23,10 +23,6 @@
 @media screen and (max-width: 768px) {
   .skills {
     margin-bottom: 5rem;
-  }
-
-  .skills__list {
-    justify-content: center;
   }
 }
 
