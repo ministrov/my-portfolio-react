@@ -32,41 +32,27 @@ const Skills = () => {
           className="skills__title"
         ></Heading>
 
-        <div className="skills__wrapper">
-          <div className="skills__left">
-            <h3 className="skills__left-heading">{t('skills.titleOne')}</h3>
-
-            <motion.ul
-              initial="hidden"
-              whileInView="show"
-              variants={container}
-              className="skills__list"
+        <motion.ul
+          initial="hidden"
+          whileInView="show"
+          variants={container}
+          className="skills__list"
+        >
+          {skills.map((skill) => (
+            <motion.li
+              key={skill.id}
+              transition={{ duration: 0.5 }}
+              variants={item}
+              className="skill__card"
+              aria-label={skill.tech}
             >
-              {skills.map((skill) => (
-                <motion.li
-                  key={skill.id}
-                  transition={{ duration: 0.5 }}
-                  variants={item}
-                  className="skill__card"
-                  aria-label={skill.tech}
-                >
-                  <SkillComponet
-                    key={skill.id}
-                    skill={skill}
-                  />
-                </motion.li>
-              ))}
-            </motion.ul>
-          </div>
-          <div className="skills__right">
-            <h3 className="skills__right-heading">{t('skills.titleTwo')}</h3>
-
-            <div className="skills__right-content">
-              <p className="skills__text">{t('skills.descriptionOne')}</p>
-              <p className="skills__text">{t('skills.descriptionTwo')}</p>
-            </div>
-          </div>
-        </div>
+              <SkillComponet
+                key={skill.id}
+                skill={skill}
+              />
+            </motion.li>
+          ))}
+        </motion.ul>
       </div>
     </section>
   );
