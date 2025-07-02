@@ -1,24 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Heading from '../../components/heading/Heading';
-import SkillComponet from '../../components/skillComponent/SkillComponent';
+// import SkillComponet from '../../components/skillComponent/SkillComponent';
 import { skills } from './skills';
 import './style.css';
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.5
-    }
-  }
-}
-
-const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 }
-}
 
 const Skills = () => {
   const { t } = useTranslation();
@@ -32,27 +18,30 @@ const Skills = () => {
           className="skills__title"
         ></Heading>
 
-        <motion.ul
-          initial="hidden"
-          whileInView="show"
-          variants={container}
-          className="skills__list"
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={3}
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={(swiper) => console.log(swiper)}
         >
-          {skills.map((skill) => (
-            <motion.li
-              key={skill.id}
-              transition={{ duration: 0.5 }}
-              variants={item}
-              className="skill__card"
-              aria-label={skill.tech}
-            >
-              <SkillComponet
+          <ul
+            className="skills__list"
+          >
+            {skills.map((skill) => (
+              <li
                 key={skill.id}
-                skill={skill}
-              />
-            </motion.li>
-          ))}
-        </motion.ul>
+                className="skill__card"
+                aria-label={skill.tech}
+              >
+                <SwiperSlide key={skill.id}>
+                  {/* <SkillComponet
+                    skill={skill}
+                  /> */}
+                </SwiperSlide>
+              </li>
+            ))}
+          </ul>
+        </Swiper>
       </div>
     </section>
   );
