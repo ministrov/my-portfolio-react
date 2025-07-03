@@ -7,8 +7,6 @@
   margin-bottom: 6rem;
   padding-top: 6rem;
   padding-bottom: 4rem;
-  /* background: var(--gradient), url('../../assets/svg/common-bg.svg'); */
-  /* background-color: var(--color-blue-700); */
 }
 
 .promo__wrapper {
@@ -46,14 +44,12 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--color-blue-700);
-  /* color: var(--color-white); */
 }
 
 .promo__slogan {
   margin-bottom: 24px;
   font-size: 18px;
   line-height: 24px;
-  /* color: var(--color-white); */
   color: var(--color-blue-700);
 }
 
@@ -62,7 +58,6 @@
   font-size: 18px;
   line-height: 24px;
   color: var(--color-blue-700);
-  /* color: var(--color-white); */
 }
 
 .promo__btns {
@@ -82,9 +77,9 @@
   border-radius: 40px;
 }
 
-.promo__btn:hover {
+/* .promo__btn:hover {
   border-bottom: none;
-}
+} */
 
 .promo__mouse-scroll-cont {
   position: absolute;
@@ -96,7 +91,7 @@
 @media screen and (max-width: 987px) {
   .promo {
     height: auto;
-    padding-top: 10rem;
+    /* padding-top: 10rem; */
   }
 
   .promo__wrapper {
@@ -169,7 +164,7 @@
 
 @media screen and (max-width: 375px) {
   .promo {
-    padding-top: 7rem;
+    padding-top: 5rem;
     padding-bottom: 0;
     margin-bottom: 4rem;
   }
