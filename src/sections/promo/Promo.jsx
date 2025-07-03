@@ -4,12 +4,16 @@ import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
 import TypingEffect from '../../components/typingEffect/TypingEffect';
+import { useLanguage } from '../../context/LanguageProvider';
 import avatar from '../../assets/png/my-avatar.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
 const Promo = () => {
+  const { lang } = useLanguage();
   const { t } = useTranslation();
+
+  // console.log(lang);
   return (
     <section className="promo">
       <h2 className="visually-hidden">
@@ -18,9 +22,17 @@ const Promo = () => {
       <div className="container">
         <div className="promo__wrapper">
           <div className="promo__text">
-            <strong className={'promo__greeting'}>
-              Привет,{<br />} <TypingEffect text={'Я Антон Жилин'} speed={300}/>.
-            </strong>
+            {lang === 'ru' && (
+              <strong className={'promo__greeting'}>
+                Привет,{<br />} <TypingEffect text={'Я Антон Жилин'} speed={300} />.
+              </strong>
+            )}
+            {lang === 'en' && (
+              <strong className={'promo__greeting'}>
+                Hi,{<br />} <TypingEffect text={"I'm Anton Zhilin"} speed={300} />.
+              </strong>
+            )}
+
             <p className="promo__slogan">{t('promo.promoSlogan')}</p>
             <p className="promo__welcome">{t('promo.promoText')}</p>
             <div className="promo__btns">
@@ -33,7 +45,7 @@ const Promo = () => {
               />
 
               <div className="promo__socials">
-                <SocialList className={'socials__link--second'}/>
+                <SocialList className={'socials__link--second'} />
               </div>
             </div>
           </div>

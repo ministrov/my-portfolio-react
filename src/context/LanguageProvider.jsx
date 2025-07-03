@@ -2,12 +2,14 @@ import { createContext, useContext, useState } from 'react';
 
 export const LanguageContext = createContext({
   lang: 'ru',
-  toggleLang: () => {},
+  toggleLang: () => { },
 });
+
+// console.log(LanguageContext);
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState('ru');
-  console.log(lang);
+
   const toggleLang = () => setLang(lang === 'ru' ? 'en' : 'ru');
 
   return (
