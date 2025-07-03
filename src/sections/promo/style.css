@@ -77,10 +77,6 @@
   border-radius: 40px;
 }
 
-/* .promo__btn:hover {
-  border-bottom: none;
-} */
-
 .promo__mouse-scroll-cont {
   position: absolute;
   bottom: 3%;
@@ -91,12 +87,16 @@
 @media screen and (max-width: 987px) {
   .promo {
     height: auto;
-    /* padding-top: 10rem; */
+    padding-bottom: 0;
   }
 
   .promo__wrapper {
     flex-direction: column;
     gap: 4rem;
+  }
+
+  .promo__text {
+    max-width: 70%;
   }
 
   .promo__mouse-scroll-cont {
