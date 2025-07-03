@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import './style.css';
 
 const TypingEffect = ({ text, speed }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -18,7 +19,7 @@ const TypingEffect = ({ text, speed }) => {
   }, [index, text, speed]);
 
   return (
-    <>{displayedText}</>
+    <span className="typewriter-text">{displayedText}</span>
   )
 }
 

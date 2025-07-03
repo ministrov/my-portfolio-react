@@ -3,6 +3,7 @@ import { BsBoxArrowInUpRight } from "react-icons/bs";
 import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
+import TypingEffect from '../../components/typingEffect/TypingEffect';
 import avatar from '../../assets/png/my-avatar.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
@@ -18,7 +19,7 @@ const Promo = () => {
         <div className="promo__wrapper">
           <div className="promo__text">
             <strong className={'promo__greeting'}>
-              Привет,{<br />} Я Антон Жилин.
+              Привет,{<br />} <TypingEffect text={'Я Антон Жилин'} speed={300}/>.
             </strong>
             <p className="promo__slogan">{t('promo.promoSlogan')}</p>
             <p className="promo__welcome">{t('promo.promoText')}</p>
