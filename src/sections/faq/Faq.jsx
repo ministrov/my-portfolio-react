@@ -29,9 +29,8 @@ const Faq = () => {
         <ul className="faq__list">
           {faqs.map((item, index) => (
             <li
-              className={`faq__item ${
-                activeIndex === index ? 'faq__item--active' : ''
-              }`}
+              className={`faq__item ${activeIndex === index ? 'faq__item--active' : ''
+                }`}
               key={item.id}
             >
               <motion.div
@@ -58,10 +57,13 @@ const Faq = () => {
                     animate={{
                       opacity: 1,
                       height: 'auto',
-                      padding: 24
+                      paddingTop: 12,
+                      paddingLeft: 48,
+                      paddingRight: 24,
+                      paddingBottom: 24
                     }}
                     exit={{ opacity: 0, height: 0, padding: 0 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    transition={{ duration: 1, ease: 'easeInOut' }}
                   >
                     {t(item.answer)}
                   </motion.div>

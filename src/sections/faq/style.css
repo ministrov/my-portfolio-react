@@ -14,7 +14,9 @@
 
 .faq__item {
   width: 100%;
-  min-width: 100%;
+  /* min-width: 100%; */
+  border: 2px solid var(--color-blue-700);
+  border-radius: var(--border-radius-s);
 }
 
 .faq__question {
@@ -24,8 +26,10 @@
   padding: 2rem 2rem;
   background-color: transparent;
   cursor: pointer;
-  border: 2px solid var(--color-blue-700);
-  border-radius: var(--border-radius-s);
+}
+
+.faq__item--active .faq__question {
+  padding: 2rem 2rem 1rem;
 }
 
 .faq__question h3 {
