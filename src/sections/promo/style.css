@@ -7,7 +7,8 @@
   margin-bottom: 6rem;
   padding-top: 6rem;
   padding-bottom: 4rem;
-  background: var(--gradient), url('../../assets/svg/common-bg.svg');
+  /* background: var(--gradient), url('../../assets/svg/common-bg.svg'); */
+  /* background-color: var(--color-blue-700); */
 }
 
 .promo__wrapper {
@@ -44,21 +45,24 @@
   line-height: 62px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--color-white);
+  color: var(--color-blue-700);
+  /* color: var(--color-white); */
 }
 
 .promo__slogan {
   margin-bottom: 24px;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-white);
+  /* color: var(--color-white); */
+  color: var(--color-blue-700);
 }
 
 .promo__welcome {
   margin-bottom: 40px;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-white);
+  color: var(--color-blue-700);
+  /* color: var(--color-white); */
 }
 
 .promo__btns {
@@ -72,9 +76,11 @@
   padding-bottom: 16px;
   padding-left: 20px;
   padding-right: 20px;
-  color: var(--color-blue-700);
+  /* color: var(--color-blue-700); */
+  color: var(--color-white);
   border-bottom: none;
-  background-color: var(--color-white);
+  /* background-color: var(--color-white); */
+  background-color: var(--color-blue-700);
   border-radius: 40px;
 }
 
@@ -132,9 +138,9 @@
     align-items: flex-start;
   }
 
-  .promo__btn:hover {
+  /* .promo__btn:hover {
     background-color: var(--gradient);
-  }
+  } */
 
   .promo__welcome {
     margin-bottom: 32px;

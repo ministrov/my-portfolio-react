@@ -1,6 +1,6 @@
 .typewriter-text {
   display: inline-block;
-  border-right: 3px solid var(--color-white);
+  border-right: 3px solid var(--color-blue-700);
   padding-right: 5px;
 }
 
@@ -10,7 +10,7 @@
   }
 
   50% {
-    border-color: var(--color-white);
+    border-color: var(--color-blue-700);
   }
 
   100% {
