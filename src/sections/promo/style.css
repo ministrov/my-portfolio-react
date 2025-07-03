@@ -75,6 +75,12 @@
   border-bottom: none;
   background-color: var(--color-blue-700);
   border-radius: 40px;
+  transition: background 0.5s ease-in-out;
+}
+
+.promo__btn:hover {
+  background: var(--gradient);
+  transform: translateY(-2px);
 }
 
 .promo__mouse-scroll-cont {
