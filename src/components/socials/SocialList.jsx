@@ -4,9 +4,14 @@ import './style.css';
 
 const SocialList = ({ className }) => {
   return (
-    <ul className={`${className} socials`}>
+    <ul className={"socials socials__list"}>
       {socials.map((social) => (
-        <SocialListItem tabIndex={0} key={social.name} social={social} />
+        <SocialListItem
+          key={social.name}
+          social={social}
+          tabIndex={0}
+          className={className}
+        />
       ))}
     </ul>
   );
