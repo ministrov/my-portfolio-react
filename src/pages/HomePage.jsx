@@ -97,8 +97,8 @@ const Home = () => {
 
       <h1 className="visually-hidden">Home page of the author portfolio</h1>
       <Promo />
-      <Statistics />
       <About />
+      <Statistics />
       <Skills />
       <Services />
       <Showcasing />
