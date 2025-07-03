@@ -33,7 +33,7 @@ const Promo = () => {
               />
 
               <div className="promo__socials">
-                <SocialList className={'socials__list'} />
+                <SocialList />
               </div>
             </div>
           </div>

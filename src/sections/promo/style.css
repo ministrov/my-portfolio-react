@@ -76,10 +76,8 @@
   padding-bottom: 16px;
   padding-left: 20px;
   padding-right: 20px;
-  /* color: var(--color-blue-700); */
   color: var(--color-white);
   border-bottom: none;
-  /* background-color: var(--color-white); */
   background-color: var(--color-blue-700);
   border-radius: 40px;
 }
@@ -137,10 +135,6 @@
   .promo__btns {
     align-items: flex-start;
   }
-
-  /* .promo__btn:hover {
-    background-color: var(--gradient);
-  } */
 
   .promo__welcome {
     margin-bottom: 32px;
