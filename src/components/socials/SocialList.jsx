@@ -2,11 +2,16 @@ import SocialListItem from './SocialListItem.jsx';
 import { socials } from './socials.js';
 import './style.css';
 
-const SocialList = () => {
+const SocialList = ({ className }) => {
   return (
-    <ul className={"socials"}>
+    <ul className={"socials socials__list"}>
       {socials.map((social) => (
-        <SocialListItem key={social.name} social={social} tabIndex={0} />
+        <SocialListItem
+          key={social.name}
+          social={social}
+          tabIndex={0}
+          className={className}
+        />
       ))}
     </ul>
   );
