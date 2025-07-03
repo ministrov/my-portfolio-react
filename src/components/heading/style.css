@@ -23,14 +23,6 @@
   background: var(--color-blue-700);
 }
 
-.heading-sec__main--second.heading-sec__main::after {
-  background: var(--color-white);
-}
-
-.heading-sec__main--second {
-  color: var(--color-white);
-}
-
 .heading-sec__mb-med {
   margin-bottom: 6rem;
 }
@@ -42,10 +34,6 @@
   line-height: 24px;
   text-align: center;
   color: var(--color-blue-700);
-}
-
-.heading-sec__sub.heading-sec__main--second {
-  color: var(--color-white);
 }
 
 @media only screen and (max-width: 56.25em) {
