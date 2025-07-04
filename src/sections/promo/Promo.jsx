@@ -13,7 +13,6 @@ const Promo = () => {
   const { lang } = useLanguage();
   const { t } = useTranslation();
 
-  // console.log(lang);
   return (
     <section className="promo">
       <h2 className="visually-hidden">
@@ -44,9 +43,7 @@ const Promo = () => {
                 icon={<BsBoxArrowInUpRight width={20} height={20} />}
               />
 
-              <div className="promo__socials">
-                <SocialList className={'socials__link--second'} />
-              </div>
+              <SocialList varient='blue' />
             </div>
           </div>
 

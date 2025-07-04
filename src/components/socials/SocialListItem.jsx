@@ -1,6 +1,6 @@
 import './style.css';
 
-const SocialListItem = ({ social, className = '' }) => {
+const SocialListItem = ({ social, varient = 'white' }) => {
   return (
     <li className="socials__item">
       <a
@@ -8,7 +8,7 @@ const SocialListItem = ({ social, className = '' }) => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${social.name} (открывается в новой вкладке)`}
-        className={`socials__link ${className}`}
+        className={`socials__link socials__link--${varient}`}
         tabIndex={0}
       >
         {social.icon}
