@@ -11,6 +11,7 @@ const ProjectsList = ({ projects }) => {
         <ProjectCard
           key={project.id}
           title={t(project.title)}
+          overview={(t(project.overview))}
           skills={project.skills.split(',')}
           img={project.img}
           imageAlt={project.title}

@@ -11,6 +11,7 @@ const ProjectCard = ({
   img,
   imageAlt,
   isProduction,
+  overview,
   year,
   role,
   custom,
@@ -63,12 +64,7 @@ const ProjectCard = ({
       <div className="project-card__info">
         <h3 className="project-card__info-title">{title}</h3>
 
-        <p className="project-card__info-desc">
-          Teamed up with a designer to breathe life into a promotional webpage
-          for our beloved show, Adventure Time. Delivered a fully responsive
-          design with dynamic content capabilities, seamlessly integrating a
-          newsletter feature to keep fans updated with the latest adventures.
-        </p>
+        <p className="project-card__info-desc">{overview}</p>
 
         <div className="project-card__info-box">
           <h4>Project Info</h4>
