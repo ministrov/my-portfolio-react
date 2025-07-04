@@ -4,7 +4,7 @@ import './style.css';
 
 const SocialList = ({ className }) => {
   return (
-    <ul className={"socials socials__list"}>
+    <ul className={`socials socials__list ${className}`}>
       {socials.map((social) => (
         <SocialListItem
           key={social.name}
