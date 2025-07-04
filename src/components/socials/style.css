@@ -21,21 +21,34 @@
   line-height: 34px;
   color: var(--color-white);
   text-decoration: none;
-  transition: opacity 0.3s ease, outline 0.1s ease;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.socials__link--second {
+.socials__link--blue {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 54px;
   height: 54px;
+  font-size: 28px;
+  line-height: 34px;
+  color: var(--color-white);
   background-color: var(--color-blue-700);
   border-radius: 50%;
+  text-decoration: none;
 }
 
 .socials__link:hover,
 .socials__link:focus-visible {
   opacity: 0.7;
   transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+  .socials__link--blue {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    line-height: 30px;
+  }
 }

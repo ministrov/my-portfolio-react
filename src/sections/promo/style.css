@@ -134,7 +134,14 @@
   }
 
   .promo__btns {
-    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .promo__btn {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .promo__welcome {
@@ -178,5 +185,9 @@
   .promo__greeting {
     font-size: 39px;
     line-height: 45px;
+  }
+
+  .promo__btns {
+    align-items: flex-start;
   }
 }
