@@ -14,10 +14,13 @@ const ProjectCard = ({
   overview,
   year,
   role,
-  custom,
   demoLink,
   gitHubLink
 }) => {
+
+  const isDesktop = typeof window !== 'undefined' &&
+    window.matchMedia('(min-width: 768px)').matches;
+
   const variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -30,13 +33,12 @@ const ProjectCard = ({
       variants={variants}
       initial={'hidden'}
       whileInView={'visible'}
-      custom={custom}
       className="project-card__item"
       tabIndex={0}
     >
       <motion.div
         whileHover={
-          window.matchMedia('(min-width: 768px)').matches
+          isDesktop
             ? { scale: 1.02, transition: { duration: 0.7 } }
             : {}
         }
@@ -45,9 +47,11 @@ const ProjectCard = ({
         <img
           className={'project-card__img'}
           src={img}
-          width={486}
-          height={347}
+          // width={486}
+          // height={347}
           alt={imageAlt}
+          loading="lazy"
+          decoding="async"
         />
 
         {isProduction ? (
@@ -69,12 +73,12 @@ const ProjectCard = ({
         <div className="project-card__info-box">
           <h4>Project Info</h4>
 
-          <div className="projcet-card__info-box-table">
-            <div className="projcet-card__info-box-table-row">
+          <div className="project-card__info-box-table">
+            <div className="project-card__info-box-table-row">
               <span>Year</span>
               <span>{year}</span>
             </div>
-            <div className="projcet-card__info-box-table-row">
+            <div className="project-card__info-box-table-row">
               <span>Role</span>
               <span>{role}</span>
             </div>
@@ -85,8 +89,8 @@ const ProjectCard = ({
           <div className="project-card__skills">
             <h4 className="project-card__tools-title">Project Tools</h4>
             <ul className="project-card__tools-list">
-              {skills.map((skill, index) => (
-                <Tag key={`id - ${index}`}>{skill}</Tag>
+              {skills.map((skill) => (
+                <Tag key={skill}>{skill}</Tag>
               ))}
             </ul>
           </div>
@@ -97,7 +101,9 @@ const ProjectCard = ({
                 className={"project-card__link"}
                 text={'Live Demo'}
                 icon={<BsBoxArrowInUpRight width={20} height={20} />}
-                href={demoLink || null}
+                href={demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
               />
             )}
 
@@ -106,7 +112,9 @@ const ProjectCard = ({
                 className={'project-card__link'}
                 text={'See on Github'}
                 icon={<FaGithub width={20} height={20} />}
-                href={gitHubLink || null}
+                href={gitHubLink}
+                target="_blank"
+                rel="noopener noreferrer"
               />
             )}
           </div>
