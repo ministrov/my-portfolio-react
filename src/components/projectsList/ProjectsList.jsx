@@ -10,8 +10,6 @@ const ProjectsList = ({ projects }) => {
       {projects.map((project) => {
         const { id, title, overview, skills, ...rest } = project;
 
-        console.log(rest);
-
         return (
           <ProjectCard
             key={id}

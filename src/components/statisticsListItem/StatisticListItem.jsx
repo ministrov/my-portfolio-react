@@ -3,16 +3,17 @@ import CountUp from 'react-countup';
 import './style.css';
 
 const StatisticListItem = ({ stats }) => {
+  const { num, text } = stats;
   const { t } = useTranslation();
   return (
     <li className="statistics__item">
       <CountUp
-        end={stats.num}
+        end={num}
         duration={5}
         delay={2}
         className="statistics__count"
       />
-      <p className={'statistics__desc'}>{t(stats.text)}</p>
+      <p className={'statistics__desc'}>{t(text)}</p>
     </li>
   );
 };
