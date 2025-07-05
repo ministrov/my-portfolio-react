@@ -7,18 +7,12 @@ const TypingEffect = ({ text, speed }) => {
   const textRef = useRef(text);
   const speedRef = useRef(speed);
 
-  // console.log(indexRef);
-  // console.log(textRef);
-  // console.log(speedRef);
-
   useEffect(() => {
     textRef.current = text;
     speedRef.current = speed;
     indexRef.current = 0;
     setDisplayedText('')
   }, [text, speed]);
-
-  console.log(displayedText);
 
   useEffect(() => {
     if (!text) return;
