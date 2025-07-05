@@ -16,7 +16,7 @@
 }
 
 .project-card__img {
-  min-height: 398px;
+  min-height: 322px;
 }
 
 .project-card__info {
@@ -202,6 +202,7 @@
 
   .project-card__img {
     width: 100%;
+    min-width: 298px;
   }
 
   .project-card__skills {
@@ -219,6 +220,10 @@
     padding-bottom: 4px;
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .project-card__img {
+    min-height: 200px;
   }
 
   .project-card__info {

@@ -10,8 +10,8 @@ const Statistics = () => {
       </h2>
       <div className="container">
         <ul className="statistics__list">
-          {statistics.map((stats, index) => (
-            <StatisticListItem key={index + 1} stats={stats} />
+          {statistics.map(stats => (
+            <StatisticListItem key={stats.id} stats={stats} />
           ))}
         </ul>
       </div>
