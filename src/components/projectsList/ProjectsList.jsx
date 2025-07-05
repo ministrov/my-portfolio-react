@@ -10,19 +10,14 @@ const ProjectsList = ({ projects }) => {
       {projects.map((project) => {
         const { id, title, overview, skills, ...rest } = project;
 
+        console.log(rest);
+
         return (
           <ProjectCard
-            key={project.id}
-            title={t(project.title)}
-            overview={t(project.overview)}
-            skills={project.skills ? project.skills.split(',') : []}
-            // img={project.img}
-            // imageAlt={project.title}
-            // isProduction={project.isProduction}
-            // year={project.year}
-            // role={project.role}
-            // demoLink={project.demoLink}
-            // gitHubLink={project.gitHubLink}
+            key={id}
+            title={t(title)}
+            overview={t(overview)}
+            skills={skills ? skills.split(',') : []}
             {...rest}
           />
         )
