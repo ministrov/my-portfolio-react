@@ -57,9 +57,9 @@ const Faq = () => {
                     animate={{
                       opacity: 1,
                       height: 'auto',
-                      paddingTop: 12,
-                      paddingLeft: 48,
-                      paddingRight: 24,
+                      paddingTop: 0,
+                      paddingLeft: 0,
+                      paddingRight: 0,
                       paddingBottom: 24
                     }}
                     exit={{ opacity: 0, height: 0, padding: 0 }}

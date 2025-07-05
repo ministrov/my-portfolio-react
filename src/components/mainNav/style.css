@@ -85,6 +85,7 @@
     max-width: 40%;
     height: 100vh;
     flex-direction: column;
+    gap: 0;
     padding: 6rem 2rem 2rem;
     background-color: var(--color-white);
     transform: translateX(100%);
