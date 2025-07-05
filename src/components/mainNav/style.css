@@ -2,25 +2,140 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  gap: 1rem;
 }
 
 .nav-list__link {
   position: relative;
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--color-blue-700);
+  transition: color 0.3s, opacity 0.3s;
+}
+
+.nav-list__link:hover {
+  opacity: 0.6;
+  transition: all 0.5s ease-in;
+}
+
+.nav-list__link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  height: 2px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  background-color: var(--color-blue-300);
+}
+
+.nav-list__link:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.nav-list__link--active::before {
+  background-color: var(--color-blue-700);
+  transform: scaleX(1); /* Убран transform: none для согласованности */
+}
+
+.nav__toggler {
+  display: none;
+  cursor: pointer;
+}
+
+.nav__toggler div {
+  width: 2rem;
+  height: 2px;
+  margin: 6px 0;
+  background-color: var(--color-blue-700);
+  transition: all 0.5s ease-in;
+}
+
+/* Анимация гамбургера */
+.nav__toggler.toggle .line1 {
+  transform: rotate(-45deg) translate(-4px, 5px);
+}
+
+.nav__toggler.toggle .line2 {
+  opacity: 0;
+}
+
+.nav__toggler.toggle .line3 {
+  transform: rotate(45deg) translate(-4px, -5px);
+}
+
+@media only screen and (max-width: 56.25em) {
+  .nav__toggler {
+    display: block;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 40%;
+    height: 100vh;
+    flex-direction: column;
+    padding: 6rem 2rem 2rem;
+    background-color: var(--color-white);
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  }
+
+  .nav-list__link {
+    font-size: 20px;
+    line-height: 26px;
+    padding: 1rem 0;
+    border-bottom: none;
+  }
+
+  .nav-list__link:first-child {
+    border-top: none;
+  }
+
+  .nav-list__link::before {
+    display: none;
+  }
+
+  .nav-list__active {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .nav-list {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* .nav-list__link {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 0rem;
+  font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
   color: var(--color-blue-700);
-  transition: color 0.3s;
+  transition: color 0.3s, opacity 0.3s;
 }
 
 .nav-list__link:hover {
   opacity: 0.6;
-  transition: color 0.5s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .nav-list__link::before {
@@ -127,4 +242,4 @@
   .nav-list {
     width: 100%;
   }
-}
+} */
