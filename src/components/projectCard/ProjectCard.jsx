@@ -15,6 +15,7 @@ const ProjectCard = ({
   year,
   role,
   infoTitle,
+  toolsTitle,
   yearText,
   roleText,
   demoLink,
@@ -90,7 +91,7 @@ const ProjectCard = ({
 
         <div className="project-card__tools">
           <div className="project-card__skills">
-            <h4 className="project-card__tools-title">Project Tools</h4>
+            <h4 className="project-card__tools-title">{t(toolsTitle)}</h4>
             <ul className="project-card__tools-list">
               {skills.map((skill) => (
                 <Tag key={skill}>{skill}</Tag>
