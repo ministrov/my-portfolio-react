@@ -34,11 +34,19 @@
 }
 
 .nav__toggler div {
-  width: 2rem;
+  width: 30px;
   height: 2px;
-  margin: 6px 0;
   background-color: var(--color-blue-700);
   transition: all 0.5s ease-in;
+}
+
+.nav__toggler div:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.nav__toggler-button {
+  border: none;
+  background-color: transparent;
 }
 
 /* Анимация гамбургера */

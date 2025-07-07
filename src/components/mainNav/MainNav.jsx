@@ -39,11 +39,11 @@ const MainNav = () => {
         </li>
       </ul>
 
-      <div role="menu" onClick={toggleNav} className={toggleIcon} tabIndex={0}>
+      <button onClick={toggleNav} className={`nav__toggler-button ${toggleIcon}`} type="button">
         <div className="line1"></div>
         <div className="line2"></div>
         <div className="line3"></div>
-      </div>
+      </button>
     </div>
   );
 };
