@@ -8,24 +8,22 @@ const Footer = () => {
 
   return (
     <footer className="main-footer">
-      <div className="container">
-        <div className="main-footer__upper">
-          <div className="main-footer__row main-footer__row-2">
-            <Logo className={'logo__link--second'} />
-            <p className="main-footer__short-desc">{t('footer.description')}</p>
-          </div>
-          <div className="main-footer__row main-footer__row-1">
-            <h2 className="main-footer__heading-sm">{t('footer.socials')}</h2>
-            <SocialList className={'main-footer__list'} />
-          </div>
+      <div className="main-footer__upper">
+        <div className="main-footer__row main-footer__row-2">
+          <Logo className={'logo__link--second'} />
+          <p className="main-footer__short-desc">{t('footer.description')}</p>
         </div>
+        <div className="main-footer__row main-footer__row-1">
+          <h2 className="main-footer__heading-sm">{t('footer.socials')}</h2>
+          <SocialList className={'main-footer__list'} />
+        </div>
+      </div>
 
-        <div className="main-footer__lower">
-          &copy; {t('footer.copyright')}
-          <a rel="noreferrer" target="_blank" href="#!">
-            {t('footer.author')}
-          </a>
-        </div>
+      <div className="main-footer__lower">
+        &copy; {t('footer.copyright')}
+        <a rel="noreferrer" target="_blank" href="#!">
+          {t('footer.author')}
+        </a>
       </div>
     </footer>
   );
