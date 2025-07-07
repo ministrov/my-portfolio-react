@@ -1,12 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './style.css';
 
 const MainNav = () => {
   const [active, setActive] = useState('nav-list');
   const [toggleIcon, setToggleIcon] = useState('nav__toggler');
+  const navigate = useNavigate();
   const { t } = useTranslation();
+
+  // console.log(navigate.name);
+
+  useEffect(() => {
+    if (active === 'nav-list nav-list__active') {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [active]);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setActive('nav-list');
+      setToggleIcon('nav__toggler');
+    };
+
+    const unlisten = navigate.listen(handleRouteChange);
+
+    return () => {
+      unlisten();
+    }
+  }, [navigate]);
 
   const toggleNav = () => {
     active === 'nav-list'
