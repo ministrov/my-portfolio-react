@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './style.css';
 
 const MainNav = () => {
   const [active, setActive] = useState('nav-list');
   const [toggleIcon, setToggleIcon] = useState('nav__toggler');
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useTranslation();
 
   // console.log(navigate.name);
@@ -20,17 +21,10 @@ const MainNav = () => {
   }, [active]);
 
   useEffect(() => {
-    const handleRouteChange = () => {
-      setActive('nav-list');
-      setToggleIcon('nav__toggler');
-    };
+    setActive('nav-list');
+    setToggleIcon('nav__toggler');
 
-    const unlisten = navigate.listen(handleRouteChange);
-
-    return () => {
-      unlisten();
-    }
-  }, [navigate]);
+  }, [location.pathname]);
 
   const toggleNav = () => {
     active === 'nav-list'
