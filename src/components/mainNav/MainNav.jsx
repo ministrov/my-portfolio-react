@@ -1,12 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './style.css';
 
 const MainNav = () => {
   const [active, setActive] = useState('nav-list');
   const [toggleIcon, setToggleIcon] = useState('nav__toggler');
+  const location = useLocation();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (active === 'nav-list nav-list__active') {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [active]);
+
+  useEffect(() => {
+    setActive('nav-list');
+    setToggleIcon('nav__toggler');
+
+  }, [location.pathname]);
 
   const toggleNav = () => {
     active === 'nav-list'
@@ -39,11 +54,11 @@ const MainNav = () => {
         </li>
       </ul>
 
-      <div role="menu" onClick={toggleNav} className={toggleIcon} tabIndex={0}>
+      <button onClick={toggleNav} className={`nav__toggler-button ${toggleIcon}`} type="button" aria-label="Открыть меню">
         <div className="line1"></div>
         <div className="line2"></div>
         <div className="line3"></div>
-      </div>
+      </button>
     </div>
   );
 };

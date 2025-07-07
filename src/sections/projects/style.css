@@ -1,5 +1,6 @@
 .projects {
-  padding: 9rem 0;
+  padding-top: 7rem;
+  padding-bottom: 9rem;
 }
 
 .projects__filter {
@@ -46,7 +47,7 @@
 
 @media screen and (max-width: 375px) {
   .projects {
-    padding-top: 6rem;
+    padding-top: 5rem;
     padding-bottom: 2rem;
   }
 
