@@ -6,11 +6,8 @@ import './style.css';
 const MainNav = () => {
   const [active, setActive] = useState('nav-list');
   const [toggleIcon, setToggleIcon] = useState('nav__toggler');
-  // const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
-
-  // console.log(navigate.name);
 
   useEffect(() => {
     if (active === 'nav-list nav-list__active') {

@@ -19,21 +19,9 @@
 }
 
 .nav-list__link:hover,
-.nav-list__link:focus-visible {
-  opacity: 0.7;
-  transform: translateY(-2px);
-}
-
+.nav-list__link:focus-visible,
 .nav-list__link--active {
   opacity: 0.7;
-}
-
-.nav-list {
-  pointer-events: none;
-}
-
-.nav-list__active {
-  pointer-events: auto;
 }
 
 .nav__toggler {
@@ -42,21 +30,6 @@
 }
 
 @media only screen and (max-width: 56.25em) {
-  .nav__toggler {
-    display: block;
-  }
-
-  .nav__toggler-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
   .nav-list {
     position: fixed;
     top: 0;
@@ -73,6 +46,21 @@
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   }
 
+  .nav__toggler {
+    display: block;
+  }
+
+  .nav__toggler-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
   .nav-list__link {
     font-size: 20px;
     line-height: 26px;
@@ -80,21 +68,8 @@
     border-bottom: none;
   }
 
-  .nav-list__link:first-child {
-    border-top: none;
-  }
-
-  .nav-list__link::before {
-    display: none;
-  }
-
   .nav-list__active {
     transform: translateX(0);
-  }
-
-  .nav-list__link:hover,
-  .nav-list__link:focus-visible {
-    transform: none;
   }
 
   .nav__toggler div {
