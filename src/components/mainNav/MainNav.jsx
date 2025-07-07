@@ -39,7 +39,7 @@ const MainNav = () => {
         </li>
       </ul>
 
-      <button onClick={toggleNav} className={`nav__toggler-button ${toggleIcon}`} type="button">
+      <button onClick={toggleNav} className={`nav__toggler-button ${toggleIcon}`} type="button" aria-label="Открыть меню">
         <div className="line1"></div>
         <div className="line2"></div>
         <div className="line3"></div>
