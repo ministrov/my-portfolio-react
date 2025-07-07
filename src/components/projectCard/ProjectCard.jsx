@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
 import { FaGithub } from 'react-icons/fa';
 import Button from '../button/Button.jsx';
@@ -9,14 +10,18 @@ const ProjectCard = ({
   title,
   skills,
   img,
-  imageAlt,
   isProduction,
   overview,
   year,
   role,
+  infoTitle,
+  yearText,
+  roleText,
   demoLink,
   gitHubLink
 }) => {
+
+  const { t } = useTranslation();
 
   const isDesktop = typeof window !== 'undefined' &&
     window.matchMedia('(min-width: 768px)').matches;
@@ -47,9 +52,7 @@ const ProjectCard = ({
         <img
           className={'project-card__img'}
           src={img}
-          // width={486}
-          // height={347}
-          alt={imageAlt}
+          alt={`${title} project`}
           loading="lazy"
           decoding="async"
         />
@@ -71,15 +74,15 @@ const ProjectCard = ({
         <p className="project-card__info-desc">{overview}</p>
 
         <div className="project-card__info-box">
-          <h4>Project Info</h4>
+          <h4>{t(infoTitle)}</h4>
 
           <div className="project-card__info-box-table">
             <div className="project-card__info-box-table-row">
-              <span>Year</span>
+              <span>{yearText}</span>
               <span>{year}</span>
             </div>
             <div className="project-card__info-box-table-row">
-              <span>Role</span>
+              <span>{roleText}</span>
               <span>{role}</span>
             </div>
           </div>

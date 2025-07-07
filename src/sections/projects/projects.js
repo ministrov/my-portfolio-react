@@ -20,7 +20,10 @@ export const projects = [
     overview: 'projects.project1.overview',
     isProduction: false,
     year: 2023,
-    role: 'intern Front-end Developer'
+    role: 'intern Front-end Developer',
+    infoTitle: 'projects.project1.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
   {
     id: 2,
@@ -32,7 +35,10 @@ export const projects = [
     overview: 'projects.project2.overview',
     isProduction: true,
     year: 2021,
-    role: 'intern Front-end Developer'
+    role: 'intern Front-end Developer',
+    infoTitle: 'projects.project2.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
   {
     id: 3,
@@ -45,7 +51,10 @@ export const projects = [
     isProduction: false,
     demoLink: 'https://nike-react-tailwilnd.vercel.app/',
     year: 2022,
-    role: 'Front-end Developer'
+    role: 'Front-end Developer',
+    infoTitle: 'projects.project3.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
   {
     id: 4,
@@ -57,7 +66,10 @@ export const projects = [
     overview: 'projects.project4.overview',
     isProduction: false,
     year: 2022,
-    role: 'Front-end Developer'
+    role: 'Front-end Developer',
+    infoTitle: 'projects.project4.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
   {
     id: 5,
@@ -69,7 +81,10 @@ export const projects = [
     overview: 'projects.project5.overview',
     isProduction: true,
     year: 2025,
-    role: 'Front-end Developer'
+    role: 'Front-end Developer',
+    infoTitle: 'projects.project5.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
   {
     id: 6,
@@ -82,7 +97,10 @@ export const projects = [
     overview: 'projects.project6.overview',
     isProduction: true,
     year: 2024,
-    role: 'Front-end Developer'
+    role: 'Front-end Developer',
+    infoTitle: 'projects.project6.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
   {
     id: 7,
@@ -94,7 +112,10 @@ export const projects = [
     overview: 'projects.project7.overview',
     isProduction: false,
     year: 2025,
-    role: 'Front-end Developer'
+    role: 'Front-end Developer',
+    infoTitle: 'projects.project7.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
   {
     id: 8,
@@ -105,7 +126,10 @@ export const projects = [
     overview: 'projects.project8.overview',
     isProduction: false,
     year: 2021,
-    role: 'intern Front-end Developer'
+    role: 'intern Front-end Developer',
+    infoTitle: 'projects.project8.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
   {
     id: 9,
@@ -117,7 +141,10 @@ export const projects = [
     demoLink: 'https://waterdel.ru/',
     isProduction: true,
     year: 2022,
-    role: 'intern Front-end Developer'
+    role: 'intern Front-end Developer',
+    infoTitle: 'projects.project9.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
   {
     id: 10,
@@ -128,6 +155,9 @@ export const projects = [
     overview: 'projects.project10.overview',
     isProduction: false,
     year: 2024,
-    role: 'Front-end Developer'
+    role: 'Front-end Developer',
+    infoTitle: 'projects.project10.infoTitle',
+    yearText: 'Year',
+    roleText: 'Role',
   },
 ];
