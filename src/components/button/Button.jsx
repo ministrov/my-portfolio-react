@@ -1,6 +1,6 @@
 import './style.css';
 
-const Button = ({ href = null, text, icon, className = null }) => {
+const Button = ({ href = null, children, icon, className = null }) => {
   return (
     <a
       className={`btn ${className}`}
@@ -8,7 +8,7 @@ const Button = ({ href = null, text, icon, className = null }) => {
       target={href && "_blank"}
       rel="noopener noreferrer"
     >
-      {text}
+      {children}
       <span className="btn__icon">{icon}</span>
     </a>
   );

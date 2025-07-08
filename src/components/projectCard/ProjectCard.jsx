@@ -103,23 +103,25 @@ const ProjectCard = ({
             {demoLink && (
               <Button
                 className={"project-card__link"}
-                text={'Live Demo'}
                 icon={<BsBoxArrowInUpRight width={20} height={20} />}
                 href={demoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-              />
+              >
+                {t('projectCard.liveDemo', 'Default Text')}
+              </Button>
             )}
 
             {gitHubLink && (
               <Button
                 className={'project-card__link'}
-                text={'See on Github'}
                 icon={<FaGithub width={20} height={20} />}
                 href={gitHubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-              />
+              >
+                {t('projectCard.seeOnGithub','Default Text')}
+              </Button>
             )}
           </div>
         </div>

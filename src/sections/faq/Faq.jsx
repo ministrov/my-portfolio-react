@@ -10,8 +10,6 @@ const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const { t } = useTranslation();
 
-  console.log(activeIndex);
-
   const toggleFAQ = (index) => {
     if (activeIndex === index) {
       setActiveIndex(-1);

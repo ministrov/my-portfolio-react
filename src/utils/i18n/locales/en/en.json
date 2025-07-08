@@ -204,6 +204,10 @@
       "roleText": "Role"
     }
   },
+  "projectCard": {
+    "liveDemo": "Live Demo",
+    "seeOnGithub": "See on GitHub"
+  },
   "modal": {
     "title": "Reach out to me",
     "text": "Facing difficulties? Remember that I'm always available to offer guidance and assistance. No matter how big or small your problem mayseem, I’m here to provide support. Reach out today, and let's tackle it together.",
