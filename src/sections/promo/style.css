@@ -30,7 +30,7 @@
 }
 
 .promo__avatar {
-  width: 252px;
+  object-fit: scale-down;
   border-radius: var(--border-radius-s);
 }
 
@@ -185,6 +185,14 @@
   .promo__greeting {
     font-size: 39px;
     line-height: 45px;
+  }
+
+  .promo__image {
+    height: auto;
+  }
+
+  .promo__avatar {
+    object-fit: none;
   }
 
   .promo__btns {

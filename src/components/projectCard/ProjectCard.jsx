@@ -79,11 +79,11 @@ const ProjectCard = ({
 
           <div className="project-card__info-box-table">
             <div className="project-card__info-box-table-row">
-              <span>{yearText}</span>
+              <span>{t(yearText)}</span>
               <span>{year}</span>
             </div>
             <div className="project-card__info-box-table-row">
-              <span>{roleText}</span>
+              <span>{t(roleText)}</span>
               <span>{role}</span>
             </div>
           </div>
@@ -103,23 +103,25 @@ const ProjectCard = ({
             {demoLink && (
               <Button
                 className={"project-card__link"}
-                text={'Live Demo'}
                 icon={<BsBoxArrowInUpRight width={20} height={20} />}
                 href={demoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-              />
+              >
+                {t('projectCard.liveDemo', 'Default Text')}
+              </Button>
             )}
 
             {gitHubLink && (
               <Button
                 className={'project-card__link'}
-                text={'See on Github'}
                 icon={<FaGithub width={20} height={20} />}
                 href={gitHubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-              />
+              >
+                {t('projectCard.seeOnGithub','Default Text')}
+              </Button>
             )}
           </div>
         </div>

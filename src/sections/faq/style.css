@@ -25,12 +25,21 @@
   justify-content: space-between;
   padding: 2.7rem 0rem;
   background-color: transparent;
-  cursor: pointer;
 }
 
 .faq__question h3 {
   font-size: 24px;
   line-height: 30px;
+}
+
+.faq__icon {
+  color: var(--color-blue-700);
+  background-color: transparent;
+  transform: rotate(0deg);
+}
+
+.faq__item--active .faq__icon {
+  transform: rotate(180deg);
 }
 
 .faq__question .faq__icon {
@@ -79,5 +88,10 @@
     max-width: 100%;
     font-size: 14px;
     line-height: 24px;
+  }
+
+  .faq__icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
   }
 }

@@ -37,11 +37,12 @@ const Promo = () => {
             <div className="promo__btns">
               <Button
                 className={'promo__btn'}
-                text={t('promo.promoBtn')}
                 href={cvPdf}
                 download={cvPdf}
                 icon={<BsBoxArrowInUpRight width={20} height={20} />}
-              />
+              >
+                {t('promo.promoBtn')}
+              </Button>
 
               <SocialList varient='blue' />
             </div>
@@ -51,8 +52,8 @@ const Promo = () => {
             <img
               className="promo__avatar"
               src={avatar}
-              width={252}
-              height={252}
+              width="100%"
+              height="auto"
               alt={'A funny pixel men with a laptop in his hands'}
             />
           </div>

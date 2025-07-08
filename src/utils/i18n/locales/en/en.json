@@ -118,71 +118,95 @@
       "slogan": "A service for selling and buying things",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     },
     "project2": {
       "title": "Create-x Construction",
       "slogan": "A stunning construction company",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     },
     "project3": {
       "title": "E-Commerce Shop",
       "slogan": "A stunning Nike Shop",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project Info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     },
     "project4": {
       "title": "Personal Diary",
       "slogan": "An online personal diary",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     },
     "project5": {
       "title": "Choosing courses",
       "slogan": "Online platform to choose courses",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     },
     "project6": {
       "title": "Ratingus",
       "slogan": "A platform to rate any of web apps",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     },
     "project7": {
       "title": "Personal Blog",
       "slogan": "An Awesome personal Blog",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     },
     "project8": {
       "title": "Dictionary",
       "slogan": "A searching word library",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     },
     "project9": {
       "title": "Waterdel",
       "slogan": "An e-commerce platform for puryfing systems",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     },
     "project10": {
       "title": "Promo landing page",
       "slogan": "Educational platform landing page",
       "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
       "infoTitle": "Project info",
-      "toolsTitle": "Project Tools"
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     }
+  },
+  "projectCard": {
+    "liveDemo": "Live Demo",
+    "seeOnGithub": "See on GitHub"
   },
   "modal": {
     "title": "Reach out to me",

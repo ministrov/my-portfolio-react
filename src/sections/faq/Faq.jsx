@@ -35,18 +35,21 @@ const Faq = () => {
             >
               <motion.div
                 className="faq__question"
-                onClick={() => toggleFAQ(index)}
               >
                 <h3>{t(item.question)}</h3>
-                <motion.div
+
+                <motion.button
+                  onClick={() => toggleFAQ(index)}
                   className="faq__icon"
                   animate={{
-                    rotate: activeIndex === index ? 45 : 0,
+                    rotate: activeIndex === index ? "45deg" : "0deg",
+                    transition: { duration: 0.3, ease: "easeInOut" }
                   }}
-                  transition={{ duration: 0.3 }}
+                  aria-expanded={activeIndex === index ? 'Открыто' : 'Закрыто'}
+                  aria-controls="dropdown-menu"
                 >
                   <FaPlus />
-                </motion.div>
+                </motion.button>
               </motion.div>
 
               <AnimatePresence>
