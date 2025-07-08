@@ -37,11 +37,12 @@ const Promo = () => {
             <div className="promo__btns">
               <Button
                 className={'promo__btn'}
-                text={t('promo.promoBtn')}
                 href={cvPdf}
                 download={cvPdf}
                 icon={<BsBoxArrowInUpRight width={20} height={20} />}
-              />
+              >
+                {t('promo.promoBtn')}
+              </Button>
 
               <SocialList varient='blue' />
             </div>
