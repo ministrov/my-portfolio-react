@@ -33,6 +33,16 @@
   line-height: 30px;
 }
 
+.faq__icon {
+  color: var(--color-blue-700);
+  background-color: transparent;
+  transform: rotate(0deg);
+}
+
+.faq__item--active .faq__icon {
+  transform: rotate(180deg);
+}
+
 .faq__question .faq__icon {
   display: flex;
   align-items: center;
