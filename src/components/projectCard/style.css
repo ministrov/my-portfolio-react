@@ -199,6 +199,10 @@
     border-bottom: none;
   }
 
+  .project-card__tools {
+    align-items: flex-end;
+  }
+
   .project-card__skills {
     max-width: 100%;
   }
@@ -209,6 +213,11 @@
 
   .project-card__links {
     flex-direction: row;
+  }
+
+  .project-card__link {
+    display: flex;
+    white-space: nowrap;
   }
 }
 

@@ -80,4 +80,9 @@
     font-size: 14px;
     line-height: 24px;
   }
+
+  .faq__icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
 }
