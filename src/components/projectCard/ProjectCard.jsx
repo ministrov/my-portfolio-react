@@ -79,11 +79,11 @@ const ProjectCard = ({
 
           <div className="project-card__info-box-table">
             <div className="project-card__info-box-table-row">
-              <span>{yearText}</span>
+              <span>{t(yearText)}</span>
               <span>{year}</span>
             </div>
             <div className="project-card__info-box-table-row">
-              <span>{roleText}</span>
+              <span>{t(roleText)}</span>
               <span>{role}</span>
             </div>
           </div>
