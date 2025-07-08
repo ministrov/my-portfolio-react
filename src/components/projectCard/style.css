@@ -27,9 +27,9 @@
 .project-card__info-title {
   margin-bottom: 8px;
   font-family: 'Inter', sans-serif;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 500;
-  line-height: 38px;
+  line-height: 36px;
   color: var(--color-blue-700);
 }
 
@@ -131,6 +131,12 @@
   gap: 8px;
 }
 
+@media screen and (max-width: 1274px) {
+  .project-card__skills {
+    max-width: 248px;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .project-card {
     background-color: transparent;
@@ -193,6 +199,10 @@
     border-bottom: none;
   }
 
+  .project-card__skills {
+    max-width: 100%;
+  }
+
   .project-card__tools-list {
     flex-wrap: nowrap;
   }
@@ -219,6 +229,10 @@
 }
 
 @media screen and (max-width: 515px) {
+  .project-card__img {
+    min-height: 298px;
+  }
+
   .project-card__tools {
     flex-direction: column;
     align-items: flex-start;
