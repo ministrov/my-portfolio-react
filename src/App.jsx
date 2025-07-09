@@ -4,16 +4,18 @@ import { useTranslation } from 'react-i18next';
 import Layout from './Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from './pages/HomePage';
-import ProjectsPage from './pages/ProjectsPage.jsx';
-import PageNotFound from './pages/pageNotFound/PageNotFound.jsx';
+import ProjectsPage from './pages/ProjectsPage';
+import PageNotFound from './pages/pageNotFound/PageNotFound';
 import './styles/main.css';
 
 const App = () => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    document.documentElement.lang = i18n.language;
-  }, [i18n.language]);
+    if (i18n) {
+      document.documentElement.lang = i18n.language;
+    }
+  }, [i18n, i18n?.language]);
 
   return (
     <BrowserRouter>
