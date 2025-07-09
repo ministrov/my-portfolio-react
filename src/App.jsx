@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next';
 import Layout from './Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from './pages/HomePage';
-// import { getCLS, getFCP, getFID, getLCP } from 'web-vitals';
-
 
 import './styles/main.css';
 
@@ -19,11 +17,6 @@ const App = () => {
     if (i18n?.isInitialized) {
       document.documentElement.lang = i18n.language;
     }
-
-    // getCLS(console.log);
-    // getFCP(console.log);
-    // getFID(console.log);
-    // getLCP(console.log);
   }, [i18n?.isInitialized, i18n.language]);
 
   return (
