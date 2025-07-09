@@ -30,7 +30,9 @@
 }
 
 .promo__avatar {
-  object-fit: scale-down;
+  width: 80%;
+  height: 80%;
+  object-fit: cover; /* или contain */
   border-radius: var(--border-radius-s);
 }
 
