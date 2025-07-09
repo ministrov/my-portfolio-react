@@ -90,7 +90,7 @@
   transform: translateX(-50%);
 }
 
-@media screen and (max-width: 987px) {
+@media screen and (max-width: 1044px) {
   .promo {
     height: auto;
     padding-bottom: 0;
