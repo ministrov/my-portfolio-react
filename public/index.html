@@ -12,7 +12,17 @@
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-  <link rel="preload" href="/assets/png/my-avatar.webp" as="image" fetchpriority="high" />
+
+  <!-- Предзагрузка шрифтов -->
+  <link rel="preload" href="/src/assets/fonts/Oswald/Oswald-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/src/assets/fonts/OpenSans/OpenSans-Regular.woff2" as="font" type="font/woff2"
+    crossorigin />
+  <link rel="preload" href="/src/assets/fonts/OpenSans/OpenSans-SemiBold.woff2" as="font" type="font/woff2"
+    crossorigin />
+  <link rel="preload" href="/src/assets/fonts/OpenSans/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/src/assets/fonts/Inter/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="preload" href="src/assets/png/my-avatar.webp" as="image" type="image/webp" />
 
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>Anton Zhilin's portfolio</title>
