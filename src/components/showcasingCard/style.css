@@ -5,14 +5,10 @@
   background: var(--color-white);
 }
 
-.showcasing-card__image {
-  height: 800px;
-}
-
 @media screen and (max-width: 768px) {
-  .showcasing-card__image {
+  /* .showcasing-card__image {
     height: 475px;
-  }
+  } */
 }
 
 @media screen and (max-width: 375px) {
@@ -20,8 +16,8 @@
     margin: 0;
     background: none;
   }
-  .showcasing-card__image {
+  /* .showcasing-card__image {
     height: 274px;
-  }
+  } */
 }
 
