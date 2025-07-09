@@ -52,7 +52,7 @@ const Promo = () => {
             <img
               className="promo__avatar"
               src={avatar}
-              width="300"  // Замените на реальную ширину изображения
+              width="300"
               height="300"
               alt={'A funny pixel men with a laptop in his hands'}
             />

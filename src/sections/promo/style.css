@@ -32,7 +32,7 @@
 .promo__avatar {
   width: 80%;
   height: 80%;
-  object-fit: cover; /* или contain */
+  object-fit: contain;
   border-radius: var(--border-radius-s);
 }
 
@@ -98,6 +98,11 @@
     padding-bottom: 0;
   }
 
+  .promo__image {
+    width: 446px;
+    height: 370px;
+  }
+
   .promo__wrapper {
     flex-direction: column;
     gap: 4rem;
@@ -115,7 +120,7 @@
 @media screen and (max-width: 768px) {
   .promo__image {
     width: 100%;
-    height: 354px;
+    height: 350px;
   }
 
   .promo__greeting {
@@ -194,7 +199,8 @@
   }
 
   .promo__avatar {
-    object-fit: none;
+    width: 70%;
+    height: auto;
   }
 
   .promo__btns {
