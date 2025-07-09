@@ -19,7 +19,7 @@ const Faq = () => {
   };
 
   return (
-    <section className="faq">
+    <section className="faq" aria-labelledby="faq-heading">
       <div className="container">
         <Heading
           title={t('heading.faq.name')}
@@ -45,7 +45,8 @@ const Faq = () => {
                     rotate: activeIndex === index ? "45deg" : "0deg",
                     transition: { duration: 0.3, ease: "easeInOut" }
                   }}
-                  aria-expanded={activeIndex === index ? 'Открыто' : 'Закрыто'}
+                  aria-label={activeIndex === index ? t('faqs.close') : t('faqs.open')}
+                  aria-expanded={activeIndex === index}
                   aria-controls="dropdown-menu"
                 >
                   <FaPlus />
@@ -55,6 +56,7 @@ const Faq = () => {
               <AnimatePresence>
                 {activeIndex === index && (
                   <motion.div
+                    id="dropdown-menu"
                     className="faq__answer"
                     initial={{ opacity: 0, height: 0, padding: 0 }}
                     animate={{

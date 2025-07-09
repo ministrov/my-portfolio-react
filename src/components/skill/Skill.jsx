@@ -3,7 +3,7 @@ import './style.css';
 
 const Skill = ({ skill }) => {
   return (
-    <li
+    <div
       key={skill.id}
       className="skill__card"
       aria-label={skill.tech}
@@ -20,7 +20,7 @@ const Skill = ({ skill }) => {
           delay={2}
         />%
       </p>
-    </li>
+    </div>
   );
 }
 

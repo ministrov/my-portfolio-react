@@ -1,36 +1,42 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Layout from './Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import HomePage from './pages/HomePage';
-import ProjectsPage from './pages/ProjectsPage.jsx';
-import PageNotFound from './pages/pageNotFound/PageNotFound.jsx';
+
 import './styles/main.css';
+
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
+const PageNotFound = lazy(() => import('./pages/pageNotFound/PageNotFound'));
 
 const App = () => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    document.documentElement.lang = i18n.language;
-  }, [i18n.language]);
+    if (i18n?.isInitialized) {
+      document.documentElement.lang = i18n.language;
+    }
+  }, [i18n?.isInitialized, i18n.language]);
 
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route
-            path="/projects"
-            element={<ProjectsPage/>}
-          />
-          <Route
-            path="*"
-            element={<PageNotFound/>}
-          />
-        </Route>
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route
+              path="/projects"
+              element={<ProjectsPage />}
+            />
+            <Route
+              path="*"
+              element={<PageNotFound />}
+            />
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 };

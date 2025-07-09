@@ -5,13 +5,28 @@
   background: var(--color-white);
 }
 
+/* Метод "padding-bottom trick" для фиксации aspect ratio */
+.showcasing-card__aspect-ratio {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Соотношение 16:9 (100% / 16 * 9) */
+  overflow: hidden;
+  border-radius: var(--border-radius-m);
+}
+
 .showcasing-card__image {
-  height: 800px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 @media screen and (max-width: 768px) {
-  .showcasing-card__image {
-    height: 475px;
+  .showcasing-card__aspect-ratio {
+    padding-bottom: 75%; /* 4:3 для мобильных устройств */
   }
 }
 
@@ -19,9 +34,6 @@
   .showcasing-card {
     margin: 0;
     background: none;
-  }
-  .showcasing-card__image {
-    height: 274px;
   }
 }
 

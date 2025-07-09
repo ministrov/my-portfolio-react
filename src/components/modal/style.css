@@ -52,6 +52,7 @@
   max-width: 50px;
   max-height: 50px;
   background-color: transparent;
+  border: none
 }
 
 .modal__close:focus {

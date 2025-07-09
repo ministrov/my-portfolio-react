@@ -52,7 +52,6 @@ const Up = () => {
           transition={{ duration: 0.65 }}
           className="scroll-to"
           onClick={scrollToTop}
-          tabIndex={0}
           aria-label='Наверх'
         >
           <FaLongArrowAltUp size={20} color='white' />
