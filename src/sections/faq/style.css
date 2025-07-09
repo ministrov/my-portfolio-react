@@ -36,6 +36,8 @@
   color: var(--color-blue-700);
   background-color: transparent;
   transform: rotate(0deg);
+  border: none;
+  cursor: pointer;
 }
 
 .faq__item--active .faq__icon {
