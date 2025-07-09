@@ -45,6 +45,7 @@ const Faq = () => {
                     rotate: activeIndex === index ? "45deg" : "0deg",
                     transition: { duration: 0.3, ease: "easeInOut" }
                   }}
+                  aria-label={activeIndex === index ? t('faqs.close') : t('faqs.open')}
                   aria-expanded={activeIndex === index}
                   aria-controls="dropdown-menu"
                 >
