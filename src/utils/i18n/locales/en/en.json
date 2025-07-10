@@ -79,11 +79,11 @@
   "faqs": {
     "question_1": {
       "name": "What services do you offer?",
-      "answer": "I specialize in developing responsive web interfaces, creating user interfaces (UI), integrating with backends, optimizing performance, and ensuring cross-browser compatibility. I can also assist with setting up CI/CD processes and automating project deployments."
+      "answer": "I specialize in developing responsive web interfaces, creating user interfaces (UI), integrating with backends, optimizing performance, and ensuring cross-browser compatibility."
     },
     "question_2": {
       "name": "Which technologies do you use?",
-      "answer": "In my work, I utilize modern technology stacks such as HTML5, CSS3/SASS, JavaScript (ES6+), TypeScript, React.js, Vue.js, as well as various build tools like Webpack and Git for version control."
+      "answer": "In my work, I utilize modern technology stacks such as HTML5, CSS3/SASS, JavaScript (ES6+), TypeScript, React.js, Next.js, as well as various build tools like Webpack and Git for version control."
     },
     "question_3": {
       "name": "How long does it take to develop a project?",
