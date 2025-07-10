@@ -37,6 +37,7 @@ const About = () => {
               width={500}
               height={500}
               alt={"Focus on author's face"}
+              loading="lazy"
             />
           </div>
         </div>
