@@ -163,7 +163,7 @@
     "project6": {
       "title": "Ratingus",
       "slogan": "A platform to rate any of web apps",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Ratingus — an objective mobile app evaluation platform crafted with Next.js, TypeScript, and React. Smooth animations by Framer Motion and secure voting process ensured by Yup & Formik validators.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
