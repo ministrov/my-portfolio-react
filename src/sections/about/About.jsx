@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import author from '../../assets/png/photo.webp';
-import TypingText from '../../components/typingText/TypingText';
 import Heading from '../../components/heading/Heading';
 import './style.css';
 
@@ -18,7 +17,7 @@ const About = () => {
 
         <div className="about__wrapper">
           <div className="about__left">
-            <TypingText className={'about__greeting'} text={t('about.title')} />
+            <strong className={'about__greeting'}>{t('about.title')}</strong>
 
             <p className="about__description">{t('about.descriptionOne')}</p>
             <p className="about__description">{t('about.descriptionTwo')}</p>
