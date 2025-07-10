@@ -172,7 +172,7 @@
     "project7": {
       "title": "Personal Blog",
       "slogan": "An Awesome personal Blog",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "A modern personal blog with lively UI, built on Next.js, TypeScript, and React. Fluid transitions and vibrant effects from Framer Motion immerse readers into the content.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
