@@ -154,7 +154,7 @@
     "project5": {
       "title": "Choosing courses",
       "slogan": "Online platform to choose courses",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Course selection service with a dynamic and eye-catching interface built on Next.js, TypeScript, and React. Interactive animations from Framer Motion and user-friendly input forms via React Hook Form simplify course discovery.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
