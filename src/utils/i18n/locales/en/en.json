@@ -145,7 +145,7 @@
     "project4": {
       "title": "Personal Diary",
       "slogan": "An online personal diary",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Personal diary — a convenient React app with seamless navigation powered by React Router. Simple design and quick access to notes make journaling effortless and enjoyable!",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
