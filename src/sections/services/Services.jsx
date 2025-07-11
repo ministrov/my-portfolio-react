@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import ServicesListItem from '../../components/servicesListItem/ServicesListItem';
+import ServicesItem from '../../components/servicesItem/ServicesItem';
 import Heading from '../../components/heading/Heading';
 import { services } from './services';
 import './style.css';
@@ -35,7 +35,7 @@ const Services = () => {
           className="services__list"
         >
           {services.map((service) => (
-            <ServicesListItem
+            <ServicesItem
               key={service.id}
               service={service}
               open={openCards[service.id]}
