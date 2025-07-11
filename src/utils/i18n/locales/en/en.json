@@ -79,11 +79,11 @@
   "faqs": {
     "question_1": {
       "name": "What services do you offer?",
-      "answer": "I specialize in developing responsive web interfaces, creating user interfaces (UI), integrating with backends, optimizing performance, and ensuring cross-browser compatibility. I can also assist with setting up CI/CD processes and automating project deployments."
+      "answer": "I specialize in developing responsive web interfaces, creating user interfaces (UI), integrating with backends, optimizing performance, and ensuring cross-browser compatibility."
     },
     "question_2": {
       "name": "Which technologies do you use?",
-      "answer": "In my work, I utilize modern technology stacks such as HTML5, CSS3/SASS, JavaScript (ES6+), TypeScript, React.js, Vue.js, as well as various build tools like Webpack and Git for version control."
+      "answer": "In my work, I utilize modern technology stacks such as HTML5, CSS3/SASS, JavaScript (ES6+), TypeScript, React.js, Next.js, as well as various build tools like Webpack and Git for version control."
     },
     "question_3": {
       "name": "How long does it take to develop a project?",
@@ -118,7 +118,7 @@
     "project1": {
       "title": "Auction for buying things",
       "slogan": "A service for selling and buying things",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "This is a dynamic online auction platform built on the powerful combination of JavaScript, PHP, HTML, and CSS. Its intuitive interface and interactive experience make participating in bidding both engaging and easy!",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -127,7 +127,7 @@
     "project2": {
       "title": "Create-x Construction",
       "slogan": "A stunning construction company",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Kreatex Construction — stylish and functional website for a construction company created using powerful tools like JavaScript, HTML5, and CSS3. Modern design and smooth animations provide an unforgettable user experience.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -136,7 +136,7 @@
     "project3": {
       "title": "E-Commerce Shop",
       "slogan": "A stunning Nike Shop",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Nike sneakers online store — a bright and concise project built with React and styled with expressive Tailwind CSS. Minimalist design and fast loading speed turn shopping into pure pleasure.",
       "infoTitle": "Project Info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -145,7 +145,7 @@
     "project4": {
       "title": "Personal Diary",
       "slogan": "An online personal diary",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Personal diary — a convenient React app with seamless navigation powered by React Router. Simple design and quick access to notes make journaling effortless and enjoyable!",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -154,7 +154,7 @@
     "project5": {
       "title": "Choosing courses",
       "slogan": "Online platform to choose courses",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Course selection service with a dynamic and eye-catching interface built on Next.js, TypeScript, and React. Interactive animations from Framer Motion and user-friendly input forms via React Hook Form simplify course discovery.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -163,7 +163,7 @@
     "project6": {
       "title": "Ratingus",
       "slogan": "A platform to rate any of web apps",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Ratingus — an objective mobile app evaluation platform crafted with Next.js, TypeScript, and React. Smooth animations by Framer Motion and secure voting process ensured by Yup & Formik validators.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -172,7 +172,7 @@
     "project7": {
       "title": "Personal Blog",
       "slogan": "An Awesome personal Blog",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "A modern personal blog with lively UI, built on Next.js, TypeScript, and React. Fluid transitions and vibrant effects from Framer Motion immerse readers into the content.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -181,7 +181,7 @@
     "project8": {
       "title": "Dictionary",
       "slogan": "A searching word library",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Lexical Dictionary — a simple yet elegant resource built with JavaScript, HTML, and CSS. Clear interface makes finding definitions easy and learning vocabulary enjoyable.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -190,7 +190,7 @@
     "project9": {
       "title": "Waterdel",
       "slogan": "An e-commerce platform for puryfing systems",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "VodaOnline — a contemporary online store for water purification equipment built with JavaScript, HTML, and CSS. Elegant and intuitive interface helps users quickly select products and place orders.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -199,7 +199,7 @@
     "project10": {
       "title": "Promo landing page",
       "slogan": "Educational platform landing page",
-      "overview": "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+      "overview": "Promolanding page for BringItUp corporate training platform developed using best practices in JavaScript, HTML, CSS, OOP principles, and SOLID patterns. Vibrant and informative design motivates employees to enhance their professional skills within the company.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",

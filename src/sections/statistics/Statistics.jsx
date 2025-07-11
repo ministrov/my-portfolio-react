@@ -1,4 +1,4 @@
-import StatisticListItem from '../../components/statisticsListItem/StatisticListItem.jsx';
+import StatisticItem from '../../components/statisticItem/StatisticItem';
 import { statistics } from './statistics.js';
 import './style.css';
 
@@ -11,7 +11,7 @@ const Statistics = () => {
       <div className="container">
         <ul className="statistics__list">
           {statistics.map(stats => (
-            <StatisticListItem key={stats.id} stats={stats} />
+            <StatisticItem key={stats.id} stats={stats} />
           ))}
         </ul>
       </div>

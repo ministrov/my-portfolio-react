@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import CountUp from 'react-countup';
 import './style.css';
 
-const StatisticListItem = ({ stats }) => {
+const StatisticItem = ({ stats }) => {
   const { num, text } = stats;
   const { t } = useTranslation();
   return (
@@ -18,4 +18,4 @@ const StatisticListItem = ({ stats }) => {
   );
 };
 
-export default StatisticListItem;
+export default StatisticItem;

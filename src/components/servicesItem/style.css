@@ -30,12 +30,6 @@
   animation: fadeIn 0.6s ease-in-out forwards;
 }
 
-.services__item-block {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .services__subheading {
   margin: 0;
   font-size: 24px;
