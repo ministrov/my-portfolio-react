@@ -1,5 +1,5 @@
 .filter__btn {
-  min-width: 170px;
+  min-width: 135px;
   height: 40px;
   font-family: "Inter", sans-serif;
   font-size: 18px;
@@ -9,6 +9,7 @@
   background-color: var(--color-white);
   border: none;
   border-radius: var(--border-radius-s);
+  cursor: pointer;
 }
 
 .filter__btn:focus {

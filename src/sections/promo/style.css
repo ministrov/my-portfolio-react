@@ -189,6 +189,10 @@
     margin-bottom: 4rem;
   }
 
+  .promo__wrapper {
+    gap: 2rem;
+  }
+
   .promo__greeting {
     font-size: 39px;
     line-height: 45px;
@@ -196,6 +200,7 @@
 
   .promo__image {
     height: auto;
+    min-height: 286px;
   }
 
   .promo__avatar {

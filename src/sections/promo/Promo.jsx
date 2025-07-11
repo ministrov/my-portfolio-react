@@ -44,7 +44,7 @@ const Promo = () => {
                 {t('promo.promoBtn')}
               </Button>
 
-              <SocialList varient='blue' />
+              <SocialList variant='blue' />
             </div>
           </div>
 
