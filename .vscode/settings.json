@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Tokyo Night Storm",
+  "workbench.colorTheme": "Oceanic Next (dimmed bg)",
   "editor.fontSize": 18,
 
   // Используем Prettier как основной форматировщик для TypeScript+React
