@@ -113,3 +113,11 @@
     gap: 1rem;
   }
 }
+
+@media screen and (max-width: 375px) {
+  .main-footer {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 2rem;
+  }
+}
