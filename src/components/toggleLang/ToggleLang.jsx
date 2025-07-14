@@ -12,7 +12,7 @@ export const ToggleLang = () => {
 
   return (
     <button
-      className={`toggle-btn ${lang === 'ru' ? 'toggled' : ''}`}
+      className={`toggle-btn ${lang === 'ru' ? '' : 'toggled'}`}
       onClick={handleLanguageChange}
     >
       <div className="thumb">{lang === 'ru' ? 'Ру' : 'En'}</div>
