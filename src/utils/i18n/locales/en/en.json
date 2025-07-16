@@ -114,15 +114,6 @@
     "author": "Anton Zhilin"
   },
   "projects": {
-    "project1": {
-      "title": "Auction for buying things",
-      "slogan": "A service for selling and buying things",
-      "overview": "This is a dynamic online auction platform built on the powerful combination of JavaScript, PHP, HTML, and CSS. Its intuitive interface and interactive experience make participating in bidding both engaging and easy!",
-      "infoTitle": "Project info",
-      "toolsTitle": "Project Tools",
-      "yearText": "Year",
-      "roleText": "Role"
-    },
     "project2": {
       "title": "Create-x Construction",
       "slogan": "A stunning construction company",
@@ -137,15 +128,6 @@
       "slogan": "A stunning Nike Shop",
       "overview": "Nike sneakers online store — a bright and concise project built with React and styled with expressive Tailwind CSS. Minimalist design and fast loading speed turn shopping into pure pleasure.",
       "infoTitle": "Project Info",
-      "toolsTitle": "Project Tools",
-      "yearText": "Year",
-      "roleText": "Role"
-    },
-    "project4": {
-      "title": "Personal Diary",
-      "slogan": "An online personal diary",
-      "overview": "Personal diary — a convenient React app with seamless navigation powered by React Router. Simple design and quick access to notes make journaling effortless and enjoyable!",
-      "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
       "roleText": "Role"
@@ -172,15 +154,6 @@
       "title": "Personal Blog",
       "slogan": "An Awesome personal Blog",
       "overview": "A modern personal blog with lively UI, built on Next.js, TypeScript, and React. Fluid transitions and vibrant effects from Framer Motion immerse readers into the content.",
-      "infoTitle": "Project info",
-      "toolsTitle": "Project Tools",
-      "yearText": "Year",
-      "roleText": "Role"
-    },
-    "project8": {
-      "title": "Dictionary",
-      "slogan": "A searching word library",
-      "overview": "Lexical Dictionary — a simple yet elegant resource built with JavaScript, HTML, and CSS. Clear interface makes finding definitions easy and learning vocabulary enjoyable.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
