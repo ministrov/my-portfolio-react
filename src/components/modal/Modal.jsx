@@ -1,31 +1,9 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { IoCloseSharp } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
 import SocialList from '../socials/SocialList';
 import './style.css';
-
-const dropIn = {
-  hidden: {
-    y: '-100vh',
-    opacity: 0,
-  },
-  visible: {
-    y: '0',
-    opacity: 1,
-    transition: {
-      duration: 1.1,
-      type: 'spring',
-      damping: 25,
-      stiffness: 500,
-    },
-  },
-  exit: {
-    y: '100vh',
-    opacity: 0,
-  },
-};
 
 const Modal = ({ open, onClose }) => {
   const { t } = useTranslation();
@@ -53,25 +31,18 @@ const Modal = ({ open, onClose }) => {
   };
 
   return createPortal(
-    <AnimatePresence>
+    <>
       {open && (
-        <motion.div
+        <div
           className="backdrop"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
           onClick={handleBackdropClick}
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
         >
-          <motion.div
+          <div
             ref={modalRef}
             className="modal"
-            variants={dropIn}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
             onClick={(e) => e.stopPropagation()}
             tabIndex={0}
           >
@@ -94,10 +65,10 @@ const Modal = ({ open, onClose }) => {
             <div className="modal__socials">
               <SocialList />
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
-    </AnimatePresence>,
+    </>,
     document.getElementById('portal')
   );
 };

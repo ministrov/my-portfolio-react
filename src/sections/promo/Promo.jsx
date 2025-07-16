@@ -52,6 +52,7 @@ const Promo = () => {
           <div className="promo__image">
             <FadeIn>
               <img
+                className="promo__avatar"
                 src={avatar}
                 width="350"
                 height="350"

@@ -31,6 +31,10 @@
   border-radius: var(--border-radius-s);
 }
 
+.promo__avatar {
+  border-radius: var(--border-radius-s);
+}
+
 .promo__greeting {
   display: block;
   margin-bottom: 24px;
