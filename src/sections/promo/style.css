@@ -25,14 +25,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-blue-700);
-  border-radius: var(--border-radius-s);
-}
-
-.promo__avatar {
-  width: 80%;
-  height: 80%;
   object-fit: contain;
+  border-radius: var(--border-radius-s);
+  background-color: var(--color-blue-700);
   border-radius: var(--border-radius-s);
 }
 

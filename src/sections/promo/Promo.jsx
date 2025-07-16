@@ -4,6 +4,7 @@ import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
 import TypingEffect from '../../components/typingEffect/TypingEffect';
+import FadeIn from '../../components/fadeIn/FadeIn';
 import { useLanguage } from '../../context/LanguageProvider';
 import avatar from '../../assets/png/my-avatar.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
@@ -33,7 +34,7 @@ const Promo = () => {
             )}
 
             <p className="promo__slogan">{t('promo.promoSlogan')}</p>
-            
+
             <div className="promo__btns">
               <Button
                 className={'promo__btn'}
@@ -49,15 +50,16 @@ const Promo = () => {
           </div>
 
           <div className="promo__image">
-            <img
-              className="promo__avatar"
-              src={avatar}
-              width="300"
-              height="300"
-              alt={'A funny pixel men with a laptop in his hands'}
-              loading="eager"
-              decoding='async'
-            />
+            <FadeIn>
+              <img
+                src={avatar}
+                width="350"
+                height="350"
+                alt={'A funny pixel men with a laptop in his hands'}
+                loading="eager"
+                decoding='async'
+              />
+            </FadeIn>
           </div>
         </div>
       </div>
