@@ -1,10 +1,10 @@
 .skill__card {
   display: flex;
-  padding: 1rem;
   flex-direction: column;
   gap: 0.75rem;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
   border: 2px solid transparent;
   border-radius: var(--border-radius-s);
   background-color: var(--color-gray-200);
@@ -22,12 +22,12 @@
   transition: all 0.5s ease-in-out;
 }
 
-.skill__left {
-  display: flex;
+/* .skill__left {
+display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-}
+} */
 
 .skill__card-icon svg {
   width: 40px;
@@ -41,12 +41,12 @@
   color: var(--color-blue-700);
 }
 
-.skill__count {
+/* .skill__count {
   font-size: 24px;
   line-height: 30px;
   font-weight: 700;
   color: var(--color-blue-700);
-}
+} */
 
 @media screen and (max-width: 375px) {
   .skill__card {
