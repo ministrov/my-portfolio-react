@@ -33,7 +33,7 @@ const Promo = () => {
             )}
 
             <p className="promo__slogan">{t('promo.promoSlogan')}</p>
-            <p className="promo__welcome">{t('promo.promoText')}</p>
+            
             <div className="promo__btns">
               <Button
                 className={'promo__btn'}

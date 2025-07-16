@@ -49,14 +49,8 @@
 }
 
 .promo__slogan {
+  max-width: 550px;
   margin-bottom: 24px;
-  font-size: 18px;
-  line-height: 24px;
-  color: var(--color-blue-700);
-}
-
-.promo__welcome {
-  margin-bottom: 40px;
   font-size: 18px;
   line-height: 24px;
   color: var(--color-blue-700);
@@ -150,19 +144,9 @@
     padding-left: 16px;
     padding-right: 16px;
   }
-
-  .promo__welcome {
-    margin-bottom: 32px;
-  }
 }
 
 @media only screen and (max-width: 37.5em) {
-  .promo__welcome {
-    margin-bottom: 32px;
-    font-size: 16px;
-    line-height: 22px;
-  }
-
   .promo__slogan {
     font-size: 16px;
     text-align: initial;
