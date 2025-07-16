@@ -1,9 +1,6 @@
-import yeticave from '../../assets/projects/yeticave.webp';
 import createX from '../../assets/projects/create-x-construction.webp';
 import nikeEcommerce from '../../assets/projects/nike-ecommerce.webp';
-import personalDiary from '../../assets/projects/personal-diary.webp';
-import topApp from '../../assets/projects/05-big.webp';
-import dictionary from '../../assets/projects/dictionary.webp';
+import topApp from '../../assets/projects/topApp.webp';
 import blog from '../../assets/projects/blogWebp.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
@@ -12,22 +9,6 @@ import bringitup from '../../assets/projects/bringitup.webp';
 export const projects = [
   {
     id: 1,
-    title: 'projects.project1.title',
-    skills: 'JavaScript, PHP, HTML, CSS',
-    img: yeticave,
-    slogan: 'projects.project1.slogan',
-    gitHubLink: 'https://github.com/ministrov/yetycave-php',
-    overview: 'projects.project1.overview',
-    isProduction: false,
-    year: 2023,
-    role: 'intern Front-end Developer',
-    infoTitle: 'projects.project1.infoTitle',
-    toolsTitle: 'projects.project1.toolsTitle',
-    yearText: 'projects.project1.yearText',
-    roleText: 'projects.project1.roleText',
-  },
-  {
-    id: 2,
     title: 'projects.project2.title',
     skills: 'JavaScript, HTML5, CSS3',
     img: createX,
@@ -43,7 +24,7 @@ export const projects = [
     roleText: 'projects.project2.roleText',
   },
   {
-    id: 3,
+    id: 2,
     title: 'projects.project3.title',
     skills: 'React, Tailwind CSS',
     img: nikeEcommerce,
@@ -60,23 +41,7 @@ export const projects = [
     roleText: 'projects.project3.roleText',
   },
   {
-    id: 4,
-    title: 'projects.project4.title',
-    skills: 'React, React-Router, classnames',
-    img: personalDiary,
-    slogan: 'projects.project4.slogan',
-    gitHubLink: 'https://github.com/ministrov/react-journal',
-    overview: 'projects.project4.overview',
-    isProduction: false,
-    year: 2022,
-    role: 'Front-end Developer',
-    infoTitle: 'projects.project4.infoTitle',
-    toolsTitle: 'projects.project4.toolsTitle',
-    yearText: 'projects.project4.yearText',
-    roleText: 'projects.project4.roleText',
-  },
-  {
-    id: 5,
+    id: 3,
     title: 'projects.project5.title',
     skills: 'Next, TypeScript, React, Framer Motion, React Hook Form',
     img: topApp,
@@ -92,7 +57,7 @@ export const projects = [
     roleText: 'projects.project5.roleText',
   },
   {
-    id: 6,
+    id: 4,
     title: 'projects.project6.title',
     skills: 'Next, TypeScript, React, Zustand, Yup, Formik, Framer Motion',
     img: ratingus,
@@ -109,7 +74,7 @@ export const projects = [
     roleText: 'projects.project6.roleText',
   },
   {
-    id: 7,
+    id: 5,
     title: 'projects.project7.title',
     skills: 'Next, TypeScript, React, Framer Motion',
     img: blog,
@@ -125,22 +90,7 @@ export const projects = [
     roleText: 'projects.project7.roleText',
   },
   {
-    id: 8,
-    title: 'projects.project8.title',
-    skills: 'JavaScript, HTML, CSS',
-    img: dictionary,
-    slogan: 'projects.project8.slogan',
-    overview: 'projects.project8.overview',
-    isProduction: false,
-    year: 2021,
-    role: 'intern Front-end Developer',
-    infoTitle: 'projects.project8.infoTitle',
-    toolsTitle: 'projects.project8.toolsTitle',
-    yearText: 'projects.project8.toolsTitle',
-    roleText: 'projects.project8.toolsTitle',
-  },
-  {
-    id: 9,
+    id: 6,
     title: 'projects.project9.title',
     skills: 'JavaScript, HTML, CSS',
     img: waterdel,
@@ -156,7 +106,7 @@ export const projects = [
     roleText: 'projects.project9.roleText',
   },
   {
-    id: 10,
+    id: 7,
     title: 'projects.project10.title',
     skills: 'JavaScript, HTML, CSS, OOP, SOLID',
     img: bringitup,

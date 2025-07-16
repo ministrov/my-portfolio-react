@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaLongArrowAltUp } from 'react-icons/fa';
 import './style.css';
@@ -6,11 +6,14 @@ import './style.css';
 const Up = () => {
   const [isShowed, setIsShowed] = useState(false);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const handleScroll = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      setIsShowed(window.scrollY >= 300);
+    }
+  }, []);
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
+    if (!isShowed) return;
     switch (e.key) {
       case 'Escape':
         setIsShowed(false);
@@ -21,16 +24,16 @@ const Up = () => {
       default:
         break;
     }
+  }, [isShowed]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 300) {
-        setIsShowed(true);
-      } else {
-        setIsShowed(false);
-      }
-    };
+    if (typeof window === 'undefined') {
+      return;
+    }
 
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('keydown', handleKeyDown);
@@ -39,8 +42,8 @@ const Up = () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('keydown', handleKeyDown);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+  }, [handleScroll, handleKeyDown]);
 
   return (
     <AnimatePresence>
@@ -49,10 +52,11 @@ const Up = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 50, opacity: 0 }}
-          transition={{ duration: 0.65 }}
+          transition={{ duration: 0.65, ease: 'easeOut' }}
           className="scroll-to"
           onClick={scrollToTop}
-          aria-label='Наверх'
+          onKeyDown={handleKeyDown}
+          aria-label='Вернуться в начало страницы'
         >
           <FaLongArrowAltUp size={20} color='white' />
         </motion.button>

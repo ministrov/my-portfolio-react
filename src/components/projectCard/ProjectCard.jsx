@@ -27,18 +27,8 @@ const ProjectCard = ({
   const isDesktop = typeof window !== 'undefined' &&
     window.matchMedia('(min-width: 768px)').matches;
 
-  const variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { delay: 0.3 },
-    },
-  };
   return (
-    <motion.li
-      variants={variants}
-      initial={'hidden'}
-      whileInView={'visible'}
+    <li
       className="project-card__item"
       tabIndex={0}
     >
@@ -126,7 +116,7 @@ const ProjectCard = ({
           </div>
         </div>
       </div>
-    </motion.li>
+    </li>
   );
 };
 
