@@ -2,6 +2,7 @@ import { useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { IoCloseSharp } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
+import FadeIn from '../fadeIn/FadeIn';
 import SocialList from '../socials/SocialList';
 import './style.css';
 
@@ -40,32 +41,34 @@ const Modal = ({ open, onClose }) => {
           aria-modal="true"
           aria-labelledby={titleId}
         >
-          <div
-            ref={modalRef}
-            className="modal"
-            onClick={(e) => e.stopPropagation()}
-            tabIndex={0}
-          >
-            <header className="modal__header">
-              <p className="modal__slogan">{t('modal.title')}</p>
+          <FadeIn>
+            <div
+              ref={modalRef}
+              className="modal"
+              onClick={(e) => e.stopPropagation()}
+              tabIndex={0}
+            >
+              <header className="modal__header">
+                <p className="modal__slogan">{t('modal.title')}</p>
 
-              <button
-                className="modal__close"
-                onClick={onClose}
-                aria-label={t('modal.close')}
-                tabIndex={0}
-              >
-                <IoCloseSharp
-                  color='white'
-                />
-              </button>
-            </header>
+                <button
+                  className="modal__close"
+                  onClick={onClose}
+                  aria-label={t('modal.close')}
+                  tabIndex={0}
+                >
+                  <IoCloseSharp
+                    color='white'
+                  />
+                </button>
+              </header>
 
-            <p className="modal__text">{t('modal.text')}</p>
-            <div className="modal__socials">
-              <SocialList />
+              <p className="modal__text">{t('modal.text')}</p>
+              <div className="modal__socials">
+                <SocialList />
+              </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       )}
     </>,

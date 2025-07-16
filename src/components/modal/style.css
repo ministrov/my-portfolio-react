@@ -16,7 +16,6 @@
 }
 
 .backdrop:hover {
-  opacity: 0.8; /* Slightly darker on hover to emphasize clickability */
   cursor: pointer;
 }
 
@@ -28,11 +27,11 @@
   padding: 2rem;
   background-color: var(--color-blue-700);
   border-radius: var(--border-radius-s);
-  transition: box-shadow 0.2s ease; /* Smooth shadow on interaction */
+  transition: box-shadow 0.2s ease;
 }
 
 .modal:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Visual feedback for focus */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .modal__header {
@@ -64,19 +63,19 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transitions */
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .modal__close:hover,
 .modal__close:focus {
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle highlight */
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius-s);
-  transform: scale(1.2); /* Slight zoom */
+  transform: scale(1.2);
 }
 
 .modal__close:focus {
   border: 1px solid var(--color-white);
-  outline: 2px dashed var(--color-white); /* High-contrast focus ring */
+  outline: 2px dashed var(--color-white);
 }
 
 
