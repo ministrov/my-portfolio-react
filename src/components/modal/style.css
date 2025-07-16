@@ -15,6 +15,11 @@
   animation: fadeIn 0.3s ease-out;
 }
 
+.backdrop:hover {
+  opacity: 0.8; /* Slightly darker on hover to emphasize clickability */
+  cursor: pointer;
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -23,6 +28,11 @@
   padding: 2rem;
   background-color: var(--color-blue-700);
   border-radius: var(--border-radius-s);
+  transition: box-shadow 0.2s ease; /* Smooth shadow on interaction */
+}
+
+.modal:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Visual feedback for focus */
 }
 
 .modal__header {
@@ -49,15 +59,24 @@
 .modal__close {
   display: flex;
   font-size: 2rem;
-  max-width: 50px;
-  max-height: 50px;
+  width: 32px;
+  height: 32px;
   background-color: transparent;
-  border: none
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.modal__close:hover,
+.modal__close:focus {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle highlight */
+  border-radius: var(--border-radius-s);
+  transform: scale(1.1); /* Slight zoom */
 }
 
 .modal__close:focus {
   border: 1px solid var(--color-white);
-  outline: var(--color-white);
+  outline: 2px dashed var(--color-white); /* High-contrast focus ring */
 }
 
 
