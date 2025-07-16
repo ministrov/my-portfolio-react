@@ -8,7 +8,6 @@ import Skills from '../sections/skills/Skills.jsx';
 import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
-import Statistics from '../sections/statistics/Statistics.jsx';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,9 +97,8 @@ const Home = () => {
       <h1 className="visually-hidden">Home page of the author portfolio</h1>
       <Promo />
       <About />
-      <Statistics />
-      <Skills />
       <Services />
+      <Skills />
       <Showcasing />
       <Faq />
       <Modal
