@@ -71,7 +71,7 @@
 .modal__close:focus {
   background-color: rgba(255, 255, 255, 0.1); /* Subtle highlight */
   border-radius: var(--border-radius-s);
-  transform: scale(1.1); /* Slight zoom */
+  transform: scale(1.2); /* Slight zoom */
 }
 
 .modal__close:focus {
