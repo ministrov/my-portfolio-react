@@ -11,8 +11,10 @@
 }
 
 .logo__link {
+  display: flex;
+  width: 248px;
+  height: 42px;
   text-decoration: none;
-  color: inherit;
 }
 
 .logo__link:hover {
