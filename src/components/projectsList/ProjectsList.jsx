@@ -12,9 +12,8 @@ const ProjectsList = ({ projects }) => {
         const { id, title, overview, skills, ...rest } = project;
 
         return (
-          <FadeIn>
+          <FadeIn key={id}>
             <ProjectCard
-              key={id}
               title={t(title)}
               overview={t(overview)}
               skills={skills ? skills.split(',') : []}

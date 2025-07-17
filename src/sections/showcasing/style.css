@@ -6,7 +6,7 @@
 .showcasing__wrapper {
   object-fit: contain;
   border-radius: var(--border-radius-s);
-  background: var(--gradient), url('../../assets/svg/common-bg.svg');
+  background: var(--gradient), var(--color-blue-700);
 }
 
 @media screen and (max-width: 768px) {
