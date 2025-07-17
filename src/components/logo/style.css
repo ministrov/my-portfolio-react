@@ -1,13 +1,13 @@
 .logo {
   display: flex;
-  align-items: center;
-
+  /* align-items: center; */
+  gap: 8px;
   transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
 .logo__link {
   display: flex;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   height: 42px;
   cursor: pointer;
   font-family: 'Oswald', sans-serif;
