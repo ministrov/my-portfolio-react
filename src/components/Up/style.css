@@ -9,7 +9,7 @@
   width: 40px;
   height: 40px;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--border-radius-s);
   background-color: var(--color-blue-700);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
   cursor: pointer;

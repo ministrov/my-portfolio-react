@@ -14,7 +14,6 @@ const Footer = () => {
           <p className="main-footer__short-desc">{t('footer.description')}</p>
         </div>
         <div className="main-footer__row main-footer__row-1">
-          <h2 className="main-footer__heading-sm">{t('footer.socials')}</h2>
           <SocialList className={'main-footer__list'} />
         </div>
       </div>

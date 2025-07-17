@@ -4,12 +4,10 @@ import './style.css';
 
 const Logo = ({ className = '', color = '#0058a7' }) => {
   return (
-    <div className={'logo'}>
+    <Link to="/" className={`logo logo__link ${className}`}>
       <VscTerminalCmd className="logo__icon" size={38} color={color} />
-      <Link to="/" className={`logo__link ${className}`}>
-        {'AntoshkinDev'}
-      </Link>
-    </div>
+      <span className="logo__text">{'AntoshkinDev'}</span>
+    </Link>
   );
 };
 
