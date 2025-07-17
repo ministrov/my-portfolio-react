@@ -1,5 +1,5 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
-import { Tooltip } from '../tooltip/Tooltip';
+import Tooltip from '../tooltip/Tooltip';
 import './style.css';
 
 export function MyComponent({ text }) {

@@ -1,6 +1,6 @@
 import { useState, useRef, useLayoutEffect } from 'react';
 
-export function Tooltip({ text, visible }) {
+function Tooltip({ text, visible }) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const tooltipRef = useRef(null);
 
@@ -40,3 +40,5 @@ export function Tooltip({ text, visible }) {
     </div>
   );
 }
+
+export default Tooltip;
