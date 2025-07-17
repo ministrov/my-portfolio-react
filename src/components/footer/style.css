@@ -125,6 +125,20 @@
 
 @media screen and (max-width: 375px) {
   .main-footer {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 0rem;
+  }
+
+  .main-footer__lower {
+    padding: 1rem 0;
+  }
+
+  .main-footer__row-1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .main-footer__short-desc {
+    font-size: 16px;
+    line-height: 22px;
   }
 }
