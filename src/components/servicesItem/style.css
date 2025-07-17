@@ -140,7 +140,7 @@
 
 @media screen and (max-width: 514px) {
   .services__description {
-    max-width: 297px;
+    max-width: 318px;
   }
 }
 
@@ -151,13 +151,12 @@
     box-shadow: none;
   }
   .services__description {
-    max-width: 197px;
     font-size: 16px;
     line-height: 22px;
   }
 
   .services__item.services__expanded .services__description {
-    max-width: 255px;
+    max-width: 100%;
   }
 }
 

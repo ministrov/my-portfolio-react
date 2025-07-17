@@ -16,7 +16,7 @@
 }
 
 .faq__item:last-child {
-   border-bottom: 2px solid var(--color-blue-700);
+  border-bottom: 2px solid var(--color-blue-700);
 }
 
 .faq__question {
@@ -95,5 +95,17 @@
   .faq__icon svg {
     width: 1.2rem;
     height: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .faq__question {
+    padding: 1rem 0rem;
+  }
+
+  .faq__question h3 {
+    max-width: 270px;
+    font-size: 14px;
+    line-height: 20px;
   }
 }

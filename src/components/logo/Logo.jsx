@@ -1,14 +1,13 @@
+import { VscTerminalCmd } from "react-icons/vsc";
 import { Link } from 'react-router-dom';
-import logo from './logo.png';
 import './style.css';
 
-const Logo = ({ className = '' }) => {
+const Logo = ({ className = '', color = '#0058a7' }) => {
   return (
-    <div className={'logo'}>
-      <Link to="/" className={`logo__link ${className}`}>
-        <img src={logo} width={248} height={48} alt="Logo of Anton Zhilin" />
-      </Link>
-    </div>
+    <Link to="/" className={`logo logo__link ${className}`}>
+      <VscTerminalCmd className="logo__icon" size={38} color={color} />
+      <span className="logo__text">{'AntoshkinDev'}</span>
+    </Link>
   );
 };
 

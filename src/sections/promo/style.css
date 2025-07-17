@@ -95,7 +95,7 @@
   }
 
   .promo__image {
-    width: 446px;
+    width: 100%;
     height: 370px;
   }
 
@@ -105,7 +105,7 @@
   }
 
   .promo__text {
-    max-width: 70%;
+    max-width: 100%;
   }
 
   .promo__mouse-scroll-cont {
@@ -116,7 +116,7 @@
 @media screen and (max-width: 768px) {
   .promo__image {
     width: 100%;
-    height: 350px;
+    height: 400px;
   }
 
   .promo__greeting {
@@ -189,10 +189,10 @@
     min-height: 286px;
   }
 
-  .promo__avatar {
+  /* .promo__avatar {
     width: 70%;
     height: auto;
-  }
+  } */
 
   .promo__btns {
     align-items: flex-start;
