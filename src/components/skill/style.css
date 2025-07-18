@@ -1,29 +1,33 @@
 .skill__card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
+  flex: 1;
   justify-content: center;
   align-items: center;
   width: calc(100% - 14px);
   padding: 1rem;
   background-color: var(--color-gray-200);
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-  transition-duration: 500ms;
   box-shadow: none;
 }
 
 .skill__card-icon svg {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
 }
 
 .skill__card-header {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 24px;
   color: var(--color-blue-700);
+}
+
+@media screen and (max-width: 675px) {
+  .skill__card {
+    border: 2px solid var(--color-blue-700);
+    border-radius: var(--border-radius-s);
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -37,4 +41,3 @@
     gap: 0.5rem;
   }
 }
-

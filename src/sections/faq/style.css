@@ -99,6 +99,10 @@
 }
 
 @media screen and (max-width: 375px) {
+  .faq {
+    margin-bottom: 3rem;
+  }
+  
   .faq__question {
     padding: 1rem 0rem;
   }

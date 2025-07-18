@@ -5,20 +5,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 200px;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: var(--border-radius-s);
   overflow: hidden;
-  /* border: 2px solid transparent;
-  border-radius: var(--border-radius-s);
-  background-color: var(--color-gray-200);
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-  transition-duration: 500ms;
-  box-shadow: none; */
 }
 
 .conic::before {
@@ -54,6 +47,21 @@
 
 .conic-demo::after {
   animation: opacityChange 5s infinite linear;
+}
+
+@media screen and (max-width: 675px) {
+  .conic {
+    height: auto;
+    padding: 0;
+  }
+
+  .conic::before {
+    display: none;
+  }
+
+  .conic::after {
+    display: none;
+  }
 }
 
 @keyframes rotate {

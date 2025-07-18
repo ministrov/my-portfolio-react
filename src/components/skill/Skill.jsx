@@ -3,13 +3,8 @@ import './style.css';
 
 const Skill = ({ skill }) => {
   return (
-    <ConicAnimation
-      // className="skill__card"
-      // key={skill.id}
-      // aria-label={skill.tech}
-    >
+    <ConicAnimation>
       <div
-        key={skill.id}
         className="skill__card"
         aria-label={skill.tech}
       >
