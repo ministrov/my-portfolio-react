@@ -271,7 +271,7 @@
 
   .project-card__info {
     padding-top: 0;
-    padding-bottom: 16px;
+    padding-bottom: 0;
   }
 
   .project-card__info-title {

@@ -1,17 +1,23 @@
 .projects__list {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 6.5rem;
 }
 
 @media screen and (max-width: 1024px) {
   .projects__list {
-    gap: 3rem;
+    gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects__list {
+    gap: 4rem;
   }
 }
 
 @media screen and (max-width: 375px) {
   .projects__list {
-    gap: 2rem;
+    gap: 3rem;
   }
 }
