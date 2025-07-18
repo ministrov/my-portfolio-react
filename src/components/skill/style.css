@@ -4,9 +4,8 @@
   gap: 0.75rem;
   justify-content: center;
   align-items: center;
+  width: calc(100% - 14px);
   padding: 1rem;
-  border: 2px solid transparent;
-  border-radius: var(--border-radius-s);
   background-color: var(--color-gray-200);
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -15,16 +14,9 @@
   box-shadow: none;
 }
 
-.skill__card:hover {
-  cursor: pointer;
-  border: 2px solid var(--color-blue-500);
-  box-shadow: var(--box-shadow);
-  transition: all 0.5s ease-in-out;
-}
-
 .skill__card-icon svg {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 }
 
 .skill__card-header {
@@ -46,18 +38,3 @@
   }
 }
 
-/* @keyframes rotate {
-  100% {
-    transform: rotate(1turn);
-  }
-}
-
-/* Анимация прозрачности */
-/* @keyframes opacityChange {
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}  */
