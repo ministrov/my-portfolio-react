@@ -9,7 +9,6 @@ import Skills from '../sections/skills/Skills.jsx';
 import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
-import { MyComponent } from '../components/myComponent/MyComponent.jsx';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -116,8 +115,6 @@ const Home = () => {
         onClose={() => setIsOpen(false)}
         autoCloseDelay={15000}
       />
-
-      <MyComponent text={'Hello World from my Component!!!'} />
     </>
   );
 };
