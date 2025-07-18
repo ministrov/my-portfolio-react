@@ -2,7 +2,7 @@ import './style.css';
 
 const ConicAnimation = ({ children, ...props }) => {
   return (
-    <div class="conic" {...props}>
+    <div className="conic" {...props}>
       {children}
     </div>
   );
