@@ -45,3 +45,19 @@
     gap: 0.5rem;
   }
 }
+
+/* @keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+/* Анимация прозрачности */
+/* @keyframes opacityChange {
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}  */
