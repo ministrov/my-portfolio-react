@@ -1,0 +1,6 @@
+.faq__answer {
+  max-width: 90%;
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 24px;
+}
