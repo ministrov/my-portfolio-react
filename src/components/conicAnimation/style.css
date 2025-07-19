@@ -42,7 +42,6 @@
   top: 6px;
   width: calc(100% - 12px);
   height: calc(100% - 12px);
-  /* background: #000; */
   background: var(--color-blue-700);
   border-radius: 5px;
 }
