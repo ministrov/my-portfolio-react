@@ -3,40 +3,6 @@
   color: var(--color-blue-700);
 }
 
-.faq__icon {
-  color: var(--color-blue-700);
-  background-color: transparent;
-  transform: rotate(0deg);
-  border: none;
-  cursor: pointer;
-}
-
-.faq__item--active .faq__icon {
-  transform: rotate(180deg);
-}
-
-.faq__question .faq__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.faq__icon svg {
-  width: 2em;
-  height: 2em;
-}
-
-.faq__answer {
-  max-width: 90%;
-  overflow: hidden;
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.faq__item--active .faq__muted {
-  color: var(--color-blue-700);
-}
-
 @media screen and (max-width: 768px) {
   .faq {
     margin-bottom: 5rem;

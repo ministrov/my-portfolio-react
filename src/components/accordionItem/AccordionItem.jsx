@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import AccordionItemContext from './AccordionItemContext';
 // AnimatePresence
 import './style.css';
+import AccordionButton from '../accordionButton/AccordionButton';
 
-const AccordionItem = ({ item, index, children }) => {
+const AccordionItem = ({ item, index }) => {
   const { t } = useTranslation();
 
   return (
@@ -19,19 +20,7 @@ const AccordionItem = ({ item, index, children }) => {
         >
           <h3>{t(item.question)}</h3>
 
-          {/* <motion.button
-            onClick={() => toggleFAQ(index)}
-            className="faq__icon"
-            animate={{
-              rotate: activeIndex === index ? "45deg" : "0deg",
-              transition: { duration: 0.3, ease: "easeInOut" }
-            }}
-            aria-label={activeIndex === index ? t('faqs.close') : t('faqs.open')}
-            aria-expanded={activeIndex === index}
-            aria-controls="dropdown-menu"
-          >
-            <FaPlus />
-          </motion.button> */}
+          <AccordionButton/>
         </motion.div>
 
         {/* <AnimatePresence>
@@ -56,7 +45,6 @@ const AccordionItem = ({ item, index, children }) => {
           )}
         </AnimatePresence> */}
       </li>
-      {children}
     </AccordionItemContext.Provider>
   );
 };

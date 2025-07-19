@@ -4,6 +4,32 @@
   border-top: 2px solid var(--color-blue-700);
 }
 
+.faq__item--active .faq__icon {
+  transform: rotate(180deg);
+}
+
+.faq__question .faq__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq__icon svg {
+  width: 2em;
+  height: 2em;
+}
+
+.faq__answer {
+  max-width: 90%;
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.faq__item--active .faq__muted {
+  color: var(--color-blue-700);
+}
+
 .faq__item:last-child {
   border-bottom: 2px solid var(--color-blue-700);
 }
