@@ -1,19 +1,18 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AccordionContext } from '../../context/AccordionContext';
-import AccordionItemContext from './AccordionItemContext';
+import { AccordionItemContext } from '../../context/AccordionContext';
 import AccordionButton from '../accordionButton/AccordionButton';
 import AccordionPanel from '../accordionPanel/AccordionPanel';
 import './style.css';
 
-const AccordionItem = ({ item, index }) => {
-  const { activeIndex } = useContext(AccordionContext);
+const AccordionItem = ({ item, isActive, index }) => {
+  // const { activeIndex } = useContext(AccordionContext);
   const { t } = useTranslation();
 
   return (
     <AccordionItemContext.Provider value={{ index }}>
       <li
-        className={`faq__item ${activeIndex === index ? 'faq__item--active' : ''
+        className={`faq__item ${isActive === index ? 'faq__item--active' : ''
           }`}
       >
         <div
@@ -24,7 +23,7 @@ const AccordionItem = ({ item, index }) => {
           <AccordionButton />
         </div>
 
-        <AccordionPanel />
+        <AccordionPanel item={item}/>
       </li>
     </AccordionItemContext.Provider>
   );
