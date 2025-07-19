@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import AccordionItemContext from './AccordionItemContext';
 // AnimatePresence
+import './style.css';
 
 const AccordionItem = ({ item, index, children }) => {
   const { t } = useTranslation();

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AccordionContext } from "../../context/AccordionContext";
+import './style.css';
 
 const Accordion = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(null);
