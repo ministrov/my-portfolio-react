@@ -15,10 +15,8 @@ const Home = () => {
   const [isModalShown, setIsModalShown] = useState(false);
   const scrollTriggered = useRef(false);
   const timeoutRef = useRef(null);
-  const autoCloseRef = useRef(null);
+  // const autoCloseRef = useRef(null);
   const { t } = useTranslation();
-
-  // console.log(autoCloseRef.current);
 
   useEffect(() => {
     const modalShown = localStorage.getItem('modalShown');
@@ -37,6 +35,11 @@ const Home = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+
   }, [isOpen]);
 
   useEffect(() => {
@@ -65,7 +68,7 @@ const Home = () => {
 
     return () => {
       clearTimeout(timeoutRef.current);
-      clearTimeout(autoCloseRef.current);
+      // clearTimeout(autoCloseRef.current);
       window.removeEventListener('scroll', handleScroll);
     };
 
@@ -77,17 +80,17 @@ const Home = () => {
 
     setIsOpen(true);
 
-    autoCloseRef.current = setTimeout(() => {
-      closeModal();
-    }, 15000);
+    // autoCloseRef.current = setTimeout(() => {
+    //   closeModal();
+    // }, 15000);
   };
 
-  const closeModal = () => {
-    setIsOpen(false);
-    setIsModalShown(true);
-    localStorage.setItem('modalShown', 'true');
-    clearTimeout(autoCloseRef.current);
-  };
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  //   setIsModalShown(true);
+  //   localStorage.setItem('modalShown', 'true');
+  //   // clearTimeout(autoCloseRef.current);
+  // };
 
   return (
     <>
@@ -121,7 +124,6 @@ const Home = () => {
         open={isOpen}
         onClose={() => setIsOpen(false)}
         autoCloseDelay={15000}
-        // ref={autoCloseRef}
       />
     </>
   );

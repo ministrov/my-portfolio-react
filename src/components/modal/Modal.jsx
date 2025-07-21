@@ -6,10 +6,13 @@ import FadeIn from '../fadeIn/FadeIn';
 import SocialList from '../socials/SocialList';
 import './style.css';
 
-const Modal = ({ open, onClose }) => {
+const Modal = ({ open, onClose, autoCloseDelay }) => {
   const { t } = useTranslation();
   const modalRef = useRef(null);
+  const timerRef = useRef(null);
   const titleId = 'modal-title';
+
+  // console.log(autoCloseDelay);
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') onClose();
@@ -26,6 +29,19 @@ const Modal = ({ open, onClose }) => {
       };
     }
   }, [open, handleKeyDown]);
+
+
+  useEffect(() => {
+    if (!open || !autoCloseDelay) return;
+
+    timerRef.current = setTimeout(() => {
+      onClose();
+    }, autoCloseDelay);
+
+    return () => {
+      clearTimeout(timerRef.current);
+    };
+  }, [open, autoCloseDelay, onClose]);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) onClose();
