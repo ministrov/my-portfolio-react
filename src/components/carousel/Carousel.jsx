@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import ShowcasingCard from '../showcasingCard/ShowcasingCard';
 import { projects } from '../../sections/projects/projects';
-import './style.css';
 
 const Carousel = () => {
   return (
@@ -20,7 +19,10 @@ const Carousel = () => {
     >
       {projects.map((project) => (
         <SwiperSlide key={project.id}>
-          <ShowcasingCard image={project.img} name={project.title}/>
+          <ShowcasingCard
+            image={project.img}
+            name={project.title}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

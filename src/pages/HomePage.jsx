@@ -15,13 +15,17 @@ const Home = () => {
   const [isModalShown, setIsModalShown] = useState(false);
   const scrollTriggered = useRef(false);
   const timeoutRef = useRef(null);
-  const autoCloseRef = useRef(null);
+  // const autoCloseRef = useRef(null);
   const { t } = useTranslation();
 
   useEffect(() => {
     const modalShown = localStorage.getItem('modalShown');
-    if (!modalShown) {
-      setIsModalShown(false);
+    // if (!modalShown) {
+    //   setIsModalShown(false);
+    //   // setIsModalShown(true)
+    // }
+    if (modalShown) {
+      setIsModalShown(true);
     }
   }, []);
 
@@ -31,6 +35,11 @@ const Home = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+
   }, [isOpen]);
 
   useEffect(() => {
@@ -59,10 +68,11 @@ const Home = () => {
 
     return () => {
       clearTimeout(timeoutRef.current);
-      clearTimeout(autoCloseRef.current);
+      // clearTimeout(autoCloseRef.current);
       window.removeEventListener('scroll', handleScroll);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isModalShown, isOpen]);
 
   const openModal = () => {
@@ -70,17 +80,17 @@ const Home = () => {
 
     setIsOpen(true);
 
-    autoCloseRef.current = setTimeout(() => {
-      closeModal();
-    }, 15000);
+    // autoCloseRef.current = setTimeout(() => {
+    //   closeModal();
+    // }, 15000);
   };
 
-  const closeModal = () => {
-    setIsOpen(false);
-    setIsModalShown(true);
-    localStorage.setItem('modalShown', 'true');
-    clearTimeout(autoCloseRef.current);
-  };
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  //   setIsModalShown(true);
+  //   localStorage.setItem('modalShown', 'true');
+  //   // clearTimeout(autoCloseRef.current);
+  // };
 
   return (
     <>

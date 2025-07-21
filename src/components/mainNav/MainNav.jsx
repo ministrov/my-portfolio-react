@@ -20,7 +20,6 @@ const MainNav = () => {
   useEffect(() => {
     setActive('nav-list');
     setToggleIcon('nav__toggler');
-
   }, [location.pathname]);
 
   const toggleNav = () => {

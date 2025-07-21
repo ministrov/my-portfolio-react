@@ -3,7 +3,6 @@ import './style.css';
 const ShowcasingCard = ({ image, name }) => {
   return (
     <article className="showcasing-card">
-      {/* Контейнер с фиксированным соотношением сторон */}
       <div className="showcasing-card__aspect-ratio">
         <img
           src={image}

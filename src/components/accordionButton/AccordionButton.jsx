@@ -1,27 +1,21 @@
-import { useContext } from "react";
+import { motion } from "framer-motion";
 import { FaPlus } from 'react-icons/fa6';
-import { AccordionContext, AccordionItemContext } from "../../context/AccordionContext";
 import './style.css';
 
-const AccordionButton = () => {
-  const { activeIndex, setActiveIndex } = useContext(AccordionContext);
-  const { index } = useContext(AccordionItemContext);
-  const isExpanded = activeIndex === index;
-
+const AccordionButton = ({ isActive, onClick, id }) => {
   return (
-    <button
+    <motion.button
       className="faq__icon"
-      onClick={() => setActiveIndex(isExpanded ? null : index)}
+      onClick={onClick}
       animate={{
-        rotate: activeIndex === index ? "45deg" : "0deg",
+        rotate: isActive ? "45deg" : "0deg",
         transition: { duration: 0.3, ease: "easeInOut" }
       }}
-      aria-expanded={isExpanded}
-      aria-controls={`panel-${index}`}
+      aria-expanded={isActive}
+      aria-controls={`panel-${id}`}
     >
-      {/* {children} */}
       <FaPlus />
-    </button>
+    </motion.button>
   );
 };
 
