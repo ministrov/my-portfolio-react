@@ -18,10 +18,16 @@ const Home = () => {
   const autoCloseRef = useRef(null);
   const { t } = useTranslation();
 
+  // console.log(autoCloseRef.current);
+
   useEffect(() => {
     const modalShown = localStorage.getItem('modalShown');
-    if (!modalShown) {
-      setIsModalShown(false);
+    // if (!modalShown) {
+    //   setIsModalShown(false);
+    //   // setIsModalShown(true)
+    // }
+    if (modalShown) {
+      setIsModalShown(true);
     }
   }, []);
 
@@ -62,7 +68,8 @@ const Home = () => {
       clearTimeout(autoCloseRef.current);
       window.removeEventListener('scroll', handleScroll);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isModalShown, isOpen]);
 
   const openModal = () => {
@@ -114,6 +121,7 @@ const Home = () => {
         open={isOpen}
         onClose={() => setIsOpen(false)}
         autoCloseDelay={15000}
+        // ref={autoCloseRef}
       />
     </>
   );

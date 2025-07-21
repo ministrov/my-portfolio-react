@@ -5,8 +5,6 @@ export const LanguageContext = createContext({
   toggleLang: () => { },
 });
 
-// console.log(LanguageContext);
-
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState('ru');
 
