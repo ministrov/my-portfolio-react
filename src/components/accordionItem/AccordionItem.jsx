@@ -4,7 +4,7 @@ import AccordionButton from '../accordionButton/AccordionButton';
 import AccordionPanel from '../accordionPanel/AccordionPanel';
 import './style.css';
 
-const AccordionItem = ({ item, isActive, index }) => {
+const AccordionItem = ({ item, isActive, index, onClick }) => {
   const { t } = useTranslation();
 
   return (
@@ -18,10 +18,10 @@ const AccordionItem = ({ item, isActive, index }) => {
         >
           <h3>{t(item.question)}</h3>
 
-          <AccordionButton />
+          <AccordionButton isActive={isActive} onClick={() => onClick(item.id)} id={item.id}/>
         </div>
 
-        <AccordionPanel item={item}/>
+        <AccordionPanel item={item} isActive={isActive}/>
       </li>
     </AccordionItemContext.Provider>
   );

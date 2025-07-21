@@ -5,18 +5,11 @@ import AccordionItem from "../accordionItem/AccordionItem";
 import './style.css';
 
 const Accordion = () => {
-  // const [activeIndex, setActiveIndex] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(-1);
-  // const { index } = useContext(AccordionItemContext);
+  const [activeIndex, setActiveIndex] = useState(null);
 
-  const toggleItem = (index) => {
-    setActiveIndex(activeIndex === index ? -1 : index);
+  const toggleItem = (id) => {
+    setActiveIndex(activeIndex === id ? null : id);
   };
-  // if (activeIndex === index) {
-  //   setActiveIndex(-1);
-  // } else {
-  //   setActiveIndex(index);
-  // }
 
   return (
     <AccordionContext.Provider value={{ activeIndex, setActiveIndex }}>
