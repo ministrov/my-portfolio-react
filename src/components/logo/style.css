@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  /* height: 42px; */
   transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 

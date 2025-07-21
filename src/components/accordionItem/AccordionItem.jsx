@@ -8,8 +8,7 @@ const AccordionItem = ({ item, isActive, onClick }) => {
 
   return (
     <li
-      className={`faq__item ${isActive ? 'faq__item--active' : ''
-        }`}
+      className="faq__item"
     >
       <div
         className="faq__question"
