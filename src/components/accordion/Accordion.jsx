@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { AccordionContext } from "../../context/AccordionContext";
 import { faqs } from "../../sections/faq/faqs";
 import AccordionItem from "../accordionItem/AccordionItem";
 import './style.css';
@@ -12,18 +11,16 @@ const Accordion = () => {
   };
 
   return (
-    <AccordionContext.Provider value={{ activeIndex, setActiveIndex }}>
-      <ul className="faq__list">
-        {faqs.map(faq => (
-          <AccordionItem
-            key={faq.id}
-            item={faq}
-            onClick={() => toggleItem(faq.id)}
-            isActive={activeIndex === faq.id}
-          />
-        ))}
-      </ul>
-    </AccordionContext.Provider>
+    <ul className="faq__list">
+      {faqs.map(faq => (
+        <AccordionItem
+          key={faq.id}
+          item={faq}
+          onClick={() => toggleItem(faq.id)}
+          isActive={activeIndex === faq.id}
+        />
+      ))}
+    </ul>
   )
 }
 
