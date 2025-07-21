@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { motion } from "framer-motion";
 import { FaPlus } from 'react-icons/fa6';
 import { AccordionContext, AccordionItemContext } from "../../context/AccordionContext";
 import './style.css';
@@ -9,7 +10,7 @@ const AccordionButton = () => {
   const isExpanded = activeIndex === index;
 
   return (
-    <button
+    <motion.button
       className="faq__icon"
       onClick={() => setActiveIndex(isExpanded ? null : index)}
       animate={{
@@ -19,9 +20,8 @@ const AccordionButton = () => {
       aria-expanded={isExpanded}
       aria-controls={`panel-${index}`}
     >
-      {/* {children} */}
       <FaPlus />
-    </button>
+    </motion.button>
   );
 };
 

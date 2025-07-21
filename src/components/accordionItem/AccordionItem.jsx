@@ -1,4 +1,3 @@
-// import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AccordionItemContext } from '../../context/AccordionContext';
 import AccordionButton from '../accordionButton/AccordionButton';
@@ -6,7 +5,6 @@ import AccordionPanel from '../accordionPanel/AccordionPanel';
 import './style.css';
 
 const AccordionItem = ({ item, isActive, index }) => {
-  // const { activeIndex } = useContext(AccordionContext);
   const { t } = useTranslation();
 
   return (
