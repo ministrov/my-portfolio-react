@@ -6,7 +6,7 @@ const AccordionButton = ({ isActive, onClick, id }) => {
   return (
     <motion.button
       className="faq__icon"
-      onClick={() => onClick(id)}
+      onClick={onClick}
       animate={{
         rotate: isActive ? "45deg" : "0deg",
         transition: { duration: 0.3, ease: "easeInOut" }

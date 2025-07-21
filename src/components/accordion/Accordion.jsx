@@ -6,6 +6,8 @@ import './style.css';
 const Accordion = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
+  // console.log(activeIndex, 'activeIndex');
+
   const toggleItem = (id) => {
     setActiveIndex(activeIndex === id ? null : id);
   };
