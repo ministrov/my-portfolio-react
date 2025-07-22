@@ -30,6 +30,7 @@
 }
 
 .promo__avatar {
+  object-fit: cover;
   border-radius: var(--border-radius-s);
 }
 
