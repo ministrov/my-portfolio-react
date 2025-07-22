@@ -84,7 +84,7 @@
 
   .main-footer__short-desc {
     max-width: 413px;
-    text-align: center;
+    /* text-align: center; */
   }
 }
 
@@ -100,6 +100,11 @@
 
   .main-footer__row-2 {
     align-items: center;
+  }
+
+  .main-footer__short-desc {
+    /* max-width: 413px; */
+    text-align: center;
   }
 
   .main-footer__heading-sm {

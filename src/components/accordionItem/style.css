@@ -4,11 +4,6 @@
   border-top: 2px solid var(--color-blue-700);
 }
 
-.faq__icon svg {
-  width: 2em;
-  height: 2em;
-}
-
 .faq__item--active .faq__muted {
   color: var(--color-blue-700);
 }

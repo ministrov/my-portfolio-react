@@ -7,6 +7,8 @@ import TypingEffect from '../../components/typingEffect/TypingEffect';
 import FadeIn from '../../components/fadeIn/FadeIn';
 import { useLanguage } from '../../context/LanguageProvider';
 import avatar from '../../assets/png/my-avatar.webp';
+import avatar2x from '../../assets/png/my-avatar-1000.webp';
+import avatar3x from '../../assets/png/my-avatar-1500.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -54,8 +56,10 @@ const Promo = () => {
               <img
                 className="promo__avatar"
                 src={avatar}
-                width="350"
-                height="350"
+                srcSet={`${avatar} 1x, ${avatar2x} 2x, ${avatar3x} 3x`}
+                sizes="(max-width: 600px) 300px, (max-width: 1024px) 400px, 500px"
+                width="500"
+                height="500"
                 alt={'A funny pixel men with a laptop in his hands'}
                 loading="eager"
                 decoding='async'

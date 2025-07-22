@@ -23,18 +23,13 @@
   color: var(--color-blue-700);
 }
 
-@media screen and (max-width: 675px) {
-  .skill__card {
-    border: 2px solid var(--color-blue-700);
-    border-radius: var(--border-radius-s);
-  }
-}
-
 @media screen and (max-width: 375px) {
   .skill__card {
     gap: 0.5rem;
     padding-left: 0;
     padding-right: 0;
+    border: 2px solid var(--color-blue-700);
+    border-radius: var(--border-radius-s);
   }
 
   .skill__left {

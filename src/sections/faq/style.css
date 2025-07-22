@@ -29,10 +29,10 @@
     line-height: 24px;
   }
 
-  .faq__icon svg {
+  /* .faq__icon svg {
     width: 1.2rem;
     height: 1.2rem;
-  }
+  } */
 }
 
 @media screen and (max-width: 375px) {

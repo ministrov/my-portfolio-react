@@ -5,3 +5,15 @@
   border: none;
   cursor: pointer;
 }
+
+.faq__icon svg {
+  width: 2em;
+  height: 2em;
+}
+
+@media screen and (max-width: 575px) {
+  .faq__icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
