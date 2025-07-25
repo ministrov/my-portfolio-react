@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { BiHomeAlt2 } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import './style.css';
+import { ToggleLang } from '../toggleLang/ToggleLang';
 
 export const routes = [
   {
@@ -21,19 +22,23 @@ export const routes = [
 const NavDesktop = () => {
   const { t } = useTranslation();
   return (
-    <ul className="nav-list">
-      {routes.map((route) => {
-        const { Icon, href, title } = route;
-        return (
-          <li className="nav-list__item">
-            <NavLink to={href} className={'nav-list__link'}>
-              <Icon />
-              {t(title)}
-            </NavLink>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="nav-wrapper">
+      <ul className="nav-list">
+        {routes.map((route) => {
+          const { Icon, href, title } = route;
+          return (
+            <li key={title} className="nav-list__item">
+              <NavLink to={href} className={'nav-list__link'}>
+                <Icon size={24} />
+                {t(title)}
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
+
+      <ToggleLang />
+    </div>
   );
 };
 

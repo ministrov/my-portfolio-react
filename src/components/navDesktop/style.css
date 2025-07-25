@@ -1,3 +1,8 @@
+.nav-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
 .nav-list {
   display: flex;
   flex-wrap: wrap;
@@ -6,12 +11,21 @@
 }
 
 .nav-list__item {
-  display: flex;
-  gap: 0.25rem;
-  align-items: center;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
+}
+
+.nav-list__link {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  font-family: var(--font-headings);
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-blue-700);
 }
 
 @media screen and (max-width: 768px) {

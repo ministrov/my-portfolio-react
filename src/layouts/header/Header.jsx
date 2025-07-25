@@ -1,6 +1,5 @@
 // import MainNav from '../../components/mainNav/MainNav';
-// import { NavDesktop } from '../../components/navDesktop/NavDesktop';
-// import NavDesktop from '../../components/navDesktop/NavDesktop';
+import NavDesktop from '../../components/navDesktop/NavDesktop';
 import Logo from '../../components/logo/Logo';
 import './style.css';
 
@@ -11,7 +10,7 @@ const Header = () => {
         <Logo />
 
 
-        {/* <NavDesktop /> */}
+        <NavDesktop />
         {/* <MainNav /> */}
       </nav>
     </header>
