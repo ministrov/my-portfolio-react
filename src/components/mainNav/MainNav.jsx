@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useLocation } from 'react-router-dom';
+import ToggleLang from '../toggleLang/ToggleLang';
 import './style.css';
 
 const MainNav = () => {
@@ -58,6 +59,8 @@ const MainNav = () => {
         <div className="line2"></div>
         <div className="line3"></div>
       </button>
+
+      <ToggleLang />
     </div>
   );
 };

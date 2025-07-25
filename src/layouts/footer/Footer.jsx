@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import Logo from '../logo/Logo';
-import SocialList from '../socials/SocialList';
+import Logo from '../../components/logo/Logo';
+import SocialList from '../../components/socials/SocialList';
 import './style.css';
 
 const Footer = () => {

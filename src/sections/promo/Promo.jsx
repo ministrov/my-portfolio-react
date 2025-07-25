@@ -61,7 +61,7 @@ const Promo = () => {
                 width="500"
                 height="500"
                 alt={'A funny pixel men with a laptop in his hands'}
-                loading="eager"
+                fetchpriority='high'
                 decoding='async'
               />
             </FadeIn>

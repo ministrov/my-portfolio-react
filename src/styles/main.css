@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Oswald';
+  font-family: var(--font-headings);
   src: url('../assets/fonts/Oswald/Oswald-Regular.woff2') format('woff2'),
     url('../assets/fonts/Oswald/Oswald-Regular.woff') format('woff');
   font-weight: 400;
@@ -7,15 +7,7 @@
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('../assets/fonts/Inter/Inter-Medium.woff2') format('woff2'),
-    url('../assets/fonts/Inter/Inter-Medium.woff') format('woff');
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Open Sans';
+  font-family: var(--font-base);
   src: url('../assets/fonts/OpenSans/OpenSans-Regular.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-Regular.woff') format('woff');
   font-weight: 400;
@@ -23,7 +15,7 @@
 }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: var(--font-base);
   src: url('../assets/fonts/OpenSans/OpenSans-SemiBold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-SemiBold.woff') format('woff');
   font-weight: 600;
@@ -31,7 +23,7 @@
 }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: var(--font-base);
   src: url('../assets/fonts/OpenSans/OpenSans-Bold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-Bold.woff') format('woff');
   font-weight: 700;
@@ -39,6 +31,8 @@
 }
 
 :root {
+  --font-base: 'Open Sans', sans-serif;
+  --font-headings: 'Oswald', sans-serif;
   /* Базовые цвета */
   --color-white: #fff;
   --color-black: #000;
@@ -70,16 +64,31 @@
   );
 }
 
-body, ul, ol, h1, h2, h3, h4, h5, h6, p, li, a, button {
+body,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+button {
   margin: 0;
   padding: 0;
 }
 
 body {
   min-width: 320px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-base);
   font-size: 16px;
   font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   line-height: 22px;
   background-color: var(--color-white);
 }
@@ -96,8 +105,6 @@ img {
   width: 100%;
   vertical-align: middle;
 }
-
-/* General */
 
 .visually-hidden {
   position: absolute;
@@ -123,9 +130,9 @@ img {
   min-height: 100vh;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 @media screen and (max-width: 1268px), screen and (max-width: 1096px) {
   /* Базовые стили для всех маленьких экранов */
@@ -140,5 +147,12 @@ img {
       padding-left: 16px;
       padding-right: 16px;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Скрывает полосу прокрутки */
+  ::-webkit-scrollbar {
+    display: none;
   }
 }
