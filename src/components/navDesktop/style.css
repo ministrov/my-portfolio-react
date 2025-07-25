@@ -23,7 +23,6 @@
   font-family: var(--font-headings);
   font-size: 1.25rem;
   line-height: 1.5rem;
-  font-weight: 700;
   text-decoration: none;
   color: var(--color-blue-700);
 }

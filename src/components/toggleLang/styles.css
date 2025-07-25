@@ -4,17 +4,15 @@
   height: 34px;
   border: 2px solid var(--color-blue-700);
   border-radius: 99px;
-  transition:
-    backgroun-color 0.1s ease,
-    border-color 0.2s ease;
+  transition: backgroun-color 0.1s ease, border-color 0.2s ease;
   cursor: pointer;
 }
 
 .thumb {
-  font-family: "Inter", sans-serif;
-  font-size: 12px;
+  font-family: var(--font-headings);
+  font-size: 14px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 20px;
   color: var(--color-blue-700);
 }
 
