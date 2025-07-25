@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Header from './components/header/Header';
-import Up from './components/Up/Up';
-import Footer from './components/footer/Footer';
+import Header from './header/Header';
+import Footer from './footer/Footer';
+import Up from '../components/Up/Up';
 
 const Layout = () => {
   const [searchParams, setSearchParams] = useSearchParams();

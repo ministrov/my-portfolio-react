@@ -1,6 +1,6 @@
-import { ToggleLang } from '../toggleLang/ToggleLang';
-import MainNav from '../mainNav/MainNav';
-import Logo from '../logo/Logo';
+import { ToggleLang } from '../../components/toggleLang/ToggleLang';
+import MainNav from '../../components/mainNav/MainNav';
+import Logo from '../../components/logo/Logo';
 import './style.css';
 
 const Header = () => {
