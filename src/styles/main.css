@@ -70,7 +70,19 @@
   );
 }
 
-body, ul, ol, h1, h2, h3, h4, h5, h6, p, li, a, button {
+body,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+button {
   margin: 0;
   padding: 0;
 }
@@ -80,6 +92,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   line-height: 22px;
   background-color: var(--color-white);
 }
@@ -96,8 +111,6 @@ img {
   width: 100%;
   vertical-align: middle;
 }
-
-/* General */
 
 .visually-hidden {
   position: absolute;
@@ -123,9 +136,9 @@ img {
   min-height: 100vh;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 @media screen and (max-width: 1268px), screen and (max-width: 1096px) {
   /* Базовые стили для всех маленьких экранов */
