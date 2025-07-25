@@ -19,14 +19,14 @@
   gap: 2rem;
 } */
 
-.main-nav__row {
+/* .main-nav__row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   column-gap: 2rem;
   row-gap: 1rem;
   flex-wrap: wrap;
-}
+} */
 
 @media only screen and (max-width: 56.25em) {
   .main-nav__list-wrapper {
