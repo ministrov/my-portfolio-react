@@ -64,3 +64,10 @@
     font-size: 1rem;
   }
 }
+
+@media screen and (max-width: 375px) {
+  .heading-sec__main {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}

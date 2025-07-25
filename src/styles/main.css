@@ -149,3 +149,10 @@ img {
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  /* Скрывает полосу прокрутки */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

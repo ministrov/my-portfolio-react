@@ -84,9 +84,13 @@
 }
 
 @media (max-width: 36rem) {
+  .about__wrapper {
+    align-items: initial;
+  }
+
   .about__image {
-    width: 343px;
-    height: 343px;
+    width: 100%;
+    height: 283px;
   }
 }
 

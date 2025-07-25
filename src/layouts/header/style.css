@@ -16,11 +16,11 @@
 @media only screen and (max-width: 768px) {
   .nav__wrapper {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    /* align-items: center;
+    gap: 0.5rem; */
   }
 
-  .main-nav__list-wrapper {
+  /* .main-nav__list-wrapper {
     min-width: initial;
   }
 
@@ -30,7 +30,7 @@
 
   .main-nav__list-wrapper {
     order: 2;
-  }
+  } */
 }
 
 @media screen and (max-width: 375px) {
