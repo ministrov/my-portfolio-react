@@ -31,4 +31,8 @@
   .nav-list {
     display: none;
   }
+
+  .nav__lang {
+    display: none;
+  }
 }

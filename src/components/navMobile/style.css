@@ -1,0 +1,17 @@
+.nav-mobile {
+  display: none;
+}
+
+.nav-mobile__lang {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-mobile {
+    display: block;
+  }
+
+  /* .nav-mobile__lang {
+    display: block;
+  } */
+}

@@ -23,7 +23,7 @@ const NavDesktop = () => {
         })}
       </ul>
 
-      <ToggleLang />
+      <ToggleLang className='nav__lang' />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { useLanguage } from '../../hooks/useLanguage';
 import i18n from 'i18next';
 import './styles.css';
 
-const ToggleLang = () => {
+const ToggleLang = ({ className = '' }) => {
   const { lang, toggleLang } = useLanguage();
 
   const handleLanguageChange = () => {
@@ -12,7 +12,7 @@ const ToggleLang = () => {
 
   return (
     <button
-      className={`toggle-btn ${lang === 'ru' ? '' : 'toggled'}`}
+      className={`toggle-btn ${className} ${lang === 'ru' ? '' : 'toggled'}`}
       onClick={handleLanguageChange}
     >
       <div className="thumb">{lang === 'ru' ? 'Ру' : 'En'}</div>
