@@ -13,11 +13,11 @@
   padding: 1rem 2rem;
 }
 
-.main-nav__block {
+/* .main-nav__block {
   display: flex;
   align-items: center;
   gap: 2rem;
-}
+} */
 
 .main-nav__row {
   display: flex;
@@ -33,9 +33,9 @@
     min-width: initial;
   }
 
-  .main-nav__block {
+  /* .main-nav__block {
     gap: 1rem;
-  }
+  } */
 
   .toggle-btn {
     order: 1;
@@ -51,7 +51,7 @@
     padding: 1rem 1rem;
   }
 
-  .main-nav__block {
+  /* .main-nav__block {
     gap: 8px;
-  }
+  } */
 }
