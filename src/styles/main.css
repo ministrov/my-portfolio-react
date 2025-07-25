@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Oswald';
+  font-family: var(--font-headings);
   src: url('../assets/fonts/Oswald/Oswald-Regular.woff2') format('woff2'),
     url('../assets/fonts/Oswald/Oswald-Regular.woff') format('woff');
   font-weight: 400;
@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: var(--font-base);
   src: url('../assets/fonts/OpenSans/OpenSans-Regular.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-Regular.woff') format('woff');
   font-weight: 400;
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: var(--font-base);
   src: url('../assets/fonts/OpenSans/OpenSans-SemiBold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-SemiBold.woff') format('woff');
   font-weight: 600;
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: var(--font-base);
   src: url('../assets/fonts/OpenSans/OpenSans-Bold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-Bold.woff') format('woff');
   font-weight: 700;
@@ -31,6 +31,8 @@
 }
 
 :root {
+  --font-base: 'Open Sans', sans-serif;
+  --font-headings: 'Oswald', sans-serif;
   /* Базовые цвета */
   --color-white: #fff;
   --color-black: #000;
@@ -81,7 +83,7 @@ button {
 
 body {
   min-width: 320px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-base);
   font-size: 16px;
   font-weight: 400;
   text-rendering: optimizeLegibility;

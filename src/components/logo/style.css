@@ -6,7 +6,7 @@
 }
 
 .logo__link {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-headings);
   font-size: 28px;
   line-height: 34px;
   color: var(--color-blue-700);
