@@ -24,15 +24,9 @@
   "editor.detectIndentation": true, // Автоопределение отступов
   "editor.insertSpaces": true, // Вместо tab-вставлять пробелы
   "editor.tabSize": 2, // Размер отступа 2 пробела
-  "editor.defaultFormatter": "esbenp.prettier-vscode", // Основной форматировщик — Prettier
-  "editor.formatOnSave": true, // Форматировать при сохранении
-
-  // Дополнительные Git и gitLens настройки
-  // "git.autofetch": true, // Автозагрузка изменений репозитория
-  // "gitlens.views.commitDetails.files.layout": "tree", // Вид структуры коммитов
-  // "workbench.iconTheme": "material-icon-theme", // Темы иконок
-  // "git.openRepositoryInParentFolders": "never", // Открытие проекта без вложенных папок
-  "editor.minimap.enabled": false, // Выключаем мини-карту
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
   "editor.cursorBlinking": "smooth",
   "editor.cursorWidth": 3,
   "files.autoSaveDelay": 500,
