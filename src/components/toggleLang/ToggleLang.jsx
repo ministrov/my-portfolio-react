@@ -2,7 +2,7 @@ import { useLanguage } from '../../hooks/useLanguage';
 import i18n from 'i18next';
 import './styles.css';
 
-export const ToggleLang = () => {
+const ToggleLang = () => {
   const { lang, toggleLang } = useLanguage();
 
   const handleLanguageChange = () => {
@@ -19,3 +19,5 @@ export const ToggleLang = () => {
     </button>
   );
 };
+
+export default ToggleLang;

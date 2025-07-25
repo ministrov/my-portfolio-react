@@ -1,23 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import ToggleLang from '../toggleLang/ToggleLang';
+import { routes } from '../../const';
 // useLocation
-import { BiHomeAlt2 } from "react-icons/bi";
-import { FiSearch } from "react-icons/fi";
 import './style.css';
-import { ToggleLang } from '../toggleLang/ToggleLang';
-
-export const routes = [
-  {
-    title: "mainNav.home",
-    href: "/",
-    Icon: BiHomeAlt2,
-  },
-  {
-    title: "mainNav.projects",
-    href: "/projects",
-    Icon: FiSearch,
-  }
-];
 
 const NavDesktop = () => {
   const { t } = useTranslation();
