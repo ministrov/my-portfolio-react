@@ -24,21 +24,21 @@
 }
 
 .heading-sec__mb-med {
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 }
 
 .heading-sec__sub {
   display: block;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
   text-align: center;
   color: var(--color-blue-700);
 }
 
 @media only screen and (max-width: 56.25em) {
   .heading-sec__mb-med {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -60,14 +60,19 @@
     top: calc(100% + 1rem);
   }
 
-  .heading-sec__sub {
+  /* .heading-sec__sub {
     font-size: 1rem;
-  }
+  } */
 }
 
 @media screen and (max-width: 375px) {
   .heading-sec__main {
     font-size: 34px;
     line-height: 40px;
+  }
+
+  .heading-sec__sub {
+    font-size: 20px;
+    line-height: 26px;
   }
 }
