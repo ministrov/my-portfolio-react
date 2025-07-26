@@ -2,8 +2,48 @@
   display: none;
 }
 
-.nav-mobile__lang {
-  display: none;
+.nav-mobile__wrapper {
+  position: fixed;
+  right: 0;
+  left: 0;
+  padding: 1.25rem;
+  padding-top: 0;
+  border-bottom-width: 1px;
+  top: 3.5rem;
+}
+
+.nav-mobile__list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.nav-mobile__item {
+  width: 100%;
+  padding: 0.08rem;
+  border-radius: 0.75rem;
+  background-image: linear-gradient(to top right, var(--color-blue-700));
+}
+
+.nav-mobile__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
+
+.nav-mobile__title {
+  display: flex;
+  gap: 0.25rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: var(--color-blue-700);
+}
+
+.nav-mobile__icon {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 @media screen and (max-width: 768px) {
