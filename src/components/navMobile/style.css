@@ -2,16 +2,6 @@
   display: none;
 }
 
-.nav-mobile__wrapper {
-  position: fixed;
-  right: 0;
-  left: 0;
-  padding: 1.25rem;
-  padding-top: 0;
-  border-bottom-width: 1px;
-  top: 3.5rem;
-}
-
 .nav-mobile__list {
   display: grid;
   gap: 0.5rem;
@@ -49,5 +39,16 @@
 @media screen and (max-width: 768px) {
   .nav-mobile {
     display: block;
+  }
+
+  .nav-mobile__wrapper {
+    position: fixed;
+    right: 0;
+    left: 0;
+    padding: 1.25rem;
+    padding-top: 0;
+    border-bottom-width: 1px;
+    top: 3.5rem;
+    background-color: var(--color-white);
   }
 }
