@@ -7,6 +7,11 @@
   .faq {
     margin-bottom: 5rem;
   }
+
+  .faq__question h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
 }
 
 @media screen and (max-width: 575px) {
@@ -19,14 +24,14 @@
   }
 
   .faq__question h3 {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 18px;
+    line-height: 24px;
   }
 
   .faq__answer {
     max-width: 100%;
-    font-size: 14px;
-    line-height: 24px;
+    /* font-size: 14px;
+    line-height: 24px; */
   }
 }
 
@@ -41,7 +46,5 @@
 
   .faq__question h3 {
     max-width: 270px;
-    /* font-size: 14px;
-    line-height: 20px; */
   }
 }
