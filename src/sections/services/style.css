@@ -1,5 +1,5 @@
 .services {
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 .services__list {
@@ -16,12 +16,12 @@
 
 @media screen and (max-width: 768px) {
   .services {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
   }
 }
 
 @media screen and (max-width: 375px) {
   .services {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 }

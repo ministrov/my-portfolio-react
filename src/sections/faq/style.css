@@ -28,11 +28,6 @@
     font-size: 14px;
     line-height: 24px;
   }
-
-  /* .faq__icon svg {
-    width: 1.2rem;
-    height: 1.2rem;
-  } */
 }
 
 @media screen and (max-width: 375px) {
@@ -46,7 +41,7 @@
 
   .faq__question h3 {
     max-width: 270px;
-    font-size: 14px;
-    line-height: 20px;
+    /* font-size: 14px;
+    line-height: 20px; */
   }
 }
