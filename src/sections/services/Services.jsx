@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import ServicesItem from '../../components/servicesItem/ServicesItem';
 import Heading from '../../components/heading/Heading';
-import { services } from './services';
+import { services } from '../../const';
 import './style.css';
 
 const Services = () => {

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useLocation, NavLink } from "react-router-dom";
 import { Squash as Hamburger } from "hamburger-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -10,6 +11,11 @@ const NavMobile = () => {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
   const { t } = useTranslation();
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(location);
+  }, [location]);
 
   useEffect(() => {
     if (isOpen) {
@@ -18,6 +24,10 @@ const NavMobile = () => {
       document.body.style.overflow = 'auto';
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    setOpen(false);
+  }, []);
 
   return (
     <div className="nav-mobile" ref={ref}>
@@ -45,28 +55,27 @@ const NavMobile = () => {
 
                 return (
                   <motion.li
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
                     transition={{
                       type: "spring",
-                      stiffness: 180,
-                      damping: 30,
-                      delay: 0.5 + idx / 10,
+                      stiffness: 240,
+                      damping: 28,
+                      delay: 0.4 + idx / 5,
                     }}
                     key={route.title}
                     className="nav-mobile__item"
                   >
-                    <a
+                    <NavLink
+                      to={route.href}
                       onClick={() => setOpen((prev) => !prev)}
                       className={
                         "nav-mobile__link"
                       }
-                      href={route.href}
                     >
                       <span className="nav-mobile__title">{t(route.title)}</span>
                       <Icon className="nav-mobile__icon" color="#0058a7" />
-                    </a>
+                    </NavLink>
                   </motion.li>
                 );
               })}

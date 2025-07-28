@@ -9,7 +9,6 @@
 
 .nav-mobile__item {
   width: 100%;
-  padding: 0.08rem;
   border-radius: var(--border-radius-s);
   border: 1px solid var(--color-blue-700);
 }

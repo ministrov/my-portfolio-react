@@ -4,7 +4,7 @@ import ProjectsList from '../../components/projectsList/ProjectsList';
 import ProjectsLayout from './ProjectsLayout';
 import ProjectsHeader from './ProjectsHeader';
 import FilterList from './FilterList';
-import { filters } from './filters';
+import { filters } from '../../const';
 
 const Projects = () => {
   const { state, handleFilterClick } = useProjectsFilter();
@@ -30,7 +30,7 @@ const Projects = () => {
 
       <ProjectsList
         projects={state.filteredProjects}
-       />
+      />
     </ProjectsLayout>
   );
 };
