@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import ToggleLang from "../toggleLang/ToggleLang";
 // import { AnimatePresence, motion } from "framer-motion";
 import { routes } from "../../const";
@@ -10,6 +11,7 @@ import './style.css';
 const NavMobile = () => {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
+  const { t } = useTranslation();
 
   console.log(ref);
 
@@ -50,8 +52,8 @@ const NavMobile = () => {
                       }
                       href={route.href}
                     >
-                      <span className="nav-mobile__title">{route.title}</span>
-                      <Icon className="nav-mobile__icon" />
+                      <span className="nav-mobile__title">{t(route.title)}</span>
+                      <Icon className="nav-mobile__icon" color="#0058a7" />
                     </a>
                   </motion.li>
                 );
