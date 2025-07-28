@@ -26,7 +26,7 @@ const NavMobile = () => {
           <ToggleLang className="nav-mobile__lang" />
         </div>
         <div className="nav-mobile__hamburger">
-          <Hamburger toggled={isOpen} size={32} toggle={setOpen} color="#ffffff" />
+          <Hamburger toggled={isOpen} size={30} toggle={setOpen} color="#ffffff" />
         </div>
       </div>
 

@@ -54,6 +54,9 @@
   }
 
   .nav-mobile__hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--color-blue-700);
     border-radius: var(--border-radius-s);
   }
@@ -66,6 +69,7 @@
     display: flex;
     flex-direction: column;
     gap: 5.5rem;
+    height: 90vh;
     padding: 2rem;
     padding-top: 2rem;
     background-color: var(--color-white);
@@ -79,6 +83,7 @@
 
 @media screen and (max-width: 375px) {
   .nav-mobile__wrapper {
+    top: 4rem;
     padding: 0;
     padding-top: 2.5rem;
     align-items: center;
@@ -88,5 +93,9 @@
     width: 90%;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .nav-mobile__hamburger {
+    height: 40px;
   }
 }

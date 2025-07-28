@@ -41,9 +41,9 @@
 }
 
 .modal__slogan {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
-  line-height: 38px;
+  line-height: 34px;
   text-transform: uppercase;
   color: var(--color-white);
 }

@@ -9,7 +9,7 @@ import './style.css';
 const Modal = ({ open, onClose, autoCloseDelay }) => {
   const { t } = useTranslation();
   const modalRef = useRef(null);
-  // const timerRef = useRef(null);
+  const timerRef = useRef(null);
   const titleId = 'modal-title';
 
   const handleKeyDown = useCallback((e) => {
@@ -29,17 +29,17 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
   }, [open, handleKeyDown]);
 
 
-  // useEffect(() => {
-  //   if (!open || !autoCloseDelay) return;
+  useEffect(() => {
+    if (!open || !autoCloseDelay) return;
 
-  //   timerRef.current = setTimeout(() => {
-  //     onClose();
-  //   }, autoCloseDelay);
+    timerRef.current = setTimeout(() => {
+      onClose();
+    }, autoCloseDelay);
 
-  //   return () => {
-  //     clearTimeout(timerRef.current);
-  //   };
-  // }, [open, autoCloseDelay, onClose]);
+    return () => {
+      clearTimeout(timerRef.current);
+    };
+  }, [open, autoCloseDelay, onClose]);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) onClose();
