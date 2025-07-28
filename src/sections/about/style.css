@@ -99,6 +99,10 @@
     margin-bottom: 2rem;
   }
 
+  .about__image {
+    height: 292px;
+  }
+
   .about__greeting {
     font-size: 20px;
     line-height: 26px;
