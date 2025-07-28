@@ -43,6 +43,12 @@
     display: block;
   }
 
+  .nav-mobile__buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
   .nav-mobile__list {
     gap: 1.5rem;
   }

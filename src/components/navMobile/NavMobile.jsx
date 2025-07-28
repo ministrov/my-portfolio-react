@@ -21,8 +21,13 @@ const NavMobile = () => {
 
   return (
     <div className="nav-mobile" ref={ref}>
-      <div className="nav-mobile__hamburger">
-        <Hamburger toggled={isOpen} size={32} toggle={setOpen} color="#ffffff" />
+      <div className="nav-mobile__buttons">
+        <div className="nav-mobile__lang">
+          <ToggleLang className="nav-mobile__lang" />
+        </div>
+        <div className="nav-mobile__hamburger">
+          <Hamburger toggled={isOpen} size={32} toggle={setOpen} color="#ffffff" />
+        </div>
       </div>
 
       <AnimatePresence>
@@ -66,8 +71,6 @@ const NavMobile = () => {
                 );
               })}
             </ul>
-
-            {isOpen && <ToggleLang className="nav-mobile__lang" />}
           </motion.div>
         )}
       </AnimatePresence>
