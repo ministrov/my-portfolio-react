@@ -17,7 +17,9 @@ const NavMobile = () => {
 
   return (
     <div className="nav-mobile" ref={ref}>
-      <Hamburger toggled={isOpen} size={32} toggle={setOpen} color="#0058a7" />
+      <div className="nav-mobile__hamburger">
+        <Hamburger toggled={isOpen} size={32} toggle={setOpen} color="#ffffff" />
+      </div>
 
       <AnimatePresence>
         {isOpen && (
@@ -25,9 +27,6 @@ const NavMobile = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            // initial={{ opacity: 0 }}
-            // animate={{ opacity: 1 }}
-            // exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="nav-mobile__wrapper"
           >
@@ -37,8 +36,6 @@ const NavMobile = () => {
 
                 return (
                   <motion.li
-                    // initial={{ scale: 0, opacity: 0 }}
-                    // animate={{ scale: 1, opacity: 1 }}
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}

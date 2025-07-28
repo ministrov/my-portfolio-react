@@ -43,6 +43,15 @@
     display: block;
   }
 
+  .nav-mobile__list {
+    gap: 1.5rem;
+  }
+
+  .nav-mobile__hamburger {
+    background-color: var(--color-blue-700);
+    border-radius: var(--border-radius-s);
+  }
+
   .nav-mobile__wrapper {
     position: fixed;
     top: 5rem;
@@ -51,14 +60,27 @@
     display: flex;
     flex-direction: column;
     gap: 5.5rem;
-    padding: 1.25rem;
-    padding-top: 0;
-    border-bottom-width: 1px;
+    padding: 2rem;
+    padding-top: 2rem;
     background-color: var(--color-white);
   }
 
   .nav-mobile__icon {
     font-size: 1.75rem;
     line-height: 2.25rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .nav-mobile__wrapper {
+    padding: 0;
+    padding-top: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-mobile__list {
+    width: 90%;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
