@@ -12,8 +12,6 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
   const timerRef = useRef(null);
   const titleId = 'modal-title';
 
-  // console.log(autoCloseDelay);
-
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') onClose();
   }, [onClose]);

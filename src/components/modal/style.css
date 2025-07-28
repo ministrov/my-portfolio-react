@@ -37,12 +37,13 @@
 .modal__header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .modal__slogan {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
-  line-height: 38px;
+  line-height: 34px;
   text-transform: uppercase;
   color: var(--color-white);
 }
@@ -78,8 +79,6 @@
   outline: 2px dashed var(--color-white);
 }
 
-
-
 .modal__socials {
   margin-top: auto;
 }
@@ -93,11 +92,10 @@
   }
 }
 
-@media (max-width: 36rem) {
+@media screen and (max-width: 768px) {
   .modal {
-    width: 90%;
+    width: 90vw;
     padding: 1rem;
-    max-width: 100%;
     height: auto;
   }
 }
@@ -108,5 +106,19 @@
     right: 0;
     width: initial;
     height: auto;
+  }
+
+  .modal {
+    width: 85vw;
+  }
+
+  .modal__slogan {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .modal__text {
+    font-size: 16px;
+    line-height: 22px;
   }
 }
