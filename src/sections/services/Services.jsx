@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import ServicesItem from '../../components/servicesItem/ServicesItem';
 import Heading from '../../components/heading/Heading';
+import ServicesList from './ServicesList';
 import { services } from '../../const';
 import './style.css';
 
@@ -26,14 +26,8 @@ const Services = () => {
           slogan={t('heading.myServices.subheading')}
           className="services__title"
         ></Heading>
-        <motion.ul
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 1.4, duration: 0.7, ease: 'easeIn' },
-          }}
-          className="services__list"
-        >
+
+        <ServicesList>
           {services.map((service) => (
             <ServicesItem
               key={service.id}
@@ -42,7 +36,7 @@ const Services = () => {
               onClick={() => toggleExpand(service.id)}
             />
           ))}
-        </motion.ul>
+        </ServicesList>
       </div>
     </section>
   );

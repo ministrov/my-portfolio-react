@@ -130,10 +130,6 @@ img {
   min-height: 100vh;
 }
 
-/* ::-webkit-scrollbar {
-  display: none;
-} */
-
 @media screen and (max-width: 1268px), screen and (max-width: 1096px) {
   /* Базовые стили для всех маленьких экранов */
   .container {
