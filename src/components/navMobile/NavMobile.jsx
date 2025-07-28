@@ -1,10 +1,8 @@
-// import { useClickAway } from "react-use";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import ToggleLang from "../toggleLang/ToggleLang";
-// import { AnimatePresence, motion } from "framer-motion";
 import { routes } from "../../const";
 import './style.css';
 
@@ -13,7 +11,13 @@ const NavMobile = () => {
   const ref = useRef(null);
   const { t } = useTranslation();
 
-  console.log(ref);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen]);
 
   return (
     <div className="nav-mobile" ref={ref}>

@@ -1,6 +1,5 @@
-// import { ToggleLang } from '../toggleLang/ToggleLang';
+import { GoProjectSymlink } from "react-icons/go";
 import { BiHomeAlt2 } from "react-icons/bi";
-import { FiSearch } from "react-icons/fi";
 
 export const routes = [
   {
@@ -11,6 +10,6 @@ export const routes = [
   {
     title: "mainNav.projects",
     href: "/projects",
-    Icon: FiSearch,
+    Icon: GoProjectSymlink,
   }
 ];
