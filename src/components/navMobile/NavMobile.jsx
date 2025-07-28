@@ -22,10 +22,13 @@ const NavMobile = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            // initial={{ opacity: 0 }}
+            // animate={{ opacity: 1 }}
+            // exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
             className="nav-mobile__wrapper"
           >
             <ul className="nav-mobile__list">
@@ -34,13 +37,16 @@ const NavMobile = () => {
 
                 return (
                   <motion.li
-                    initial={{ scale: 0, opacity: 0 }}
+                    // initial={{ scale: 0, opacity: 0 }}
+                    // animate={{ scale: 1, opacity: 1 }}
+                    initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.95, opacity: 0 }}
                     transition={{
                       type: "spring",
-                      stiffness: 260,
-                      damping: 20,
-                      delay: 0.1 + idx / 10,
+                      stiffness: 180,
+                      damping: 30,
+                      delay: 0.3 + idx / 10,
                     }}
                     key={route.title}
                     className="nav-mobile__item"
