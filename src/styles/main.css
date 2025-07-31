@@ -130,24 +130,22 @@ img {
   min-height: 100vh;
 }
 
-@media screen and (max-width: 1268px), screen and (max-width: 1096px) {
-  /* Базовые стили для всех маленьких экранов */
+@media screen and (max-width: 1268px) {
   .container {
     max-width: 1068px;
-  }
-
-  /* Условия для самых маленьких экранов */
-  @media screen and (max-width: 1096px) {
-    .container {
-      max-width: 100%;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  /* Скрывает полосу прокрутки */
+  .container {
+    max-width: 100%;
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   ::-webkit-scrollbar {
     display: none;
   }

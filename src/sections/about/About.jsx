@@ -17,15 +17,8 @@ const About = () => {
 
         <FadeIn>
           <div className="about__wrapper">
-            <div className="about__left">
-              <strong className={'about__greeting'}>{t('about.title')}</strong>
-
-              <p className="about__description">{t('about.descriptionOne')}</p>
-              <p className="about__description">{t('about.descriptionTwo')}</p>
-            </div>
-
             <div
-              className="about__right"
+              className="about__left"
             >
               <img
                 className="about__image"
@@ -36,6 +29,31 @@ const About = () => {
                 loading="lazy"
               />
             </div>
+            <div className="about__right">
+              <strong className={'about__greeting'}>{t('about.title')}</strong>
+
+              <p className="about__description">{t('about.descriptionOne')}</p>
+              <p className="about__description">{t('about.descriptionTwo')}</p>
+            </div>
+            {/* <div className="about__left">
+              <strong className={'about__greeting'}>{t('about.title')}</strong>
+
+              <p className="about__description">{t('about.descriptionOne')}</p>
+              <p className="about__description">{t('about.descriptionTwo')}</p>
+            </div> */}
+
+            {/* <div
+              className="about__right"
+            >
+              <img
+                className="about__image"
+                src={author}
+                width={500}
+                height={500}
+                alt={"Focus on author's face"}
+                loading="lazy"
+              />
+            </div> */}
           </div>
         </FadeIn>
       </div>

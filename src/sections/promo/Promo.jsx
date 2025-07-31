@@ -51,8 +51,8 @@ const Promo = () => {
             </div>
           </div>
 
-          <div className="promo__image">
-            <FadeIn>
+          <FadeIn>
+            <div className="promo__image">
               <img
                 className="promo__avatar"
                 src={avatar}
@@ -64,8 +64,8 @@ const Promo = () => {
                 fetchpriority='high'
                 decoding='async'
               />
-            </FadeIn>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </div>
       <MouseScroll />
