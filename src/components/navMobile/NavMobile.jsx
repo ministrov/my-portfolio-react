@@ -25,10 +25,6 @@ const NavMobile = () => {
     setOpen(false);
   }, [location.pathname]);
 
-  // useEffect(() => {
-  //   setOpen(false);
-  // }, []);
-
   return (
     <div className="nav-mobile" ref={ref}>
       <div className="nav-mobile__buttons">
