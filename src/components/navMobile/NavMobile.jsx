@@ -14,10 +14,6 @@ const NavMobile = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log(location);
-  }, [location]);
-
-  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -27,7 +23,11 @@ const NavMobile = () => {
 
   useEffect(() => {
     setOpen(false);
-  }, []);
+  }, [location.pathname]);
+
+  // useEffect(() => {
+  //   setOpen(false);
+  // }, []);
 
   return (
     <div className="nav-mobile" ref={ref}>
