@@ -69,7 +69,7 @@
 
 @media screen and (max-width: 910px) {
   .about__left {
-    max-width: 100%;
+    max-width: 78%;
   }
 
   .about__greeting {
@@ -78,21 +78,23 @@
   }
 }
 
-@media (max-width: 36rem) {
+@media screen and (max-width: 768px) {
+  .about {
+    margin-bottom: 3rem;
+  }
+
   .about__wrapper {
     align-items: initial;
     gap: 1.5rem;
   }
 
+  .about__left {
+    max-width: 100%;
+  }
+
   .about__image {
     width: 100%;
     height: 378px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .about {
-    margin-bottom: 3rem;
   }
 }
 

@@ -114,10 +114,6 @@
     gap: 4rem;
   }
 
-  .promo__avatar {
-    aspect-ratio: 1 / 1;
-  }
-
   .promo__text {
     max-width: 100%;
   }
@@ -169,6 +165,13 @@
   }
 }
 
+@media screen and (max-width: 486px) {
+  .promo__image {
+    width: 100%;
+    height: 431px;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .promo {
     padding-top: 6rem;
@@ -182,7 +185,6 @@
   }
 
   .promo__image {
-    width: 100%;
     height: 327px;
   }
 
