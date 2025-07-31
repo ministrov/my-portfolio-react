@@ -20,6 +20,7 @@
 }
 
 .promo__image {
+  /* mix-blend-mode: lighten; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +31,8 @@
 }
 
 .promo__avatar {
-  object-fit: cover;
+  mix-blend-mode: lighten;
+  aspect-ratio: 16 / 9;
   border-radius: var(--border-radius-s);
 }
 
@@ -96,6 +98,10 @@
   .promo__wrapper {
     flex-direction: column;
     gap: 4rem;
+  }
+
+  .promo__avatar {
+    aspect-ratio: 1 / 1;
   }
 
   .promo__text {
@@ -174,12 +180,13 @@
 
   .promo__image {
     width: 100%;
-    height: auto;
+    height: 327px;
   }
 
   .promo__avatar {
     width: 100%;
-    max-height: 327px;
+    aspect-ratio: 3 / 4;
+    max-height: 295px;
   }
 
   .promo__greeting {
