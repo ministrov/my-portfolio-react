@@ -133,6 +133,8 @@ img {
 @media screen and (max-width: 1268px) {
   .container {
     max-width: 1068px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
 

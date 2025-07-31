@@ -84,7 +84,6 @@
 
   .main-footer__short-desc {
     max-width: 413px;
-    /* text-align: center; */
   }
 }
 
@@ -103,7 +102,6 @@
   }
 
   .main-footer__short-desc {
-    /* max-width: 413px; */
     text-align: center;
   }
 
@@ -127,11 +125,13 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 475px) {
   .main-footer {
     padding: 2rem 1rem 0rem;
   }
+}
 
+@media screen and (max-width: 375px) {
   .main-footer__lower {
     padding: 1rem 0;
   }

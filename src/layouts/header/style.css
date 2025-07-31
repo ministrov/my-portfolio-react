@@ -16,24 +16,10 @@
 @media only screen and (max-width: 768px) {
   .nav__wrapper {
     display: flex;
-    /* align-items: center;
-    gap: 0.5rem; */
   }
-
-  /* .main-nav__list-wrapper {
-    min-width: initial;
-  }
-
-  .toggle-btn {
-    order: 1;
-  }
-
-  .main-nav__list-wrapper {
-    order: 2;
-  } */
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 475px) {
   .nav {
     padding: 1rem 1rem;
   }
