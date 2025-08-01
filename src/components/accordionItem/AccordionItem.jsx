@@ -12,6 +12,7 @@ const AccordionItem = ({ item, isActive, onClick }) => {
     >
       <div
         className="faq__question"
+        onClick={() => onClick(item.id)}
       >
         <h3>{t(item.question)}</h3>
 
