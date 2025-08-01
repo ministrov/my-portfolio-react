@@ -99,15 +99,12 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    /* transform: translateY(10px); */
   }
   50% {
     opacity: 0.8;
-    /* transform: translateY(5px); */
   }
   100% {
     opacity: 1;
-    /* transform: translateY(0); */
   }
 }
 
@@ -126,29 +123,11 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  /* .services__description {
-    max-width: 497px;
-  } */
-}
-
-/* @media screen and (max-width: 591px) {
-  .services__description {
-    max-width: 397px;
-  }
-}
-
-@media screen and (max-width: 514px) {
-  .services__description {
-    max-width: 318px;
-  }
-} */
-
 @media screen and (max-width: 396px) {
-  .services__item {
+  /* .services__item {
     padding: 0;
     box-shadow: none;
-  }
+  } */
   .services__description {
     font-size: 16px;
     line-height: 22px;
