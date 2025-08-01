@@ -7,26 +7,27 @@
   padding: 2rem;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-s);
-  transition: max-height 0.4s ease, box-shadow 0.3s ease;
+  transition: max-height 0.4s ease-in-out;
   will-change: max-height;
-}
-
-.services__item-text {
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 40px;
-  color: transparent;
-  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .services__item.services__expanded .services__description {
   overflow: initial;
-  text-overflow: initial;
   white-space: initial;
 }
 
 .services__item.services__expanded {
+  max-height: none;
   animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.services__item-text {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 42px;
+  color: transparent;
+  transition: all 0.3s ease;
 }
 
 .services__subheading {
@@ -37,10 +38,10 @@
 }
 
 .services__description {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   margin: 0;
+  font-size: 18px;
+  line-height: 24px;
   transition: all 0.3s ease;
   color: var(--color-blue-700);
 }
@@ -72,6 +73,7 @@
 .services__more {
   display: flex;
   max-width: fit-content;
+  margin-top: auto;
   padding-bottom: 4px;
   font-family: inherit;
   font-size: 16px;
@@ -97,59 +99,39 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(10px);
   }
   50% {
     opacity: 0.8;
-    transform: translateY(5px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 @media screen and (max-width: 1024px) {
   .services__item {
-    flex: 0 0 calc(50% - 2rem);
-    width: auto;
+    padding: 1.5rem;
   }
 
   .services__description {
-    max-width: 635px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     font-size: 18px;
     line-height: 24px;
+    white-space: nowrap;
   }
 }
 
 @media screen and (max-width: 768px) {
   .services__description {
-    max-width: 497px;
-  }
-}
-
-@media screen and (max-width: 591px) {
-  .services__description {
-    max-width: 397px;
-  }
-}
-
-@media screen and (max-width: 514px) {
-  .services__description {
-    max-width: 318px;
+    max-width: 85%;
   }
 }
 
 @media screen and (max-width: 396px) {
   .services__item {
-    padding: 0;
-    box-shadow: none;
+    padding: 1rem;
   }
+
   .services__description {
-    max-width: 273px;
     font-size: 16px;
     line-height: 22px;
   }
