@@ -18,7 +18,6 @@ const AccordionItem = ({ item, isActive, onClick }) => {
 
         <AccordionButton
           isActive={isActive}
-          onClick={() => onClick(item.id)}
           id={item.id}
         />
       </div>
