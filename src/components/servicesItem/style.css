@@ -11,22 +11,22 @@
   will-change: max-height;
 }
 
-.services__item-text {
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 40px;
-  color: transparent;
-  transition: all 0.3s ease;
-}
-
 .services__item.services__expanded .services__description {
   overflow: initial;
-  text-overflow: initial;
   white-space: initial;
 }
 
 .services__item.services__expanded {
+  max-height: none;
   animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.services__item-text {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 42px;
+  color: transparent;
+  transition: all 0.3s ease;
 }
 
 .services__subheading {
@@ -38,9 +38,10 @@
 
 .services__description {
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0;
+  font-size: 18px;
+  line-height: 24px;
   transition: all 0.3s ease;
   color: var(--color-blue-700);
 }
@@ -72,6 +73,7 @@
 .services__more {
   display: flex;
   max-width: fit-content;
+  margin-top: auto;
   padding-bottom: 4px;
   font-family: inherit;
   font-size: 16px;
