@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ToggleLang from '../toggleLang/ToggleLang';
 import { routes } from '../../const';
-// useLocation
 import './style.css';
 
 const NavDesktop = () => {

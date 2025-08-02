@@ -11,7 +11,7 @@
 
 .link,
 .curent {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -45,11 +45,3 @@
   opacity: 0.6;
   color: var(--color-blue-300);
 }
-
-/* @media screen and (max-width: 768px) {
-  .link,
-  .curent {
-    font-size: 14px;
-    line-height: 20px;
-  }
-} */
