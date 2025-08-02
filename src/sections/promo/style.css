@@ -187,7 +187,8 @@
   }
 
   .promo__avatar {
-    width: 270px;
+    /* width: 90%; */
+    width: 295px;
     max-height: 295px;
   }
 
@@ -198,5 +199,12 @@
 
   .promo__btns {
     align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .promo__avatar {
+    width: 270px;
+    max-height: 270px;
   }
 }
