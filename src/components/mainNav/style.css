@@ -1,10 +1,10 @@
-/* .nav-list {
+/* /* .nav-list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
 } */
-
+/*
 .nav-list__link {
   position: relative;
   display: inline-block;
@@ -16,9 +16,9 @@
   line-height: 22px;
   color: var(--color-blue-700);
   transition: color 0.3s, opacity 0.3s;
-}
+} */
 
-.nav-list__link:hover,
+/* .nav-list__link:hover,
 .nav-list__link:focus-visible,
 .nav-list__link--active {
   opacity: 0.7;
@@ -44,9 +44,9 @@
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  }
+  } */
 
-  .nav__toggler {
+/* .nav__toggler {
     display: block;
   }
 
@@ -83,7 +83,7 @@
     margin-bottom: 6px;
   }
 
-  /* Анимация гамбургера */
+  Анимация гамбургера
   .nav__toggler.toggle .line1 {
     transform: rotate(-45deg) translate(-4px, 5px);
   }
@@ -97,9 +97,9 @@
   }
 }
 
-@media screen and (max-width: 675px) {
+/* @media screen and (max-width: 675px) {
   .nav-list {
     width: 100%;
     max-width: 100%;
   }
-}
+}  */
