@@ -40,9 +40,8 @@ const NavMobile = () => {
             size={30}
             toggle={setOpen}
             color="#ffffff"
-            tabIndex={0}
-            name={'hamburger'}
-            aria-label={t("Toggle menu")}
+            hideOutline={false}
+            label="Show menu"
           />
         </div>
       </div>
