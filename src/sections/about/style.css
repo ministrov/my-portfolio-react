@@ -100,9 +100,7 @@
 
 @media screen and (max-width: 475px) {
   .about__image {
-    /* aspect-ratio: 4 / 3; */
-    max-height: 428px;
-    /* aspect-ratio: 3 / 2; */
+    max-height: 380px;
   }
 }
 
