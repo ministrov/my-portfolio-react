@@ -1,5 +1,5 @@
 @font-face {
-  font-family: var(--font-headings);
+  font-family: 'Oswald', sans-serif;
   src: url('../assets/fonts/Oswald/Oswald-Regular.woff2') format('woff2'),
     url('../assets/fonts/Oswald/Oswald-Regular.woff') format('woff');
   font-weight: 400;
@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: var(--font-base);
+  font-family: 'Open Sans', sans-serif;
   src: url('../assets/fonts/OpenSans/OpenSans-Regular.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-Regular.woff') format('woff');
   font-weight: 400;
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-  font-family: var(--font-base);
+  font-family: 'Open Sans', sans-serif;
   src: url('../assets/fonts/OpenSans/OpenSans-SemiBold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-SemiBold.woff') format('woff');
   font-weight: 600;
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: var(--font-base);
+  font-family: 'Open Sans', sans-serif;
   src: url('../assets/fonts/OpenSans/OpenSans-Bold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans/OpenSans-Bold.woff') format('woff');
   font-weight: 700;
