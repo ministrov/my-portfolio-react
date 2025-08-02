@@ -32,10 +32,27 @@
   transform: translateY(-50%);
 }
 
-.toggle-btn.toggled {
-  background-color: var(--color-blue-700);
-}
-
 .toggle-btn.toggled .thumb {
   left: calc(58px - 32px);
+}
+
+@media screen and (max-width: 375px) {
+  .toggle-btn {
+    width: 52px;
+    border-radius: var(--border-radius-s);
+  }
+
+  .toggle-btn .thumb {
+    left: 2px;
+    border-radius: var(--border-radius-s);
+    background-color: var(--color-blue-700);
+  }
+
+  .toggle-btn.toggled .thumb {
+    left: calc(50px - 32px);
+  }
+
+  .thumb {
+    color: var(--color-white);
+  }
 }

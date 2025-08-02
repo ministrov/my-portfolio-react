@@ -26,12 +26,12 @@ const Promo = () => {
           <div className="promo__text">
             {lang === 'ru' && (
               <strong className={'promo__greeting'}>
-                Привет,{<br />} <TypingEffect text={'Я Антон Жилин'} speed={300} />.
+                Привет, Я{<br />} <TypingEffect text={'Антон Жилин'} speed={300} />.
               </strong>
             )}
             {lang === 'en' && (
               <strong className={'promo__greeting'}>
-                Hi,{<br />} <TypingEffect text={"I'm Anton Zhilin"} speed={300} />.
+                Hi, I'm{<br />} <TypingEffect text={"Anton Zhilin"} speed={300} />.
               </strong>
             )}
 

@@ -30,7 +30,6 @@ const NavMobile = () => {
       <div className="nav-mobile__buttons">
         <div className="nav-mobile__lang">
           <ToggleLang
-            className="nav-mobile__lang"
             aria-label={t("Change language")}
           />
         </div>

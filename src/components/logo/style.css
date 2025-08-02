@@ -28,4 +28,8 @@
     line-height: 30px;
     letter-spacing: -1px;
   }
+
+  .logo__icon {
+    display: none;
+  }
 }

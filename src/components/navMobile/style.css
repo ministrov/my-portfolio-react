@@ -48,6 +48,10 @@
     gap: 0.45rem;
   }
 
+  .nav-mobile__lang {
+    display: flex;
+  }
+
   .nav-mobile__list {
     gap: 1.5rem;
   }
