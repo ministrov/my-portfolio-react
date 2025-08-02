@@ -29,10 +29,20 @@ const NavMobile = () => {
     <div className="nav-mobile" ref={ref}>
       <div className="nav-mobile__buttons">
         <div className="nav-mobile__lang">
-          <ToggleLang className="nav-mobile__lang" />
+          <ToggleLang
+            className="nav-mobile__lang"
+            aria-label={t("Change language")}
+          />
         </div>
         <div className="nav-mobile__hamburger">
-          <Hamburger toggled={isOpen} size={30} toggle={setOpen} color="#ffffff" />
+          <Hamburger
+            toggled={isOpen}
+            size={30}
+            toggle={setOpen}
+            color="#ffffff"
+            tabIndex={0}
+            aria-label={t("Toggle menu")}
+          />
         </div>
       </div>
 
@@ -43,6 +53,7 @@ const NavMobile = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
+            tabIndex="-1"
             className="nav-mobile__wrapper"
           >
             <ul className="nav-mobile__list">
@@ -60,7 +71,9 @@ const NavMobile = () => {
                       delay: 0.4 + idx / 5,
                     }}
                     key={route.title}
+                    role="menuitem"
                     className="nav-mobile__item"
+                    aria-label={t(route.title)}
                   >
                     <NavLink
                       to={route.href}
@@ -68,6 +81,7 @@ const NavMobile = () => {
                       className={
                         "nav-mobile__link"
                       }
+                      aria-label={`${t(route.title)} ${t("Go to page")}`}
                     >
                       <span className="nav-mobile__title">{t(route.title)}</span>
                       <Icon className="nav-mobile__icon" color="#0058a7" />
