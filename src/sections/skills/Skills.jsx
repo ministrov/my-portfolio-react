@@ -23,7 +23,7 @@ const Skills = () => {
 
         <Swiper
           modules={[Autoplay, A11y]}
-          speed={650} // Скорость анимации
+          speed={650}
           autoplay={{
             delay: 800,
             disableOnInteraction: false,

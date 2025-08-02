@@ -27,6 +27,14 @@
   color: var(--color-blue-700);
 }
 
+.nav-list__link:hover {
+  color: var(--color-blue-300);
+}
+
+.nav-list__link.active {
+  color: var(--color-blue-300);
+}
+
 @media screen and (max-width: 768px) {
   .nav-list {
     display: none;
