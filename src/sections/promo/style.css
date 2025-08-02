@@ -187,14 +187,14 @@
   }
 
   .promo__avatar {
-    /* width: 90%; */
     width: 295px;
     max-height: 295px;
   }
 
   .promo__greeting {
-    font-size: 39px;
-    line-height: 45px;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: 42px;
   }
 
   .promo__btns {
