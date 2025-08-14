@@ -7,7 +7,6 @@
 }
 
 .project-card__item:hover {
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   box-shadow: var(--box-shadow);
 }
 
@@ -235,6 +234,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .project-card__item {
+    gap: 32px;
+    padding: 12px;
+  }
+
   .project-card__img {
     min-height: 322px;
   }
@@ -245,6 +249,11 @@
 }
 
 @media screen and (max-width: 515px) {
+  .project-card__item {
+    gap: 24px;
+    padding: 8px;
+  }
+
   .project-card__img {
     min-height: 298px;
   }
