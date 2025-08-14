@@ -169,7 +169,7 @@
     "project10": {
       "title": "Jewelry E-Commerce",
       "slogan": "A moder Jewelry E-Commerce platform",
-      "overview": "Promolanding page for BringItUp corporate training platform developed using best practices in JavaScript, HTML, CSS, OOP principles, and SOLID patterns. Vibrant and informative design motivates employees to enhance their professional skills within the company.",
+      "overview": "An e-commerce jewelry store built with Next.js, TypeScript, and React, featuring dynamic product filtering with virtual scrolling (React Window) and animated transitions (Framer Motion). Key highlights: a custom cart with offline mode (IndexedDB), 3D product previews (React Three Fiber), and an adaptive gallery with lazy loading and smooth parallax effects.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
