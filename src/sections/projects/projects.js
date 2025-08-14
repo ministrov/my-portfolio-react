@@ -114,7 +114,7 @@ export const projects = [
     slogan: 'projects.project10.slogan',
     overview: 'projects.project10.overview',
     isProduction: false,
-    year: 2024,
+    year: 2025,
     role: 'Front-end Developer',
     infoTitle: 'projects.project10.infoTitle',
     toolsTitle: 'projects.project10.toolsTitle',

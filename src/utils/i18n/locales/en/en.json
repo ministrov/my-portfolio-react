@@ -122,7 +122,7 @@
       "roleText": "Role"
     },
     "project3": {
-      "title": "E-Commerce Shop",
+      "title": "Nike E-Commerce",
       "slogan": "A stunning Nike Shop",
       "overview": "Nike sneakers online store — a bright and concise project built with React and styled with expressive Tailwind CSS. Minimalist design and fast loading speed turn shopping into pure pleasure.",
       "infoTitle": "Project Info",
@@ -167,8 +167,8 @@
       "roleText": "Role"
     },
     "project10": {
-      "title": "Promo landing page",
-      "slogan": "Educational platform landing page",
+      "title": "Jewelry E-Commerce",
+      "slogan": "A moder Jewelry E-Commerce platform",
       "overview": "Promolanding page for BringItUp corporate training platform developed using best practices in JavaScript, HTML, CSS, OOP principles, and SOLID patterns. Vibrant and informative design motivates employees to enhance their professional skills within the company.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
