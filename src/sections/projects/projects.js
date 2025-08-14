@@ -4,7 +4,8 @@ import topApp from '../../assets/projects/topApp.webp';
 import blog from '../../assets/projects/blogWebp.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
-import bringitup from '../../assets/projects/bringitup.webp';
+// import bringitup from '../../assets/projects/bringitup.webp';
+import shoppe from '../../assets/projects/shoppe-e.webp';
 
 export const projects = [
   {
@@ -107,8 +108,9 @@ export const projects = [
   {
     id: 7,
     title: 'projects.project10.title',
-    skills: 'JavaScript, HTML, CSS, OOP, SOLID',
-    img: bringitup,
+    skills: 'Next, TypeScript, React, Framer Motion',
+    img: shoppe,
+    gitHubLink: 'https://github.com/ministrov/personal-blog-next-ts',
     slogan: 'projects.project10.slogan',
     overview: 'projects.project10.overview',
     isProduction: false,
