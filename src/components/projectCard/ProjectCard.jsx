@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { easeInOut, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
 import { FaGithub } from 'react-icons/fa';
@@ -35,7 +35,7 @@ const ProjectCard = ({
       <motion.div
         whileHover={
           isDesktop
-            ? { scale: 1.02, transition: { duration: 0.7 } }
+            ? { scale: 1.02, transition: { duration: 0.5, easings: easeInOut } }
             : {}
         }
         className="project-card__image"
@@ -47,16 +47,6 @@ const ProjectCard = ({
           loading="lazy"
           decoding="async"
         />
-
-        {isProduction ? (
-          <div className="project-card__tag-box">
-            <Tag color={'red'}>{'Production'}</Tag>
-          </div>
-        ) : (
-          <div className="project-card__tag-box">
-            <Tag>{'Pet project'}</Tag>
-          </div>
-        )}
       </motion.div>
 
       <div className="project-card__info">
@@ -110,7 +100,7 @@ const ProjectCard = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {t('projectCard.seeOnGithub','Default Text')}
+                {t('projectCard.seeOnGithub', 'Default Text')}
               </Button>
             )}
           </div>
