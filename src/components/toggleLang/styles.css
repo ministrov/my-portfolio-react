@@ -1,10 +1,10 @@
 .toggle-btn {
   position: relative;
-  width: 58px;
+  width: 52px;
   height: 34px;
   border: 2px solid var(--color-blue-700);
   border-radius: 99px;
-  transition: backgroun-color 0.1s ease, border-color 0.2s ease;
+  transition: backgroun-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
   cursor: pointer;
 }
 
@@ -18,7 +18,7 @@
 
 .toggle-btn .thumb {
   position: absolute;
-  left: 5px;
+  left: 1px;
   top: 50%;
   display: flex;
   align-items: center;
@@ -28,12 +28,12 @@
   border-radius: 99px;
   background-color: var(--color-white);
   transform: translateX(0);
-  transition: left 0.15s ease;
+  transition: left 0.5s ease-in-out;
   transform: translateY(-50%);
 }
 
 .toggle-btn.toggled .thumb {
-  left: calc(58px - 32px);
+  left: calc(52px - 32px);
 }
 
 @media screen and (max-width: 375px) {
