@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import ServicesItem from '../../components/servicesItem/ServicesItem';
 import Heading from '../../components/heading/Heading';
@@ -29,12 +30,19 @@ const Services = () => {
 
         <ServicesList>
           {services.map((service) => (
-            <ServicesItem
+            <motion.li
+              className={`services__item ${openCards[service.id] ? "services__expanded" : ""}`}
               key={service.id}
-              service={service}
-              open={openCards[service.id]}
-              onClick={() => toggleExpand(service.id)}
-            />
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: service.id * 0.3 }}
+            >
+              <ServicesItem
+                service={service}
+                open={openCards[service.id]}
+                onClick={() => toggleExpand(service.id)}
+              />
+            </motion.li>
           ))}
         </ServicesList>
       </div>
