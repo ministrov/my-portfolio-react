@@ -11,13 +11,18 @@ const ProjectsList = ({ projects }) => {
         const { id, title, overview, skills, ...rest } = project;
 
         return (
-          <ProjectCard
-            key={id}
-            title={t(title)}
-            overview={t(overview)}
-            skills={skills ? skills.split(',') : []}
-            {...rest}
-          />
+          <li
+            className="project-card__item"
+            tabIndex={0}
+          >
+            <ProjectCard
+              key={id}
+              title={t(title)}
+              overview={t(overview)}
+              skills={skills ? skills.split(',') : []}
+              {...rest}
+            />
+          </li>
         )
       })}
     </ul>
