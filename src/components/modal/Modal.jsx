@@ -1,8 +1,8 @@
 import { useEffect, useRef, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { IoCloseSharp } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
-import FadeIn from '../fadeIn/FadeIn';
 import SocialList from '../socials/SocialList';
 import './style.css';
 
@@ -55,34 +55,37 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
           aria-modal="true"
           aria-labelledby={titleId}
         >
-          <FadeIn>
-            <div
-              ref={modalRef}
-              className="modal"
-              onClick={(e) => e.stopPropagation()}
-              tabIndex={0}
-            >
-              <header className="modal__header">
-                <p className="modal__slogan">{t('modal.title')}</p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              transition: { delay: 0.4, duration: 0.5, ease: 'easeInOut' },
+            }}
+            ref={modalRef}
+            className="modal"
+            onClick={(e) => e.stopPropagation()}
+            tabIndex={0}
+          >
+            <header className="modal__header">
+              <p className="modal__slogan">{t('modal.title')}</p>
 
-                <button
-                  className="modal__close"
-                  onClick={onClose}
-                  aria-label={t('modal.close')}
-                  tabIndex={0}
-                >
-                  <IoCloseSharp
-                    color='white'
-                  />
-                </button>
-              </header>
+              <button
+                className="modal__close"
+                onClick={onClose}
+                aria-label={t('modal.close')}
+                tabIndex={0}
+              >
+                <IoCloseSharp
+                  color='white'
+                />
+              </button>
+            </header>
 
-              <p className="modal__text">{t('modal.text')}</p>
-              <div className="modal__socials">
-                <SocialList />
-              </div>
+            <p className="modal__text">{t('modal.text')}</p>
+            <div className="modal__socials">
+              <SocialList />
             </div>
-          </FadeIn>
+          </motion.div>
         </div>
       )}
     </>,

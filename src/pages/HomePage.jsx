@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 import Modal from '../components/modal/Modal';
-// import FadeIn from '../components/fadeIn/FadeIn.jsx';
 import Skills from '../sections/skills/Skills.jsx';
 import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';

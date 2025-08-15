@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-// import FadeIn from '../../components/fadeIn/FadeIn';
 import author from '../../assets/png/photo.webp';
 import Heading from '../../components/heading/Heading';
 import './style.css';

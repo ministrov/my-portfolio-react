@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
 import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
 import TypingEffect from '../../components/typingEffect/TypingEffect';
-import FadeIn from '../../components/fadeIn/FadeIn';
 import { useLanguage } from '../../context/LanguageProvider';
 import avatar from '../../assets/png/my-avatar.webp';
 import avatar2x from '../../assets/png/my-avatar-1000.webp';
@@ -51,21 +51,26 @@ const Promo = () => {
             </div>
           </div>
 
-          <FadeIn>
-            <div className="promo__image">
-              <img
-                className="promo__avatar"
-                src={avatar}
-                srcSet={`${avatar} 1x, ${avatar2x} 2x, ${avatar3x} 3x`}
-                sizes="(max-width: 600px) 300px, (max-width: 1024px) 400px, 500px"
-                width="500"
-                height="500"
-                alt={'A funny pixel men with a laptop in his hands'}
-                fetchpriority='high'
-                decoding='async'
-              />
-            </div>
-          </FadeIn>
+          <motion.div
+            className="promo__image"
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              transition: { delay: 0.4, duration: 0.5, ease: 'easeInOut' },
+            }}
+          >
+            <img
+              className="promo__avatar"
+              src={avatar}
+              srcSet={`${avatar} 1x, ${avatar2x} 2x, ${avatar3x} 3x`}
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 400px, 500px"
+              width="500"
+              height="500"
+              alt={'A funny pixel men with a laptop in his hands'}
+              fetchpriority='high'
+              decoding='async'
+            />
+          </motion.div>
         </div>
       </div>
       <MouseScroll />
