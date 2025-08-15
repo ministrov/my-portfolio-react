@@ -7,9 +7,13 @@
   padding: 2rem;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-s);
-  transition: max-height 0.4s ease-in-out;
+  transition: max-height 0.5s ease-in-out, transform 0.5s ease-in-out;
   will-change: max-height;
   overflow: hidden;
+}
+
+.services__item:hover {
+  transform: translateY(-8px);
 }
 
 .services__item.services__expanded .services__description {
@@ -96,18 +100,6 @@
 
 .text-outline {
   -webkit-text-stroke: 1px var(--color-blue-700);
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @media screen and (max-width: 1024px) {

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Carousel from '../../components/carousel/Carousel';
 import Heading from '../../components/heading/Heading';
@@ -14,9 +15,14 @@ const Showcasing = () => {
           slogan={t('heading.showcasing.subheading')}
         />
 
-        <div className="showcasing__wrapper">
+        <motion.div
+          className="showcasing__wrapper"
+          initial={{ opacity: 0, scale: 0.2 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: 'easeInOut' }}
+        >
           <Carousel className="showcasing__carousel" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

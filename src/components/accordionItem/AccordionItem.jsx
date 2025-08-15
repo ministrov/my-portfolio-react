@@ -1,14 +1,20 @@
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import AccordionButton from '../accordionButton/AccordionButton';
 import AccordionPanel from '../accordionPanel/AccordionPanel';
 import './style.css';
 
-const AccordionItem = ({ item, isActive, onClick }) => {
+const AccordionItem = ({ item, index, isActive, onClick }) => {
   const { t } = useTranslation();
 
   return (
-    <li
+    <motion.li
       className="faq__item"
+      initial={{
+        y: 50, opacity: 0
+      }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: index * 0.6, ease: 'easeInOut' }}
     >
       <div
         className="faq__question"
@@ -23,7 +29,7 @@ const AccordionItem = ({ item, isActive, onClick }) => {
       </div>
 
       {isActive && <AccordionPanel item={item} />}
-    </li>
+    </motion.li>
   );
 };
 

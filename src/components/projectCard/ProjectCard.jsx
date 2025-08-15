@@ -10,7 +10,7 @@ const ProjectCard = ({
   title,
   skills,
   img,
-  isProduction,
+  // isProduction,
   overview,
   year,
   role,
@@ -28,10 +28,7 @@ const ProjectCard = ({
     window.matchMedia('(min-width: 768px)').matches;
 
   return (
-    <li
-      className="project-card__item"
-      tabIndex={0}
-    >
+    <>
       <motion.div
         whileHover={
           isDesktop
@@ -106,7 +103,7 @@ const ProjectCard = ({
           </div>
         </div>
       </div>
-    </li>
+    </>
   );
 };
 
