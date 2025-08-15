@@ -12,10 +12,11 @@ const Accordion = () => {
 
   return (
     <ul className="faq__list">
-      {faqs.map(faq => (
+      {faqs.map((faq, index) => (
         <AccordionItem
           key={faq.id}
           item={faq}
+          index={index}
           onClick={() => toggleItem(faq.id)}
           isActive={activeIndex === faq.id}
         />

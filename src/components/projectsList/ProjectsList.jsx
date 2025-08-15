@@ -1,17 +1,10 @@
-import { useEffect, useRef } from 'react';
-import { useInView, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import ProjectCard from '../projectCard/ProjectCard';
 import './style.css';
 
 const ProjectsList = ({ projects }) => {
   const { t } = useTranslation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    console.log(isInView);
-  }, [isInView]);
 
   const variants = {
     initial: { y: 50, opacity: 0 },
@@ -19,18 +12,17 @@ const ProjectsList = ({ projects }) => {
   };
 
   return (
-    <ul className="projects__list" ref={ref}>
+    <ul className="projects__list">
       {projects.map((project, index) => {
         const { id, title, overview, skills, ...rest } = project;
 
         return (
           <motion.li
             key={id}
-            ref={ref}
             className="project-card__item"
             variants={variants}
             initial="initial"
-            animate={isInView ? 'animate' : 'initial'}
+            animate="animate"
             transition={{ duration: 0.5, delay: index * 0.6, ease: 'easeInOut' }}
             tabIndex={0}
           >
