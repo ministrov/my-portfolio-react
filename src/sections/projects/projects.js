@@ -4,8 +4,7 @@ import topApp from '../../assets/projects/topApp.webp';
 import blog from '../../assets/projects/blogWebp.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
-// import bringitup from '../../assets/projects/bringitup.webp';
-import shoppe from '../../assets/projects/shoppe-e.webp';
+import shoppe from '../../assets/projects/shoppe.jpg';
 
 export const projects = [
   {
