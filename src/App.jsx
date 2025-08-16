@@ -1,6 +1,5 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Layout from './layouts/Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
@@ -11,18 +10,6 @@ import './styles/main.css';
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 const PageNotFound = lazy(() => import('./pages/pageNotFound/PageNotFound'));
 
-const PageWrapper = ({ children }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5, ease: 'easeInOut' }}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 const App = () => {
   const { i18n } = useTranslation();
@@ -39,26 +26,14 @@ const App = () => {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={
-              <PageWrapper>
-                <HomePage />
-              </PageWrapper>
-            } />
+            <Route index element={<HomePage />} />
             <Route
               path="/projects"
-              element={
-                <PageWrapper>
-                  <ProjectsPage />
-                </PageWrapper>
-              }
+              element={<ProjectsPage />}
             />
             <Route
               path="*"
-              element={
-                <PageWrapper>
-                  <PageNotFound />
-                </PageWrapper>
-              }
+              element={<PageNotFound />}
             />
           </Route>
         </Routes>

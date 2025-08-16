@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { IoCloseSharp } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
@@ -46,7 +46,7 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
   };
 
   return createPortal(
-    <>
+    <AnimatePresence>
       {open && (
         <div
           className="backdrop"
@@ -57,10 +57,9 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
         >
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{
-              opacity: 1,
-              transition: { delay: 0.4, duration: 0.5, ease: 'easeInOut' },
-            }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.4, duration: 0.5, ease: 'easeInOut' }}
             ref={modalRef}
             className="modal"
             onClick={(e) => e.stopPropagation()}
@@ -88,7 +87,7 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
           </motion.div>
         </div>
       )}
-    </>,
+    </AnimatePresence>,
     document.getElementById('portal')
   );
 };
