@@ -109,7 +109,7 @@ const Promo = () => {
               sizes="(max-width: 600px) 300px, (max-width: 1024px) 400px, 500px"
               width="500"
               height="500"
-              alt={'A funny pixel men with a laptop in his hands'}
+              alt={'Avatar a pixel man with a a laptop'}
               fetchpriority='high'
               decoding='async'
             />
