@@ -17,7 +17,7 @@ const Showcasing = () => {
 
         <motion.div
           className="showcasing__wrapper"
-          initial={{ opacity: 0, scale: 0.2 }}
+          initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3, ease: 'easeInOut' }}
         >

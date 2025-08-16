@@ -23,21 +23,61 @@ const Promo = () => {
       </h2>
       <div className="container">
         <div className="promo__wrapper">
-          <div className="promo__text">
+          <div
+            className="promo__text"
+            key="promo-text"
+          >
             {lang === 'ru' && (
-              <strong className={'promo__greeting'}>
+              <motion.strong
+                className={'promo__greeting'}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
+                exit={{ opacity: 0, y: 0 }}
+              >
                 Привет, Я{<br />} <TypingEffect text={'Антон Жилин'} speed={300} />.
-              </strong>
+              </motion.strong>
             )}
             {lang === 'en' && (
-              <strong className={'promo__greeting'}>
-                Hi, I'm{<br />} <TypingEffect text={"Anton Zhilin"} speed={300} />.
-              </strong>
+              <motion.strong
+                className={'promo__greeting'}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
+                exit={{ opacity: 0, y: 0 }}
+              >
+                Hi, I&apos;m{<br />} <TypingEffect text={"Anton Zhilin"} speed={300} />.
+              </motion.strong>
             )}
 
-            <p className="promo__slogan">{t('promo.promoSlogan')}</p>
+            <motion.p
+              className="promo__slogan"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{ delay: 0.5, duration: 0.5, ease: 'easeInOut' }}
+              exit={{ opacity: 0, y: 0 }}
+            >
+              {t('promo.promoSlogan')}
+            </motion.p>
 
-            <div className="promo__btns">
+            <motion.div className="promo__btns"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{ delay: 0.7, duration: 0.5, ease: 'easeInOut' }}
+              exit={{ opacity: 0, y: 0 }}
+            >
               <Button
                 className={'promo__btn'}
                 href={cvPdf}
@@ -48,16 +88,19 @@ const Promo = () => {
               </Button>
 
               <SocialList variant='blue' />
-            </div>
+            </motion.div>
           </div>
 
           <motion.div
+            key="promo-image"
             className="promo__image"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0, y: 100 }}
             whileInView={{
               opacity: 1,
-              transition: { delay: 0.4, duration: 0.5, ease: 'easeInOut' },
+              y: 0,
             }}
+            transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
+            exit={{ opacity: 0, y: 0 }}
           >
             <img
               className="promo__avatar"
@@ -66,7 +109,7 @@ const Promo = () => {
               sizes="(max-width: 600px) 300px, (max-width: 1024px) 400px, 500px"
               width="500"
               height="500"
-              alt={'A funny pixel men with a laptop in his hands'}
+              alt={'Avatar a pixel man with a a laptop'}
               fetchpriority='high'
               decoding='async'
             />

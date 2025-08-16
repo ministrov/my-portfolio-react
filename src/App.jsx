@@ -10,6 +10,7 @@ import './styles/main.css';
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 const PageNotFound = lazy(() => import('./pages/pageNotFound/PageNotFound'));
 
+
 const App = () => {
   const { i18n } = useTranslation();
 
