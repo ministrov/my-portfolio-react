@@ -31,7 +31,7 @@ const Promo = () => {
             )}
             {lang === 'en' && (
               <strong className={'promo__greeting'}>
-                Hi, I'm{<br />} <TypingEffect text={"Anton Zhilin"} speed={300} />.
+                Hi, I&apos;m{<br />} <TypingEffect text={"Anton Zhilin"} speed={300} />.
               </strong>
             )}
 
