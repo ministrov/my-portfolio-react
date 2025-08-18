@@ -15,7 +15,6 @@ export function useUrlParams(paramName, initialValue) {
   const [value, setValue] = useState(() => {
     const params = new URLSearchParams(location.search);
 
-    console.log(params);
     return params.get(paramName) || initialValue;
   });
 
