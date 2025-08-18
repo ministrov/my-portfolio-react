@@ -1,16 +1,29 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
+import { TypeAnimation } from 'react-type-animation';
+import { useLanguage } from '../../context/LanguageProvider';
 import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
-import TypingEffect from '../../components/typingEffect/TypingEffect';
-import { useLanguage } from '../../context/LanguageProvider';
 import avatar from '../../assets/png/my-avatar.webp';
 import avatar2x from '../../assets/png/my-avatar-1000.webp';
 import avatar3x from '../../assets/png/my-avatar-1500.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
+
+const commonAnimation = {
+  initial: { opacity: 0, y: 100 },
+  whileInView: {
+    opacity: 1,
+    y: 0,
+  },
+  transition: {
+    duration: 0.5,
+    ease: 'easeInOut',
+    delay: 0.3,
+  }
+};
 
 const Promo = () => {
   const { lang } = useLanguage();
@@ -25,58 +38,37 @@ const Promo = () => {
         <div className="promo__wrapper">
           <div
             className="promo__text"
-            key="promo-text"
           >
-            {lang === 'ru' && (
-              <motion.strong
-                className={'promo__greeting'}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
-                exit={{ opacity: 0, y: 0 }}
-              >
-                Привет, Я{<br />} <TypingEffect text={'Антон Жилин'} speed={300} />.
-              </motion.strong>
-            )}
-            {lang === 'en' && (
-              <motion.strong
-                className={'promo__greeting'}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
-                exit={{ opacity: 0, y: 0 }}
-              >
-                Hi, I&apos;m{<br />} <TypingEffect text={"Anton Zhilin"} speed={300} />.
-              </motion.strong>
-            )}
+            <motion.strong
+              className="promo__greeting"
+              {...commonAnimation}
+              transition={{ ...commonAnimation.transition, delay: 0.3 }}
+            >
+              {lang === 'ru' ? 'Привет, Я' : 'Hi, I\'m'}{<br />}
+              <TypeAnimation
+                sequence={[
+                  `${lang === 'ru' ? 'Антон Жилин' : 'Anton Zhilin'}`,
+                  1000,
+                  'Frontend Developer',
+                  1000,
+                ]}
+                speed={50}
+                repeat={Infinity}
+              />
+              .
+            </motion.strong>
 
             <motion.p
               className="promo__slogan"
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{ delay: 0.5, duration: 0.5, ease: 'easeInOut' }}
-              exit={{ opacity: 0, y: 0 }}
+              {...commonAnimation}
+              transition={{ ...commonAnimation.transition, delay: 0.5 }}
             >
               {t('promo.promoSlogan')}
             </motion.p>
 
             <motion.div className="promo__btns"
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{ delay: 0.7, duration: 0.5, ease: 'easeInOut' }}
-              exit={{ opacity: 0, y: 0 }}
+              {...commonAnimation}
+              transition={{ ...commonAnimation.transition, delay: 0.7 }}
             >
               <Button
                 className={'promo__btn'}
@@ -94,25 +86,25 @@ const Promo = () => {
           <motion.div
             key="promo-image"
             className="promo__image"
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
-            exit={{ opacity: 0, y: 0 }}
+            {...commonAnimation}
+            transition={{ ...commonAnimation.transition, delay: 0.5 }}
           >
-            <img
-              className="promo__avatar"
-              src={avatar}
-              srcSet={`${avatar} 1x, ${avatar2x} 2x, ${avatar3x} 3x`}
-              sizes="(max-width: 600px) 300px, (max-width: 1024px) 400px, 500px"
-              width="500"
-              height="500"
-              alt={'Avatar a pixel man with a a laptop'}
-              fetchpriority='high'
-              decoding='async'
-            />
+            <picture>
+              <source srcSet={`${avatar3x} 1500w`} media="(min-width: 1025px)" />
+              <source srcSet={`${avatar2x} 1000w`} media="(min-width: 601px)" />
+              <img
+                className="promo__avatar"
+                src={avatar}
+                srcSet={`${avatar} 500w, ${avatar2x} 1000w, ${avatar3x} 1500w`}
+                sizes="500px"
+                width="500"
+                height="500"
+                alt="Avatar a pixel man with a laptop"
+                fetchpriority="high"
+                decoding="async"
+                loading="eager"
+              />
+            </picture>
           </motion.div>
         </div>
       </div>

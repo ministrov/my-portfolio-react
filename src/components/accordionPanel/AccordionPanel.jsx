@@ -14,7 +14,6 @@ const AccordionPanel = ({ item }) => {
         animate={{
           opacity: 1,
           height: 'auto',
-          // paddingBottom: 24
         }}
         exit={{ opacity: 0, height: 0 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}

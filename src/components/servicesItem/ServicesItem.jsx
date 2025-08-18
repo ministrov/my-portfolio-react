@@ -4,18 +4,28 @@ import './style.css';
 const ServicesItem = ({ service, open, onClick }) => {
   const { id, icon, title, description } = service;
   const { t } = useTranslation();
+  const contentId = `service-content-${id}`;
 
   return (
+    <div className="services__item">
+      <div className="services__header">
+        <div className="services__item-text text-outline">{`0${id}`}</div>
+        <div className="services__icon">{icon}</div>
+      </div>
+      <div className="services__content">
+        <h3 className="services__subheading">{t(title)}</h3>
+        <p className="services__description">{t(description)}</p>
+      </div>
 
-    <>
-      <div className="services__item-text text-outline">{`0${id}`}</div><div className="services__icon">{icon}</div><h3 className="services__subheading">{t(title)}</h3><p className="services__description">{t(description)}</p><button
+      <button
         className="services__more"
         onClick={onClick}
         aria-expanded={open}
+        aria-controls={contentId}
       >
         {open ? t('services.hide') : t('services.showMore')}
       </button>
-    </>
+    </div>
   );
 };
 
