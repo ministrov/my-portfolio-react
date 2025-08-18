@@ -12,6 +12,17 @@ import avatar3x from '../../assets/png/my-avatar-1500.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
+const commonAnimation = {
+  initial: { opacity: 0, y: 100 },
+  whileInView: {
+    opacity: 1,
+    y: 0,
+  },
+  transition: {
+    delay: 0.3, duration: 0.5, ease: 'easeInOut'
+  }
+};
+
 const Promo = () => {
   const { lang } = useLanguage();
   const { t } = useTranslation();
@@ -25,18 +36,11 @@ const Promo = () => {
         <div className="promo__wrapper">
           <div
             className="promo__text"
-            key="promo-text"
           >
             {lang === 'ru' && (
               <motion.strong
                 className={'promo__greeting'}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
-                exit={{ opacity: 0, y: 0 }}
+                {...commonAnimation}
               >
                 Привет, Я{<br />} <TypeAnimation
                   sequence={[
@@ -53,13 +57,7 @@ const Promo = () => {
             {lang === 'en' && (
               <motion.strong
                 className={'promo__greeting'}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
-                exit={{ opacity: 0, y: 0 }}
+                {...commonAnimation}
               >
                 Hi, I&apos;m{<br />} <TypeAnimation
                   sequence={[
@@ -76,25 +74,14 @@ const Promo = () => {
 
             <motion.p
               className="promo__slogan"
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{ delay: 0.5, duration: 0.5, ease: 'easeInOut' }}
-              exit={{ opacity: 0, y: 0 }}
+              {...commonAnimation}
             >
               {t('promo.promoSlogan')}
             </motion.p>
 
             <motion.div className="promo__btns"
               initial={{ opacity: 0, y: 100 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{ delay: 0.7, duration: 0.5, ease: 'easeInOut' }}
-              exit={{ opacity: 0, y: 0 }}
+              {...commonAnimation}
             >
               <Button
                 className={'promo__btn'}
@@ -112,13 +99,7 @@ const Promo = () => {
           <motion.div
             key="promo-image"
             className="promo__image"
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
-            exit={{ opacity: 0, y: 0 }}
+            {...commonAnimation}
           >
             <img
               className="promo__avatar"
