@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
+import { TypeAnimation } from 'react-type-animation';
+import { useLanguage } from '../../context/LanguageProvider';
 import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
-import TypingEffect from '../../components/typingEffect/TypingEffect';
-import { useLanguage } from '../../context/LanguageProvider';
+// import TypingEffect from '../../components/typingEffect/TypingEffect';
 import avatar from '../../assets/png/my-avatar.webp';
 import avatar2x from '../../assets/png/my-avatar-1000.webp';
 import avatar3x from '../../assets/png/my-avatar-1500.webp';
@@ -38,7 +39,17 @@ const Promo = () => {
                 transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
                 exit={{ opacity: 0, y: 0 }}
               >
-                Привет, Я{<br />} <TypingEffect text={'Антон Жилин'} speed={300} />.
+                {/* Привет, Я{<br />} <TypingEffect text={'Антон Жилин'} />. */}
+                Привет, Я{<br />} <TypeAnimation
+                  sequence={[
+                    'Антон Жилин',
+                    1000,
+                    'Frontend Developer',
+                    1000,
+                  ]}
+                  speed={50}
+                  repeat={Infinity}
+                />.
               </motion.strong>
             )}
             {lang === 'en' && (
@@ -52,7 +63,17 @@ const Promo = () => {
                 transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
                 exit={{ opacity: 0, y: 0 }}
               >
-                Hi, I&apos;m{<br />} <TypingEffect text={"Anton Zhilin"} speed={300} />.
+                {/* Hi, I&apos;m{<br />} <TypingEffect text={"Anton Zhilin"} />. */}
+                Hi, I&apos;m{<br />} <TypeAnimation
+                  sequence={[
+                    'Anton Zhilin',
+                    1000,
+                    'Frontend Developer',
+                    1000,
+                  ]}
+                  speed={50}
+                  repeat={Infinity}
+                />.
               </motion.strong>
             )}
 
