@@ -19,7 +19,9 @@ const commonAnimation = {
     y: 0,
   },
   transition: {
-    delay: 0.3, duration: 0.5, ease: 'easeInOut'
+    duration: 0.5,
+    ease: 'easeInOut',
+    delay: 0.3,
   }
 };
 
@@ -37,10 +39,29 @@ const Promo = () => {
           <div
             className="promo__text"
           >
-            {lang === 'ru' && (
+            <motion.strong
+              className="promo__greeting"
+              {...commonAnimation}
+              transition={{ ...commonAnimation.transition, delay: 0.3 }}
+            >
+              {lang === 'ru' ? 'Привет, Я' : 'Hi, I\'m'}{<br />}
+              <TypeAnimation
+                sequence={[
+                  `${lang === 'ru' ? 'Антон Жилин' : 'Anton Zhilin'}`,
+                  1000,
+                  'Frontend Developer',
+                  1000,
+                ]}
+                speed={50}
+                repeat={Infinity}
+              />
+              .
+            </motion.strong>
+            {/* {lang === 'ru' && (
               <motion.strong
                 className={'promo__greeting'}
                 {...commonAnimation}
+                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
               >
                 Привет, Я{<br />} <TypeAnimation
                   sequence={[
@@ -58,6 +79,7 @@ const Promo = () => {
               <motion.strong
                 className={'promo__greeting'}
                 {...commonAnimation}
+                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
               >
                 Hi, I&apos;m{<br />} <TypeAnimation
                   sequence={[
@@ -70,18 +92,19 @@ const Promo = () => {
                   repeat={Infinity}
                 />.
               </motion.strong>
-            )}
+            )} */}
 
             <motion.p
               className="promo__slogan"
               {...commonAnimation}
+              transition={{ ...commonAnimation.transition, delay: 0.5 }}
             >
               {t('promo.promoSlogan')}
             </motion.p>
 
             <motion.div className="promo__btns"
-              initial={{ opacity: 0, y: 100 }}
               {...commonAnimation}
+              transition={{ ...commonAnimation.transition, delay: 0.7 }}
             >
               <Button
                 className={'promo__btn'}
@@ -100,6 +123,7 @@ const Promo = () => {
             key="promo-image"
             className="promo__image"
             {...commonAnimation}
+            transition={{ ...commonAnimation.transition, delay: 0.5 }}
           >
             <img
               className="promo__avatar"
@@ -108,7 +132,7 @@ const Promo = () => {
               sizes="(max-width: 600px) 300px, (max-width: 1024px) 400px, 500px"
               width="500"
               height="500"
-              alt={'Avatar a pixel man with a a laptop'}
+              alt={'Avatar a pixel man with a laptop'}
               fetchpriority='high'
               decoding='async'
             />
