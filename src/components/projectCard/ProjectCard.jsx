@@ -10,7 +10,6 @@ const ProjectCard = ({
   title,
   skills,
   img,
-  // isProduction,
   overview,
   year,
   role,

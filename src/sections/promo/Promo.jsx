@@ -29,8 +29,6 @@ const Promo = () => {
   const { lang } = useLanguage();
   const { t } = useTranslation();
 
-  // console.log(lang, 'lang');
-
   return (
     <section className="promo">
       <h2 className="visually-hidden">
@@ -107,17 +105,6 @@ const Promo = () => {
                 loading="eager"
               />
             </picture>
-            {/* <img
-              className="promo__avatar"
-              src={avatar}
-              srcSet={`${avatar} 1x, ${avatar2x} 2x, ${avatar3x} 3x`}
-              sizes="(max-width: 600px) 300px, (max-width: 1024px) 400px, 500px"
-              width="500"
-              height="500"
-              alt={'Avatar a pixel man with a laptop'}
-              fetchpriority='high'
-              decoding='async'
-            /> */}
           </motion.div>
         </div>
       </div>
