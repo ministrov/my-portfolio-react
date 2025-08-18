@@ -29,6 +29,8 @@ const Promo = () => {
   const { lang } = useLanguage();
   const { t } = useTranslation();
 
+  // console.log(lang, 'lang');
+
   return (
     <section className="promo">
       <h2 className="visually-hidden">
@@ -57,42 +59,6 @@ const Promo = () => {
               />
               .
             </motion.strong>
-            {/* {lang === 'ru' && (
-              <motion.strong
-                className={'promo__greeting'}
-                {...commonAnimation}
-                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
-              >
-                Привет, Я{<br />} <TypeAnimation
-                  sequence={[
-                    'Антон Жилин',
-                    1000,
-                    'Frontend Developer',
-                    1000,
-                  ]}
-                  speed={50}
-                  repeat={Infinity}
-                />.
-              </motion.strong>
-            )}
-            {lang === 'en' && (
-              <motion.strong
-                className={'promo__greeting'}
-                {...commonAnimation}
-                transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
-              >
-                Hi, I&apos;m{<br />} <TypeAnimation
-                  sequence={[
-                    'Anton Zhilin',
-                    1000,
-                    'Frontend Developer',
-                    1000,
-                  ]}
-                  speed={50}
-                  repeat={Infinity}
-                />.
-              </motion.strong>
-            )} */}
 
             <motion.p
               className="promo__slogan"
@@ -125,7 +91,23 @@ const Promo = () => {
             {...commonAnimation}
             transition={{ ...commonAnimation.transition, delay: 0.5 }}
           >
-            <img
+            <picture>
+              <source srcSet={`${avatar3x} 1500w`} media="(min-width: 1025px)" />
+              <source srcSet={`${avatar2x} 1000w`} media="(min-width: 601px)" />
+              <img
+                className="promo__avatar"
+                src={avatar}
+                srcSet={`${avatar} 500w, ${avatar2x} 1000w, ${avatar3x} 1500w`}
+                sizes="500px"
+                width="500"
+                height="500"
+                alt="Avatar a pixel man with a laptop"
+                fetchpriority="high"
+                decoding="async"
+                loading="eager"
+              />
+            </picture>
+            {/* <img
               className="promo__avatar"
               src={avatar}
               srcSet={`${avatar} 1x, ${avatar2x} 2x, ${avatar3x} 3x`}
@@ -135,7 +117,7 @@ const Promo = () => {
               alt={'Avatar a pixel man with a laptop'}
               fetchpriority='high'
               decoding='async'
-            />
+            /> */}
           </motion.div>
         </div>
       </div>
