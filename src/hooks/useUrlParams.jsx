@@ -7,16 +7,15 @@ import { useNavigate, useLocation } from 'react-router-dom';
  * @param initialValue - Начальное значение
  * @returns [value, setValue] - Пара значений как useState
  */
-export function useUrlParam(paramName, initialValue) {
+export function useUrlParams(paramName, initialValue) {
   const navigate = useNavigate();
   const location = useLocation();
-
-  console.log(navigate);
-  console.log(location);
 
   // Извлекаем начальное значение из URL или используем initialValue
   const [value, setValue] = useState(() => {
     const params = new URLSearchParams(location.search);
+
+    console.log(params);
     return params.get(paramName) || initialValue;
   });
 
