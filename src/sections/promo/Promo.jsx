@@ -6,7 +6,6 @@ import { useLanguage } from '../../context/LanguageProvider';
 import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
-// import TypingEffect from '../../components/typingEffect/TypingEffect';
 import avatar from '../../assets/png/my-avatar.webp';
 import avatar2x from '../../assets/png/my-avatar-1000.webp';
 import avatar3x from '../../assets/png/my-avatar-1500.webp';
@@ -39,7 +38,6 @@ const Promo = () => {
                 transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
                 exit={{ opacity: 0, y: 0 }}
               >
-                {/* Привет, Я{<br />} <TypingEffect text={'Антон Жилин'} />. */}
                 Привет, Я{<br />} <TypeAnimation
                   sequence={[
                     'Антон Жилин',
@@ -63,7 +61,6 @@ const Promo = () => {
                 transition={{ delay: 0.3, duration: 0.5, ease: 'easeInOut' }}
                 exit={{ opacity: 0, y: 0 }}
               >
-                {/* Hi, I&apos;m{<br />} <TypingEffect text={"Anton Zhilin"} />. */}
                 Hi, I&apos;m{<br />} <TypeAnimation
                   sequence={[
                     'Anton Zhilin',
