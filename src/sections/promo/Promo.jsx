@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
@@ -29,6 +30,11 @@ const Promo = () => {
   const { lang } = useLanguage();
   const { t } = useTranslation();
 
+  useEffect(() => {
+    console.log(lang, 'lang');
+    console.log(performance.now(), 'time');
+  }, [lang]);
+
   return (
     <section className="promo">
       <h2 className="visually-hidden">
@@ -45,16 +51,30 @@ const Promo = () => {
               transition={{ ...commonAnimation.transition, delay: 0.3 }}
             >
               {lang === 'ru' ? 'Привет, Я' : 'Hi, I\'m'}{<br />}
-              <TypeAnimation
-                sequence={[
-                  `${lang === 'ru' ? 'Антон Жилин' : 'Anton Zhilin'}`,
-                  1000,
-                  'Frontend Developer',
-                  1000,
-                ]}
-                speed={50}
-                repeat={Infinity}
-              />
+              {lang === 'ru' && (
+                <TypeAnimation
+                  sequence={[
+                    'Антон Жилин',
+                    1000,
+                    'Frontend Developer',
+                    1000,
+                  ]}
+                  speed={50}
+                  repeat={Infinity}
+                />
+              )}
+              {lang === 'en' && (
+                <TypeAnimation
+                  sequence={[
+                    'Anton Zhilin',
+                    1000,
+                    'Frontend Developer',
+                    1000,
+                  ]}
+                  speed={50}
+                  repeat={Infinity}
+                />
+              )}
               .
             </motion.strong>
 

@@ -7,5 +7,7 @@ export const useLanguage = () => {
     throw new Error('useLanguage must be used within LanguageProvider');
   }
 
+  console.log(context, 'context');
+
   return context;
 };
