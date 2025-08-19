@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { motion } from 'framer-motion';
 import { faqs } from "../../const";
 import AccordionItem from "../accordionItem/AccordionItem";
 import './style.css';
@@ -13,16 +12,10 @@ const Accordion = () => {
 
   return (
     <ul className="faq__list">
-      {faqs.map((faq, index) => (
+      {faqs.map((faq) => (
         <li
           key={faq.id}
           className="faq__item"
-        // initial={{
-        //   y: 50, opacity: 0
-        // }}
-        // animate={{ y: 0, opacity: 1 }}
-        // whileInView={{ y: 0, opacity: 1 }}
-        // transition={{ duration: 0.5, delay: index * 0.6, ease: 'easeInOut' }}
         >
           <AccordionItem
             item={faq}

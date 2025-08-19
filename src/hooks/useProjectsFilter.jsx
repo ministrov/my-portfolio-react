@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+// import { useUrlParams } from '../hooks/useUrlParams';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
   ActionTypes,
@@ -8,6 +9,7 @@ import {
 
 const useProjectsFilter = () => {
   const [state, dispatch] = useReducer(projectsReducer, initialState);
+  // const [filter, setFilter] = useUrlParams('filter', name);
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
