@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { BsBoxArrowInUpRight } from "react-icons/bs";
@@ -29,11 +28,6 @@ const commonAnimation = {
 const Promo = () => {
   const { lang } = useLanguage();
   const { t } = useTranslation();
-
-  useEffect(() => {
-    console.log(lang, 'lang');
-    console.log(performance.now(), 'time');
-  }, [lang]);
 
   return (
     <section className="promo">
