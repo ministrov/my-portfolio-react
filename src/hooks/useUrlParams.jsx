@@ -3,9 +3,9 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 /**
  * Хук для синхронизации состояния с URL-параметром
- * @param paramName - Название параметра в URL
- * @param initialValue - Начальное значение
- * @returns [value, setValue] - Пара значений как useState
+ * @param {string} paramName - Название параметра в URL
+ * @param {*} initialValue - Начальное значение
+ * @returns {[any, Function]} - Пара [значение, сеттер] как useState
  */
 export function useUrlParams(paramName, initialValue) {
   const navigate = useNavigate();
@@ -14,7 +14,6 @@ export function useUrlParams(paramName, initialValue) {
   // Извлекаем начальное значение из URL или используем initialValue
   const [value, setValue] = useState(() => {
     const params = new URLSearchParams(location.search);
-
     return params.get(paramName) || initialValue;
   });
 
@@ -22,18 +21,57 @@ export function useUrlParams(paramName, initialValue) {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
 
-    if (params.has(paramName)) {
-      // Если значение изменилось, обновляем URL
-      if (params.get(paramName) !== value) {
-        params.set(paramName, value);
-        navigate(`${location.pathname}?${params.toString()}`, { replace: true });
-      }
-    } else {
-      // Если параметр отсутствует, добавляем его
-      params.set(paramName, value);
-      navigate(`${location.pathname}?${params.toString()}`, { replace: true });
+    // Устанавливаем/обновляем параметр
+    params.set(paramName, value);
+
+    // Формируем новый URL без лишних параметров
+    const newSearch = params.toString();
+
+    // Выполняем навигацию только если URL изменился
+    if (location.search !== `?${newSearch}`) {
+      navigate(`${location.pathname}?${newSearch}`, { replace: true });
     }
-  }, [value, paramName, location, navigate]);
+  }, [value, paramName, location.search, navigate, location.pathname]);
 
   return [value, setValue];
 }
+
+// import { useEffect, useState } from 'react';
+// import { useNavigate, useLocation } from 'react-router-dom';
+
+// /**
+//  * Хук для синхронизации состояния с URL-параметром
+//  * @param paramName - Название параметра в URL
+//  * @param initialValue - Начальное значение
+//  * @returns [value, setValue] - Пара значений как useState
+//  */
+// export function useUrlParams(paramName, initialValue) {
+//   const navigate = useNavigate();
+//   const location = useLocation();
+
+//   // Извлекаем начальное значение из URL или используем initialValue
+//   const [value, setValue] = useState(() => {
+//     const params = new URLSearchParams(location.search);
+
+//     return params.get(paramName) || initialValue;
+//   });
+
+//   // Обновляем URL при изменении значения
+//   useEffect(() => {
+//     const params = new URLSearchParams(location.search);
+
+//     if (params.has(paramName)) {
+//       // Если значение изменилось, обновляем URL
+//       if (params.get(paramName) !== value) {
+//         params.set(paramName, value);
+//         navigate(`${location.pathname}?${params.toString()}`, { replace: true });
+//       }
+//     } else {
+//       // Если параметр отсутствует, добавляем его
+//       params.set(paramName, value);
+//       navigate(`${location.pathname}?${params.toString()}`, { replace: true });
+//     }
+//   }, [value, paramName, location, navigate]);
+
+//   return [value, setValue];
+// }
