@@ -103,9 +103,10 @@
   }
 }
 
-@media screen and (max-width: 1044px) {
+@media screen and (max-width: 1048px) {
   .promo {
     height: auto;
+    padding-top: 8rem;
     padding-bottom: 0;
   }
 
