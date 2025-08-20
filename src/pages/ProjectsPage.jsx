@@ -14,7 +14,7 @@ const ProjectsPage = () => {
           content={t('metadata.projects.description')}
           data-rh="true"
         />
-        <link rel="canonical" href={`${window.location.origin}/`} />
+        {/* <link rel="canonical" href={`${window.location.origin}/`} /> */}
       </Helmet>
 
       <h1 className="visually-hidden">Page about author's projects</h1>

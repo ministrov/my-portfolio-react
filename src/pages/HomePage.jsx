@@ -98,7 +98,7 @@ const Home = () => {
           data-rh="true"
         />
         <meta name="keywords" content={t('metadata.home.keywords')} />
-        <link rel="canonical" href={`${window.location.origin}/`} />
+        {/* <link rel="canonical" href={`${window.location.origin}/`} /> */}
       </Helmet>
 
       <h1 className="visually-hidden">Home page of the author portfolio</h1>

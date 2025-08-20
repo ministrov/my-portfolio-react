@@ -14,7 +14,6 @@ const PageNotFound = () => {
           content="A page for rendering a not found page"
           data-rh="true"
         />
-        <link rel="canonical" href="*" />
       </Helmet>
       <section className="page-not-found">
         <h2 className="visually-hidden">A not found page section</h2>
