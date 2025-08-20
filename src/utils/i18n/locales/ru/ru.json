@@ -183,8 +183,8 @@
     }
   },
   "projectCard": {
-    "liveDemo": "Смотреть",
-    "seeOnGithub": "Смотреть Github"
+    "liveDemo": "Демо",
+    "seeOnGithub": "Github"
   },
   "errorMessage": {
     "message": "Кажется, вы забрели на неизведанную территорию. Попробуйте найти путь обратно домой.",

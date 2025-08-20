@@ -177,8 +177,8 @@
     }
   },
   "projectCard": {
-    "liveDemo": "Live Demo",
-    "seeOnGithub": "See on GitHub"
+    "liveDemo": "Demo",
+    "seeOnGithub": "GitHub"
   },
   "errorMessage": {
     "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",
