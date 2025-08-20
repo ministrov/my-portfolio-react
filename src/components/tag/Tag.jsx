@@ -2,12 +2,12 @@ import './style.css';
 
 const Tag = ({ children, color = null, ...props }) => {
   return (
-    <div
+    <li
       className={`tag ${color === 'red' ? 'red' : 'purple'}`}
       {...props}
     >
       {children}
-    </div>
+    </li>
   );
 };
 
