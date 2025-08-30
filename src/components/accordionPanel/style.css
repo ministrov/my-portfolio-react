@@ -1,7 +1,10 @@
 .faq__answer {
-  max-width: 90%;
-  overflow: hidden;
   margin-bottom: 24px;
   font-size: 16px;
   line-height: 20px;
+}
+
+.faq__answer-content {
+  max-width: 90%;
+  padding-bottom: 2rem;
 }

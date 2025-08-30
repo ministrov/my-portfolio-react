@@ -8,19 +8,14 @@ const AccordionItem = ({ item, isActive, onClick }) => {
 
   return (
     <>
-      <div
-        className="faq__question"
-        onClick={() => onClick(item.id)}
-      >
+      <div className="faq__question" onClick={() => onClick(item.id)}>
         <h3>{t(item.question)}</h3>
 
-        <AccordionButton
-          isActive={isActive}
-          id={item.id}
-        />
+        <AccordionButton isActive={isActive} id={item.id} />
       </div>
 
-      {isActive && <AccordionPanel item={item} isOpen={isActive} />}
+      {/* {isActive && <AccordionPanel item={item} isOpen={isActive} />} */}
+      <AccordionPanel item={item} isOpen={isActive} />
     </>
   );
 };

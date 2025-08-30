@@ -1,22 +1,27 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import { FaPlus } from 'react-icons/fa6';
 import './style.css';
 
 const AccordionButton = ({ isActive, id }) => {
-  const ariaLabel = isActive ? "Collapse section" : "Expand section";
+  const iconVariants = {
+    open: { rotate: 45 },
+    closed: { rotate: 0 },
+  };
+  const ariaLabel = isActive ? 'Collapse section' : 'Expand section';
 
   return (
     <motion.button
-      className="faq__icon"
-      animate={{
-        rotate: isActive ? "45deg" : "0deg",
-        transition: { duration: 0.3, ease: "easeInOut" }
-      }}
-      aria-expanded={isActive}
+      className="faq__button"
+      variants={iconVariants}
+      animate={isActive ? 'open' : 'closed'}
+      transition={{ duration: 0.2 }}
+      // animate={{
+      //   rotate: isActive ? '45deg' : '0deg',
+      //   transition: { duration: 0.3, ease: 'easeInOut' },
+      // }}
+      aria-expanded={isActive ? 'true' : 'false'}
       aria-controls={`panel-${id}`}
       aria-label={ariaLabel}
-      tabIndex={0}
-      role={"button"}
     >
       <FaPlus />
     </motion.button>
