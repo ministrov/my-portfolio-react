@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import AccordionButton from '../accordionButton/AccordionButton';
 import AccordionPanel from '../accordionPanel/AccordionPanel';
+import AccordionButton from '../accordionButton/AccordionButton';
 import './style.css';
 
 const AccordionItem = ({ item, isActive, onClick }) => {
@@ -10,8 +10,14 @@ const AccordionItem = ({ item, isActive, onClick }) => {
   return (
     <motion.li
       className="faq__item"
-      // layout
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      initial={false}
+      animate={{
+        maxHeight: isActive ? '500px' : '24px',
+      }}
+      transition={{
+        duration: isActive ? 0.6 : 0.5,
+        ease: isActive ? [0.4, 0, 0.2, 1] : [0.4, 0, 0.2, 1],
+      }}
     >
       <div
         className="faq__question"

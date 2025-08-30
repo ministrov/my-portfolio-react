@@ -4,10 +4,7 @@
   padding: 2rem;
   border: 2px solid var(--color-blue-700);
   border-radius: var(--border-radius-s);
-}
-
-.faq__item--active .faq__muted {
-  color: var(--color-blue-700);
+  will-change: height, max-height;
 }
 
 .faq__question {
