@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import AccordionButton from '../accordionButton/AccordionButton';
 import AccordionPanel from '../accordionPanel/AccordionPanel';
@@ -7,16 +8,23 @@ const AccordionItem = ({ item, isActive, onClick }) => {
   const { t } = useTranslation();
 
   return (
-    <>
-      <div className="faq__question" onClick={() => onClick(item.id)}>
+    <motion.li
+      className="faq__item"
+      // layout
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+    >
+      <div
+        className="faq__question"
+        onClick={() => onClick(item.id)}
+        role="button"
+        aria-expanded={isActive}
+      >
         <h3>{t(item.question)}</h3>
-
-        <AccordionButton isActive={isActive} id={item.id} />
+        <AccordionButton isActive={isActive} />
       </div>
 
-      {/* {isActive && <AccordionPanel item={item} isOpen={isActive} />} */}
       <AccordionPanel item={item} isOpen={isActive} />
-    </>
+    </motion.li>
   );
 };
 

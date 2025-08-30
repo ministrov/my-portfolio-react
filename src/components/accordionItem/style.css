@@ -1,4 +1,5 @@
 .faq__item {
+  overflow: hidden;
   width: 100%;
   padding: 2rem;
   border: 2px solid var(--color-blue-700);
@@ -13,7 +14,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 1.5rem 0; */
   background-color: transparent;
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;

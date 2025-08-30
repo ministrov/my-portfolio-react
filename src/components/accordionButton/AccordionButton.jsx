@@ -14,11 +14,7 @@ const AccordionButton = ({ isActive, id }) => {
       className="faq__button"
       variants={iconVariants}
       animate={isActive ? 'open' : 'closed'}
-      transition={{ duration: 0.2 }}
-      // animate={{
-      //   rotate: isActive ? '45deg' : '0deg',
-      //   transition: { duration: 0.3, ease: 'easeInOut' },
-      // }}
+      transition={{ duration: 0.4 }}
       aria-expanded={isActive ? 'true' : 'false'}
       aria-controls={`panel-${id}`}
       aria-label={ariaLabel}
