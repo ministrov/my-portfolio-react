@@ -1,18 +1,17 @@
-.faq__icon {
+.faq__button {
   color: var(--color-blue-700);
   background-color: transparent;
-  transform: rotate(0deg);
   border: none;
   cursor: pointer;
 }
 
-.faq__icon svg {
+.faq__button svg {
   width: 2em;
   height: 2em;
 }
 
 @media screen and (max-width: 575px) {
-  .faq__icon svg {
+  .faq__button svg {
     width: 1.2rem;
     height: 1.2rem;
   }

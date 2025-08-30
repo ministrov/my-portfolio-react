@@ -1,21 +1,24 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './style.css';
 
 const AccordionPanel = ({ item, isOpen }) => {
   const { t } = useTranslation();
-
   return (
-    <motion.div
-      id="dropdown-menu"
-      className="faq__answer"
-      initial={{ opacity: 0, height: 0 }}
-      animate={isOpen ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }}
-      transition={{ duration: 0.5, ease: 'easeInOut', type: 'tween' }}
-    >
-      {item.answer && t(item.answer)}
-    </motion.div>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="faq__answer"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+        >
+          {item.answer && t(item.answer)}
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
-}
+};
 
 export default AccordionPanel;

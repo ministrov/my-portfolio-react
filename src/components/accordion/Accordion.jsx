@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { faqs } from "../../const";
-import AccordionItem from "../accordionItem/AccordionItem";
+import { useState } from 'react';
+import { faqs } from '../../const';
+import AccordionItem from '../accordionItem/AccordionItem';
 import './style.css';
 
 const Accordion = () => {
@@ -13,19 +13,15 @@ const Accordion = () => {
   return (
     <ul className="faq__list">
       {faqs.map((faq) => (
-        <li
+        <AccordionItem
           key={faq.id}
-          className="faq__item"
-        >
-          <AccordionItem
-            item={faq}
-            onClick={() => toggleItem(faq.id)}
-            isActive={activeIndex === faq.id}
-          />
-        </li>
+          item={faq}
+          onClick={() => toggleItem(faq.id)}
+          isActive={activeIndex === faq.id}
+        />
       ))}
     </ul>
-  )
-}
+  );
+};
 
 export default Accordion;

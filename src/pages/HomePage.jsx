@@ -18,14 +18,6 @@ const Home = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const modalShown = localStorage.getItem('modalShown');
-
-    if (modalShown) {
-      setIsModalShown(true);
-    }
-  }, []);
-
-  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -35,26 +27,10 @@ const Home = () => {
     return () => {
       document.body.style.overflow = 'auto';
     };
-
   }, [isOpen]);
 
   useEffect(() => {
     if (isModalShown) return;
-
-    const handleScroll = () => {
-      if (scrollTriggered.current || isModalShown) return;
-
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const pageHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= pageHeight * 0.5) {
-        scrollTriggered.current = true;
-        openModal();
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
 
     timeoutRef.current = setTimeout(() => {
       if (!scrollTriggered.current && !isModalShown && !isOpen) {
@@ -65,7 +41,6 @@ const Home = () => {
     return () => {
       clearTimeout(timeoutRef.current);
       clearTimeout(autoCloseRef.current);
-      window.removeEventListener('scroll', handleScroll);
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,7 +59,6 @@ const Home = () => {
   const closeModal = () => {
     setIsOpen(false);
     setIsModalShown(true);
-    localStorage.setItem('modalShown', 'true');
     clearTimeout(autoCloseRef.current);
   };
 
@@ -98,7 +72,6 @@ const Home = () => {
           data-rh="true"
         />
         <meta name="keywords" content={t('metadata.home.keywords')} />
-        {/* <link rel="canonical" href={`${window.location.origin}/`} /> */}
       </Helmet>
 
       <h1 className="visually-hidden">Home page of the author portfolio</h1>
