@@ -5,6 +5,7 @@
   border: 2px solid var(--color-blue-700);
   border-radius: var(--border-radius-s);
   will-change: height, max-height;
+  box-sizing: border-box;
 }
 
 .faq__question {
@@ -17,10 +18,35 @@
 }
 
 .faq__question h3 {
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 20px;
+  line-height: 26px;
 }
 
 .faq__question:focus-visible {
   outline: 2px dashed var(--color-blue-700);
+}
+
+@media screen and (max-width: 575px) {
+  .faq__item {
+    padding: 1.3rem;
+  }
+
+  .faq__question h3 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .faq__answer {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .faq__item {
+    padding: 1rem 0rem;
+  }
+
+  .faq__question h3 {
+    max-width: 270px;
+  }
 }

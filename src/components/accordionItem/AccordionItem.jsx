@@ -12,7 +12,7 @@ const AccordionItem = ({ item, isActive, onClick }) => {
       className="faq__item"
       initial={false}
       animate={{
-        maxHeight: isActive ? '500px' : '24px',
+        maxHeight: isActive ? '500px' : '94px',
       }}
       transition={{
         duration: isActive ? 0.6 : 0.5,

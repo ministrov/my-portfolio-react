@@ -3,11 +3,6 @@
   color: var(--color-blue-700);
 }
 
-.faq__question h3 {
-  font-size: 20px;
-  line-height: 26px;
-}
-
 @media screen and (max-width: 768px) {
   .faq {
     margin-bottom: 5rem;
@@ -18,31 +13,10 @@
   .faq {
     margin-bottom: 2rem;
   }
-
-  .faq__question {
-    padding: 1.6rem 0rem;
-  }
-
-  .faq__question h3 {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .faq__answer {
-    max-width: 100%;
-  }
 }
 
 @media screen and (max-width: 375px) {
   .faq {
     margin-bottom: 3rem;
-  }
-
-  .faq__question {
-    padding: 1rem 0rem;
-  }
-
-  .faq__question h3 {
-    max-width: 270px;
   }
 }
