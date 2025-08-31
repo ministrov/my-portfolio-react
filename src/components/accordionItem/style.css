@@ -43,10 +43,18 @@
 
 @media screen and (max-width: 375px) {
   .faq__item {
-    padding: 1rem 0rem;
+    padding: 1rem;
   }
 
   .faq__question h3 {
     max-width: 270px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .faq__answer {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 18px;
   }
 }
