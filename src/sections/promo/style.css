@@ -193,9 +193,9 @@
   }
 
   .promo__greeting {
-    font-size: 36px;
+    font-size: 34px;
     letter-spacing: 0;
-    line-height: 42px;
+    line-height: 40px;
   }
 
   .promo__btns {
@@ -207,5 +207,12 @@
   .promo__avatar {
     width: 270px;
     max-height: 270px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .promo__greeting {
+    font-size: 28px;
+    line-height: 32px;
   }
 }
