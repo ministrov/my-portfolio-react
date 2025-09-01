@@ -9,8 +9,24 @@
   gap: 4rem;
 }
 
-.about__left {
+/* .animated-border-container {
   position: relative;
+  display: inline-block;
+  padding: 10px;
+}
+
+.wave-border {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.animated-border-container:hover .about__image {
+  transform: scale(1.02);
+} */
+
+.about__left {
   width: 50%;
   max-width: 530px;
   display: flex;
@@ -29,7 +45,9 @@
 }
 
 .about__image {
-  position: relative;
+  /* z-index: 1;
+  border-radius: 8px;
+  transition: transform 0.3s ease; */
   mix-blend-mode: lighten;
 }
 
