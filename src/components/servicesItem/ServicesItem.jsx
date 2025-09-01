@@ -7,7 +7,7 @@ const ServicesItem = ({ service, open, onClick }) => {
   const contentId = `service-content-${id}`;
 
   return (
-    <div className="services__item">
+    <>
       <div className="services__header">
         <div className="services__item-text text-outline">{`0${id}`}</div>
         <div className="services__icon">{icon}</div>
@@ -20,12 +20,12 @@ const ServicesItem = ({ service, open, onClick }) => {
       <button
         className="services__more"
         onClick={onClick}
-        aria-expanded={open ? "true" : "false"}
+        aria-expanded={open ? 'true' : 'false'}
         aria-controls={contentId}
       >
         {open ? t('services.hide') : t('services.showMore')}
       </button>
-    </div>
+    </>
   );
 };
 

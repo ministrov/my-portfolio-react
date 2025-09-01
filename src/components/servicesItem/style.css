@@ -133,4 +133,10 @@
   .services__item.services__expanded .services__description {
     max-width: 100%;
   }
+
+  .services__more {
+    padding-bottom: 0;
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
