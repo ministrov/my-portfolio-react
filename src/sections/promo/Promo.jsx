@@ -25,24 +25,12 @@ const commonAnimation = {
   },
 };
 
-// const variant = {
-//   visible: { opacity: 1, y: '0px' },
-//   hidden: { opacity: 0, y: '200px' },
-// };
-
 const Promo = () => {
   const { lang } = useLanguage();
   const { t } = useTranslation();
 
   return (
-    <section
-    // className="promo"
-    // transition={{ duration: 0.8 }}
-    // variants={variant}
-    // initial="hidden"
-    // whileInView="visible"
-    // viewport={{ once: true, amount: 'some' }}
-    >
+    <section className="promo">
       <h2 className="visually-hidden">
         A promo section for introduction of the author
       </h2>

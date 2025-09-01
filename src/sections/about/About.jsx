@@ -7,20 +7,8 @@ import './style.css';
 const About = () => {
   const { t } = useTranslation();
 
-  // const variant = {
-  //   visible: { opacity: 1, y: '0px' },
-  //   hidden: { opacity: 0, y: '200px' },
-  // };
-
   return (
-    <section
-      className="about"
-      // transition={{ duration: 0.8 }}
-      // variants={variant}
-      // initial="hidden"
-      // whileInView="visible"
-      // viewport={{ once: true, amount: 'some' }}
-    >
+    <section className="about">
       <div className="container">
         <Heading
           title={t('heading.about.name')}
