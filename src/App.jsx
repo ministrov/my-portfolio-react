@@ -11,8 +11,11 @@ import './styles/main.css';
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 const PageNotFound = lazy(() => import('./pages/pageNotFound/PageNotFound'));
 
+// const i18nModule = lazy(() => import('./utils/i18n'));
 
 const App = () => {
+  // const [i18nLoaded, setI18nLoaded] = useState(false);
+  // const { lang } = useLanguage();
   const { i18n } = useTranslation();
 
   useEffect(() => {
@@ -27,14 +30,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<HomePage />} />
-              <Route
-                path="/projects"
-                element={<ProjectsPage />}
-              />
-              <Route
-                path="*"
-                element={<PageNotFound />}
-              />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="*" element={<PageNotFound />} />
             </Route>
           </Routes>
         </Suspense>

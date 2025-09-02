@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect } from 'react';
+import { useEffect, createContext, useContext } from 'react';
 import { useUrlParams } from '../hooks/useUrlParams';
 import { useTranslation } from 'react-i18next';
 
 export const LanguageContext = createContext({
   lang: 'ru',
-  toggleLang: () => { },
+  toggleLang: () => {},
 });
 
 export function LanguageProvider({ children }) {
@@ -17,7 +17,7 @@ export function LanguageProvider({ children }) {
   }, [lang, i18n]);
 
   const toggleLang = () => {
-    setLang(prev => prev === 'ru' ? 'en' : 'ru');
+    setLang((prev) => (prev === 'ru' ? 'en' : 'ru'));
   };
 
   return (
