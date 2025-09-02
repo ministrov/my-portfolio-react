@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import { TypeAnimation } from 'react-type-animation';
 import { useLanguage } from '../../context/LanguageProvider';
-import Button from '../../components/button/Button';
+// import Button from '../../components/button/Button';
 import SocialList from '../../components/socials/SocialList';
 import MouseScroll from '../../components/mouseScroll/MouseScroll';
 import avatar from '../../assets/png/my-avatar.webp';
@@ -74,14 +74,17 @@ const Promo = () => {
               {...commonAnimation}
               transition={{ ...commonAnimation.transition, delay: 0.7 }}
             >
-              <Button
+              <a
                 className={'promo__btn'}
                 href={cvPdf}
                 download={cvPdf}
-                icon={<BsBoxArrowInUpRight width={20} height={20} />}
+                rel="noopener noreferrer"
               >
                 {t('promo.promoBtn')}
-              </Button>
+                <span className="btn__icon">
+                  <BsBoxArrowInUpRight width={20} height={20} />
+                </span>
+              </a>
 
               <SocialList variant="blue" />
             </motion.div>

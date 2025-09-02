@@ -112,6 +112,9 @@
 
 .project-card__link {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
