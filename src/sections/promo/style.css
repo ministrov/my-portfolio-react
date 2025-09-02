@@ -33,7 +33,8 @@
 .promo__avatar {
   mix-blend-mode: lighten;
   width: 475px;
-  height: 423px;
+  height: 475px;
+  object-fit: cover;
   border-radius: var(--border-radius-s);
 }
 
@@ -84,9 +85,7 @@
 }
 
 .promo__btn:hover {
-  /* opacity: 0.7; */
   transform: translateY(-2px) scale(1.02);
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
 }
 
 .promo__mouse-scroll-cont {
@@ -190,7 +189,7 @@
   }
 
   .promo__image {
-    height: 327px;
+    height: 300px;
   }
 
   .promo__avatar {
