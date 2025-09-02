@@ -20,7 +20,7 @@ const Footer = () => {
           <SocialList className={'main-footer__list'} />
 
           <button className="main-footer__btn" onClick={() => setIsOpen(true)}>
-            Связаться
+            {t('footer.reachOutButton')}
           </button>
         </div>
       </div>

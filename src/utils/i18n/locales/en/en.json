@@ -109,7 +109,8 @@
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
     "copyright": "Copyright 2025. Made by",
-    "author": "Anton Zhilin"
+    "author": "Anton Zhilin",
+    "reachOutButton": "Reach Out"
   },
   "projects": {
     "project2": {
