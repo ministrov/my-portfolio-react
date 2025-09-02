@@ -11,7 +11,6 @@ import './styles/main.css';
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 const PageNotFound = lazy(() => import('./pages/pageNotFound/PageNotFound'));
 
-
 const App = () => {
   const { i18n } = useTranslation();
 
@@ -27,14 +26,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<HomePage />} />
-              <Route
-                path="/projects"
-                element={<ProjectsPage />}
-              />
-              <Route
-                path="*"
-                element={<PageNotFound />}
-              />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="*" element={<PageNotFound />} />
             </Route>
           </Routes>
         </Suspense>

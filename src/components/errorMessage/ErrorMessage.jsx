@@ -1,6 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Link } from 'react-router-dom';
-import Button from '../button/Button';
-import { BsBoxArrowInUpRight } from "react-icons/bs";
+import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import img from '../../assets/error.gif';
 import './style.css';
 
@@ -9,17 +9,15 @@ const ErrorMessage = ({ textContent, btnText }) => {
     <section className="not-found">
       <img className="not-found__image" src={img} alt="error message" />
 
-      <p className="not-found__text">
-        {textContent}
-      </p>
+      <p className="not-found__text">{textContent}</p>
 
-      <Link to='/'>
-        <Button
-          className={'not-found__btn'}
-          icon={<BsBoxArrowInUpRight width={20} height={20} />}
-        >
+      <Link to="/">
+        <a className={'not-found__btn'} href="#" rel="noopener noreferrer">
           {btnText}
-        </Button>
+          <span className="btn__icon">
+            <BsBoxArrowInUpRight width={20} height={20} />
+          </span>
+        </a>
       </Link>
     </section>
   );

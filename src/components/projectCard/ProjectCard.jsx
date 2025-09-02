@@ -1,8 +1,7 @@
 import { easeInOut, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { BsBoxArrowInUpRight } from "react-icons/bs";
+import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
-import Button from '../button/Button.jsx';
 import Tag from '../tag/Tag';
 import './style.css';
 
@@ -18,12 +17,12 @@ const ProjectCard = ({
   yearText,
   roleText,
   demoLink,
-  gitHubLink
+  gitHubLink,
 }) => {
-
   const { t } = useTranslation();
 
-  const isDesktop = typeof window !== 'undefined' &&
+  const isDesktop =
+    typeof window !== 'undefined' &&
     window.matchMedia('(min-width: 768px)').matches;
 
   return (
@@ -77,27 +76,31 @@ const ProjectCard = ({
 
           <div className="project-card__links">
             {demoLink && (
-              <Button
-                className={"project-card__link"}
-                icon={<BsBoxArrowInUpRight width={20} height={20} />}
+              <a
+                className={'project-card__link'}
                 href={demoLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {t('projectCard.liveDemo', 'Default Text')}
-              </Button>
+                <span className="btn__icon">
+                  <BsBoxArrowInUpRight width={20} height={20} />
+                </span>
+              </a>
             )}
 
             {gitHubLink && (
-              <Button
+              <a
                 className={'project-card__link'}
-                icon={<FaGithub width={20} height={20} />}
                 href={gitHubLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {t('projectCard.seeOnGithub', 'Default Text')}
-              </Button>
+                <span className="btn__icon">
+                  <FaGithub width={20} height={20} />
+                </span>
+              </a>
             )}
           </div>
         </div>

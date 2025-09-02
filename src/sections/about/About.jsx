@@ -6,6 +6,7 @@ import './style.css';
 
 const About = () => {
   const { t } = useTranslation();
+
   return (
     <section className="about">
       <div className="container">

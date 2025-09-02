@@ -20,7 +20,13 @@
 }
 
 .not-found__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   max-width: 20rem;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
   color: var(--color-blue-700);
   border-bottom: 2px solid var(--color-blue-700);
 }
