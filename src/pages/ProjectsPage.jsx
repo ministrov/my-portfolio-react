@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Projects from '../sections/projects/Projects.jsx';
+import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
 
 const ProjectsPage = () => {
   const { t } = useTranslation();
@@ -14,8 +15,9 @@ const ProjectsPage = () => {
           content={t('metadata.projects.description')}
           data-rh="true"
         />
-        {/* <link rel="canonical" href={`${window.location.origin}/`} /> */}
       </Helmet>
+
+      <AnimatedBackground />
 
       <h1 className="visually-hidden">Page about author's projects</h1>
 
