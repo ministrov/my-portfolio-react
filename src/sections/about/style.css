@@ -6,7 +6,7 @@
 .about__wrapper {
   display: flex;
   align-items: center;
-  gap: 4rem;
+  justify-content: space-between;
 }
 
 .about__left {
