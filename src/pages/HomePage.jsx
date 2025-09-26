@@ -6,12 +6,9 @@ import Skills from '../sections/skills/Skills.jsx';
 import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
+import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
 
 const Home = () => {
-  // const [isModalShown, setIsModalShown] = useState(false);
-  // const scrollTriggered = useRef(false);
-  // const timeoutRef = useRef(null);
-  // const autoCloseRef = useRef(null);
   const { t } = useTranslation();
 
   return (
@@ -25,6 +22,7 @@ const Home = () => {
         />
         <meta name="keywords" content={t('metadata.home.keywords')} />
       </Helmet>
+      <AnimatedBackground />
 
       <h1 className="visually-hidden">Home page of the author portfolio</h1>
       <Promo />

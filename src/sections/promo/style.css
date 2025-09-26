@@ -1,18 +1,15 @@
 .promo {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
+  height: 78vh;
   margin-bottom: 4rem;
-  padding-top: 6rem;
+  padding-top: 4rem;
   padding-bottom: 4rem;
 }
 
 .promo__wrapper {
   display: flex;
   align-items: center;
-  gap: 5%;
+  justify-content: space-between;
 }
 
 .promo__text {
@@ -96,6 +93,10 @@
 }
 
 @media screen and (max-width: 1172px) {
+  /* .promo__wrapper {
+    gap: 5%;
+  } */
+
   .promo__image {
     width: 450px;
     height: 450px;
@@ -137,6 +138,7 @@
 @media screen and (max-width: 768px) {
   .promo {
     margin-bottom: 3rem;
+    padding-top: 3rem;
   }
 
   .promo__greeting {
@@ -158,6 +160,7 @@
 
   .promo__btns {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .promo__btn {
@@ -178,7 +181,7 @@
 
 @media screen and (max-width: 475px) {
   .promo {
-    padding-top: 6rem;
+    padding-top: 0;
     padding-bottom: 0;
     margin-bottom: 2rem;
   }
@@ -202,10 +205,6 @@
     letter-spacing: 0;
     line-height: 40px;
   }
-
-  .promo__btns {
-    align-items: flex-start;
-  }
 }
 
 @media screen and (max-width: 375px) {
@@ -213,9 +212,7 @@
     width: 270px;
     max-height: 270px;
   }
-}
 
-@media screen and (max-width: 320px) {
   .promo__greeting {
     font-size: 28px;
     line-height: 32px;

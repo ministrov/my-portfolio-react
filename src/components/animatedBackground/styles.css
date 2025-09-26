@@ -1,0 +1,76 @@
+.background {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0); /* Аппаратное ускорение */
+}
+
+/* Отключаем анимации при reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .star {
+    animation: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .background {
+    display: none;
+  }
+}
+
+/* .background {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+
+@media screen and (max-width: 375px) {
+  .background {
+    display: none;
+  }
+}
+
+/* .background {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 9999px;
+}
+
+@media screen and (max-width: 375px) {
+  .background {
+    display: none;
+  }
+} */
