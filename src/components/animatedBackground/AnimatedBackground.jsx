@@ -1,29 +1,30 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './styles.css';
 
 const AnimatedBackground = () => {
   const [stars, setStars] = useState([]);
-  const [isVisible, setIsVisible] = useState(false);
 
-  const generateStarsAnimation = useCallback(() => {
-    if (!isVisible) return;
+  useEffect(() => {
+    generateStarsAnimation();
+  }, []);
 
-    // Фиксированное количество звезд вместо расчета по площади
-    const countStars = Math.min(150, Math.floor(window.innerWidth / 5));
+  const generateStarsAnimation = () => {
+    const countStars = Math.min(350, Math.floor(window.innerWidth / 5));
 
     const neonColors = [
       '#ffffff',
-      'rgb(19,0,247)',
+      'rgba(43, 87, 168, 1)',
       '#ffffff',
       'rgb(254,6,110)',
+      '#ffffff',
     ];
 
     const newStars = [];
     for (let i = 0; i < countStars; i++) {
       const color = neonColors[Math.floor(Math.random() * neonColors.length)];
-      const size = Math.random() * 2 + 0.5;
-      const baseOpacity = Math.random() * 0.3 + 0.1;
+      const size = Math.random() * 4 + 0.7;
+      const baseOpacity = Math.random() * 0.6 + 0.1;
 
       newStars.push({
         id: i,
@@ -31,27 +32,23 @@ const AnimatedBackground = () => {
         x: Math.random() * 100,
         y: Math.random() * 100,
         baseOpacity,
-        animationType: Math.random() > 0.8 ? 'pulse' : 'none',
-        pulseIntensity: Math.random() * 0.2 + 0.1,
-        pulseDuration: Math.random() * 6 + 4,
+        // Увеличиваем вероятность анимации
+        animationType: Math.random() > 0.4 ? 'pulse' : 'drift', // 60% pulse, 40% drift
+        // Для дрейфа - случайное направление и расстояние
+        driftDistance: Math.random() * 15 + 5, // Увеличиваем расстояние
+        driftAngle: Math.random() * 360,
+        // Для пульсации - разная интенсивность
+        pulseIntensity: Math.random() * 0.5 + 0.3, // Увеличиваем интенсивность
+        pulseDuration: Math.random() * 3 + 2, // Уменьшаем длительность для более частого пульса
+        // Общие параметры
         color,
+        duration: Math.random() * 6 + 3, // Уменьшаем длительность дрейфа
       });
     }
     setStars(newStars);
-  }, [isVisible]);
+  };
 
-  useEffect(() => {
-    // Задержка инициализации для приоритета основного контента
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-      generateStarsAnimation();
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [generateStarsAnimation]);
-
+  // Варианты анимации для Framer Motion
   const getStarAnimation = (star) => {
     if (star.animationType === 'pulse') {
       return {
@@ -60,17 +57,39 @@ const AnimatedBackground = () => {
           star.baseOpacity + star.pulseIntensity,
           star.baseOpacity,
         ],
+        scale: [1, 1.3, 1], // Увеличиваем масштаб
         transition: {
           duration: star.pulseDuration,
           repeat: Infinity,
+          repeatType: 'loop', // Явно указываем тип повторения
+          ease: 'easeInOut',
+        },
+      };
+    } else {
+      // Анимация дрейфа (медленного перемещения)
+      const rad = (star.driftAngle * Math.PI) / 180;
+      const x = Math.cos(rad) * star.driftDistance;
+      const y = Math.sin(rad) * star.driftDistance;
+
+      return {
+        x: [0, x, 0, -x, 0], // Добавляем движение вперед-назад для более естественного эффекта
+        y: [0, y, 0, -y, 0],
+        opacity: [
+          star.baseOpacity,
+          star.baseOpacity * 0.8,
+          star.baseOpacity,
+          star.baseOpacity * 0.6,
+          star.baseOpacity,
+        ],
+        transition: {
+          duration: star.duration,
+          repeat: Infinity,
+          repeatType: 'loop',
           ease: 'easeInOut',
         },
       };
     }
-    return {};
   };
-
-  if (!isVisible) return null;
 
   return (
     <div className="background">
@@ -78,15 +97,21 @@ const AnimatedBackground = () => {
         <motion.div
           key={star.id}
           className="star"
+          initial={{
+            opacity: star.baseOpacity,
+            scale: 1,
+            x: 0,
+            y: 0,
+          }}
+          animate={getStarAnimation(star)}
           style={{
             width: `${star.size}px`,
             height: `${star.size}px`,
             left: `${star.x}%`,
             top: `${star.y}%`,
             background: `${star.color}`,
-            opacity: star.baseOpacity,
+            boxShadow: `0 0 ${star.size * 3}px ${star.color}`, // Увеличиваем свечение
           }}
-          animate={getStarAnimation(star)}
         />
       ))}
     </div>
@@ -104,19 +129,10 @@ export default AnimatedBackground;
 
 //   useEffect(() => {
 //     generateStarsAnimation();
-
-//     const handleResize = () => {
-//       generateStarsAnimation();
-//     };
-
-//     window.addEventListener('resize', handleResize);
-//     return () => window.removeEventListener('resize', handleResize);
 //   }, []);
 
 //   const generateStarsAnimation = () => {
-//     const countStars = Math.floor(
-//       (window.innerWidth * window.innerHeight) / 2000 // Увеличил делитель для меньшей плотности
-//     );
+//     const countStars = Math.min(350, Math.floor(window.innerWidth / 5));
 
 //     const neonColors = [
 //       '#ffffff',
@@ -131,8 +147,8 @@ export default AnimatedBackground;
 //       const color = neonColors[Math.floor(Math.random() * neonColors.length)];
 
 //       // Более разнообразные параметры для естественного эффекта
-//       const size = Math.random() * 3 + 0.5;
-//       const baseOpacity = Math.random() * 0.4 + 0.1;
+//       const size = Math.random() * 4 + 0.7;
+//       const baseOpacity = Math.random() * 0.6 + 0.1;
 
 //       newStars.push({
 //         id: i,
@@ -197,6 +213,8 @@ export default AnimatedBackground;
 //         <motion.div
 //           key={star.id}
 //           className="star"
+//           initial={false}
+//           animate={getStarAnimation(star)}
 //           style={{
 //             width: `${star.size}px`,
 //             height: `${star.size}px`,
@@ -205,8 +223,6 @@ export default AnimatedBackground;
 //             background: `${star.color}`,
 //             boxShadow: `0 0 ${star.size * 2}px ${star.color}`, // Добавляем свечение
 //           }}
-//           animate={getStarAnimation(star)}
-//           initial={false}
 //         />
 //       ))}
 //     </div>
@@ -214,3 +230,101 @@ export default AnimatedBackground;
 // };
 
 // export default AnimatedBackground;
+
+// // import { useState, useEffect, useCallback } from 'react';
+// // import { motion } from 'framer-motion';
+// // import './styles.css';
+
+// // const AnimatedBackground = () => {
+// //   const [stars, setStars] = useState([]);
+// //   // const [isVisible, setIsVisible] = useState(false);
+
+// //   const generateStarsAnimation = useCallback(() => {
+// //     // if (!isVisible) return;
+
+// //     // Фиксированное количество звезд вместо расчета по площади
+// //     const countStars = Math.min(150, Math.floor(window.innerWidth / 5));
+
+// //     const neonColors = [
+// //       '#ffffff',
+// //       'rgb(19,0,247)',
+// //       '#ffffff',
+// //       'rgb(254,6,110)',
+// //     ];
+
+// //     const newStars = [];
+// //     for (let i = 0; i < countStars; i++) {
+// //       const color = neonColors[Math.floor(Math.random() * neonColors.length)];
+// //       const size = Math.random() * 2 + 0.5;
+// //       const baseOpacity = Math.random() * 0.3 + 0.1;
+
+// //       newStars.push({
+// //         id: i,
+// //         size,
+// //         x: Math.random() * 100,
+// //         y: Math.random() * 100,
+// //         baseOpacity,
+// //         animationType: Math.random() > 0.8 ? 'pulse' : 'none',
+// //         pulseIntensity: Math.random() * 0.2 + 0.1,
+// //         pulseDuration: Math.random() * 6 + 4,
+// //         color,
+// //       });
+// //     }
+// //     setStars(newStars);
+// //   }, []);
+
+// //   useEffect(() => {
+// //     // Задержка инициализации для приоритета основного контента
+// //     // const timer = setTimeout(() => {
+// //     //   // setIsVisible(true);
+// //     //   generateStarsAnimation();
+// //     // }, 1000);
+
+// //     // return () => {
+// //     //   clearTimeout(timer);
+// //     // };
+// //     generateStarsAnimation();
+// //   }, [generateStarsAnimation]);
+
+// //   const getStarAnimation = (star) => {
+// //     if (star.animationType === 'pulse') {
+// //       return {
+// //         opacity: [
+// //           star.baseOpacity,
+// //           star.baseOpacity + star.pulseIntensity,
+// //           star.baseOpacity,
+// //         ],
+// //         transition: {
+// //           duration: star.pulseDuration,
+// //           repeat: Infinity,
+// //           ease: 'easeInOut',
+// //         },
+// //       };
+// //     }
+// //     return {};
+// //   };
+
+// //   // if (!isVisible) return null;
+
+// //   return (
+// //     <div className="background">
+// //       {stars.map((star) => (
+// //         <motion.div
+// //           key={star.id}
+// //           className="star"
+// //           style={{
+// //             width: `${star.size}px`,
+// //             height: `${star.size}px`,
+// //             left: `${star.x}%`,
+// //             top: `${star.y}%`,
+// //             background: `${star.color}`,
+// //             opacity: star.baseOpacity,
+// //           }}
+// //           animate={getStarAnimation(star)}
+// //         />
+// //       ))}
+// //     </div>
+// //   );
+// // };
+
+// // export default AnimatedBackground;
