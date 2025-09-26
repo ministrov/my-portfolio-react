@@ -1,22 +1,15 @@
 .promo {
   position: relative;
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center; */
   height: 78vh;
   margin-bottom: 4rem;
   padding-top: 4rem;
   padding-bottom: 4rem;
-  /* height: 80vh;
-  margin-bottom: 4rem;
-  padding-top: 6rem;
-  padding-bottom: 4rem; */
 }
 
 .promo__wrapper {
   display: flex;
   align-items: center;
-  gap: 10%;
+  justify-content: space-between;
 }
 
 .promo__text {
@@ -100,9 +93,9 @@
 }
 
 @media screen and (max-width: 1172px) {
-  .promo__wrapper {
+  /* .promo__wrapper {
     gap: 5%;
-  }
+  } */
 
   .promo__image {
     width: 450px;
