@@ -52,5 +52,17 @@ export const skills = [
     tech: 'RTK',
     percent: 55,
     icon: <SiRedux color="purple" />,
-  }
+  },
+  {
+    id: 9,
+    tech: 'React',
+    percent: 65,
+    icon: <FaReact color="lightblue" />,
+  },
+  {
+    id: 10,
+    tech: 'React',
+    percent: 65,
+    icon: <FaReact color="lightblue" />,
+  },
 ];
