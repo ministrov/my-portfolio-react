@@ -1,5 +1,16 @@
 .skills {
   margin-bottom: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: var(--color-gray-600);
+  border-top-left-radius: 42px;
+  border-top-right-radius: 42px;
+}
+
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
 }
 
 .skills__text {
@@ -17,11 +28,25 @@
 @media screen and (max-width: 768px) {
   .skills {
     margin-bottom: 3rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .skills__list {
+    gap: 2rem;
   }
 }
 
 @media screen and (max-width: 375px) {
   .skills {
     margin-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 358px) {
+  .skills__list {
+    gap: 1rem;
   }
 }

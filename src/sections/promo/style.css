@@ -76,14 +76,13 @@
   color: var(--color-white);
   border: none;
   background-color: var(--color-blue-700);
-  border-radius: 40px;
   transition: transform 0.5s ease-in-out;
   outline: none;
 }
 
-.promo__btn:hover {
-  transform: translateY(-2px) scale(1.02);
-}
+/* .promo__btn:hover {
+  transform: scale(1.02);
+} */
 
 .promo__mouse-scroll-cont {
   position: absolute;

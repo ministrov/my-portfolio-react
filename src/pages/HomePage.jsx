@@ -29,6 +29,7 @@ const Home = () => {
       <About />
       <Services />
       <Skills />
+      {/* Add section about Experience */}
       <Showcasing />
       <Faq />
     </>

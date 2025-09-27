@@ -1,6 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, A11y } from 'swiper/modules';
 import Heading from '../../components/heading/Heading';
 import Skill from '../../components/skill/Skill';
 import { skills } from './skills';
@@ -21,33 +19,13 @@ const Skills = () => {
           className="skills__title"
         ></Heading>
 
-        <Swiper
-          modules={[Autoplay, A11y]}
-          speed={650}
-          autoplay={{
-            delay: 800,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          loop={true}
-          spaceBetween={16}
-          slidesPerView={'auto'}
-          centeredSlides={false}
-          breakpoints={{
-            454: { slidesPerView: 1 },
-            455: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-            1224: { slidesPerView: 5 },
-          }}
-          grabCursor={true}
-        >
+        <ul className="skills__list">
           {skills.map((skill) => (
-            <SwiperSlide key={skill.id}>
+            <li key={skill.id}>
               <Skill skill={skill} />
-            </SwiperSlide>
+            </li>
           ))}
-        </Swiper>
+        </ul>
       </div>
     </section>
   );

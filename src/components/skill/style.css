@@ -3,17 +3,17 @@
   flex-direction: column;
   gap: 1rem;
   flex: 1;
-  justify-content: center;
   align-items: center;
   width: calc(100% - 14px);
+  min-width: 127px;
   padding: 1rem;
   background-color: var(--color-gray-200);
   box-shadow: none;
 }
 
 .skill__card-icon svg {
-  width: 45px;
-  height: 45px;
+  width: 77px;
+  height: 77px;
 }
 
 .skill__card-header {
@@ -26,13 +26,18 @@
 @media screen and (max-width: 375px) {
   .skill__card {
     gap: 0.5rem;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 4px;
+    padding-right: 4px;
     border: 2px solid var(--color-blue-700);
     border-radius: var(--border-radius-s);
   }
 
   .skill__left {
     gap: 0.5rem;
+  }
+
+  .skill__card-icon svg {
+    width: 60px;
+    height: 60px;
   }
 }

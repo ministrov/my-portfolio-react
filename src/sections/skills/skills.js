@@ -3,6 +3,8 @@ import { SiRedux, SiNextdotjs } from 'react-icons/si';
 import { RiJavascriptLine } from 'react-icons/ri';
 import { TbBrandTypescript } from 'react-icons/tb';
 import { ImHtmlFive } from 'react-icons/im';
+import { FaGitAlt } from 'react-icons/fa6';
+import { FaSass } from 'react-icons/fa6';
 
 export const skills = [
   {
@@ -52,5 +54,17 @@ export const skills = [
     tech: 'RTK',
     percent: 55,
     icon: <SiRedux color="purple" />,
-  }
+  },
+  {
+    id: 9,
+    tech: 'Git',
+    percent: 65,
+    icon: <FaGitAlt color="red" />,
+  },
+  {
+    id: 10,
+    tech: 'Sass',
+    percent: 65,
+    icon: <FaSass color="pink" />,
+  },
 ];
