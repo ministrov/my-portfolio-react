@@ -17,9 +17,13 @@ const Showcasing = () => {
 
         <motion.div
           className="showcasing__wrapper"
-          initial={{ opacity: 0, scale: 0.6 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ margin: '-50px' }}
+          transition={{
+            duration: 0.8, // Увеличил длительность
+            ease: [0.25, 0.1, 0.25, 1], // Более плавная easing-функция
+          }}
         >
           <Carousel className="showcasing__carousel" />
         </motion.div>
