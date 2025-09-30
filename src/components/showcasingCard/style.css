@@ -1,31 +1,32 @@
 .showcasing-card {
-  margin: 2rem;
-  border: 4px solid var(--color-blue-700);
-  border-radius: var(--border-radius-s);
-  background: var(--color-white);
+  padding-top: 4rem;
+  overflow: hidden;
 }
 
 .showcasing-card__aspect-ratio {
   position: relative;
   width: 100%;
   padding-bottom: 40.25%;
-  /* overflow: hidden; */
   background-image: url('../../assets/png/laptop-bg.png');
-  background-position: center center;
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: var(--border-radius-s);
 }
 
 .showcasing-card__image {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  top: 5%;
+  left: 8%;
+  width: 87%;
   border-radius: 17px;
 }
+
+/* @media screen and (max-width: 1268px) {
+  .showcasing-card__image {
+    left: 107px;
+    width: 83%;
+  }
+} */
 
 @media screen and (max-width: 768px) {
   .showcasing-card__aspect-ratio {
