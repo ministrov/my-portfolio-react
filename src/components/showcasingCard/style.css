@@ -6,6 +6,7 @@
 .showcasing-card__aspect-ratio {
   position: relative;
   width: 100%;
+  min-height: 350px;
   padding-bottom: 40.25%;
   background-image: url('../../assets/png/laptop-bg.png');
   background-size: 100% 100%;
@@ -15,28 +16,32 @@
 
 .showcasing-card__image {
   position: absolute;
-  top: 5%;
+  bottom: 0;
   left: 8%;
   width: 87%;
-  border-radius: 17px;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
 }
 
-/* @media screen and (max-width: 1268px) {
-  .showcasing-card__image {
-    left: 107px;
-    width: 83%;
+@media screen and (max-width: 1268px) {
+  .showcasing-card__aspect-ratio {
+    height: fit-content;
+    padding-bottom: 43.25%;
   }
-} */
+
+  .showcasing-card__image {
+    height: auto;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .showcasing-card__aspect-ratio {
-    padding-bottom: 75%;
+    padding-bottom: 0;
   }
 }
 
-@media screen and (max-width: 375px) {
-  .showcasing-card {
-    margin: 0;
-    background: none;
+@media screen and (max-width: 475px) {
+  .showcasing-card__image {
+    min-height: 316px;
   }
 }
