@@ -40,6 +40,7 @@ export const projects = [
     toolsTitle: 'projects.project3.toolsTitle',
     yearText: 'projects.project3.yearText',
     roleText: 'projects.project3.roleText',
+    isReversed: true,
   },
   {
     id: 3,
@@ -63,7 +64,6 @@ export const projects = [
     skills: 'Next, TypeScript, React, Zustand, Yup, Formik, Framer Motion',
     img: ratingus,
     slogan: 'projects.project6.slogan',
-    // demoLink: 'https://ratingus.ru/',
     overview: 'projects.project6.overview',
     isProduction: true,
     year: 2024,
@@ -72,6 +72,7 @@ export const projects = [
     toolsTitle: 'projects.project6.toolsTitle',
     yearText: 'projects.project6.yearText',
     roleText: 'projects.project6.roleText',
+    isReversed: true,
   },
   {
     id: 5,
@@ -104,6 +105,7 @@ export const projects = [
     toolsTitle: 'projects.project2.toolsTitle',
     yearText: 'projects.project2.yearText',
     roleText: 'projects.project2.roleText',
+    isReversed: true,
   },
   {
     id: 7,

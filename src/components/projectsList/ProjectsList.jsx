@@ -29,12 +29,14 @@ const ProjectsList = ({ projects }) => {
   return (
     <ul className="projects__list" variants={containerVariants}>
       {projects.map((project) => {
-        const { id, title, overview, skills, ...rest } = project;
+        const { id, title, overview, skills, isReversed, ...rest } = project;
 
         return (
           <motion.li
             key={id}
-            className="project-card__item"
+            className={`project-card__item ${
+              isReversed ? 'project-card__item--reversed' : ''
+            }`}
             variants={itemVariants}
             initial="hidden"
             animate="visible"
