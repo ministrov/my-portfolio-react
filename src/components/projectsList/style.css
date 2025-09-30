@@ -4,6 +4,10 @@
   gap: 5rem;
 }
 
+.project-card__item.project-card__item--reversed {
+  flex-direction: row-reverse;
+}
+
 @media screen and (max-width: 1024px) {
   .projects__list {
     gap: 4rem;

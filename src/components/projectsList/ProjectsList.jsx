@@ -6,24 +6,40 @@ import './style.css';
 const ProjectsList = ({ projects }) => {
   const { t } = useTranslation();
 
-  const variants = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
+  const itemVariants = {
+    hidden: { y: 15, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  const containerVariants = {
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   return (
-    <ul className="projects__list">
-      {projects.map((project, index) => {
-        const { id, title, overview, skills, ...rest } = project;
+    <ul className="projects__list" variants={containerVariants}>
+      {projects.map((project) => {
+        const { id, title, overview, skills, isReversed, ...rest } = project;
 
         return (
           <motion.li
             key={id}
-            className="project-card__item"
-            variants={variants}
-            initial="initial"
-            animate="animate"
-            transition={{ duration: 0.5, delay: index * 0.6, ease: 'easeInOut' }}
+            className={`project-card__item ${
+              isReversed ? 'project-card__item--reversed' : ''
+            }`}
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
             tabIndex={0}
           >
             <ProjectCard
@@ -33,7 +49,7 @@ const ProjectsList = ({ projects }) => {
               {...rest}
             />
           </motion.li>
-        )
+        );
       })}
     </ul>
   );
