@@ -5,9 +5,7 @@
 
 .showcasing-card__aspect-ratio {
   position: relative;
-  width: 100%;
-  min-height: 350px;
-  padding-bottom: 40.25%;
+  min-height: 846px;
   background-image: url('../../assets/png/laptop-bg.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -27,22 +25,10 @@
   .showcasing-card {
     padding-top: 2rem;
   }
-
-  .showcasing-card__aspect-ratio {
-    min-height: 288px;
-    padding-bottom: 43%;
-  }
-
-  .showcasing-card__image {
-    height: auto;
-  }
 }
 
 @media screen and (max-width: 968px) {
   .showcasing-card__aspect-ratio {
-    /* min-height: initial;
-    height: auto;
-    padding-bottom: 38%; */
     background-image: none;
   }
 
@@ -58,13 +44,12 @@
   }
 
   .showcasing-card__aspect-ratio {
-    min-height: 233px;
-    padding-bottom: 45%;
+    background-image: none;
   }
 }
 
-@media screen and (max-width: 475px) {
+/* @media screen and (max-width: 475px) {
   .showcasing-card__image {
     min-height: 316px;
   }
-}
+} */
