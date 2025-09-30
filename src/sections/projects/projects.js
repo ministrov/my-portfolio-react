@@ -22,6 +22,7 @@ export const projects = [
     toolsTitle: 'projects.project9.toolsTitle',
     yearText: 'projects.project9.yearText',
     roleText: 'projects.project9.roleText',
+    isReversed: false,
   },
   {
     id: 2,
@@ -57,6 +58,7 @@ export const projects = [
     toolsTitle: 'projects.project5.toolsTitle',
     yearText: 'projects.project5.yearText',
     roleText: 'projects.project5.roleText',
+    isReversed: false,
   },
   {
     id: 4,
@@ -89,6 +91,7 @@ export const projects = [
     toolsTitle: 'projects.project7.toolsTitle',
     yearText: 'projects.project7.yearText',
     roleText: 'projects.project7.roleText',
+    isReversed: false,
   },
   {
     id: 6,
@@ -122,5 +125,6 @@ export const projects = [
     toolsTitle: 'projects.project10.toolsTitle',
     yearText: 'projects.project10.toolsTitle',
     roleText: 'projects.project10.roleText',
+    isReversed: false,
   },
 ];
