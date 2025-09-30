@@ -8,9 +8,13 @@
 .showcasing-card__aspect-ratio {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
-  overflow: hidden;
-  border-radius: var(--border-radius-m);
+  padding-bottom: 40.25%;
+  /* overflow: hidden; */
+  background-image: url('../../assets/png/laptop-bg.png');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: var(--border-radius-s);
 }
 
 .showcasing-card__image {
@@ -20,7 +24,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center;
+  border-radius: 17px;
 }
 
 @media screen and (max-width: 768px) {

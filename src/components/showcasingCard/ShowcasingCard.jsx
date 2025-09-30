@@ -6,10 +6,12 @@ const ShowcasingCard = ({ image, name }) => {
       <div className="showcasing-card__aspect-ratio">
         <img
           src={image}
+          width={1200}
+          height={500}
           className="showcasing-card__image"
           alt={`Focusing on project ${name} illustration`}
           loading="lazy"
-          decoding='async'
+          decoding="async"
         />
       </div>
     </article>
