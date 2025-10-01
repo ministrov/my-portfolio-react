@@ -21,23 +21,17 @@
   font-weight: 700;
   white-space: nowrap;
   text-transform: uppercase;
-  color: var(--color-blue-700);
+  color: var(--color-white);
   border: none;
   border: 1px solid transparent;
-  background-color: var(--color-white);
-  transition: transform 0.35s ease, box-shadow 0.2s ease, opacity 0.5s ease;
+  background-color: var(--color-blue-700);
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
   cursor: pointer;
 }
 
 .contact__btn:hover {
-  color: var(--color-white);
-  background-color: transparent;
-  border: 1px solid var(--color-white);
+  color: var(--color-blue-700);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-blue-700);
 }
-
-/* @media screen and (max-width: 375px) {
-  .contact__btn-container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-} */
