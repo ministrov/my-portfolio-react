@@ -11,10 +11,8 @@ const Contact = () => {
     <section className="contact">
       <div className="container">
         <Heading
-          title={'Connect with me'}
-          slogan={
-            'Schedule a quick call to learn how Area can turn your regional data into a powerful advantage.'
-          }
+          title={t('heading.contact.name')}
+          slogan={t('heading.contact.subheading')}
         />
 
         <div className="contact__btn-container">
