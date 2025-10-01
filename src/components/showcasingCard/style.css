@@ -10,6 +10,9 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: var(--border-radius-s);
+
+  /* Плавные переходы для адаптивности */
+  transition: all 0.4s ease-in-out;
 }
 
 .showcasing-card__image {
@@ -19,37 +22,71 @@
   width: 87%;
   border-top-left-radius: 17px;
   border-top-right-radius: 17px;
+
+  /* Плавное изменение размеров */
+  transition: all 0.4s ease-in-out;
 }
 
 @media screen and (max-width: 1268px) {
   .showcasing-card {
     padding-top: 2rem;
   }
+
+  .showcasing-card__aspect-ratio {
+    min-height: clamp(600px, 70vw, 800px);
+  }
+
+  .showcasing-card__image {
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 968px) {
   .showcasing-card__aspect-ratio {
+    min-height: clamp(400px, 60vw, 600px);
+    /* Плавное изменение фона вместо резкого исчезновения */
+    background-size: 120% auto;
+    background-position: top center;
     background-image: none;
   }
 
   .showcasing-card__image {
-    left: 0;
+    position: initial;
     width: 100%;
   }
 }
 
 @media screen and (max-width: 768px) {
   .showcasing-card {
-    padding-top: 0rem;
+    padding-top: 1rem;
   }
 
   .showcasing-card__aspect-ratio {
-    background-image: none;
+    min-height: clamp(300px, 50vw, 450px);
+    /* Подготовка к мобильной версии */
+    background-size: 150% auto;
   }
 }
 
-/* @media screen and (max-width: 475px) {
-  .showcasing-card__image {
-    min-height: 316px;
+/* Плавный переход к мобильной версии */
+@media screen and (max-width: 568px) {
+  .showcasing-card__aspect-ratio {
+    min-height: clamp(250px, 45vw, 350px);
+    background-size: 200% auto;
+    background-position: top center;
   }
-} */
+}
+
+/* Полная мобильная адаптация */
+@media screen and (max-width: 375px) {
+  .showcasing-card__aspect-ratio {
+    min-height: 280px;
+    background-image: none;
+  }
+
+  .showcasing-card__image {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-radius: var(--border-radius-s);
+  }
+}
