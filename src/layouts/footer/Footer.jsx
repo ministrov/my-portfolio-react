@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Modal from '../../components/modal/Modal';
 import Logo from '../../components/logo/Logo';
 import SocialList from '../../components/socials/SocialList';
 import './style.css';
 
 const Footer = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
   return (
@@ -18,10 +15,6 @@ const Footer = () => {
         </div>
         <div className="main-footer__row main-footer__row-1">
           <SocialList className={'main-footer__list'} />
-
-          <button className="main-footer__btn" onClick={() => setIsOpen(true)}>
-            {t('footer.reachOutButton')}
-          </button>
         </div>
       </div>
 
@@ -31,12 +24,6 @@ const Footer = () => {
           {t('footer.author')}
         </a>
       </div>
-
-      <Modal
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-        autoCloseDelay={15000}
-      />
     </footer>
   );
 };
