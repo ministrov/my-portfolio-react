@@ -20,8 +20,9 @@
 .showcasing-card__name {
   margin-bottom: 2rem;
   font-family: var(--font-headings);
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 54px;
   color: var(--color-white);
 }
 
@@ -60,6 +61,11 @@
     background-image: none;
   }
 
+  .showcasing-card__name {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
   .showcasing-card__image {
     position: initial;
     width: 100%;
@@ -71,29 +77,26 @@
     padding-top: 1rem;
   }
 
-  .showcasing-card__name {
-    margin-bottom: 1rem;
-    font-size: 20px;
-    line-height: 28px;
-  }
-
   .showcasing-card__aspect-ratio {
     min-height: clamp(300px, 50vw, 450px);
-    /* Подготовка к мобильной версии */
     background-size: 150% auto;
   }
 }
 
-/* Плавный переход к мобильной версии */
 @media screen and (max-width: 568px) {
   .showcasing-card__aspect-ratio {
     min-height: clamp(250px, 45vw, 350px);
     background-size: 200% auto;
     background-position: top center;
   }
+
+  .showcasing-card__name {
+    margin-bottom: 1rem;
+    font-size: 20px;
+    line-height: 28px;
+  }
 }
 
-/* Полная мобильная адаптация */
 @media screen and (max-width: 375px) {
   .showcasing-card__aspect-ratio {
     min-height: 280px;
