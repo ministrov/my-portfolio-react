@@ -9,6 +9,7 @@
   min-height: 846px;
   background-image: url('../../assets/png/laptop-bg.png');
   background-size: 100% 100%;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: var(--border-radius-s);
 
