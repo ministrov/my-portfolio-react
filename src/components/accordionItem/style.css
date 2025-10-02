@@ -26,11 +26,7 @@
   outline: 2px dashed var(--color-blue-700);
 }
 
-@media screen and (max-width: 575px) {
-  .faq__item {
-    padding: 1.3rem;
-  }
-
+@media screen and (max-width: 694px) {
   .faq__question h3 {
     font-size: 18px;
     line-height: 24px;
@@ -42,19 +38,18 @@
 }
 
 @media screen and (max-width: 375px) {
-  .faq__item {
-    padding: 1rem;
+  .faq__question {
+    align-items: flex-start;
   }
 
   .faq__question h3 {
-    max-width: 270px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 20px;
   }
 
   .faq__answer {
     max-width: 100%;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 18px;
   }
 }

@@ -5,3 +5,9 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+@media screen and (max-width: 375px) {
+  .faq__list {
+    gap: 1rem;
+  }
+}
