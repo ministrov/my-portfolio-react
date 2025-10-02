@@ -12,12 +12,19 @@ const AccordionItem = ({ item, isActive, onClick }) => {
       className="faq__item"
       initial={false}
       animate={{
-        maxHeight: isActive ? '500px' : '94px',
+        maxHeight: isActive ? '1000px' : 'fit-content',
       }}
       transition={{
-        duration: isActive ? 0.6 : 0.5,
-        ease: isActive ? [0.4, 0, 0.2, 1] : [0.4, 0, 0.2, 1],
+        duration: 0.4,
+        ease: [0.4, 0, 0.2, 1],
       }}
+      // animate={{
+      //   maxHeight: isActive ? '500px' : '94px',
+      // }}
+      // transition={{
+      //   duration: isActive ? 0.6 : 0.5,
+      //   ease: isActive ? [0.4, 0, 0.2, 1] : [0.4, 0, 0.2, 1],
+      // }}
     >
       <div
         className="faq__question"
