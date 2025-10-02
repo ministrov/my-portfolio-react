@@ -66,6 +66,7 @@
 
   .nav-mobile__wrapper {
     position: fixed;
+    z-index: 10;
     top: 5rem;
     right: 0;
     left: 0;
