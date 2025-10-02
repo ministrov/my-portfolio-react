@@ -112,18 +112,15 @@ const Promo = () => {
                 srcSet={`${avatar3x} 1500w`}
                 media="(min-width: 1025px)"
               />
-              <source srcSet={`${avatar2x} 1000w`} media="(min-width: 601px)" />
+              <source srcSet={`${avatar2x} 1000w`} media="(min-width: 769px)" />
+              <source srcSet={`${avatar} 500w`} media="(max-width: 768px)" />
               <img
                 className="promo__avatar"
-                src={avatar}
-                srcSet={`${avatar} 500w, ${avatar2x} 1000w, ${avatar3x} 1500w`}
-                sizes="500px"
+                src={avatar} // fallback
                 width="500"
                 height="500"
                 alt="Avatar a pixel man with a laptop"
                 fetchpriority="high"
-                decoding="async"
-                loading="eager"
               />
             </picture>
           </motion.div>

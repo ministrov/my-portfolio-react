@@ -6,6 +6,8 @@
   background-color: var(--color-gray-600);
   border-top-left-radius: 42px;
   border-top-right-radius: 42px;
+  border-bottom-left-radius: 42px;
+  border-bottom-right-radius: 42px;
 }
 
 .about__wrapper {

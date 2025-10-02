@@ -18,6 +18,10 @@
   .projects__list {
     gap: 3rem;
   }
+
+  .project-card__item.project-card__item--reversed {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 375px) {
