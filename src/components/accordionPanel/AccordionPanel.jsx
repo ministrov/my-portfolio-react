@@ -4,14 +4,20 @@ import './style.css';
 
 const AccordionPanel = ({ item, isOpen }) => {
   const { t } = useTranslation();
+
   return (
-    <AnimatePresence wait>
+    <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div
+          key="accordion-content"
           className="faq__answer"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
+          exit={{
+            opacity: 0,
+            height: 0,
+            transition: { duration: 0.5, ease: 'easeInOut' },
+          }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
         >
           {item.answer && t(item.answer)}
