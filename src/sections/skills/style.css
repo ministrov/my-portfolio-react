@@ -10,14 +10,15 @@
 }
 
 .skills__list-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  overflow: hidden;
 }
 
 .skills__list {
   display: flex;
-  flex-wrap: wrap;
   gap: 2rem;
 }
 

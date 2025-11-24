@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import Heading from '../../components/heading/Heading';
 import Skill from '../../components/skill/Skill';
 import { itemsArrayForLeft } from './skills';
 import { itemsArrayForRight } from './skills';
-// import { skills } from './skills';
 import './style.css';
 
 import 'swiper/css';
@@ -11,6 +11,26 @@ import 'swiper/css/a11y';
 
 const Skills = () => {
   const { t } = useTranslation();
+
+  const animationConfigRight = {
+    initial: { x: '0%' },
+    animate: { x: '-50%' },
+    transition: {
+      repeat: Infinity,
+      ease: 'linear',
+      duration: 15,
+    },
+  };
+
+  const animationConfigLeft = {
+    initial: { x: '-50%' },
+    animate: { x: '0%' },
+    transition: {
+      repeat: Infinity,
+      ease: 'linear',
+      duration: 15,
+    },
+  };
 
   return (
     <section className="skills">
@@ -23,20 +43,30 @@ const Skills = () => {
       </div>
 
       <div className="skills__list-container">
-        <ul className="skills__list">
-          {itemsArrayForRight.map((skill) => (
-            <li key={skill.id}>
+        <motion.ul
+          className="skills__list"
+          style={{ display: 'flex', width: '200%' }}
+          {...animationConfigRight}
+        >
+          {[...itemsArrayForRight, ...itemsArrayForRight].map((skill) => (
+            <li key={skill.id + Math.random()}>
               <Skill skill={skill} />
             </li>
           ))}
-        </ul>
-        <ul className="skills__list">
-          {itemsArrayForLeft.map((skill) => (
-            <li key={skill.id}>
+        </motion.ul>
+
+        {/* Анимируем влево (left) */}
+        <motion.ul
+          className="skills__list"
+          style={{ display: 'flex', width: '200%' }}
+          {...animationConfigLeft}
+        >
+          {[...itemsArrayForLeft, ...itemsArrayForLeft].map((skill) => (
+            <li key={skill.id + Math.random()}>
               <Skill skill={skill} />
             </li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </section>
   );
