@@ -1,7 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
-import { IoCloseSharp } from "react-icons/io5";
+import { IoCloseSharp } from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
 import SocialList from '../socials/SocialList';
 import './style.css';
@@ -12,9 +12,12 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
   const timerRef = useRef(null);
   const titleId = 'modal-title';
 
-  const handleKeyDown = useCallback((e) => {
-    if (e.key === 'Escape') onClose();
-  }, [onClose]);
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === 'Escape') onClose();
+    },
+    [onClose]
+  );
 
   useEffect(() => {
     if (open) {
@@ -27,7 +30,6 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
       };
     }
   }, [open, handleKeyDown]);
-
 
   useEffect(() => {
     if (!open || !autoCloseDelay) return;
@@ -72,11 +74,9 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
                 className="modal__close"
                 onClick={onClose}
                 aria-label={t('modal.close')}
-                tabIndex={0}
+                type="button"
               >
-                <IoCloseSharp
-                  color='white'
-                />
+                <IoCloseSharp color="white" />
               </button>
             </header>
 

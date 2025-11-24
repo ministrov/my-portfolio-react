@@ -11,6 +11,7 @@ const AccordionButton = ({ isActive, id }) => {
 
   return (
     <motion.button
+      type="button"
       className="faq__button"
       variants={iconVariants}
       animate={isActive ? 'open' : 'closed'}

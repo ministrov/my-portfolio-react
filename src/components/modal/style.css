@@ -65,18 +65,17 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
+  border-radius: var(--border-radius-s);
 }
 
 .modal__close:hover,
 .modal__close:focus {
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: var(--border-radius-s);
   transform: scale(1.2);
 }
 
 .modal__close:focus {
-  border: 1px solid var(--color-white);
-  outline: 2px dashed var(--color-white);
+  outline: 2px solid var(--color-white);
 }
 
 .modal__socials {

@@ -19,6 +19,7 @@ const ServicesItem = ({ service, open, onClick }) => {
 
       <button
         className="services__more"
+        type="button"
         onClick={onClick}
         aria-expanded={open ? 'true' : 'false'}
         aria-controls={contentId}

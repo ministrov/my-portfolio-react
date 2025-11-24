@@ -12,6 +12,7 @@ const ToggleLang = ({ className = '' }) => {
 
   return (
     <button
+      type="button"
       className={`toggle-btn ${className} ${lang === 'ru' ? '' : 'toggled'}`}
       onClick={handleLanguageChange}
     >
