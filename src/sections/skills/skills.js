@@ -6,7 +6,7 @@ import { ImHtmlFive } from 'react-icons/im';
 import { FaGitAlt } from 'react-icons/fa6';
 import { FaSass } from 'react-icons/fa6';
 
-export const skills = [
+export const itemsArrayForRight = [
   {
     id: 1,
     tech: 'HTML5',
@@ -55,6 +55,9 @@ export const skills = [
     percent: 55,
     icon: <SiRedux color="purple" />,
   },
+];
+
+export const itemsArrayForLeft = [
   {
     id: 9,
     tech: 'Git',
@@ -104,3 +107,7 @@ export const skills = [
     icon: <FaSass color="pink" />,
   },
 ];
+
+// export const skills = [
+
+// ];

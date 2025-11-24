@@ -5,7 +5,7 @@
   flex: 1;
   align-items: center;
   width: calc(100% - 14px);
-  min-width: 127px;
+  min-width: 146px;
   padding: 1rem;
   background-color: var(--color-gray-200);
   box-shadow: none;
