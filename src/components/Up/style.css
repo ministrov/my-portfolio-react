@@ -15,9 +15,8 @@
   cursor: pointer;
 }
 
-.scroll-to:focus-visible {
-  box-shadow: 0 0 0 4px rgba(var(--color-blue-700), 0.6);
-  outline: none;
+.scroll-to:focus {
+  outline: 2px solid var(--color-white);
 }
 
 @media screen and (max-width: 375px) {

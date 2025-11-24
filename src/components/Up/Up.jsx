@@ -12,19 +12,22 @@ const Up = () => {
     }
   }, []);
 
-  const handleKeyDown = useCallback((e) => {
-    if (!isShowed) return;
-    switch (e.key) {
-      case 'Escape':
-        setIsShowed(false);
-        break;
-      case 'Enter':
-        if (isShowed) scrollToTop();
-        break;
-      default:
-        break;
-    }
-  }, [isShowed]);
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (!isShowed) return;
+      switch (e.key) {
+        case 'Escape':
+          setIsShowed(false);
+          break;
+        case 'Enter':
+          if (isShowed) scrollToTop();
+          break;
+        default:
+          break;
+      }
+    },
+    [isShowed]
+  );
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -42,13 +45,13 @@ const Up = () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('keydown', handleKeyDown);
     };
-
   }, [handleScroll, handleKeyDown]);
 
   return (
     <AnimatePresence>
       {isShowed && (
         <motion.button
+          type="button"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 50, opacity: 0 }}
@@ -56,9 +59,9 @@ const Up = () => {
           className="scroll-to"
           onClick={scrollToTop}
           onKeyDown={handleKeyDown}
-          aria-label='Вернуться в начало страницы'
+          aria-label="Вернуться в начало страницы"
         >
-          <FaLongArrowAltUp size={20} color='white' />
+          <FaLongArrowAltUp size={20} color="white" />
         </motion.button>
       )}
     </AnimatePresence>

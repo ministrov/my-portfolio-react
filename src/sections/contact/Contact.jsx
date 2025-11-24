@@ -16,7 +16,11 @@ const Contact = () => {
         />
 
         <div className="contact__btn-container">
-          <button className="contact__btn" onClick={() => setIsOpen(true)}>
+          <button
+            type="button"
+            className="contact__btn"
+            onClick={() => setIsOpen(true)}
+          >
             {t('footer.reachOutButton')}
           </button>
         </div>
