@@ -18,7 +18,7 @@ const Skills = () => {
     transition: {
       repeat: Infinity,
       ease: 'linear',
-      duration: 15,
+      duration: 25,
     },
   };
 
@@ -28,7 +28,7 @@ const Skills = () => {
     transition: {
       repeat: Infinity,
       ease: 'linear',
-      duration: 15,
+      duration: 25,
     },
   };
 
