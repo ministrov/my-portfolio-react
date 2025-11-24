@@ -18,15 +18,15 @@ const Skills = () => {
           slogan={t('heading.mySkills.subheading')}
           className="skills__title"
         ></Heading>
-
-        <ul className="skills__list">
-          {skills.map((skill) => (
-            <li key={skill.id}>
-              <Skill skill={skill} />
-            </li>
-          ))}
-        </ul>
       </div>
+
+      <ul className="skills__list">
+        {skills.map((skill) => (
+          <li key={skill.id}>
+            <Skill skill={skill} />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };

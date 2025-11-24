@@ -67,4 +67,40 @@ export const skills = [
     percent: 65,
     icon: <FaSass color="pink" />,
   },
+  {
+    id: 11,
+    tech: 'Sass',
+    percent: 65,
+    icon: <FaSass color="pink" />,
+  },
+  {
+    id: 12,
+    tech: 'Sass',
+    percent: 65,
+    icon: <FaSass color="pink" />,
+  },
+  {
+    id: 13,
+    tech: 'Sass',
+    percent: 65,
+    icon: <FaSass color="pink" />,
+  },
+  {
+    id: 14,
+    tech: 'Sass',
+    percent: 65,
+    icon: <FaSass color="pink" />,
+  },
+  {
+    id: 15,
+    tech: 'Sass',
+    percent: 65,
+    icon: <FaSass color="pink" />,
+  },
+  {
+    id: 16,
+    tech: 'Sass',
+    percent: 65,
+    icon: <FaSass color="pink" />,
+  },
 ];
