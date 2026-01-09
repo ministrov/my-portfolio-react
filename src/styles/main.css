@@ -56,11 +56,9 @@
   --border-radius-s: 8px;
 
   --box-shadow: 0px 0px 8px 0px #00000026;
-  --gradient: linear-gradient(
-    to right,
-    var(--color-blue-700),
-    var(--color-blue-300)
-  );
+  --gradient: linear-gradient(to right,
+      var(--color-blue-700),
+      var(--color-blue-300));
 }
 
 /* Глобальное изменение скроллбара для всей страницы */
@@ -140,8 +138,10 @@ img {
 }
 
 .container {
-  max-width: 1224px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .layout-wrapper {
@@ -153,8 +153,6 @@ img {
 @media screen and (max-width: 1268px) {
   .container {
     max-width: 1068px;
-    padding-left: 32px;
-    padding-right: 32px;
   }
 }
 

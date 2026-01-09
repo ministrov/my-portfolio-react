@@ -3,7 +3,6 @@
 }
 
 .showcasing__wrapper {
-  object-fit: contain;
   border-radius: var(--border-radius-s);
   background: var(--gradient), var(--color-blue-700);
 }
