@@ -38,6 +38,8 @@ const ProjectCard = ({
         <img
           className={'project-card__img'}
           src={img}
+          width={658}
+          // height={500}
           alt={`${title} project`}
           loading="lazy"
           decoding="async"

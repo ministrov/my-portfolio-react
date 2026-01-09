@@ -12,6 +12,8 @@
 
 .project-card__image {
   width: 50%;
+  overflow: hidden;
+  max-height: 527px;
   padding-top: 32px;
   padding-bottom: 0;
   padding-left: 12px;

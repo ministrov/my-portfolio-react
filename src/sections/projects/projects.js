@@ -14,7 +14,7 @@ export const projects = [
     img: waterdel,
     slogan: 'projects.project9.slogan',
     overview: 'projects.project9.overview',
-    demoLink: 'https://waterdel.ru/',
+    demoLink: 'https://waterdel.store/',
     isProduction: true,
     year: 2022,
     role: 'intern Front-end Developer',
