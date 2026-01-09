@@ -10,7 +10,7 @@ const ShowcasingCard = ({ image, name }) => {
       <div className="showcasing-card__aspect-ratio">
         <img
           src={image}
-          width={1215}
+          width={1253}
           height={787}
           className="showcasing-card__image"
           alt={`Focusing on project ${name} illustration`}

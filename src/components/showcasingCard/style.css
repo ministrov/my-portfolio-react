@@ -2,8 +2,6 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
   gap: 48px;
   padding-top: 4rem;
   text-align: center;
@@ -12,11 +10,11 @@
 .showcasing-card__aspect-ratio {
   position: relative;
   min-height: 846px;
-  background-image: url('../../assets/png/laptop-bg.png');
-  background-size: 100% 100%;
-  background-position: center;
+  /* background-image: url('../../assets/png/laptop-bg.png');  */
+  /* background-size: contain; */
+  /* background-position: center;
   background-repeat: no-repeat;
-  border-radius: var(--border-radius-s);
+  border-radius: var(--border-radius-s); */
 
   /* Плавные переходы для адаптивности */
   transition: all 0.4s ease-in-out;
