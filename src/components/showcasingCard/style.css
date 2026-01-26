@@ -1,5 +1,4 @@
 .showcasing-card {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -9,15 +8,8 @@
 
 .showcasing-card__aspect-ratio {
   position: relative;
-  min-height: 846px;
-  /* background-image: url('../../assets/png/laptop-bg.png');  */
-  /* background-size: contain; */
-  /* background-position: center;
-  background-repeat: no-repeat;
-  border-radius: var(--border-radius-s); */
-
-  /* Плавные переходы для адаптивности */
-  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
 }
 
 .showcasing-card__name {
@@ -30,14 +22,12 @@
 
 .showcasing-card__image {
   position: absolute;
-  bottom: 0;
-  left: 8%;
-  width: 87%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
   border-top-left-radius: 17px;
   border-top-right-radius: 17px;
-
-  /* Плавное изменение размеров */
-  transition: all 0.4s ease-in-out;
 }
 
 @media screen and (max-width: 1268px) {
@@ -46,20 +36,13 @@
   }
 
   .showcasing-card__aspect-ratio {
-    min-height: clamp(600px, 70vw, 800px);
-  }
-
-  .showcasing-card__image {
-    height: auto;
+    height: clamp(600px, 70vw, 800px);
   }
 }
 
 @media screen and (max-width: 968px) {
   .showcasing-card__aspect-ratio {
-    min-height: clamp(400px, 60vw, 600px);
-    background-size: 120% auto;
-    background-position: top center;
-    background-image: none;
+    height: clamp(400px, 60vw, 600px);
   }
 
   .showcasing-card__name {
@@ -80,15 +63,12 @@
 
   .showcasing-card__aspect-ratio {
     min-height: clamp(300px, 50vw, 450px);
-    background-size: 150% auto;
   }
 }
 
 @media screen and (max-width: 568px) {
   .showcasing-card__aspect-ratio {
     min-height: clamp(250px, 45vw, 350px);
-    background-size: 200% auto;
-    background-position: top center;
   }
 
   .showcasing-card__name {
