@@ -1,14 +1,31 @@
 import createX from '../../assets/projects/create-x-construction.webp';
 import nikeEcommerce from '../../assets/projects/nike-ecommerce.webp';
 import topApp from '../../assets/projects/topApp.webp';
-import blog from '../../assets/projects/blogWebp.webp';
+import blog from '../../assets/projects/blog.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
-import shoppe from '../../assets/projects/shoppe.webp';
+import vamvoda from '../../assets/projects/vamvoda-new.png';
 
 export const projects = [
   {
     id: 1,
+    title: 'projects.project10.title',
+    skills: 'Next, TypeScript, React, Framer Motion',
+    img: vamvoda,
+    gitHubLink: 'https://github.com/ministrov/shoppe-ecommerce-next',
+    slogan: 'projects.project10.slogan',
+    overview: 'projects.project10.overview',
+    isProduction: false,
+    year: 2025,
+    role: 'Frontend Developer',
+    infoTitle: 'projects.project10.infoTitle',
+    toolsTitle: 'projects.project10.toolsTitle',
+    yearText: 'projects.project10.toolsTitle',
+    roleText: 'projects.project10.roleText',
+    isReversed: false,
+  },
+  {
+    id: 2,
     title: 'projects.project9.title',
     skills: 'JavaScript, HTML, CSS',
     img: waterdel,
@@ -26,7 +43,7 @@ export const projects = [
     isReversed: false,
   },
   {
-    id: 2,
+    id: 3,
     title: 'projects.project3.title',
     skills: 'React, Tailwind CSS',
     img: nikeEcommerce,
@@ -45,7 +62,7 @@ export const projects = [
     isReversed: true,
   },
   {
-    id: 3,
+    id: 4,
     title: 'projects.project5.title',
     skills: 'Next, TypeScript, React, Framer Motion, React Hook Form',
     img: topApp,
@@ -62,7 +79,7 @@ export const projects = [
     isReversed: false,
   },
   {
-    id: 4,
+    id: 5,
     title: 'projects.project6.title',
     skills: 'Next, TypeScript, React, Zustand, Yup, Formik, Framer Motion',
     img: ratingus,
@@ -78,7 +95,7 @@ export const projects = [
     isReversed: true,
   },
   {
-    id: 5,
+    id: 6,
     title: 'projects.project7.title',
     skills: 'Next, TypeScript, React, Framer Motion',
     img: blog,
@@ -95,7 +112,7 @@ export const projects = [
     isReversed: false,
   },
   {
-    id: 6,
+    id: 7,
     title: 'projects.project2.title',
     skills: 'JavaScript, HTML5, CSS3',
     img: createX,
@@ -110,22 +127,5 @@ export const projects = [
     yearText: 'projects.project2.yearText',
     roleText: 'projects.project2.roleText',
     isReversed: true,
-  },
-  {
-    id: 7,
-    title: 'projects.project10.title',
-    skills: 'Next, TypeScript, React, Framer Motion',
-    img: shoppe,
-    gitHubLink: 'https://github.com/ministrov/shoppe-ecommerce-next',
-    slogan: 'projects.project10.slogan',
-    overview: 'projects.project10.overview',
-    isProduction: false,
-    year: 2025,
-    role: 'Frontend Developer',
-    infoTitle: 'projects.project10.infoTitle',
-    toolsTitle: 'projects.project10.toolsTitle',
-    yearText: 'projects.project10.toolsTitle',
-    roleText: 'projects.project10.roleText',
-    isReversed: false,
   },
 ];
