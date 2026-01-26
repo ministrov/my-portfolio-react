@@ -10,9 +10,9 @@ export const projects = [
   {
     id: 1,
     title: 'projects.project10.title',
-    skills: 'Next, TypeScript, React, Framer Motion',
+    skills: 'JavaScript, HTML, CSS, PHP, WooCommerse',
     img: vamvoda,
-    gitHubLink: 'https://github.com/ministrov/shoppe-ecommerce-next',
+    // gitHubLink: 'https://github.com/ministrov/shoppe-ecommerce-next',
     slogan: 'projects.project10.slogan',
     overview: 'projects.project10.overview',
     isProduction: false,

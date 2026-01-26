@@ -172,9 +172,9 @@
       "roleText": "Role"
     },
     "project10": {
-      "title": "Jewelry E-Commerce",
-      "slogan": "A moder Jewelry E-Commerce platform",
-      "overview": "Jewelry e-commerce store built with Next.js, TypeScript, and React, featuring dynamic product filtering with virtual scrolling (React Window) and animated transitions (Framer Motion), along with a responsive gallery",
+      "title": "Vam Voda",
+      "slogan": "A moder water E-Commerce platform",
+      "overview": "Water e-commerce store built with featuring dynamic product filtering with virtual scrolling and animated transitions, along with a responsive gallery.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
