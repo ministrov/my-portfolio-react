@@ -92,6 +92,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .main-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .main-footer__upper {
     flex-direction: column;
     padding: 0rem 0;

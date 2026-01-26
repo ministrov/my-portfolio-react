@@ -238,6 +238,12 @@
   .project-card__tools-list {
     flex-wrap: wrap;
   }
+
+  .project-card__image {
+    padding: 0;
+    background-color: unset;
+    border: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -247,7 +253,8 @@
   }
 
   .project-card__img {
-    min-height: 322px;
+    min-height: unset;
+    height: auto;
   }
 
   .project-card__skills {
@@ -255,14 +262,21 @@
   }
 }
 
+@media screen and (max-width: 580px) {
+  .project-card__item {
+    padding: 0;
+  }
+
+  .project-card__info {
+    width: initial;
+    padding: 0.5rem;
+  }
+}
+
 @media screen and (max-width: 515px) {
   .project-card__item {
     gap: 24px;
-    padding: 8px;
-  }
-
-  .project-card__img {
-    min-height: 298px;
+    border: none;
   }
 
   .project-card__tools {
@@ -288,10 +302,6 @@
     padding-right: 0px;
   }
 
-  .project-card__img {
-    min-height: 200px;
-  }
-
   .project-card__info {
     padding-top: 0;
     padding-bottom: 0;
@@ -307,10 +317,6 @@
     margin-bottom: 24px;
     font-size: 16px;
     line-height: 22px;
-  }
-
-  .project-card__img {
-    height: 256px;
   }
 
   .project-card__tools-list {
