@@ -1,6 +1,6 @@
 import createX from '../../assets/projects/create-x-construction.webp';
 import nikeEcommerce from '../../assets/projects/nike-ecommerce.webp';
-import topApp from '../../assets/projects/topApp.webp';
+import desktop from '../../assets/projects/desktop.webp';
 import blog from '../../assets/projects/blog.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
@@ -65,12 +65,12 @@ export const projects = [
     id: 4,
     title: 'projects.project5.title',
     skills: 'Next, TypeScript, React, Framer Motion, React Hook Form',
-    img: topApp,
+    img: desktop,
     slogan: 'projects.project5.slogan',
     gitHubLink: 'https://github.com/ministrov/top-app-next-ts',
     overview: 'projects.project5.overview',
     isProduction: true,
-    year: 2025,
+    year: 2024,
     role: 'Frontend Developer',
     infoTitle: 'projects.project5.infoTitle',
     toolsTitle: 'projects.project5.toolsTitle',
