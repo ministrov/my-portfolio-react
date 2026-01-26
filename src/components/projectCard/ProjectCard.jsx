@@ -1,4 +1,4 @@
-import { easeInOut, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
@@ -21,30 +21,23 @@ const ProjectCard = ({
 }) => {
   const { t } = useTranslation();
 
-  const isDesktop =
-    typeof window !== 'undefined' &&
-    window.matchMedia('(min-width: 768px)').matches;
-
   return (
     <>
-      <motion.div
-        whileHover={
-          isDesktop
-            ? { scale: 1.02, transition: { duration: 0.5, easings: easeInOut } }
-            : {}
-        }
-        className="project-card__image"
-      >
-        <img
+      <div className="project-card__image">
+        <motion.img
+          whileHover={{
+            scale: 1.02,
+            transition: { duration: 0.5, ease: 'easeInOut' },
+          }}
           className={'project-card__img'}
           src={img}
           width={658}
-          // height={500}
+          height={'auto'}
           alt={`${title} project`}
           loading="lazy"
           decoding="async"
         />
-      </motion.div>
+      </div>
 
       <div className="project-card__info">
         <h3 className="project-card__info-title">{title}</h3>
