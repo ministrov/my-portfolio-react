@@ -53,6 +53,15 @@
   text-align: center;
 }
 
+.modal__title {
+  font-size: 31px;
+  font-weight: 900;
+  line-height: 139%;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 10px;
+}
+
 .modal__slogan {
   font-size: 28px;
   font-weight: 700;

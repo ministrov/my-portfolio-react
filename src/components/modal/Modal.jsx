@@ -80,8 +80,8 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
 
               <header className="modal__header">
                 <p className="modal__title">
-                  4<span> шага</span> установки
-                  <br /> <span>фильтров</span> под мойку
+                  4<span> шага</span> заказа
+                  <br /> <span>разработки сайта</span>
                 </p>
                 <div className="modal__promo modal-promo">Разработка -50%</div>
               </header>

@@ -6,25 +6,25 @@ const ModalSteps = () => {
       <div className="modal-step">
         <span className="modal-step__counter">1.</span>
         <p className="modal-step__text">
-          Наш консультат <span>подберёт</span> оптимальный вариант
+          Наш консультант <span>уточнит задачи</span> и цели сайта
         </p>
       </div>
       <div className="modal-step">
         <span className="modal-step__counter">2.</span>
         <p className="modal-step__text">
-          Наш замерщик <span>бесплатно</span> приедет в удобное время
+          Подготовим <span>предложение и смету</span> под ваш проект
         </p>
       </div>
       <div className="modal-step">
         <span className="modal-step__counter">3.</span>
         <p className="modal-step__text">
-          Мы устанавливаем <span>систему фильтрации</span> "Под ключ"
+          Закрепим договорённости и <span>запустим разработку</span>
         </p>
       </div>
       <div className="modal-step">
         <span className="modal-step__counter">4.</span>
         <p className="modal-step__text">
-          У Вас постоянный источник <span>чистейшей воде</span>
+          Вы получаете <span>готовый к запуску сайт</span>
         </p>
       </div>
     </div>
