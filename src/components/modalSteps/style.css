@@ -37,3 +37,24 @@
 .modal-step__text span {
   color: #90E8F8;
 }
+
+@media screen and (max-width: 768px) {
+  .modal__title {
+    font-size: 28px;
+    line-height: 120%;
+  }
+
+  .modal-step__item {
+    flex: 1 1 calc((100% - 25px));
+    align-items: center;
+  }
+
+  .modal-step__text {
+    max-width: 100%;
+  }
+
+  .modal__footer {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}

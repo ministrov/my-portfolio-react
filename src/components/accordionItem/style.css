@@ -17,54 +17,8 @@
   line-height: 22px;
 }
 
-@media screen and (max-width: 694px) {
+@media screen and (max-width: 580px) {
   .faq__question {
-    padding: 1rem;
-    max-height: 90px;
-  }
-
-  .faq__item.open {
-    max-height: 400px;
-  }
-
-  .faq__question h3 {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
-
-@media screen and (max-width: 575px) {
-  .faq__item {
-    padding: 1rem;
-    max-height: 85px;
-  }
-
-  .faq__item.open {
-    max-height: 350px;
-  }
-
-  .faq__question h3 {
-    font-size: 16px;
-    line-height: 20px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .faq__item {
-    max-height: 80px;
-  }
-
-  .faq__item.open {
-    max-height: 300px;
-  }
-
-  .faq__question {
-    align-items: flex-start;
-  }
-
-  .faq__question h3 {
-    max-width: 270px;
-    font-size: 14px;
-    line-height: 20px;
+    padding: 0.8rem;
   }
 }
