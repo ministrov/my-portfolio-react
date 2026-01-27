@@ -5,6 +5,7 @@ import { IoCloseSharp } from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
 import SocialList from '../socials/SocialList';
 import ModalSteps from '../modalSteps/ModalSteps';
+import ModalPromo from '../modalPromo/ModalPromo';
 import './style.css';
 
 const Modal = ({ open, onClose, autoCloseDelay }) => {
@@ -83,7 +84,7 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
                   4<span> шага</span> заказа
                   <br /> <span>разработки</span> сайта
                 </p>
-                <div className="modal__promo modal-promo">Разработка -50%</div>
+                <ModalPromo />
               </header>
 
               <ModalSteps />
