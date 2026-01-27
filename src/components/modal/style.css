@@ -20,18 +20,29 @@
 }
 
 .modal {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  height: 382px;
-  padding: 2rem;
-  background-color: var(--color-blue-700);
+  overflow-y: auto;
+  padding-top: 50px;
+  max-width: 734px;
+  width: 100%;
+  max-height: 100%;
+  min-height: 582px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: var(--border-radius-s);
-  transition: box-shadow 0.2s ease;
+  scrollbar-width: none;
 }
 
-.modal:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.modal__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+  height: auto;
+  padding: 85px 35px 35px;
+  box-shadow: 0 630px 176px 0 rgba(0, 0, 0, 0.00), 0 403px 161px 0 rgba(0, 0, 0, 0.02), 0 227px 136px 0 rgba(0, 0, 0, 0.08), 0 101px 101px 0 rgba(0, 0, 0, 0.13), 0 25px 55px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  background: radial-gradient(119.77% 126.3% at 95.67% 0%, #1A6FBE 0%, #0A4B88 100%);
+
 }
 
 .modal:focus {
@@ -62,11 +73,13 @@
 
 .modal__close {
   display: flex;
+  align-self: flex-end;
   font-size: 2rem;
   width: 32px;
   height: 32px;
-  background-color: transparent;
+  background: rgba(240, 243, 246, 0.07);
   border: none;
+  border-radius: 900px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
   border-radius: var(--border-radius-s);
@@ -90,6 +103,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
