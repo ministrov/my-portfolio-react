@@ -4,7 +4,7 @@ import desktop from '../../assets/projects/desktop.webp';
 import blog from '../../assets/projects/blog.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
-import vamvoda from '../../assets/projects/vamvoda-new.png';
+import vamvoda from '../../assets/projects/vamvoda-new.webp';
 
 export const projects = [
   {
@@ -12,7 +12,6 @@ export const projects = [
     title: 'projects.project10.title',
     skills: 'JavaScript, HTML, CSS, PHP, WooCommerse',
     img: vamvoda,
-    // gitHubLink: 'https://github.com/ministrov/shoppe-ecommerce-next',
     slogan: 'projects.project10.slogan',
     overview: 'projects.project10.overview',
     isProduction: false,
