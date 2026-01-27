@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { faqs } from '../../const';
 import AccordionItem from '../accordionItem/AccordionItem';
 import './style.css';
@@ -6,12 +7,27 @@ import './style.css';
 const Accordion = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
+  const listVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.42, // элементы по очереди
+      },
+    },
+  };
+
   const toggleItem = (id) => {
     setActiveIndex(activeIndex === id ? null : id);
   };
 
   return (
-    <ul className="faq__list">
+    <motion.ul
+      className="faq__list"
+      variants={listVariants}
+      initial="hidden"
+      whileInView="visible"
+      // viewport={{ once: true, amount: 0.2 }}
+    >
       {faqs.map((faq) => (
         <AccordionItem
           key={faq.id}
@@ -20,7 +36,7 @@ const Accordion = () => {
           isActive={activeIndex === faq.id}
         />
       ))}
-    </ul>
+    </motion.ul>
   );
 };
 
