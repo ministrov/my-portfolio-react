@@ -22,6 +22,7 @@ export const projects = [
     yearText: 'projects.project10.toolsTitle',
     roleText: 'projects.project10.roleText',
     isReversed: false,
+    isBest: true,
   },
   {
     id: 2,
@@ -40,6 +41,7 @@ export const projects = [
     yearText: 'projects.project9.yearText',
     roleText: 'projects.project9.roleText',
     isReversed: false,
+    isBest: true,
   },
   {
     id: 3,
@@ -59,6 +61,7 @@ export const projects = [
     yearText: 'projects.project3.yearText',
     roleText: 'projects.project3.roleText',
     isReversed: true,
+    isBest: false,
   },
   {
     id: 4,
@@ -66,7 +69,8 @@ export const projects = [
     skills: 'Next, TypeScript, React, Framer Motion, React Hook Form',
     img: desktop,
     slogan: 'projects.project5.slogan',
-    gitHubLink: 'https://github.com/ministrov/top-app-next-ts',
+    gitHubLink: 'https://github.com/ministrov/landing-area-next-ts',
+    demoLink: 'https://landing-area-next-ts.vercel.app/',
     overview: 'projects.project5.overview',
     isProduction: true,
     year: 2024,
@@ -76,6 +80,7 @@ export const projects = [
     yearText: 'projects.project5.yearText',
     roleText: 'projects.project5.roleText',
     isReversed: false,
+    isBest: true,
   },
   {
     id: 5,
@@ -92,6 +97,7 @@ export const projects = [
     yearText: 'projects.project6.yearText',
     roleText: 'projects.project6.roleText',
     isReversed: true,
+    isBest: true,
   },
   {
     id: 6,
@@ -109,6 +115,7 @@ export const projects = [
     yearText: 'projects.project7.yearText',
     roleText: 'projects.project7.roleText',
     isReversed: false,
+    isBest: false,
   },
   {
     id: 7,
@@ -126,5 +133,6 @@ export const projects = [
     yearText: 'projects.project2.yearText',
     roleText: 'projects.project2.roleText',
     isReversed: true,
+    isBest: false,
   },
 ];

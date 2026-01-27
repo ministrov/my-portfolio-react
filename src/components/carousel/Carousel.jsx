@@ -4,6 +4,9 @@ import ShowcasingCard from '../showcasingCard/ShowcasingCard';
 import { projects } from '../../sections/projects/projects';
 
 const Carousel = () => {
+  const bestProjects = projects.filter((item) => item.isBest);
+
+  // console.log(bestProjects);
   return (
     <Swiper
       modules={[Autoplay, EffectFade]}
@@ -17,7 +20,7 @@ const Carousel = () => {
       }}
       loop={true}
     >
-      {projects.map((project) => (
+      {bestProjects.map((project) => (
         <SwiperSlide key={project.id}>
           <ShowcasingCard image={project.img} name={project.title} />
         </SwiperSlide>
