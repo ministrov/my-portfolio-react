@@ -1,3 +1,39 @@
-.modal-step {
-  background-color: firebrick;
+.modal-step__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.modal-step__item {
+  display: flex;
+  flex: 1 1 calc((100% - 25px) / 2);
+  gap: 7px;
+}
+
+.modal-step__counter {
+  flex-shrink: 0;
+  color: #2A5961;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 154%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background-image: url("../../assets/svg/star.svg");
+  background-size: 100% 100%;
+}
+
+.modal-step__text {
+  max-width: 205px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 139%;
+  color: white;
+}
+
+.modal-step__text span {
+  color: #90E8F8;
 }
