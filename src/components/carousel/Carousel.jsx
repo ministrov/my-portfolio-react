@@ -6,7 +6,6 @@ import { projects } from '../../sections/projects/projects';
 const Carousel = () => {
   const bestProjects = projects.filter((item) => item.isBest);
 
-  // console.log(bestProjects);
   return (
     <Swiper
       modules={[Autoplay, EffectFade]}

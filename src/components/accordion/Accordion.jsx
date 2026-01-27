@@ -11,7 +11,7 @@ const Accordion = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.42, // элементы по очереди
+        staggerChildren: 0.32,
       },
     },
   };
@@ -26,7 +26,6 @@ const Accordion = () => {
       variants={listVariants}
       initial="hidden"
       whileInView="visible"
-      // viewport={{ once: true, amount: 0.2 }}
     >
       {faqs.map((faq) => (
         <AccordionItem

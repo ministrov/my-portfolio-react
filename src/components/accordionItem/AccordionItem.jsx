@@ -26,12 +26,9 @@ const AccordionItem = ({ item, isActive, onClick }) => {
   };
 
   return (
-    <motion.li
-      className={`faq__item ${isActive ? 'open' : ''}`}
-      variants={itemVariants}
-    >
+    <motion.li className={'faq__item'} variants={itemVariants}>
       <div
-        className="faq__question"
+        className={`faq__question ${isActive ? 'open' : ''}`}
         onClick={() => onClick(item.id)}
         role="button"
         aria-expanded={isActive}
@@ -40,7 +37,7 @@ const AccordionItem = ({ item, isActive, onClick }) => {
         <AccordionButton isActive={isActive} />
       </div>
 
-      <AccordionPanel item={item} isOpen={isActive} />
+      <AccordionPanel item={item} />
     </motion.li>
   );
 };
