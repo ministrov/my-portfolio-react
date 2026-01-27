@@ -7,6 +7,7 @@ import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
 import Contact from '../sections/contact/Contact.jsx';
+import Problems from '../sections/problems/Problems.jsx';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
 
 const Home = () => {
@@ -30,8 +31,8 @@ const Home = () => {
       <About />
       <Services />
       <Skills />
-      {/* Add section about Experience */}
       <Showcasing />
+      <Problems />
       <Faq />
       <Contact />
     </>
