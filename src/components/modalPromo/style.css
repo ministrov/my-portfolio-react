@@ -1,3 +1,25 @@
 .modal-promo {
-  background-color: firebrick;
+  position: relative;
+  display: inline-block;
+  padding: 8px 13px 8px 42px;
+  font-family: var(--ff-headers);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
+  border-radius: 900px;
+  background: linear-gradient(86deg, #EABC59 -17.83%, #FA511E 138.95%);
+}
+
+.modal-promo__icon {
+  position: absolute;
+  max-width: none;
+  max-height: none;
+  width: 35px;
+  height: 47px;
+  object-fit: contain;
+  object-position: center;
+  left: 0;
+  bottom: 0;
+  text-align: center;
 }
