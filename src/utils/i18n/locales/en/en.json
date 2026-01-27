@@ -136,9 +136,9 @@
       "roleText": "Role"
     },
     "project5": {
-      "title": "Choosing courses",
-      "slogan": "Online platform to choose courses",
-      "overview": "Course selection service with a dynamic and eye-catching interface built on Next.js, TypeScript, and React. Interactive animations from Framer Motion and user-friendly input forms via React Hook Form simplify course discovery.",
+      "title": "Digital Studio Area",
+      "slogan": "Landing page for Area development studio",
+      "overview": "A digital design service with a dynamic and impressive interface built on Next.js, TypeScript, and React. Interactive Framer Motion animations and a convenient React Hook Form order form simplify the creation of unique projects.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
