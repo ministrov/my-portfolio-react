@@ -19,7 +19,7 @@ const ProjectsPage = () => {
 
       <AnimatedBackground />
 
-      <h1 className="visually-hidden">Page about author's projects</h1>
+      <h1 className="visually-hidden">Страница проектров автора</h1>
 
       <Projects />
     </>

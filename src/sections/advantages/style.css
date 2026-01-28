@@ -16,10 +16,28 @@
 
 .advantages__item {
   position: relative;
-  flex: 1 1 calc((100% - 80px) / 5);
-  padding: 35px;
+  flex: 1 1 calc((100% - 80px) / 7);
+  padding: 24px;
   border-radius: 20px;
   border: 3px solid #E9F0F5;
 }
 
-/* Нужно разобраться с паддингами межжу всех секций по проекту */
+.advantages__item-img {
+  width: 56px;
+  margin-bottom: 15px;
+  object-fit: contain;
+  aspect-ratio: 1 / 1;
+}
+
+@media screen and (max-width: 1448px) {
+  .advantages__item {
+    flex: 1 1 calc((100% - 80px) / 4);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .advantages__item {
+    flex: 1 1 calc((100% - 80px) / 2);
+    padding: 1rem;
+  }
+}

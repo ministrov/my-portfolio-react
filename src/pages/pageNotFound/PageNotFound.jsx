@@ -16,9 +16,12 @@ const PageNotFound = () => {
         />
       </Helmet>
       <section className="page-not-found">
-        <h2 className="visually-hidden">A not found page section</h2>
+        <h2 className="visually-hidden">Страница ошибки 404</h2>
 
-        <ErrorMessage textContent={t('errorMessage.message')} btnText={t('errorMessage.back')} />
+        <ErrorMessage
+          textContent={t('errorMessage.message')}
+          btnText={t('errorMessage.back')}
+        />
       </section>
     </>
   );

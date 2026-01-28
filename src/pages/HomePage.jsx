@@ -26,7 +26,7 @@ const Home = () => {
       </Helmet>
       <AnimatedBackground />
 
-      <h1 className="visually-hidden">Home page of the author portfolio</h1>
+      <h1 className="visually-hidden">Главная страница</h1>
       <Promo />
       <About />
       <Services />
