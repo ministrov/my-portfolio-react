@@ -4,6 +4,8 @@ import desktop from '../../assets/projects/desktop.webp';
 import blog from '../../assets/projects/blog.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
+import waterdelTablet from '../../assets/projects/waterdel-tablet.webp';
+import waterdelMobile from '../../assets/projects/waterdel-mobile.webp';
 import vamvoda from '../../assets/projects/vamvoda-new.webp';
 
 export const projects = [
@@ -12,6 +14,8 @@ export const projects = [
     title: 'projects.project10.title',
     skills: 'JavaScript, HTML, CSS, PHP, WooCommerse',
     img: vamvoda,
+    imgTablet: '',
+    imgMobile: '',
     slogan: 'projects.project10.slogan',
     overview: 'projects.project10.overview',
     year: 2025,
@@ -28,6 +32,8 @@ export const projects = [
     title: 'projects.project9.title',
     skills: 'JavaScript, HTML, CSS',
     img: waterdel,
+    imgTablet: waterdelTablet,
+    imgMobile: waterdelMobile,
     slogan: 'projects.project9.slogan',
     overview: 'projects.project9.overview',
     gitHubLink: 'https://github.com/ministrov/waterdel-newest',
@@ -46,6 +52,8 @@ export const projects = [
     title: 'projects.project3.title',
     skills: 'React, Tailwind CSS',
     img: nikeEcommerce,
+    imgTablet: '',
+    imgMobile: '',
     gitHubLink: 'https://github.com/ministrov/nike-react-tailwilnd',
     slogan: 'projects.project3.slogan',
     overview: 'projects.project3.overview',
@@ -65,6 +73,8 @@ export const projects = [
     title: 'projects.project5.title',
     skills: 'Next, TypeScript, React, Framer Motion, React Hook Form',
     img: desktop,
+    imgTablet: '',
+    imgMobile: '',
     slogan: 'projects.project5.slogan',
     gitHubLink: 'https://github.com/ministrov/landing-area-next-ts',
     demoLink: 'https://landing-area-next-ts.vercel.app/',
@@ -83,6 +93,8 @@ export const projects = [
     title: 'projects.project6.title',
     skills: 'Next, TypeScript, React, Zustand, Yup, Formik, Framer Motion',
     img: ratingus,
+    imgTablet: '',
+    imgMobile: '',
     slogan: 'projects.project6.slogan',
     overview: 'projects.project6.overview',
     year: 2024,
@@ -99,6 +111,8 @@ export const projects = [
     title: 'projects.project7.title',
     skills: 'Next, TypeScript, React, Framer Motion',
     img: blog,
+    imgTablet: '',
+    imgMobile: '',
     slogan: 'projects.project7.slogan',
     gitHubLink: 'https://github.com/ministrov/personal-blog-next-ts',
     overview: 'projects.project7.overview',
@@ -116,6 +130,8 @@ export const projects = [
     title: 'projects.project2.title',
     skills: 'JavaScript, HTML5, CSS3',
     img: createX,
+    imgTablet: '',
+    imgMobile: '',
     demoLink: 'https://create-x-construction.vercel.app/',
     slogan: 'projects.project2.slogan',
     overview: 'projects.project2.overview',

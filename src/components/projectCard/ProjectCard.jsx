@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
@@ -9,6 +8,8 @@ const ProjectCard = ({
   title,
   skills,
   img,
+  imgTablet,
+  imgMobile,
   overview,
   year,
   role,
@@ -24,19 +25,27 @@ const ProjectCard = ({
   return (
     <>
       <div className="project-card__image">
-        <motion.img
-          whileHover={{
-            scale: 1.02,
-            transition: { duration: 0.5, ease: 'easeInOut' },
-          }}
-          className={'project-card__img'}
-          src={img}
-          width={658}
-          height={'auto'}
-          alt={`${title} project`}
-          loading="lazy"
-          decoding="async"
-        />
+        <picture>
+          <source
+            media="(max-width: 375px)"
+            type="image/webp"
+            srcset={imgMobile}
+          />
+          <source
+            media="(max-width: 768px)"
+            type="image/webp"
+            srcset={imgTablet}
+          />
+          <img
+            className={'project-card__img'}
+            src={img}
+            width={658}
+            height={'auto'}
+            alt={`${title} project`}
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </div>
 
       <div className="project-card__info">
