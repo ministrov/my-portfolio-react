@@ -3,11 +3,6 @@
   padding-top: 6rem;
   padding-bottom: 6rem;
   color: var(--color-blue-700);
-  background-color: var(--color-gray-600);
-  border-top-left-radius: 42px;
-  border-top-right-radius: 42px;
-  border-bottom-left-radius: 42px;
-  border-bottom-right-radius: 42px;
 }
 
 @media screen and (max-width: 768px) {
@@ -19,7 +14,7 @@
 
 @media screen and (max-width: 375px) {
   .faq {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }

@@ -1,5 +1,6 @@
 .services {
-  margin-bottom: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .services__list {
@@ -15,17 +16,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .services {
-    margin-bottom: 3rem;
-  }
-
   .services__list {
     grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .services {
-    margin-bottom: 2rem;
   }
 }
