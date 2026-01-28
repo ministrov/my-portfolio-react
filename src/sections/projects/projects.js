@@ -1,5 +1,7 @@
 import createX from '../../assets/projects/create-x-construction.webp';
-import nikeEcommerce from '../../assets/projects/nike-ecommerce.webp';
+import only from '../../assets/projects/only.webp';
+import onlyTablet from '../../assets/projects/only-tablet.webp';
+import onlyMobile from '../../assets/projects/only-mobile.webp';
 import desktop from '../../assets/projects/desktop.webp';
 import blog from '../../assets/projects/blog.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
@@ -50,16 +52,16 @@ export const projects = [
   {
     id: 3,
     title: 'projects.project3.title',
-    skills: 'React, Tailwind CSS',
-    img: nikeEcommerce,
-    imgTablet: '',
-    imgMobile: '',
-    gitHubLink: 'https://github.com/ministrov/nike-react-tailwilnd',
+    skills: 'Next, TypeScript, React',
+    img: only,
+    imgTablet: onlyTablet,
+    imgMobile: onlyMobile,
+    gitHubLink: 'https://github.com/ministrov/only-championship',
     slogan: 'projects.project3.slogan',
     overview: 'projects.project3.overview',
-    demoLink:
-      'https://nike-react-tailwilnd-hpwsvyjlg-ministrovs-projects.vercel.app',
-    year: 2022,
+    // demoLink:
+    //   'https://nike-react-tailwilnd-hpwsvyjlg-ministrovs-projects.vercel.app',
+    year: 2023,
     role: 'Frontend Developer',
     infoTitle: 'projects.project3.infoTitle',
     toolsTitle: 'projects.project3.toolsTitle',

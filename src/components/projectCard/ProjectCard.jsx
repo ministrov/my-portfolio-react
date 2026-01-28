@@ -29,12 +29,12 @@ const ProjectCard = ({
           <source
             media="(max-width: 375px)"
             type="image/webp"
-            srcset={imgMobile}
+            srcSet={imgMobile}
           />
           <source
             media="(max-width: 768px)"
             type="image/webp"
-            srcset={imgTablet}
+            srcSet={imgTablet}
           />
           <img
             className={'project-card__img'}
