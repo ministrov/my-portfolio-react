@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import './style.css';
 
-const Problems = () => {
+const Advantages = () => {
   const { t } = useTranslation();
   return (
     <section className="advantages">
@@ -79,4 +79,4 @@ const Problems = () => {
   );
 };
 
-export default Problems;
+export default Advantages;

@@ -7,7 +7,7 @@ import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
 import Contact from '../sections/contact/Contact.jsx';
-import Problems from '../sections/problems/Problems.jsx';
+import Advantages from '../sections/advantages/Advantages.jsx';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
 
 const Home = () => {
@@ -32,7 +32,7 @@ const Home = () => {
       <Services />
       <Skills />
       <Showcasing />
-      <Problems />
+      <Advantages />
       <Faq />
       <Contact />
     </>

@@ -1,0 +1,11 @@
+.advantages {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  border-top-left-radius: 42px;
+  border-top-right-radius: 42px;
+  border-bottom-left-radius: 42px;
+  border-bottom-right-radius: 42px;
+  background-color: var(--color-gray-600);
+}
+
+/* Нужно разобраться с паддингами межжу всех секций по проекту */
