@@ -8,4 +8,18 @@
   background-color: var(--color-gray-600);
 }
 
+.advantages__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.advantages__item {
+  position: relative;
+  flex: 1 1 calc((100% - 80px) / 5);
+  padding: 35px;
+  border-radius: 20px;
+  border: 3px solid #E9F0F5;
+}
+
 /* Нужно разобраться с паддингами межжу всех секций по проекту */

@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
+import icon from '../../assets/svg/advantages-icon.svg';
 import './style.css';
 
 const Advantages = () => {
@@ -16,61 +17,61 @@ const Advantages = () => {
           <li className="advantages__item">
             <img
               className="advantages__item-img"
-              // src="icons/advantages-icon-1.svg"
+              src={icon}
               width="56"
               height="56"
               alt=""
             />
             <p className="advantages__item-text">
-              Легкий и быстрый сайт на Next.js
+              <strong>Легкий и быстрый</strong> сайт.
             </p>
           </li>
           <li className="advantages__item">
             <img
               className="advantages__item-img"
-              // src="icons/advantages-icon-2.svg"
+              src={icon}
               width="56"
               height="56"
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>Быстрая</strong> разработка и деплой
+              <strong>Быстрая</strong> разработка и деплой.
             </p>
           </li>
           <li className="advantages__item">
             <img
               className="advantages__item-img"
-              // src="icons/advantages-icon-3.svg"
+              src={icon}
               width="56"
               height="56"
               alt=""
             />
             <p className="advantages__item-text">
-              Чистый современный код без legacy
+              <strong>Чистый современный код</strong> без legacy.
             </p>
           </li>
           <li className="advantages__item">
             <img
               className="advantages__item-img"
-              // src="icons/advantages-icon-4.svg"
+              src={icon}
               width="56"
               height="56"
               alt=""
             />
             <p className="advantages__item-text">
-              Гарантия производительности и SEO
+              <strong>Гарантия</strong> производительности и SEO.
             </p>
           </li>
           <li className="advantages__item">
             <img
               className="advantages__item-img"
-              // src="icons/advantages-icon-5.svg"
+              src={icon}
               width="56"
               height="56"
               alt=""
             />
             <p className="advantages__item-text">
-              Надежный код без багов и проблем
+              <strong>Надежный код</strong> без багов и проблем.
             </p>
           </li>
         </ul>
