@@ -1,8 +1,10 @@
 import createX from '../../assets/projects/create-x-construction.webp';
+import landing from '../../assets/projects/landing-area.webp';
+import landingTablet from '../../assets/projects/landing-area-tablet.webp';
+import landingMobile from '../../assets/projects/landing-area-mobile.webp';
 import only from '../../assets/projects/only.webp';
 import onlyTablet from '../../assets/projects/only-tablet.webp';
 import onlyMobile from '../../assets/projects/only-mobile.webp';
-import desktop from '../../assets/projects/desktop.webp';
 import blog from '../../assets/projects/blog.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
@@ -72,9 +74,9 @@ export const projects = [
     id: 4,
     title: 'projects.project5.title',
     skills: 'Next, TypeScript, React, Framer Motion, React Hook Form',
-    img: desktop,
-    imgTablet: '',
-    imgMobile: '',
+    img: landing,
+    imgTablet: landingTablet,
+    imgMobile: landingMobile,
     slogan: 'projects.project5.slogan',
     gitHubLink: 'https://github.com/ministrov/landing-area-next-ts',
     demoLink: 'https://landing-area-next-ts.vercel.app/',
