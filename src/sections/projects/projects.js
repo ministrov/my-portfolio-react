@@ -26,7 +26,7 @@ export const projects = [
     toolsTitle: 'projects.project10.toolsTitle',
     yearText: 'projects.project10.toolsTitle',
     roleText: 'projects.project10.roleText',
-    isReversed: false,
+    isReversed: true,
     isBest: true,
   },
   {
@@ -59,8 +59,6 @@ export const projects = [
     gitHubLink: 'https://github.com/ministrov/only-championship',
     slogan: 'projects.project3.slogan',
     overview: 'projects.project3.overview',
-    // demoLink:
-    //   'https://nike-react-tailwilnd-hpwsvyjlg-ministrovs-projects.vercel.app',
     year: 2023,
     role: 'Frontend Developer',
     infoTitle: 'projects.project3.infoTitle',

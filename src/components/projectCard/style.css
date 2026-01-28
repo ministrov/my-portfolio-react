@@ -1,9 +1,11 @@
 .project-card__item {
   display: flex;
   gap: 48px;
+  height: 520px;
   padding: 24px;
   border: 1px solid var(--color-blue-700);
   border-radius: var(--border-radius-s);
+  box-sizing: border-box;
 }
 
 .project-card__item:hover {
