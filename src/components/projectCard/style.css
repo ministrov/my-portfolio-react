@@ -153,6 +153,13 @@
 }
 
 @media screen and (max-width: 1274px) {
+  .project-card__item {
+    min-width: initial;
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+  }
+
   .project-card__skills {
     max-width: 248px;
   }
@@ -162,13 +169,6 @@
   .project-card {
     background-color: transparent;
     box-shadow: none;
-  }
-
-  .project-card__item {
-    min-width: initial;
-    flex-direction: column;
-    gap: 36px;
-    height: auto;
   }
 
   .project-card__image {

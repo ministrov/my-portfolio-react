@@ -8,6 +8,8 @@ import only from '../../assets/projects/only.webp';
 import onlyTablet from '../../assets/projects/only-tablet.webp';
 import onlyMobile from '../../assets/projects/only-mobile.webp';
 import blog from '../../assets/projects/blog.webp';
+import blogTablet from '../../assets/projects/blog-tablet.webp';
+import blogMobile from '../../assets/projects/blog-mobile.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
 import waterdelTablet from '../../assets/projects/waterdel-tablet.webp';
@@ -115,8 +117,8 @@ export const projects = [
     title: 'projects.project7.title',
     skills: 'Next, TypeScript, React, Framer Motion',
     img: blog,
-    imgTablet: '',
-    imgMobile: '',
+    imgTablet: blogTablet,
+    imgMobile: blogMobile,
     slogan: 'projects.project7.slogan',
     gitHubLink: 'https://github.com/ministrov/personal-blog-next-ts',
     overview: 'projects.project7.overview',
