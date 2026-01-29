@@ -1,4 +1,6 @@
-import createX from '../../assets/projects/create-x-construction.webp';
+import createX from '../../assets/projects/create-x.webp';
+import createXTablet from '../../assets/projects/create-x-tablet.webp';
+import createXMobile from '../../assets/projects/create-x-mobile.webp';
 import landing from '../../assets/projects/landing-area.webp';
 import landingTablet from '../../assets/projects/landing-area-tablet.webp';
 import landingMobile from '../../assets/projects/landing-area-mobile.webp';
@@ -132,8 +134,8 @@ export const projects = [
     title: 'projects.project2.title',
     skills: 'JavaScript, HTML5, CSS3',
     img: createX,
-    imgTablet: '',
-    imgMobile: '',
+    imgTablet: createXTablet,
+    imgMobile: createXMobile,
     demoLink: 'https://create-x-construction.vercel.app/',
     slogan: 'projects.project2.slogan',
     overview: 'projects.project2.overview',
