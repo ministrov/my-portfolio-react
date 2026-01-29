@@ -12,6 +12,10 @@
   box-shadow: var(--box-shadow);
 }
 
+.project-card__item.project-card__item--reversed {
+  flex-direction: row-reverse;
+}
+
 .project-card__image {
   width: 50%;
   overflow: hidden;
@@ -160,15 +164,8 @@
     height: auto;
   }
 
-  .project-card__skills {
-    max-width: 248px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .project-card {
-    background-color: transparent;
-    box-shadow: none;
+  .project-card__item.project-card__item--reversed {
+    flex-direction: column;
   }
 
   .project-card__image {
@@ -180,6 +177,17 @@
     width: 100%;
     padding-top: 0;
     padding-bottom: 0;
+  }
+
+  .project-card__skills {
+    max-width: 248px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .project-card {
+    background-color: transparent;
+    box-shadow: none;
   }
 
   .project-card__info-title {
