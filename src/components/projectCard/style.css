@@ -305,10 +305,15 @@
 
   .project-card__image {
     max-height: 390px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 0;
+    padding-bottom: 0;
     padding-left: 0px;
     padding-right: 0px;
+    border-radius: var(--border-radius-s);
+  }
+
+  .projcet-card__img {
+    border-radius: var(--border-radius-s);
   }
 
   .project-card__info {

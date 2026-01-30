@@ -1,3 +1,6 @@
+import vamvoda from '../../assets/projects/vam-voda.webp';
+import vamvodaTablet from '../../assets/projects/vam-voda-tablet.webp';
+import vamvodaMobile from '../../assets/projects/vam-voda-mobile.webp';
 import createX from '../../assets/projects/create-x.webp';
 import createXTablet from '../../assets/projects/create-x-tablet.webp';
 import createXMobile from '../../assets/projects/create-x-mobile.webp';
@@ -14,7 +17,6 @@ import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
 import waterdelTablet from '../../assets/projects/waterdel-tablet.webp';
 import waterdelMobile from '../../assets/projects/waterdel-mobile.webp';
-import vamvoda from '../../assets/projects/vamvoda-new.webp';
 
 export const projects = [
   {
@@ -22,8 +24,8 @@ export const projects = [
     title: 'projects.project10.title',
     skills: 'JavaScript, HTML, CSS, PHP, WooCommerse',
     img: vamvoda,
-    imgTablet: '',
-    imgMobile: '',
+    imgTablet: vamvodaTablet,
+    imgMobile: vamvodaMobile,
     slogan: 'projects.project10.slogan',
     overview: 'projects.project10.overview',
     year: 2025,
