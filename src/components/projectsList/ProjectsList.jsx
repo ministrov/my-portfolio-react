@@ -21,13 +21,13 @@ const ProjectsList = ({ projects }) => {
   const containerVariants = {
     visible: {
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.5,
       },
     },
   };
 
   return (
-    <ul className="projects__list" variants={containerVariants}>
+    <motion.ul className="projects__list" variants={containerVariants}>
       {projects.map((project) => {
         const { id, title, overview, skills, isReversed, ...rest } = project;
 
@@ -51,7 +51,7 @@ const ProjectsList = ({ projects }) => {
           </motion.li>
         );
       })}
-    </ul>
+    </motion.ul>
   );
 };
 
