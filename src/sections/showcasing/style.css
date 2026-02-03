@@ -11,11 +11,13 @@
 @media screen and (max-width: 768px) {
   .showcasing {
     margin-bottom: 5rem;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
   }
 }
 
 @media screen and (max-width: 375px) {
   .showcasing {
-    margin-bottom: 3rem;
+    margin-bottom: 0;
   }
 }

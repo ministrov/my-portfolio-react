@@ -36,6 +36,15 @@
 }
 
 @media screen and (max-width: 768px) {
+  .advantages {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
   .advantages__item {
     flex: 1 1 calc((100% - 80px) / 2);
     padding: 1rem;

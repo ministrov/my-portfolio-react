@@ -96,7 +96,6 @@
 
 @media screen and (max-width: 1272px) {
   .promo__btns {
-    /* align-items: self-end; */
     justify-content: initial;
     gap: 1rem;
   }
@@ -191,14 +190,13 @@
 
 @media screen and (max-width: 475px) {
   .promo {
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-bottom: 2rem;
+    padding-top: 40px;
+    padding-bottom: 64px;
+    margin-bottom: 0;
   }
 
   .promo__wrapper {
     align-items: initial;
-    gap: 2rem;
   }
 
   .promo__image {
@@ -211,9 +209,15 @@
   }
 
   .promo__greeting {
-    font-size: 34px;
-    letter-spacing: 0;
-    line-height: 40px;
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .promo__slogan {
+    max-width: 100%;
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 22px;
   }
 }
 
@@ -221,10 +225,5 @@
   .promo__avatar {
     width: 270px;
     max-height: 270px;
-  }
-
-  .promo__greeting {
-    font-size: 28px;
-    line-height: 32px;
   }
 }

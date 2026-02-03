@@ -11,10 +11,3 @@
     padding-bottom: 4rem;
   }
 }
-
-@media screen and (max-width: 375px) {
-  .faq {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-}

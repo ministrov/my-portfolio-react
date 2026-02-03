@@ -92,9 +92,13 @@
 
 @media screen and (max-width: 768px) {
   .about {
+    margin-bottom: 0;
     padding-top: 4rem;
     padding-bottom: 4rem;
-    margin-bottom: 3rem;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
 
   .about__wrapper {
@@ -120,9 +124,7 @@
 
 @media screen and (max-width: 375px) {
   .about {
-    margin-bottom: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    margin-bottom: 0;
   }
 
   .about__image {
