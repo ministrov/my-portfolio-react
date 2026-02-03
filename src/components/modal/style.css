@@ -107,6 +107,7 @@
 .modal__footer {
   display: flex;
   justify-content: space-between;
+  padding-top: 2rem;
 }
 
 @keyframes fadeIn {
@@ -125,9 +126,9 @@
   }
 }
 
-@media screen and (max-width: 580px) {
+/* @media screen and (max-width: 580px) {
 
   .modal__inner {
     padding: 45px 8px 8px;
   }
-}
+} */
