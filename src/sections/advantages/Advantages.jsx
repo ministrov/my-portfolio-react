@@ -23,7 +23,8 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>Легкий и быстрый</strong> сайт.
+              <strong>{t('advantages.items.first.start')}</strong>{' '}
+              {t('advantages.items.first.end')}
             </p>
           </li>
           <li className="advantages__item">
@@ -35,7 +36,8 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>Быстрая</strong> разработка и деплой.
+              <strong>{t('advantages.items.second.start')}</strong>{' '}
+              {t('advantages.items.second.end')}
             </p>
           </li>
           <li className="advantages__item">
@@ -47,7 +49,8 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>Чистый современный код</strong> без legacy.
+              <strong>{t('advantages.items.third.start')}</strong>{' '}
+              {t('advantages.items.third.end')}
             </p>
           </li>
           <li className="advantages__item">
@@ -59,7 +62,8 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>Гарантия</strong> производительности и SEO.
+              <strong>{t('advantages.items.fourth.start')}</strong>{' '}
+              {t('advantages.items.fourth.end')}
             </p>
           </li>
           <li className="advantages__item">
@@ -71,7 +75,8 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>Надежный код</strong> без багов и проблем.
+              <strong>{t('advantages.items.fifth.start')}</strong>{' '}
+              {t('advantages.items.fifth.end')}
             </p>
           </li>
         </ul>

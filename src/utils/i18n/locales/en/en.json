@@ -76,6 +76,26 @@
     "showMore": "Read more",
     "hide": "Collapse"
   },
+  "advantages": {
+    "items": {
+      "first": {
+        "start": "",
+        "end": ""
+      },
+      "second": {
+        "start": "",
+        "end": ""
+      },
+      "third": {
+        "start": "",
+        "end": ""
+      },
+      "fourth": {
+        "start": "",
+        "end": ""
+      }
+    }
+  },
   "faqs": {
     "question_1": {
       "name": "What services do you offer?",
