@@ -31,7 +31,7 @@
       "name": "Frequantly Asked Questions",
       "subheading": "Get Answers to Your Burning Questions"
     },
-    "problems": {
+    "advantages": {
       "name": "Why me",
       "subheading": "My advantages"
     },
@@ -79,20 +79,24 @@
   "advantages": {
     "items": {
       "first": {
-        "start": "",
-        "end": ""
+        "start": "Light and fast",
+        "end": "website."
       },
       "second": {
-        "start": "",
-        "end": ""
+        "start": "Fast",
+        "end": "development and deploy"
       },
       "third": {
-        "start": "",
-        "end": ""
+        "start": "Clean modern code",
+        "end": "without legacy."
       },
       "fourth": {
-        "start": "",
-        "end": ""
+        "start": "Guarantee",
+        "end": "of performance and SEO."
+      },
+      "fifth": {
+        "start": "Reliable code",
+        "end": "without bugs and issues."
       }
     }
   },
