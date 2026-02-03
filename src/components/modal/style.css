@@ -36,7 +36,7 @@
   flex-direction: column;
   gap: 33px;
   height: auto;
-  padding: 85px 35px 35px;
+  padding: 42px 35px 35px;
   box-shadow: 0 630px 176px 0 rgba(0, 0, 0, 0.00), 0 403px 161px 0 rgba(0, 0, 0, 0.02), 0 227px 136px 0 rgba(0, 0, 0, 0.08), 0 101px 101px 0 rgba(0, 0, 0, 0.13), 0 25px 55px 0 rgba(0, 0, 0, 0.15);
   border-radius: var(--border-radius-s);
   background: radial-gradient(119.77% 126.3% at 95.67% 0%, #1A6FBE 0%, #0A4B88 100%);
