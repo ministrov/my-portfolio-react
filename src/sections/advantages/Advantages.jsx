@@ -9,8 +9,8 @@ const Advantages = () => {
     <section className="advantages">
       <div className="container">
         <Heading
-          title={t('heading.problems.name')}
-          slogan={t('heading.problems.subheading')}
+          title={t('heading.advantages.name')}
+          slogan={t('heading.advantages.subheading')}
         />
 
         <ul className="advantages__list">
