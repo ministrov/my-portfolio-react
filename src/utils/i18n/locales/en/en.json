@@ -121,52 +121,16 @@
     "reachOutButton": "Reach Out"
   },
   "projects": {
-    "project2": {
-      "title": "Create-x Construction",
-      "slogan": "A stunning construction company",
-      "overview": "Kreatex Construction — stylish and functional website for a construction company created using powerful tools like JavaScript, HTML5, and CSS3. Modern design and smooth animations provide an unforgettable user experience.",
+    "vamvoda": {
+      "title": "Vam Voda",
+      "slogan": "A moder water E-Commerce platform",
+      "overview": "Water e-commerce store built with featuring dynamic product filtering with virtual scrolling and animated transitions, along with a responsive gallery.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
       "roleText": "Role"
     },
-    "project3": {
-      "title": "Only development studio",
-      "slogan": "A stunning Only development studio",
-      "overview": "Only development studio is a team that creates bold and minimalist digital projects with a focus on modern frontend and expressive visuals.",
-      "infoTitle": "Project Info",
-      "toolsTitle": "Project Tools",
-      "yearText": "Year",
-      "roleText": "Role"
-    },
-    "project5": {
-      "title": "Digital Studio Area",
-      "slogan": "Landing page for Area development studio",
-      "overview": "A digital design service with a dynamic and impressive interface built on Next.js, TypeScript, and React. Interactive Framer Motion animations and a convenient React Hook Form order form simplify the creation of unique projects.",
-      "infoTitle": "Project info",
-      "toolsTitle": "Project Tools",
-      "yearText": "Year",
-      "roleText": "Role"
-    },
-    "project6": {
-      "title": "Ratingus",
-      "slogan": "A platform to rate any of web apps",
-      "overview": "Ratingus — an objective mobile app evaluation platform crafted with Next.js, TypeScript, and React. Smooth animations by Framer Motion and secure voting process ensured by Yup & Formik validators.",
-      "infoTitle": "Project info",
-      "toolsTitle": "Project Tools",
-      "yearText": "Year",
-      "roleText": "Role"
-    },
-    "project7": {
-      "title": "Personal Blog",
-      "slogan": "An Awesome personal Blog",
-      "overview": "A modern personal blog with lively UI, built on Next.js, TypeScript, and React. Fluid transitions and vibrant effects from Framer Motion immerse readers into the content.",
-      "infoTitle": "Project info",
-      "toolsTitle": "Project Tools",
-      "yearText": "Year",
-      "roleText": "Role"
-    },
-    "project9": {
+    "waterdel": {
       "title": "Waterdel",
       "slogan": "An e-commerce platform for puryfing systems",
       "overview": "VodaOnline — a contemporary online store for water purification equipment built with JavaScript, HTML, and CSS. Elegant and intuitive interface helps users quickly select products and place orders.",
@@ -175,10 +139,46 @@
       "yearText": "Year",
       "roleText": "Role"
     },
-    "project10": {
-      "title": "Vam Voda",
-      "slogan": "A moder water E-Commerce platform",
-      "overview": "Water e-commerce store built with featuring dynamic product filtering with virtual scrolling and animated transitions, along with a responsive gallery.",
+    "only": {
+      "title": "Only development studio",
+      "slogan": "A stunning Only development studio",
+      "overview": "Only development studio is a team that creates bold and minimalist digital projects with a focus on modern frontend and expressive visuals.",
+      "infoTitle": "Project Info",
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
+    },
+    "area": {
+      "title": "Digital Studio Area",
+      "slogan": "Landing page for Area development studio",
+      "overview": "A digital design service with a dynamic and impressive interface built on Next.js, TypeScript, and React. Interactive Framer Motion animations and a convenient React Hook Form order form simplify the creation of unique projects.",
+      "infoTitle": "Project info",
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
+    },
+    "ratingus": {
+      "title": "Ratingus",
+      "slogan": "A platform to rate any of web apps",
+      "overview": "Ratingus — an objective mobile app evaluation platform crafted with Next.js, TypeScript, and React. Smooth animations by Framer Motion and secure voting process ensured by Yup & Formik validators.",
+      "infoTitle": "Project info",
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
+    },
+    "blog": {
+      "title": "Personal Blog",
+      "slogan": "An Awesome personal Blog",
+      "overview": "A modern personal blog with lively UI, built on Next.js, TypeScript, and React. Fluid transitions and vibrant effects from Framer Motion immerse readers into the content.",
+      "infoTitle": "Project info",
+      "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
+    },
+    "createx": {
+      "title": "Create-x Construction",
+      "slogan": "A stunning construction company",
+      "overview": "Kreatex Construction — stylish and functional website for a construction company created using powerful tools like JavaScript, HTML5, and CSS3. Modern design and smooth animations provide an unforgettable user experience.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
