@@ -46,6 +46,9 @@
   }
 
   .advantages__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex: 1 1 calc((100% - 80px) / 2);
     padding: 1rem;
   }
