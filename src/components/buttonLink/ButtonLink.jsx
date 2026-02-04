@@ -1,6 +1,6 @@
 import './style.css';
 
-const ButtonLink = ({ className, path, text, children }) => {
+const ButtonLink = ({ className, path, text, icon }) => {
   return (
     <a
       className={`link ${className}`}
@@ -9,7 +9,7 @@ const ButtonLink = ({ className, path, text, children }) => {
       rel="noopener noreferrer"
     >
       {text}
-      <span className="link__icon">{children}</span>
+      <span className="link__icon">{icon}</span>
     </a>
   );
 };
