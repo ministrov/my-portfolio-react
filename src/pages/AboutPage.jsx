@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import AnimatedBackground from '../components/animatedBackground/AnimatedBackground';
 
 const AboutPage = () => {
   const { t } = useTranslation();
@@ -16,7 +17,15 @@ const AboutPage = () => {
         <meta name="keywords" content={t('metadata.home.keywords')} />
       </Helmet>
 
-      <div>About</div>
+      <AnimatedBackground />
+
+      <h1 className="visually-hidden">Главная страница</h1>
+
+      <div style={{ height: '100vh' }}>
+        <div className="container">
+          <h2>About</h2>
+        </div>
+      </div>
     </>
   );
 };
