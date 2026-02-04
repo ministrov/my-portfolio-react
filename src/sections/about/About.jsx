@@ -35,7 +35,7 @@ const About = () => {
             <div className="about__link-box">
               <ButtonLink
                 className={'about__link'}
-                path={'#'}
+                path={'/about'}
                 text={'Обо мне'}
               />
             </div>

@@ -144,12 +144,6 @@ img {
   padding-right: 32px;
 }
 
-.layout-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 @media screen and (max-width: 1268px) {
   .container {
     max-width: 1068px;
