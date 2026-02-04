@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
+import ButtonLink from '../../components/buttonLink/ButtonLink';
 import './style.css';
 
 const About = () => {
@@ -30,6 +31,14 @@ const About = () => {
 
             <p className="about__description">{t('about.descriptionOne')}</p>
             <p className="about__description">{t('about.descriptionTwo')}</p>
+
+            <div className="about__link-box">
+              <ButtonLink
+                className={'about__link'}
+                path={'#'}
+                text={'Обо мне'}
+              />
+            </div>
           </motion.div>
         </div>
       </div>
