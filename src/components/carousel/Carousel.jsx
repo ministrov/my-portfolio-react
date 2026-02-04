@@ -21,7 +21,12 @@ const Carousel = () => {
     >
       {bestProjects.map((project) => (
         <SwiperSlide key={project.id}>
-          <ShowcasingCard image={project.img} name={project.title} />
+          <ShowcasingCard
+            image={project.img}
+            tabletImg={project.imgTablet}
+            mobileImg={project.imgMobile}
+            name={project.title}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

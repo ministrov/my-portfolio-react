@@ -79,6 +79,10 @@
 }
 
 @media screen and (max-width: 375px) {
+  .showcasing-card {
+    gap: 24px;
+  }
+
   .showcasing-card__aspect-ratio {
     min-height: 280px;
     background-image: none;
