@@ -89,6 +89,7 @@
 
 .project-card__img {
   object-fit: cover;
+  min-height: -webkit-fill-available;
   border-radius: var(--border-radius-s);
 }
 
