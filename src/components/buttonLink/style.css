@@ -1,0 +1,37 @@
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--color-blue-700);
+  transition: all 0.5s ease-in-out;
+}
+
+.link::before {
+  position: absolute;
+  content: '';
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-blue-700);
+}
+
+.link:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.link:hover::before {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .link {
+    display: flex;
+    white-space: nowrap;
+  }
+}

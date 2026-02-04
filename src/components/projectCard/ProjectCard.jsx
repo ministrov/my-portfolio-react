@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
+import ButtonLink from '../buttonLink/ButtonLink';
 import Tag from '../tag/Tag';
 import './style.css';
 
@@ -80,31 +81,21 @@ const ProjectCard = ({
 
           <div className="project-card__links">
             {demoLink && (
-              <a
+              <ButtonLink
                 className={'project-card__link'}
-                href={demoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t('projectCard.liveDemo', 'Default Text')}
-                <span className="btn__icon">
-                  <BsBoxArrowInUpRight width={20} height={20} />
-                </span>
-              </a>
+                path={demoLink}
+                text={t('projectCard.liveDemo', 'Default Text')}
+                children={() => <BsBoxArrowInUpRight width={20} height={20} />}
+              />
             )}
 
             {gitHubLink && (
-              <a
+              <ButtonLink
                 className={'project-card__link'}
-                href={gitHubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t('projectCard.seeOnGithub', 'Default Text')}
-                <span className="btn__icon">
-                  <FaGithub width={20} height={20} />
-                </span>
-              </a>
+                path={gitHubLink}
+                text={t('projectCard.seeOnGithub', 'Default Text')}
+                children={() => <FaGithub width={20} height={20} />}
+              />
             )}
           </div>
         </div>
