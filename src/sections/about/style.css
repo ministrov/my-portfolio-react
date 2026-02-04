@@ -1,5 +1,9 @@
 .about {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
   padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: var(--color-gray-600);
@@ -11,20 +15,19 @@
 
 .about__wrapper {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
 }
 
-.about__left {
+.about__wrapper .heading-sec__main::after {
+  display: none;
+}
+
+/* .about__left {
   width: 50%;
   max-width: 500px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-blue-700);
-  border-radius: var(--border-radius-s);
-  border-radius: 50%;
-}
+} */
 
 .about__right {
   display: flex;
