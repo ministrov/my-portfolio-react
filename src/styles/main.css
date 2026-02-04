@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Oswald';
   src: url('../assets/fonts/Oswald-Regular.woff2') format('woff2'),
     url('../assets/fonts/Oswald-Regular.woff') format('woff');
   font-weight: 400;
@@ -7,7 +7,21 @@
 }
 
 @font-face {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Oswald';
+  src: url('../assets/fonts/Oswald-Light.woff2') format('woff2');
+  font-weight: 200 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../assets/fonts/Oswald-Bold.woff2') format('woff2');
+  font-weight: 500 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
   src: url('../assets/fonts/OpenSans-Regular.woff2') format('woff2'),
     url('../assets/fonts/OpenSans-Regular.woff') format('woff');
   font-weight: 400;
@@ -15,7 +29,7 @@
 }
 
 @font-face {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans';
   src: url('../assets/fonts/OpenSans-SemiBold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans-SemiBold.woff') format('woff');
   font-weight: 600;
@@ -23,7 +37,7 @@
 }
 
 @font-face {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans';
   src: url('../assets/fonts/OpenSans-Bold.woff2') format('woff2'),
     url('../assets/fonts/OpenSans-Bold.woff') format('woff');
   font-weight: 700;
@@ -90,9 +104,9 @@ body {
   font-family: var(--font-base);
   font-size: 16px;
   font-weight: 400;
-  text-rendering: optimizeLegibility;
+  /* text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
   line-height: 22px;
   background-color: var(--color-white);
 }
