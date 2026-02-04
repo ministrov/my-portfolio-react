@@ -36,7 +36,7 @@ const About = () => {
               <ButtonLink
                 className={'about__link'}
                 path={'/about'}
-                text={'Обо мне'}
+                text={t('about.link')}
               />
             </div>
           </motion.div>
