@@ -15,7 +15,6 @@
 
 .about__wrapper {
   display: flex;
-  /* align-items: center; */
   justify-content: space-between;
 }
 
@@ -23,17 +22,11 @@
   display: none;
 }
 
-/* .about__left {
-  width: 50%;
-  max-width: 500px;
-  display: flex;
-} */
-
 .about__right {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 50%;
+  width: 70%;
 }
 
 .about__image {
@@ -58,6 +51,11 @@
   font-size: 18px;
   line-height: 24px;
   color: var(--color-blue-700);
+}
+
+.about__description:first-of-type {
+  font-size: 32px;
+  line-height: 36px;
 }
 
 @media screen and (max-width: 1104px) {
