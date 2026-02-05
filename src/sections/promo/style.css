@@ -57,8 +57,8 @@
 
 .promo__btns {
   display: flex;
-  align-items: self-end;
-  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 .promo__btn {
@@ -94,12 +94,12 @@
   transform: translateX(-50%);
 }
 
-@media screen and (max-width: 1272px) {
+/* @media screen and (max-width: 1272px) {
   .promo__btns {
     justify-content: initial;
     gap: 1rem;
   }
-}
+} */
 
 @media screen and (max-width: 1172px) {
   .promo__image {

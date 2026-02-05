@@ -58,6 +58,12 @@
   margin-top: 2rem;
 }
 
+.about__btns {
+  display: flex;
+  gap: 1rem;
+  margin-top: 48px;
+}
+
 @media screen and (max-width: 1104px) {
   .about__right {
     width: 57%;
@@ -94,7 +100,6 @@
     border-bottom-right-radius: 16px;
   }
 
-
   .about__greeting {
     font-size: 24px;
     line-height: 30px;
@@ -108,6 +113,11 @@
   .about__description:first-of-type {
     font-size: 26px;
     line-height: 32px;
+  }
+
+  .about__btns {
+    max-width: fit-content;
+    flex-direction: column;
   }
 }
 

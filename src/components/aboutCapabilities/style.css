@@ -1,0 +1,7 @@
+.about-capabilities {
+  background-color: brown;
+}
+
+.about-capabilities .heading-sec__main::after {
+  display: none;
+}

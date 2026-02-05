@@ -1,16 +1,17 @@
+import { NavLink } from 'react-router-dom';
 import './style.css';
 
-const ButtonLink = ({ className, path, text, icon }) => {
+const ButtonLink = ({ className, path, text, icon, target = false }) => {
   return (
-    <a
+    <NavLink
       className={`button-link ${className}`}
-      href={path}
-      target="_blank"
+      to={path}
+      target={target ? '_blank' : '_self'}
       rel="noopener noreferrer"
     >
       {text}
       <span className="button-link__icon">{icon}</span>
-    </a>
+    </NavLink>
   );
 };
 

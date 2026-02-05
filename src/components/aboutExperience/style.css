@@ -1,0 +1,7 @@
+.about-experience {
+  background-color: plum;
+}
+
+.about-experience .heading-sec__main::after {
+  display: none;
+}

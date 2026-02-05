@@ -28,12 +28,9 @@ const NavMobile = () => {
   return (
     <div className="nav-mobile" ref={ref}>
       <div className="nav-mobile__buttons">
-        {/* <div className="nav-mobile__lang">
-          <ToggleLang aria-label={t('Change language')} />
-        </div> */}
         <Hamburger
           toggled={isOpen}
-          size={30}
+          size={28}
           toggle={setOpen}
           color="#0058a7"
           hideOutline={false}

@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import Heading from '../../components/heading/Heading';
 import ButtonLink from '../../components/buttonLink/ButtonLink';
+import SocialList from '../../components/socials/SocialList';
+import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
-const About = () => {
+const About = ({ link, button, title }) => {
   const { t } = useTranslation();
 
   return (
@@ -24,21 +27,43 @@ const About = () => {
             transition={{
               duration: 0.8,
               ease: [0.25, 0.1, 0.25, 1],
-              delay: 0.4, // Задержка для последовательного появления
+              delay: 0.4,
             }}
           >
-            <strong className={'about__greeting'}>{t('about.title')}</strong>
+            {title && (
+              <strong className={'about__greeting'}>{t('about.title')}</strong>
+            )}
 
             <p className="about__description">{t('about.descriptionOne')}</p>
             <p className="about__description">{t('about.descriptionTwo')}</p>
 
-            <div className="about__link-box">
-              <ButtonLink
-                className={'about__link'}
-                path={'/about'}
-                text={t('about.link')}
-              />
-            </div>
+            {button && (
+              <div className="about__btns">
+                <a
+                  className={'promo__btn'}
+                  href={cvPdf}
+                  download={cvPdf}
+                  rel="noopener noreferrer"
+                >
+                  {t('promo.promoBtn')}
+                  <span className="btn__icon">
+                    <BsBoxArrowInUpRight width={20} height={20} />
+                  </span>
+                </a>
+
+                <SocialList variant="blue" />
+              </div>
+            )}
+
+            {link && (
+              <div className="about__link-box">
+                <ButtonLink
+                  className={'about__link'}
+                  path={'/about'}
+                  text={t('about.link')}
+                />
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
