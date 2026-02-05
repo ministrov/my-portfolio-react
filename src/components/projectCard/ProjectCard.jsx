@@ -86,6 +86,7 @@ const ProjectCard = ({
                 path={demoLink}
                 text={t('projectCard.liveDemo', 'Default Text')}
                 icon={<BsBoxArrowInUpRight width={24} height={24} />}
+                target
               />
             )}
 
@@ -95,6 +96,7 @@ const ProjectCard = ({
                 path={gitHubLink}
                 text={t('projectCard.seeOnGithub', 'Default Text')}
                 icon={<FaGithub width={24} height={24} />}
+                target
               />
             )}
           </div>
