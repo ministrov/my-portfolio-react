@@ -30,7 +30,7 @@ const NavMobile = () => {
       <div className="nav-mobile__buttons">
         <Hamburger
           toggled={isOpen}
-          size={30}
+          size={28}
           toggle={setOpen}
           color="#0058a7"
           hideOutline={false}
