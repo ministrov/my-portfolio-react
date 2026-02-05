@@ -5,9 +5,9 @@ const AboutCapabilities = () => {
   return (
     <section className="about-capabilities">
       <div className="container">
-        <Heading>AboutCapabilities</Heading>
+        <Heading title={'My Capabilities'} />
 
-        <div>AboutCapabilities</div>
+        <div>My Capabilities</div>
       </div>
     </section>
   );

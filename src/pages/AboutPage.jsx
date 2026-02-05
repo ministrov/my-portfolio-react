@@ -1,6 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import About from '../sections/about/About';
+import AboutCapabilities from '../components/aboutCapabilities/AboutCapabilities';
+import AboutExperience from '../components/aboutExperience/AboutExperience';
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground';
 import aboutImg from '../assets/png/about-image.webp';
@@ -34,7 +36,10 @@ const AboutPage = () => {
 
       <About button />
 
-      <div className="container" style={{ marginTop: '120px' }}>
+      <div
+        className="container"
+        style={{ marginTop: '120px', marginBottom: '40px' }}
+      >
         <img
           src={aboutImg}
           width={1224}
@@ -42,6 +47,10 @@ const AboutPage = () => {
           alt="Крупным планом автор проекта"
         />
       </div>
+
+      <AboutCapabilities />
+
+      <AboutExperience />
     </>
   );
 };

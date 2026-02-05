@@ -4,8 +4,11 @@ import './style.css';
 const AboutExperience = () => {
   return (
     <section className="about-experience">
-      <Heading>AboutExperience</Heading>
-      <div>AboutExperience</div>
+      <div className="container">
+        <Heading title={'My Experience'} />
+
+        <div>AboutExperience</div>
+      </div>
     </section>
   );
 };
