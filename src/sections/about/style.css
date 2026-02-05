@@ -60,7 +60,7 @@
 
 .about__btns {
   display: flex;
-  gap: 100px;
+  gap: 1rem;
   margin-top: 48px;
 }
 
