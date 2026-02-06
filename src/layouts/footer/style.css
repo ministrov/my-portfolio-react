@@ -31,7 +31,7 @@
 }
 
 .main-footer__short-desc {
-  max-width: 435px;
+  max-width: 512px;
   font-size: 18px;
   line-height: 24px;
   color: var(--color-white);

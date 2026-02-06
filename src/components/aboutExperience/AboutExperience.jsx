@@ -3,18 +3,20 @@ import Heading from '../heading/Heading';
 import './style.css';
 
 const AboutExperience = () => {
-  const [isBlack, setIsBlack] = useState(false);
+  const [color, setColor] = useState(false);
+
+  console.log(color);
 
   return (
     <section
-      className={`about-experience ${isBlack ? 'about-experience--dark' : ''}`}
+      className={`about-experience ${color ? 'about-experience--dark' : ''}`}
     >
       <div className="container">
         <Heading title={'My Experience'} />
 
         <div>AboutExperience</div>
 
-        <button onClick={() => setIsBlack((prev) => !prev)} type="button">
+        <button onClick={() => setColor((prev) => !prev)} type="button">
           Сменить фон
         </button>
       </div>
