@@ -4,6 +4,7 @@ import About from '../sections/about/About';
 import AboutCapabilities from '../components/aboutCapabilities/AboutCapabilities';
 import AboutExperience from '../components/aboutExperience/AboutExperience';
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
+import Contact from '../sections/contact/Contact';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground';
 import aboutImg from '../assets/png/about-image.webp';
 
@@ -51,6 +52,8 @@ const AboutPage = () => {
       <AboutCapabilities />
 
       <AboutExperience />
+
+      <Contact />
     </>
   );
 };
