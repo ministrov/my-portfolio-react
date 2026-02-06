@@ -17,3 +17,20 @@
   grid-template-columns: 50% 50%;
   gap: 24px;
 }
+
+.about-capabilities__text-container {
+  max-width: 80%;
+}
+
+.about-capabilities__text {
+  margin-bottom: 32px;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-blue-700);
+}
+
+.about-capabilites__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

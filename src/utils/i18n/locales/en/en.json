@@ -216,6 +216,9 @@
     "liveDemo": "Demo",
     "seeOnGithub": "GitHub"
   },
+  "aboutCapabilities": {
+    "text": "I build modern web apps with JavaScript, React, and Next.js using RTK and Zustand for robust state management. My skills in HTML, CSS, and jQuery enable adaptive designs and smooth animations. I'm always eager to master new technologies, turning complex challenges into intuitive interfaces. Ready for projects of any scale!"
+  },
   "errorMessage": {
     "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",
     "back": "Go back homepage"
