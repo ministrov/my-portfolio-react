@@ -1,12 +1,14 @@
+import { useTranslation } from 'react-i18next';
 import Heading from '../heading/Heading';
 import './style.css';
 
 const AboutCapabilities = () => {
+  const { t } = useTranslation();
   return (
     <section className="about-capabilities">
       <div className="container">
         <div className="about-capabilities__wrapper">
-          <Heading title={'My Capabilities'} />
+          <Heading title={t('heading.capabilities.name')} />
 
           <div className="about-capabilites__text">
             <p>

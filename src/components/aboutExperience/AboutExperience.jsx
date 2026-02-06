@@ -1,24 +1,17 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Heading from '../heading/Heading';
 import './style.css';
 
 const AboutExperience = () => {
-  const [color, setColor] = useState(false);
-
-  console.log(color);
+  const { t } = useTranslation();
 
   return (
-    <section
-      className={`about-experience ${color ? 'about-experience--dark' : ''}`}
-    >
+    <section className={`about-experience`}>
       <div className="container">
-        <Heading title={'My Experience'} />
+        <Heading title={t('heading.experience.name')} />
 
         <div>AboutExperience</div>
-
-        <button onClick={() => setColor((prev) => !prev)} type="button">
-          Сменить фон
-        </button>
       </div>
     </section>
   );

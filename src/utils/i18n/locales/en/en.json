@@ -42,6 +42,13 @@
     "contact": {
       "name": "Connect with me",
       "subheading": "Message me on social media to discuss turning your data into an attractive interface."
+    },
+    "capabilities": {
+      "name": "My Capabilities",
+      "subheading": ""
+    },
+    "experience": {
+      "name": "My Experience"
     }
   },
   "breadcrumbs": {
