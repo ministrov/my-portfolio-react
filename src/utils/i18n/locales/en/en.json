@@ -61,7 +61,7 @@
   "about": {
     "title": "Greeting, new customers!",
     "descriptionOne": "I am a frontend developer, living in Moscow, seeking exciting work opportunities. With a passion for problem-solving and a strong focus on accessibility, I turn ideas into interactive, user-friendly products.",
-    "descriptionTwo": "To achieve this, I use all modern technologies such as React.js, Webflow, and some design, constantly learning new things to improve my skills. I pay special attention to communication with the team and client to understand needs and propose optimal solutions. Outside of programming, I enjoy football, basketball, hokkey, and learning English language. I'd be glad to discuss your project!",
+    "descriptionTwo": "Work with top stacks: vanilla JS, jQuery, React + RTK/Zustand, Next.js, plus advanced HTML5/CSS3 mastery (Grid/Subgrid, Flexbox, Container Queries, Clamp, Scroll-driven Animations, Houdini). Handle Webflow and design too. Squeeze max performance from native code — clean, fast, semantic, 60fps smooth. Communicate clearly with team/client, suggest optimal solutions. Free time — soccer, basketball, hockey + English practice. Let's discuss your project!",
     "link": "More about me"
   },
   "services": {
