@@ -2,6 +2,16 @@
   background-color: brown;
 }
 
+.about-capabilities .heading-sec__main {
+  text-align: start;
+}
+
 .about-capabilities .heading-sec__main::after {
   display: none;
+}
+
+.about-capabilities__wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 24px;
 }

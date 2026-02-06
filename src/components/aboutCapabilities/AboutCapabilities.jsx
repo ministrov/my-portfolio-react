@@ -5,9 +5,11 @@ const AboutCapabilities = () => {
   return (
     <section className="about-capabilities">
       <div className="container">
-        <Heading title={'My Capabilities'} />
+        <div className="about-capabilities__wrapper">
+          <Heading title={'My Capabilities'} />
 
-        <div>My Capabilities</div>
+          <div>My Capabilities</div>
+        </div>
       </div>
     </section>
   );
