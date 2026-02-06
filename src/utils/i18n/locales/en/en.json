@@ -41,7 +41,14 @@
     },
     "contact": {
       "name": "Connect with me",
-      "subheading": "Schedule a quick call to learn how Area can turn your regional data into a powerful advantage"
+      "subheading": "Message me on social media to discuss turning your data into an attractive interface."
+    },
+    "capabilities": {
+      "name": "My Capabilities",
+      "subheading": ""
+    },
+    "experience": {
+      "name": "My Experience"
     }
   },
   "breadcrumbs": {
@@ -61,7 +68,7 @@
   "about": {
     "title": "Greeting, new customers!",
     "descriptionOne": "I am a frontend developer, living in Moscow, seeking exciting work opportunities. With a passion for problem-solving and a strong focus on accessibility, I turn ideas into interactive, user-friendly products.",
-    "descriptionTwo": "Work with top stacks: vanilla JS, jQuery, React + RTK/Zustand, Next.js, plus advanced HTML5/CSS3 mastery (Grid/Subgrid, Flexbox, Container Queries, Clamp, Scroll-driven Animations, Houdini). Handle Webflow and design too. Squeeze max performance from native code — clean, fast, semantic, 60fps smooth. Communicate clearly with team/client, suggest optimal solutions. Free time — soccer, basketball, hockey + English practice. Let's discuss your project!",
+    "descriptionTwo": "Work with top stacks: vanilla JS, jQuery, React + RTK/Zustand, Next.js, plus advanced HTML5/CSS3 mastery (Grid/Subgrid, Flexbox, Container Queries, Clamp). Handle Webflow and design too. Squeeze max performance from native code — clean, fast, semantic, 60fps smooth. Communicate clearly with team/client, suggest optimal solutions. Free time — soccer, basketball, hockey + English practice. Let's discuss your project!",
     "link": "More about me"
   },
   "services": {
@@ -208,6 +215,9 @@
   "projectCard": {
     "liveDemo": "Demo",
     "seeOnGithub": "GitHub"
+  },
+  "aboutCapabilities": {
+    "text": "I build modern web apps with JavaScript, React, and Next.js using RTK and Zustand for robust state management. My skills in HTML, CSS, and jQuery enable adaptive designs and smooth animations. I'm always eager to master new technologies, turning complex challenges into intuitive interfaces. Ready for projects of any scale!"
   },
   "errorMessage": {
     "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",

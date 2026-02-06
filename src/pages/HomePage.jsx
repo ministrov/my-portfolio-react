@@ -13,6 +13,8 @@ import AnimatedBackground from '../components/animatedBackground/AnimatedBackgro
 const Home = () => {
   const { t } = useTranslation();
 
+  // console.log(<About />);
+
   return (
     <>
       <Helmet>

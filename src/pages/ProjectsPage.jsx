@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Projects from '../sections/projects/Projects.jsx';
+import Contact from '../sections/contact/Contact.jsx';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
 
 const ProjectsPage = () => {
@@ -22,6 +23,8 @@ const ProjectsPage = () => {
       <h1 className="visually-hidden">Страница проектров автора</h1>
 
       <Projects />
+
+      <Contact />
     </>
   );
 };
