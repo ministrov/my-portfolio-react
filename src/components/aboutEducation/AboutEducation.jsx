@@ -11,7 +11,7 @@ const AboutEducation = () => {
         <div className="about-education__wrapper">
           <Heading title={t('heading.education.name')} />
 
-          <ul className="about-education__experience-list">
+          <ul className="about-education__education-list">
             <li>
               <article className="about-education__item">
                 <header className="about-education__head">
