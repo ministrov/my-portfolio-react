@@ -5,6 +5,8 @@ import './style.css';
 const AboutExperience = () => {
   const { t } = useTranslation();
 
+  //  T
+
   return (
     <section className="about-experience">
       <div className="container">
@@ -20,7 +22,7 @@ const AboutExperience = () => {
                   </h3>
                   <time
                     className="about-experience__date"
-                    datetime="2023-09/2023-11"
+                    dateTime="2023-09/2023-11"
                   >
                     Sep 2021 — Nov 2023
                   </time>
@@ -41,7 +43,7 @@ const AboutExperience = () => {
                   </h3>
                   <time
                     className="about-experience__date"
-                    datetime="2023-09/2023-11"
+                    dateTime="2023-09/2023-11"
                   >
                     Nov 2023 — Nov 2024
                   </time>
@@ -63,7 +65,7 @@ const AboutExperience = () => {
                   </h3>
                   <time
                     className="about-experience__date"
-                    datetime="2023-09/2023-11"
+                    dateTime="2023-09/2023-11"
                   >
                     Nov 2024 — Present
                   </time>
