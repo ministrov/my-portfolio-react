@@ -31,7 +31,7 @@
 .about-experience__head {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .about-experience__title {
@@ -50,5 +50,12 @@
 .about-experience__item-text {
   font-size: 18px;
   line-height: 24px;
+  color: var(--color-blue-700);
+}
+
+.about-experience__name {
+  margin-bottom: 16px;
+  font-size: 20px;
+  line-height: 22px;
   color: var(--color-blue-700);
 }

@@ -26,9 +26,10 @@ const AboutExperience = () => {
                   </time>
                 </header>
                 <p className="about-experience__item-text">
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                  aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur.
+                  WaterDel & TaskFlow Applications React, Redux Toolkit, REST
+                  API - Построил CRUD-приложения комплексным управлением
+                  состоянием. - Реализовал адаптивную верстку по методологии
+                  mobile-first.
                 </p>
               </article>
             </li>
@@ -45,10 +46,12 @@ const AboutExperience = () => {
                     Nov 2023 — Nov 2024
                   </time>
                 </header>
+                <p className="about-experience__name">ООО "Сервис Маркет"</p>
                 <p className="about-experience__item-text">
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                  aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur.
+                  В составе команды разработал высоконагруженное веб-приложение
+                  для интернет-магазина Вам Вода — масштабируемую e-commerce
+                  платформу, успешно обслуживающую 20 000+ активных
+                  пользователей ежемесячно! Отвечал за верстку.
                 </p>
               </article>
             </li>
@@ -65,10 +68,18 @@ const AboutExperience = () => {
                     Nov 2024 — Present
                   </time>
                 </header>
+                <p className="about-experience__name">ООО "Сервис Маркет"</p>
                 <p className="about-experience__item-text">
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                  aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur.
+                  Как Frontend Developer в ООО «Сервис Маркет» занимаюсь
+                  разработкой акционных лендингов, которые помогают запускать и
+                  усиливать маркетинговые кампании компании. Фокусируюсь на
+                  быстрой, аккуратной верстке и внедрении решений, повышающих
+                  конверсию и вовлеченность пользователей. Поддерживаю и
+                  развиваю существующую фронтенд-инфраструктуру, оптимизируя
+                  скорость загрузки и стабильность работы текущих проектов.
+                  Активно взаимодействую с командой маркетинга и
+                  бэкенд-разработчиками, чтобы оперативно выводить на рынок
+                  новые офферы и улучшать ключевые продуктовые метрики.
                 </p>
               </article>
             </li>
