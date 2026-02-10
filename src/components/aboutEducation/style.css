@@ -10,3 +10,7 @@
 .about-education .heading-sec__main::after {
   display: none;
 }
+
+.about-education {
+  max-width: 650px;
+}

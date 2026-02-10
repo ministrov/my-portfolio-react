@@ -11,74 +11,62 @@ const AboutEducation = () => {
         <div className="about-education__wrapper">
           <Heading title={t('heading.education.name')} />
 
-          <ul className="about-experience__experience-list">
+          <ul className="about-education__experience-list">
             <li>
-              <article className="about-experience__item">
-                <header className="about-experience__head">
-                  <h3 className="about-experience__title">
+              <article className="about-education__item">
+                <header className="about-education__head">
+                  <h3 className="about-education__title">
                     Учебное заведение: "Московский Колледж Управления и Новых
                     Технологий"
                   </h3>
                   <time
-                    className="about-experience__date"
+                    className="about-education__date"
                     dateTime="2023-09/2023-11"
                   >
                     Sep 1998 — Jun 2002
                   </time>
                 </header>
-                <p className="about-experience__item-text">
+                <p className="about-education__item-text">
                   Специальность: "Информационные технологии и вычислительная
                   техника".
                 </p>
               </article>
             </li>
             <li>
-              <article className="about-experience__item">
-                <header className="about-experience__head">
-                  <h3 className="about-experience__title">
-                    Frontend Developer Intern
+              <article className="about-education__item">
+                <header className="about-education__head">
+                  <h3 className="about-education__title">
+                    Учебное заведение: "Онлайн академия HTML Academy"
                   </h3>
                   <time
-                    className="about-experience__date"
+                    className="about-education__date"
                     dateTime="2023-09/2023-11"
                   >
-                    Nov 2023 — Nov 2024
+                    2021
                   </time>
                 </header>
-                <p className="about-experience__name">ООО "Сервис Маркет"</p>
-                <p className="about-experience__item-text">
-                  В составе команды разработал высоконагруженное веб-приложение
-                  для интернет-магазина Вам Вода — масштабируемую e-commerce
-                  платформу, успешно обслуживающую 20 000+ активных
-                  пользователей ежемесячно! Отвечал за верстку.
+                <p className="about-education__item-text">
+                  Специальность: "Профессиональная разработка веб-интерфейсов."
                 </p>
               </article>
             </li>
             <li>
-              <article className="about-experience__item">
-                <header className="about-experience__head">
-                  <h3 className="about-experience__title">
-                    Frontend Developer
+              <article className="about-education__item">
+                <header className="about-education__head">
+                  <h3 className="about-education__title">
+                    Учебное заведение: "Курсы профессиональной подготовки HTML
+                    Academy: React. Разработка сложных клиентских приложений."
                   </h3>
                   <time
-                    className="about-experience__date"
+                    className="about-education__date"
                     dateTime="2023-09/2023-11"
                   >
-                    Nov 2024 — Present
+                    2024
                   </time>
                 </header>
-                <p className="about-experience__name">ООО "Сервис Маркет"</p>
-                <p className="about-experience__item-text">
-                  Как Frontend Developer в ООО «Сервис Маркет» занимаюсь
-                  разработкой акционных лендингов, которые помогают запускать и
-                  усиливать маркетинговые кампании компании. Фокусируюсь на
-                  быстрой, аккуратной верстке и внедрении решений, повышающих
-                  конверсию и вовлеченность пользователей. Поддерживаю и
-                  развиваю существующую фронтенд-инфраструктуру, оптимизируя
-                  скорость загрузки и стабильность работы текущих проектов.
-                  Активно взаимодействую с командой маркетинга и
-                  бэкенд-разработчиками, чтобы оперативно выводить на рынок
-                  новые офферы и улучшать ключевые продуктовые метрики.
+                <p className="about-education__item-text">
+                  Специальность: "React. Разработка сложных клиентских
+                  приложений."
                 </p>
               </article>
             </li>
