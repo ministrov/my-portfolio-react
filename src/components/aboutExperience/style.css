@@ -1,4 +1,6 @@
 .about-experience {
+  padding-top: 80px;
+  padding-bottom: 80px;
   background-color: plum;
 }
 
@@ -8,4 +10,10 @@
 
 .about-experience--dark {
   background-color: paleturquoise;
+}
+
+.about-experience__wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 24px;
 }
