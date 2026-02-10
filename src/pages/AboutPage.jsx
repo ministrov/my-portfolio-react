@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import About from '../sections/about/About';
 import AboutCapabilities from '../components/aboutCapabilities/AboutCapabilities';
 import AboutExperience from '../components/aboutExperience/AboutExperience';
+import AboutEducation from '../components/aboutEducation/AboutEducation';
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import Contact from '../sections/contact/Contact';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground';
@@ -52,6 +53,8 @@ const AboutPage = () => {
       <AboutCapabilities />
 
       <AboutExperience />
+
+      <AboutEducation />
 
       <Contact />
     </>

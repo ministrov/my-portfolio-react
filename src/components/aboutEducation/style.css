@@ -1,0 +1,12 @@
+.about-education {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.about-education .heading-sec__main {
+  text-align: start;
+}
+
+.about-education .heading-sec__main::after {
+  display: none;
+}
