@@ -49,6 +49,9 @@
     },
     "experience": {
       "name": "My Experience"
+    },
+    "education": {
+      "name": "Мy Education"
     }
   },
   "breadcrumbs": {
@@ -68,7 +71,7 @@
   "about": {
     "title": "Greeting, new customers!",
     "descriptionOne": "I am a frontend developer, living in Moscow, seeking exciting work opportunities. With a passion for problem-solving and a strong focus on accessibility, I turn ideas into interactive, user-friendly products.",
-    "descriptionTwo": "Work with top stacks: vanilla JS, jQuery, React + RTK/Zustand, Next.js, plus advanced HTML5/CSS3 mastery (Grid/Subgrid, Flexbox, Container Queries, Clamp). Handle Webflow and design too. Squeeze max performance from native code — clean, fast, semantic, 60fps smooth. Communicate clearly with team/client, suggest optimal solutions. Free time — soccer, basketball, hockey + English practice. Let's discuss your project!",
+    "descriptionTwo": "Work with: vanilla JS, jQuery, React + RTK/Zustand, Next.js, plus advanced HTML5/CSS3 mastery (Grid/Subgrid, Flexbox, Container Queries, Clamp). Handle Webflow and design too. Squeeze max performance from native code — clean, fast, semantic, 60fps smooth. Communicate clearly with team/client, suggest optimal solutions. Free time — soccer, basketball, hockey + English practice. Let's discuss your project!",
     "link": "More about me"
   },
   "services": {

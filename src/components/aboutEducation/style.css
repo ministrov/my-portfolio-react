@@ -1,0 +1,34 @@
+.about-education {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.about-education .heading-sec__main {
+  text-align: start;
+}
+
+.about-education .heading-sec__main::after {
+  display: none;
+}
+
+.about-education__head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-education__title {
+  max-width: 850px;
+  margin-bottom: 8px;
+}
+
+.about-education__education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.about-education__item {
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-blue-700);
+}
