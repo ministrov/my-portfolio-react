@@ -2,34 +2,33 @@ import { useTranslation } from 'react-i18next';
 import Heading from '../heading/Heading';
 import './style.css';
 
-const AboutExperience = () => {
+const AboutEducation = () => {
   const { t } = useTranslation();
 
   return (
     <section className="about-education">
       <div className="container">
         <div className="about-education__wrapper">
-          <Heading title={t('heading.experience.name')} />
+          <Heading title={t('heading.education.name')} />
 
           <ul className="about-experience__experience-list">
             <li>
               <article className="about-experience__item">
                 <header className="about-experience__head">
                   <h3 className="about-experience__title">
-                    Freelance Developer
+                    Учебное заведение: "Московский Колледж Управления и Новых
+                    Технологий"
                   </h3>
                   <time
                     className="about-experience__date"
                     dateTime="2023-09/2023-11"
                   >
-                    Sep 2021 — Nov 2023
+                    Sep 1998 — Jun 2002
                   </time>
                 </header>
                 <p className="about-experience__item-text">
-                  WaterDel & TaskFlow Applications React, Redux Toolkit, REST
-                  API - Построил CRUD-приложения комплексным управлением
-                  состоянием. - Реализовал адаптивную верстку по методологии
-                  mobile-first.
+                  Специальность: "Информационные технологии и вычислительная
+                  техника".
                 </p>
               </article>
             </li>
@@ -90,4 +89,4 @@ const AboutExperience = () => {
   );
 };
 
-export default AboutExperience;
+export default AboutEducation;

@@ -48,6 +48,9 @@
     },
     "experience": {
       "name": "Мой опыт"
+    },
+    "education": {
+      "name": "Мое образование"
     }
   },
   "breadcrumbs": {
