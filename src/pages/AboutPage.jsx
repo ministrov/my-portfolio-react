@@ -38,7 +38,9 @@ const AboutPage = () => {
 
       <About button />
 
-      <AuthorPhoto />
+      <div className="container">
+        <AuthorPhoto />
+      </div>
 
       <AboutCapabilities />
 

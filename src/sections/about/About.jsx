@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
+import AuthorPhoto from '../../components/authorPhoto/AuthorPhoto';
 import Heading from '../../components/heading/Heading';
 import ButtonLink from '../../components/buttonLink/ButtonLink';
 import SocialList from '../../components/socials/SocialList';
@@ -33,6 +34,8 @@ const About = ({ link, button, title }) => {
             {title && (
               <strong className={'about__greeting'}>{t('about.title')}</strong>
             )}
+
+            {link && <AuthorPhoto />}
 
             <p className="about__description">{t('about.descriptionOne')}</p>
             <p className="about__description">{t('about.descriptionTwo')}</p>
