@@ -188,3 +188,60 @@
   overflow-x: auto;
   white-space: pre;
 }
+
+.author-code {
+  margin: 0;
+  padding: 1.25rem 1.75rem 1.6rem;
+  background-color: #0b1020;
+  /* тёмный синевато‑серый */
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  overflow-x: auto;
+  white-space: pre;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #e5e7eb;
+}
+
+/* Общие токены */
+
+.author-code .token-keyword {
+  color: #61dafb;
+  /* React blue для ключевых слов */
+  font-weight: 500;
+}
+
+.author-code .token-variable {
+  color: #e5e7eb;
+}
+
+.author-code .token-operator {
+  color: #c792ea;
+  /* фиолетовый акцент */
+}
+
+.author-code .token-property {
+  color: #82aaff;
+  /* имена свойств (ключи объекта) */
+}
+
+.author-code .token-string {
+  color: #c3e88d;
+  /* зеленоватые строки */
+}
+
+.author-code .token-number {
+  color: #f78c6c;
+}
+
+.author-code .token-punctuation {
+  color: #89a1b5;
+}
+
+/* Если захочешь комментарии в объекте */
+
+.author-code .token-comment {
+  color: #5c6370;
+  font-style: italic;
+}

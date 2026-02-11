@@ -31,11 +31,83 @@ const AuthorPhoto = () => {
         </div>
 
         <pre className="author-code">
-          {`const author = {
-              experience: '5+ years',
-              focus: 'Frontend architecture, animation, DX',
-              stack: ['React', 'Next.js', 'TypeScript', 'CSS-in-JS']
-            };`}
+          <code>
+            <span className="token-keyword">const</span>{' '}
+            <span className="token-variable">author</span>{' '}
+            <span className="token-operator">=</span>{' '}
+            <span className="token-punctuation">{'{'}</span>
+            {'\n  '}
+            <span className="token-property">name</span>
+            <span className="token-punctuation">:</span>{' '}
+            <span className="token-string">'Антон Жилин'</span>
+            <span className="token-punctuation">,</span>
+            {'\n  '}
+            <span className="token-property">role</span>
+            <span className="token-punctuation">:</span>{' '}
+            <span className="token-string">'Senior Frontend Engineer'</span>
+            <span className="token-punctuation">,</span>
+            {'\n  '}
+            <span className="token-property">location</span>
+            <span className="token-punctuation">:</span>{' '}
+            <span className="token-string">'Moscow, Russia'</span>
+            <span className="token-punctuation">,</span>
+            {'\n  '}
+            <span className="token-property">experience</span>
+            <span className="token-punctuation">:</span>{' '}
+            <span className="token-string">'5+ years'</span>
+            <span className="token-punctuation">,</span>
+            {'\n  '}
+            <span className="token-property">focus</span>
+            <span className="token-punctuation">:</span>{' '}
+            <span className="token-string">
+              'Frontend architecture, animation, DX'
+            </span>
+            <span className="token-punctuation">,</span>
+            {'\n  '}
+            <span className="token-property">stack</span>
+            <span className="token-punctuation">:</span>{' '}
+            <span className="token-punctuation">[</span>
+            <span className="token-string">'React'</span>
+            <span className="token-punctuation">, </span>
+            <span className="token-string">'Next.js'</span>
+            <span className="token-punctuation">, </span>
+            <span className="token-string">'TypeScript'</span>
+            <span className="token-punctuation">, </span>
+            <span className="token-string">'CSS-in-JS'</span>
+            <span className="token-punctuation">]</span>
+            <span className="token-punctuation">,</span>
+            {'\n  '}
+            <span className="token-property">interests</span>
+            <span className="token-punctuation">:</span>{' '}
+            <span className="token-punctuation">[</span>
+            <span className="token-string">'UX'</span>
+            <span className="token-punctuation">, </span>
+            <span className="token-string">'Design systems'</span>
+            <span className="token-punctuation">, </span>
+            <span className="token-string">'Animations'</span>
+            <span className="token-punctuation">]</span>
+            <span className="token-punctuation">,</span>
+            {'\n  '}
+            <span className="token-property">currentlyLearning</span>
+            <span className="token-punctuation">:</span>{' '}
+            <span className="token-punctuation">[</span>
+            <span className="token-string">'Testing'</span>
+            <span className="token-punctuation">, </span>
+            <span className="token-string">'Node.js'</span>
+            <span className="token-punctuation">]</span>
+            <span className="token-punctuation">,</span>
+            {'\n  '}
+            <span className="token-property">availableFor</span>
+            <span className="token-punctuation">:</span>{' '}
+            <span className="token-punctuation">[</span>
+            <span className="token-string">'Remote'</span>
+            <span className="token-punctuation">, </span>
+            <span className="token-string">'Consulting'</span>
+            <span className="token-punctuation">]</span>
+            <span className="token-punctuation">,</span>
+            {'\n'}
+            <span className="token-punctuation">{'};'}</span>
+          </code>
         </pre>
       </div>
     </div>
