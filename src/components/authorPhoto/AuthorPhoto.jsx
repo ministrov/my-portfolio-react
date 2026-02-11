@@ -6,6 +6,7 @@ const AuthorPhoto = () => {
     <div className="wrapper">
       <div className="container">
         <img
+          className="author-img"
           src={photo}
           width={500}
           height={500}

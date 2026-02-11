@@ -36,9 +36,9 @@ const AboutPage = () => {
         <Breadcrumbs items={BREADCRUMBS} />
       </div>
 
-      <AuthorPhoto />
-
       <About button />
+
+      <AuthorPhoto />
 
       <AboutCapabilities />
 
