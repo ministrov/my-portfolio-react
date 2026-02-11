@@ -4,10 +4,10 @@ import About from '../sections/about/About';
 import AboutCapabilities from '../components/aboutCapabilities/AboutCapabilities';
 import AboutExperience from '../components/aboutExperience/AboutExperience';
 import AboutEducation from '../components/aboutEducation/AboutEducation';
+import AuthorPhoto from '../components/authorPhoto/AuthorPhoto';
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import Contact from '../sections/contact/Contact';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground';
-import aboutImg from '../assets/png/about-image.webp';
 
 const AboutPage = () => {
   const { t } = useTranslation();
@@ -38,16 +38,8 @@ const AboutPage = () => {
 
       <About button />
 
-      <div
-        className="container"
-        style={{ marginTop: '120px', marginBottom: '40px' }}
-      >
-        <img
-          src={aboutImg}
-          width={1224}
-          height={700}
-          alt="Крупным планом автор проекта"
-        />
+      <div className="container wrapper">
+        <AuthorPhoto />
       </div>
 
       <AboutCapabilities />
