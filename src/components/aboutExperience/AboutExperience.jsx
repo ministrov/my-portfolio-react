@@ -5,8 +5,6 @@ import './style.css';
 const AboutExperience = () => {
   const { t } = useTranslation();
 
-  //  T
-
   return (
     <section className="about-experience">
       <div className="container">

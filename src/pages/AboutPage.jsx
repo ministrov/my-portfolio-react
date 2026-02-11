@@ -38,7 +38,7 @@ const AboutPage = () => {
 
       <About button />
 
-      <div className="container">
+      <div className="container wrapper">
         <AuthorPhoto />
       </div>
 

@@ -24,9 +24,9 @@ const AuthorPhoto = () => {
           </div>
 
           <div className="author-meta">
-            <h2 className="author-name">Имя Фамилия</h2>
+            <h2 className="author-name">Антон Жилин</h2>
             <p className="author-role">Frontend Developer · React / Next.js</p>
-            <p className="author-location">Moscow · Remote / Hybrid</p>
+            <p className="author-location">Москва · Remote / Hybrid</p>
           </div>
         </div>
 
