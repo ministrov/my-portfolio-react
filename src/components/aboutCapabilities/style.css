@@ -1,6 +1,8 @@
 .about-capabilities {
   padding-top: 80px;
   padding-bottom: 80px;
+  border-top: 2px solid var(--color-blue-700);
+  border-bottom: 2px solid var(--color-blue-700);
 }
 
 .about-capabilities .heading-sec__main {
@@ -35,10 +37,9 @@
 }
 
 @media screen and (max-width: 768px) {
-  .about-capabilities {
-    border-top: 2px solid var(--color-blue-700);
-    border-bottom: 2px solid var(--color-blue-700);
-  }
+  /* .about-capabilities {
+   
+  } */
 
   .about-capabilities__wrapper {
     grid-template-columns: 1fr;

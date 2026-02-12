@@ -1,6 +1,7 @@
 .about-experience {
   padding-top: 80px;
   padding-bottom: 80px;
+  border-bottom: 2px solid var(--color-blue-700);
 }
 
 .about-experiences .heading-sec__main {
@@ -60,10 +61,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .about-experience {
-    border-bottom: 2px solid var(--color-blue-700);
-  }
-
   .about-experience__wrapper {
     grid-template-columns: 1fr;
     gap: 16px;
