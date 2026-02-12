@@ -33,3 +33,19 @@
   flex-wrap: wrap;
   gap: 16px;
 }
+
+@media screen and (max-width: 768px) {
+  .about-capabilities {
+    border-top: 2px solid var(--color-blue-700);
+    border-bottom: 2px solid var(--color-blue-700);
+  }
+
+  .about-capabilities__wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-capabilities__text-container {
+    max-width: 100%;
+  }
+}

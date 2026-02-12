@@ -169,14 +169,12 @@ img {
 @media screen and (max-width: 768px) {
   .container {
     max-width: 100%;
-    /* margin: 0; */
     padding-left: 16px;
     padding-right: 16px;
   }
 
   .wrapper {
     margin-top: 16px;
-    /* margin-bottom: 16px; */
   }
 
   ::-webkit-scrollbar {
