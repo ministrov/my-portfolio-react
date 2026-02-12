@@ -94,14 +94,7 @@
   transform: translateX(-50%);
 }
 
-/* @media screen and (max-width: 1272px) {
-  .promo__btns {
-    justify-content: initial;
-    gap: 1rem;
-  }
-} */
-
-@media screen and (max-width: 1172px) {
+@media screen and (max-width: 1272px) {
   .promo__image {
     width: 450px;
     height: 450px;
