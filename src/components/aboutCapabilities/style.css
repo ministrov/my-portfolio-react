@@ -37,6 +37,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .about-capabilities {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
   .about-capabilities__wrapper {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -48,6 +53,11 @@
 }
 
 @media screen and (max-width: 475px) {
+  .about-capabilities {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
   .about-capabilities .heading-sec__main {
     font-size: 43px;
     line-height: 1;

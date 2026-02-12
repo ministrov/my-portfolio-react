@@ -120,6 +120,10 @@
     margin-bottom: 0;
   }
 
+  .about__wrapper {
+    align-items: flex-start;
+  }
+
   .about__right {
     gap: 8px;
   }

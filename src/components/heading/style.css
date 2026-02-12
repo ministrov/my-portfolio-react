@@ -57,3 +57,25 @@
     line-height: 24px;
   }
 }
+
+@media screen and (max-width: 575px) {
+  .heading-sec__main {
+    font-size: 43px;
+    line-height: 100%;
+    text-align: start;
+  }
+
+  .heading-sec__main::after {
+    display: none;
+  }
+
+  .heading-sec__sub {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .heading-sec__main {
+    font-size: 43px;
+  }
+}

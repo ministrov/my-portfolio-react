@@ -61,8 +61,20 @@
 }
 
 @media screen and (max-width: 768px) {
+  .about-experience {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
   .about-experience__wrapper {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .about-experience {
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 }
