@@ -1,6 +1,7 @@
 .about-education {
   padding-top: 80px;
   padding-bottom: 80px;
+  border-bottom: 2px solid var(--color-blue-700);
 }
 
 .about-education .heading-sec__main {
@@ -31,4 +32,27 @@
   font-size: 18px;
   line-height: 24px;
   color: var(--color-blue-700);
+}
+
+@media screen and (max-width: 768px) {
+  .about-education {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .about-education__wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-education__text-container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .about-education {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
 }

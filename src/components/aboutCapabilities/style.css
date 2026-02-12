@@ -1,6 +1,8 @@
 .about-capabilities {
   padding-top: 80px;
   padding-bottom: 80px;
+  border-top: 2px solid var(--color-blue-700);
+  border-bottom: 2px solid var(--color-blue-700);
 }
 
 .about-capabilities .heading-sec__main {
@@ -32,4 +34,33 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-capabilities {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .about-capabilities__wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-capabilities__text-container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .about-capabilities {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .about-capabilities .heading-sec__main {
+    font-size: 43px;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
 }
