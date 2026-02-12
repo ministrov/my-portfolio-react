@@ -36,7 +36,7 @@
   color: var(--color-blue-700);
 }
 
-@media only screen and (max-width: 1224px) {
+@media only screen and (max-width: 1348px) {
   .heading-sec__main {
     margin-bottom: 2rem;
     font-size: 76px;
@@ -49,7 +49,7 @@
   }
 
   .heading-sec__mb-med {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
 
   .heading-sec__sub {

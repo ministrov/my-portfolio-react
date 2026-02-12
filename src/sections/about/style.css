@@ -102,8 +102,7 @@
   }
 
   .about__wrapper {
-    align-items: initial;
-    gap: 0;
+    gap: 8px;
   }
 
   .about__description {
@@ -123,6 +122,10 @@
 
   .about__right {
     gap: 8px;
+  }
+
+  .about__greeting {
+    display: none;
   }
 
   .about__btns {

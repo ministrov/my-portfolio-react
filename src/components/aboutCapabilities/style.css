@@ -37,10 +37,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  /* .about-capabilities {
-   
-  } */
-
   .about-capabilities__wrapper {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -48,5 +44,13 @@
 
   .about-capabilities__text-container {
     max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .about-capabilities .heading-sec__main {
+    font-size: 43px;
+    line-height: 1;
+    letter-spacing: -2px;
   }
 }
