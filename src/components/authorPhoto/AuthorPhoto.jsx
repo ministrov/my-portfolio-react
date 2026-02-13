@@ -44,7 +44,7 @@ const AuthorPhoto = () => {
             {'\n  '}
             <span className="token-property">role</span>
             <span className="token-punctuation">:</span>{' '}
-            <span className="token-string">'Senior Frontend Engineer'</span>
+            <span className="token-string">'Frontend Developer'</span>
             <span className="token-punctuation">,</span>
             {'\n  '}
             <span className="token-property">location</span>
@@ -54,7 +54,7 @@ const AuthorPhoto = () => {
             {'\n  '}
             <span className="token-property">experience</span>
             <span className="token-punctuation">:</span>{' '}
-            <span className="token-string">'5+ years'</span>
+            <span className="token-string">'4+ years'</span>
             <span className="token-punctuation">,</span>
             {'\n  '}
             <span className="token-property">focus</span>
@@ -72,8 +72,6 @@ const AuthorPhoto = () => {
             <span className="token-string">'Next.js'</span>
             <span className="token-punctuation">, </span>
             <span className="token-string">'TypeScript'</span>
-            <span className="token-punctuation">, </span>
-            <span className="token-string">'CSS-in-JS'</span>
             <span className="token-punctuation">]</span>
             <span className="token-punctuation">,</span>
             {'\n  '}

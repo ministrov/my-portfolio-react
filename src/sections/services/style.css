@@ -16,10 +16,10 @@
 }
 
 @media screen and (max-width: 768px) {
-  /* .services {
-    padding-top: 4px;
+  .services {
+    padding-top: 4rem;
     padding-bottom: 4rem;
-  } */
+  }
 
   .services__list {
     grid-template-columns: 1fr;
