@@ -36,12 +36,7 @@
   gap: 16px;
 }
 
-@media screen and (max-width: 768px) {
-  .about-capabilities {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-
+@media screen and (max-width: 1024px) {
   .about-capabilities__wrapper {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -49,6 +44,17 @@
 
   .about-capabilities__text-container {
     max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-capabilities {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .about-capabilities__wrapper {
+    gap: 0;
   }
 }
 

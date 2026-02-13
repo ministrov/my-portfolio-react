@@ -4,7 +4,7 @@
   border-bottom: 2px solid var(--color-blue-700);
 }
 
-.about-experiences .heading-sec__main {
+.about-experience .heading-sec__main {
   text-align: start;
 }
 
@@ -60,6 +60,19 @@
   color: var(--color-blue-700);
 }
 
+@media screen and (max-width: 1228px) {
+  .about-experience__wrapper {
+    grid-template-columns: 35% 65%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .about-experience__wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .about-experience {
     padding-top: 64px;
@@ -67,8 +80,17 @@
   }
 
   .about-experience__wrapper {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 0;
+  }
+
+  .about-experience__head {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .about-experience__experience-list {
+    gap: 40px;
   }
 }
 
