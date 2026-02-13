@@ -3,12 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LanguageProvider } from './context/LanguageProvider';
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
 import Layout from './layouts/Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 
 import './styles/main.css';
 
+const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 const PageNotFound = lazy(() => import('./pages/pageNotFound/PageNotFound'));
 
