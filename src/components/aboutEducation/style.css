@@ -34,6 +34,19 @@
   color: var(--color-blue-700);
 }
 
+@media screen and (max-width: 1228px) {
+  .about-education__head {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .about-education__title {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .about-education {
     padding-top: 64px;
@@ -47,6 +60,10 @@
 
   .about-education__text-container {
     max-width: 100%;
+  }
+
+  .about-education__education-list {
+    gap: 40px;
   }
 }
 
