@@ -222,6 +222,26 @@
   "aboutCapabilities": {
     "text": "I build modern web apps with JavaScript, React, and Next.js using RTK and Zustand for robust state management. My skills in HTML, CSS, and jQuery enable adaptive designs and smooth animations. I'm always eager to master new technologies, turning complex challenges into intuitive interfaces. Ready for projects of any scale!"
   },
+  "aboutExperience": {
+    "name": "OOO Service Market",
+    "textOne": "WaterDel & TaskFlow Applications (React, Redux Toolkit, REST API) Built CRUD applications with comprehensive state management. Implemented responsive layout using the mobile-first methodology.",
+    "textTwo": "As part of the team, developed a high-load web application for the Vam Voda online store — a scalable e-commerce platform successfully serving 20,000+ active users monthly! Responsible for layout.",
+    "textThree": "As a Frontend Developer at OOO «Service Market», I develop promotional landing pages that help launch and enhance the company's marketing campaigns. I focus on fast, precise layout and implement solutions that boost user conversion and engagement. I maintain and evolve the existing frontend infrastructure, optimizing load speeds and project stability. I actively collaborate with the marketing team and backend developers to quickly bring new offers to market and improve key product metrics.",
+    "dateOne": "Sep 2021 — Nov 2023",
+    "dateTwo": "Nov 2023 — Nov 2024",
+    "dateThree": "Nov 2024 — Present"
+  },
+  "aboutEducation": {
+    "titleOne": "Educational Institution: Moscow College of Management and New Technologies",
+    "titleTwo": "Educational Institution: HTML Academy Online Academy",
+    "titleThree": "Educational Institution: HTML Academy Professional Courses: React. Developing Complex Client Applications.",
+    "textOne": "Specialty: Information Technology and Computing.",
+    "textTwo": "Specialty: Professional Web Interface Development.",
+    "textThree": "Specialty: React. Developing Complex Client Applications.",
+    "dateOne": "Sep 1998 — Jun 2002",
+    "dateTwo": "May 2020 — Mar 2021",
+    "dateThree": "Sep 2024 — Nov 2024"
+  },
   "errorMessage": {
     "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",
     "back": "Go back homepage"
