@@ -22,7 +22,7 @@ const AboutExperience = () => {
                     className="about-experience__date"
                     dateTime="2023-09/2023-11"
                   >
-                    Sep 2021 — Nov 2023
+                    {t('aboutExperience.dateOne')}
                   </time>
                 </header>
                 <p className="about-experience__item-text">
@@ -40,7 +40,7 @@ const AboutExperience = () => {
                     className="about-experience__date"
                     dateTime="2023-09/2023-11"
                   >
-                    Nov 2023 — Nov 2024
+                    {t('aboutExperience.dateTwo')}
                   </time>
                 </header>
                 <p className="about-experience__name">
@@ -61,7 +61,7 @@ const AboutExperience = () => {
                     className="about-experience__date"
                     dateTime="2023-09/2023-11"
                   >
-                    Nov 2024 — Present
+                    {t('aboutExperience.dateThree')}
                   </time>
                 </header>
                 <p className="about-experience__name">
