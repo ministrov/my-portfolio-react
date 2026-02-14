@@ -231,6 +231,17 @@
     "dateTwo": "Nov 2023 — Nov 2024",
     "dateThree": "Nov 2024 — Present"
   },
+  "aboutEducation": {
+    "titleOne": "Educational Institution: Moscow College of Management and New Technologies",
+    "titleTwo": "Educational Institution: HTML Academy Online Academy",
+    "titleThree": "Educational Institution: HTML Academy Professional Courses: React. Developing Complex Client Applications.",
+    "textOne": "Specialty: Information Technology and Computing.",
+    "textTwo": "Specialty: Professional Web Interface Development.",
+    "textThree": "Specialty: React. Developing Complex Client Applications.",
+    "dateOne": "Sep 1998 — Jun 2002",
+    "dateTwo": "May 2020 — Mar 2021",
+    "dateThree": "Sep 2024 — Nov 2024"
+  },
   "errorMessage": {
     "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",
     "back": "Go back homepage"

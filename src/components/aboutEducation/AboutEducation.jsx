@@ -16,19 +16,17 @@ const AboutEducation = () => {
               <article className="about-education__item">
                 <header className="about-education__head">
                   <h3 className="about-education__title">
-                    Учебное заведение: "Московский Колледж Управления и Новых
-                    Технологий"
+                    {t('aboutEducation.titleOne')}
                   </h3>
                   <time
                     className="about-education__date"
                     dateTime="2023-09/2023-11"
                   >
-                    Sep 1998 — Jun 2002
+                    {t('aboutEducation.dateOne')}
                   </time>
                 </header>
                 <p className="about-education__item-text">
-                  Специальность: "Информационные технологии и вычислительная
-                  техника".
+                  {t('aboutEducation.textOne')}
                 </p>
               </article>
             </li>
@@ -36,17 +34,17 @@ const AboutEducation = () => {
               <article className="about-education__item">
                 <header className="about-education__head">
                   <h3 className="about-education__title">
-                    Учебное заведение: "Онлайн академия HTML Academy"
+                    {t('aboutEducation.titleTwo')}
                   </h3>
                   <time
                     className="about-education__date"
                     dateTime="2023-09/2023-11"
                   >
-                    2021
+                    {t('aboutEducation.dateTwo')}
                   </time>
                 </header>
                 <p className="about-education__item-text">
-                  Специальность: "Профессиональная разработка веб-интерфейсов."
+                  {t('aboutEducation.textTwo')}
                 </p>
               </article>
             </li>
@@ -54,19 +52,17 @@ const AboutEducation = () => {
               <article className="about-education__item">
                 <header className="about-education__head">
                   <h3 className="about-education__title">
-                    Учебное заведение: "Курсы профессиональной подготовки HTML
-                    Academy: React. Разработка сложных клиентских приложений."
+                    {t('aboutEduction.titleThree')}
                   </h3>
                   <time
                     className="about-education__date"
                     dateTime="2023-09/2023-11"
                   >
-                    2024
+                    {t('aboutEducation.dateThree')}
                   </time>
                 </header>
                 <p className="about-education__item-text">
-                  Специальность: "React. Разработка сложных клиентских
-                  приложений."
+                  {t('aboutEducation.textThree')}
                 </p>
               </article>
             </li>
