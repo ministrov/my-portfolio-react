@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+// import { CgWebsite } from 'react-icons/cg';
 import Heading from '../../components/heading/Heading';
 import icon from '../../assets/svg/advantages-icon.svg';
 import './style.css';

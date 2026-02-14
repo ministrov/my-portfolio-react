@@ -50,10 +50,6 @@
   border-color: rgba(48, 115, 197, 0.75);
 }
 
-.author-card:hover::before {
-  opacity: 0.7;
-}
-
 /* Верхняя “оконная” плашка */
 
 .author-window-bar {
