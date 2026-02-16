@@ -16,7 +16,7 @@ const AboutEducation = () => {
               <article className="about-education__item">
                 <header className="about-education__head">
                   <h3 className="about-education__title">
-                    {t('aboutEducation.titleOne')}
+                    {t('aboutEducation.title1')}
                   </h3>
                   <time
                     className="about-education__date"
@@ -34,7 +34,7 @@ const AboutEducation = () => {
               <article className="about-education__item">
                 <header className="about-education__head">
                   <h3 className="about-education__title">
-                    {t('aboutEducation.titleTwo')}
+                    {t('aboutEducation.title2')}
                   </h3>
                   <time
                     className="about-education__date"
@@ -52,7 +52,7 @@ const AboutEducation = () => {
               <article className="about-education__item">
                 <header className="about-education__head">
                   <h3 className="about-education__title">
-                    {t('aboutEduction.titleThree')}
+                    {t('aboutEducation.title3')}
                   </h3>
                   <time
                     className="about-education__date"
