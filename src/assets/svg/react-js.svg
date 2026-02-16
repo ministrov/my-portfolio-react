@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <title>React Logo with Less Padding and Rounded Corners</title>
+  <!-- Background with rounded corners -->
+  <rect width="56" height="56" rx="8" ry="8" fill="#20232a"/>
+
+  <!-- Slightly less padding: translate to center and scale up a bit -->
+  <g transform="translate(28 28) scale(1.75)">
+    <circle cx="0" cy="0" r="2.05" fill="#61dafb"/>
+    <g stroke="#61dafb" stroke-width="1" fill="none">
+      <ellipse rx="11" ry="4.2"/>
+      <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+      <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+    </g>
+  </g>
+</svg>
