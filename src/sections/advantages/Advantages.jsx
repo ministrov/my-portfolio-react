@@ -1,7 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import website from '../../assets/svg/website.svg';
-import icon from '../../assets/svg/advantages-icon.svg';
+import deploy from '../../assets/png/deploy.png';
+import reactIcon from '../../assets/svg/react-js.svg';
+import seo from '../../assets/png/seo.png';
+import bug from '../../assets/png/bag.png';
 import './style.css';
 
 const Advantages = () => {
@@ -31,7 +34,7 @@ const Advantages = () => {
           <li className="advantages__item">
             <img
               className="advantages__item-img"
-              src={icon}
+              src={deploy}
               width="56"
               height="56"
               alt=""
@@ -44,7 +47,7 @@ const Advantages = () => {
           <li className="advantages__item">
             <img
               className="advantages__item-img"
-              src={icon}
+              src={reactIcon}
               width="56"
               height="56"
               alt=""
@@ -57,7 +60,7 @@ const Advantages = () => {
           <li className="advantages__item">
             <img
               className="advantages__item-img"
-              src={icon}
+              src={seo}
               width="56"
               height="56"
               alt=""
@@ -70,7 +73,7 @@ const Advantages = () => {
           <li className="advantages__item">
             <img
               className="advantages__item-img"
-              src={icon}
+              src={bug}
               width="56"
               height="56"
               alt=""
