@@ -1,5 +1,6 @@
 .faq__button {
-  color: var(--color-blue-700);
+  display: flex;
+  color: var(--color-white);
   background-color: transparent;
   border: none;
   cursor: pointer;

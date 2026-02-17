@@ -6,19 +6,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem;
-  border: 2px solid var(--color-blue-700);
+  padding: 1rem;
   border-radius: var(--border-radius-s);
+  background-color: var(--color-blue-700);
   cursor: pointer;
 }
 
 .faq__question h3 {
+  display: flex;
   font-size: 16px;
   line-height: 22px;
-}
-
-@media screen and (max-width: 580px) {
-  .faq__question {
-    padding: 0.8rem;
-  }
+  color: var(--color-white);
 }
