@@ -45,12 +45,12 @@
 
   .skills__list {
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
   }
 }
 
 @media screen and (max-width: 375px) {
   .skills__list {
-    gap: 1rem;
+    gap: 0.6rem;
   }
 }
