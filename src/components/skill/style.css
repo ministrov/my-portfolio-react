@@ -38,6 +38,8 @@
 @media screen and (max-width: 375px) {
   .skill__card {
     flex-direction: row;
+    gap: 0.5rem;
+    min-width: 110px;
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 4px;
@@ -53,5 +55,10 @@
   .skill__card-icon svg {
     width: 40px;
     height: 40px;
+  }
+
+  .skill__card-header {
+    font-size: 14px;
+    line-height: 20px;
   }
 }
