@@ -1,7 +1,7 @@
 .about {
   position: relative;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   background-color: var(--color-gray-600);
   border-top-left-radius: 42px;
   border-top-right-radius: 42px;
@@ -82,13 +82,6 @@
   .about__description:first-of-type {
     font-size: 24px;
     line-height: 1.2;
-  }
-}
-
-@media screen and (max-width: 910px) {
-  .about {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
   }
 }
 
