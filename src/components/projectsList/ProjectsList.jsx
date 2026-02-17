@@ -6,10 +6,24 @@ import './style.css';
 const ProjectsList = ({ projects }) => {
   const { t } = useTranslation();
 
-  const itemVariants = {
-    hidden: { y: 15, opacity: 0 },
+  // Варианты для обычной карточки (въезд слева)
+  const leftItemVariants = {
+    hidden: { x: '-100vw', opacity: 0 },
     visible: {
-      y: 0,
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  // Варианты для "reversed" карточки (въезд справа)
+  const rightItemVariants = {
+    hidden: { x: '100vw', opacity: 0 },
+    visible: {
+      x: 0,
       opacity: 1,
       transition: {
         duration: 0.7,
@@ -26,6 +40,26 @@ const ProjectsList = ({ projects }) => {
     },
   };
 
+  // const itemVariants = {
+  //   hidden: { y: 15, opacity: 0 },
+  //   visible: {
+  //     y: 0,
+  //     opacity: 1,
+  //     transition: {
+  //       duration: 0.7,
+  //       ease: 'easeOut',
+  //     },
+  //   },
+  // };
+
+  // const containerVariants = {
+  //   visible: {
+  //     transition: {
+  //       staggerChildren: 0.5,
+  //     },
+  //   },
+  // };
+
   return (
     <motion.ul className="projects__list" variants={containerVariants}>
       {projects.map((project) => {
@@ -37,7 +71,7 @@ const ProjectsList = ({ projects }) => {
             className={`project-card__item ${
               isReversed ? 'project-card__item--reversed' : ''
             }`}
-            variants={itemVariants}
+            variants={isReversed ? rightItemVariants : leftItemVariants}
             initial="hidden"
             animate="visible"
             tabIndex={0}
