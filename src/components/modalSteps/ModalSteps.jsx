@@ -1,30 +1,45 @@
+import { Trans } from 'react-i18next';
 import './style.css';
 
 const ModalSteps = () => {
+  // const { t } = useTranslation();
+
   return (
     <div className="modal__modal-step modal-step modal-step__list">
       <div className="modal-step__item">
         <span className="modal-step__counter">1.</span>
         <p className="modal-step__text">
-          Наш консультант <span>уточнит задачи</span> и цели сайта
+          <Trans
+            i18nKey="modal.items.first"
+            components={{ highlighed: <span /> }}
+          />
         </p>
       </div>
       <div className="modal-step__item">
         <span className="modal-step__counter">2.</span>
         <p className="modal-step__text">
-          Подготовим <span>предложение и смету</span> под ваш проект
+          <Trans
+            i18nKey="modal.items.second"
+            components={{ highlighed: <span /> }}
+          />
         </p>
       </div>
       <div className="modal-step__item">
         <span className="modal-step__counter">3.</span>
         <p className="modal-step__text">
-          Закрепим договорённости и <span>запустим разработку</span>
+          <Trans
+            i18nKey="modal.items.third"
+            components={{ highlighed: <span /> }}
+          />
         </p>
       </div>
       <div className="modal-step__item">
         <span className="modal-step__counter">4.</span>
         <p className="modal-step__text">
-          Вы получаете <span>готовый к запуску сайт</span>
+          <Trans
+            i18nKey="modal.items.fourth"
+            components={{ highlighed: <span /> }}
+          />
         </p>
       </div>
     </div>
