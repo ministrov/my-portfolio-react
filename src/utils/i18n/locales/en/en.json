@@ -247,7 +247,13 @@
     "back": "Go back homepage"
   },
   "modal": {
-    "title": "Reach out to me",
+    "title": "4 steps of website development order",
+    "items": {
+      "first": "Our consultant will clarify the tasks and goals of the website",
+      "second": "We'll prepare a proposal and estimate tailored to your project",
+      "third": "We'll confirm the agreements and launch the development",
+      "fourth": "You receive a ready-to-launch website"
+    },
     "text": "Facing difficulties? Remember that I'm always available to offer guidance and assistance. No matter how big or small your problem mayseem, I’m here to provide support. Reach out today, and let's tackle it together.",
     "close": "Close"
   }
