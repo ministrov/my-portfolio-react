@@ -247,7 +247,7 @@
     "back": "Go back homepage"
   },
   "modal": {
-    "title": "4 steps of website development order",
+    "title": "4 <highlited>steps</highlited> of website <highlited>development</highlited> order",
     "items": {
       "first": "Our consultant will clarify the tasks and goals of the website",
       "second": "We'll prepare a proposal and estimate tailored to your project",
