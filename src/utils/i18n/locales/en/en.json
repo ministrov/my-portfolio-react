@@ -247,12 +247,12 @@
     "back": "Go back homepage"
   },
   "modal": {
-    "title": "4 <highlited>steps</highlited> of website <highlited>development</highlited> order",
+    "title": "4 <highlighed>steps</highlighed> of website <highlighed>development</highlighed> order",
     "items": {
-      "first": "Our consultant will clarify the tasks and goals of the website",
-      "second": "We'll prepare a proposal and estimate tailored to your project",
-      "third": "We'll confirm the agreements and launch the development",
-      "fourth": "You receive a ready-to-launch website"
+      "first": "Our consultant will <highlighed>clarify the tasks</highlighed> and goals of the website",
+      "second": "We'll prepare a <highlighed>proposal and estimate</highlighed> tailored to your project",
+      "third": "We'll confirm the agreements and <highlighed>launch the development</highlighed>",
+      "fourth": "You receive a <highlighed>ready-to-launch website</highlighed>"
     },
     "text": "Facing difficulties? Remember that I'm always available to offer guidance and assistance. No matter how big or small your problem mayseem, I’m here to provide support. Reach out today, and let's tackle it together.",
     "close": "Close"

@@ -83,7 +83,7 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
                 <p className="modal__title">
                   <Trans
                     i18nKey="modal.title"
-                    components={{ highlited: <span /> }}
+                    components={{ highlighed: <span /> }}
                   />
                 </p>
                 <ModalPromo />
