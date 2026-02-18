@@ -2,7 +2,7 @@ import { useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { IoCloseSharp } from 'react-icons/io5';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import SocialList from '../socials/SocialList';
 import ModalSteps from '../modalSteps/ModalSteps';
 import ModalPromo from '../modalPromo/ModalPromo';
@@ -81,8 +81,10 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
 
               <header className="modal__header">
                 <p className="modal__title">
-                  4<span> шага</span> заказа
-                  <br /> <span>разработки</span> сайта
+                  <Trans
+                    i18nKey="modal.title"
+                    components={{ highlighed: <span /> }}
+                  />
                 </p>
                 <ModalPromo />
               </header>

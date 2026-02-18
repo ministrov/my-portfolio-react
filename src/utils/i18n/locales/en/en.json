@@ -247,7 +247,13 @@
     "back": "Go back homepage"
   },
   "modal": {
-    "title": "Reach out to me",
+    "title": "4 <highlighed>steps</highlighed> of website <highlighed>development</highlighed> order",
+    "items": {
+      "first": "Our consultant will <highlighed>clarify the tasks</highlighed> and goals of the website",
+      "second": "We'll prepare a <highlighed>proposal and estimate</highlighed> tailored to your project",
+      "third": "We'll confirm the agreements and <highlighed>launch the development</highlighed>",
+      "fourth": "You receive a <highlighed>ready-to-launch website</highlighed>"
+    },
     "text": "Facing difficulties? Remember that I'm always available to offer guidance and assistance. No matter how big or small your problem mayseem, I’m here to provide support. Reach out today, and let's tackle it together.",
     "close": "Close"
   }
