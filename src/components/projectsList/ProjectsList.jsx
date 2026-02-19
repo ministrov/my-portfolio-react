@@ -6,7 +6,6 @@ import './style.css';
 const ProjectsList = ({ projects }) => {
   const { t } = useTranslation();
 
-  // Варианты для обычной карточки (въезд слева)
   const leftItemVariants = {
     hidden: { x: '-100vw', opacity: 0 },
     visible: {
@@ -19,7 +18,6 @@ const ProjectsList = ({ projects }) => {
     },
   };
 
-  // Варианты для "reversed" карточки (въезд справа)
   const rightItemVariants = {
     hidden: { x: '100vw', opacity: 0 },
     visible: {
@@ -39,26 +37,6 @@ const ProjectsList = ({ projects }) => {
       },
     },
   };
-
-  // const itemVariants = {
-  //   hidden: { y: 15, opacity: 0 },
-  //   visible: {
-  //     y: 0,
-  //     opacity: 1,
-  //     transition: {
-  //       duration: 0.7,
-  //       ease: 'easeOut',
-  //     },
-  //   },
-  // };
-
-  // const containerVariants = {
-  //   visible: {
-  //     transition: {
-  //       staggerChildren: 0.5,
-  //     },
-  //   },
-  // };
 
   return (
     <motion.ul className="projects__list" variants={containerVariants}>

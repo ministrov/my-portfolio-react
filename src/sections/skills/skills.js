@@ -107,7 +107,3 @@ export const itemsArrayForLeft = [
     icon: <FaSass color="pink" />,
   },
 ];
-
-// export const skills = [
-
-// ];

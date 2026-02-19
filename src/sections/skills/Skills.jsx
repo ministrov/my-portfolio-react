@@ -55,7 +55,6 @@ const Skills = () => {
           ))}
         </motion.ul>
 
-        {/* Анимируем влево (left) */}
         <motion.ul
           className="skills__list"
           style={{ display: 'flex', width: '200%' }}

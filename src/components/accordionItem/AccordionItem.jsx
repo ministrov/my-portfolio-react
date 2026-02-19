@@ -9,7 +9,7 @@ const AccordionItem = ({ item, isActive, onClick }) => {
 
   const itemVariants = {
     hidden: {
-      x: '-100vw', // из-за левого края вьюпорта
+      x: '-100vw',
       y: 20,
       opacity: 0,
     },
