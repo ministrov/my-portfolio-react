@@ -1,13 +1,9 @@
-/* Обёртка секции автора */
-
 .author-wrapper {
   display: flex;
   justify-content: center;
   background-color: var(--color-gray-100);
   font-family: var(--font-base);
 }
-
-/* Основная карточка */
 
 .author-card {
   position: relative;
@@ -24,8 +20,6 @@
     box-shadow 260ms ease,
     border-color 260ms ease;
 }
-
-/* Лёгкий подсвет границ через градиент */
 
 .author-card::before {
   content: '';
@@ -49,8 +43,6 @@
     0 0 0 1px rgba(48, 115, 197, 0.5);
   border-color: rgba(48, 115, 197, 0.75);
 }
-
-/* Верхняя “оконная” плашка */
 
 .author-window-bar {
   display: flex;
@@ -92,8 +84,6 @@
   color: var(--color-gray-500);
 }
 
-/* Контент: фото + текст */
-
 .author-content {
   display: flex;
   gap: 2.5rem;
@@ -108,8 +98,6 @@
   }
 }
 
-/* Рамка с градиентом вокруг фото на основе твоего градиента */
-
 .author-photo-ring {
   position: relative;
   padding: 4px;
@@ -119,8 +107,6 @@
     0 0 0 1px var(--color-gray-900),
     0 18px 45px rgba(0, 0, 0, 0.85);
 }
-
-/* Само фото */
 
 .author-img {
   display: block;
@@ -138,8 +124,6 @@
     height: 220px;
   }
 }
-
-/* Текстовая часть */
 
 .author-meta {
   flex: 1;
@@ -166,8 +150,6 @@
   font-size: 0.9rem;
   color: var(--color-gray-500);
 }
-
-/* “Код” под карточкой */
 
 .author-code {
   margin: 0;
@@ -198,11 +180,8 @@
   color: #e5e7eb;
 }
 
-/* Общие токены */
-
 .author-code .token-keyword {
   color: #61dafb;
-  /* React blue для ключевых слов */
   font-weight: 500;
 }
 
@@ -212,17 +191,14 @@
 
 .author-code .token-operator {
   color: #c792ea;
-  /* фиолетовый акцент */
 }
 
 .author-code .token-property {
   color: #82aaff;
-  /* имена свойств (ключи объекта) */
 }
 
 .author-code .token-string {
   color: #c3e88d;
-  /* зеленоватые строки */
 }
 
 .author-code .token-number {
@@ -232,8 +208,6 @@
 .author-code .token-punctuation {
   color: #89a1b5;
 }
-
-/* Если захочешь комментарии в объекте */
 
 .author-code .token-comment {
   color: #5c6370;

@@ -8,7 +8,6 @@ import MouseScroll from '../../components/mouseScroll/MouseScroll';
 import avatar from '../../assets/png/my-avatar.webp';
 import avatar2x from '../../assets/png/my-avatar-1000.webp';
 import avatar3x from '../../assets/png/my-avatar-1500.webp';
-// import author from '../../assets/png/photo.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -21,7 +20,7 @@ const commonAnimation = {
   viewport: { margin: '-50px' },
   transition: {
     duration: 0.8,
-    ease: [0.25, 0.1, 0.25, 1], // Кастомная easing-функция (более естественная)
+    ease: [0.25, 0.1, 0.25, 1],
   },
 };
 
@@ -125,15 +124,6 @@ const Promo = () => {
               />
             </picture>
           </motion.div>
-
-          {/* <img
-              className="about__image"
-              src={author}
-              width={500}
-              height={500}
-              alt={"Focus on author's face"}
-              loading="lazy"
-            /> */}
         </div>
       </div>
       <MouseScroll />

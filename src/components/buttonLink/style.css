@@ -31,12 +31,6 @@
   display: none;
 }
 
-/* .button-link__icon {
-  display: flex;
-  width: 24px;
-  height: 24px;
-} */
-
 @media screen and (max-width: 1024px) {
   .button-link {
     display: flex;

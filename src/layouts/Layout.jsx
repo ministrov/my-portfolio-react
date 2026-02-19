@@ -5,9 +5,6 @@ import Up from '../components/Up/Up';
 
 const Layout = () => {
   return (
-    // <div className="layout-wrapper">
-
-    // </div>
     <>
       <Header />
 

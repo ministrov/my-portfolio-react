@@ -32,15 +32,11 @@ const AnimatedBackground = () => {
         x: Math.random() * 100,
         y: Math.random() * 100,
         baseOpacity,
-        // Увеличиваем вероятность анимации
         animationType: Math.random() > 0.4 ? 'pulse' : 'drift',
-        // Для дрейфа - случайное направление и расстояние
         driftDistance: Math.random() * 15 + 5,
         driftAngle: Math.random() * 360,
-        // Для пульсации - разная интенсивность
         pulseIntensity: Math.random() * 0.5 + 0.3,
         pulseDuration: Math.random() * 3 + 2,
-        // Общие параметры
         color,
         duration: Math.random() * 6 + 3,
       });
@@ -48,7 +44,6 @@ const AnimatedBackground = () => {
     setStars(newStars);
   };
 
-  // Варианты анимации для Framer Motion
   const getStarAnimation = (star) => {
     if (star.animationType === 'pulse') {
       return {
@@ -66,13 +61,12 @@ const AnimatedBackground = () => {
         },
       };
     } else {
-      // Анимация дрейфа (медленного перемещения)
       const rad = (star.driftAngle * Math.PI) / 180;
       const x = Math.cos(rad) * star.driftDistance;
       const y = Math.sin(rad) * star.driftDistance;
 
       return {
-        x: [0, x, 0, -x, 0], // Добавляем движение вперед-назад для более естественного эффекта
+        x: [0, x, 0, -x, 0],
         y: [0, y, 0, -y, 0],
         opacity: [
           star.baseOpacity,
