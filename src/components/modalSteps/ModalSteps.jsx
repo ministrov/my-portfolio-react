@@ -2,8 +2,6 @@ import { Trans } from 'react-i18next';
 import './style.css';
 
 const ModalSteps = () => {
-  // const { t } = useTranslation();
-
   return (
     <div className="modal__modal-step modal-step modal-step__list">
       <div className="modal-step__item">

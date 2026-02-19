@@ -89,26 +89,11 @@
   },
   "advantages": {
     "items": {
-      "first": {
-        "start": "Легкий и быстрый",
-        "end": "сайт."
-      },
-      "second": {
-        "start": "Быстрая",
-        "end": "разработка и деплой."
-      },
-      "third": {
-        "start": "Чистый современный код",
-        "end": "без legacy."
-      },
-      "fourth": {
-        "start": "Гарантия",
-        "end": "производительности и SEO."
-      },
-      "fifth": {
-        "start": "Надежный код",
-        "end": "без багов и проблем."
-      }
+      "first": "Легкий и быстрый <hightlight>сайт</hightlight>.",
+      "second": "<hightlight>Быстрая</hightlight> разработка и деплой.",
+      "third": "<hightlight>Чистый современный код</hightlight> без legacy.",
+      "fourth": "<hightlight>Гарантия</hightlight> производительности и SEO.",
+      "fifth": "<hightlight>Надежный код</hightlight> без багов и проблем."
     }
   },
   "faqs": {

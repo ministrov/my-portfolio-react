@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import website from '../../assets/svg/website.svg';
 import deploy from '../../assets/png/deploy.png';
@@ -27,8 +27,10 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>{t('advantages.items.first.start')}</strong>{' '}
-              {t('advantages.items.first.end')}
+              <Trans
+                i18nKey="advantages.items.first"
+                components={{ hightlight: <strong /> }}
+              />
             </p>
           </li>
           <li className="advantages__item">
@@ -40,8 +42,10 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>{t('advantages.items.second.start')}</strong>{' '}
-              {t('advantages.items.second.end')}
+              <Trans
+                i18nKey="advantages.items.second"
+                components={{ hightlight: <strong /> }}
+              />
             </p>
           </li>
           <li className="advantages__item">
@@ -53,8 +57,10 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>{t('advantages.items.third.start')}</strong>{' '}
-              {t('advantages.items.third.end')}
+              <Trans
+                i18nKey="advantages.items.third"
+                components={{ hightlight: <strong /> }}
+              />
             </p>
           </li>
           <li className="advantages__item">
@@ -66,8 +72,10 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>{t('advantages.items.fourth.start')}</strong>{' '}
-              {t('advantages.items.fourth.end')}
+              <Trans
+                i18nKey="advantages.items.fourth"
+                components={{ hightlight: <strong /> }}
+              />
             </p>
           </li>
           <li className="advantages__item">
@@ -79,8 +87,10 @@ const Advantages = () => {
               alt=""
             />
             <p className="advantages__item-text">
-              <strong>{t('advantages.items.fifth.start')}</strong>{' '}
-              {t('advantages.items.fifth.end')}
+              <Trans
+                i18nKey="advantages.items.fifth"
+                components={{ hightlight: <strong /> }}
+              />
             </p>
           </li>
         </ul>

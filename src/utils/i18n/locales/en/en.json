@@ -90,26 +90,11 @@
   },
   "advantages": {
     "items": {
-      "first": {
-        "start": "Light and fast",
-        "end": "website."
-      },
-      "second": {
-        "start": "Fast",
-        "end": "development and deploy"
-      },
-      "third": {
-        "start": "Clean modern code",
-        "end": "without legacy."
-      },
-      "fourth": {
-        "start": "Guarantee",
-        "end": "of performance and SEO."
-      },
-      "fifth": {
-        "start": "Reliable code",
-        "end": "without bugs and issues."
-      }
+      "first": "Light and fast <hightlight>website</hightlight>.",
+      "second": "<hightlight>Fast</hightlight> development and deploy",
+      "third": "<hightlight>Clean modern code</hightlight> without legacy.",
+      "fourth": "<hightlight>Guarantee</hightlight> of performance and SEO.",
+      "fifth": "<hightlight>Reliable code</hightlight> without bugs and issues."
     }
   },
   "faqs": {
