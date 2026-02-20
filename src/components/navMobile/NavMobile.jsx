@@ -17,6 +17,11 @@ const NavMobile = () => {
     document.body.style.overflow = toggled ? 'hidden' : 'auto';
   };
 
+  const handleMenuClose = () => {
+    setOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
   return (
     <div className="nav-mobile" ref={ref}>
       <div className="nav-mobile__buttons">
@@ -61,7 +66,7 @@ const NavMobile = () => {
                   >
                     <NavLink
                       to={route.href}
-                      onClick={() => setOpen(false)}
+                      onClick={handleMenuClose}
                       className={'nav-mobile__link'}
                       aria-label={`${t(route.title)} ${t('Go to page')}`}
                     >
