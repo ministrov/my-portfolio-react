@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { faqs } from '../../const';
 import AccordionItem from '../accordionItem/AccordionItem';
 import './style.css';
@@ -21,21 +21,23 @@ const Accordion = () => {
   };
 
   return (
-    <motion.ul
-      className="faq__list"
-      variants={listVariants}
-      initial="hidden"
-      whileInView="visible"
-    >
-      {faqs.map((faq) => (
-        <AccordionItem
-          key={faq.id}
-          item={faq}
-          onClick={() => toggleItem(faq.id)}
-          isActive={activeIndex === faq.id}
-        />
-      ))}
-    </motion.ul>
+    <LazyMotion features={domAnimation}>
+      <m.ul
+        className="faq__list"
+        variants={listVariants}
+        initial="hidden"
+        whileInView="visible"
+      >
+        {faqs.map((faq) => (
+          <AccordionItem
+            key={faq.id}
+            item={faq}
+            onClick={() => toggleItem(faq.id)}
+            isActive={activeIndex === faq.id}
+          />
+        ))}
+      </m.ul>
+    </LazyMotion>
   );
 };
 

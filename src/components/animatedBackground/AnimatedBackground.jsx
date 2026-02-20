@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'framer-motion';
 import './styles.css';
 
 const AnimatedBackground = () => {
@@ -87,27 +87,29 @@ const AnimatedBackground = () => {
 
   return (
     <div className="background">
-      {stars.map((star) => (
-        <motion.div
-          key={star.id}
-          className="star"
-          initial={{
-            opacity: star.baseOpacity,
-            scale: 1,
-            x: 0,
-            y: 0,
-          }}
-          animate={getStarAnimation(star)}
-          style={{
-            width: `${star.size}px`,
-            height: `${star.size}px`,
-            left: `${star.x}%`,
-            top: `${star.y}%`,
-            background: `${star.color}`,
-            boxShadow: `0 0 ${star.size * 3}px ${star.color}`,
-          }}
-        />
-      ))}
+      <LazyMotion features={domAnimation}>
+        {stars.map((star) => (
+          <m.div
+            key={star.id}
+            className="star"
+            initial={{
+              opacity: star.baseOpacity,
+              scale: 1,
+              x: 0,
+              y: 0,
+            }}
+            animate={getStarAnimation(star)}
+            style={{
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              background: `${star.color}`,
+              boxShadow: `0 0 ${star.size * 3}px ${star.color}`,
+            }}
+          />
+        ))}
+      </LazyMotion>
     </div>
   );
 };

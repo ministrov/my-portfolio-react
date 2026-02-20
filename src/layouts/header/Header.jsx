@@ -11,13 +11,13 @@ const Header = () => {
     const handleScroll = () => {
       if (window.scrollY > 100) setHeaderBg(true);
       if (window.scrollY < 100) setHeaderBg(false);
-    }
+    };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-    }
+    };
   }, []);
   return (
     <header className={`header ${headerBg ? 'header--bg' : ''}`}>

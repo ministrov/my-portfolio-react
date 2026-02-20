@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LanguageProvider } from './context/LanguageProvider';
 import HomePage from './pages/HomePage';
 import Layout from './layouts/Layout';
+import Loader from './components/loader/Loader';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 
 import './styles/main.css';
@@ -28,7 +29,7 @@ const App = () => {
     >
       <ScrollToTop />
       <LanguageProvider>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<HomePage />} />
