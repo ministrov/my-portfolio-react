@@ -29,24 +29,12 @@ const Showcasing = () => {
               ease: [0.25, 0.1, 0.25, 1],
             }}
           >
-            <Suspense
-              fallback={
-                <div
-                  className="showcasing__loader"
-                  aria-label="Loading carousel"
-                >
-                  <div className="loader-spinner" />{' '}
-                  {/* ✅ Улучшенный UI загрузки */}
-                </div>
-              }
-            >
+            <Suspense fallback={<Loader />}>
               <LazyCarousel className="showcasing__carousel" />
             </Suspense>
           </m.div>
         </LazyMotion>
       </div>
-
-      <Loader />
     </section>
   );
 };
