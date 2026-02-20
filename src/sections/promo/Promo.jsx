@@ -116,11 +116,11 @@ const Promo = () => {
               <source srcSet={`${avatar} 500w`} media="(max-width: 768px)" />
               <img
                 className="promo__avatar"
-                src={avatar} // fallback
+                src={avatar}
                 width="500"
                 height="500"
                 alt="Avatar a pixel man with a laptop"
-                fetchpriority="high"
+                fetchPriority
               />
             </picture>
           </motion.div>

@@ -38,7 +38,7 @@ const Up = () => {
       return;
     }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     document.addEventListener('keydown', handleKeyDown);
 
     return () => {
