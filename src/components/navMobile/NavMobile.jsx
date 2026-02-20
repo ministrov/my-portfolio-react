@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Squash as Hamburger } from 'hamburger-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +11,7 @@ const NavMobile = () => {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
   const { t } = useTranslation();
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     if (isOpen) {
@@ -21,9 +21,9 @@ const NavMobile = () => {
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   setOpen(false);
+  // }, [location.pathname]);
 
   return (
     <div className="nav-mobile" ref={ref}>
@@ -54,7 +54,7 @@ const NavMobile = () => {
 
                 return (
                   <motion.li
-                    initial={{ scale: 0, opacity: 0 }}
+                    initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{
                       type: 'spring',
@@ -69,7 +69,7 @@ const NavMobile = () => {
                   >
                     <NavLink
                       to={route.href}
-                      onClick={() => setOpen((prev) => !prev)}
+                      onClick={() => setOpen(false)}
                       className={'nav-mobile__link'}
                       aria-label={`${t(route.title)} ${t('Go to page')}`}
                     >
