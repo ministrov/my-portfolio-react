@@ -120,7 +120,7 @@ const Promo = () => {
                 width="500"
                 height="500"
                 alt="Avatar a pixel man with a laptop"
-                fetchPriority
+                fetchpriority="true"
               />
             </picture>
           </motion.div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { IoCloseSharp } from 'react-icons/io5';
@@ -14,36 +14,40 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
   const timerRef = useRef(null);
   const titleId = 'modal-title';
 
+  const handleClose = useCallback(() => {
+    onClose();
+    document.body.style.overflow = 'unset';
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+  }, [onClose]);
+
   const handleKeyDown = useCallback(
     (e) => {
-      if (e.key === 'Escape') onClose();
+      console.log(e.key);
+      if (e.key === 'Escape') handleClose();
     },
-    [onClose]
+    [handleClose]
   );
 
-  useEffect(() => {
-    if (open) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
+  const handleOpen = useCallback(() => {
+    document.body.style.overflow = 'hidden';
 
-      return () => {
-        document.removeEventListener('keydown', handleKeyDown);
-        document.body.style.overflow = 'unset';
-      };
+    if (autoCloseDelay) {
+      timerRef.current = setTimeout(() => {
+        handleClose();
+      }, autoCloseDelay);
     }
-  }, [open, handleKeyDown]);
+  }, [handleClose, autoCloseDelay]);
 
-  useEffect(() => {
-    if (!open || !autoCloseDelay) return;
-
-    timerRef.current = setTimeout(() => {
-      onClose();
-    }, autoCloseDelay);
-
-    return () => {
-      clearTimeout(timerRef.current);
-    };
-  }, [open, autoCloseDelay, onClose]);
+  const handleModalToggle = () => {
+    if (open) {
+      handleClose();
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      handleOpen();
+    }
+  };
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) onClose();
@@ -72,7 +76,7 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
             <div className="modal__inner">
               <button
                 className="modal__close"
-                onClick={onClose}
+                onClick={handleModalToggle}
                 aria-label={t('modal.close')}
                 type="button"
               >
