@@ -12,23 +12,15 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
   const { t } = useTranslation();
   const modalRef = useRef(null);
   const timerRef = useRef(null);
-  const titleId = 'modal-title';
 
   const handleClose = useCallback(() => {
     onClose();
     document.body.style.overflow = 'unset';
+
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
   }, [onClose]);
-
-  const handleKeyDown = useCallback(
-    (e) => {
-      console.log(e.key);
-      if (e.key === 'Escape') handleClose();
-    },
-    [handleClose]
-  );
 
   const handleOpen = useCallback(() => {
     document.body.style.overflow = 'hidden';
@@ -38,12 +30,11 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
         handleClose();
       }, autoCloseDelay);
     }
-  }, [handleClose, autoCloseDelay]);
+  }, [autoCloseDelay, handleClose]);
 
   const handleModalToggle = () => {
     if (open) {
       handleClose();
-      document.addEventListener('keydown', handleKeyDown);
     } else {
       handleOpen();
     }
@@ -53,15 +44,22 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
     if (e.target === e.currentTarget) onClose();
   };
 
+  const handleBackdropKeyDown = (e) => {
+    if (e.key === 'Escape' || e.key === 'Enter') {
+      e.preventDefault();
+      handleClose();
+    }
+  };
+
   return createPortal(
     <AnimatePresence>
       {open && (
         <div
           className="backdrop"
           onClick={handleBackdropClick}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={titleId}
+          onKeyDown={handleBackdropKeyDown}
+          role="button"
+          aria-label="Close modal"
         >
           <motion.div
             initial={{ opacity: 0 }}
