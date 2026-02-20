@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Squash as Hamburger } from 'hamburger-react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -11,19 +11,11 @@ const NavMobile = () => {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
   const { t } = useTranslation();
-  // const location = useLocation();
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [isOpen]);
-
-  // useEffect(() => {
-  //   setOpen(false);
-  // }, [location.pathname]);
+  const handleMenuToggle = (toggled) => {
+    setOpen(toggled);
+    document.body.style.overflow = toggled ? 'hidden' : 'auto';
+  };
 
   return (
     <div className="nav-mobile" ref={ref}>
@@ -31,7 +23,7 @@ const NavMobile = () => {
         <Hamburger
           toggled={isOpen}
           size={28}
-          toggle={setOpen}
+          toggle={handleMenuToggle}
           color="#0058a7"
           hideOutline={false}
           label="Show menu"
