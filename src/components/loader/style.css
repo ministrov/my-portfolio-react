@@ -1,3 +1,30 @@
 .loader {
-  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 200px;
+}
+
+.loader__spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  animation: loader-rotate 0.8s linear infinite;
+}
+
+.loader--blue .loader__spinner {
+  border: 3px solid rgba(0, 88, 167, 0.2);
+  border-top-color: #0058a7;
+}
+
+.loader--white .loader__spinner {
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ffffff;
+}
+
+@keyframes loader-rotate {
+  to {
+    transform: rotate(360deg);
+  }
 }
