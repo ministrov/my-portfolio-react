@@ -48,13 +48,11 @@ const Skills = () => {
             style={{ display: 'flex', width: '200%' }}
             {...animationConfigRight}
           >
-            {[...itemsArrayForRight, ...itemsArrayForRight].map(
-              (skill, index) => (
-                <li key={`${skill.id}-${index}`}>
-                  <Skill skill={skill} />
-                </li>
-              )
-            )}
+            {[...itemsArrayForRight, ...itemsArrayForRight].map((skill) => (
+              <li key={skill.id}>
+                <Skill skill={skill} />
+              </li>
+            ))}
           </m.ul>
 
           <m.ul
@@ -62,13 +60,11 @@ const Skills = () => {
             style={{ display: 'flex', width: '200%' }}
             {...animationConfigLeft}
           >
-            {[...itemsArrayForLeft, ...itemsArrayForLeft].map(
-              (skill, index) => (
-                <li key={`${skill.id}-${index}`}>
-                  <Skill skill={skill} />
-                </li>
-              )
-            )}
+            {[...itemsArrayForLeft, ...itemsArrayForLeft].map((skill) => (
+              <li key={skill.id}>
+                <Skill skill={skill} />
+              </li>
+            ))}
           </m.ul>
         </LazyMotion>
       </div>
