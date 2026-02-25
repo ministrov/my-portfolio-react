@@ -1,8 +1,8 @@
 import website from '../../assets/svg/website.svg';
-import deploy from '../../assets/png/deploy.png';
+import deploy from '../../assets/png/deploy.webp';
 import reactIcon from '../../assets/svg/react-js.svg';
-import seo from '../../assets/png/seo.png';
-import bug from '../../assets/png/bag.png';
+import seo from '../../assets/png/seo.webp';
+import bug from '../../assets/png/bag.webp';
 
 const items = [
   {
