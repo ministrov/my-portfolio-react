@@ -10,100 +10,84 @@ export const itemsArrayForRight = [
   {
     id: 1,
     tech: 'HTML5',
-    percent: 65,
     icon: <ImHtmlFive color="red" />,
   },
   {
     id: 2,
     tech: 'CSS3',
-    percent: 55,
     icon: <FaCss3Alt color="blue" />,
   },
   {
     id: 3,
     tech: 'JavaScript',
-    percent: 75,
     icon: <RiJavascriptLine color="orange" />,
   },
   {
     id: 4,
     tech: 'TypeScript',
-    percent: 45,
     icon: <TbBrandTypescript color="blue" />,
   },
   {
     id: 5,
     tech: 'React',
-    percent: 65,
     icon: <FaReact color="lightblue" />,
   },
   {
     id: 6,
     tech: 'Next',
-    percent: 35,
     icon: <SiNextdotjs />,
   },
   {
     id: 7,
     tech: 'Redux',
-    percent: 45,
     icon: <SiRedux color="purple" />,
   },
   {
     id: 8,
     tech: 'RTK',
-    percent: 55,
     icon: <SiRedux color="purple" />,
   },
 ];
 
 export const itemsArrayForLeft = [
   {
-    id: 9,
+    id: 1,
     tech: 'Git',
-    percent: 65,
     icon: <FaGitAlt color="red" />,
   },
   {
-    id: 10,
+    id: 2,
     tech: 'Sass',
-    percent: 65,
     icon: <FaSass color="pink" />,
   },
   {
-    id: 11,
+    id: 3,
     tech: 'Sass',
-    percent: 65,
     icon: <FaSass color="pink" />,
   },
   {
-    id: 12,
+    id: 4,
     tech: 'Sass',
-    percent: 65,
     icon: <FaSass color="pink" />,
   },
   {
-    id: 13,
+    id: 5,
     tech: 'Sass',
-    percent: 65,
     icon: <FaSass color="pink" />,
   },
   {
-    id: 14,
+    id: 6,
     tech: 'Sass',
-    percent: 65,
     icon: <FaSass color="pink" />,
   },
   {
-    id: 15,
+    id: 7,
     tech: 'Sass',
-    percent: 65,
     icon: <FaSass color="pink" />,
   },
   {
-    id: 16,
+    id: 8,
     tech: 'Sass',
-    percent: 65,
     icon: <FaSass color="pink" />,
   },
 ];

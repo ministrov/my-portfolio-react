@@ -19,6 +19,7 @@
 .skills__list {
   display: flex;
   gap: 2rem;
+  will-change: transform;
 }
 
 .skills__text {
