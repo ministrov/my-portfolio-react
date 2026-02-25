@@ -217,9 +217,9 @@
     "dateThree": "Nov 2024 — Present"
   },
   "aboutEducation": {
-    "titleOne": "Educational Institution: Moscow College of Management and New Technologies",
-    "titleTwo": "Educational Institution: HTML Academy Online Academy",
-    "titleThree": "Educational Institution: HTML Academy Professional Courses: React. Developing Complex Client Applications.",
+    "title1": "Educational Institution: Moscow College of Management and New Technologies",
+    "title2": "Educational Institution: HTML Academy Online Academy",
+    "title3": "Educational Institution: HTML Academy Professional Courses: React. Developing Complex Client Applications.",
     "textOne": "Specialty: Information Technology and Computing.",
     "textTwo": "Specialty: Professional Web Interface Development.",
     "textThree": "Specialty: React. Developing Complex Client Applications.",
