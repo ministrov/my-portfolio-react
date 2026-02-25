@@ -28,8 +28,8 @@ const Home = () => {
       <h1 className="visually-hidden">Главная страница</h1>
       <Promo />
       <About title link />
-      <Services />
       <Showcasing />
+      <Services />
       <Advantages />
       <Faq />
       <Contact />
