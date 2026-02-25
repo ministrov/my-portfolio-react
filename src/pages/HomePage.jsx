@@ -2,7 +2,6 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
-// import Skills from '../sections/skills/Skills.jsx';
 import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
@@ -30,7 +29,6 @@ const Home = () => {
       <Promo />
       <About title link />
       <Services />
-      {/* <Skills /> */}
       <Showcasing />
       <Advantages />
       <Faq />
