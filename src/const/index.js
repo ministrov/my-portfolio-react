@@ -156,6 +156,28 @@ export const skills = [
  * Конфигурация по умолчанию для анимированного фона
  * @type {Object}
  */
+/**
+ * Данные автора для компонента AuthorPhoto
+ * @type {Object}
+ */
+export const authorData = {
+  name: 'Антон Жилин',
+  role: 'Frontend Developer · React / Next.js',
+  location: 'Москва · Remote / Hybrid',
+  photoAlt: 'Крупным планом автор проекта',
+  code: {
+    name: 'Антон Жилин',
+    role: 'Frontend Developer',
+    location: 'Moscow, Russia',
+    experience: '4+ years',
+    focus: 'Frontend architecture, animation, DX',
+    stack: ['React', 'Next.js', 'TypeScript'],
+    interests: ['UX', 'Design systems', 'Animations'],
+    currentlyLearning: ['Testing', 'Node.js'],
+    availableFor: ['Remote', 'Consulting'],
+  },
+};
+
 export const DEFAULT_CONFIG = {
   MAX_STARS: 350,
   MIN_STARS: 50,

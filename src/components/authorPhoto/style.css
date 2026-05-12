@@ -154,20 +154,6 @@
 .author-code {
   margin: 0;
   padding: 1.25rem 1.75rem 1.6rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  color: var(--color-gray-200);
-  background-color: var(--color-gray-800);
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  overflow-x: auto;
-  white-space: pre;
-}
-
-.author-code {
-  margin: 0;
-  padding: 1.25rem 1.75rem 1.6rem;
   background-color: #0b1020;
   /* тёмный синевато‑серый */
   border-top: 1px solid rgba(255, 255, 255, 0.04);
