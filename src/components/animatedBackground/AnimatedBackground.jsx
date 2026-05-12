@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import './styles.css';
+import debounce from '../../utils/debounce';
 
 /**
  * Конфигурация по умолчанию для анимированного фона
@@ -246,23 +247,5 @@ const AnimatedBackground = ({
     </div>
   );
 };
-
-/**
- * Утилита debounce для оптимизации обработчиков событий
- * @param {Function} func - Функция для вызова
- * @param {number} wait - Время задержки в миллисекундах
- * @returns {Function} Дебаунсированная функция
- */
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
 
 export default AnimatedBackground;
