@@ -12,16 +12,73 @@
   color: var(--color-blue-700);
   text-decoration: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .logo__link:hover {
   opacity: 0.8;
+  transform: scale(1.02);
 }
 
-.logo__link--second {
+/* Варианты цвета */
+.logo__link--default {
+  color: var(--color-blue-700);
+}
+
+.logo__link--white {
   color: var(--color-white);
 }
 
+.logo__link--monochrome {
+  color: var(--color-gray-900);
+}
+
+.logo__link--white .logo__icon {
+  color: var(--color-white) !important;
+}
+
+.logo__link--monochrome .logo__icon {
+  color: var(--color-gray-900) !important;
+}
+
+/* Размеры */
+.logo--small .logo__link {
+  font-size: 20px;
+  line-height: 24px;
+  gap: 6px;
+}
+
+.logo--medium .logo__link {
+  font-size: 28px;
+  line-height: 34px;
+  gap: 8px;
+}
+
+.logo--large .logo__link {
+  font-size: 36px;
+  line-height: 42px;
+  gap: 10px;
+}
+
+.logo--small .logo__icon {
+  width: 28px;
+  height: 28px;
+}
+
+.logo--medium .logo__icon {
+  width: 38px;
+  height: 38px;
+}
+
+.logo--large .logo__icon {
+  width: 48px;
+  height: 48px;
+}
+
+/* Адаптивность */
 @media only screen and (max-width: 26.25em) {
   .logo__link {
     letter-spacing: -1px;
@@ -29,5 +86,20 @@
 
   .logo__icon {
     display: none;
+  }
+
+  .logo--small .logo__link {
+    font-size: 18px;
+  }
+
+  .logo--large .logo__link {
+    font-size: 28px;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media only screen and (max-width: 20em) {
+  .logo__text {
+    font-size: 16px;
   }
 }
