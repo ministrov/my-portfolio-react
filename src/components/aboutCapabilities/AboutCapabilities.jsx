@@ -38,6 +38,9 @@ const AboutCapabilities = () => {
     },
   };
 
+  // Motion-обёртка для Tag, совместимая с Framer Motion
+  const MotionTag = motion(Tag);
+
   return (
     <section className="about-capabilities">
       <div className="container">
@@ -58,9 +61,9 @@ const AboutCapabilities = () => {
               aria-label={t('aboutCapabilities.ariaLabel', { default: 'Список технологий' })}
             >
               {skills.map((skill) => (
-                <motion.li key={skill} variants={itemVariants}>
-                  <Tag>{skill}</Tag>
-                </motion.li>
+                <MotionTag key={skill} variants={itemVariants}>
+                  {skill}
+                </MotionTag>
               ))}
             </motion.ul>
           </div>
