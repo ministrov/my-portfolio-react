@@ -1,36 +1,8 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
-import './styles.css';
 import debounce from '../../utils/debounce';
-
-/**
- * Конфигурация по умолчанию для анимированного фона
- * @type {Object}
- */
-const DEFAULT_CONFIG = {
-  MAX_STARS: 350,
-  MIN_STARS: 50,
-  STAR_SIZE_MIN: 0.7,
-  STAR_SIZE_MAX: 4,
-  STAR_OPACITY_MIN: 0.1,
-  STAR_OPACITY_MAX: 0.7,
-  PULSE_PROBABILITY: 0.6, // 60% chance for pulse animation
-  DRIFT_DISTANCE_MIN: 5,
-  DRIFT_DISTANCE_MAX: 20,
-  PULSE_INTENSITY_MIN: 0.3,
-  PULSE_INTENSITY_MAX: 0.8,
-  PULSE_DURATION_MIN: 2,
-  PULSE_DURATION_MAX: 5,
-  DRIFT_DURATION_MIN: 3,
-  DRIFT_DURATION_MAX: 9,
-  COLORS: [
-    '#ffffff',
-    'rgba(43, 87, 168, 1)',
-    '#ffffff',
-    'rgb(254,6,110)',
-    '#ffffff',
-  ],
-};
+import { DEFAULT_CONFIG } from '../../const';
+import './styles.css';
 
 /**
  * @typedef {Object} Star
