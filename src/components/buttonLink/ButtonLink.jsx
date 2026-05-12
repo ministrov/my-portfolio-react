@@ -34,21 +34,20 @@ const ButtonLink = ({
   text,
   icon = null,
   target = false,
-  ariaLabel = undefined,
-  title = undefined,
+  ariaLabel,
+  title,
   ...rest
 }) => {
   // Определяем, является ли ссылка внешней (начинается с http/https)
   const isExternal = /^https?:\/\//.test(path);
   
-  // Для внешних ссылок используем обычный тег <a>, для внутренних — NavLink
-  const linkProps = {
+  // Базовые атрибуты, общие для всех ссылок
+  const commonProps = {
     className: `button-link ${className}`.trim(),
-    to: path,
     target: target ? '_blank' : '_self',
     rel: target ? 'noopener noreferrer' : undefined,
-    'aria-label': ariaLabel,
-    title: title,
+    ...(ariaLabel && { 'aria-label': ariaLabel }),
+    ...(title && { title }),
     ...rest,
   };
 
@@ -64,12 +63,7 @@ const ButtonLink = ({
     return (
       <a
         href={path}
-        className={linkProps.className}
-        target={linkProps.target}
-        rel={linkProps.rel}
-        aria-label={linkProps['aria-label']}
-        title={linkProps.title}
-        {...rest}
+        {...commonProps}
       >
         {content}
       </a>
@@ -78,7 +72,10 @@ const ButtonLink = ({
 
   // Для внутренних ссылок используем NavLink
   return (
-    <NavLink {...linkProps}>
+    <NavLink
+      to={path}
+      {...commonProps}
+    >
       {content}
     </NavLink>
   );
@@ -99,14 +96,6 @@ ButtonLink.propTypes = {
   ariaLabel: PropTypes.string,
   /** Всплывающая подсказка (title атрибут) */
   title: PropTypes.string,
-};
-
-ButtonLink.defaultProps = {
-  className: '',
-  icon: null,
-  target: false,
-  ariaLabel: undefined,
-  title: undefined,
 };
 
 export default ButtonLink;
