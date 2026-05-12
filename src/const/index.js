@@ -88,3 +88,14 @@ export const faqs = [
     answer: 'faqs.question_7.answer',
   },
 ];
+
+export const skills = [
+  'JavaScript',
+  'JQuery',
+  'HTML',
+  'CSS',
+  'React',
+  'RTK',
+  'Zustand',
+  'Next',
+];

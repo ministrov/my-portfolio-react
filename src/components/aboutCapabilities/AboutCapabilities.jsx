@@ -1,20 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import Heading from '../heading/Heading';
 import Tag from '../tag/Tag';
+import { skills } from '../../const/index.js';
 import './style.css';
 
 const AboutCapabilities = () => {
   const { t } = useTranslation();
-  const skills = [
-    'JavaScript',
-    'JQuery',
-    'HTML',
-    'CSS',
-    'React',
-    'RTK',
-    'Zustand',
-    'Next',
-  ];
 
   return (
     <section className="about-capabilities">
