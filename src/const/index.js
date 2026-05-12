@@ -89,6 +89,30 @@ export const faqs = [
   },
 ];
 
+export const education = [
+  {
+    id: 1,
+    titleKey: 'aboutEducation.title1',
+    textKey: 'aboutEducation.textOne',
+    dateKey: 'aboutEducation.dateOne',
+    dateTime: '1998-09/2002-06',
+  },
+  {
+    id: 2,
+    titleKey: 'aboutEducation.title2',
+    textKey: 'aboutEducation.textTwo',
+    dateKey: 'aboutEducation.dateTwo',
+    dateTime: '2020-05/2021-03',
+  },
+  {
+    id: 3,
+    titleKey: 'aboutEducation.title3',
+    textKey: 'aboutEducation.textThree',
+    dateKey: 'aboutEducation.dateThree',
+    dateTime: '2024-09/2024-11',
+  },
+];
+
 export const skills = [
   'JavaScript',
   'JQuery',
