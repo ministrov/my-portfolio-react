@@ -1,4 +1,5 @@
-import { useTranslation, useMemo } from 'react-i18next';
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import AccordionPanel from '../accordionPanel/AccordionPanel';
 import AccordionButton from '../accordionButton/AccordionButton';
