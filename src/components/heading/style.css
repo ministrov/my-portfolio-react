@@ -21,6 +21,12 @@
   transform: translateX(-50%);
   border-radius: var(--border-radius-s);
   background: var(--color-blue-700);
+  transition: opacity 0.2s ease;
+}
+
+.heading-sec__main--no-line::after {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .heading-sec__mb-med {
@@ -34,12 +40,55 @@
   line-height: 30px;
   text-align: center;
   color: var(--color-blue-700);
+  margin-top: 0.5rem;
+}
+
+/* Семантические стили для разных уровней заголовков */
+.heading-sec__main.heading-level-1 {
+  font-size: 120px;
+}
+
+.heading-sec__main.heading-level-3 {
+  font-size: 85px;
+}
+
+.heading-sec__main.heading-level-4 {
+  font-size: 70px;
+}
+
+.heading-sec__main.heading-level-5 {
+  font-size: 60px;
+}
+
+.heading-sec__main.heading-level-6 {
+  font-size: 50px;
+  text-transform: none;
 }
 
 @media only screen and (max-width: 1348px) {
   .heading-sec__main {
     margin-bottom: 2rem;
     font-size: 76px;
+  }
+
+  .heading-sec__main.heading-level-1 {
+    font-size: 90px;
+  }
+
+  .heading-sec__main.heading-level-3 {
+    font-size: 65px;
+  }
+
+  .heading-sec__main.heading-level-4 {
+    font-size: 55px;
+  }
+
+  .heading-sec__main.heading-level-5 {
+    font-size: 48px;
+  }
+
+  .heading-sec__main.heading-level-6 {
+    font-size: 40px;
   }
 }
 
@@ -55,6 +104,26 @@
   .heading-sec__sub {
     font-size: 18px;
     line-height: 24px;
+  }
+
+  .heading-sec__main.heading-level-1 {
+    font-size: 68px;
+  }
+
+  .heading-sec__main.heading-level-3 {
+    font-size: 50px;
+  }
+
+  .heading-sec__main.heading-level-4 {
+    font-size: 42px;
+  }
+
+  .heading-sec__main.heading-level-5 {
+    font-size: 36px;
+  }
+
+  .heading-sec__main.heading-level-6 {
+    font-size: 30px;
   }
 }
 
@@ -72,6 +141,26 @@
   .heading-sec__sub {
     display: none;
   }
+
+  .heading-sec__main.heading-level-1 {
+    font-size: 50px;
+  }
+
+  .heading-sec__main.heading-level-3 {
+    font-size: 38px;
+  }
+
+  .heading-sec__main.heading-level-4 {
+    font-size: 32px;
+  }
+
+  .heading-sec__main.heading-level-5 {
+    font-size: 28px;
+  }
+
+  .heading-sec__main.heading-level-6 {
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 374px) {
@@ -81,5 +170,25 @@
 
   .heading-sec__mb-med {
     margin-bottom: 1rem;
+  }
+
+  .heading-sec__main.heading-level-1 {
+    font-size: 45px;
+  }
+
+  .heading-sec__main.heading-level-3 {
+    font-size: 35px;
+  }
+
+  .heading-sec__main.heading-level-4 {
+    font-size: 30px;
+  }
+
+  .heading-sec__main.heading-level-5 {
+    font-size: 26px;
+  }
+
+  .heading-sec__main.heading-level-6 {
+    font-size: 22px;
   }
 }
