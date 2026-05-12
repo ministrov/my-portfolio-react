@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { experienceItems } from '../../const';
 import Heading from '../heading/Heading';
 import './style.css';
 
@@ -15,34 +16,6 @@ import './style.css';
  */
 const AboutExperience = () => {
   const { t } = useTranslation();
-
-  // Массив данных для элементов опыта
-  const experienceItems = [
-    {
-      id: 1,
-      titleKey: 'aboutExperience.titleOne',
-      dateKey: 'aboutExperience.dateOne',
-      dateTimeKey: 'aboutExperience.dateTimeOne',
-      textKey: 'aboutExperience.textOne',
-      hasCompany: false, // У первого элемента нет названия компании
-    },
-    {
-      id: 2,
-      titleKey: 'aboutExperience.titleTwo',
-      dateKey: 'aboutExperience.dateTwo',
-      dateTimeKey: 'aboutExperience.dateTimeTwo',
-      textKey: 'aboutExperience.textTwo',
-      hasCompany: true,
-    },
-    {
-      id: 3,
-      titleKey: 'aboutExperience.titleThree',
-      dateKey: 'aboutExperience.dateThree',
-      dateTimeKey: 'aboutExperience.dateTimeThree',
-      textKey: 'aboutExperience.textThree',
-      hasCompany: true,
-    },
-  ];
 
   return (
     <section className="about-experience">
