@@ -1,26 +1,80 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Squash as Hamburger } from 'hamburger-react';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
-import { AnimatePresence } from 'framer-motion';
+import { LazyMotion, m, domAnimation, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import ToggleLang from '../toggleLang/ToggleLang';
 import { routes } from '../../const';
 import './style.css';
 
+/**
+ * Компонент мобильного навигационного меню с анимациями и доступностью.
+ * Включает гамбургер-кнопку для открытия/закрытия меню, анимированный список ссылок
+ * и переключатель языка. Использует Framer Motion для плавных анимаций.
+ *
+ * @component
+ * @example
+ * return (
+ *   <NavMobile />
+ * )
+ *
+ * @returns {JSX.Element} Мобильное навигационное меню
+ */
 const NavMobile = () => {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
   const { t } = useTranslation();
 
-  const handleMenuToggle = (toggled) => {
+  /**
+   * Обработчик переключения состояния меню с управлением overflow body
+   * @param {boolean} toggled - Новое состояние меню (открыто/закрыто)
+   */
+  const handleMenuToggle = useCallback((toggled) => {
     setOpen(toggled);
-    document.body.style.overflow = toggled ? 'hidden' : 'auto';
-  };
+  }, []);
 
-  const handleMenuClose = () => {
+  /**
+   * Закрытие меню и восстановление прокрутки body
+   */
+  const handleMenuClose = useCallback(() => {
     setOpen(false);
-    document.body.style.overflow = 'auto';
+  }, []);
+
+  // Управление overflow body при открытии/закрытии меню
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    // Очистка при размонтировании
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+
+  // Обработка нажатия Escape для закрытия меню
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape' && isOpen) {
+        handleMenuClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscapeKey);
+    return () => document.removeEventListener('keydown', handleEscapeKey);
+  }, [isOpen, handleMenuClose]);
+
+  // Конфигурация анимации для элементов списка
+  const listItemAnimation = {
+    initial: { scale: 0.95, opacity: 0 },
+    animate: { scale: 1, opacity: 1 },
+    transition: {
+      type: 'spring',
+      stiffness: 240,
+      damping: 28,
+    },
   };
 
   return (
@@ -32,7 +86,9 @@ const NavMobile = () => {
           toggle={handleMenuToggle}
           color="#0058a7"
           hideOutline={false}
-          label="Show menu"
+          label={isOpen ? t('Hide menu') : t('Show menu')}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation-menu"
         />
       </div>
 
@@ -46,36 +102,42 @@ const NavMobile = () => {
               transition={{ duration: 0.5, ease: 'easeInOut' }}
               tabIndex="-1"
               className="nav-mobile__wrapper"
+              id="mobile-navigation-menu"
+              role="dialog"
+              aria-modal="true"
+              aria-label={t('Mobile navigation menu')}
             >
-              <ul className="nav-mobile__list">
+              <ul className="nav-mobile__list" role="menu">
                 {routes.map((route, idx) => {
-                  const { Icon } = route;
+                  const { Icon, href, title } = route;
 
                   return (
                     <m.li
-                      initial={{ scale: 0.95, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
+                      {...listItemAnimation}
                       transition={{
-                        type: 'spring',
-                        stiffness: 240,
-                        damping: 28,
+                        ...listItemAnimation.transition,
                         delay: 0.4 + idx / 5,
                       }}
-                      key={route.title}
+                      key={href}
                       role="menuitem"
                       className="nav-mobile__item"
-                      aria-label={t(route.title)}
+                      aria-label={t(title)}
                     >
                       <NavLink
-                        to={route.href}
+                        to={href}
                         onClick={handleMenuClose}
-                        className={'nav-mobile__link'}
-                        aria-label={`${t(route.title)} ${t('Go to page')}`}
+                        className="nav-mobile__link"
+                        aria-label={`${t(title)} ${t('Go to page')}`}
+                        aria-current="page"
                       >
                         <span className="nav-mobile__title">
-                          {t(route.title)}
+                          {t(title)}
                         </span>
-                        <Icon className="nav-mobile__icon" color="#0058a7" />
+                        <Icon
+                          className="nav-mobile__icon"
+                          color="#0058a7"
+                          aria-hidden="true"
+                        />
                       </NavLink>
                     </m.li>
                   );
@@ -94,97 +156,3 @@ const NavMobile = () => {
 };
 
 export default NavMobile;
-
-// import { useState, useRef } from 'react';
-// import { NavLink } from 'react-router-dom';
-// import { Squash as Hamburger } from 'hamburger-react';
-// import { AnimatePresence, motion } from 'framer-motion';
-// import { useTranslation } from 'react-i18next';
-// import ToggleLang from '../toggleLang/ToggleLang';
-// import { routes } from '../../const';
-// import './style.css';
-
-// const NavMobile = () => {
-//   const [isOpen, setOpen] = useState(false);
-//   const ref = useRef(null);
-//   const { t } = useTranslation();
-
-//   const handleMenuToggle = (toggled) => {
-//     setOpen(toggled);
-//     document.body.style.overflow = toggled ? 'hidden' : 'auto';
-//   };
-
-//   const handleMenuClose = () => {
-//     setOpen(false);
-//     document.body.style.overflow = 'auto';
-//   };
-
-//   return (
-//     <div className="nav-mobile" ref={ref}>
-//       <div className="nav-mobile__buttons">
-//         <Hamburger
-//           toggled={isOpen}
-//           size={28}
-//           toggle={handleMenuToggle}
-//           color="#0058a7"
-//           hideOutline={false}
-//           label="Show menu"
-//         />
-//       </div>
-
-//       <AnimatePresence>
-//         {isOpen && (
-//           <motion.div
-//             initial={{ opacity: 0 }}
-//             animate={{ opacity: 1 }}
-//             exit={{ opacity: 0 }}
-//             transition={{ duration: 0.5, ease: 'easeInOut' }}
-//             tabIndex="-1"
-//             className="nav-mobile__wrapper"
-//           >
-//             <ul className="nav-mobile__list">
-//               {routes.map((route, idx) => {
-//                 const { Icon } = route;
-
-//                 return (
-//                   <motion.li
-//                     initial={{ scale: 0.95, opacity: 0 }}
-//                     animate={{ scale: 1, opacity: 1 }}
-//                     transition={{
-//                       type: 'spring',
-//                       stiffness: 240,
-//                       damping: 28,
-//                       delay: 0.4 + idx / 5,
-//                     }}
-//                     key={route.title}
-//                     role="menuitem"
-//                     className="nav-mobile__item"
-//                     aria-label={t(route.title)}
-//                   >
-//                     <NavLink
-//                       to={route.href}
-//                       onClick={handleMenuClose}
-//                       className={'nav-mobile__link'}
-//                       aria-label={`${t(route.title)} ${t('Go to page')}`}
-//                     >
-//                       <span className="nav-mobile__title">
-//                         {t(route.title)}
-//                       </span>
-//                       <Icon className="nav-mobile__icon" color="#0058a7" />
-//                     </NavLink>
-//                   </motion.li>
-//                 );
-//               })}
-//             </ul>
-
-//             <div className="nav-mobile__lang">
-//               <ToggleLang aria-label={t('Change language')} />
-//             </div>
-//           </motion.div>
-//         )}
-//       </AnimatePresence>
-//     </div>
-//   );
-// };
-
-// export default NavMobile;
