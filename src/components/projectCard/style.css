@@ -20,8 +20,7 @@
 .project-card__image {
   overflow: hidden;
   flex: 1 1 50%;
-  min-height: 536px;
-  max-height: 540px;
+  max-height: 536px;
   border: 1px solid var(--color-blue-700);
   border-radius: var(--border-radius-s);
 }
@@ -91,6 +90,7 @@
 }
 
 .project-card__img {
+  /* height: 100%; */
   border-radius: var(--border-radius-s);
 }
 

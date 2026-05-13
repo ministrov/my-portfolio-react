@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
+import { BREAKPOINTS } from '../../const';
 import ButtonLink from '../buttonLink/ButtonLink';
 import Tag from '../tag/Tag';
 import './style.css';
@@ -45,12 +46,6 @@ const ProjectCard = ({
 }) => {
   const { t } = useTranslation();
 
-  // Константы для breakpoints (можно вынести в отдельный файл констант)
-  const BREAKPOINTS = {
-    MOBILE: 375,
-    TABLET: 768,
-  };
-
   return (
     <article className="project-card" aria-label={`Проект: ${title}`}>
       <div className="project-card__image">
@@ -72,6 +67,7 @@ const ProjectCard = ({
             src={img}
             width={658}
             height="auto"
+            // height={536}
             alt={`${title} project`}
             loading="lazy"
             decoding="async"
@@ -103,7 +99,10 @@ const ProjectCard = ({
         <div className="project-card__tools">
           <div className="project-card__skills">
             <h4 className="project-card__tools-title">{t(toolsTitle)}</h4>
-            <ul className="project-card__tools-list" aria-label="Использованные технологии">
+            <ul
+              className="project-card__tools-list"
+              aria-label="Использованные технологии"
+            >
               {skills.map((skill) => (
                 <Tag key={skill}>{skill}</Tag>
               ))}

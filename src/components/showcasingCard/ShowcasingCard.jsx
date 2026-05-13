@@ -3,7 +3,7 @@ import './style.css';
 
 /**
  * Карточка демонстрации проекта с адаптивными изображениями.
- * 
+ *
  * @component
  * @param {Object} props - Свойства компонента.
  * @param {string} props.name - Ключ перевода названия проекта.
@@ -15,19 +15,22 @@ import './style.css';
  * @param {string} [props.mobileImgJpeg] - Fallback JPEG для мобилки (опционально).
  * @returns {React.ReactElement} Карточка проекта.
  */
-const ShowcasingCard = ({ 
-  name, 
-  image, 
-  tabletImg, 
+const ShowcasingCard = ({
+  name,
+  image,
+  tabletImg,
   mobileImg,
   imageJpeg,
   tabletImgJpeg,
-  mobileImgJpeg
+  mobileImgJpeg,
 }) => {
   const { t } = useTranslation();
 
   // Локализованный alt текст
-  const altText = t('showcasing.alt', { project: t(name), defaultValue: `Изображение проекта ${t(name)}` });
+  const altText = t('showcasing.alt', {
+    project: t(name),
+    defaultValue: `Изображение проекта ${t(name)}`,
+  });
 
   return (
     <article className="showcasing-card">
@@ -79,8 +82,10 @@ const ShowcasingCard = ({
           {/* Fallback изображение */}
           <img
             src={image}
-            width={1253}
-            height={787}
+            // width={1253}
+            // height={787}
+            width={'auto'}
+            height={'auto'}
             className="showcasing-card__image"
             alt={altText}
             loading="lazy"
