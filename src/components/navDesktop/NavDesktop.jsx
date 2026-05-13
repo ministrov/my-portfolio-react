@@ -22,7 +22,7 @@ const NavDesktop = () => {
 
   return (
     <div className="nav-wrapper">
-      <nav aria-label="Основная навигация">
+      <nav className="nav-main" aria-label="Основная навигация">
         <ul className="nav-list">
           {routes.map((route) => {
             const { Icon, href, title } = route;
