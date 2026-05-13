@@ -18,17 +18,6 @@
   user-select: none;
 }
 
-.filter__btn:hover:not(.filter__btn--disabled) {
-  background-color: var(--color-blue-100);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.filter__btn:active:not(.filter__btn--disabled) {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
 .filter__btn:focus {
   outline: 2px solid var(--color-blue-500);
   outline-offset: 2px;

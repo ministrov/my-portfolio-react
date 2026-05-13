@@ -3,7 +3,7 @@
   display: block;
   margin-bottom: 2rem;
   font-family: var(--font-headings);
-  font-size: 101px;
+  font-size: 3.8rem;
   font-weight: 400;
   line-height: 90%;
   text-transform: uppercase;
@@ -43,60 +43,15 @@
   margin-top: 0.5rem;
 }
 
-/* Семантические стили для разных уровней заголовков */
-.heading-sec__main.heading-level-1 {
-  font-size: 120px;
-}
-
-.heading-sec__main.heading-level-3 {
-  font-size: 85px;
-}
-
-.heading-sec__main.heading-level-4 {
-  font-size: 70px;
-}
-
-.heading-sec__main.heading-level-5 {
-  font-size: 60px;
-}
-
-.heading-sec__main.heading-level-6 {
-  font-size: 50px;
-  text-transform: none;
-}
-
 @media only screen and (max-width: 1348px) {
   .heading-sec__main {
     margin-bottom: 2rem;
-    font-size: 76px;
-  }
-
-  .heading-sec__main.heading-level-1 {
-    font-size: 90px;
-  }
-
-  .heading-sec__main.heading-level-3 {
-    font-size: 65px;
-  }
-
-  .heading-sec__main.heading-level-4 {
-    font-size: 55px;
-  }
-
-  .heading-sec__main.heading-level-5 {
-    font-size: 48px;
-  }
-
-  .heading-sec__main.heading-level-6 {
-    font-size: 40px;
+    font-size: 3.5rem;
+    line-height: 100%;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .heading-sec__main {
-    font-size: 57px;
-  }
-
   .heading-sec__mb-med {
     margin-bottom: 2rem;
   }
@@ -105,32 +60,11 @@
     font-size: 18px;
     line-height: 24px;
   }
-
-  .heading-sec__main.heading-level-1 {
-    font-size: 68px;
-  }
-
-  .heading-sec__main.heading-level-3 {
-    font-size: 50px;
-  }
-
-  .heading-sec__main.heading-level-4 {
-    font-size: 42px;
-  }
-
-  .heading-sec__main.heading-level-5 {
-    font-size: 36px;
-  }
-
-  .heading-sec__main.heading-level-6 {
-    font-size: 30px;
-  }
 }
 
 @media screen and (max-width: 575px) {
   .heading-sec__main {
-    font-size: 43px;
-    line-height: 100%;
+    font-size: 3rem;
     text-align: start;
   }
 
@@ -141,54 +75,14 @@
   .heading-sec__sub {
     display: none;
   }
-
-  .heading-sec__main.heading-level-1 {
-    font-size: 50px;
-  }
-
-  .heading-sec__main.heading-level-3 {
-    font-size: 38px;
-  }
-
-  .heading-sec__main.heading-level-4 {
-    font-size: 32px;
-  }
-
-  .heading-sec__main.heading-level-5 {
-    font-size: 28px;
-  }
-
-  .heading-sec__main.heading-level-6 {
-    font-size: 24px;
-  }
 }
 
 @media screen and (max-width: 374px) {
   .heading-sec__main {
-    font-size: 43px;
+    font-size: 2.5rem;
   }
 
   .heading-sec__mb-med {
     margin-bottom: 1rem;
-  }
-
-  .heading-sec__main.heading-level-1 {
-    font-size: 45px;
-  }
-
-  .heading-sec__main.heading-level-3 {
-    font-size: 35px;
-  }
-
-  .heading-sec__main.heading-level-4 {
-    font-size: 30px;
-  }
-
-  .heading-sec__main.heading-level-5 {
-    font-size: 26px;
-  }
-
-  .heading-sec__main.heading-level-6 {
-    font-size: 22px;
   }
 }

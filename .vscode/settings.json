@@ -1,36 +1,51 @@
 {
-  "workbench.colorTheme": "React Theme",
-  "editor.fontSize": 18,
-
-  // Используем Prettier как основной форматировщик для TypeScript+React
-  "[typescriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-
-  // Настройки Prettier для форматов JSX и общих правил форматирования
-  "prettier.singleQuote": true, // Одинарные кавычки
-  "prettier.printWidth": 120, // Максимальная длина строки (ограничение)
-  "prettier.semi": true, // Использование точки с запятой
-  "prettier.useTabs": false, // Пробелы вместо табуляций
-  "prettier.tabWidth": 2, // Размер табуляции = 2 пробела
-  "prettier.bracketSpacing": true, // Пространство внутри фигурных скобок
-  "prettier.jsxSingleQuote": true, // Одинарные кавычки в JSX
-  "prettier.htmlWhitespaceSensitivity": "css", // HTML whitespace rules from CSS spec
-  "prettier.endOfLine": "lf", // Тип конца строки Unix-style LF
-
-  // Общие редакторские настройки
-  "editor.wordWrap": "bounded", // Перенос строк с ограничением длины
-  "editor.wordWrapColumn": 120, // Ширина строки ~120 символов
-  "editor.detectIndentation": true, // Автоопределение отступов
-  "editor.insertSpaces": true, // Вместо tab-вставлять пробелы
-  "editor.tabSize": 2, // Размер отступа 2 пробела
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.formatOnSave": true,
-  "editor.minimap.enabled": false,
-  "editor.cursorBlinking": "smooth",
-  "editor.cursorWidth": 3,
-  "files.autoSaveDelay": 500,
-  "files.autoSaveWhenNoErrors": true,
-  "files.autoSaveWorkspaceFilesOnly": true,
-  "json.schemaDownload.enable": false
+  "editor.formatOnSaveMode": "file",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.wordWrap": "on",
+  "editor.rulers": [100],
+  "editor.renderWhitespace": "boundary",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/build": true,
+    "**/coverage": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/build/**": true,
+    "**/coverage/**": true
+  },
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "eslint.validate": ["javascript", "javascriptreact"],
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "prettier.enable": true,
+  "prettier.requireConfig": true,
+  "js/ts.validate.enable": false
 }

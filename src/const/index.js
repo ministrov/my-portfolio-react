@@ -202,3 +202,9 @@ export const DEFAULT_CONFIG = {
     '#ffffff',
   ],
 };
+
+// Константы для breakpoints (можно вынести в отдельный файл констант)
+export const BREAKPOINTS = {
+  MOBILE: 375,
+  TABLET: 768,
+};

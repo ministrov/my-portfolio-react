@@ -17,24 +17,25 @@ const Showcasing = () => {
           title={t('heading.showcasing.name')}
           slogan={t('heading.showcasing.subheading')}
         />
-
-        <LazyMotion features={domAnimation}>
-          <m.div
-            className="showcasing__wrapper"
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }} // ✅ once: true - анимация только 1 раз
-            transition={{
-              duration: 0.8,
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
-          >
-            <Suspense fallback={<Loader />}>
-              <LazyCarousel className="showcasing__carousel" />
-            </Suspense>
-          </m.div>
-        </LazyMotion>
       </div>
+      <LazyMotion features={domAnimation}>
+        <m.div
+          className="showcasing__wrapper"
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }} // ✅ once: true - анимация только 1 раз
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.1, 0.25, 1],
+          }}
+        >
+          <Suspense fallback={<Loader />}>
+            <div className="container">
+              <LazyCarousel className="showcasing__carousel" />
+            </div>
+          </Suspense>
+        </m.div>
+      </LazyMotion>
     </section>
   );
 };

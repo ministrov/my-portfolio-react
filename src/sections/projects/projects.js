@@ -17,6 +17,9 @@ import ratingus from '../../assets/projects/ratingus.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
 import waterdelTablet from '../../assets/projects/waterdel-tablet.webp';
 import waterdelMobile from '../../assets/projects/waterdel-mobile.webp';
+import mish from '../../assets/projects/mish.webp';
+import mishTablet from '../../assets/projects/mish-tablet.webp';
+import mishMobile from '../../assets/projects/mish-mobile.webp';
 
 export const projects = [
   {
@@ -153,5 +156,25 @@ export const projects = [
     roleText: 'projects.createx.roleText',
     isReversed: true,
     isBest: false,
+  },
+  {
+    id: 8,
+    title: 'projects.mish.title',
+    skills: 'JavaScript, HTML5, CSS3',
+    img: mish,
+    imgTablet: mishTablet,
+    imgMobile: mishMobile,
+    gitHubLink: 'https://github.com/ministrov/champ-project',
+    // demoLink: 'https://create-x-construction.vercel.app/',
+    slogan: 'projects.createx.slogan',
+    overview: 'projects.createx.overview',
+    year: 2026,
+    role: 'Middle+ Frontend Developer',
+    infoTitle: 'projects.createx.infoTitle',
+    toolsTitle: 'projects.createx.toolsTitle',
+    yearText: 'projects.createx.yearText',
+    roleText: 'projects.createx.roleText',
+    isReversed: false,
+    isBest: true,
   },
 ];
