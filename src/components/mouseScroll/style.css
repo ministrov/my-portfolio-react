@@ -1,10 +1,12 @@
+/* Стили компонента MouseScroll */
 .mouse {
   position: relative;
   overflow: hidden;
-  width: 25px;
-  height: 40px;
-  border: 2px solid var(--color-blue-700);
+  width: var(--mouse-width, 25px);
+  height: var(--mouse-height, 40px);
+  border: 2px solid var(--mouse-color, var(--color-blue-700));
   border-radius: 60px;
+  will-change: transform;
 }
 
 .mouse::before {
@@ -12,26 +14,45 @@
   content: '';
   top: 7px;
   left: 50%;
-  width: 5px;
-  height: 5px;
+  width: var(--mouse-dot-size, 5px);
+  height: var(--mouse-dot-size, 5px);
   transform: translateX(-50%);
-  background-color: var(--color-blue-700);
+  background-color: var(--mouse-color, var(--color-blue-700));
   border-radius: 50%;
   opacity: 1;
-  animation: wheel 1.3s infinite;
-  -webkit-animation: wheel 1.3s infinite;
+  animation: wheel var(--mouse-animation-duration, 1.3s) infinite;
+  /* Используем transform для более плавной анимации */
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes wheel {
-  to {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+
+  100% {
     opacity: 0;
-    top: 27px;
+    transform: translateX(-50%) translateY(var(--mouse-travel-distance, 20px));
   }
 }
 
-@-webkit-keyframes wheel {
-  to {
-    opacity: 0;
-    top: 27px;
+/* Удаляем -webkit-keyframes, так как современные браузеры поддерживают стандартные keyframes */
+/* Для совместимости с очень старыми браузерами можно оставить, но в проекте не требуется */
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .mouse {
+    width: calc(var(--mouse-width, 25px) * 0.9);
+    height: calc(var(--mouse-height, 40px) * 0.9);
+  }
+
+  .mouse::before {
+    width: calc(var(--mouse-dot-size, 5px) * 0.9);
+    height: calc(var(--mouse-dot-size, 5px) * 0.9);
   }
 }
