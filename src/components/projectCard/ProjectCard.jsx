@@ -105,9 +105,7 @@ const ProjectCard = ({
             <h4 className="project-card__tools-title">{t(toolsTitle)}</h4>
             <ul className="project-card__tools-list" aria-label="Использованные технологии">
               {skills.map((skill) => (
-                <li key={skill}>
-                  <Tag>{skill}</Tag>
-                </li>
+                <Tag key={skill}>{skill}</Tag>
               ))}
             </ul>
           </div>
