@@ -18,7 +18,7 @@ import maxSvg from '../../assets/svg/max.svg';
  * // Иконка с кастомными размерами
  * <MaxIcon width={64} height={64} />
  */
-const MaxIcon = ({ width = 48, height = 48 }) => {
+const MaxIcon = ({ width = 32, height = 32 }) => {
   return (
     <img
       src={maxSvg}
