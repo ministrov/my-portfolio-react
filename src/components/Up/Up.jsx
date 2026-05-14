@@ -107,6 +107,21 @@ const Up = ({
   );
 
   /**
+   * Плавно скроллит окно к началу страницы.
+   * @private
+   */
+  const scrollToTop = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    window.scrollTo({
+      top: 0,
+      behavior: smoothScroll ? 'smooth' : 'auto',
+    });
+    if (onClick && typeof onClick === 'function') {
+      onClick();
+    }
+  }, [smoothScroll, onClick]);
+
+  /**
    * Обработчик клавиш на кнопке.
    * Обрабатывает Enter и Space для скролла наверх.
    * @param {KeyboardEvent} e - Событие клавиатуры.
@@ -125,23 +140,8 @@ const Up = ({
           break;
       }
     },
-    [isShowed]
+    [isShowed, scrollToTop]
   );
-
-  /**
-   * Плавно скроллит окно к началу страницы.
-   * @private
-   */
-  const scrollToTop = () => {
-    if (typeof window === 'undefined') return;
-    window.scrollTo({
-      top: 0,
-      behavior: smoothScroll ? 'smooth' : 'auto',
-    });
-    if (onClick && typeof onClick === 'function') {
-      onClick();
-    }
-  };
 
   useEffect(() => {
     if (typeof window === 'undefined') {
