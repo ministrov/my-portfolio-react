@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { FaLongArrowAltUp } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import debounce from '../../utils/debounce';
+import useKeyboardHandlers from '../../hooks/useKeyboardHandlers';
 import './style.css';
 
 /**
@@ -91,22 +92,6 @@ const Up = ({
   );
 
   /**
-   * Обработчик глобальных клавиш (документ).
-   * Обрабатывает только Escape для скрытия кнопки.
-   * @param {KeyboardEvent} e - Событие клавиатуры.
-   * @private
-   */
-  const handleGlobalKeyDown = useCallback(
-    (e) => {
-      if (!isShowed || !enableEscape) return;
-      if (e.key === 'Escape') {
-        setIsShowed(false);
-      }
-    },
-    [isShowed, enableEscape]
-  );
-
-  /**
    * Плавно скроллит окно к началу страницы.
    * @private
    */
@@ -121,27 +106,13 @@ const Up = ({
     }
   }, [smoothScroll, onClick]);
 
-  /**
-   * Обработчик клавиш на кнопке.
-   * Обрабатывает Enter и Space для скролла наверх.
-   * @param {KeyboardEvent} e - Событие клавиатуры.
-   * @private
-   */
-  const handleButtonKeyDown = useCallback(
-    (e) => {
-      if (!isShowed) return;
-      switch (e.key) {
-        case 'Enter':
-        case ' ':
-          e.preventDefault();
-          scrollToTop();
-          break;
-        default:
-          break;
-      }
-    },
-    [isShowed, scrollToTop]
-  );
+  // Обработчики клавиатуры
+  const { handleGlobalKeyDown, handleButtonKeyDown } = useKeyboardHandlers({
+    isShowed,
+    enableEscape,
+    scrollToTop,
+    setIsShowed,
+  });
 
   useEffect(() => {
     if (typeof window === 'undefined') {
