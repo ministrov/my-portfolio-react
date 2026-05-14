@@ -1,29 +1,31 @@
+import maxSvg from '../../assets/svg/max.svg';
+
 /**
  * Компонент для отображения иконки "MAX" в виде SVG.
- * Использует встроенный SVG-элемент с фиксированным viewBox и настраиваемыми шириной и высотой.
+ * Использует импортированное SVG-изображение с настраиваемыми шириной и высотой.
  *
  * @component
  * @param {Object} props - Пропсы компонента.
- * @param {number} [props.width=32] - Ширина SVG в пикселях.
- * @param {number} [props.height=32] - Высота SVG в пикселях.
- * @returns {JSX.Element} SVG-элемент с иконкой MAX.
+ * @param {number} [props.width=48] - Ширина иконки в пикселях.
+ * @param {number} [props.height=48] - Высота иконки в пикселях.
+ * @returns {JSX.Element} Элемент изображения (`<img>`) с иконкой MAX.
  *
  * @example
- * // Иконка с размерами по умолчанию (32x32)
+ * // Иконка с размерами по умолчанию (48x48)
  * <MaxIcon />
  *
  * @example
  * // Иконка с кастомными размерами
- * <MaxIcon width={48} height={48} />
+ * <MaxIcon width={64} height={64} />
  */
-const MaxIcon = ({ width = 32, height = 32 }) => {
+const MaxIcon = ({ width = 48, height = 48 }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 720 720"
+    <img
+      src={maxSvg}
       width={width}
       height={height}
-    ></svg>
+      alt="Иконка социальной сети Max"
+    />
   );
 };
 
