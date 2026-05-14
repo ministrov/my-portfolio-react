@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useUrlParams } from '../hooks/useUrlParams';
+import { LANGUAGES, LOCAL_STORAGE_KEY } from '../const';
 
 /**
  * Контекст для управления языком интерфейса.
@@ -23,21 +24,6 @@ export const LanguageContext = createContext({
   lang: 'ru',
   toggleLang: () => {},
 });
-
-/**
- * Ключ для сохранения предпочтительного языка в localStorage.
- * @constant {string}
- */
-const LOCAL_STORAGE_KEY = 'preferredLang';
-
-/**
- * Допустимые значения языка.
- * @constant {Object}
- */
-const LANGUAGES = {
-  RU: 'ru',
-  EN: 'en',
-};
 
 /**
  * Провайдер контекста языка.
@@ -76,7 +62,7 @@ export function LanguageProvider({ children }) {
     return () => {
       isMounted.current = false;
     };
-  }, [location.search]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [location.search, setLang]);
 
   // Сохранение языка в localStorage при изменении
   useEffect(() => {

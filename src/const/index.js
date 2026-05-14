@@ -208,3 +208,17 @@ export const BREAKPOINTS = {
   MOBILE: 375,
   TABLET: 768,
 };
+/**
+ * Ключ для сохранения предпочтительного языка в localStorage.
+ * @constant {string}
+ */
+export const LOCAL_STORAGE_KEY = 'preferredLang';
+
+/**
+ * Допустимые значения языка.
+ * @constant {Object}
+ */
+export const LANGUAGES = {
+  RU: 'ru',
+  EN: 'en',
+};
