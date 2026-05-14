@@ -4,7 +4,9 @@ import {
   useMemo,
   useEffect,
   useCallback,
+  useRef,
 } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useUrlParams } from '../hooks/useUrlParams';
 
 /**
@@ -29,6 +31,15 @@ export const LanguageContext = createContext({
 const LOCAL_STORAGE_KEY = 'preferredLang';
 
 /**
+ * Допустимые значения языка.
+ * @constant {Object}
+ */
+const LANGUAGES = {
+  RU: 'ru',
+  EN: 'en',
+};
+
+/**
  * Провайдер контекста языка.
  * Управляет состоянием языка через URL-параметр 'lang' с сохранением выбора в localStorage.
  * Значение контекста мемоизировано для оптимизации производительности.
@@ -45,22 +56,31 @@ const LOCAL_STORAGE_KEY = 'preferredLang';
  * </LanguageProvider>
  */
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useUrlParams('lang', 'ru');
+  const location = useLocation();
+  const [lang, setLang] = useUrlParams('lang', LANGUAGES.RU);
+  const isMounted = useRef(true);
 
   // Восстановление языка из localStorage при монтировании (если нет параметра в URL)
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(location.search);
     if (!params.has('lang')) {
       const savedLang = localStorage.getItem(LOCAL_STORAGE_KEY);
-      if (savedLang === 'ru' || savedLang === 'en') {
-        setLang(savedLang);
+      if (savedLang === LANGUAGES.RU || savedLang === LANGUAGES.EN) {
+        // Проверка на демонтирование компонента
+        if (isMounted.current) {
+          setLang(savedLang);
+        }
       }
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    return () => {
+      isMounted.current = false;
+    };
+  }, [location.search]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Сохранение языка в localStorage при изменении
   useEffect(() => {
-    if (lang === 'ru' || lang === 'en') {
+    if (lang === LANGUAGES.RU || lang === LANGUAGES.EN) {
       localStorage.setItem(LOCAL_STORAGE_KEY, lang);
     }
   }, [lang]);
@@ -70,7 +90,7 @@ export function LanguageProvider({ children }) {
    * @private
    */
   const toggleLang = useCallback(() => {
-    setLang((prev) => (prev === 'ru' ? 'en' : 'ru'));
+    setLang((prev) => (prev === LANGUAGES.RU ? LANGUAGES.EN : LANGUAGES.RU));
   }, [setLang]);
 
   // Мемоизация значения контекста для предотвращения лишних ререндеров
@@ -97,7 +117,7 @@ export function LanguageProvider({ children }) {
  *
  * return (
  *   <button onClick={toggleLang}>
- *     {lang === 'ru' ? 'Switch to English' : 'Переключить на русский'}
+ *     {lang === LANGUAGES.RU ? 'Switch to English' : 'Переключить на русский'}
  *   </button>
  * );
  */
