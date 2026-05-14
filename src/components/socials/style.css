@@ -42,7 +42,7 @@
   text-decoration: none;
   padding: 0;
   margin: 0;
-  transition: transform 0.35s ease, background-color 0.3s ease;
+  transition: transform 0.5s ease-in-out, background-color 0.5s, opacity 0.5s ease-in-out;
 }
 
 .socials__link:hover {
@@ -51,8 +51,7 @@
 }
 
 .socials__link--blue:hover {
-  background-color: var(--color-blue-800);
-  opacity: 1;
+  opacity: 0.9;
 }
 
 .socials__link:focus {

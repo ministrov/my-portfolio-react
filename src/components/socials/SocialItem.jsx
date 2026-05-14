@@ -1,5 +1,5 @@
-import './style.css';
 import PropTypes from 'prop-types';
+import './style.css';
 
 /**
  * Компонент элемента социальной сети.
