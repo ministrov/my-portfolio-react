@@ -17,12 +17,15 @@
 
 .socials__link {
   display: flex;
+  margin: -4px;
+  padding: 4px;
   font-size: 36px;
   line-height: 40px;
   color: var(--color-white);
   text-decoration: none;
-  transition: transform 0.35s ease, opacity 0.5s ease;
+  transition: transform 0.35s ease, opacity 0.5s ease, color 0.3s ease, background-color 0.3s ease;
   border-radius: var(--border-radius-s);
+  /* Увеличиваем область клика */
 }
 
 .socials__link--blue {
@@ -37,14 +40,35 @@
   background-color: var(--color-blue-700);
   border-radius: 50%;
   text-decoration: none;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.5s ease-in-out, background-color 0.5s, opacity 0.5s ease-in-out;
 }
 
 .socials__link:hover {
   transform: translateY(-2px) scale(1.02);
+  opacity: 0.9;
+}
+
+.socials__link--blue:hover {
+  opacity: 0.9;
 }
 
 .socials__link:focus {
   outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+.socials__link:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+/* Улучшение для touch-устройств */
+@media (hover: none) and (pointer: coarse) {
+  .socials__link:hover {
+    transform: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
