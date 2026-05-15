@@ -57,7 +57,7 @@ const AboutPage = () => {
         <Breadcrumbs items={BREADCRUMBS} />
       </div>
 
-      <About button />
+      <About />
 
       <div className="container wrapper">
         <AuthorPhoto />

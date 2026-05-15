@@ -76,8 +76,8 @@
   },
   "about": {
     "title": "Greeting, new customers!",
-    "descriptionOne": "Frontend developer from Moscow looking for engaging projects. I specialize in building responsive interfaces with pixel-perfect layouts on any device, turning ideas into intuitive, lively products.",
-    "descriptionTwo": "Work with: vanilla JS, jQuery, React + RTK/Zustand, Next.js, plus advanced HTML5/CSS3 mastery (Grid/Subgrid, Flexbox, Container Queries, Clamp). Squeeze max performance from native code — clean, fast, semantic, 60fps smooth. Communicate clearly with team/client, suggest optimal solutions. Free time — soccer, basketball, hockey + English practice. Let's discuss your project!",
+    "descriptionOne": "Frontend developer based in Moscow. I specialize in adaptive interfaces with pixel-perfect precision. Every idea I take on becomes a seamless, living product — flawless in its behavior across any screen. Open to projects where code aesthetics and user experience truly matter.",
+    "descriptionTwo": "Tech stack: Next.js (Pages & App Router), TypeScript, RTK Query, React i18next, CSS Modules, mobile-first.I implement WCAG 2.1 accessibility standards, optimize Core Web Vitals, and work in Agile/Scrum with CI/CD processes.Validated my Middle-level skills at the HTML Academy layout championship.English — B2 (Upper-Intermediate).Open to office, hybrid, or remote work.Shall we discuss your project?",
     "link": "More about me"
   },
   "services": {

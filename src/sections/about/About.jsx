@@ -35,7 +35,7 @@ const ANIMATION_CONFIG = {
   },
 };
 
-const About = ({ link = true, button = true }) => {
+const About = ({ link = false, button = false }) => {
   const { t } = useTranslation();
 
   // Константы для переводов
