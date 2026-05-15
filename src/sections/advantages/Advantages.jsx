@@ -1,22 +1,36 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import Heading from '../../components/heading/Heading';
 import AdvantagesList from './AdvantagesList';
 import AdvantagesItem from './AdvantagesItem';
-import itemList from './items';
+import advantages from './items';
 import './style.css';
 
+/**
+ * Компонент секции "Преимущества".
+ * Отображает список преимуществ автора с иконками и описаниями.
+ * Использует данные из файла items.js и поддерживает переводы через i18n.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Advantages />
+ * )
+ */
 const Advantages = () => {
   const { t } = useTranslation();
+
+  // Константы для переводов
+  const SECTION_TITLE = t('heading.advantages.name');
+  const SECTION_SLOGAN = t('heading.advantages.subheading');
+
   return (
     <section className="advantages">
       <div className="container">
-        <Heading
-          title={t('heading.advantages.name')}
-          slogan={t('heading.advantages.subheading')}
-        />
+        <Heading title={SECTION_TITLE} slogan={SECTION_SLOGAN} />
 
         <AdvantagesList>
-          {itemList.map((item) => (
+          {advantages.map((item) => (
             <AdvantagesItem
               key={item.id}
               text={item.text}
@@ -30,4 +44,4 @@ const Advantages = () => {
   );
 };
 
-export default Advantages;
+export default memo(Advantages);
