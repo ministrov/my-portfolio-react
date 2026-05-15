@@ -1,24 +1,23 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, EffectFade } from 'swiper/modules';
 import PropTypes from 'prop-types';
 import ShowcasingCard from '../showcasingCard/ShowcasingCard';
 import { projects } from '../../sections/projects/projects';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 /**
  * Карусель для отображения лучших проектов с использованием Swiper.
- * Поддерживает автоматическое пролистывание, навигацию, пагинацию и эффекты.
+ * Поддерживает автоматическое пролистывание и эффекты fade.
+ * Навигация и пагинация отключены по умолчанию.
  *
  * @component
  * @param {Object} props - Пропсы компонента
  * @param {Array} [props.projectsData=projects] - Массив проектов для отображения
  * @param {Function} [props.filterFn=(item) => item.isBest] - Функция фильтрации проектов
  * @param {Object} [props.swiperConfig] - Конфигурация Swiper (переопределяет настройки по умолчанию)
- * @param {boolean} [props.showNavigation=true] - Показывать кнопки навигации (вперёд/назад)
- * @param {boolean} [props.showPagination=true] - Показывать пагинацию (точки)
+ * @param {boolean} [props.showNavigation=false] - Показывать кнопки навигации (вперёд/назад)
+ * @param {boolean} [props.showPagination=false] - Показывать пагинацию (точки)
  * @param {string} [props.ariaLabel='Карусель лучших проектов'] - ARIA-метка для доступности
  * @returns {JSX.Element} Карусель Swiper с карточками проектов
  *
@@ -27,7 +26,6 @@ import 'swiper/css/pagination';
  * <Carousel
  *   projectsData={customProjects}
  *   filterFn={(item) => item.featured}
- *   showNavigation={false}
  *   swiperConfig={{ autoplay: { delay: 5000 } }}
  * />
  */
@@ -35,15 +33,15 @@ const Carousel = ({
   projectsData = projects,
   filterFn = (item) => item.isBest,
   swiperConfig = {},
-  showNavigation = true,
-  showPagination = true,
+  showNavigation = false,
+  showPagination = false,
   ariaLabel = 'Карусель лучших проектов',
 }) => {
   const filteredProjects = projectsData.filter(filterFn);
 
   // Конфигурация Swiper по умолчанию
   const defaultSwiperConfig = {
-    modules: [Autoplay, EffectFade, ...(showNavigation ? [Navigation] : []), ...(showPagination ? [Pagination] : [])],
+    modules: [Autoplay, EffectFade],
     effect: 'fade',
     fadeEffect: { crossFade: true },
     speed: 1000,
@@ -53,8 +51,8 @@ const Carousel = ({
       pauseOnMouseEnter: true,
     },
     loop: true,
-    navigation: showNavigation,
-    pagination: showPagination ? { clickable: true } : false,
+    navigation: false,
+    pagination: false,
     a11y: {
       enabled: true,
       prevSlideMessage: 'Предыдущий слайд',
@@ -74,11 +72,7 @@ const Carousel = ({
   }
 
   return (
-    <Swiper
-      {...defaultSwiperConfig}
-      aria-label={ariaLabel}
-      role="region"
-    >
+    <Swiper {...defaultSwiperConfig} aria-label={ariaLabel} role="region">
       {filteredProjects.map((project) => (
         <SwiperSlide
           key={project.id}
