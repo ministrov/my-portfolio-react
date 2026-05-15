@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import About from '../sections/about/About';
@@ -9,34 +10,54 @@ import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import Contact from '../sections/contact/Contact';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground';
 
+/**
+ * Страница "Обо мне" - отображает информацию об авторе, опыт, образование и контактную форму.
+ *
+ * @component
+ * @example
+ * return (
+ *   <AboutPage />
+ * )
+ *
+ * @returns {JSX.Element} Компонент страницы "Обо мне"
+ */
 const AboutPage = () => {
   const { t } = useTranslation();
-  const BREADCRUMBS = [
-    { id: 1, name: t('breadcrumbs.home'), link: '/' },
-    { id: 2, name: t('breadcrumbs.about') },
-  ];
+
+  // Константы для метаданных
+  const PAGE_TITLE = t('metadata.about.title');
+  const PAGE_DESCRIPTION = t('metadata.about.description');
+  const PAGE_KEYWORDS = t('metadata.about.keywords');
+
+  // Хлебные крошки с мемоизацией для оптимизации
+  const BREADCRUMBS = useMemo(
+    () => [
+      { id: 1, name: t('breadcrumbs.home'), link: '/' },
+      { id: 2, name: t('breadcrumbs.about') },
+    ],
+    [t]
+  );
 
   return (
     <>
       <Helmet>
-        <title>{t('metadata.home.title')}</title>
-        <meta
-          name="description"
-          content={t('metadata.home.description')}
-          data-rh="true"
-        />
-        <meta name="keywords" content={t('metadata.home.keywords')} />
+        <title>{PAGE_TITLE}</title>
+        <meta name="description" content={PAGE_DESCRIPTION} data-rh="true" />
+        <meta name="keywords" content={PAGE_KEYWORDS} />
       </Helmet>
 
       <AnimatedBackground />
 
-      <h1 className="visually-hidden">Страница об авторе</h1>
+      {/* Скрытый заголовок для доступности */}
+      <h1 className="visually-hidden">
+        {t('pages.about.title') || 'Страница об авторе'}
+      </h1>
 
       <div className="container">
         <Breadcrumbs items={BREADCRUMBS} />
       </div>
 
-      <About button />
+      <About />
 
       <div className="container wrapper">
         <AuthorPhoto />

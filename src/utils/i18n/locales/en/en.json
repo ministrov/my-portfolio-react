@@ -5,9 +5,15 @@
       "description": "A Home page of the frontend developer portfolio about developing stunning apps and web applications",
       "keywords": "HTML, JavaScript, CSS, web layout, outsourcing, development, web development, Figma, PSD, build a site"
     },
+    "about": {
+      "title": "About Me Page",
+      "description": "Discover the professional portfolio of frontend developer Anton Zhilin",
+      "keywords": "HTML, layout, outsourcing, development, web development, hire a developer, create a website, portfolio"
+    },
     "projects": {
       "title": "Page of the all projects",
-      "description": "A stunning list of the incredible projects of the frontend developer that call Anton Zhilin"
+      "description": "A stunning list of the incredible projects of the frontend developer that call Anton Zhilin",
+      "keywords": "HTML, JavaScript, CSS, web layout, outsourcing, development, web development, Figma, PSD, build a site"
     }
   },
   "heading": {
@@ -70,8 +76,8 @@
   },
   "about": {
     "title": "Greeting, new customers!",
-    "descriptionOne": "Frontend developer from Moscow looking for engaging projects. I specialize in building responsive interfaces with pixel-perfect layouts on any device, turning ideas into intuitive, lively products.",
-    "descriptionTwo": "Work with: vanilla JS, jQuery, React + RTK/Zustand, Next.js, plus advanced HTML5/CSS3 mastery (Grid/Subgrid, Flexbox, Container Queries, Clamp). Squeeze max performance from native code — clean, fast, semantic, 60fps smooth. Communicate clearly with team/client, suggest optimal solutions. Free time — soccer, basketball, hockey + English practice. Let's discuss your project!",
+    "descriptionOne": "Frontend developer based in Moscow. I specialize in adaptive interfaces with pixel-perfect precision. Every idea I take on becomes a seamless, living product — flawless in its behavior across any screen. Open to projects where code aesthetics and user experience truly matter.",
+    "descriptionTwo": "Tech stack: Next.js (Pages & App Router), TypeScript, RTK Query, React i18next, CSS Modules, mobile-first.I implement WCAG 2.1 accessibility standards, optimize Core Web Vitals, and work in Agile/Scrum with CI/CD processes.Validated my Middle-level skills at the HTML Academy layout championship.English — B2 (Upper-Intermediate).Open to office, hybrid, or remote work.Shall we discuss your project?",
     "link": "More about me"
   },
   "services": {
@@ -193,9 +199,18 @@
     "createx": {
       "title": "Create-x Construction",
       "slogan": "A stunning construction company",
-      "overview": "Kreatex Construction — stylish and functional website for a construction company created using powerful tools like JavaScript, HTML5, and CSS3. Modern design and smooth animations provide an unforgettable user experience.",
+      "overview": "«Kreatex Construction» — the digital calling card of a construction brand. The HTML5, CSS3, and JavaScript stack is assembled into an interface where thoughtful design meets intuitive mechanics. Smooth transitions and crisp typography evoke a sense of structural reliability — exactly what you'd expect from a construction company.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
+      "yearText": "Year",
+      "roleText": "Role"
+    },
+    "mish": {
+      "title": "Mish",
+      "slogan": "",
+      "overview": "«Mish» — a landing page built under real-world conditions at the HTML Academy Championship (Professional League, Middle level). A two-week sprint, a technical brief and design mockups by Mish, powered by HTML5, CSS3, and JavaScript. The work was assessed by a jury of practicing IT companies — clean code and smooth animation validated through external audit. An interface where pixel-perfect markup meets a seamless user experience.",
+      "infoTitle": "Information",
+      "toolsTitle": "Tools",
       "yearText": "Year",
       "roleText": "Role"
     }

@@ -1,14 +1,24 @@
+import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 import Up from '../components/Up/Up';
 
+/**
+ * Основной layout приложения.
+ * Содержит шапку (Header), основное содержимое (Outlet), кнопку "Наверх" (Up) и подвал (Footer).
+ * Используется для обёртки всех страниц маршрутизации.
+ *
+ * @component
+ * @example
+ * return <Layout />
+ */
 const Layout = () => {
   return (
     <>
       <Header />
 
-      <main>
+      <main id="main-content">
         <Outlet />
       </main>
 
@@ -18,4 +28,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default memo(Layout);

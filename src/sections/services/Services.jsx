@@ -7,16 +7,34 @@ import ServicesList from './ServicesList';
 import { services } from '../../const';
 import './style.css';
 
+/**
+ * Коэффициент задержки анимации между элементами (в секундах)
+ */
+const ANIMATION_DELAY_FACTOR = 0.3;
+
+/**
+ * Компонент секции услуг с раскрывающимися карточками
+ * @returns {JSX.Element} Секция услуг
+ */
 const Services = () => {
   const [openCards, setOpenCards] = useState({});
   const { t } = useTranslation();
 
-  const toggleExpand = (id) => {
+  /**
+   * Обработчик переключения состояния карточки
+   * @param {number} id - Идентификатор услуги
+   */
+  const handleToggleExpand = (id) => {
     setOpenCards((prevState) => ({
       ...prevState,
       [id]: !prevState[id],
     }));
   };
+
+  // Если услуг нет, не рендерим список
+  if (!services || services.length === 0) {
+    return null;
+  }
 
   return (
     <section className="services">
@@ -30,18 +48,21 @@ const Services = () => {
 
         <ServicesList>
           <LazyMotion features={domAnimation}>
-            {services.map((service) => (
+            {services.map((service, index) => (
               <m.li
                 className={`services__item ${openCards[service.id] ? 'services__expanded' : ''}`}
                 key={service.id}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: service.id * 0.3 }}
+                transition={{
+                  duration: 0.3,
+                  delay: index * ANIMATION_DELAY_FACTOR,
+                }}
               >
                 <ServicesItem
                   service={service}
                   open={openCards[service.id]}
-                  onClick={() => toggleExpand(service.id)}
+                  onClick={() => handleToggleExpand(service.id)}
                 />
               </m.li>
             ))}

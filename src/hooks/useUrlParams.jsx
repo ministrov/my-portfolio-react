@@ -2,10 +2,25 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 /**
- * Хук для синхронизации состояния с URL-параметром
- * @param {string} paramName - Название параметра в URL
- * @param {*} initialValue - Начальное значение
- * @returns {[any, Function]} - Пара [значение, сеттер] как useState
+ * Кастомный хук для синхронизации состояния React с параметром URL.
+ * Позволяет хранить и обновлять значение в query-параметрах URL.
+ * При изменении значения хук автоматически обновляет URL, сохраняя историю навигации.
+ * При первоначальном рендере извлекает значение из URL или использует переданное начальное значение.
+ *
+ * @param {string} paramName - Название параметра в URL (например, 'tab', 'filter').
+ * @param {*} initialValue - Начальное значение, если параметр отсутствует в URL.
+ *   Может быть любого типа, но при наличии в URL значение будет строкой.
+ * @returns {Array} Массив из двух элементов аналогично useState:
+ *   - value: текущее значение параметра (строка или initialValue).
+ *   - setValue: функция для обновления значения, принимает новое значение.
+ *
+ * @example
+ * // Использование в компоненте
+ * const [activeTab, setActiveTab] = useUrlParams('tab', 'home');
+ * // При изменении activeTab URL обновится на /current-path?tab=home
+ * // При загрузке страницы с /current-path?tab=settings activeTab будет 'settings'
+ *
+ * @see {@link https://reactrouter.com/} для работы с навигацией
  */
 export function useUrlParams(paramName, initialValue) {
   const navigate = useNavigate();

@@ -1,8 +1,18 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import Logo from '../../components/logo/Logo';
 import SocialList from '../../components/socials/SocialList';
 import './style.css';
 
+/**
+ * Компонент футера сайта.
+ * Отображает логотип, краткое описание, список социальных сетей и копирайт.
+ * Использует локализацию через react-i18next.
+ *
+ * @component
+ * @example
+ * return <Footer />
+ */
 const Footer = () => {
   const { t } = useTranslation();
 
@@ -20,7 +30,12 @@ const Footer = () => {
 
       <div className="main-footer__lower">
         &copy; {t('footer.copyright')}
-        <a rel="noreferrer" target="_blank" href="#!">
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href="#!"
+          aria-label={t('footer.author')}
+        >
           {t('footer.author')}
         </a>
       </div>
@@ -28,4 +43,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);
