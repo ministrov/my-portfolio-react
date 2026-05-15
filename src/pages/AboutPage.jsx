@@ -25,9 +25,9 @@ const AboutPage = () => {
   const { t } = useTranslation();
 
   // Константы для метаданных
-  const PAGE_TITLE = t('metadata.home.title');
-  const PAGE_DESCRIPTION = t('metadata.home.description');
-  const PAGE_KEYWORDS = t('metadata.home.keywords');
+  const PAGE_TITLE = t('metadata.about.title');
+  const PAGE_DESCRIPTION = t('metadata.about.description');
+  const PAGE_KEYWORDS = t('metadata.about.keywords');
 
   // Хлебные крошки с мемоизацией для оптимизации
   const BREADCRUMBS = useMemo(
