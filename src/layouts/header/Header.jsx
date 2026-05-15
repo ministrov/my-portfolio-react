@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import NavDesktop from '../../components/navDesktop/NavDesktop';
 import NavMobile from '../../components/navMobile/NavMobile';
 import Logo from '../../components/logo/Logo';
@@ -16,26 +16,15 @@ import './style.css';
 const Header = () => {
   const SCROLL_THRESHOLD = 100;
   const [headerBg, setHeaderBg] = useState(false);
-  const animationFrameRef = useRef(null);
 
   const handleScroll = useCallback(() => {
-    if (animationFrameRef.current) {
-      cancelAnimationFrame(animationFrameRef.current);
-    }
-
-    animationFrameRef.current = requestAnimationFrame(() => {
-      const shouldShowBg = window.scrollY > SCROLL_THRESHOLD;
-      setHeaderBg(shouldShowBg);
-    });
+    setHeaderBg(window.scrollY > SCROLL_THRESHOLD);
   }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
     };
   }, [handleScroll]);
 
