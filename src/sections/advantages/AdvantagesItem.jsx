@@ -41,8 +41,4 @@ const AdvantagesItem = ({ text, icon, altText = '', ...props }) => {
   );
 };
 
-AdvantagesItem.defaultProps = {
-  altText: '',
-};
-
 export default memo(AdvantagesItem);

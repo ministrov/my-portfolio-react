@@ -204,6 +204,15 @@
       "toolsTitle": "Project Tools",
       "yearText": "Year",
       "roleText": "Role"
+    },
+    "mish": {
+      "title": "Mish",
+      "slogan": "",
+      "overview": "«Mish» — a landing page built under real-world conditions at the HTML Academy Championship (Professional League, Middle level). A two-week sprint, a technical brief and design mockups by Mish, powered by HTML5, CSS3, and JavaScript. The work was assessed by a jury of practicing IT companies — clean code and smooth animation validated through external audit. An interface where pixel-perfect markup meets a seamless user experience.",
+      "infoTitle": "Information",
+      "toolsTitle": "Tools",
+      "yearText": "Year",
+      "roleText": "Role"
     }
   },
   "projectCard": {

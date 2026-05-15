@@ -19,8 +19,8 @@
   display: flex;
   margin: -4px;
   padding: 4px;
-  font-size: 36px;
-  line-height: 40px;
+  font-size: 32px;
+  line-height: 38px;
   color: var(--color-white);
   text-decoration: none;
   transition: transform 0.35s ease, opacity 0.5s ease, color 0.3s ease, background-color 0.3s ease;
