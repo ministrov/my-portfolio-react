@@ -11,6 +11,27 @@ import avatar3x from '../../assets/png/my-avatar-1500.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
+/**
+ * Константы для анимационных задержек (в секундах)
+ */
+const ANIMATION_DELAYS = {
+  GREETING: 0.2,
+  SLOGAN: 0.4,
+  BUTTONS: 0.6,
+  IMAGE: 0.4,
+};
+
+/**
+ * Последовательности для TypeAnimation в зависимости от языка
+ */
+const TYPE_SEQUENCES = {
+  ru: ['Антон Жилин', 1000, 'Frontend Developer', 1000],
+  en: ['Anton Zhilin', 1000, 'Frontend Developer', 1000],
+};
+
+/**
+ * Общая конфигурация анимации
+ */
 const commonAnimation = {
   initial: { opacity: 0, y: 50 },
   whileInView: {
@@ -24,6 +45,10 @@ const commonAnimation = {
   },
 };
 
+/**
+ * Компонент промо-секции с приветствием, аватаром и ссылками
+ * @returns {JSX.Element} Промо-секция
+ */
 const Promo = () => {
   const { lang } = useLanguage();
   const { t } = useTranslation();
@@ -42,30 +67,16 @@ const Promo = () => {
                 {...commonAnimation}
                 transition={{
                   ...commonAnimation.transition,
-                  delay: 0.2,
+                  delay: ANIMATION_DELAYS.GREETING,
                 }}
               >
                 {lang === 'ru' ? 'Привет, Я' : "Hi, I'm"}
                 {<br />}
-                {lang === 'ru' && (
-                  <TypeAnimation
-                    sequence={['Антон Жилин', 1000, 'Frontend Developer', 1000]}
-                    speed={50}
-                    repeat={Infinity}
-                  />
-                )}
-                {lang === 'en' && (
-                  <TypeAnimation
-                    sequence={[
-                      'Anton Zhilin',
-                      1000,
-                      'Frontend Developer',
-                      1000,
-                    ]}
-                    speed={50}
-                    repeat={Infinity}
-                  />
-                )}
+                <TypeAnimation
+                  sequence={TYPE_SEQUENCES[lang]}
+                  speed={50}
+                  repeat={Infinity}
+                />
                 .
               </m.strong>
 
@@ -74,7 +85,7 @@ const Promo = () => {
                 {...commonAnimation}
                 transition={{
                   ...commonAnimation.transition,
-                  delay: 0.4,
+                  delay: ANIMATION_DELAYS.SLOGAN,
                 }}
               >
                 {t('promo.promoSlogan')}
@@ -85,18 +96,18 @@ const Promo = () => {
                 {...commonAnimation}
                 transition={{
                   ...commonAnimation.transition,
-                  delay: 0.6,
+                  delay: ANIMATION_DELAYS.BUTTONS,
                 }}
               >
                 <a
                   className={'promo__btn'}
                   href={cvPdf}
-                  download={cvPdf}
+                  download="Anton_Zhilin_CV.pdf"
                   rel="noopener noreferrer"
                 >
                   {t('promo.promoBtn')}
                   <span className="btn__icon">
-                    <BsBoxArrowInUpRight width={20} height={20} />
+                    <BsBoxArrowInUpRight />
                   </span>
                 </a>
 
@@ -105,12 +116,11 @@ const Promo = () => {
             </div>
 
             <m.div
-              key="promo-image"
               className="promo__image"
               {...commonAnimation}
               transition={{
                 ...commonAnimation.transition,
-                delay: 0.4,
+                delay: ANIMATION_DELAYS.IMAGE,
               }}
             >
               <picture>
@@ -128,7 +138,7 @@ const Promo = () => {
                   src={avatar}
                   width="500"
                   height="500"
-                  alt="Avatar a pixel man with a laptop"
+                  alt="Пиксельный аватар мужчины с ноутбуком, представляющий автора"
                   fetchpriority="high"
                 />
               </picture>
