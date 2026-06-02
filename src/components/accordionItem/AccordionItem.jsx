@@ -74,7 +74,7 @@ const AccordionItem = ({ item, isActive, onClick }) => {
         onKeyDown={handleKeyDown}
       >
         <h3>{t(item.question)}</h3>
-        <AccordionButton isActive={isActive} id={item.id} />
+        <AccordionButton isActive={isActive} />
       </div>
 
       <AccordionPanel item={item} open={isActive} />
