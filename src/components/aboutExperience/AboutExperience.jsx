@@ -31,12 +31,9 @@ const AboutExperience = () => {
                     <h3 className="about-experience__title">
                       {t(item.titleKey)}
                     </h3>
-                    <time
-                      className="about-experience__date"
-                      dateTime={t(item.dateTimeKey)}
-                    >
+                    <span className="about-experience__date">
                       {t(item.dateKey)}
-                    </time>
+                    </span>
                   </header>
                   {item.hasCompany && (
                     <p className="about-experience__name">

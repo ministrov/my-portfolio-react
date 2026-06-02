@@ -116,7 +116,6 @@ export const experienceItems = [
     id: 1,
     titleKey: 'aboutExperience.titleOne',
     dateKey: 'aboutExperience.dateOne',
-    dateTimeKey: 'aboutExperience.dateTimeOne',
     textKey: 'aboutExperience.textOne',
     hasCompany: false, // У первого элемента нет названия компании
   },
@@ -124,7 +123,6 @@ export const experienceItems = [
     id: 2,
     titleKey: 'aboutExperience.titleTwo',
     dateKey: 'aboutExperience.dateTwo',
-    dateTimeKey: 'aboutExperience.dateTimeTwo',
     textKey: 'aboutExperience.textTwo',
     hasCompany: true,
   },
@@ -132,7 +130,6 @@ export const experienceItems = [
     id: 3,
     titleKey: 'aboutExperience.titleThree',
     dateKey: 'aboutExperience.dateThree',
-    dateTimeKey: 'aboutExperience.dateTimeThree',
     textKey: 'aboutExperience.textThree',
     hasCompany: true,
   },
