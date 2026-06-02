@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Heading from '../heading/Heading';
-import { education } from '../../const/index.js';
+import { education } from '../../const';
 import './style.css';
 
 /**
@@ -28,12 +28,9 @@ const AboutEducation = () => {
                     <h3 className="about-education__title">
                       {t(item.titleKey)}
                     </h3>
-                    <time
-                      className="about-education__date"
-                      dateTime={item.dateTime}
-                    >
+                    <span className="about-education__date">
                       {t(item.dateKey)}
-                    </time>
+                    </span>
                   </header>
                   <p className="about-education__item-text">
                     {t(item.textKey)}
