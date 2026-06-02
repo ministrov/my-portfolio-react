@@ -1,6 +1,59 @@
-import { authorData } from '../../const/index.js';
+import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
+import { authorData } from '../../const';
 import photo from '../../assets/png/photo.webp';
 import './style.css';
+
+/**
+ * Строковое значение в блоке кода (в одинарных кавычках).
+ * @param {Object} props
+ * @param {string} props.value - Отображаемое значение
+ * @returns {JSX.Element}
+ */
+const CodeString = ({ value }) => (
+  <span className="token-string">'{value}'</span>
+);
+
+/**
+ * Скалярное свойство объекта в блоке кода (`ключ: 'значение',`).
+ * @param {Object} props
+ * @param {string} props.name - Имя свойства
+ * @param {string} props.value - Значение свойства
+ * @returns {JSX.Element}
+ */
+const StringProp = ({ name, value }) => (
+  <>
+    {'\n  '}
+    <span className="token-property">{name}</span>
+    <span className="token-punctuation">: </span>
+    <CodeString value={value} />
+    <span className="token-punctuation">,</span>
+  </>
+);
+
+/**
+ * Свойство-массив строк в блоке кода (`ключ: ['a', 'b'],`).
+ * @param {Object} props
+ * @param {string} props.name - Имя свойства
+ * @param {string[]} props.items - Элементы массива
+ * @returns {JSX.Element}
+ */
+const ArrayProp = ({ name, items }) => (
+  <>
+    {'\n  '}
+    <span className="token-property">{name}</span>
+    <span className="token-punctuation">: [</span>
+    {items.map((item, index) => (
+      <Fragment key={item}>
+        <CodeString value={item} />
+        {index < items.length - 1 && (
+          <span className="token-punctuation">, </span>
+        )}
+      </Fragment>
+    ))}
+    <span className="token-punctuation">],</span>
+  </>
+);
 
 /**
  * Компонент AuthorPhoto отображает карточку с фотографией автора, метаданными
@@ -15,95 +68,8 @@ import './style.css';
  * @returns {JSX.Element} Карточка автора с фотографией и кодом
  */
 const AuthorPhoto = () => {
-  const { name, role, location, photoAlt, code } = authorData;
-
-  /**
-   * Генерирует JSX для блока кода с синтаксической подсветкой
-   * @returns {JSX.Element} Элемент <code> с разметкой
-   */
-  const renderCodeBlock = () => (
-    <code>
-      <span className="token-keyword">const</span>{' '}
-      <span className="token-variable">author</span>{' '}
-      <span className="token-operator">=</span>{' '}
-      <span className="token-punctuation">{'{'}</span>
-      {'\n  '}
-      <span className="token-property">name</span>
-      <span className="token-punctuation">:</span>{' '}
-      <span className="token-string">'{code.name}'</span>
-      <span className="token-punctuation">,</span>
-      {'\n  '}
-      <span className="token-property">role</span>
-      <span className="token-punctuation">:</span>{' '}
-      <span className="token-string">'{code.role}'</span>
-      <span className="token-punctuation">,</span>
-      {'\n  '}
-      <span className="token-property">location</span>
-      <span className="token-punctuation">:</span>{' '}
-      <span className="token-string">'{code.location}'</span>
-      <span className="token-punctuation">,</span>
-      {'\n  '}
-      <span className="token-property">experience</span>
-      <span className="token-punctuation">:</span>{' '}
-      <span className="token-string">'{code.experience}'</span>
-      <span className="token-punctuation">,</span>
-      {'\n  '}
-      <span className="token-property">focus</span>
-      <span className="token-punctuation">:</span>{' '}
-      <span className="token-string">'{code.focus}'</span>
-      <span className="token-punctuation">,</span>
-      {'\n  '}
-      <span className="token-property">stack</span>
-      <span className="token-punctuation">:</span>{' '}
-      <span className="token-punctuation">[</span>
-      {code.stack.map((tech, index) => (
-        <span key={tech}>
-          <span className="token-string">'{tech}'</span>
-          {index < code.stack.length - 1 ? <span className="token-punctuation">, </span> : ''}
-        </span>
-      ))}
-      <span className="token-punctuation">]</span>
-      <span className="token-punctuation">,</span>
-      {'\n  '}
-      <span className="token-property">interests</span>
-      <span className="token-punctuation">:</span>{' '}
-      <span className="token-punctuation">[</span>
-      {code.interests.map((interest, index) => (
-        <span key={interest}>
-          <span className="token-string">'{interest}'</span>
-          {index < code.interests.length - 1 ? <span className="token-punctuation">, </span> : ''}
-        </span>
-      ))}
-      <span className="token-punctuation">]</span>
-      <span className="token-punctuation">,</span>
-      {'\n  '}
-      <span className="token-property">currentlyLearning</span>
-      <span className="token-punctuation">:</span>{' '}
-      <span className="token-punctuation">[</span>
-      {code.currentlyLearning.map((item, index) => (
-        <span key={item}>
-          <span className="token-string">'{item}'</span>
-          {index < code.currentlyLearning.length - 1 ? <span className="token-punctuation">, </span> : ''}
-        </span>
-      ))}
-      <span className="token-punctuation">]</span>
-      <span className="token-punctuation">,</span>
-      {'\n  '}
-      <span className="token-property">availableFor</span>
-      <span className="token-punctuation">:</span>{' '}
-      <span className="token-punctuation">[</span>
-      {code.availableFor.map((option, index) => (
-        <span key={option}>
-          <span className="token-string">'{option}'</span>
-          {index < code.availableFor.length - 1 ? <span className="token-punctuation">, </span> : ''}
-        </span>
-      ))}
-      <span className="token-punctuation">]</span>
-      <span className="token-punctuation">,</span>
-      {'\n'}
-      <span className="token-punctuation">{'};'}</span>
-    </code>
-  );
+  const { t } = useTranslation();
+  const { code } = authorData;
 
   return (
     <div className="author-wrapper">
@@ -124,21 +90,37 @@ const AuthorPhoto = () => {
               src={photo}
               width={260}
               height={260}
-              alt={photoAlt}
+              alt={t('authorPhoto.photoAlt')}
               loading="lazy"
             />
           </figure>
 
           <div className="author-meta">
-            <h2 className="author-name">{name}</h2>
-            <p className="author-role">{role}</p>
-            <p className="author-location">{location}</p>
+            <p className="author-name">{t('authorPhoto.name')}</p>
+            <p className="author-role">{t('authorPhoto.role')}</p>
+            <p className="author-location">{t('authorPhoto.location')}</p>
           </div>
         </div>
 
         {/* Блок с кодом */}
         <pre className="author-code">
-          {renderCodeBlock()}
+          <code>
+            <span className="token-keyword">const</span>{' '}
+            <span className="token-variable">author</span>{' '}
+            <span className="token-operator">=</span>{' '}
+            <span className="token-punctuation">{'{'}</span>
+            <StringProp name="name" value={code.name} />
+            <StringProp name="role" value={code.role} />
+            <StringProp name="location" value={code.location} />
+            <StringProp name="experience" value={code.experience} />
+            <StringProp name="focus" value={code.focus} />
+            <ArrayProp name="stack" items={code.stack} />
+            <ArrayProp name="interests" items={code.interests} />
+            <ArrayProp name="currentlyLearning" items={code.currentlyLearning} />
+            <ArrayProp name="availableFor" items={code.availableFor} />
+            {'\n'}
+            <span className="token-punctuation">{'};'}</span>
+          </code>
         </pre>
       </div>
     </div>

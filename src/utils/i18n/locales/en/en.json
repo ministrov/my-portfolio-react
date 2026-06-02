@@ -143,6 +143,12 @@
     "author": "Anton Zhilin",
     "reachOutButton": "Reach Out"
   },
+  "authorPhoto": {
+    "name": "Anton Zhilin",
+    "role": "Frontend Developer · React / Next.js",
+    "location": "Moscow · Remote / Hybrid",
+    "photoAlt": "Close-up of the project author"
+  },
   "projects": {
     "vamvoda": {
       "title": "Vam Voda",

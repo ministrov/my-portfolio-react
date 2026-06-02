@@ -155,10 +155,6 @@ export const skills = [
  * @type {Object}
  */
 export const authorData = {
-  name: 'Антон Жилин',
-  role: 'Frontend Developer · React / Next.js',
-  location: 'Москва · Remote / Hybrid',
-  photoAlt: 'Крупным планом автор проекта',
   code: {
     name: 'Антон Жилин',
     role: 'Frontend Developer',
