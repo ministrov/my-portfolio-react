@@ -60,6 +60,7 @@
     }
   },
   "breadcrumbs": {
+    "ariaLabel": "Хлебные крошки",
     "home": "Главная",
     "about": "Обо мне",
     "projects": "Проекты"

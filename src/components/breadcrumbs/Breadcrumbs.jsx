@@ -1,11 +1,12 @@
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import './style.css';
 
 /**
  * Компонент хлебных крошек для навигации по сайту.
- * Отображает цепочку ссылок, ведущих к текущей странице.
+ * Отображает цепочку ссылок, ведущих к текущей странице, как упорядоченный список.
  *
  * @component
  * @param {Object} props - Свойства компонента
@@ -26,40 +27,35 @@ import './style.css';
  * <Breadcrumbs items={breadcrumbItems} />
  */
 const Breadcrumbs = ({ items, ...props }) => {
+  const { t } = useTranslation();
+
   return (
-    <nav className="breadcrumbs" aria-label="breadcrumbs" {...props}>
-      {items.map((item, index) => {
-        const isLast = index === items.length - 1;
-        
-        return (
-          <div key={item.id} className="item">
+    <nav
+      className="breadcrumbs"
+      aria-label={t('breadcrumbs.ariaLabel')}
+      {...props}
+    >
+      <ol className="breadcrumbs__list">
+        {items.map((item, index) => (
+          <li key={item.id} className="breadcrumbs__item">
+            {index > 0 && (
+              <MdOutlineKeyboardArrowRight
+                className="breadcrumbs__arrow"
+                aria-hidden="true"
+              />
+            )}
             {item.link ? (
-              <>
-                <Link 
-                  to={item.link} 
-                  className="link"
-                  aria-current={isLast ? undefined : 'false'}
-                >
-                  {item.name}
-                </Link>
-                {!isLast && (
-                  <MdOutlineKeyboardArrowRight
-                    className="arrow-right"
-                    aria-hidden="true"
-                  />
-                )}
-              </>
+              <Link to={item.link} className="breadcrumbs__link">
+                {item.name}
+              </Link>
             ) : (
-              <span 
-                className="current" 
-                aria-current="page"
-              >
+              <span className="breadcrumbs__current" aria-current="page">
                 {item.name}
               </span>
             )}
-          </div>
-        );
-      })}
+          </li>
+        ))}
+      </ol>
     </nav>
   );
 };
