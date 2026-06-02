@@ -133,7 +133,9 @@
       "answer": "Certainly! Feel free to contact me through social media, Telegram, or email. I’ll be delighted to assist with any inquiries and provide a project estimate."
     },
     "open": "Show more",
-    "close": "Hide"
+    "close": "Hide",
+    "listAriaLabel": "List of frequently asked questions",
+    "emptyMessage": "No questions available"
   },
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",

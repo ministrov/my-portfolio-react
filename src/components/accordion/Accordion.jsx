@@ -1,8 +1,23 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { faqs } from '../../const';
 import AccordionItem from '../accordionItem/AccordionItem';
 import './style.css';
+
+/**
+ * Варианты анимации для контейнера списка.
+ * Определяет staggered анимацию для дочерних элементов.
+ * @type {import('framer-motion').Variants}
+ */
+const listVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.32,
+    },
+  },
+};
 
 /**
  * Компонент аккордеона для отображения списка вопросов и ответов (FAQ).
@@ -18,22 +33,9 @@ import './style.css';
  * @returns {JSX.Element} Разметка аккордеона
  */
 const Accordion = () => {
+  const { t } = useTranslation();
   // Индекс активного элемента (null означает, что ни один не открыт)
   const [activeIndex, setActiveIndex] = useState(null);
-
-  /**
-   * Варианты анимации для контейнера списка.
-   * Определяет staggered анимацию для дочерних элементов.
-   * @type {import('framer-motion').Variants}
-   */
-  const listVariants = useMemo(() => ({
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.32,
-      },
-    },
-  }), []);
 
   /**
    * Переключает состояние элемента аккордеона.
@@ -50,7 +52,7 @@ const Accordion = () => {
   if (!faqs || faqs.length === 0) {
     return (
       <div className="faq__list faq__list--empty">
-        <p>Нет доступных вопросов</p>
+        <p>{t('faqs.emptyMessage')}</p>
       </div>
     );
   }
@@ -63,7 +65,7 @@ const Accordion = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        aria-label="Список часто задаваемых вопросов"
+        aria-label={t('faqs.listAriaLabel')}
       >
         {faqs.map((faq) => (
           <AccordionItem
