@@ -150,6 +150,12 @@
     "location": "Moscow · Remote / Hybrid",
     "photoAlt": "Close-up of the project author"
   },
+  "aboutStory": {
+    "srHeading": "A unified About me section for a single-page portfolio, structured in three layers: result, approach, facts.",
+    "para1": "Frontend developer based in Moscow. I turn ideas into working products — interfaces that feel just as natural on a phone, a tablet, or a desktop, and never lose the user on the small details. I build clean, down to <mark>pixel-perfect</mark>, because aesthetics and usability aren't finishing touches — they're part of the result.",
+    "para2": "Behind the polished surface is solid engineering: <stack>Next.js (Pages/App Router), TypeScript, RTK Query, React i18next, CSS Modules, mobile-first</stack>. I care about speed (optimizing <mark>Core Web Vitals</mark>) and about making products accessible to everyone (<mark>WCAG 2.1</mark>). I work in Agile/Scrum with CI/CD.",
+    "para3": "<mark>Middle</mark> level confirmed at the HTML Academy championship. Open to office, hybrid, or remote work. <cta>Tell me what you need built?</cta>"
+  },
   "projects": {
     "vamvoda": {
       "title": "Vam Voda",

@@ -1,62 +1,51 @@
+import { useTranslation, Trans } from 'react-i18next';
 import './style.css';
 
 /**
- * Данные легенды «как читается по слоям».
- * Каждый слой связан с одноимённым абзацем через модификатор `--{id}`.
- * @type {{ id: number, label: string, note: string }[]}
+ * Именованные компоненты-обёртки для <Trans>.
+ * Сохраняют стилизацию фрагментов текста при переводе: подсветка ключевых фраз
+ * (`mark`), технологический стек (`stack`) и призыв к действию (`cta`).
+ * Соответствующие теги (`<mark>`, `<stack>`, `<cta>`) используются в строках словарей.
  */
+const RICH_COMPONENTS = {
+  mark: <mark className="about-story__mark" />,
+  stack: <strong className="about-story__stack" />,
+  cta: <span className="about-story__cta" />,
+};
 
 /**
- * Компонент AboutStory — единая версия секции «Обо мне» в три смысловых слоя
- * (результат → подход → факты) с интерактивной легендой.
+ * Компонент AboutStory — секция «Обо мне» в три смысловых слоя
+ * (результат → подход → факты).
  *
- * Акцент сделан на типографике и нативном CSS: буквица, цветовые маркеры слоёв,
- * подсветка ключевых фраз и перекрёстная подсветка «абзац ↔ легенда» через `:has()`.
+ * Текст локализован через i18next, а стилизованные фрагменты сохраняются при
+ * переводе с помощью `<Trans>` и именованных компонентов из {@link RICH_COMPONENTS}.
+ * Акцент на типографике и нативном CSS: буквица, цветовые маркеры слоёв и
+ * растущая подсветка ключевых фраз.
  *
  * @component
  * @example
  * return <AboutStory />
  *
- * @returns {JSX.Element} Секция «Обо мне» с легендой слоёв
+ * @returns {JSX.Element} Секция «Обо мне»
  */
 const AboutStory = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="about-story">
-      <h2 className="visually-hidden">
-        Единая версия секции «Обо мне» для одной страницы портфолио, выстроенная
-        в три слоя: результат, подход, факты.
-      </h2>
+      <h2 className="visually-hidden">{t('aboutStory.srHeading')}</h2>
 
       <article className="about-story__card">
         <p className="about-story__para about-story__para--1">
-          Фронтенд-разработчик из Москвы. Превращаю идею в работающий продукт —
-          интерфейс, который одинаково удобно открывается с телефона, планшета и
-          десктопа и не теряет пользователя на мелочах. Делаю чисто, до уровня{' '}
-          <mark className="about-story__mark">pixel perfect</mark>, потому что
-          эстетика и удобство — это не отделка, а часть результата.
+          <Trans i18nKey="aboutStory.para1" components={RICH_COMPONENTS} />
         </p>
 
         <p className="about-story__para about-story__para--2">
-          За аккуратной картинкой — надёжная инженерия:{' '}
-          <strong className="about-story__stack">
-            Next.js (Pages/App Router), TypeScript, RTK Query, React i18next,
-            CSS Modules, mobile-first
-          </strong>
-          . Забочусь о скорости (оптимизирую{' '}
-          <mark className="about-story__mark">Core Web Vitals</mark>) и о том,
-          чтобы продукт был доступен каждому (
-          <mark className="about-story__mark">WCAG 2.1</mark>). Работаю в
-          Agile/Scrum с CI/CD.
+          <Trans i18nKey="aboutStory.para2" components={RICH_COMPONENTS} />
         </p>
 
         <p className="about-story__para about-story__para--3">
-          Уровень <mark className="about-story__mark">Middle</mark> подтверждён
-          на чемпионате HTML Academy.{' '}
-          <mark className="about-story__mark">English B2</mark>. Готов к офису,
-          гибриду или удалёнке.{' '}
-          <span className="about-story__cta">
-            Расскажете, что нужно сделать?
-          </span>
+          <Trans i18nKey="aboutStory.para3" components={RICH_COMPONENTS} />
         </p>
       </article>
     </section>
