@@ -61,6 +61,7 @@
     }
   },
   "breadcrumbs": {
+    "ariaLabel": "Breadcrumbs",
     "home": "Home",
     "about": "About",
     "projects": "Projects"
@@ -133,13 +134,27 @@
       "answer": "Certainly! Feel free to contact me through social media, Telegram, or email. I’ll be delighted to assist with any inquiries and provide a project estimate."
     },
     "open": "Show more",
-    "close": "Hide"
+    "close": "Hide",
+    "listAriaLabel": "List of frequently asked questions",
+    "emptyMessage": "No questions available"
   },
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
     "copyright": "Copyright 2025. Made by",
     "author": "Anton Zhilin",
     "reachOutButton": "Reach Out"
+  },
+  "authorPhoto": {
+    "name": "Anton Zhilin",
+    "role": "Frontend Developer · React / Next.js",
+    "location": "Moscow · Remote / Hybrid",
+    "photoAlt": "Close-up of the project author"
+  },
+  "aboutStory": {
+    "srHeading": "A unified About me section for a single-page portfolio, structured in three layers: result, approach, facts.",
+    "para1": "Frontend developer based in Moscow. I turn ideas into working products — interfaces that feel just as natural on a phone, a tablet, or a desktop, and never lose the user on the small details. I build clean, down to <mark>pixel-perfect</mark>, because aesthetics and usability aren't finishing touches — they're part of the result.",
+    "para2": "Behind the polished surface is solid engineering: <stack>Next.js (Pages/App Router), TypeScript, RTK Query, React i18next, CSS Modules, mobile-first</stack>. I care about speed (optimizing <mark>Core Web Vitals</mark>) and about making products accessible to everyone (<mark>WCAG 2.1</mark>). I work in Agile/Scrum with CI/CD.",
+    "para3": "<mark>Middle</mark> level confirmed at the HTML Academy championship. Open to office, hybrid, or remote work. <cta>Tell me what you need built?</cta>"
   },
   "projects": {
     "vamvoda": {
@@ -231,11 +246,8 @@
     "textTwo": "As part of the team, developed a high-load web application for the Vam Voda online store — a scalable e-commerce platform successfully serving 20,000+ active users monthly! Responsible for layout.",
     "textThree": "As a Frontend Developer at OOO «Service Market», I develop promotional landing pages that help launch and enhance the company's marketing campaigns. I focus on fast, precise layout and implement solutions that boost user conversion and engagement. I maintain and evolve the existing frontend infrastructure, optimizing load speeds and project stability. I actively collaborate with the marketing team and backend developers to quickly bring new offers to market and improve key product metrics.",
     "dateOne": "Sep 2021 — Nov 2023",
-    "dateTimeOne": "2021-09/2023-11",
     "dateTwo": "Nov 2023 — Nov 2024",
-    "dateTimeTwo": "2023-11/2024-11",
-    "dateThree": "Nov 2024 — Present",
-    "dateTimeThree": "2024-11/"
+    "dateThree": "Nov 2024 — Present"
   },
   "aboutEducation": {
     "title1": "Educational Institution: Moscow College of Management and New Technologies",
@@ -244,9 +256,9 @@
     "textOne": "Specialty: Information Technology and Computing.",
     "textTwo": "Specialty: Professional Web Interface Development.",
     "textThree": "Specialty: React. Developing Complex Client Applications.",
-    "dateOne": "Sep 1998 — Jun 2002",
-    "dateTwo": "May 2020 — Mar 2021",
-    "dateThree": "Sep 2024 — Nov 2024"
+    "dateOne": "September 1998 — June 2002",
+    "dateTwo": "May 2020 — March 2021",
+    "dateThree": "September 2024 — November 2024"
   },
   "errorMessage": {
     "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",

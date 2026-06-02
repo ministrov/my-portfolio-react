@@ -53,15 +53,6 @@
     padding-bottom: 64px;
   }
 
-  .about-education__wrapper {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .about-education__text-container {
-    max-width: 100%;
-  }
-
   .about-education__education-list {
     gap: 40px;
   }

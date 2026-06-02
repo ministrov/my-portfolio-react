@@ -95,21 +95,18 @@ export const education = [
     titleKey: 'aboutEducation.title1',
     textKey: 'aboutEducation.textOne',
     dateKey: 'aboutEducation.dateOne',
-    dateTime: '1998-09/2002-06',
   },
   {
     id: 2,
     titleKey: 'aboutEducation.title2',
     textKey: 'aboutEducation.textTwo',
     dateKey: 'aboutEducation.dateTwo',
-    dateTime: '2020-05/2021-03',
   },
   {
     id: 3,
     titleKey: 'aboutEducation.title3',
     textKey: 'aboutEducation.textThree',
     dateKey: 'aboutEducation.dateThree',
-    dateTime: '2024-09/2024-11',
   },
 ];
 
@@ -119,7 +116,6 @@ export const experienceItems = [
     id: 1,
     titleKey: 'aboutExperience.titleOne',
     dateKey: 'aboutExperience.dateOne',
-    dateTimeKey: 'aboutExperience.dateTimeOne',
     textKey: 'aboutExperience.textOne',
     hasCompany: false, // У первого элемента нет названия компании
   },
@@ -127,7 +123,6 @@ export const experienceItems = [
     id: 2,
     titleKey: 'aboutExperience.titleTwo',
     dateKey: 'aboutExperience.dateTwo',
-    dateTimeKey: 'aboutExperience.dateTimeTwo',
     textKey: 'aboutExperience.textTwo',
     hasCompany: true,
   },
@@ -135,7 +130,6 @@ export const experienceItems = [
     id: 3,
     titleKey: 'aboutExperience.titleThree',
     dateKey: 'aboutExperience.dateThree',
-    dateTimeKey: 'aboutExperience.dateTimeThree',
     textKey: 'aboutExperience.textThree',
     hasCompany: true,
   },
@@ -161,10 +155,6 @@ export const skills = [
  * @type {Object}
  */
 export const authorData = {
-  name: 'Антон Жилин',
-  role: 'Frontend Developer · React / Next.js',
-  location: 'Москва · Remote / Hybrid',
-  photoAlt: 'Крупным планом автор проекта',
   code: {
     name: 'Антон Жилин',
     role: 'Frontend Developer',

@@ -1,0 +1,262 @@
+.about-story {
+  /* Цветовые токены слоёв (нет в глобальной палитре — задаём локально) */
+  --layer-1: #0f6e56;
+  --layer-1-soft: #e1f5ee;
+  --layer-2: #3c3489;
+  --layer-2-soft: #eeedfe;
+  --layer-3: #185fa5;
+  --layer-3-soft: #e6f1fb;
+
+  --story-surface: var(--color-white);
+  --story-surface-muted: var(--color-gray-100);
+  --story-text: var(--color-gray-800);
+  --story-muted: var(--color-gray-500);
+  --story-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+  font-family: var(--font-base);
+  color: var(--story-text);
+}
+
+/* ───────────────────────── Карточка с текстом ───────────────────────── */
+
+.about-story__card {
+  position: relative;
+  padding: clamp(1.4rem, 1rem + 1.6vw, 2.25rem);
+  background: var(--story-surface);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--story-radius);
+  box-shadow: 0 18px 48px -24px rgba(0, 88, 167, 0.45);
+  overflow: hidden;
+}
+
+/* Верхняя акцентная полоса в фирменном переходе слоёв */
+.about-story__card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+      var(--layer-1),
+      var(--layer-2),
+      var(--layer-3));
+}
+
+/* ───────────────────────── Абзацы-слои ───────────────────────── */
+
+.about-story__para {
+  position: relative;
+  margin: 0;
+  padding: 0.45rem 0.4rem 0.45rem 1.15rem;
+  border-radius: 10px;
+  font-size: clamp(1rem, 0.96rem + 0.3vw, 1.0625rem);
+  line-height: 1.75;
+  text-wrap: pretty;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about-story__para+.about-story__para {
+  margin-top: 0.85rem;
+}
+
+/* Вертикальный маркер слева — цвет берётся из --accent слоя */
+.about-story__para::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.4;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  transform-origin: top;
+}
+
+/* Привязка цвета акцента к каждому слою */
+.about-story__para--1 {
+  --accent: var(--layer-1);
+  --accent-soft: var(--layer-1-soft);
+}
+
+.about-story__para--2 {
+  --accent: var(--layer-2);
+  --accent-soft: var(--layer-2-soft);
+}
+
+.about-story__para--3 {
+  --accent: var(--layer-3);
+  --accent-soft: var(--layer-3-soft);
+}
+
+/* Первый абзац — «лид» с буквицей */
+.about-story__para--1 {
+  font-size: clamp(1.05rem, 1rem + 0.55vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.about-story__para--1::first-letter {
+  float: left;
+  margin: 0.06em 0.12em -0.04em 0;
+  font-family: var(--font-headings);
+  font-weight: 700;
+  font-size: 3.1em;
+  line-height: 0.74;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ───────────────────────── Акценты внутри текста ───────────────────────── */
+
+/* Маркер ключевых фраз: подсветка «маркером», растущая при наведении */
+.about-story__mark {
+  color: var(--accent, var(--color-blue-700));
+  font-weight: 600;
+  background-color: transparent;
+  background-image: linear-gradient(var(--accent-soft, #e6f1fb),
+      var(--accent-soft, #e6f1fb));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 0.32em;
+  padding: 0 0.1em;
+  border-radius: 3px;
+  transition:
+    background-size 0.3s ease,
+    color 0.3s ease;
+}
+
+.about-story__para:hover .about-story__mark {
+  background-size: 100% 92%;
+}
+
+/* Технологический стек — моноширинный, чуть приподнятый */
+.about-story__stack {
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+/* Призыв к действию — градиентный текст с подчёркиванием */
+.about-story__cta {
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ───────────────────────── Легенда слоёв ───────────────────────── */
+
+.about-story__legend {
+  padding: 1rem 1.25rem;
+  background: var(--story-surface-muted);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+}
+
+.about-story__legend-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--story-muted);
+}
+
+.about-story__legend-icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-blue-700);
+}
+
+.about-story__legend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-story__legend-row {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 5px 8px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease;
+}
+
+.about-story__legend-row--1 {
+  --accent: var(--layer-1);
+  --accent-soft: var(--layer-1-soft);
+}
+
+.about-story__legend-row--2 {
+  --accent: var(--layer-2);
+  --accent-soft: var(--layer-2-soft);
+}
+
+.about-story__legend-row--3 {
+  --accent: var(--layer-3);
+  --accent-soft: var(--layer-3-soft);
+}
+
+.about-story__badge {
+  flex-shrink: 0;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.about-story__legend-note {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--story-muted);
+}
+
+/* Адаптивность */
+@media screen and (max-width: 480px) {
+  .about-story__para--1::first-letter {
+    font-size: 2.6em;
+  }
+
+  .about-story__legend-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+/* Уважение к системной настройке «уменьшить движение» */
+@media (prefers-reduced-motion: reduce) {
+
+  .about-story__para,
+  .about-story__para::before,
+  .about-story__mark,
+  .about-story__legend-row {
+    transition: none;
+  }
+
+  .about-story__para:hover,
+  .about-story:has(.about-story__legend-row--1:hover) .about-story__para--1,
+  .about-story:has(.about-story__legend-row--2:hover) .about-story__para--2,
+  .about-story:has(.about-story__legend-row--3:hover) .about-story__para--3 {
+    transform: none;
+  }
+}
