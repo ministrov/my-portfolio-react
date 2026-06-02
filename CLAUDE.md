@@ -78,3 +78,5 @@ The authority is the **Conventional Commits** spec (https://www.conventionalcomm
 - Per the spec, **scope and body are optional**. Description is a short imperative summary.
 
 `.codeassistant/rules/git-commit-rule.md` layers stricter local preferences on top: a body of 2–6 bullets (imperative, capitalized, no trailing period), a lowercase subject ≤72 chars, and scope = the area touched (`about`, `projects`, `carousel`, `utils`, …). Treat these as conventions, not requirements — **where they conflict with Conventional Commits, the spec wins** (e.g. a body is never mandatory). The existing history uses the bulleted style, so prefer it when a body actually adds value.
+
+**Authorship**: commit as the machine's git user (the repo owner), never as Claude. Do **not** add a `Co-Authored-By: Claude …` trailer or otherwise attribute the commit to the assistant — the configured `user.name`/`user.email` must remain the sole author.
