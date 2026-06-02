@@ -1,21 +1,20 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './style.css';
 
 /**
  * Компонент ссылки-кнопки для навигации внутри приложения или внешних ссылок.
- * Поддерживает иконки, открытие в новой вкладке и дополнительные атрибуты доступности.
+ * Поддерживает иконки, открытие в новой вкладке и проброс дополнительных атрибутов.
  *
  * @component
  * @param {Object} props - Пропсы компонента
- * @param {string} props.className - Дополнительные CSS-классы
+ * @param {string} [props.className] - Дополнительные CSS-классы
  * @param {string} props.path - Путь для навигации (внутренний) или URL (внешний)
  * @param {string} props.text - Текст ссылки
  * @param {React.ReactNode} [props.icon] - Иконка (React-элемент или строка)
  * @param {boolean} [props.target=false] - Открывать ли ссылку в новой вкладке
- * @param {string} [props.ariaLabel] - ARIA-метка для доступности (если текст недостаточен)
- * @param {string} [props.title] - Всплывающая подсказка (title атрибут)
- * @param {Object} [props.rest] - Дополнительные атрибуты, передаваемые в NavLink
+ * @param {Object} [props.rest] - Дополнительные атрибуты (например, `aria-label`, `title`),
+ *   пробрасываемые в ссылку
  * @returns {JSX.Element} Ссылка-кнопка с иконкой и стилизацией
  *
  * @example
@@ -23,8 +22,7 @@ import './style.css';
  *   path="/about"
  *   text="Подробнее"
  *   icon={<FaArrowRight />}
- *   target={false}
- *   ariaLabel="Перейти на страницу 'Обо мне'"
+ *   aria-label="Перейти на страницу 'Обо мне'"
  *   title="Нажмите для перехода"
  * />
  */
@@ -34,21 +32,19 @@ const ButtonLink = ({
   text,
   icon = null,
   target = false,
-  ariaLabel,
-  title,
   ...rest
 }) => {
   // Определяем, является ли ссылка внешней (начинается с http/https)
   const isExternal = /^https?:\/\//.test(path);
-  
-  // Базовые атрибуты, общие для всех ссылок
+
+  // Базовые атрибуты, общие для всех ссылок.
+  // `...rest` разворачивается первым, чтобы контролируемые атрибуты ниже
+  // нельзя было случайно переопределить извне (в частности, безопасный `rel`).
   const commonProps = {
+    ...rest,
     className: `button-link ${className}`.trim(),
     target: target ? '_blank' : '_self',
-    rel: target ? 'noopener noreferrer' : undefined,
-    ...(ariaLabel && { 'aria-label': ariaLabel }),
-    ...(title && { title }),
-    ...rest,
+    ...(target && { rel: 'noopener noreferrer' }),
   };
 
   const content = (
@@ -61,23 +57,17 @@ const ButtonLink = ({
   if (isExternal) {
     // Для внешних ссылок используем обычный <a>
     return (
-      <a
-        href={path}
-        {...commonProps}
-      >
+      <a href={path} {...commonProps}>
         {content}
       </a>
     );
   }
 
-  // Для внутренних ссылок используем NavLink
+  // Для внутренних ссылок используем Link
   return (
-    <NavLink
-      to={path}
-      {...commonProps}
-    >
+    <Link to={path} {...commonProps}>
       {content}
-    </NavLink>
+    </Link>
   );
 };
 
@@ -92,10 +82,6 @@ ButtonLink.propTypes = {
   icon: PropTypes.node,
   /** Открывать ли ссылку в новой вкладке */
   target: PropTypes.bool,
-  /** ARIA-метка для доступности */
-  ariaLabel: PropTypes.string,
-  /** Всплывающая подсказка (title атрибут) */
-  title: PropTypes.string,
 };
 
 export default ButtonLink;
