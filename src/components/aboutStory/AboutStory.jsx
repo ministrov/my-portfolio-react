@@ -1,4 +1,3 @@
-import { TbStack2 } from 'react-icons/tb';
 import './style.css';
 
 /**
@@ -6,23 +5,6 @@ import './style.css';
  * Каждый слой связан с одноимённым абзацем через модификатор `--{id}`.
  * @type {{ id: number, label: string, note: string }[]}
  */
-const LAYERS = [
-  {
-    id: 1,
-    label: 'Абзац 1',
-    note: 'результат и эстетика — цепляет бизнес и любого, кто просто смотрит',
-  },
-  {
-    id: 2,
-    label: 'Абзац 2',
-    note: 'стек как доказательство, а не список — «за картинкой есть инженер»',
-  },
-  {
-    id: 3,
-    label: 'Абзац 3',
-    note: 'факты для отсева: уровень, язык, формат, призыв к действию',
-  },
-];
 
 /**
  * Компонент AboutStory — единая версия секции «Обо мне» в три смысловых слоя
@@ -41,8 +23,8 @@ const AboutStory = () => {
   return (
     <section className="about-story">
       <h2 className="visually-hidden">
-        Единая версия секции «Обо мне» для одной страницы портфолио, выстроенная в
-        три слоя: результат, подход, факты.
+        Единая версия секции «Обо мне» для одной страницы портфолио, выстроенная
+        в три слоя: результат, подход, факты.
       </h2>
 
       <article className="about-story__card">
@@ -57,43 +39,26 @@ const AboutStory = () => {
         <p className="about-story__para about-story__para--2">
           За аккуратной картинкой — надёжная инженерия:{' '}
           <strong className="about-story__stack">
-            Next.js (Pages/App Router), TypeScript, RTK Query, React i18next, CSS
-            Modules, mobile-first
+            Next.js (Pages/App Router), TypeScript, RTK Query, React i18next,
+            CSS Modules, mobile-first
           </strong>
           . Забочусь о скорости (оптимизирую{' '}
-          <mark className="about-story__mark">Core Web Vitals</mark>) и о том, чтобы
-          продукт был доступен каждому (
-          <mark className="about-story__mark">WCAG 2.1</mark>). Работаю в Agile/Scrum
-          с CI/CD.
+          <mark className="about-story__mark">Core Web Vitals</mark>) и о том,
+          чтобы продукт был доступен каждому (
+          <mark className="about-story__mark">WCAG 2.1</mark>). Работаю в
+          Agile/Scrum с CI/CD.
         </p>
 
         <p className="about-story__para about-story__para--3">
-          Уровень <mark className="about-story__mark">Middle</mark> подтверждён на
-          чемпионате HTML Academy.{' '}
+          Уровень <mark className="about-story__mark">Middle</mark> подтверждён
+          на чемпионате HTML Academy.{' '}
           <mark className="about-story__mark">English B2</mark>. Готов к офису,
           гибриду или удалёнке.{' '}
-          <span className="about-story__cta">Расскажете, что нужно сделать?</span>
+          <span className="about-story__cta">
+            Расскажете, что нужно сделать?
+          </span>
         </p>
       </article>
-
-      <aside className="about-story__legend">
-        <p className="about-story__legend-title">
-          <TbStack2 className="about-story__legend-icon" aria-hidden="true" />
-          как читается по слоям
-        </p>
-
-        <ul className="about-story__legend-list">
-          {LAYERS.map((layer) => (
-            <li
-              key={layer.id}
-              className={`about-story__legend-row about-story__legend-row--${layer.id}`}
-            >
-              <span className="about-story__badge">{layer.label}</span>
-              <span className="about-story__legend-note">{layer.note}</span>
-            </li>
-          ))}
-        </ul>
-      </aside>
     </section>
   );
 };

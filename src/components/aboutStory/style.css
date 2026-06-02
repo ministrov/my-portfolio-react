@@ -39,12 +39,10 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--layer-1),
-    var(--layer-2),
-    var(--layer-3)
-  );
+  background: linear-gradient(90deg,
+      var(--layer-1),
+      var(--layer-2),
+      var(--layer-3));
 }
 
 /* ───────────────────────── Абзацы-слои ───────────────────────── */
@@ -62,7 +60,7 @@
     transform 0.3s ease;
 }
 
-.about-story__para + .about-story__para {
+.about-story__para+.about-story__para {
   margin-top: 0.85rem;
 }
 
@@ -88,10 +86,12 @@
   --accent: var(--layer-1);
   --accent-soft: var(--layer-1-soft);
 }
+
 .about-story__para--2 {
   --accent: var(--layer-2);
   --accent-soft: var(--layer-2-soft);
 }
+
 .about-story__para--3 {
   --accent: var(--layer-3);
   --accent-soft: var(--layer-3-soft);
@@ -123,10 +123,8 @@
   color: var(--accent, var(--color-blue-700));
   font-weight: 600;
   background-color: transparent;
-  background-image: linear-gradient(
-    var(--accent-soft, #e6f1fb),
-    var(--accent-soft, #e6f1fb)
-  );
+  background-image: linear-gradient(var(--accent-soft, #e6f1fb),
+      var(--accent-soft, #e6f1fb));
   background-repeat: no-repeat;
   background-position: 0 88%;
   background-size: 100% 0.32em;
@@ -205,10 +203,12 @@
   --accent: var(--layer-1);
   --accent-soft: var(--layer-1-soft);
 }
+
 .about-story__legend-row--2 {
   --accent: var(--layer-2);
   --accent-soft: var(--layer-2-soft);
 }
+
 .about-story__legend-row--3 {
   --accent: var(--layer-3);
   --accent-soft: var(--layer-3-soft);
@@ -231,32 +231,6 @@
   color: var(--story-muted);
 }
 
-/* ───── Перекрёстная подсветка «абзац ↔ легенда» через :has() ───── */
-
-@media (hover: hover) {
-  .about-story:has(.about-story__legend-row--1:hover) .about-story__para--1,
-  .about-story:has(.about-story__legend-row--2:hover) .about-story__para--2,
-  .about-story:has(.about-story__legend-row--3:hover) .about-story__para--3,
-  .about-story__para:hover {
-    background-color: var(--accent-soft);
-    transform: translateX(2px);
-  }
-
-  .about-story:has(.about-story__legend-row--1:hover) .about-story__para--1::before,
-  .about-story:has(.about-story__legend-row--2:hover) .about-story__para--2::before,
-  .about-story:has(.about-story__legend-row--3:hover) .about-story__para--3::before,
-  .about-story__para:hover::before {
-    opacity: 1;
-  }
-
-  /* Обратная связь: наведение на абзац подсвечивает его строку в легенде */
-  .about-story:has(.about-story__para--1:hover) .about-story__legend-row--1,
-  .about-story:has(.about-story__para--2:hover) .about-story__legend-row--2,
-  .about-story:has(.about-story__para--3:hover) .about-story__legend-row--3 {
-    background-color: var(--accent-soft);
-  }
-}
-
 /* Адаптивность */
 @media screen and (max-width: 480px) {
   .about-story__para--1::first-letter {
@@ -271,6 +245,7 @@
 
 /* Уважение к системной настройке «уменьшить движение» */
 @media (prefers-reduced-motion: reduce) {
+
   .about-story__para,
   .about-story__para::before,
   .about-story__mark,

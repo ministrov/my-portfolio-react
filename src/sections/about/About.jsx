@@ -1,11 +1,11 @@
+import { memo } from 'react';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
-import { memo } from 'react';
-import AuthorPhoto from '../../components/authorPhoto/AuthorPhoto';
 import Heading from '../../components/heading/Heading';
 import ButtonLink from '../../components/buttonLink/ButtonLink';
 import SocialList from '../../components/socials/SocialList';
+import AboutStory from '../../components/aboutStory/AboutStory';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -40,8 +40,6 @@ const About = ({ link = false, button = false }) => {
 
   // Константы для переводов
   const HEADING_TITLE = t('heading.about.name');
-  const DESCRIPTION_ONE = t('about.descriptionOne');
-  const DESCRIPTION_TWO = t('about.descriptionTwo');
   const PROMO_BTN_TEXT = t('promo.promoBtn');
   const LINK_TEXT = t('about.link');
 
@@ -53,10 +51,7 @@ const About = ({ link = false, button = false }) => {
 
           <LazyMotion features={domAnimation}>
             <m.div className="about__right" {...ANIMATION_CONFIG}>
-              {link && <AuthorPhoto />}
-
-              <p className="about__description">{DESCRIPTION_ONE}</p>
-              <p className="about__description">{DESCRIPTION_TWO}</p>
+              <AboutStory />
 
               {button && (
                 <div className="about__btns">
