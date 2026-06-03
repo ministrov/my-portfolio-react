@@ -30,6 +30,18 @@ The authority is the **Conventional Commits** spec (https://www.conventionalcomm
 
 Treat these as conventions, not requirements — **where they conflict with Conventional Commits, the spec wins** (e.g. a body is never mandatory). The existing history uses the bulleted style, so prefer it when a body actually adds value.
 
+## Execution Algorithm
+
+Execution context:
+Project status !`git status`
+Recent commits !`git log --oneline -10`
+
+1. Run `git diff` (staged + unstaged) — understand the substance of the changes
+2. Determine the appropriate `type` and `scope`
+3. Stage the necessary files (`git add <files>`) — **don't use `git add -A`**, to avoid capturing anything extraneous
+4. Compose the commit message according to the rules above
+5. Create the commit via HEREDOC:
+
 ## Authorship
 
 Commit as the machine's git user (the repo owner), never as Claude. Do **not** add a `Co-Authored-By: Claude …` trailer or otherwise attribute the commit to the assistant — the configured `user.name`/`user.email` must remain the sole author.
@@ -44,3 +56,10 @@ refactor(carousel): localize strings and fix slide aria-label
 - Localize empty state, region aria-label and a11y prev/next messages
 - Remove unused showNavigation/showPagination props and dead aria-hidden
 ```
+
+## Important Constraints
+
+- **Never commit** `.env`, `.env.local`, or files containing secrets
+- **Don't push** automatically — commit only, unless the user requests otherwise
+- **Don't use** `--no-verify` or `--amend` without an explicit request from the user
+- **Don't add** files without a clear understanding of their contents
