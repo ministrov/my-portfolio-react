@@ -10,12 +10,12 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`modal/Modal.jsx`** (+ `ModalBackdrop`, `ModalCloseButton`) (коммит `ac93d6f`).
-Ранее в сессии: `maxIcon` (`084f3ce`), `logo` (`9249dc4`), `loader` (`44c309f`), `heading` (`6e48762`), `filterButton` (`a25f6b5`), `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
+Последний отрефакторенный компонент — **`modalPromo/ModalPromo.jsx`** (коммит `14c37ee`).
+Ранее в сессии: `modal` (`ac93d6f`), `maxIcon` (`084f3ce`), `logo` (`9249dc4`), `loader` (`44c309f`), `heading` (`6e48762`), `filterButton` (`a25f6b5`), `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
 
 ## ▶️ С чего продолжить завтра
 
-Следующий по алфавиту — **`modalPromo/ModalPromo.jsx`**.
+Следующий по алфавиту — **`modalSteps/ModalSteps.jsx`**.
 
 > 🧹 Мелочи на будущее (по согласованию, при ревью соответствующих секций):
 > - `layouts/footer/Footer.jsx`: `<Logo variant="white" color="white" />` — проп `color` мёртв (при заданном `variant` `iconColor` = `undefined`, плюс `"white"` не валидный HEX). Убрать `color` при ревью layouts/footer.
@@ -50,10 +50,11 @@
 | logo | `9249dc4` | локализован aria-label (namespace `logo.ariaLabel`, интерполяция `{{text}}` — сохранён бренд для label-in-name) вместо хардкод-RU; PropTypes; убран no-op вариант `'default'` из доков; API `variant/size/showIcon/text` оставлен |
 | maxIcon | `084f3ce` | иконка декоративная (`alt=""`) — доступное имя несёт ссылка-обёртка `SocialItem` (убран хардкод-RU alt + дубль-озвучка); синхронизирован JSDoc (дефолты 32×32, были задокументированы 48×48); PropTypes |
 | modal | `ac93d6f` | **фикс клавиатуры**: Escape слушается на `document` (раньше не работал — фокус оставался на триггере вне портала); перенос фокуса в окно при открытии + возврат на триггер при закрытии (focus-trap отложен); убран мёртвый хардкод-EN `aria-label` и `tabIndex` с бэкдропа (`role=presentation` теперь действует); PropTypes на все 3 файла; чистый className в `ModalCloseButton` |
+| modalPromo | `14c37ee` | **фикс CSS**: битая переменная `--ff-headers` → `--font-headings` (бейдж теперь Oswald, а не fallback-шрифт); иконка-огонёк декоративна (`alt=""`) — снят отсутствующий i18n-ключ `modal.promoIconAlt` (его не было ни в одной локали); убраны `role="status"` (промо — контент, не статус) и дублирующий `aria-label` (поведение: больше не live-region); снят мёртвый EN-дефолт в `t('modal.promoText')`; PropTypes; чистый className |
 
 ## ⬜ Очередь (ещё не трогали)
 
-modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
+modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
