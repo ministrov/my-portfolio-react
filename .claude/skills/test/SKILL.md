@@ -1,6 +1,6 @@
 ---
 name: test
-description: Добавить Jest-тесты для указанного файла в портфолио my-portfolio-react (CRA + React 18, JS/JSX).
+description: Add Jest tests for a given file in the my-portfolio-react portfolio (CRA + React 18, JS/JSX).
 model: sonnet
 allowed-tools: Read, Glob, Grep, Write, Bash(npm test:*), Bash(npx eslint:*)
 user-invocable: true
@@ -9,60 +9,60 @@ argument-hint: <filepath>
 
 # Test Skill
 
-Сгенерируй Jest-тесты для файла `$0`, соблюдая соглашения этого репозитория.
+Generate Jest tests for the file `$0`, following this repository's conventions.
 
-Проект — **Create React App + React 18**, чистый **JS/JSX** (без TypeScript),
-тест-раннер — **Jest через `react-scripts test`** (пресет `react-app/jest`, окружение jsdom).
-Тестовых файлов в репозитории пока нет — этот скилл создаёт их по запросу.
+The project is **Create React App + React 18**, plain **JS/JSX** (no TypeScript),
+with **Jest via `react-scripts test`** as the runner (the `react-app/jest` preset, jsdom environment).
+There are no test files in the repo yet — this skill creates them on request.
 
-## Аргументы
+## Arguments
 
-- `$0` — путь к файлу, для которого нужно написать тесты (относительный от корня репо или абсолютный)
+- `$0` — path to the file to write tests for (relative to the repo root, or absolute)
 
-## Алгоритм выполнения
+## Execution Algorithm
 
-### 1. Прочитай целевой файл
+### 1. Read the target file
 
 ```
 Read($0)
 ```
 
-Разбери:
+Analyze:
 
-- Что экспортируется (компонент, хук, функция/редьюсер, константы)
-- Какие зависимости импортируются (i18n, react-router, framer-motion, контексты)
-- Какая логика требует покрытия
+- What is exported (component, hook, function/reducer, constants)
+- Which dependencies are imported (i18n, react-router, framer-motion, contexts)
+- Which logic needs coverage
 
-### 2. Определи тип файла
+### 2. Determine the file type
 
-- **Компонент** — `*.jsx` в `src/components/`, `src/sections/`, `src/pages/`, `src/layouts/`
-- **Хук** — `use`-префиксный файл в `src/hooks/`
-- **Функция / редьюсер** — `src/utils/`, `src/sections/**/...Reduce.js` и подобные чистые модули
-- **Только типы/константы** — если файл содержит лишь данные/JSDoc-типы без логики, сообщи, что тесты не нужны
+- **Component** — `*.jsx` under `src/components/`, `src/sections/`, `src/pages/`, `src/layouts/`
+- **Hook** — a `use`-prefixed file under `src/hooks/`
+- **Function / reducer** — `src/utils/`, `src/sections/**/...Reduce.js`, and similar pure modules
+- **Types/constants only** — if the file holds only data/JSDoc types without logic, report that no tests are needed
 
-### 3. Проверь наличие Testing Library
+### 3. Check for Testing Library
 
-`@testing-library/react` **не входит** в зависимости проекта по умолчанию.
-Проверь `package.json`. Если для компонента/хука его нет — **не устанавливай сам**
-(репо запрещает добавлять зависимости без согласования). Сообщи пользователю и
-предложи установить как dev-зависимость:
+`@testing-library/react` is **not** a default project dependency.
+Check `package.json`. If it is missing and you need it for a component/hook — **do not install it yourself**
+(the repo forbids adding dependencies without discussion). Tell the user and
+offer to install it as a dev dependency:
 
 ```bash
 npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
 ```
 
-Для чистых функций/редьюсеров Testing Library не нужна — хватает встроенного Jest.
+Pure functions/reducers don't need Testing Library — built-in Jest is enough.
 
-### 4. Проверь, не существует ли уже тест-файл
+### 4. Check whether a test file already exists
 
-Тесты лежат **рядом** с исходником как `<имя>.test.jsx`. Если такой файл уже есть —
-сообщи об этом и предложи дополнить его, а не создавать новый.
+Tests live **next to** the source as `<name>.test.jsx`. If one already exists,
+report it and offer to extend it rather than creating a new file.
 
-### 5. Сформируй тест-файл
+### 5. Build the test file
 
-Описания тестов (`it(...)`) — **на русском языке**, начиная с «должен» (как комментарии и JSDoc в проекте).
+Test descriptions (`it(...)`) are written **in Russian**, starting with «должен» (matching the project's comments and JSDoc).
 
-#### Чистая функция / редьюсер — шаблон
+#### Pure function / reducer — template
 
 ```jsx
 import reducer from './projectsReduce';
@@ -80,16 +80,16 @@ describe('projectsReduce', () => {
 });
 ```
 
-#### Компонент — шаблон
+#### Component — template
 
-Большинство компонентов используют `t()` из `react-i18next` и могут зависеть от
-роутера. Импортируй инициализацию i18n (сторона эффекта инициализирует i18next) и
-оборачивай рендер в нужные провайдеры.
+Most components use `t()` from `react-i18next` and may depend on the router.
+Import the i18n initialization (its import side effect initializes i18next) and
+wrap the render in the providers it needs.
 
 ```jsx
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import '../../utils/i18n/index'; // инициализация i18next (путь — от тест-файла)
+import '../../utils/i18n/index'; // initializes i18next (path is relative to the test file)
 import Loader from './Loader';
 
 describe('Loader', () => {
@@ -105,11 +105,11 @@ describe('Loader', () => {
 });
 ```
 
-> Если компонент использует `<Link>`/`<NavLink>`/`useNavigate` — оборачивай в `<MemoryRouter>`.
-> Если зависит от `LanguageProvider`/`HelmetProvider` — оборачивай и в них.
-> Анимации Framer Motion рендерятся синхронно; обычно достаточно проверять итоговый DOM.
+> If the component uses `<Link>`/`<NavLink>`/`useNavigate`, wrap it in `<MemoryRouter>`.
+> If it depends on `LanguageProvider`/`HelmetProvider`, wrap it in those too.
+> Framer Motion animations render synchronously; asserting on the final DOM is usually enough.
 
-#### Хук — шаблон
+#### Hook — template
 
 ```jsx
 import { renderHook, act } from '@testing-library/react';
@@ -123,44 +123,44 @@ describe('useProjectsFilter', () => {
 });
 ```
 
-> Если хук читает контекст — передавай `wrapper` с соответствующим провайдером в `renderHook`.
+> If the hook reads a context, pass a `wrapper` with the matching provider to `renderHook`.
 
-### 6. Покрой основные сценарии
+### 6. Cover the main scenarios
 
-Для каждого публичного экспорта:
+For each public export:
 
-- **Happy path** — нормальный сценарий
-- **Edge cases** — пустые массивы, отсутствующие пропсы, `null`/`undefined`
-- **Error cases** — что происходит при невалидных данных
+- **Happy path** — the normal case
+- **Edge cases** — empty arrays, missing props, `null`/`undefined`
+- **Error cases** — what happens with invalid data
 
-Не тестируй детали реализации сторонних библиотек (Framer Motion, Swiper, react-i18next) —
-только поведение собственного кода. Не добавляй тесты для тривиальных геттеров без логики.
+Don't test the internals of third-party libraries (Framer Motion, Swiper, react-i18next) —
+only your own code's behavior. Don't add tests for trivial getters without logic.
 
-### 7. Запиши тест-файл
+### 7. Write the test file
 
-`Write` в `<директория исходника>/<имя>.test.jsx`.
+`Write` to `<source directory>/<name>.test.jsx`.
 
-### 8. Запусти тесты
+### 8. Run the tests
 
-`react-scripts test` по умолчанию идёт в watch-режиме. Запускай разово, отключив watch:
+`react-scripts test` defaults to watch mode. Run it once with watch disabled:
 
 ```bash
-npm test -- <имя файла без расширения> --watchAll=false
+npm test -- <filename without extension> --watchAll=false
 ```
 
-Например: `npm test -- Loader --watchAll=false`.
+For example: `npm test -- Loader --watchAll=false`.
 
-Если тесты упали — разбери ошибку, исправь тест-файл и повтори.
-Перед завершением прогони `npx eslint <тест-файл>` (пресет `react-app/jest` уже подключён).
+If tests fail, analyze the error, fix the test file, and retry.
+Before finishing, run `npx eslint <test file>` (the `react-app/jest` preset is already wired up).
 
 ---
 
-## Правила
+## Rules
 
-- Описания тестов — **на русском языке**, начиная с «должен»
-- Тест-файл — `*.test.jsx` рядом с исходником
-- **Не добавляй зависимости** (включая Testing Library) без согласования — предлагай команду установки пользователю
-- Мокируй только внешние зависимости и I/O, не бизнес-логику
-- Не тестируй реализацию сторонних библиотек — только собственное поведение
-- Один `describe` на компонент/функцию/хук, вложенные `describe` — на отдельные методы/сценарии
-- Если файл содержит только данные/типы без логики — сообщи, что тесты не нужны
+- Test descriptions are written **in Russian**, starting with «должен»
+- Test file is `*.test.jsx` next to the source
+- **Do not add dependencies** (including Testing Library) without discussion — offer the install command to the user instead
+- Mock only external dependencies and I/O, not the business logic
+- Don't test third-party library internals — only your own behavior
+- One `describe` per component/function/hook; nested `describe`s for individual methods/scenarios
+- If the file holds only data/types without logic, report that no tests are needed
