@@ -276,6 +276,10 @@
     "message": "Кажется, вы забрели на неизведанную территорию. Попробуйте найти путь обратно домой.",
     "back": "Вернуться на главную"
   },
+  "loader": {
+    "loading": "Загрузка",
+    "loadingText": "Загрузка: {{text}}"
+  },
   "modal": {
     "title": "4 <highlighed>шага</highlighed> заказа <highlighed>разработки</highlighed> сайта",
     "items": {

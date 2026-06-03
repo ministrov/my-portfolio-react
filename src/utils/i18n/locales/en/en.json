@@ -271,6 +271,10 @@
     "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",
     "back": "Go back homepage"
   },
+  "loader": {
+    "loading": "Loading",
+    "loadingText": "Loading: {{text}}"
+  },
   "modal": {
     "title": "4 <highlighed>steps</highlighed> of website <highlighed>development</highlighed> order",
     "items": {
