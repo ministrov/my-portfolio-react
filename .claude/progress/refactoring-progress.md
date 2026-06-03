@@ -10,15 +10,16 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`logo/Logo.jsx`** (коммит `9249dc4`).
-Ранее в сессии: `loader` (`44c309f`), `heading` (`6e48762`), `filterButton` (`a25f6b5`), `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
+Последний отрефакторенный компонент — **`maxIcon/MaxIcon.jsx`** (коммит `084f3ce`).
+Ранее в сессии: `logo` (`9249dc4`), `loader` (`44c309f`), `heading` (`6e48762`), `filterButton` (`a25f6b5`), `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
 
 ## ▶️ С чего продолжить завтра
 
-Следующий по алфавиту — **`maxIcon/MaxIcon.jsx`**.
+Следующий по алфавиту — **`modal/Modal.jsx`**.
 
 > 🧹 Мелочи на будущее (по согласованию, при ревью соответствующих секций):
 > - `layouts/footer/Footer.jsx`: `<Logo variant="white" color="white" />` — проп `color` мёртв (при заданном `variant` `iconColor` = `undefined`, плюс `"white"` не валидный HEX). Убрать `color` при ревью layouts/footer.
+> - `components/socials/SocialItem.jsx`: в `socialNameMap` нет записи `'max'` → `displayName` падает в сырой `'max'`, ссылка читается «Перейти в **max**» (нижний регистр). После `alt=""` у `MaxIcon` этот `aria-label` стал **единственным** доступным именем ссылки. Чинить при ревью секции `socials` (добавить `max: 'MAX'`).
 > - `sections/showcasing/Showcasing.jsx`: `<LazyCarousel className="showcasing__carousel" />` — `className` дважды мёртв (нет в CSS и Carousel его не принимает).
 > - Фильтр **`'All'`** в `const/index.js` рендерится непереведённым в RU-интерфейсе (`React/Next/JavaScript` — имена собственные, ок). Локализовать = разделить значение/лейбл фильтра (затрагивает `const` + `projectsReduce` + `FilterList`), поэтому только при ревью секции `projects`.
 > - `Heading`: `slogan` рендерится **внутри** тега заголовка (`<h2><span>title</span><span>slogan</span></h2>`), из-за чего слоган попадает в доступное имя заголовка. Нит a11y, но фикс — структурное изменение по всем секциям, поэтому вне scope компонента.
@@ -46,10 +47,11 @@
 | heading | `6e48762` | компонент почти чистый: только косметика — сборка классов через `filter(Boolean).join`; API `level/showLine/subClassName` оставлен (рабочий, не мёртвый) |
 | loader | `44c309f` | локализован aria-label (namespace `loader`: `loading`/`loadingText`) вместо хардкод-EN; убран лишний `aria-live` (`role=status` уже polite); PropTypes; API `color/size/fullScreen/text` оставлен (рабочий, мапится на CSS) |
 | logo | `9249dc4` | локализован aria-label (namespace `logo.ariaLabel`, интерполяция `{{text}}` — сохранён бренд для label-in-name) вместо хардкод-RU; PropTypes; убран no-op вариант `'default'` из доков; API `variant/size/showIcon/text` оставлен |
+| maxIcon | `084f3ce` | иконка декоративная (`alt=""`) — доступное имя несёт ссылка-обёртка `SocialItem` (убран хардкод-RU alt + дубль-озвучка); синхронизирован JSDoc (дефолты 32×32, были задокументированы 48×48); PropTypes |
 
 ## ⬜ Очередь (ещё не трогали)
 
-maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
+modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
