@@ -10,16 +10,17 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`filterButton/FilterButton.jsx`** (коммит `a25f6b5`).
-Ранее в сессии: `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
+Последний отрефакторенный компонент — **`heading/Heading.jsx`** (коммит `6e48762`).
+Ранее в сессии: `filterButton` (`a25f6b5`), `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
 
 ## ▶️ С чего продолжить завтра
 
-Следующий по алфавиту — **`heading/Heading.jsx`**.
+Следующий по алфавиту — **`loader/Loader.jsx`**.
 
 > 🧹 Мелочи на будущее (по согласованию, при ревью соответствующих секций):
 > - `sections/showcasing/Showcasing.jsx`: `<LazyCarousel className="showcasing__carousel" />` — `className` дважды мёртв (нет в CSS и Carousel его не принимает).
 > - Фильтр **`'All'`** в `const/index.js` рендерится непереведённым в RU-интерфейсе (`React/Next/JavaScript` — имена собственные, ок). Локализовать = разделить значение/лейбл фильтра (затрагивает `const` + `projectsReduce` + `FilterList`), поэтому только при ревью секции `projects`.
+> - `Heading`: `slogan` рендерится **внутри** тега заголовка (`<h2><span>title</span><span>slogan</span></h2>`), из-за чего слоган попадает в доступное имя заголовка. Нит a11y, но фикс — структурное изменение по всем секциям, поэтому вне scope компонента.
 
 ---
 
@@ -41,10 +42,11 @@
 | carousel | `6016176` | локализован namespace `carousel`; фикс aria-label слайда (`t(project.title)`); удалены мёртвые пропсы `showNavigation/showPagination` и `aria-hidden` |
 | errorMessage | `f7bf49f` | устранён конфликт ARIA (`role=alert` vs `aria-live=polite`); декоративная гифка `alt=""` + иконка `aria-hidden`; локализованы дефолты пропсов; PropTypes |
 | filterButton | `a25f6b5` | убраны лишние `aria-label` (хардкод-RU, переопределял видимый текст) и `title`; чистый `className` через `filter(Boolean).join` |
+| heading | `6e48762` | компонент почти чистый: только косметика — сборка классов через `filter(Boolean).join`; API `level/showLine/subClassName` оставлен (рабочий, не мёртвый) |
 
 ## ⬜ Очередь (ещё не трогали)
 
-heading → loader → logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
+loader → logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
