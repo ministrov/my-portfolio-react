@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.file_path' | xargs npx prettier --write --ignore-unknown 2>/dev/null || true"
+            "command": "node -e \"const c=[];process.stdin.on('data',d=>c.push(d));process.stdin.on('end',()=>{try{const p=JSON.parse(Buffer.concat(c)).tool_input.file_path;if(p)require('child_process').execSync('npx prettier --write --ignore-unknown '+JSON.stringify(p),{stdio:'pipe'})}catch(e){}})\""
           }
         ]
       }
