@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
   padding: 8px 13px 8px 42px;
-  font-family: var(--ff-headers);
+  font-family: var(--font-headings);
   font-size: 12px;
   font-weight: 700;
   line-height: 150%;

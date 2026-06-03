@@ -1,23 +1,25 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
+import PropTypes from 'prop-types';
 import fire from '../../assets/svg/fire.svg';
 import './style.css';
 
 /**
  * Компонент для отображения промо-акции в модальном окне.
- * 
+ * Иконка-огонёк декоративная (`alt=""`) — смысл несёт видимый текст акции.
+ *
  * @component
  * @param {Object} props - Свойства компонента.
  * @param {string} [props.text] - Текст промо-акции. Если не указан, используется перевод из i18n.
  * @param {string} [props.icon] - URL иконки. По умолчанию используется fire.svg.
- * @param {string} [props.testId] - ID для тестирования.
+ * @param {string} [props.testId='modal-promo'] - ID для тестирования.
  * @param {string} [props.className] - Дополнительные CSS-классы.
  * @returns {JSX.Element} Элемент промо-акции с анимацией.
- * 
+ *
  * @example
  * <ModalPromo />
- * 
+ *
  * @example
  * <ModalPromo text="Special Offer -30%" icon="/path/to/icon.svg" />
  */
@@ -29,7 +31,7 @@ const ModalPromo = ({
 }) => {
   const { t } = useTranslation();
 
-  const promoText = text || t('modal.promoText', 'Development -50%');
+  const promoText = text || t('modal.promoText');
 
   const animationVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 10 },
@@ -47,18 +49,18 @@ const ModalPromo = ({
   return (
     <LazyMotion features={domAnimation}>
       <m.div
-        className={`modal__promo modal-promo ${className}`.trim()}
+        className={['modal__promo', 'modal-promo', className]
+          .filter(Boolean)
+          .join(' ')}
         data-testid={testId}
         variants={animationVariants}
         initial="hidden"
         animate="visible"
-        aria-label={promoText}
-        role="status"
       >
         <img
           className="modal-promo__icon"
           src={icon}
-          alt={t('modal.promoIconAlt', 'Promotion fire icon')}
+          alt=""
           width={35}
           height={47}
           loading="lazy"
@@ -67,6 +69,17 @@ const ModalPromo = ({
       </m.div>
     </LazyMotion>
   );
+};
+
+ModalPromo.propTypes = {
+  /** Текст промо-акции; по умолчанию берётся из i18n */
+  text: PropTypes.string,
+  /** URL иконки; по умолчанию fire.svg */
+  icon: PropTypes.string,
+  /** ID для тестирования */
+  testId: PropTypes.string,
+  /** Дополнительные CSS-классы */
+  className: PropTypes.string,
 };
 
 export default memo(ModalPromo);
