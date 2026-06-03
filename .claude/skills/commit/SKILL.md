@@ -1,6 +1,8 @@
 ---
 name: commit
 description: Commit-message conventions for this repository — Conventional Commits format, allowed types, scope/subject/body rules, and authorship. Use whenever writing a git commit message in this repo.
+model: sonnet
+allowed-tools: Bash(git *), Read, Glob, Grep
 ---
 
 # Commit conventions
