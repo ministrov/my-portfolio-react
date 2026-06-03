@@ -10,12 +10,12 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`heading/Heading.jsx`** (коммит `6e48762`).
-Ранее в сессии: `filterButton` (`a25f6b5`), `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
+Последний отрефакторенный компонент — **`loader/Loader.jsx`** (коммит `44c309f`).
+Ранее в сессии: `heading` (`6e48762`), `filterButton` (`a25f6b5`), `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
 
 ## ▶️ С чего продолжить завтра
 
-Следующий по алфавиту — **`loader/Loader.jsx`**.
+Следующий по алфавиту — **`logo/Logo.jsx`**.
 
 > 🧹 Мелочи на будущее (по согласованию, при ревью соответствующих секций):
 > - `sections/showcasing/Showcasing.jsx`: `<LazyCarousel className="showcasing__carousel" />` — `className` дважды мёртв (нет в CSS и Carousel его не принимает).
@@ -43,10 +43,11 @@
 | errorMessage | `f7bf49f` | устранён конфликт ARIA (`role=alert` vs `aria-live=polite`); декоративная гифка `alt=""` + иконка `aria-hidden`; локализованы дефолты пропсов; PropTypes |
 | filterButton | `a25f6b5` | убраны лишние `aria-label` (хардкод-RU, переопределял видимый текст) и `title`; чистый `className` через `filter(Boolean).join` |
 | heading | `6e48762` | компонент почти чистый: только косметика — сборка классов через `filter(Boolean).join`; API `level/showLine/subClassName` оставлен (рабочий, не мёртвый) |
+| loader | `44c309f` | локализован aria-label (namespace `loader`: `loading`/`loadingText`) вместо хардкод-EN; убран лишний `aria-live` (`role=status` уже polite); PropTypes; API `color/size/fullScreen/text` оставлен (рабочий, мапится на CSS) |
 
 ## ⬜ Очередь (ещё не трогали)
 
-loader → logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
+logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
