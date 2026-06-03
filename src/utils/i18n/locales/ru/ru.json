@@ -280,6 +280,9 @@
     "loading": "Загрузка",
     "loadingText": "Загрузка: {{text}}"
   },
+  "logo": {
+    "ariaLabel": "{{text}} - главная страница"
+  },
   "modal": {
     "title": "4 <highlighed>шага</highlighed> заказа <highlighed>разработки</highlighed> сайта",
     "items": {

@@ -275,6 +275,9 @@
     "loading": "Loading",
     "loadingText": "Loading: {{text}}"
   },
+  "logo": {
+    "ariaLabel": "{{text}} - home page"
+  },
   "modal": {
     "title": "4 <highlighed>steps</highlighed> of website <highlighed>development</highlighed> order",
     "items": {
