@@ -168,6 +168,35 @@ export const authorData = {
   },
 };
 
+/**
+ * Технологии для отображения в секции "Обо мне" в виде тегов.
+ * Имена технологий — универсальные, не требуют локализации.
+ * @type {string[]}
+ */
+export const ABOUT_TECH_TAGS = [
+  'React',
+  'Next.js',
+  'TypeScript',
+  'RTK Query',
+  'CSS Modules',
+  'Framer Motion',
+  'WCAG 2.1',
+  'mobile-first',
+  'Agile/Scrum',
+];
+
+/**
+ * Статистика для секции "Обо мне" — ключевые факты, отображаемые в виде чипов.
+ * Поле labelKey указывает на ключ в i18n-словаре.
+ * @type {{ number: string, labelKey: string }[]}
+ */
+export const ABOUT_STATS = [
+  { number: '4+', labelKey: 'about.stats.years' },
+  { number: '10+', labelKey: 'about.stats.projects' },
+  { number: 'Middle', labelKey: 'about.stats.level' },
+  { number: 'B2', labelKey: 'about.stats.lang' },
+];
+
 export const DEFAULT_CONFIG = {
   MAX_STARS: 350,
   MIN_STARS: 50,

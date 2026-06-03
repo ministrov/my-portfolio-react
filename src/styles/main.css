@@ -65,6 +65,9 @@
   /* Красная палитра */
   --color-red-100: #fdf2fa;
   --color-red-500: #c11574;
+
+  /* Зелёная палитра */
+  --color-green-500: #22c55e;
   /* Радиусы */
   --border-radius-s: 8px;
 

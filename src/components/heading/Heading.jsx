@@ -15,38 +15,31 @@ import './style.css';
  * @param {string} [props.id] - HTML-идентификатор для навигации и доступности
  * @returns {JSX.Element} Заголовок секции с семантической разметкой
  */
-const Heading = ({ 
-  title, 
-  slogan, 
-  className = '', 
+const Heading = ({
+  title,
+  slogan,
+  className = '',
   subClassName = '',
   level = 2,
   showLine = true,
-  id
+  id,
 }) => {
   // Валидация уровня заголовка
   const headingLevel = Math.min(Math.max(1, level), 6);
   const HeadingTag = `h${headingLevel}`;
-  
+
   // Формирование классов для основного заголовка
-  const mainClasses = `heading-sec__main ${className} ${!showLine ? 'heading-sec__main--no-line' : ''}`.trim();
-  
+  const mainClasses = ['heading-sec__main', className, !showLine && 'heading-sec__main--no-line']
+    .filter(Boolean)
+    .join(' ');
+
   // Формирование классов для подзаголовка
-  const subClasses = `heading-sec__sub ${subClassName}`.trim();
+  const subClasses = ['heading-sec__sub', subClassName].filter(Boolean).join(' ');
 
   return (
-    <HeadingTag 
-      className="heading heading-sec heading-sec__mb-med"
-      id={id}
-    >
-      <span className={mainClasses}>
-        {title}
-      </span>
-      {slogan && (
-        <span className={subClasses}>
-          {slogan}
-        </span>
-      )}
+    <HeadingTag className="heading heading-sec heading-sec__mb-med" id={id}>
+      <span className={mainClasses}>{title}</span>
+      {slogan && <span className={subClasses}>{slogan}</span>}
     </HeadingTag>
   );
 };

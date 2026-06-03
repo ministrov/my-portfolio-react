@@ -17,7 +17,7 @@ const AccordionPanel = ({ item, open }) => {
 
   return (
     <div
-      className={`faq__answer ${open ? 'open' : ''}`}
+      className={`faq__answer${open ? ' faq__answer--open' : ''}`}
       id={`faq-answer-${item.id}`}
       role="region"
       aria-labelledby={`faq-question-${item.id}`}
