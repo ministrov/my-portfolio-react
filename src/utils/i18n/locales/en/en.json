@@ -81,7 +81,15 @@
     "descriptionTwo": "Tech stack: Next.js (Pages & App Router), TypeScript, RTK Query, React i18next, CSS Modules, mobile-first.I implement WCAG 2.1 accessibility standards, optimize Core Web Vitals, and work in Agile/Scrum with CI/CD processes.Validated my Middle-level skills at the HTML Academy layout championship.English — B2 (Upper-Intermediate).Open to office, hybrid, or remote work.Shall we discuss your project?",
     "link": "More about me",
     "photoAlt": "Anton Zhilin — frontend developer",
-    "cvAriaLabel": "Download CV ({{text}})"
+    "cvAriaLabel": "Download CV ({{text}})",
+    "available": "Open to work",
+    "techAriaLabel": "Technology stack",
+    "stats": {
+      "years": "years exp.",
+      "projects": "projects",
+      "level": "level",
+      "lang": "English"
+    }
   },
   "services": {
     "title": {
