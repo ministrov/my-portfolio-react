@@ -79,7 +79,9 @@
     "title": "Greeting, new customers!",
     "descriptionOne": "Frontend developer based in Moscow. I specialize in adaptive interfaces with pixel-perfect precision. Every idea I take on becomes a seamless, living product — flawless in its behavior across any screen. Open to projects where code aesthetics and user experience truly matter.",
     "descriptionTwo": "Tech stack: Next.js (Pages & App Router), TypeScript, RTK Query, React i18next, CSS Modules, mobile-first.I implement WCAG 2.1 accessibility standards, optimize Core Web Vitals, and work in Agile/Scrum with CI/CD processes.Validated my Middle-level skills at the HTML Academy layout championship.English — B2 (Upper-Intermediate).Open to office, hybrid, or remote work.Shall we discuss your project?",
-    "link": "More about me"
+    "link": "More about me",
+    "photoAlt": "Anton Zhilin — frontend developer",
+    "cvAriaLabel": "Download CV ({{text}})"
   },
   "services": {
     "title": {

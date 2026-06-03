@@ -3,15 +3,13 @@
   padding-top: 4rem;
   padding-bottom: 4rem;
   background-color: var(--color-gray-600);
-  border-top-left-radius: 42px;
-  border-top-right-radius: 42px;
-  border-bottom-left-radius: 42px;
-  border-bottom-right-radius: 42px;
+  border-radius: 42px;
 }
 
 .about__wrapper {
   display: flex;
-  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
 }
 
 .about__wrapper .heading-sec__main::after {
@@ -22,16 +20,53 @@
   margin-bottom: 0;
 }
 
+/* ───────────────────────── Левая колонка: заголовок + фото ───────────────────────── */
+
+.about__left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 0 0 26%;
+}
+
+.about__photo {
+  position: relative;
+  width: 100%;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 18px 48px -24px rgba(0, 88, 167, 0.35);
+  overflow: hidden;
+}
+
+/* Синяя акцентная полоса сверху — согласована с AboutStory__card */
+.about__photo::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-blue-700),
+    var(--color-blue-300)
+  );
+  z-index: 1;
+}
+
+.about__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ───────────────────────── Правая колонка: история + кнопки ───────────────────────── */
+
 .about__right {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 70%;
-}
-
-.about__image {
-  mix-blend-mode: lighten;
-  height: auto;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .about__greeting {
@@ -68,11 +103,26 @@
   margin-top: 48px;
 }
 
+/* ───────────────────────── Адаптивность ───────────────────────── */
+
 @media screen and (max-width: 1104px) {
   .about__wrapper {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+  }
+
+  .about__left {
+    flex: none;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .about__photo {
+    width: 160px;
+    flex-shrink: 0;
   }
 
   .about__right {
@@ -87,15 +137,16 @@
 
 @media screen and (max-width: 768px) {
   .about {
-    margin-bottom: 0;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-radius: 16px;
   }
 
-  .about__wrapper {
-    gap: 8px;
+  .about__left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about__photo {
+    width: 140px;
   }
 
   .about__description {
@@ -109,12 +160,9 @@
 }
 
 @media screen and (max-width: 575px) {
-  .about {
-    margin-bottom: 0;
-  }
-
   .about__wrapper {
     align-items: flex-start;
+    gap: 8px;
   }
 
   .about__right {
@@ -127,5 +175,12 @@
 
   .about__btns {
     margin-top: 40px;
+  }
+}
+
+/* Уважение к системной настройке «уменьшить движение» */
+@media (prefers-reduced-motion: reduce) {
+  .about__photo {
+    transition: none;
   }
 }
