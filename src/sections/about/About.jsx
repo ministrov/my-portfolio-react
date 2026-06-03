@@ -5,11 +5,13 @@ import { BsBoxArrowInUpRight, BsGeoAlt } from 'react-icons/bs';
 import Heading from '../../components/heading/Heading';
 import ButtonLink from '../../components/buttonLink/ButtonLink';
 import SocialList from '../../components/socials/SocialList';
+// import AuthorPhoto from '../../components/authorPhoto/AuthorPhoto';
 import AboutStory from '../../components/aboutStory/AboutStory';
 import Tag from '../../components/tag/Tag';
 import { ABOUT_TECH_TAGS, ABOUT_STATS } from '../../const';
+import photo from '../../assets/png/photo.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
-import aboutImage from '../../assets/png/about-image.webp';
+// import aboutImage from '../../assets/png/about-image.webp';
 import './style.css';
 
 /**
@@ -80,30 +82,31 @@ const About = ({ link = false, button = false }) => {
       <div className="container">
         <div className="about__wrapper">
           <LazyMotion features={domAnimation}>
-
             {/* Левая колонка: заголовок + идентификационная карточка */}
             <div className="about__left">
               <Heading title={HEADING_TITLE} className="about__title" />
 
               <m.div className="about__identity" {...IDENTITY_ANIMATION}>
-                {/* Фото */}
-                <div className="about__id-photo">
+                {/* <AuthorPhoto /> */}
+                <figure className="about__author-photo-ring">
                   <img
-                    className="about__image"
-                    src={aboutImage}
-                    width="480"
-                    height="540"
-                    alt={t('about.photoAlt')}
+                    className="about__author-img"
+                    src={photo}
+                    width={260}
+                    height={260}
+                    alt={t('authorPhoto.photoAlt')}
                     loading="lazy"
                   />
-                </div>
-
+                </figure>
                 {/* Метаданные автора */}
                 <div className="about__id-meta">
                   <p className="about__id-name">{t('authorPhoto.name')}</p>
                   <p className="about__id-role">{t('authorPhoto.role')}</p>
                   <p className="about__id-location">
-                    <BsGeoAlt className="about__id-location-icon" aria-hidden="true" />
+                    <BsGeoAlt
+                      className="about__id-location-icon"
+                      aria-hidden="true"
+                    />
                     {t('authorPhoto.location')}
                   </p>
 
@@ -130,7 +133,11 @@ const About = ({ link = false, button = false }) => {
                 viewport={{ once: true, margin: '-50px' }}
               >
                 {ABOUT_STATS.map(({ number, labelKey }) => (
-                  <m.li key={labelKey} className="about__stat" variants={STATS_ITEM}>
+                  <m.li
+                    key={labelKey}
+                    className="about__stat"
+                    variants={STATS_ITEM}
+                  >
                     <span className="about__stat-number">{number}</span>
                     <span className="about__stat-label">{t(labelKey)}</span>
                   </m.li>
@@ -139,7 +146,7 @@ const About = ({ link = false, button = false }) => {
 
               {/* Технологический стек — теги */}
               <ul className="about__tech" aria-label={t('about.techAriaLabel')}>
-                {ABOUT_TECH_TAGS.map(tag => (
+                {ABOUT_TECH_TAGS.map((tag) => (
                   <Tag key={tag}>{tag}</Tag>
                 ))}
               </ul>
@@ -151,7 +158,9 @@ const About = ({ link = false, button = false }) => {
                     href={cvPdf}
                     download="my-cv.pdf"
                     rel="noopener noreferrer"
-                    aria-label={t('about.cvAriaLabel', { text: PROMO_BTN_TEXT })}
+                    aria-label={t('about.cvAriaLabel', {
+                      text: PROMO_BTN_TEXT,
+                    })}
                   >
                     {PROMO_BTN_TEXT}
                     <span className="btn__icon">

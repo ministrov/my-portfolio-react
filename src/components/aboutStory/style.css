@@ -26,27 +26,10 @@
 /* ───────────────────────── Карточка с текстом ───────────────────────── */
 
 .about-story__card {
-  position: relative;
   padding: clamp(1.4rem, 1rem + 1.6vw, 2.25rem);
   background: var(--story-surface);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--story-radius);
-  box-shadow: 0 18px 48px -24px rgba(0, 88, 167, 0.45);
-  overflow: hidden;
-}
-
-/* Верхняя акцентная полоса в фирменном переходе слоёв */
-.about-story__card::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--layer-1),
-    var(--layer-2),
-    var(--layer-3)
-  );
 }
 
 /* ───────────────────────── Абзацы-слои ───────────────────────── */
@@ -61,7 +44,7 @@
   text-wrap: pretty;
 }
 
-.about-story__para + .about-story__para {
+.about-story__para+.about-story__para {
   margin-top: 0.85rem;
 }
 
@@ -120,10 +103,8 @@
   color: var(--accent, var(--color-blue-700));
   font-weight: 600;
   background-color: transparent;
-  background-image: linear-gradient(
-    var(--accent-soft, #edf4fc),
-    var(--accent-soft, #edf4fc)
-  );
+  background-image: linear-gradient(var(--accent-soft, #edf4fc),
+      var(--accent-soft, #edf4fc));
   background-repeat: no-repeat;
   background-position: 0 88%;
   background-size: 100% 0.32em;
