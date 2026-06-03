@@ -10,14 +10,16 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`errorMessage/ErrorMessage.jsx`** (коммит `f7bf49f`).
-Ранее в сессии: `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
+Последний отрефакторенный компонент — **`filterButton/FilterButton.jsx`** (коммит `a25f6b5`).
+Ранее в сессии: `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
 
 ## ▶️ С чего продолжить завтра
 
-Следующий по алфавиту — **`filterButton/FilterButton.jsx`**.
+Следующий по алфавиту — **`heading/Heading.jsx`**.
 
-> 🧹 Мелочь на будущее: в `sections/showcasing/Showcasing.jsx` `<LazyCarousel className="showcasing__carousel" />` — этот `className` дважды мёртв (нет в CSS и Carousel его не принимает). Убрать, когда дойдём до ревью секции `showcasing`.
+> 🧹 Мелочи на будущее (по согласованию, при ревью соответствующих секций):
+> - `sections/showcasing/Showcasing.jsx`: `<LazyCarousel className="showcasing__carousel" />` — `className` дважды мёртв (нет в CSS и Carousel его не принимает).
+> - Фильтр **`'All'`** в `const/index.js` рендерится непереведённым в RU-интерфейсе (`React/Next/JavaScript` — имена собственные, ок). Локализовать = разделить значение/лейбл фильтра (затрагивает `const` + `projectsReduce` + `FilterList`), поэтому только при ревью секции `projects`.
 
 ---
 
@@ -38,10 +40,11 @@
 | accordionPanel | `9977225` | БЭМ-модификатор `faq__answer--open` вместо глобального `.open`; чистый className |
 | carousel | `6016176` | локализован namespace `carousel`; фикс aria-label слайда (`t(project.title)`); удалены мёртвые пропсы `showNavigation/showPagination` и `aria-hidden` |
 | errorMessage | `f7bf49f` | устранён конфликт ARIA (`role=alert` vs `aria-live=polite`); декоративная гифка `alt=""` + иконка `aria-hidden`; локализованы дефолты пропсов; PropTypes |
+| filterButton | `a25f6b5` | убраны лишние `aria-label` (хардкод-RU, переопределял видимый текст) и `title`; чистый `className` через `filter(Boolean).join` |
 
 ## ⬜ Очередь (ещё не трогали)
 
-filterButton → heading → loader → logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
+heading → loader → logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
