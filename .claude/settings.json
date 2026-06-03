@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const c=[];process.stdin.on('data',d=>c.push(d));process.stdin.on('end',()=>{try{const p=JSON.parse(Buffer.concat(c)).tool_input.file_path;if(p)require('child_process').execSync('npx prettier --write --ignore-unknown '+JSON.stringify(p),{stdio:'pipe'})}catch(e){}})\""
+          }
+        ]
+      }
+    ]
+  }
+}
