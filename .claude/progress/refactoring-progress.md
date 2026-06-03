@@ -10,14 +10,15 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`loader/Loader.jsx`** (коммит `44c309f`).
-Ранее в сессии: `heading` (`6e48762`), `filterButton` (`a25f6b5`), `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
+Последний отрефакторенный компонент — **`logo/Logo.jsx`** (коммит `9249dc4`).
+Ранее в сессии: `loader` (`44c309f`), `heading` (`6e48762`), `filterButton` (`a25f6b5`), `errorMessage` (`f7bf49f`), `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
 
 ## ▶️ С чего продолжить завтра
 
-Следующий по алфавиту — **`logo/Logo.jsx`**.
+Следующий по алфавиту — **`maxIcon/MaxIcon.jsx`**.
 
 > 🧹 Мелочи на будущее (по согласованию, при ревью соответствующих секций):
+> - `layouts/footer/Footer.jsx`: `<Logo variant="white" color="white" />` — проп `color` мёртв (при заданном `variant` `iconColor` = `undefined`, плюс `"white"` не валидный HEX). Убрать `color` при ревью layouts/footer.
 > - `sections/showcasing/Showcasing.jsx`: `<LazyCarousel className="showcasing__carousel" />` — `className` дважды мёртв (нет в CSS и Carousel его не принимает).
 > - Фильтр **`'All'`** в `const/index.js` рендерится непереведённым в RU-интерфейсе (`React/Next/JavaScript` — имена собственные, ок). Локализовать = разделить значение/лейбл фильтра (затрагивает `const` + `projectsReduce` + `FilterList`), поэтому только при ревью секции `projects`.
 > - `Heading`: `slogan` рендерится **внутри** тега заголовка (`<h2><span>title</span><span>slogan</span></h2>`), из-за чего слоган попадает в доступное имя заголовка. Нит a11y, но фикс — структурное изменение по всем секциям, поэтому вне scope компонента.
@@ -44,10 +45,11 @@
 | filterButton | `a25f6b5` | убраны лишние `aria-label` (хардкод-RU, переопределял видимый текст) и `title`; чистый `className` через `filter(Boolean).join` |
 | heading | `6e48762` | компонент почти чистый: только косметика — сборка классов через `filter(Boolean).join`; API `level/showLine/subClassName` оставлен (рабочий, не мёртвый) |
 | loader | `44c309f` | локализован aria-label (namespace `loader`: `loading`/`loadingText`) вместо хардкод-EN; убран лишний `aria-live` (`role=status` уже polite); PropTypes; API `color/size/fullScreen/text` оставлен (рабочий, мапится на CSS) |
+| logo | `9249dc4` | локализован aria-label (namespace `logo.ariaLabel`, интерполяция `{{text}}` — сохранён бренд для label-in-name) вместо хардкод-RU; PropTypes; убран no-op вариант `'default'` из доков; API `variant/size/showIcon/text` оставлен |
 
 ## ⬜ Очередь (ещё не трогали)
 
-logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
+maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
