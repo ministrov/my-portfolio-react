@@ -1,6 +1,6 @@
 # Прогресс рефакторинга компонентов
 
-Дата последней сессии: **2026-06-02**
+Дата последней сессии: **2026-06-03**
 Ветка: `feature/development`
 
 Идём по `src/components/` **по алфавиту**, по одному компоненту за раз. Для каждого:
@@ -10,13 +10,14 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`buttonLink/ButtonLink.jsx`** (коммит `90b7338`).
+Последний отрефакторенный компонент — **`carousel/Carousel.jsx`** (коммит `6016176`).
+Закрыт долг по **`accordionPanel/AccordionPanel.jsx`** (коммит `9977225`).
 
 ## ▶️ С чего продолжить завтра
 
-Следующий по алфавиту — **`carousel/Carousel.jsx`**.
+Следующий по алфавиту — **`errorMessage/ErrorMessage.jsx`**.
 
-> ⚠️ Пропущен **`accordionPanel/AccordionPanel.jsx`**: при работе над `accordion` мы только проверили, что он не использует framer-motion, но **полноценного код-ревью не делали**. Стоит вернуться к нему перед/после `carousel`.
+> 🧹 Мелочь на будущее: в `sections/showcasing/Showcasing.jsx` `<LazyCarousel className="showcasing__carousel" />` — этот `className` дважды мёртв (нет в CSS и Carousel его не принимает). Убрать, когда дойдём до ревью секции `showcasing`.
 
 ---
 
@@ -34,10 +35,12 @@
 | authorPhoto | `8e99307` | дедупликация блока кода (`CodeString`/`StringProp`/`ArrayProp`); локализация меты + alt |
 | breadcrumbs | `c7d14d6` | семантический `nav > ol > li`; БЭМ-классы; локализован aria-label; чистка CSS |
 | buttonLink | `90b7338` | `...rest` разворачивается первым (защита `rel`/`className`); `NavLink`→`Link`; убраны лишние пропсы |
+| accordionPanel | `9977225` | БЭМ-модификатор `faq__answer--open` вместо глобального `.open`; чистый className |
+| carousel | `6016176` | локализован namespace `carousel`; фикс aria-label слайда (`t(project.title)`); удалены мёртвые пропсы `showNavigation/showPagination` и `aria-hidden` |
 
 ## ⬜ Очередь (ещё не трогали)
 
-`accordionPanel` (пропущен, см. выше) → carousel → errorMessage → filterButton → heading → loader → logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
+errorMessage → filterButton → heading → loader → logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
