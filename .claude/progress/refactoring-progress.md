@@ -10,12 +10,12 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`carousel/Carousel.jsx`** (коммит `6016176`).
-Закрыт долг по **`accordionPanel/AccordionPanel.jsx`** (коммит `9977225`).
+Последний отрефакторенный компонент — **`errorMessage/ErrorMessage.jsx`** (коммит `f7bf49f`).
+Ранее в сессии: `carousel` (`6016176`), долг по `accordionPanel` (`9977225`).
 
 ## ▶️ С чего продолжить завтра
 
-Следующий по алфавиту — **`errorMessage/ErrorMessage.jsx`**.
+Следующий по алфавиту — **`filterButton/FilterButton.jsx`**.
 
 > 🧹 Мелочь на будущее: в `sections/showcasing/Showcasing.jsx` `<LazyCarousel className="showcasing__carousel" />` — этот `className` дважды мёртв (нет в CSS и Carousel его не принимает). Убрать, когда дойдём до ревью секции `showcasing`.
 
@@ -37,10 +37,11 @@
 | buttonLink | `90b7338` | `...rest` разворачивается первым (защита `rel`/`className`); `NavLink`→`Link`; убраны лишние пропсы |
 | accordionPanel | `9977225` | БЭМ-модификатор `faq__answer--open` вместо глобального `.open`; чистый className |
 | carousel | `6016176` | локализован namespace `carousel`; фикс aria-label слайда (`t(project.title)`); удалены мёртвые пропсы `showNavigation/showPagination` и `aria-hidden` |
+| errorMessage | `f7bf49f` | устранён конфликт ARIA (`role=alert` vs `aria-live=polite`); декоративная гифка `alt=""` + иконка `aria-hidden`; локализованы дефолты пропсов; PropTypes |
 
 ## ⬜ Очередь (ещё не трогали)
 
-errorMessage → filterButton → heading → loader → logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
+filterButton → heading → loader → logo → maxIcon → modal → modalPromo → modalSteps → mouseScroll → navDesktop → navMobile → projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
