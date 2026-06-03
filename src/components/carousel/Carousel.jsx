@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ShowcasingCard from '../showcasingCard/ShowcasingCard';
 import { projects } from '../../sections/projects/projects';
@@ -8,7 +9,7 @@ import 'swiper/css/effect-fade';
 
 /**
  * Карусель для отображения лучших проектов с использованием Swiper.
- * Поддерживает автоматическое пролистывание и эффекты fade.
+ * Поддерживает автоматическое пролистывание и эффект fade.
  * Навигация и пагинация отключены по умолчанию.
  *
  * @component
@@ -16,9 +17,7 @@ import 'swiper/css/effect-fade';
  * @param {Array} [props.projectsData=projects] - Массив проектов для отображения
  * @param {Function} [props.filterFn=(item) => item.isBest] - Функция фильтрации проектов
  * @param {Object} [props.swiperConfig] - Конфигурация Swiper (переопределяет настройки по умолчанию)
- * @param {boolean} [props.showNavigation=false] - Показывать кнопки навигации (вперёд/назад)
- * @param {boolean} [props.showPagination=false] - Показывать пагинацию (точки)
- * @param {string} [props.ariaLabel='Карусель лучших проектов'] - ARIA-метка для доступности
+ * @param {string} [props.ariaLabel] - ARIA-метка для доступности (по умолчанию локализованная)
  * @returns {JSX.Element} Карусель Swiper с карточками проектов
  *
  * @example
@@ -33,10 +32,9 @@ const Carousel = ({
   projectsData = projects,
   filterFn = (item) => item.isBest,
   swiperConfig = {},
-  showNavigation = false,
-  showPagination = false,
-  ariaLabel = 'Карусель лучших проектов',
+  ariaLabel,
 }) => {
+  const { t } = useTranslation();
   const filteredProjects = projectsData.filter(filterFn);
 
   // Конфигурация Swiper по умолчанию
@@ -55,9 +53,8 @@ const Carousel = ({
     pagination: false,
     a11y: {
       enabled: true,
-      prevSlideMessage: 'Предыдущий слайд',
-      nextSlideMessage: 'Следующий слайд',
-      paginationBulletMessage: 'Перейти к слайду {{index}}',
+      prevSlideMessage: t('carousel.prevSlide'),
+      nextSlideMessage: t('carousel.nextSlide'),
     },
     ...swiperConfig,
   };
@@ -66,25 +63,28 @@ const Carousel = ({
   if (filteredProjects.length === 0) {
     return (
       <div className="carousel-empty" role="status" aria-live="polite">
-        Нет проектов для отображения
+        {t('carousel.emptyMessage')}
       </div>
     );
   }
 
   return (
-    <Swiper {...defaultSwiperConfig} aria-label={ariaLabel} role="region">
+    <Swiper
+      {...defaultSwiperConfig}
+      aria-label={ariaLabel || t('carousel.ariaLabel')}
+      role="region"
+    >
       {filteredProjects.map((project) => (
         <SwiperSlide
           key={project.id}
           role="group"
-          aria-label={`Слайд: ${project.title}`}
+          aria-label={t('carousel.slideLabel', { project: t(project.title) })}
         >
           <ShowcasingCard
             image={project.img}
             tabletImg={project.imgTablet}
             mobileImg={project.imgMobile}
             name={project.title}
-            aria-hidden="false"
           />
         </SwiperSlide>
       ))}
@@ -99,10 +99,6 @@ Carousel.propTypes = {
   filterFn: PropTypes.func,
   /** Конфигурация Swiper (объект с параметрами) */
   swiperConfig: PropTypes.object,
-  /** Показывать кнопки навигации */
-  showNavigation: PropTypes.bool,
-  /** Показывать пагинацию */
-  showPagination: PropTypes.bool,
   /** ARIA-метка для доступности */
   ariaLabel: PropTypes.string,
 };

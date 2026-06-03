@@ -138,6 +138,13 @@
     "listAriaLabel": "List of frequently asked questions",
     "emptyMessage": "No questions available"
   },
+  "carousel": {
+    "ariaLabel": "Carousel of best projects",
+    "emptyMessage": "No projects to display",
+    "slideLabel": "Slide: {{project}}",
+    "prevSlide": "Previous slide",
+    "nextSlide": "Next slide"
+  },
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
     "copyright": "Copyright 2025. Made by",
