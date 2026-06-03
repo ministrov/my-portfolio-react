@@ -86,7 +86,7 @@ const About = ({ link = false, button = false }) => {
             <div className="about__left">
               <Heading title={HEADING_TITLE} className="about__title" />
 
-              <m.div className="about__identity" {...IDENTITY_ANIMATION}>
+              {link && <m.div className="about__identity" {...IDENTITY_ANIMATION}>
                 {/* <AuthorPhoto /> */}
                 <figure className="about__author-photo-ring">
                   <img
@@ -117,7 +117,7 @@ const About = ({ link = false, button = false }) => {
 
                   <SocialList variant="blue" />
                 </div>
-              </m.div>
+              </m.div>}
             </div>
 
             {/* Правая колонка: нарратив, статистика, стек, CTA */}
