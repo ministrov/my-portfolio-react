@@ -1,6 +1,7 @@
 import { useRef, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation, Trans } from 'react-i18next';
+import PropTypes from 'prop-types';
 import SocialList from '../socials/SocialList';
 import ModalSteps from '../modalSteps/ModalSteps';
 import ModalPromo from '../modalPromo/ModalPromo';
@@ -9,7 +10,12 @@ import ModalCloseButton from './ModalCloseButton';
 import './style.css';
 
 /**
- * Компонент модального окна с анимацией, авто-закрытием и доступностью
+ * Компонент модального окна с анимацией, авто-закрытием и доступностью.
+ * Рендерится в портал `#portal`. При открытии блокирует прокрутку фона,
+ * переносит фокус в окно и закрывается по Escape; при закрытии возвращает
+ * фокус на элемент, который его открыл.
+ *
+ * @component
  * @param {Object} props - Свойства компонента
  * @param {boolean} props.open - Флаг открытия модального окна
  * @param {Function} props.onClose - Функция обратного вызова при закрытии
@@ -20,7 +26,10 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
   const { t } = useTranslation();
   const modalRef = useRef(null);
   const timerRef = useRef(null);
-  const portalRoot = typeof document !== 'undefined' ? document.getElementById('portal') : null;
+  // Элемент, на который вернём фокус при закрытии (триггер открытия)
+  const lastFocusedRef = useRef(null);
+  const portalRoot =
+    typeof document !== 'undefined' ? document.getElementById('portal') : null;
 
   // Единая функция закрытия с очисткой таймера и восстановлением overflow
   const handleClose = useCallback(() => {
@@ -32,46 +41,65 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
     }
   }, [onClose]);
 
-  // Управление overflow и таймером через useEffect
+  // Блокировка прокрутки фона и авто-закрытие по таймеру
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-      if (autoCloseDelay) {
-        timerRef.current = setTimeout(() => {
-          handleClose();
-        }, autoCloseDelay);
-      }
-    } else {
+    if (!open) {
       document.body.style.overflow = 'unset';
+      return undefined;
     }
 
-    // Очистка при размонтировании или изменении open
+    document.body.style.overflow = 'hidden';
+    if (autoCloseDelay) {
+      timerRef.current = setTimeout(handleClose, autoCloseDelay);
+    }
+
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
         timerRef.current = null;
       }
-      // Восстанавливаем overflow только если компонент размонтируется при открытом состоянии
-      if (open) {
-        document.body.style.overflow = 'unset';
-      }
+      document.body.style.overflow = 'unset';
     };
   }, [open, autoCloseDelay, handleClose]);
 
-  // Обработчик клика по бэкдропу
-  const handleBackdropClick = useCallback((e) => {
-    if (e.target === e.currentTarget) {
-      handleClose();
-    }
-  }, [handleClose]);
+  // Закрытие по Escape — слушаем на document, чтобы работало независимо от фокуса
+  useEffect(() => {
+    if (!open) return undefined;
 
-  // Обработчик нажатия клавиш (только Escape)
-  const handleBackdropKeyDown = useCallback((e) => {
-    if (e.key === 'Escape') {
-      e.preventDefault();
-      handleClose();
-    }
-  }, [handleClose]);
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        handleClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [open, handleClose]);
+
+  // Перенос фокуса в окно при открытии и возврат на триггер при закрытии
+  useEffect(() => {
+    if (!open) return undefined;
+
+    lastFocusedRef.current = document.activeElement;
+    modalRef.current?.focus();
+
+    return () => {
+      if (lastFocusedRef.current instanceof HTMLElement) {
+        lastFocusedRef.current.focus();
+      }
+    };
+  }, [open]);
+
+  // Закрытие по клику вне окна (по самому бэкдропу)
+  const handleBackdropClick = useCallback(
+    (e) => {
+      if (e.target === e.currentTarget) {
+        handleClose();
+      }
+    },
+    [handleClose]
+  );
 
   // Если портальный корень не найден, не рендерим ничего
   if (!portalRoot) {
@@ -80,16 +108,12 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
   }
 
   return createPortal(
-    <ModalBackdrop
-      open={open}
-      onClick={handleBackdropClick}
-      onKeyDown={handleBackdropKeyDown}
-    >
+    <ModalBackdrop open={open} onClick={handleBackdropClick}>
       <div
         className="modal"
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
-        tabIndex={0}
+        tabIndex={-1}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
@@ -124,6 +148,15 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
     </ModalBackdrop>,
     portalRoot
   );
+};
+
+Modal.propTypes = {
+  /** Флаг открытия модального окна */
+  open: PropTypes.bool.isRequired,
+  /** Функция обратного вызова при закрытии */
+  onClose: PropTypes.func.isRequired,
+  /** Задержка автоматического закрытия в миллисекундах */
+  autoCloseDelay: PropTypes.number,
 };
 
 export default Modal;
