@@ -7,7 +7,7 @@
   opacity: 0;
 }
 
-.faq__answer.open {
+.faq__answer--open {
   display: block;
   padding: 20px;
   opacity: 1;
