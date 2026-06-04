@@ -163,6 +163,9 @@
   "showcasing": {
     "alt": "{{project}} — project screenshot"
   },
+  "socials": {
+    "ariaLabel": "Go to {{name}} (opens in a new tab)"
+  },
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
     "copyright": "Copyright 2025. Made by",
