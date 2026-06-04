@@ -166,6 +166,9 @@
   "socials": {
     "ariaLabel": "Go to {{name}} (opens in a new tab)"
   },
+  "toggleLang": {
+    "ariaLabel": "Switch interface language"
+  },
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
     "copyright": "Copyright 2025. Made by",
