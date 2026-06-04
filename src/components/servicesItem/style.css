@@ -7,7 +7,9 @@
   padding: 24px;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-s);
-  transition: max-height 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition:
+    max-height 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
   will-change: max-height;
   overflow: hidden;
 }
@@ -49,15 +51,6 @@
   font-size: 18px;
   line-height: 24px;
   transition: all 0.3s ease;
-  color: var(--color-blue-700);
-}
-
-.services__arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 2rem;
-  height: 2rem;
   color: var(--color-blue-700);
 }
 
