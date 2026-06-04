@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import SocialItem from './SocialItem.jsx';
 import { socials } from './socials.js';
 import './style.css';
-import PropTypes from 'prop-types';
 
 /**
  * Компонент списка социальных сетей.

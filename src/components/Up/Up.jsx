@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback, useMemo, useRef } from 'react';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
-import { AnimatePresence } from 'framer-motion';
+import { LazyMotion, m, domAnimation, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { FaLongArrowAltUp } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import debounce from '../../utils/debounce';
@@ -19,7 +19,7 @@ import './style.css';
  * @param {number} [props.iconSize=20] - Размер иконки в пикселях.
  * @param {string} [props.iconColor='white'] - Цвет иконки (CSS-значение).
  * @param {string} [props.className=''] - Дополнительный CSS-класс для кнопки.
- * @param {string} [props.ariaLabel='Вернуться в начало страницы'] - Текст для атрибута aria-label.
+ * @param {string} [props.ariaLabel] - Текст для aria-label. По умолчанию берётся локализованный ключ `up.ariaLabel`.
  * @param {boolean} [props.smoothScroll=true] - Использовать ли плавный скролл.
  * @param {number} [props.debounceDelay=100] - Задержка дебаунса для события прокрутки в миллисекундах.
  * @param {number} [props.animationDuration=0.65] - Длительность анимации появления/исчезновения в секундах.
@@ -57,7 +57,7 @@ const Up = ({
   iconSize = 20,
   iconColor = 'white',
   className = '',
-  ariaLabel = 'Вернуться в начало страницы',
+  ariaLabel = null,
   smoothScroll = true,
   debounceDelay = 100,
   animationDuration = 0.65,
@@ -69,6 +69,7 @@ const Up = ({
 }) => {
   const [isShowed, setIsShowed] = useState(false);
   const buttonRef = useRef(null);
+  const { t } = useTranslation();
 
   /**
    * Обработчик события прокрутки страницы.
@@ -106,11 +107,10 @@ const Up = ({
     }
   }, [smoothScroll, onClick]);
 
-  // Обработчики клавиатуры
-  const { handleGlobalKeyDown, handleButtonKeyDown } = useKeyboardHandlers({
+  // Обработчик глобального Escape для скрытия кнопки
+  const { handleGlobalKeyDown } = useKeyboardHandlers({
     isShowed,
     enableEscape,
-    scrollToTop,
     setIsShowed,
   });
 
@@ -156,8 +156,7 @@ const Up = ({
             transition={{ duration: animationDuration, ease: animationEase }}
             className={`scroll-to ${className}`.trim()}
             onClick={scrollToTop}
-            onKeyDown={handleButtonKeyDown}
-            aria-label={ariaLabel}
+            aria-label={ariaLabel ?? t('up.ariaLabel')}
             tabIndex={tabIndex}
           >
             {IconComponent}

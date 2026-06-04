@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 import './style.css';
 
 /**
  * Компонент элемента услуги для отображения в секции услуг.
- * 
+ *
  * @component
  * @param {Object} props - Свойства компонента.
  * @param {Object} props.service - Объект услуги.
@@ -21,9 +22,7 @@ const ServicesItem = ({ service, open, onClick }) => {
   const contentId = `service-content-${id}`;
   const formattedId = String(id).padStart(2, '0');
   const buttonLabel = open ? t('services.hide') : t('services.showMore');
-  const ariaLabel = open
-    ? t('services.ariaHide', { default: 'Скрыть описание услуги' })
-    : t('services.ariaShowMore', { default: 'Показать подробное описание услуги' });
+  const ariaLabel = open ? t('services.ariaHide') : t('services.ariaShowMore');
 
   return (
     <>
@@ -31,7 +30,7 @@ const ServicesItem = ({ service, open, onClick }) => {
         <div className="services__item-text text-outline">{formattedId}</div>
         <div className="services__icon">{icon}</div>
       </div>
-      <div className="services__content">
+      <div id={contentId} className="services__content">
         <h3 className="services__subheading">{t(title)}</h3>
         <p className="services__description">{t(description)}</p>
       </div>
@@ -40,7 +39,7 @@ const ServicesItem = ({ service, open, onClick }) => {
         className="services__more"
         type="button"
         onClick={onClick}
-        aria-expanded={open ? 'true' : 'false'}
+        aria-expanded={open}
         aria-controls={contentId}
         aria-label={ariaLabel}
       >
@@ -48,6 +47,24 @@ const ServicesItem = ({ service, open, onClick }) => {
       </button>
     </>
   );
+};
+
+ServicesItem.propTypes = {
+  /** Объект услуги */
+  service: PropTypes.shape({
+    /** Уникальный идентификатор */
+    id: PropTypes.number.isRequired,
+    /** Иконка услуги */
+    icon: PropTypes.node.isRequired,
+    /** Ключ перевода заголовка */
+    title: PropTypes.string.isRequired,
+    /** Ключ перевода описания */
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+  /** Флаг раскрытого состояния */
+  open: PropTypes.bool,
+  /** Обработчик переключения */
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ServicesItem;

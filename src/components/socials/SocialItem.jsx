@@ -1,5 +1,18 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import './style.css';
+
+/**
+ * Маппинг технических имён сетей в читаемые отображаемые названия.
+ * Используется для формирования aria-label и title.
+ * @constant
+ */
+const SOCIAL_NAME_MAP = {
+  github: 'GitHub',
+  telegram: 'Telegram',
+  vk: 'ВКонтакте',
+  max: 'MAX',
+};
 
 /**
  * Компонент элемента социальной сети.
@@ -16,22 +29,16 @@ import './style.css';
  * @returns {JSX.Element} Элемент списка с ссылкой на социальную сеть.
  */
 const SocialItem = ({ social, variant = 'white', ...rest }) => {
+  const { t } = useTranslation();
+
   if (!social || !social.path) {
     console.warn('SocialItem: проп social или social.path отсутствует');
     return null;
   }
 
   const { icon, name, path } = social;
-
-  // Формируем читаемый текст для accessibility
-  const socialNameMap = {
-    github: 'GitHub',
-    telegram: 'Telegram',
-    vk: 'ВКонтакте',
-  };
-
-  const displayName = socialNameMap[name] || name;
-  const ariaLabel = `Перейти в ${displayName} (открывается в новой вкладке)`;
+  const displayName = SOCIAL_NAME_MAP[name] ?? name;
+  const ariaLabel = t('socials.ariaLabel', { name: displayName });
 
   return (
     <li className="socials__item">
@@ -40,9 +47,8 @@ const SocialItem = ({ social, variant = 'white', ...rest }) => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={ariaLabel}
-        title={`${displayName}`}
+        title={displayName}
         className={`socials__link socials__link--${variant}`}
-        tabIndex={0}
         {...rest}
       >
         {icon}

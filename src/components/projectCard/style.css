@@ -76,21 +76,20 @@
   border-bottom: 1px solid var(--color-blue-700);
 }
 
-.project-card__info-box-table-row span {
+.project-card__info-box-table {
+  margin: 0;
+}
+
+.project-card__info-box-table-row dt,
+.project-card__info-box-table-row dd {
+  margin: 0;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.375;
   color: var(--color-blue-700);
 }
 
-.project-card__tag-box {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-}
-
 .project-card__img {
-  /* height: 100%; */
   border-radius: var(--border-radius-s);
 }
 
@@ -285,7 +284,6 @@
   }
 
   .project-card__image {
-    /* max-height: 24.375rem; */
     padding: 0;
     border-radius: var(--border-radius-s);
   }

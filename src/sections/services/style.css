@@ -1,4 +1,8 @@
 .services {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 78vh;
   padding-top: 6rem;
   padding-bottom: 6rem;
 }

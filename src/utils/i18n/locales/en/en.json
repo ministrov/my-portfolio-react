@@ -67,6 +67,9 @@
     "projects": "Projects"
   },
   "mainNav": {
+    "ariaLabel": "Main navigation",
+    "showMenu": "Show menu",
+    "hideMenu": "Hide menu",
     "home": "Home",
     "about": "About",
     "projects": "Projects"
@@ -103,7 +106,9 @@
       "three": "I optimize websites to improve search engine rankings, driving organic traffic and increasing visibility online. By implementing effective SEO strategies, I ensure your content reaches its target audience and achieves maximum impact."
     },
     "showMore": "Read more",
-    "hide": "Collapse"
+    "hide": "Collapse",
+    "ariaShowMore": "Read more about this service",
+    "ariaHide": "Collapse details"
   },
   "advantages": {
     "items": {
@@ -154,6 +159,18 @@
     "slideLabel": "Slide: {{project}}",
     "prevSlide": "Previous slide",
     "nextSlide": "Next slide"
+  },
+  "showcasing": {
+    "alt": "{{project}} — project screenshot"
+  },
+  "socials": {
+    "ariaLabel": "Go to {{name}} (opens in a new tab)"
+  },
+  "toggleLang": {
+    "ariaLabel": "Switch interface language"
+  },
+  "up": {
+    "ariaLabel": "Back to top of page"
   },
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
@@ -247,9 +264,17 @@
       "roleText": "Role"
     }
   },
+  "projectsList": {
+    "ariaLabel": "List of projects",
+    "noProjects": "No projects available."
+  },
   "projectCard": {
     "liveDemo": "Demo",
-    "seeOnGithub": "GitHub"
+    "seeOnGithub": "GitHub",
+    "ariaLabel": "Project: {{title}}",
+    "imgAlt": "{{title}} — project screenshot",
+    "demoAriaLabel": "Demo of {{title}}",
+    "githubAriaLabel": "GitHub of {{title}}"
   },
   "aboutCapabilities": {
     "text": "I create modern landing pages and promo sites using JavaScript, HTML, and CSS with jQuery for dynamic interfaces and smooth animations. My skills enable fully responsive designs optimized for any device, converting visitors into customers. I've also worked with React, Next.js, RTK, and Zustand on complex projects with state management. I'm always eager to master new technologies, turning challenging tasks into intuitive interfaces. Ready for projects of any scale!"
@@ -290,6 +315,7 @@
   },
   "modal": {
     "title": "4 <highlighed>steps</highlighed> of website <highlighed>development</highlighed> order",
+    "stepsAriaLabel": "Website development process steps",
     "items": {
       "first": "Our consultant will <highlighed>clarify the tasks</highlighed> and goals of the website",
       "second": "We'll prepare a <highlighed>proposal and estimate</highlighed> tailored to your project",

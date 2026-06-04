@@ -1,4 +1,8 @@
 .contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 78vh;
   padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: var(--color-gray-600);
@@ -29,7 +33,9 @@
   border: none;
   border: 1px solid transparent;
   background-color: var(--color-blue-700);
-  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
+  transition:
+    transform 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
   cursor: pointer;
 }

@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+import { LANGUAGES } from '../../const';
 import { useLanguage } from '../../hooks/useLanguage';
 import './styles.css';
 
@@ -21,16 +24,28 @@ import './styles.css';
  */
 const ToggleLang = ({ className = '' }) => {
   const { lang, toggleLang } = useLanguage();
+  const { t } = useTranslation();
+  const isRu = lang === LANGUAGES.RU;
+
+  const btnClassName = ['toggle-btn', className, !isRu && 'toggled']
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <button
       type="button"
-      className={`toggle-btn ${className} ${lang === 'ru' ? '' : 'toggled'}`}
+      className={btnClassName}
       onClick={toggleLang}
+      aria-label={t('toggleLang.ariaLabel')}
     >
-      <div className="thumb">{lang === 'ru' ? 'Ру' : 'En'}</div>
+      <div className="thumb">{isRu ? 'Ру' : 'En'}</div>
     </button>
   );
+};
+
+ToggleLang.propTypes = {
+  /** Дополнительные CSS-классы для кнопки переключателя */
+  className: PropTypes.string,
 };
 
 export default ToggleLang;
