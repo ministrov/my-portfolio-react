@@ -10,22 +10,25 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`servicesItem/`** (коммит `837b188`).
-Ранее в сессии: `projectCard` (`394a416`), `projectsList` (`bc440dc`), `scrollToTop` (`9ea9c28`).
+🎉 **Очередь `src/components/` пройдена полностью.** Все компоненты прошли код-ревью и закоммичены.
 
-## ▶️ С чего продолжить завтра
+Последний отрефакторенный компонент — **`Up/`** (коммит `d62bacb`).
+Ранее в этой сессии: `projectCard` (`394a416`), `projectsList` (`bc440dc`), `scrollToTop` (`9ea9c28`), `servicesItem` (`837b188`), `showcasingCard` (`524fed4`), `socials` (`3b620bd`), `tag` (`7bfe7c2`), `toggleLang` (`6f9cf6f`).
 
-Следующий по алфавиту — **`showcasingCard/ShowcasingCard.jsx`**.
+## ▶️ С чего продолжить дальше
 
-> 🧹 Мелочи на будущее (по согласованию, при ревью соответствующих секций):
+Компоненты (`src/components/`) закончились. Следующие направления — по согласованию с пользователем:
+
+- Перейти к ревью **`src/sections/`** или **`src/layouts/`** (см. накопленный список мелочей ниже — многие из них как раз там).
+- Либо отдельными задачами закрыть отложенные нетривиальные пункты (focus-trap в `Modal`, локализация фильтра `'All'`, структурный фикс `Heading`).
+
+> 🧹 Накопленные мелочи (по согласованию, при ревью соответствующих секций/слоёв):
 >
 > - `layouts/footer/Footer.jsx`: `<Logo variant="white" color="white" />` — проп `color` мёртв (при заданном `variant` `iconColor` = `undefined`, плюс `"white"` не валидный HEX). Убрать `color` при ревью layouts/footer.
-> - `components/socials/SocialItem.jsx`: в `socialNameMap` нет записи `'max'` → `displayName` падает в сырой `'max'`, ссылка читается «Перейти в **max**» (нижний регистр). После `alt=""` у `MaxIcon` этот `aria-label` стал **единственным** доступным именем ссылки. Чинить при ревью секции `socials` (добавить `max: 'MAX'`).
 > - `components/modal/Modal.jsx`: полноценная **ловушка фокуса** (циклирование Tab/Shift+Tab внутри окна) не реализована — сделан только перенос фокуса в окно и возврат на триггер. Добавить focus-trap отдельной задачей (по согласованию — это нетривиальная логика).
 > - `sections/showcasing/Showcasing.jsx`: `<LazyCarousel className="showcasing__carousel" />` — `className` дважды мёртв (нет в CSS и Carousel его не принимает).
 > - Фильтр **`'All'`** в `const/index.js` рендерится непереведённым в RU-интерфейсе (`React/Next/JavaScript` — имена собственные, ок). Локализовать = разделить значение/лейбл фильтра (затрагивает `const` + `projectsReduce` + `FilterList`), поэтому только при ревью секции `projects`.
 > - `Heading`: `slogan` рендерится **внутри** тега заголовка (`<h2><span>title</span><span>slogan</span></h2>`), из-за чего слоган попадает в доступное имя заголовка. Нит a11y, но фикс — структурное изменение по всем секциям, поэтому вне scope компонента.
-> - `components/toggleLang/ToggleLang.jsx`: кнопка переключателя не имеет доступного имени (нет `aria-label`). Чинить при ревью `toggleLang`.
 
 ---
 
@@ -61,10 +64,15 @@
 | projectsList       | `bc440dc` | `parseSkills` вынесена в модуль; убраны `role="list"`, `role="listitem"`, `tabIndex={0}`, `aria-label` у `<m.li>` (лишние tab-stop; aria-label статьи даёт контекст); `filter(Boolean).join` для className; добавлены ключи `projectsList.ariaLabel/noProjects` в локали; PropTypes                                                                                                                                                     |
 | scrollToTop        | `9ea9c28` | добавлены PropTypes с `oneOf` для `behavior`; убран WHAT-комментарий                                                                                                                                                                                                                                                                                                                                                                    |
 | servicesItem       | `837b188` | **фикс `aria-controls`**: добавлен `id={contentId}` на контент-div (раньше указывал в никуда); `aria-expanded={open}` (boolean вместо строки); локализованы `ariaShowMore`/`ariaHide` с WCAG 2.5.3-совместимыми значениями (содержат видимый текст); убран невалидный синтаксис `{default:...}` i18next; мёртвый CSS `.services__arrow`; PropTypes                                                                                      |
+| showcasingCard     | `524fed4` | добавлен ключ `showcasing.alt` (`{{project}}`) — убран невалидный `defaultValue` (хардкод-RU, игнорировал EN); убран `onError` (`/placeholder.jpg` отсутствует в `public/` → бесконечный цикл ошибок); убраны невалидные `width/height={'auto'}` (CLS держит `aspect-ratio` на родителе); мёртвый `background-image: none`; PropTypes                                                                                                   |
+| socials            | `3b620bd` | **фикс a11y**: добавлен `max: 'MAX'` в `SOCIAL_NAME_MAP` (раньше aria-label падал в сырой `'max'` — единственное доступное имя ссылки, т.к. `MaxIcon` декоративна); map вынесен в модуль; локализован `aria-label` (`socials.ariaLabel`); `??` вместо `\|\|`; убран `tabIndex={0}` (нативно фокусируемая `<a>`); порядок импортов в `SocialList`                                                                                        |
+| tag                | `7bfe7c2` | убраны мёртвые `forwardRef` (ref нигде не передаётся) и проп `color` с логикой `red/purple` (CSS-правил не существует, проп был только в JSDoc-примерах); статический `className="tag"`; PropTypes                                                                                                                                                                                                                                      |
+| toggleLang         | `6f9cf6f` | добавлено доступное имя (`toggleLang.ariaLabel`) — раньше кнопка озвучивалась только как `Ру/En`; `filter(Boolean).join` для className; `LANGUAGES.RU` вместо хардкода; PropTypes; **фикс CSS-опечатки** `backgroun-color` → `background-color`; убран мёртвый `transform: translateX(0)`                                                                                                                                               |
+| Up                 | `d62bacb` | локализован `aria-label` (дефолт `null` → `t('up.ariaLabel')`; раньше хардкод-RU, не переключался); убран избыточный `handleButtonKeyDown`/`onKeyDown` (нативная кнопка сама активируется по Enter/Space); упрощён хук `useKeyboardHandlers` (только глобальный Escape); слиты два импорта `framer-motion`                                                                                                                              |
 
 ## ⬜ Очередь (ещё не трогали)
 
-showcasingCard → socials → tag → toggleLang → Up
+🎉 Пусто — все компоненты `src/components/` пройдены. Дальнейшие направления см. в разделе «С чего продолжить дальше» выше.
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
