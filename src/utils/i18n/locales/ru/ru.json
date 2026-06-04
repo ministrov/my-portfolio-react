@@ -283,7 +283,11 @@
   },
   "projectCard": {
     "liveDemo": "Демо",
-    "seeOnGithub": "Github"
+    "seeOnGithub": "GitHub",
+    "ariaLabel": "Проект: {{title}}",
+    "imgAlt": "{{title}} — скриншот проекта",
+    "demoAriaLabel": "Демо проекта {{title}}",
+    "githubAriaLabel": "GitHub проекта {{title}}"
   },
   "errorMessage": {
     "message": "Кажется, вы забрели на неизведанную территорию. Попробуйте найти путь обратно домой.",
