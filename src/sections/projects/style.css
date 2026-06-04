@@ -1,7 +1,7 @@
 .projects {
   overflow: hidden;
-  padding-top: 3rem;
-  padding-bottom: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .projects__filter {
@@ -32,6 +32,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .projects {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   .projects__filter-list {
     align-items: center;
     justify-content: center;
@@ -39,10 +44,6 @@
 }
 
 @media screen and (max-width: 375px) {
-  .projects {
-    padding-bottom: 2rem;
-  }
-
   .projects__filter {
     margin-bottom: 3rem;
   }

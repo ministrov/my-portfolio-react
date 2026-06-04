@@ -1,4 +1,8 @@
 .advantages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 78vh;
   padding-top: 6rem;
   padding-bottom: 6rem;
   border-top-left-radius: 42px;
@@ -19,7 +23,7 @@
   flex: 1 1 calc((100% - 80px) / 7);
   padding: 24px;
   border-radius: 20px;
-  border: 3px solid #E9F0F5;
+  border: 3px solid #e9f0f5;
 }
 
 .advantages__item-img {
