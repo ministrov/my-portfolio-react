@@ -1,6 +1,6 @@
 # Прогресс рефакторинга компонентов
 
-Дата последней сессии: **2026-06-04**
+Дата последней сессии: **2026-06-05**
 Ветка: `feature/production-tweaks`
 
 Идём по `src/components/` **по алфавиту**, по одному компоненту за раз. Для каждого:
@@ -10,12 +10,12 @@
 
 ## ⏹️ Где остановились сегодня
 
-Последний отрефакторенный компонент — **`navMobile/`** (коммит `521636a`).
-Ранее в сессии: `navDesktop` (`077116d`), `mouseScroll` (`64cf5b0`), `modalSteps` (`3b08fad`).
+Последний отрефакторенный компонент — **`servicesItem/`** (коммит `837b188`).
+Ранее в сессии: `projectCard` (`394a416`), `projectsList` (`bc440dc`), `scrollToTop` (`9ea9c28`).
 
 ## ▶️ С чего продолжить завтра
 
-Следующий по алфавиту — **`projectCard/ProjectCard.jsx`**.
+Следующий по алфавиту — **`showcasingCard/ShowcasingCard.jsx`**.
 
 > 🧹 Мелочи на будущее (по согласованию, при ревью соответствующих секций):
 >
@@ -57,10 +57,14 @@
 | mouseScroll        | `64cf5b0` | `role="presentation"` + хардкод-RU `aria-label` → `aria-hidden="true"`; убран мёртвый `mouse-scroll-cont`; `promo__mouse-scroll-cont` перенесён в `Promo.jsx`; `prefers-reduced-motion`; PropTypes                                                                                                                                                                                                                                      |
 | navDesktop         | `077116d` | **фикс `aria-current`**: извлечён `NavItem` с `useMatch` — флаг только на активной ссылке; `end` для `/`; локализован `aria-label`; PropTypes                                                                                                                                                                                                                                                                                           |
 | navMobile          | `521636a` | **фикс `aria-current`** в `MenuItem` (useMatch); сырые EN-ключи (`Hide/Show menu`) локализованы; `role="menu/menuitem"` убраны (навигация, не app-меню); мёртвый `ref`; игнорируемый `aria-label` у `ToggleLang`; `useEscapeKey` — слушатель только при открытом меню; `useBodyOverflow` — `unset` вместо `auto`; мёртвый CSS-селектор; PropTypes                                                                                       |
+| projectCard        | `394a416` | локализованы `aria-label` статьи и `alt` изображения; `role="table/row/cell"` → `<dl>/<dt>/<dd>`; сброс UA-маржинов dl/dd; локализованы `aria-label` кнопок с `{{title}}` для различения карточек; убран хардкод-RU `aria-label` у `<ul>` (h4 уже именует группу); мёртвый CSS `.project-card__tag-box`; PropTypes                                                                                                                      |
+| projectsList       | `bc440dc` | `parseSkills` вынесена в модуль; убраны `role="list"`, `role="listitem"`, `tabIndex={0}`, `aria-label` у `<m.li>` (лишние tab-stop; aria-label статьи даёт контекст); `filter(Boolean).join` для className; добавлены ключи `projectsList.ariaLabel/noProjects` в локали; PropTypes                                                                                                                                                     |
+| scrollToTop        | `9ea9c28` | добавлены PropTypes с `oneOf` для `behavior`; убран WHAT-комментарий                                                                                                                                                                                                                                                                                                                                                                    |
+| servicesItem       | `837b188` | **фикс `aria-controls`**: добавлен `id={contentId}` на контент-div (раньше указывал в никуда); `aria-expanded={open}` (boolean вместо строки); локализованы `ariaShowMore`/`ariaHide` с WCAG 2.5.3-совместимыми значениями (содержат видимый текст); убран невалидный синтаксис `{default:...}` i18next; мёртвый CSS `.services__arrow`; PropTypes                                                                                      |
 
 ## ⬜ Очередь (ещё не трогали)
 
-projectCard → projectsList → scrollToTop → servicesItem → showcasingCard → socials → tag → toggleLang → Up
+showcasingCard → socials → tag → toggleLang → Up
 
 > Примечание: `accordionItem`, `heading`, `tag` уже частично затронуты/прочитаны в ходе других ревью, но отдельного полного ревью у них не было (кроме упоминаний).
 
