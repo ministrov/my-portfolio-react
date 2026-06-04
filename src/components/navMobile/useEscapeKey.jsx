@@ -1,22 +1,21 @@
 import { useEffect } from 'react';
 
 /**
- * Хук для обработки нажатия клавиши Escape.
- * Закрывает меню при нажатии Escape, если оно открыто.
+ * Хук для закрытия меню по клавише Escape.
  *
- * @param {boolean} isOpen - Флаг открытия меню
- * @param {Function} onClose - Функция закрытия меню
+ * @param {boolean} isOpen - Флаг открытия меню.
+ * @param {Function} onClose - Функция закрытия меню.
  */
 const useEscapeKey = (isOpen, onClose) => {
   useEffect(() => {
-    const handleEscapeKey = (event) => {
-      if (event.key === 'Escape' && isOpen) {
-        onClose();
-      }
+    if (!isOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') onClose();
     };
 
-    document.addEventListener('keydown', handleEscapeKey);
-    return () => document.removeEventListener('keydown', handleEscapeKey);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 };
 

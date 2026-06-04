@@ -1,18 +1,19 @@
+import { memo } from 'react';
 import { LazyMotion, m, domAnimation, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 import ToggleLang from '../toggleLang/ToggleLang';
 import { routes } from '../../const';
 import MenuItem from './MenuItem';
 
 /**
- * Компонент анимированного мобильного меню.
- * Отображается при открытии меню и содержит список ссылок и переключатель языка.
+ * Анимированное мобильное меню-оверлей.
  *
  * @component
- * @param {Object} props
- * @param {boolean} props.isOpen - Флаг открытия меню
- * @param {Function} props.onClose - Функция закрытия меню
- * @returns {JSX.Element} Анимированное мобильное меню
+ * @param {Object} props - Свойства компонента.
+ * @param {boolean} props.isOpen - Флаг открытия меню.
+ * @param {Function} props.onClose - Функция закрытия меню.
+ * @returns {JSX.Element} Анимированное мобильное меню.
  */
 const MobileMenu = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
@@ -31,9 +32,9 @@ const MobileMenu = ({ isOpen, onClose }) => {
             id="mobile-navigation-menu"
             role="dialog"
             aria-modal="true"
-            aria-label={t('Mobile navigation menu')}
+            aria-label={t('mainNav.ariaLabel')}
           >
-            <ul className="nav-mobile__list" role="menu">
+            <ul className="nav-mobile__list">
               {routes.map((route, idx) => (
                 <MenuItem
                   key={route.href}
@@ -45,7 +46,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             </ul>
 
             <div className="nav-mobile__lang">
-              <ToggleLang aria-label={t('Change language')} />
+              <ToggleLang />
             </div>
           </m.div>
         </LazyMotion>
@@ -54,4 +55,11 @@ const MobileMenu = ({ isOpen, onClose }) => {
   );
 };
 
-export default MobileMenu;
+MobileMenu.propTypes = {
+  /** Флаг открытия меню */
+  isOpen: PropTypes.bool.isRequired,
+  /** Функция закрытия меню */
+  onClose: PropTypes.func.isRequired,
+};
+
+export default memo(MobileMenu);

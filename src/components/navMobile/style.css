@@ -56,14 +56,6 @@
     gap: 1rem;
   }
 
-  .nav-mobile__hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-blue-700);
-    border-radius: var(--border-radius-s);
-  }
-
   .nav-mobile__wrapper {
     position: fixed;
     z-index: 10;
@@ -106,9 +98,5 @@
     width: 90%;
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  .nav-mobile__hamburger {
-    height: 40px;
   }
 }
