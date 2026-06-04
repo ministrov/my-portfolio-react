@@ -281,6 +281,10 @@
     "dateTwo": "Май 2020 — Март 2021",
     "dateThree": "Сентябрь 2024 — Ноябрь 2024"
   },
+  "projectsList": {
+    "ariaLabel": "Список проектов",
+    "noProjects": "Нет проектов."
+  },
   "projectCard": {
     "liveDemo": "Демо",
     "seeOnGithub": "GitHub",

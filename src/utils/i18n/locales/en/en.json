@@ -250,6 +250,10 @@
       "roleText": "Role"
     }
   },
+  "projectsList": {
+    "ariaLabel": "List of projects",
+    "noProjects": "No projects available."
+  },
   "projectCard": {
     "liveDemo": "Demo",
     "seeOnGithub": "GitHub",
