@@ -1,4 +1,3 @@
-/* Стили компонента MouseScroll */
 .mouse {
   position: relative;
   overflow: hidden;
@@ -21,7 +20,6 @@
   border-radius: 50%;
   opacity: 1;
   animation: wheel var(--mouse-animation-duration, 1.3s) infinite;
-  /* Используем transform для более плавной анимации */
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -41,10 +39,13 @@
   }
 }
 
-/* Удаляем -webkit-keyframes, так как современные браузеры поддерживают стандартные keyframes */
-/* Для совместимости с очень старыми браузерами можно оставить, но в проекте не требуется */
+@media (prefers-reduced-motion: reduce) {
+  .mouse::before {
+    animation: none;
+    opacity: 0.5;
+  }
+}
 
-/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
   .mouse {
     width: calc(var(--mouse-width, 25px) * 0.9);

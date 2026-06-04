@@ -146,7 +146,7 @@ const Promo = () => {
           </LazyMotion>
         </div>
       </div>
-      <MouseScroll />
+      <MouseScroll className="promo__mouse-scroll-cont" />
     </section>
   );
 };
