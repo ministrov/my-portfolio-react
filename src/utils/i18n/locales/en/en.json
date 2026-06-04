@@ -169,6 +169,9 @@
   "toggleLang": {
     "ariaLabel": "Switch interface language"
   },
+  "up": {
+    "ariaLabel": "Back to top of page"
+  },
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
     "copyright": "Copyright 2025. Made by",
