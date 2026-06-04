@@ -66,6 +66,7 @@
     "projects": "Проекты"
   },
   "mainNav": {
+    "ariaLabel": "Основная навигация",
     "home": "Главная",
     "about": "Обо мне",
     "projects": "Проекты"

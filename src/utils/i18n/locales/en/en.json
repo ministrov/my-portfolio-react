@@ -67,6 +67,7 @@
     "projects": "Projects"
   },
   "mainNav": {
+    "ariaLabel": "Main navigation",
     "home": "Home",
     "about": "About",
     "projects": "Projects"
