@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import './style.css';
 
@@ -10,9 +11,9 @@ import './style.css';
  * @param {string} props.image - URL десктопного изображения (WebP).
  * @param {string} props.tabletImg - URL планшетного изображения (WebP).
  * @param {string} props.mobileImg - URL мобильного изображения (WebP).
- * @param {string} [props.imageJpeg] - Fallback JPEG для десктопа (опционально).
- * @param {string} [props.tabletImgJpeg] - Fallback JPEG для планшета (опционально).
- * @param {string} [props.mobileImgJpeg] - Fallback JPEG для мобилки (опционально).
+ * @param {string} [props.imageJpeg] - Fallback JPEG для десктопа.
+ * @param {string} [props.tabletImgJpeg] - Fallback JPEG для планшета.
+ * @param {string} [props.mobileImgJpeg] - Fallback JPEG для мобилки.
  * @returns {React.ReactElement} Карточка проекта.
  */
 const ShowcasingCard = ({
@@ -25,12 +26,7 @@ const ShowcasingCard = ({
   mobileImgJpeg,
 }) => {
   const { t } = useTranslation();
-
-  // Локализованный alt текст
-  const altText = t('showcasing.alt', {
-    project: t(name),
-    defaultValue: `Изображение проекта ${t(name)}`,
-  });
+  const altText = t('showcasing.alt', { project: t(name) });
 
   return (
     <article className="showcasing-card">
@@ -51,7 +47,7 @@ const ShowcasingCard = ({
             />
           )}
 
-          {/* Планшеты (768px - 1024px) */}
+          {/* Планшеты (768px — 1024px) */}
           <source
             media="(min-width: 768px) and (max-width: 1024px)"
             type="image/webp"
@@ -79,26 +75,34 @@ const ShowcasingCard = ({
             />
           )}
 
-          {/* Fallback изображение */}
           <img
             src={image}
-            // width={1253}
-            // height={787}
-            width={'auto'}
-            height={'auto'}
             className="showcasing-card__image"
             alt={altText}
             loading="lazy"
             decoding="async"
-            onError={(e) => {
-              // Fallback на placeholder при ошибке загрузки
-              e.target.src = '/placeholder.jpg';
-            }}
           />
         </picture>
       </div>
     </article>
   );
+};
+
+ShowcasingCard.propTypes = {
+  /** Ключ перевода названия проекта */
+  name: PropTypes.string.isRequired,
+  /** URL десктопного изображения (WebP) */
+  image: PropTypes.string.isRequired,
+  /** URL планшетного изображения (WebP) */
+  tabletImg: PropTypes.string,
+  /** URL мобильного изображения (WebP) */
+  mobileImg: PropTypes.string,
+  /** Fallback JPEG для десктопа */
+  imageJpeg: PropTypes.string,
+  /** Fallback JPEG для планшета */
+  tabletImgJpeg: PropTypes.string,
+  /** Fallback JPEG для мобилки */
+  mobileImgJpeg: PropTypes.string,
 };
 
 export default ShowcasingCard;

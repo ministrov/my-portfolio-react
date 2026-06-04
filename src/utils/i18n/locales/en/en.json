@@ -160,6 +160,9 @@
     "prevSlide": "Previous slide",
     "nextSlide": "Next slide"
   },
+  "showcasing": {
+    "alt": "{{project}} — project screenshot"
+  },
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
     "copyright": "Copyright 2025. Made by",
