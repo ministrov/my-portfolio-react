@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -19,7 +20,7 @@ const ScrollToTop = ({ behavior = 'auto', top = 0, left = 0 }) => {
   useEffect(() => {
     // Если изменился только hash (якорная ссылка), не скроллим наверх
     const isOnlyHashChange = prevPathnameRef.current === pathname && hash;
-    
+
     if (!isOnlyHashChange) {
       try {
         window.scrollTo({
@@ -29,16 +30,27 @@ const ScrollToTop = ({ behavior = 'auto', top = 0, left = 0 }) => {
         });
       } catch (error) {
         // Fallback для старых браузеров или окружений без window.scrollTo
-        console.warn('ScrollToTop: window.scrollTo failed, using fallback', error);
+        console.warn(
+          'ScrollToTop: window.scrollTo failed, using fallback',
+          error
+        );
         window.scrollTo(left, top);
       }
     }
 
-    // Обновляем предыдущий pathname
     prevPathnameRef.current = pathname;
   }, [pathname, hash, behavior, top, left]);
 
   return null;
+};
+
+ScrollToTop.propTypes = {
+  /** Поведение скролла */
+  behavior: PropTypes.oneOf(['auto', 'smooth', 'instant']),
+  /** Вертикальная позиция скролла (пиксели) */
+  top: PropTypes.number,
+  /** Горизонтальная позиция скролла (пиксели) */
+  left: PropTypes.number,
 };
 
 export default ScrollToTop;
