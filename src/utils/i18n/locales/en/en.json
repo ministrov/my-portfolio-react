@@ -290,6 +290,7 @@
   },
   "modal": {
     "title": "4 <highlighed>steps</highlighed> of website <highlighed>development</highlighed> order",
+    "stepsAriaLabel": "Website development process steps",
     "items": {
       "first": "Our consultant will <highlighed>clarify the tasks</highlighed> and goals of the website",
       "second": "We'll prepare a <highlighed>proposal and estimate</highlighed> tailored to your project",
