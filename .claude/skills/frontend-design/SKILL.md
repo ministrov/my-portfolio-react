@@ -33,7 +33,7 @@ precision, not to invent a new look for every component.
 
 ## Design thinking
 
-Before coding, commit to an intentional direction — but one that reads as *this* portfolio:
+Before coding, commit to an intentional direction — but one that reads as _this_ portfolio:
 
 - **Purpose & audience**: what does this UI do, who sees it?
 - **Fit**: how does it sit next to existing sections (promo, about, projects, services, faq, contact)?
