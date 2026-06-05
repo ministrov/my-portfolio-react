@@ -41,9 +41,10 @@ const Showcasing = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="showcasing">
+    <section className="showcasing" aria-labelledby="showcasing-heading">
       <div className="container">
         <Heading
+          id="showcasing-heading"
           title={t('heading.showcasing.name')}
           slogan={t('heading.showcasing.subheading')}
         />
@@ -58,7 +59,7 @@ const Showcasing = () => {
         >
           <Suspense fallback={<Loader />}>
             <div className="container">
-              <LazyCarousel className="showcasing__carousel" />
+              <LazyCarousel />
             </div>
           </Suspense>
         </m.div>
