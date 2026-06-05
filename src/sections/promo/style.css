@@ -19,12 +19,32 @@
   display: block;
   margin-bottom: 3rem;
   font-family: var(--font-headings);
-  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
   font-weight: 400;
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--color-blue-700);
+}
+
+/* Печатаемая строка: размеры задаёт скрытый «призрак»,
+   поэтому строка не прыгает при смене имени на должность */
+.promo__typed {
+  position: relative;
+  display: inline-block;
+}
+
+.promo__typed-placeholder {
+  visibility: hidden;
+}
+
+/* Живой текст центрируется в зарезервированной области */
+.promo__typed-live {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .promo__slogan {

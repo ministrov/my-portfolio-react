@@ -67,12 +67,25 @@ const Promo = () => {
             >
               {lang === 'ru' ? 'Привет, Я' : "Hi, I'm"}
               <br />
-              <TypeAnimation
-                sequence={TYPE_SEQUENCES[lang]}
-                speed={50}
-                repeat={Infinity}
-              />
-              .
+              <span className="promo__typed">
+                {/* Невидимый «призрак»: резервирует место под самый длинный
+                    вариант, чтобы строка не меняла высоту при смене текста
+                    и не было вертикального скачка */}
+                <span className="promo__typed-placeholder" aria-hidden="true">
+                  Frontend Developer.
+                </span>
+                {/* Живой анимированный текст накладывается поверх призрака */}
+                <span className="promo__typed-live">
+                  <span className="promo__typed-text">
+                    <TypeAnimation
+                      sequence={TYPE_SEQUENCES[lang]}
+                      speed={50}
+                      repeat={Infinity}
+                    />
+                    .
+                  </span>
+                </span>
+              </span>
             </m.strong>
 
             <m.p
