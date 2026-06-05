@@ -5,7 +5,7 @@
 
 **Фаза 1 (`src/components/`) — завершена.** Прошли по всем компонентам по алфавиту, по одному за раз: код-ревью на безопасность / качество кода / общие принципы → исправление всех замечаний → коммит.
 
-**Фаза 2 (`src/sections/`) — идёт.** Сейчас ревьюим/дорабатываем секции. Та же методика, плюс при необходимости — дизайн-правки в рамках существующей дизайн-системы.
+**Фаза 2 (`src/sections/`) — завершена.** Прошли по всем секциям (та же методика, плюс при необходимости — дизайн-правки в рамках существующей дизайн-системы). Очередь секций закрыта (`cc7ce40`).
 
 ---
 
@@ -13,7 +13,17 @@
 
 ✅ **Фаза 1 (`src/components/`) пройдена полностью** — все компоненты прошли код-ревью и закоммичены (очередь закрыта коммитом `630dc5e`).
 
-▶️ **Идёт Фаза 2 (`src/sections/`).** Последнее, на чём остановились (2026-06-05), — секция **`advantages/`**:
+✅ **Фаза 2 (`src/sections/`) пройдена полностью** — все 8 секций (`promo`, `about`, `advantages`, `contact`, `faq`, `projects`, `services`, `showcasing`) прошли ревью и закоммичены.
+
+Последний заход (2026-06-05) — секции **`contact`, `faq`, `projects`, `services`, `showcasing`**:
+
+- `9cf15f9` `refactor(contact)` — убран избыточный `aria-label` кнопки (дублировал видимый текст); `MODAL_AUTO_CLOSE_DELAY` вынесена в модуль; ужат WHAT-JSDoc на хендлерах.
+- `c2c5b2e` `refactor(faq)` — убран мёртвый `className="heading-sec__main--second"` (нет такого правила в CSS); `aria-labelledby`/`id` оставлены как корректные.
+- `67c835e` `refactor(projects)` — фильтр локализован: `value` (матчинг) отделён от `label` (i18n-ключ), `'All'` теперь переводится; починен мёртвый/асимметричный namespace `filters` (транслит `Реакт/Некст/Скрипт`→`React/Next/JavaScript`, добавлен блок в `en.json`); `aria-label` списка → `t('filters.ariaLabel')`; reducer не тронут (`value` байт-в-байт); мелочи (JSDoc `state.filter`→`state.activeFilter`, `BREADCRUMBS`→camelCase).
+- `e6ccda1` `refactor(services)` — убран дубль-`h2` (хардкод-EN `visually-hidden`), секция именуется через `aria-labelledby` на `Heading`; убран мёртвый `services__title`; PropTypes в `ServicesList`.
+- `cc7ce40` `refactor(showcasing)` — убран мёртвый `className="showcasing__carousel"` (`Carousel` его не принимает + нет CSS); секция именуется через `aria-labelledby`.
+
+Ранее в тот же день (2026-06-05) — секция **`advantages/`**:
 
 - `d177967` `refactor(advantages)` — локализован `alt` изображений через ключи `advantages.alt.*` (`t(alt)` в `Advantages`); добавлен namespace `advantages.alt` в ru/en; исправлена опечатка ключа `hightlight`→`highlight` в `Trans` и обеих локалях; карточки анимированы Framer Motion (fade-in + `y`, stagger по `index`, обёртка `LazyMotion`/`domAnimation`, `viewport once`); `ICON_SIZE` вынесен в модуль; чистка `Advantages` (инлайн `t()`, деструктуризация в `.map`).
 
@@ -37,17 +47,15 @@
 
 ## ▶️ С чего продолжить дальше
 
-Продолжаем Фазу 2 по секциям `src/sections/`. Остались (по алфавиту): **`contact`, `faq`, `projects`, `services`, `showcasing`** — взять следующую по согласованию с пользователем.
+Обе фазы пройдены: компоненты (`src/components/`) и секции (`src/sections/`). Остались только **отложенные нетривиальные пункты** (по согласованию) — слои `layouts/` и структурные правки, не привязанные к одной секции.
 
-Параллельно — отложенные нетривиальные пункты (по согласованию): focus-trap в `Modal`, локализация фильтра `'All'` (затрагивает секцию `projects`), структурный фикс `Heading`. См. накопленный список мелочей ниже — многие из них как раз в секциях/слоях.
-
-> 🧹 Накопленные мелочи (по согласованию, при ревью соответствующих секций/слоёв):
+> 🧹 Накопленные мелочи (по согласованию, при ревью соответствующих слоёв):
 >
 > - `layouts/footer/Footer.jsx`: `<Logo variant="white" color="white" />` — проп `color` мёртв (при заданном `variant` `iconColor` = `undefined`, плюс `"white"` не валидный HEX). Убрать `color` при ревью layouts/footer.
 > - `components/modal/Modal.jsx`: полноценная **ловушка фокуса** (циклирование Tab/Shift+Tab внутри окна) не реализована — сделан только перенос фокуса в окно и возврат на триггер. Добавить focus-trap отдельной задачей (по согласованию — это нетривиальная логика).
-> - `sections/showcasing/Showcasing.jsx`: `<LazyCarousel className="showcasing__carousel" />` — `className` дважды мёртв (нет в CSS и Carousel его не принимает).
-> - Фильтр **`'All'`** в `const/index.js` рендерится непереведённым в RU-интерфейсе (`React/Next/JavaScript` — имена собственные, ок). Локализовать = разделить значение/лейбл фильтра (затрагивает `const` + `projectsReduce` + `FilterList`), поэтому только при ревью секции `projects`.
 > - `Heading`: `slogan` рендерится **внутри** тега заголовка (`<h2><span>title</span><span>slogan</span></h2>`), из-за чего слоган попадает в доступное имя заголовка. Нит a11y, но фикс — структурное изменение по всем секциям, поэтому вне scope компонента.
+>
+> ✅ Закрыто в этой сессии: мёртвый `className="showcasing__carousel"` (`cc7ce40`); локализация фильтра `'All'` через раздел `value`/`label` (`67c835e`).
 
 ---
 
@@ -57,6 +65,11 @@
 | ---------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | about      | `ae79c95`, `dcee3d3` | карточка автора вынесена в `src/components/authorIdentity/` (БЭМ `about__*`→`author-identity__*`, чистка мёртвых селекторов и импортов); общие константы анимации `EASE`/`VIEWPORT` (дедуп); нормализация условного рендеринга; инлайн `t()`; `promoBtnText`→camelCase                       |
 | advantages | `d177967`            | локализован `alt` через ключи `advantages.alt.*` (`t(alt)`); namespace `advantages.alt` в ru/en; фикс опечатки ключа `hightlight`→`highlight` (`Trans` + локали); Framer Motion fade-in + stagger (`LazyMotion`); `ICON_SIZE` в модуль; чистка `Advantages` (инлайн `t()`, деструктуризация) |
+| contact    | `9cf15f9`            | убран избыточный `aria-label` кнопки (дублировал видимый текст); `MODAL_AUTO_CLOSE_DELAY` в модуль; ужат WHAT-JSDoc                                                                                                                                                                          |
+| faq        | `c2c5b2e`            | убран мёртвый `className="heading-sec__main--second"` (нет правила в CSS); `aria-labelledby`/`id` оставлены                                                                                                                                                                                  |
+| projects   | `67c835e`            | локализация фильтров: `value` (матчинг) отделён от `label` (i18n-ключ), `'All'` переводится; починен мёртвый namespace `filters` (`Реакт/Некст/Скрипт`→`React/Next/JavaScript`, добавлен блок в en); `aria-label` списка → `t()`; reducer не тронут; JSDoc/именование                        |
+| services   | `e6ccda1`            | убран дубль-`h2` (хардкод-EN `visually-hidden`) → `aria-labelledby` на `Heading`; мёртвый `services__title`; PropTypes в `ServicesList`                                                                                                                                                      |
+| showcasing | `cc7ce40`            | убран мёртвый `className="showcasing__carousel"` (Carousel не принимает + нет CSS); `aria-labelledby` на `Heading`                                                                                                                                                                           |
 | promo      | `67b2938`, `d63e673` | одноколоночный центрированный hero: убраны аватар и `SocialList`, снят `promo__wrapper`, `78vh` + флюидный `clamp()`, `prefers-reduced-motion`, чистка мёртвого CSS; правка line-height/отступов                                                                                             |
 | (все)      | `122dd3f`            | единый вертикальный ритм и `78vh` для коротких секций (about/advantages/contact/projects/services/showcasing)                                                                                                                                                                                |
 | (прочее)   | `4767836`            | `fix(projectCard)` — правка значения атрибута height (попутно при работе над секциями)                                                                                                                                                                                                       |
@@ -103,19 +116,11 @@
 
 **Компоненты (`src/components/`)** — 🎉 пусто, фаза завершена.
 
-**Секции (`src/sections/`)** — осталось (по алфавиту):
+**Секции (`src/sections/`)** — 🎉 пусто, все 8 секций пройдены (см. Фазу 2 выше).
 
-- ⬜ `contact`
-- ⬜ `faq`
-- ⬜ `projects`
-- ⬜ `services`
-- ⬜ `showcasing`
-- ✅ `about` — сделано (см. Фазу 2 выше)
-- ✅ `advantages` — сделано (см. Фазу 2 выше)
-- ✅ `promo` — сделано (см. Фазу 2 выше)
+**Дальше (по согласованию):** только отложенные нетривиальные пункты из списка 🧹 выше — слой `layouts/` (мёртвый `color` у `Logo` в `Footer`), focus-trap в `Modal`, структурный фикс `Heading`.
 
-> Примечание: `contact`, `projects`, `services`, `showcasing` уже были затронуты косметической правкой ритма (`122dd3f`), но полного ревью по методике у них ещё не было.
-> Компоненты `accordionItem`, `heading`, `tag` частично затронуты в ходе других ревью, но отдельного полного ревью не имели.
+> Примечание: компоненты `accordionItem`, `heading`, `tag` частично затронуты в ходе других ревью, но отдельного полного ревью не имели.
 
 ---
 
