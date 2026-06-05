@@ -1,7 +1,7 @@
 ---
 name: ui-design
 description: Build distinctive, production-grade UI for the my-portfolio-react portfolio while staying inside its design system and conventions. Use when asked to build or style a component, section, or page (React/JSX + plain CSS/BEM), or to beautify existing UI. Produces polished, intentional design that fits the existing portfolio — not generic AI aesthetics, and not a new brand per component.
-model: sonnet-opus-4.6
+model: opus-4.6
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(npx eslint:*), Bash(npx prettier:*)
 user-invocable: true
 ---
