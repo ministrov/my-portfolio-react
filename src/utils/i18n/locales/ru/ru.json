@@ -111,11 +111,18 @@
   },
   "advantages": {
     "items": {
-      "first": "Легкий и быстрый <hightlight>сайт</hightlight>.",
-      "second": "<hightlight>Быстрая</hightlight> разработка и деплой.",
-      "third": "<hightlight>Чистый современный код</hightlight> без legacy.",
-      "fourth": "<hightlight>Гарантия</hightlight> производительности и SEO.",
-      "fifth": "<hightlight>Надежный код</hightlight> без багов и проблем."
+      "first": "Легкий и быстрый <highlight>сайт</highlight>.",
+      "second": "<highlight>Быстрая</highlight> разработка и деплой.",
+      "third": "<highlight>Чистый современный код</highlight> без legacy.",
+      "fourth": "<highlight>Гарантия</highlight> производительности и SEO.",
+      "fifth": "<highlight>Надежный код</highlight> без багов и проблем."
+    },
+    "alt": {
+      "first": "Иконка: сайт",
+      "second": "Иконка: деплой",
+      "third": "Иконка: React",
+      "fourth": "Иконка: SEO",
+      "fifth": "Иконка: код без багов"
     }
   },
   "faqs": {

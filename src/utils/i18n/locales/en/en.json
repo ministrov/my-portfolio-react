@@ -112,11 +112,18 @@
   },
   "advantages": {
     "items": {
-      "first": "Light and fast <hightlight>website</hightlight>.",
-      "second": "<hightlight>Fast</hightlight> development and deploy",
-      "third": "<hightlight>Clean modern code</hightlight> without legacy.",
-      "fourth": "<hightlight>Guarantee</hightlight> of performance and SEO.",
-      "fifth": "<hightlight>Reliable code</hightlight> without bugs and issues."
+      "first": "Light and fast <highlight>website</highlight>.",
+      "second": "<highlight>Fast</highlight> development and deploy",
+      "third": "<highlight>Clean modern code</highlight> without legacy.",
+      "fourth": "<highlight>Guarantee</highlight> of performance and SEO.",
+      "fifth": "<highlight>Reliable code</highlight> without bugs and issues."
+    },
+    "alt": {
+      "first": "Website icon",
+      "second": "Deploy icon",
+      "third": "React icon",
+      "fourth": "SEO icon",
+      "fifth": "Bug-free code icon"
     }
   },
   "faqs": {

@@ -9,26 +9,31 @@ const items = [
     id: 1,
     text: 'advantages.items.first',
     icon: website,
-    alt: '1 - Icon website',
+    alt: 'advantages.alt.first',
   },
   {
     id: 2,
     text: 'advantages.items.second',
     icon: deploy,
-    alt: '2 - Icon deploy',
+    alt: 'advantages.alt.second',
   },
   {
     id: 3,
     text: 'advantages.items.third',
     icon: reactIcon,
-    alt: '3 - Icon reactIcon',
+    alt: 'advantages.alt.third',
   },
-  { id: 4, text: 'advantages.items.fourth', icon: seo, alt: '4 - Icon seo' },
+  {
+    id: 4,
+    text: 'advantages.items.fourth',
+    icon: seo,
+    alt: 'advantages.alt.fourth',
+  },
   {
     id: 5,
     text: 'advantages.items.fifth',
     icon: bug,
-    alt: '5 - Icon for no bugs',
+    alt: 'advantages.alt.fifth',
   },
 ];
 
