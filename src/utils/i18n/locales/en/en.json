@@ -78,6 +78,13 @@
     "promoSlogan": "A frontend developer from Moscow helping businesses create modern, fast, and user-friendly websites.",
     "promoBtn": "Download CV"
   },
+  "hero": {
+    "kicker": "Dynamic web magic with React & Next.js",
+    "titleLead": "Transforming concepts into seamless",
+    "titleAccent": "user experiences",
+    "subtitle": "Hi! I'm Anton Zhilin, a Frontend Developer based in Moscow",
+    "btn": "Download CV"
+  },
   "about": {
     "title": "Greeting, new customers!",
     "descriptionOne": "Frontend developer based in Moscow. I specialize in adaptive interfaces with pixel-perfect precision. Every idea I take on becomes a seamless, living product — flawless in its behavior across any screen. Open to projects where code aesthetics and user experience truly matter.",
