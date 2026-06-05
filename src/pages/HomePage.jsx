@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import Promo from '../sections/promo/Promo';
+import Hero from '../sections/hero/Hero';
+// import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
@@ -39,7 +40,8 @@ const Home = () => {
       <AnimatedBackground />
 
       <h1 className="visually-hidden">Главная страница</h1>
-      <Promo />
+      <Hero />
+      {/* <Promo /> */}
       <About link />
       <Showcasing />
       <Services />

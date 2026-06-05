@@ -77,6 +77,13 @@
     "promoSlogan": "Фронтенд-разработчик из Москвы, помогающий бизнесу создавать современные, быстрые и удобные сайты.",
     "promoBtn": "Скачать резюме"
   },
+  "hero": {
+    "kicker": "Динамичная веб-магия на React и Next.js",
+    "titleLead": "Превращаю идеи в бесшовный",
+    "titleAccent": "пользовательский опыт",
+    "subtitle": "Привет! Я Антон Жилин, frontend-разработчик из Москвы",
+    "btn": "Скачать резюме"
+  },
   "about": {
     "title": "Приветствую вас!",
     "descriptionOne": "Фронтенд-разработчик из Москвы, специализация — адаптивные интерфейсы на грани pixel perfect. Каждая идея в моей работе превращается в удобный, живой продукт с безупречным поведением на любых экранах. Открыт к проектам, где важны эстетика кода и пользовательский опыт.",
@@ -111,11 +118,18 @@
   },
   "advantages": {
     "items": {
-      "first": "Легкий и быстрый <hightlight>сайт</hightlight>.",
-      "second": "<hightlight>Быстрая</hightlight> разработка и деплой.",
-      "third": "<hightlight>Чистый современный код</hightlight> без legacy.",
-      "fourth": "<hightlight>Гарантия</hightlight> производительности и SEO.",
-      "fifth": "<hightlight>Надежный код</hightlight> без багов и проблем."
+      "first": "Легкий и быстрый <highlight>сайт</highlight>.",
+      "second": "<highlight>Быстрая</highlight> разработка и деплой.",
+      "third": "<highlight>Чистый современный код</highlight> без legacy.",
+      "fourth": "<highlight>Гарантия</highlight> производительности и SEO.",
+      "fifth": "<highlight>Надежный код</highlight> без багов и проблем."
+    },
+    "alt": {
+      "first": "Иконка: сайт",
+      "second": "Иконка: деплой",
+      "third": "Иконка: React",
+      "fourth": "Иконка: SEO",
+      "fifth": "Иконка: код без багов"
     }
   },
   "faqs": {
@@ -191,9 +205,10 @@
   },
   "filters": {
     "all": "Все",
-    "react": "Реакт",
-    "next": "Некст",
-    "javaScript": "Скрипт"
+    "react": "React",
+    "next": "Next",
+    "javaScript": "JavaScript",
+    "ariaLabel": "Фильтры проектов"
   },
   "projects": {
     "vamvoda": {

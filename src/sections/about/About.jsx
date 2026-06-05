@@ -1,55 +1,29 @@
 import { memo } from 'react';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { BsBoxArrowInUpRight, BsGeoAlt } from 'react-icons/bs';
+import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import Heading from '../../components/heading/Heading';
 import ButtonLink from '../../components/buttonLink/ButtonLink';
 import SocialList from '../../components/socials/SocialList';
-// import AuthorPhoto from '../../components/authorPhoto/AuthorPhoto';
 import AboutStory from '../../components/aboutStory/AboutStory';
+import AuthorIdentity from '../../components/authorIdentity/AuthorIdentity';
 import Tag from '../../components/tag/Tag';
 import { ABOUT_TECH_TAGS, ABOUT_STATS } from '../../const';
-import photo from '../../assets/png/photo.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
-// import aboutImage from '../../assets/png/about-image.webp';
 import './style.css';
 
-/**
- * Компонент секции "Обо мне".
- * Отображает идентификационную карточку (фото, имя, роль, доступность, соцсети),
- * нарративный текст (AboutStory), статистику и технологический стек.
- *
- * @component
- * @param {Object} props - Пропсы компонента
- * @param {boolean} [props.link=false] - Показывать ли ссылку на страницу "Обо мне"
- * @param {boolean} [props.button=false] - Показывать ли кнопку скачивания CV и соцсети
- * @example
- * <About link />
- * <About button />
- */
+/** Кривая плавности, общая для всех анимаций секции */
+const EASE = [0.25, 0.1, 0.25, 1];
+
+/** Общие настройки viewport для анимаций по скроллу */
+const VIEWPORT = { once: true, margin: '-50px' };
 
 /** Анимация правой колонки: появление справа */
 const ANIMATION_CONFIG = {
   initial: { opacity: 0, scale: 0.96, x: 30 },
   whileInView: { opacity: 1, scale: 1, x: 0 },
-  viewport: { once: true, margin: '-50px' },
-  transition: {
-    duration: 0.8,
-    ease: [0.25, 0.1, 0.25, 1],
-    delay: 0.4,
-  },
-};
-
-/** Анимация идентификационной карточки: появление слева */
-const IDENTITY_ANIMATION = {
-  initial: { opacity: 0, x: -24 },
-  whileInView: { opacity: 1, x: 0 },
-  viewport: { once: true, margin: '-50px' },
-  transition: {
-    duration: 0.7,
-    ease: [0.25, 0.1, 0.25, 1],
-    delay: 0.2,
-  },
+  viewport: VIEWPORT,
+  transition: { duration: 0.8, ease: EASE, delay: 0.4 },
 };
 
 /** Варианты анимации для стаггерного списка статистики (контейнер) */
@@ -66,16 +40,28 @@ const STATS_ITEM = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.4, ease: EASE },
   },
 };
 
+/**
+ * Компонент секции "Обо мне".
+ * Отображает идентификационную карточку (фото, имя, роль, доступность, соцсети),
+ * нарративный текст (AboutStory), статистику и технологический стек.
+ *
+ * @component
+ * @param {Object} props - Пропсы компонента
+ * @param {boolean} [props.link=false] - Показывать ли карточку автора и ссылку на страницу "Обо мне"
+ * @param {boolean} [props.button=false] - Показывать ли кнопку скачивания CV и соцсети
+ * @example
+ * <About link />
+ * <About button />
+ */
 const About = ({ link = false, button = false }) => {
   const { t } = useTranslation();
 
-  const HEADING_TITLE = t('heading.about.name');
-  const PROMO_BTN_TEXT = t('promo.promoBtn');
-  const LINK_TEXT = t('about.link');
+  // Используется дважды (как текст кнопки и внутри aria-label) — выносим в переменную
+  const promoBtnText = t('promo.promoBtn');
 
   return (
     <section className="about">
@@ -84,53 +70,24 @@ const About = ({ link = false, button = false }) => {
           <LazyMotion features={domAnimation}>
             {/* Левая колонка: заголовок + идентификационная карточка */}
             <div className="about__left">
-              <Heading title={HEADING_TITLE} className="about__title" />
-
-              {link && <m.div className="about__identity" {...IDENTITY_ANIMATION}>
-                {/* <AuthorPhoto /> */}
-                <figure className="about__author-photo-ring">
-                  <img
-                    className="about__author-img"
-                    src={photo}
-                    width={260}
-                    height={260}
-                    alt={t('authorPhoto.photoAlt')}
-                    loading="lazy"
-                  />
-                </figure>
-                {/* Метаданные автора */}
-                <div className="about__id-meta">
-                  <p className="about__id-name">{t('authorPhoto.name')}</p>
-                  <p className="about__id-role">{t('authorPhoto.role')}</p>
-                  <p className="about__id-location">
-                    <BsGeoAlt
-                      className="about__id-location-icon"
-                      aria-hidden="true"
-                    />
-                    {t('authorPhoto.location')}
-                  </p>
-
-                  <div className="about__available">
-                    <span className="about__available-dot" aria-hidden="true" />
-                    {t('about.available')}
-                  </div>
-
-                  <SocialList variant="blue" />
-                </div>
-              </m.div>}
+              <Heading
+                title={t('heading.about.name')}
+                className="about__title"
+              />
+              {link && <AuthorIdentity />}
             </div>
 
             {/* Правая колонка: нарратив, статистика, стек, CTA */}
             <m.div className="about__right" {...ANIMATION_CONFIG}>
               <AboutStory />
 
-              {/* Статистика — 4 чипа с ключевыми фактами */}
+              {/* Статистика — чипы с ключевыми фактами */}
               <m.ul
                 className="about__stats"
                 variants={STATS_CONTAINER}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={VIEWPORT}
               >
                 {ABOUT_STATS.map(({ number, labelKey }) => (
                   <m.li
@@ -158,11 +115,9 @@ const About = ({ link = false, button = false }) => {
                     href={cvPdf}
                     download="my-cv.pdf"
                     rel="noopener noreferrer"
-                    aria-label={t('about.cvAriaLabel', {
-                      text: PROMO_BTN_TEXT,
-                    })}
+                    aria-label={t('about.cvAriaLabel', { text: promoBtnText })}
                   >
-                    {PROMO_BTN_TEXT}
+                    {promoBtnText}
                     <span className="btn__icon">
                       <BsBoxArrowInUpRight />
                     </span>
@@ -177,7 +132,7 @@ const About = ({ link = false, button = false }) => {
                   <ButtonLink
                     className="about__link"
                     path="/about"
-                    text={LINK_TEXT}
+                    text={t('about.link')}
                   />
                 </div>
               )}

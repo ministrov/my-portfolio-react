@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -8,6 +9,10 @@ import './style.css';
  */
 const ServicesList = ({ children }) => {
   return <ul className="services__list">{children}</ul>;
+};
+
+ServicesList.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default ServicesList;

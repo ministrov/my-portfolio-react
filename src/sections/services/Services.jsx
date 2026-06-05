@@ -37,13 +37,12 @@ const Services = () => {
   }
 
   return (
-    <section className="services">
-      <h2 className="visually-hidden">Section for a services</h2>
+    <section className="services" aria-labelledby="services-heading">
       <div className="container">
         <Heading
+          id="services-heading"
           title={t('heading.myServices.name')}
           slogan={t('heading.myServices.subheading')}
-          className="services__title"
         />
 
         <ServicesList>

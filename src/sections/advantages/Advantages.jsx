@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import { memo } from 'react';
 import Heading from '../../components/heading/Heading';
 import AdvantagesList from './AdvantagesList';
@@ -9,35 +10,35 @@ import './style.css';
 /**
  * Компонент секции "Преимущества".
  * Отображает список преимуществ автора с иконками и описаниями.
- * Использует данные из файла items.js и поддерживает переводы через i18n.
+ * Данные берутся из items.js, тексты резолвятся через i18n.
  *
  * @component
  * @example
- * return (
- *   <Advantages />
- * )
+ * return <Advantages />
  */
 const Advantages = () => {
   const { t } = useTranslation();
 
-  // Константы для переводов
-  const SECTION_TITLE = t('heading.advantages.name');
-  const SECTION_SLOGAN = t('heading.advantages.subheading');
-
   return (
     <section className="advantages">
       <div className="container">
-        <Heading title={SECTION_TITLE} slogan={SECTION_SLOGAN} />
+        <Heading
+          title={t('heading.advantages.name')}
+          slogan={t('heading.advantages.subheading')}
+        />
 
         <AdvantagesList>
-          {advantages.map((item) => (
-            <AdvantagesItem
-              key={item.id}
-              text={item.text}
-              icon={item.icon}
-              altText={item.alt}
-            />
-          ))}
+          <LazyMotion features={domAnimation}>
+            {advantages.map(({ id, text, icon, alt }, index) => (
+              <AdvantagesItem
+                key={id}
+                index={index}
+                text={text}
+                icon={icon}
+                altText={t(alt)}
+              />
+            ))}
+          </LazyMotion>
         </AdvantagesList>
       </div>
     </section>

@@ -18,8 +18,8 @@ import {
  *
  * @example
  * const { state, handleFilterClick } = useProjectsFilter();
- * console.log(state.filter); // текущий активный фильтр
- * handleFilterClick('web'); // устанавливает фильтр 'web'
+ * console.log(state.activeFilter); // текущий активный фильтр
+ * handleFilterClick('React'); // устанавливает фильтр 'React'
  */
 const useProjectsFilter = () => {
   const [state, dispatch] = useReducer(projectsReducer, initialState);

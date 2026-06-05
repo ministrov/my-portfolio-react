@@ -1,0 +1,146 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 78vh;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  overflow: hidden;
+}
+
+/* Мягкое декоративное свечение за заголовком */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  width: min(640px, 80vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: var(--gradient);
+  opacity: 0.12;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero__inner {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero__kicker {
+  margin-bottom: 1.5rem;
+  font-family: var(--font-headings);
+  font-size: clamp(0.8125rem, 1.2vw, 1rem);
+  font-weight: 400;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--color-gray-500);
+}
+
+.hero__title {
+  margin-bottom: 1.75rem;
+  font-family: var(--font-headings);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+  color: var(--color-gray-900);
+}
+
+/* Акцентная часть заголовка — синий градиент сайта по тексту */
+.hero__title-accent {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__subtitle {
+  max-width: 46ch;
+  margin: 0 auto 2.5rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--color-gray-500);
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-white);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-s);
+  background-color: var(--color-blue-700);
+  transition:
+    transform 0.5s ease-in-out,
+    background-color 0.5s ease-in-out,
+    color 0.5s ease-in-out,
+    border-color 0.5s ease-in-out;
+  outline: none;
+}
+
+.hero__btn:hover {
+  color: var(--color-blue-700);
+  background-color: var(--color-white);
+  border-color: var(--color-blue-700);
+}
+
+.hero__btn-icon {
+  display: inline-flex;
+  font-size: 1.1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__btn {
+    transition: none;
+  }
+}
+
+@media screen and (max-width: 1048px) {
+  .hero {
+    min-height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero__kicker {
+    letter-spacing: 3px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .hero {
+    padding-top: 40px;
+    padding-bottom: 64px;
+  }
+
+  .hero__title {
+    font-size: 2.2rem;
+    letter-spacing: -1.5px;
+  }
+
+  /* На узких экранах кнопка растягивается на всю ширину контента */
+  .hero__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

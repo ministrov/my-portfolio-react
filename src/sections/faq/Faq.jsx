@@ -27,7 +27,6 @@ const Faq = () => {
           id="faq-heading"
           title={t('heading.faq.name')}
           slogan={t('heading.faq.subheading')}
-          className="heading-sec__main--second"
         />
 
         <Accordion />

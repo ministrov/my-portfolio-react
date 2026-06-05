@@ -4,6 +4,9 @@ import Modal from '../../components/modal/Modal';
 import Heading from '../../components/heading/Heading';
 import './style.css';
 
+/** Задержка автоматического закрытия модального окна связи (мс). */
+const MODAL_AUTO_CLOSE_DELAY = 15000;
+
 /**
  * Секция "Контакты" с кнопкой для открытия модального окна связи.
  * @component
@@ -13,24 +16,11 @@ const Contact = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
-  /** Задержка автоматического закрытия модального окна в миллисекундах */
-  const MODAL_AUTO_CLOSE_DELAY = 15000;
+  /** Открывает модальное окно связи. */
+  const handleOpenModal = () => setIsOpen(true);
 
-  /**
-   * Обработчик открытия модального окна.
-   * Устанавливает состояние isOpen в true.
-   */
-  const handleOpenModal = () => {
-    setIsOpen(true);
-  };
-
-  /**
-   * Обработчик закрытия модального окна.
-   * Устанавливает состояние isOpen в false.
-   */
-  const handleCloseModal = () => {
-    setIsOpen(false);
-  };
+  /** Закрывает модальное окно связи. */
+  const handleCloseModal = () => setIsOpen(false);
 
   return (
     <section className="contact">
@@ -45,7 +35,6 @@ const Contact = () => {
             type="button"
             className="contact__btn"
             onClick={handleOpenModal}
-            aria-label={t('footer.reachOutButton')}
           >
             {t('footer.reachOutButton')}
           </button>
