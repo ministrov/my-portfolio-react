@@ -132,4 +132,10 @@
     padding-top: 40px;
     padding-bottom: 64px;
   }
+
+  /* На узких экранах кнопка растягивается на всю ширину контента */
+  .hero__btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
