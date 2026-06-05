@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { BsBoxArrowInUpRight, BsGeoAlt } from 'react-icons/bs';
+import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import Heading from '../../components/heading/Heading';
 import ButtonLink from '../../components/buttonLink/ButtonLink';
 import SocialList from '../../components/socials/SocialList';
 import AboutStory from '../../components/aboutStory/AboutStory';
+import AuthorIdentity from '../../components/authorIdentity/AuthorIdentity';
 import Tag from '../../components/tag/Tag';
 import { ABOUT_TECH_TAGS, ABOUT_STATS } from '../../const';
-import photo from '../../assets/png/photo.webp';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -24,14 +24,6 @@ const ANIMATION_CONFIG = {
   whileInView: { opacity: 1, scale: 1, x: 0 },
   viewport: VIEWPORT,
   transition: { duration: 0.8, ease: EASE, delay: 0.4 },
-};
-
-/** Анимация идентификационной карточки: появление слева */
-const IDENTITY_ANIMATION = {
-  initial: { opacity: 0, x: -24 },
-  whileInView: { opacity: 1, x: 0 },
-  viewport: VIEWPORT,
-  transition: { duration: 0.7, ease: EASE, delay: 0.2 },
 };
 
 /** Варианты анимации для стаггерного списка статистики (контейнер) */
@@ -50,51 +42,6 @@ const STATS_ITEM = {
     y: 0,
     transition: { duration: 0.4, ease: EASE },
   },
-};
-
-/**
- * Идентификационная карточка автора: фото, имя, роль, локация,
- * бейдж доступности и список соцсетей. Анимируется появлением слева.
- *
- * Должна рендериться внутри <LazyMotion features={domAnimation}> (использует m.*).
- *
- * @component
- * @returns {JSX.Element} Карточка автора
- */
-const AuthorIdentity = () => {
-  const { t } = useTranslation();
-
-  return (
-    <m.div className="about__identity" {...IDENTITY_ANIMATION}>
-      <figure className="about__author-photo-ring">
-        <img
-          className="about__author-img"
-          src={photo}
-          width={260}
-          height={260}
-          alt={t('authorPhoto.photoAlt')}
-          loading="lazy"
-        />
-      </figure>
-
-      {/* Метаданные автора */}
-      <div className="about__id-meta">
-        <p className="about__id-name">{t('authorPhoto.name')}</p>
-        <p className="about__id-role">{t('authorPhoto.role')}</p>
-        <p className="about__id-location">
-          <BsGeoAlt className="about__id-location-icon" aria-hidden="true" />
-          {t('authorPhoto.location')}
-        </p>
-
-        <div className="about__available">
-          <span className="about__available-dot" aria-hidden="true" />
-          {t('about.available')}
-        </div>
-
-        <SocialList variant="blue" />
-      </div>
-    </m.div>
-  );
 };
 
 /**
