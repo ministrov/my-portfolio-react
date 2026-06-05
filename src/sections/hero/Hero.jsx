@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
+// import MouseScroll from '../../components/mouseScroll/MouseScroll';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -107,6 +108,7 @@ const Hero = () => {
             </m.div>
           </div>
         </LazyMotion>
+        {/* <MouseScroll className="promo__mouse-scroll-cont" /> */}
       </div>
     </section>
   );

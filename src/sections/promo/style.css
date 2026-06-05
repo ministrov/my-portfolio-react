@@ -1,4 +1,4 @@
-.promo {
+/* .promo {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
 
 /* Печатаемая строка: размеры задаёт скрытый «призрак»,
    поэтому строка не прыгает при смене имени на должность */
-.promo__typed {
+/* .promo__typed {
   position: relative;
   display: inline-block;
 }
@@ -37,7 +37,6 @@
   visibility: hidden;
 }
 
-/* Живой текст центрируется в зарезервированной области */
 .promo__typed-live {
   position: absolute;
   width: 840px;
@@ -47,7 +46,7 @@
   justify-content: center;
 }
 
-.promo__slogan {
+/* .promo__slogan {
   margin-bottom: 3rem;
   font-size: clamp(1.25rem, 2.2vw, 1.625rem);
   line-height: 1.4;
@@ -59,8 +58,8 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-}
-
+} */
+/* 
 .promo__btn {
   display: inline-flex;
   align-items: center;
@@ -98,9 +97,9 @@
   .promo__btn {
     transition: none;
   }
-}
+} */
 
-@media screen and (max-width: 1048px) {
+/* @media screen and (max-width: 1048px) {
   .promo {
     height: auto;
     padding-bottom: 0;
@@ -109,9 +108,9 @@
   .promo__mouse-scroll-cont {
     display: none;
   }
-}
+} */
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .promo {
     margin-bottom: 3rem;
     padding-top: 3rem;
@@ -124,4 +123,4 @@
     padding-bottom: 64px;
     margin-bottom: 0;
   }
-}
+}  */
