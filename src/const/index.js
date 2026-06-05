@@ -24,10 +24,10 @@ export const routes = [
 ];
 
 export const filters = [
-  { id: 1, name: 'All' },
-  { id: 2, name: 'React' },
-  { id: 3, name: 'Next' },
-  { id: 4, name: 'JavaScript' },
+  { id: 1, value: 'All', label: 'filters.all' },
+  { id: 2, value: 'React', label: 'filters.react' },
+  { id: 3, value: 'Next', label: 'filters.next' },
+  { id: 4, value: 'JavaScript', label: 'filters.javaScript' },
 ];
 
 export const services = [

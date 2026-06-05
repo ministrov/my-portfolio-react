@@ -198,9 +198,10 @@
   },
   "filters": {
     "all": "Все",
-    "react": "Реакт",
-    "next": "Некст",
-    "javaScript": "Скрипт"
+    "react": "React",
+    "next": "Next",
+    "javaScript": "JavaScript",
+    "ariaLabel": "Фильтры проектов"
   },
   "projects": {
     "vamvoda": {

@@ -19,7 +19,7 @@ const Projects = () => {
   const { t } = useTranslation();
 
   // Мемоизация хлебных крошек для предотвращения пересоздания при каждом рендере
-  const BREADCRUMBS = useMemo(
+  const breadcrumbs = useMemo(
     () => [
       { id: 1, name: t('breadcrumbs.home'), link: '/' },
       { id: 2, name: t('breadcrumbs.projects') },
@@ -30,7 +30,7 @@ const Projects = () => {
   return (
     <ProjectsLayout>
       <ProjectsHeader
-        breadcrumbs={BREADCRUMBS}
+        breadcrumbs={breadcrumbs}
         title={t('heading.projects.name')}
         slogan={t('heading.projects.subheading')}
       />

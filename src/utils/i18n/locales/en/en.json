@@ -197,6 +197,13 @@
     "para2": "Behind the polished surface is solid engineering: <stack>Next.js (Pages/App Router), TypeScript, RTK Query, React i18next, CSS Modules, mobile-first</stack>. I care about speed (optimizing <mark>Core Web Vitals</mark>) and about making products accessible to everyone (<mark>WCAG 2.1</mark>). I work in Agile/Scrum with CI/CD.",
     "para3": "<mark>Middle</mark> level confirmed at the HTML Academy championship. Open to office, hybrid, or remote work. <cta>Tell me what you need built?</cta>"
   },
+  "filters": {
+    "all": "All",
+    "react": "React",
+    "next": "Next",
+    "javaScript": "JavaScript",
+    "ariaLabel": "Project filters"
+  },
   "projects": {
     "vamvoda": {
       "title": "Vam Voda",
