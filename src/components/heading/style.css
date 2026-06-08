@@ -33,6 +33,25 @@
   margin-bottom: 4rem;
 }
 
+/* Крупный двухтоновый вариант (display): не капсом, тёмное начало + градиентный акцент */
+.heading-sec--display {
+  margin-bottom: 3rem;
+  font-family: var(--font-headings);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--color-gray-900);
+}
+
+/* Акцентная часть заголовка — синий градиент сайта по тексту */
+.heading-sec__accent {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .heading-sec__sub {
   display: block;
   font-size: 24px;
@@ -53,6 +72,10 @@
 
 @media screen and (max-width: 768px) {
   .heading-sec__mb-med {
+    margin-bottom: 2rem;
+  }
+
+  .heading-sec--display {
     margin-bottom: 2rem;
   }
 
