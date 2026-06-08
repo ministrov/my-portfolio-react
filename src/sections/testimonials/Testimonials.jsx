@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, A11y } from 'swiper/modules';
+import { Autoplay, A11y } from 'swiper/modules';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import {
@@ -12,7 +12,6 @@ import {
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
 import { testimonials } from './testimonials';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import './style.css';
 
 /**
@@ -30,31 +29,32 @@ const BRAND_LOGOS = [
 ];
 
 /**
- * Конфигурация Swiper: центрированный активный слайд с подглядывающими соседями
- * на десктопе и одиночная карточка на мобильных. Сообщения навигации
- * переиспользуют существующие ключи `carousel.*`.
+ * Конфигурация Swiper: центрированный активный слайд с подглядывающими соседями.
+ * Ширина слайда задаётся в CSS (`slidesPerView: 'auto'`), поэтому соседи выходят
+ * за пределы контейнера-центровщика. Сообщения навигации переиспользуют ключи
+ * `carousel.*`.
  * @param {(key: string) => string} t - Функция перевода i18next
  * @returns {import('swiper/types').SwiperOptions} Опции Swiper
  */
 const getSwiperConfig = (t) => ({
-  modules: [Autoplay, Pagination, A11y],
+  modules: [Autoplay, A11y],
   centeredSlides: true,
-  slidesPerView: 1,
+  slidesPerView: 'auto',
   spaceBetween: 16,
   loop: true,
+  speed: 800,
   autoplay: {
     delay: 5000,
     disableOnInteraction: false,
     pauseOnMouseEnter: true,
   },
-  pagination: { clickable: true },
   a11y: {
     enabled: true,
     prevSlideMessage: t('carousel.prevSlide'),
     nextSlideMessage: t('carousel.nextSlide'),
   },
   breakpoints: {
-    1049: { slidesPerView: 1.25, spaceBetween: 24 },
+    1049: { spaceBetween: 24 },
   },
 });
 
@@ -87,8 +87,8 @@ const Testimonials = () => {
 
   return (
     <section className="testimonials" aria-labelledby="testimonials-heading">
-      <div className="container">
-        <LazyMotion features={domAnimation}>
+      <LazyMotion features={domAnimation}>
+        <div className="container">
           <m.h2
             id="testimonials-heading"
             className="testimonials__heading"
@@ -99,26 +99,28 @@ const Testimonials = () => {
               {t('testimonials.titleAccent')}
             </span>
           </m.h2>
+        </div>
 
-          <Swiper
-            className="testimonials__swiper"
-            {...getSwiperConfig(t)}
-            aria-label={t('testimonials.ariaLabel')}
-            role="region"
-          >
-            {testimonials.map((item) => (
-              <SwiperSlide key={item.id} className="testimonials__slide">
-                <TestimonialCard
-                  quote={item.quote}
-                  name={item.name}
-                  position={item.position}
-                  initials={item.initials}
-                  accent={item.accent}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <Swiper
+          className="testimonials__swiper"
+          {...getSwiperConfig(t)}
+          aria-label={t('testimonials.ariaLabel')}
+          role="region"
+        >
+          {testimonials.map((item) => (
+            <SwiperSlide key={item.id} className="testimonials__slide">
+              <TestimonialCard
+                quote={item.quote}
+                name={item.name}
+                position={item.position}
+                initials={item.initials}
+                accent={item.accent}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
+        <div className="container">
           <ul
             className="testimonials__logos"
             aria-label={t('testimonials.logosAriaLabel')}
@@ -130,8 +132,8 @@ const Testimonials = () => {
               </li>
             ))}
           </ul>
-        </LazyMotion>
-      </div>
+        </div>
+      </LazyMotion>
     </section>
   );
 };

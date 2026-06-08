@@ -22,24 +22,27 @@
   color: transparent;
 }
 
-/* Запас снизу под точки пагинации */
+/* Вертикальный запас, чтобы тень карточек не обрезалась overflow swiper */
 .testimonials__swiper {
-  padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-/* Карточки равной высоты независимо от длины цитаты */
+/* Растягиваем слайды до высоты самого высокого — карточки равной высоты */
+.testimonials__swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+/* Фиксированная ширина активной карточки; соседи выходят за контейнер */
 .testimonials__slide {
+  width: min(1100px, 82vw);
   height: auto;
 }
 
 /* Соседние (неактивные) карточки приглушены — приём «подглядывания» */
 .testimonials__slide:not(.swiper-slide-active) {
   opacity: 0.4;
-  transition: opacity 0.4s ease;
-}
-
-.testimonials__swiper .swiper-pagination-bullet-active {
-  background-color: var(--color-blue-700);
+  transition: opacity 0.5s ease;
 }
 
 .testimonials__logos {
@@ -81,6 +84,10 @@
 
   .testimonials__heading {
     margin-bottom: 2rem;
+  }
+
+  .testimonials__slide {
+    width: 88vw;
   }
 
   .testimonials__logos {
