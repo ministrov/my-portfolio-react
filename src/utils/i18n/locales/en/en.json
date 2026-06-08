@@ -183,27 +183,27 @@
     "ariaLabel": "Client testimonials",
     "logosAriaLabel": "Technologies and partners",
     "michael": {
-      "quote": "Collaborating with Anton was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Anton's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and your brand, Anton is the ideal partner.",
+      "quote": "Collaborating with Anton was an absolute pleasure from the first call to final delivery. His professionalism, promptness, and dedication to exceptional results were evident at every stage of our project. Anton's enthusiasm for every facet of development — from architecture down to the smallest interaction — truly stands out. If you're looking to elevate your website and strengthen your brand, Anton is the ideal partner, and I'd gladly work with him again.",
       "position": "Director of AlphaStream Technologies"
     },
     "sarah": {
-      "quote": "Anton turned our rough ideas into a polished, fast interface. Communication was transparent and every deadline was met to the day.",
+      "quote": "Anton turned our rough, half-formed ideas into a polished and genuinely fast interface. Communication stayed transparent throughout, and every single deadline was met to the day.",
       "position": "Product Lead at Nimbus Labs"
     },
     "david": {
-      "quote": "You rarely find a developer equally attentive to pixels and to performance. Anton covered both fronts with no compromises.",
+      "quote": "You rarely find a developer who is equally attentive to pixels and to performance budgets. Anton covered both fronts without compromise, kept the codebase clean, and explained every technical trade-off in plain language our whole team could follow.",
       "position": "CTO at Hauptbahn Digital"
     },
     "elena": {
-      "quote": "Our landing page converted noticeably better after Anton's redesign. The animations are subtle, nothing superfluous — exactly what we wanted.",
+      "quote": "Our landing page started converting noticeably better within weeks of Anton's redesign, and the difference was obvious in the numbers. The animations are subtle and purposeful, never decorative for their own sake — exactly the restraint we were hoping for. He questioned the brief where it mattered, proposed sharper alternatives, and still delivered ahead of schedule. Working with him felt less like hiring a contractor and more like gaining a teammate.",
       "position": "Founder of Vela Studio"
     },
     "james": {
-      "quote": "Anton fit into the team from day one: clean code, clear reviews, zero surprises in production. We'll work with him again.",
+      "quote": "Anton fit into the team from day one: clean commits, clear and respectful code reviews, and zero surprises in production. We'll absolutely be working with him again on the next release.",
       "position": "Engineering Manager at Northpeak"
     },
     "aisha": {
-      "quote": "He implemented the design system pixel-for-pixel and still suggested accessibility improvements we hadn't considered.",
+      "quote": "He implemented our design system pixel-for-pixel across dozens of components, and then went further — suggesting accessibility improvements we simply hadn't considered. The result is a library that is not only beautiful but usable by everyone, and our designers finally trust the handoff.",
       "position": "Head of Design at Lumen Co."
     }
   },
