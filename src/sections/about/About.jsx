@@ -71,8 +71,9 @@ const About = ({ link = false, button = false }) => {
             {/* Левая колонка: заголовок + идентификационная карточка */}
             <div className="about__left">
               <Heading
+                variant="display"
                 title={t('heading.about.name')}
-                className="about__title"
+                accent={t('heading.about.accent')}
               />
               {link && <AuthorIdentity />}
             </div>

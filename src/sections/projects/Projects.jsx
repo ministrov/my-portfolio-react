@@ -32,7 +32,7 @@ const Projects = () => {
       <ProjectsHeader
         breadcrumbs={breadcrumbs}
         title={t('heading.projects.name')}
-        slogan={t('heading.projects.subheading')}
+        accent={t('heading.projects.accent')}
       />
 
       <FilterList

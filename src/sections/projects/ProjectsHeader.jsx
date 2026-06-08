@@ -12,18 +12,18 @@ import './style.css';
  * @param {Object} props - Свойства компонента
  * @param {Array} props.breadcrumbs - Массив объектов хлебных крошек
  * @param {string} props.title - Основной заголовок
- * @param {string} props.slogan - Подзаголовок (слоган)
+ * @param {string} props.accent - Акцентная часть заголовка с градиентом
  * @returns {JSX.Element} Заголовок секции проектов
  */
-const ProjectsHeader = ({ breadcrumbs, title, slogan }) => {
+const ProjectsHeader = ({ breadcrumbs, title, accent }) => {
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
       <Heading
+        variant="display"
         id="projects-heading"
         title={title}
-        className="projects__title"
-        slogan={slogan}
+        accent={accent}
       />
     </>
   );
@@ -38,7 +38,7 @@ ProjectsHeader.propTypes = {
     })
   ).isRequired,
   title: PropTypes.string.isRequired,
-  slogan: PropTypes.string.isRequired,
+  accent: PropTypes.string.isRequired,
 };
 
 export default memo(ProjectsHeader);
