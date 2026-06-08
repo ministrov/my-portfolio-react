@@ -18,36 +18,36 @@
   },
   "heading": {
     "about": {
-      "name": "About",
-      "subheading": "A Passion for Crafting Digital Experiences"
+      "name": "A bit",
+      "accent": "about me"
     },
     "mySkills": {
       "name": "My Skills",
       "subheading": "Unleashing Potential Through Technology"
     },
     "myServices": {
-      "name": "My Services",
-      "subheading": "Professional Solutions for Your Needs"
+      "name": "My",
+      "accent": "services"
     },
     "showcasing": {
-      "name": "Best projects",
-      "subheading": "Give you the best view of the projects"
+      "name": "Best",
+      "accent": "projects"
     },
     "faq": {
-      "name": "Frequantly Asked Questions",
-      "subheading": "Get Answers to Your Burning Questions"
+      "name": "Frequently asked",
+      "accent": "questions"
     },
     "advantages": {
-      "name": "Why me",
-      "subheading": "My advantages"
+      "name": "Why",
+      "accent": "me"
     },
     "projects": {
-      "name": "Projects",
-      "subheading": "Unleash the power of code and create extraordinary digital experiences."
+      "name": "All my",
+      "accent": "projects"
     },
     "contact": {
-      "name": "Connect with me",
-      "subheading": "Message me on social media to discuss turning your data into an attractive interface."
+      "name": "Get in",
+      "accent": "touch"
     },
     "capabilities": {
       "name": "My Capabilities",
