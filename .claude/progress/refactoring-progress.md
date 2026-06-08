@@ -15,7 +15,12 @@
 
 ✅ **Фаза 2 (`src/sections/`) пройдена полностью** — все 8 секций (`promo`, `about`, `advantages`, `contact`, `faq`, `projects`, `services`, `showcasing`) прошли ревью и закоммичены.
 
-Последний заход (2026-06-05) — секции **`contact`, `faq`, `projects`, `services`, `showcasing`**:
+Последний заход (2026-06-08) — **hero** и **footer** (мелкие правки вне основных фаз):
+
+- `d6c1fa3` `refactor(footer)` — убран мёртвый `color="white"` у `Logo` (при заданном `variant` проп игнорируется).
+- `ec60824` `style(hero)` — рефакторинг фоновых слоёв: сетка вынесена в `::before` (`opacity: 0.06`), заменён одиночный центральный blur двумя угловыми `radial-gradient` через `::after`; `z-index`-стекирование на `hero__inner`.
+
+Ранее (2026-06-05) — секции **`contact`, `faq`, `projects`, `services`, `showcasing`**:
 
 - `9cf15f9` `refactor(contact)` — убран избыточный `aria-label` кнопки (дублировал видимый текст); `MODAL_AUTO_CLOSE_DELAY` вынесена в модуль; ужат WHAT-JSDoc на хендлерах.
 - `c2c5b2e` `refactor(faq)` — убран мёртвый `className="heading-sec__main--second"` (нет такого правила в CSS); `aria-labelledby`/`id` оставлены как корректные.
