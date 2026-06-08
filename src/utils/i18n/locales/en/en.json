@@ -177,6 +177,36 @@
   "showcasing": {
     "alt": "{{project}} — project screenshot"
   },
+  "testimonials": {
+    "title": "Kind words from",
+    "titleAccent": "satisfied clients",
+    "ariaLabel": "Client testimonials",
+    "logosAriaLabel": "Technologies and partners",
+    "michael": {
+      "quote": "Collaborating with Anton was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Anton's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and your brand, Anton is the ideal partner.",
+      "position": "Director of AlphaStream Technologies"
+    },
+    "sarah": {
+      "quote": "Anton turned our rough ideas into a polished, fast interface. Communication was transparent and every deadline was met to the day.",
+      "position": "Product Lead at Nimbus Labs"
+    },
+    "david": {
+      "quote": "You rarely find a developer equally attentive to pixels and to performance. Anton covered both fronts with no compromises.",
+      "position": "CTO at Hauptbahn Digital"
+    },
+    "elena": {
+      "quote": "Our landing page converted noticeably better after Anton's redesign. The animations are subtle, nothing superfluous — exactly what we wanted.",
+      "position": "Founder of Vela Studio"
+    },
+    "james": {
+      "quote": "Anton fit into the team from day one: clean code, clear reviews, zero surprises in production. We'll work with him again.",
+      "position": "Engineering Manager at Northpeak"
+    },
+    "aisha": {
+      "quote": "He implemented the design system pixel-for-pixel and still suggested accessibility improvements we hadn't considered.",
+      "position": "Head of Design at Lumen Co."
+    }
+  },
   "socials": {
     "ariaLabel": "Go to {{name}} (opens in a new tab)"
   },
