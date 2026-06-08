@@ -26,8 +26,9 @@ const Contact = () => {
     <section className="contact">
       <div className="container">
         <Heading
+          variant="display"
           title={t('heading.contact.name')}
-          slogan={t('heading.contact.subheading')}
+          accent={t('heading.contact.accent')}
         />
 
         <div className="contact__btn-container">

@@ -23,8 +23,9 @@ const Advantages = () => {
     <section className="advantages">
       <div className="container">
         <Heading
+          variant="display"
           title={t('heading.advantages.name')}
-          slogan={t('heading.advantages.subheading')}
+          accent={t('heading.advantages.accent')}
         />
 
         <AdvantagesList>
