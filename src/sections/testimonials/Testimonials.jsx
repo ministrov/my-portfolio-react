@@ -9,6 +9,7 @@ import {
   SiSupabase,
   SiFirebase,
 } from 'react-icons/si';
+import Heading from '../../components/heading/Heading';
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
 import { testimonials } from './testimonials';
 import 'swiper/css';
@@ -89,16 +90,14 @@ const Testimonials = () => {
     <section className="testimonials" aria-labelledby="testimonials-heading">
       <LazyMotion features={domAnimation}>
         <div className="container">
-          <m.h2
-            id="testimonials-heading"
-            className="testimonials__heading"
-            {...fadeUp}
-          >
-            {t('testimonials.title')}{' '}
-            <span className="testimonials__heading-accent">
-              {t('testimonials.titleAccent')}
-            </span>
-          </m.h2>
+          <m.div {...fadeUp}>
+            <Heading
+              variant="display"
+              id="testimonials-heading"
+              title={t('testimonials.title')}
+              accent={t('testimonials.titleAccent')}
+            />
+          </m.div>
         </div>
 
         <Swiper

@@ -4,24 +4,6 @@
   overflow: hidden;
 }
 
-.testimonials__heading {
-  margin-bottom: 3rem;
-  font-family: var(--font-headings);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
-  color: var(--color-gray-900);
-}
-
-/* Акцентная часть заголовка — синий градиент сайта по тексту */
-.testimonials__heading-accent {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
 /* Вертикальный запас, чтобы тень карточек не обрезалась overflow swiper */
 .testimonials__swiper {
   padding-top: 1rem;
