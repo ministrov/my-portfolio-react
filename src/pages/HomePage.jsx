@@ -9,6 +9,7 @@ import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
 import Contact from '../sections/contact/Contact.jsx';
 import Advantages from '../sections/advantages/Advantages.jsx';
+import Testimonials from '../sections/testimonials/Testimonials.jsx';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
 
 /**
@@ -46,6 +47,7 @@ const Home = () => {
       <Showcasing />
       <Services />
       <Advantages />
+      <Testimonials />
       <Faq />
       <Contact />
     </>
