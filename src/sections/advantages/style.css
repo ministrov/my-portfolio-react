@@ -77,6 +77,18 @@
   grid-row: 3 / 5;
 }
 
+/* Большие карточки: иконка вверху, текст прижат к низу */
+.advantages__item:nth-child(1),
+.advantages__item:nth-child(6) {
+  display: flex;
+  flex-direction: column;
+}
+
+.advantages__item:nth-child(1) .advantages__item-text,
+.advantages__item:nth-child(6) .advantages__item-text {
+  margin-top: auto;
+}
+
 /* item 7 — правая нижняя, 1 колонка × 2 строки */
 .advantages__item:nth-child(7) {
   grid-column: 4 / 5;
