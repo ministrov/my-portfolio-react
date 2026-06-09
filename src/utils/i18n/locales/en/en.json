@@ -125,7 +125,9 @@
       "second": "<highlight>Fast</highlight> development and deploy",
       "third": "<highlight>Clean modern code</highlight> without legacy.",
       "fourth": "<highlight>Guarantee</highlight> of performance and SEO.",
-      "fifth": "<highlight>Reliable code</highlight> without bugs and issues."
+      "fifth": "<highlight>Reliable code</highlight> without bugs and issues.",
+      "sixth": "<highlight>Pixel-perfect</highlight> responsive layout on any screen.",
+      "seventh": "Compliant with <highlight>WCAG 2.1</highlight> — accessible for everyone."
     },
     "alt": {
       "first": "Website icon",
