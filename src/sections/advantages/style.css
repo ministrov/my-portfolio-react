@@ -89,6 +89,13 @@
   grid-row: 3 / 5;
 }
 
+/* Крупные карточки (2×2): увеличенный шрифт текста */
+.advantages__item:nth-child(1) .advantages__item-text,
+.advantages__item:nth-child(6) .advantages__item-text {
+  font-size: 52px;
+  line-height: 57px;
+}
+
 /* ───────────────────────── Адаптивность ───────────────────────── */
 
 @media screen and (max-width: 1024px) {
