@@ -52,9 +52,13 @@
 
 ## ▶️ С чего продолжить дальше
 
-> 🔜 **На следующую сессию (2026-06-09):** распространить крупный двухтоновый `display`-заголовок на страницу **«Обо мне»** — компоненты `about-capabilities`, `about-experience`, `about-education`. Сейчас они намеренно оставлены в компактном (`variant="default"`) стиле; задача — перевести их на `variant="display"` с акцентом, как у секций главной. Потребуется: i18n-разбивка `heading.capabilities`/`heading.experience`/`heading.education` на `name` + `accent` (ru/en), затем `variant="display"` в трёх компонентах. Компонент `Heading` уже умеет `display` (см. `c777e82`).
+> Задачи из TODO закрыты. Следующие шаги — по согласованию.
 
-### Сделано в этой сессии (2026-06-08, production-tweaks вне фаз 1/2)
+### Сделано в этой сессии (2026-06-09)
+
+- **Унификация заголовков страницы «Обо мне»**: i18n-разбивка `heading.capabilities/experience/education` на `name`+`accent` (`b480c5c`); три компонента переведены на `variant="display"` — `AboutCapabilities` (`bf7aba6`), `AboutExperience` (`253212c`), `AboutEducation` (`4c91bee`). Заголовки страницы About теперь единообразны с главной.
+
+### Сделано в предыдущей сессии (2026-06-08, production-tweaks вне фаз 1/2)
 
 - **Hero**: фон переработан в слои — сетка `::before` (`opacity 0.06`) + угловые блики `::after` (`ec60824`); убран мёртвый `color` у `Logo` в `Footer` (`d6c1fa3`).
 - **Новая секция Testimonials** (отзывы клиентов): моки + i18n (`45e800e`), `TestimonialCard` (`595e7cf`), секция со Swiper + лого-полоса react-icons (`20b973f`), монтаж между Advantages и Faq (`4d1d346`); правки слайдера full-bleed/равная высота/плавность, убрана пагинация (`bdd2da0`); тексты разной длины (`7a49893`). План: `.claude/plans/testimonials-section.md`.
