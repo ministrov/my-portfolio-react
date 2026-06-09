@@ -1,35 +1,63 @@
 .faq__item {
+  position: relative;
   width: 100%;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-left: 3px solid transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  counter-increment: faq;
+  transition: border-color 0.2s ease;
+}
+
+.faq__item--open {
+  border-left-color: var(--color-blue-700);
+}
+
+/* Порядковый номер — декоративный, мутный, в правом верхнем углу */
+.faq__item::before {
+  content: counter(faq, decimal-leading-zero);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: var(--font-headings);
+  color: var(--color-blue-700);
+  opacity: 0.07;
+  pointer-events: none;
+  line-height: 1;
 }
 
 .faq__question {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  border-radius: var(--border-radius-s);
-  background-color: var(--color-blue-700);
+  gap: 1rem;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   cursor: pointer;
+  text-align: left;
 }
 
 .faq__question h3 {
-  display: flex;
   font-size: 18px;
-  line-height: 24px;
-
-  color: var(--color-white);
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--color-blue-700);
 }
 
 @media screen and (max-width: 575px) {
   .faq__question h3 {
     font-size: 16px;
-    line-height: 22px;
   }
 }
 
 @media screen and (max-width: 375px) {
   .faq__question h3 {
     font-size: 14px;
-    line-height: 20px;
   }
 }

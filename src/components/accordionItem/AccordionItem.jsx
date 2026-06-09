@@ -44,38 +44,23 @@ const itemVariants = {
 const AccordionItem = ({ item, isActive, onClick }) => {
   const { t } = useTranslation();
 
-  /**
-   * Обработчик нажатия клавиши для доступности.
-   * Активирует элемент при нажатии Enter или Пробела.
-   *
-   * @param {React.KeyboardEvent<HTMLDivElement>} e - Событие клавиатуры
-   */
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      onClick(item.id);
-    }
-  };
-
   return (
     <m.li
-      className="faq__item"
+      className={`faq__item${isActive ? ' faq__item--open' : ''}`}
       variants={itemVariants}
       aria-labelledby={`faq-question-${item.id}`}
     >
-      <div
+      <button
         className="faq__question"
+        type="button"
         onClick={() => onClick(item.id)}
-        role="button"
-        tabIndex={0}
         aria-expanded={isActive}
         aria-controls={`faq-answer-${item.id}`}
         id={`faq-question-${item.id}`}
-        onKeyDown={handleKeyDown}
       >
         <h3>{t(item.question)}</h3>
         <AccordionButton isActive={isActive} />
-      </div>
+      </button>
 
       <AccordionPanel item={item} open={isActive} />
     </m.li>
