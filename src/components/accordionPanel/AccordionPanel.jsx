@@ -1,9 +1,13 @@
+import { AnimatePresence, m } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './style.css';
 
+/** Кривая плавности для анимации раскрытия панели. */
+const EASE = [0.25, 0.1, 0.25, 1];
+
 /**
- * Панель ответа аккордеона, отображающая контент при открытии элемента.
- * Поддерживает плавное появление/скрытие через CSS-классы и локализацию.
+ * Панель ответа аккордеона с плавной анимацией высоты.
+ * Использует AnimatePresence + Framer Motion для анимации height: 0 -> auto.
  *
  * @component
  * @param {Object} props - Свойства компонента
@@ -16,15 +20,23 @@ const AccordionPanel = ({ item, open }) => {
   const { t } = useTranslation();
 
   return (
-    <div
-      className={`faq__answer${open ? ' faq__answer--open' : ''}`}
-      id={`faq-answer-${item.id}`}
-      role="region"
-      aria-labelledby={`faq-question-${item.id}`}
-      aria-hidden={!open}
-    >
-      {item.answer && t(item.answer)}
-    </div>
+    <AnimatePresence initial={false}>
+      {open && (
+        <m.div
+          key="answer"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: 'auto', opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3, ease: EASE }}
+          style={{ overflow: 'hidden' }}
+          id={`faq-answer-${item.id}`}
+          role="region"
+          aria-labelledby={`faq-question-${item.id}`}
+        >
+          <p className="faq__answer-text">{item.answer && t(item.answer)}</p>
+        </m.div>
+      )}
+    </AnimatePresence>
   );
 };
 
