@@ -1,13 +1,19 @@
 .faq__list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
   width: 100%;
+  counter-reset: faq;
+}
+
+@media screen and (max-width: 768px) {
+  .faq__list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .faq__list--empty {
