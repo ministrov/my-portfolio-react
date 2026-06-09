@@ -1,21 +1,8 @@
-.faq__answer {
-  display: none;
-  padding: 20px;
-  font-size: 16px;
-  line-height: 20px;
-  transition: opacity 0.5s ease-in-out;
-  opacity: 0;
-}
-
-.faq__answer--open {
-  display: block;
-  padding: 20px;
-  opacity: 1;
-}
-
-@media screen and (max-width: 575px) {
-  .faq__answer {
-    font-size: 14px;
-    line-height: 18px;
-  }
+.faq__answer-text {
+  padding: 0 2rem 1.75rem;
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.15rem);
+  line-height: 1.75;
+  color: var(--color-gray-800);
+  text-wrap: pretty;
+  margin: 0;
 }

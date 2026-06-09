@@ -1,3 +1,5 @@
+import { BsPhone } from 'react-icons/bs';
+import { MdOutlineAccessibility } from 'react-icons/md';
 import website from '../../assets/svg/website.svg';
 import deploy from '../../assets/png/deploy.webp';
 import reactIcon from '../../assets/svg/react-js.svg';
@@ -34,6 +36,16 @@ const items = [
     text: 'advantages.items.fifth',
     icon: bug,
     alt: 'advantages.alt.fifth',
+  },
+  {
+    id: 6,
+    text: 'advantages.items.sixth',
+    icon: BsPhone,
+  },
+  {
+    id: 7,
+    text: 'advantages.items.seventh',
+    icon: MdOutlineAccessibility,
   },
 ];
 

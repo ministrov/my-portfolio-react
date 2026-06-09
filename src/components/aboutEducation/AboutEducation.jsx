@@ -18,7 +18,11 @@ const AboutEducation = () => {
     <section className="about-education">
       <div className="container">
         <div className="about-education__wrapper">
-          <Heading title={t('heading.education.name')} />
+          <Heading
+            variant="display"
+            title={t('heading.education.name')}
+            accent={t('heading.education.accent')}
+          />
 
           <ul className="about-education__education-list">
             {education.map((item) => (

@@ -52,9 +52,16 @@
 
 ## ▶️ С чего продолжить дальше
 
-> 🔜 **На следующую сессию (2026-06-09):** распространить крупный двухтоновый `display`-заголовок на страницу **«Обо мне»** — компоненты `about-capabilities`, `about-experience`, `about-education`. Сейчас они намеренно оставлены в компактном (`variant="default"`) стиле; задача — перевести их на `variant="display"` с акцентом, как у секций главной. Потребуется: i18n-разбивка `heading.capabilities`/`heading.experience`/`heading.education` на `name` + `accent` (ru/en), затем `variant="display"` в трёх компонентах. Компонент `Heading` уже умеет `display` (см. `c777e82`).
+> Задачи из TODO закрыты. Следующие шаги — по согласованию.
 
-### Сделано в этой сессии (2026-06-08, production-tweaks вне фаз 1/2)
+### Сделано в этой сессии (2026-06-09)
+
+- **Унификация заголовков страницы «Обо мне»**: i18n-разбивка `heading.capabilities/experience/education` на `name`+`accent` (`b480c5c`); три компонента переведены на `variant="display"` — `AboutCapabilities` (`bf7aba6`), `AboutExperience` (`253212c`), `AboutEducation` (`4c91bee`).
+- **Типографика страницы «Обо мне»**: карточный стиль (белый фон, border, radius 16px, левая синяя полоска) и story-типографика (clamp, `line-height: 1.75`, `gray-800`) для `aboutCapabilities` (`8c28b5c`), `aboutExperience` (`b273769`), `aboutEducation` (`4b8882d`); `aboutEducation` получил двухколоночный grid (раньше его не было); удалён мёртвый `.about-experience--dark`. План: `.claude/plans/about-page-typography.md`.
+- **Бенто-сетка Advantages**: 4-колоночный CSS grid с nth-child span'ами; добавлены 2 новые карточки (pixel-perfect responsive + WCAG 2.1, иконки react-icons); `AdvantagesItem` поддерживает img-src и react-icon компонент; текст прижат к низу (`margin-top: auto`) во всех карточках; крупный шрифт `52px/57px` на больших карточках (`5282f6f`–`cf88a4f`).
+- **FAQ редизайн**: цветной фон секции (gray-600, border-radius), белые карточки с декоративным номером `01/02...` (CSS-счётчик), `div[role=button]` → семантический `<button>`, левая синяя полоска на открытом item, AnimatePresence вместо сломанного `display:none` (плавная анимация высоты), крупная типографика вопроса `22px` / паддинг `2.5rem 2rem` (`226e92e`–`dba3a51`). План: `.claude/plans/faq-redesign.md`.
+
+### Сделано в предыдущей сессии (2026-06-08, production-tweaks вне фаз 1/2)
 
 - **Hero**: фон переработан в слои — сетка `::before` (`opacity 0.06`) + угловые блики `::after` (`ec60824`); убран мёртвый `color` у `Logo` в `Footer` (`d6c1fa3`).
 - **Новая секция Testimonials** (отзывы клиентов): моки + i18n (`45e800e`), `TestimonialCard` (`595e7cf`), секция со Swiper + лого-полоса react-icons (`20b973f`), монтаж между Advantages и Faq (`4d1d346`); правки слайдера full-bleed/равная высота/плавность, убрана пагинация (`bdd2da0`); тексты разной длины (`7a49893`). План: `.claude/plans/testimonials-section.md`.

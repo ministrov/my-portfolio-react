@@ -50,13 +50,16 @@
       "accent": "со мной"
     },
     "capabilities": {
-      "name": "Мои возможности"
+      "name": "Мои",
+      "accent": "возможности"
     },
     "experience": {
-      "name": "Мой опыт"
+      "name": "Мой",
+      "accent": "опыт"
     },
     "education": {
-      "name": "Мое образование"
+      "name": "Мое",
+      "accent": "образование"
     }
   },
   "breadcrumbs": {
@@ -122,7 +125,9 @@
       "second": "<highlight>Быстрая</highlight> разработка и деплой.",
       "third": "<highlight>Чистый современный код</highlight> без legacy.",
       "fourth": "<highlight>Гарантия</highlight> производительности и SEO.",
-      "fifth": "<highlight>Надежный код</highlight> без багов и проблем."
+      "fifth": "<highlight>Надежный код</highlight> без багов и проблем.",
+      "sixth": "Адаптивная вёрстка, <highlight>pixel-perfect</highlight> на любом экране.",
+      "seventh": "Соответствие <highlight>WCAG 2.1</highlight> — сайт удобен для всех."
     },
     "alt": {
       "first": "Иконка: сайт",

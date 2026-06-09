@@ -7,7 +7,7 @@ import './style.css';
  * Компонент секции "Мой опыт" (AboutExperience).
  * Отображает список профессионального опыта с заголовками, датами, названием компании и описанием.
  * Использует переводы через react-i18next для поддержки мультиязычности.
- * 
+ *
  * @component
  * @example
  * return (
@@ -21,7 +21,11 @@ const AboutExperience = () => {
     <section className="about-experience">
       <div className="container">
         <div className="about-experience__wrapper">
-          <Heading title={t('heading.experience.name')} />
+          <Heading
+            variant="display"
+            title={t('heading.experience.name')}
+            accent={t('heading.experience.accent')}
+          />
 
           <ul className="about-experience__experience-list">
             {experienceItems.map((item) => (
