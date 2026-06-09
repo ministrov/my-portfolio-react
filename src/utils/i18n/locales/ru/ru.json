@@ -50,13 +50,16 @@
       "accent": "со мной"
     },
     "capabilities": {
-      "name": "Мои возможности"
+      "name": "Мои",
+      "accent": "возможности"
     },
     "experience": {
-      "name": "Мой опыт"
+      "name": "Мой",
+      "accent": "опыт"
     },
     "education": {
-      "name": "Мое образование"
+      "name": "Мое",
+      "accent": "образование"
     }
   },
   "breadcrumbs": {

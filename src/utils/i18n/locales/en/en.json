@@ -50,14 +50,16 @@
       "accent": "touch"
     },
     "capabilities": {
-      "name": "My Capabilities",
-      "subheading": ""
+      "name": "My",
+      "accent": "capabilities"
     },
     "experience": {
-      "name": "My Experience"
+      "name": "My",
+      "accent": "experience"
     },
     "education": {
-      "name": "Мy Education"
+      "name": "My",
+      "accent": "education"
     }
   },
   "breadcrumbs": {
