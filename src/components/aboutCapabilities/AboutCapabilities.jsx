@@ -46,7 +46,11 @@ const AboutCapabilities = () => {
     <section className="about-capabilities">
       <div className="container">
         <div className="about-capabilities__wrapper">
-          <Heading title={t('heading.capabilities.name')} />
+          <Heading
+            variant="display"
+            title={t('heading.capabilities.name')}
+            accent={t('heading.capabilities.accent')}
+          />
 
           <div className="about-capabilities__text-container">
             <p className="about-capabilities__text">
