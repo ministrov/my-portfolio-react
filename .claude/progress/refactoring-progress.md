@@ -56,7 +56,10 @@
 
 ### Сделано в этой сессии (2026-06-09)
 
-- **Унификация заголовков страницы «Обо мне»**: i18n-разбивка `heading.capabilities/experience/education` на `name`+`accent` (`b480c5c`); три компонента переведены на `variant="display"` — `AboutCapabilities` (`bf7aba6`), `AboutExperience` (`253212c`), `AboutEducation` (`4c91bee`). Заголовки страницы About теперь единообразны с главной.
+- **Унификация заголовков страницы «Обо мне»**: i18n-разбивка `heading.capabilities/experience/education` на `name`+`accent` (`b480c5c`); три компонента переведены на `variant="display"` — `AboutCapabilities` (`bf7aba6`), `AboutExperience` (`253212c`), `AboutEducation` (`4c91bee`).
+- **Типографика страницы «Обо мне»**: карточный стиль (белый фон, border, radius 16px, левая синяя полоска) и story-типографика (clamp, `line-height: 1.75`, `gray-800`) для `aboutCapabilities` (`8c28b5c`), `aboutExperience` (`b273769`), `aboutEducation` (`4b8882d`); `aboutEducation` получил двухколоночный grid (раньше его не было); удалён мёртвый `.about-experience--dark`. План: `.claude/plans/about-page-typography.md`.
+- **Бенто-сетка Advantages**: 4-колоночный CSS grid с nth-child span'ами; добавлены 2 новые карточки (pixel-perfect responsive + WCAG 2.1, иконки react-icons); `AdvantagesItem` поддерживает img-src и react-icon компонент; текст прижат к низу (`margin-top: auto`) во всех карточках; крупный шрифт `52px/57px` на больших карточках (`5282f6f`–`cf88a4f`).
+- **FAQ редизайн**: цветной фон секции (gray-600, border-radius), белые карточки с декоративным номером `01/02...` (CSS-счётчик), `div[role=button]` → семантический `<button>`, левая синяя полоска на открытом item, AnimatePresence вместо сломанного `display:none` (плавная анимация высоты), крупная типографика вопроса `22px` / паддинг `2.5rem 2rem` (`226e92e`–`dba3a51`). План: `.claude/plans/faq-redesign.md`.
 
 ### Сделано в предыдущей сессии (2026-06-08, production-tweaks вне фаз 1/2)
 
