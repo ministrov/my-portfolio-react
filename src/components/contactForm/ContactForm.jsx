@@ -1,50 +1,10 @@
-import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LazyMotion, domAnimation, AnimatePresence, m } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { IoSend } from 'react-icons/io5';
+import { useContactForm, FIELDS } from './useContactForm';
 import './style.css';
-
-/** Начальные значения полей формы. */
-const INITIAL_VALUES = { name: '', email: '', subject: '', message: '' };
-
-/**
- * Правила валидации для каждого поля.
- * required — обязательное поле; minLength — минимальная длина; isEmail — email-формат.
- */
-const RULES = {
-  name: { required: true, minLength: 2 },
-  email: { required: true, isEmail: true },
-  subject: { required: true, minLength: 3 },
-  message: { required: true, minLength: 20 },
-};
-
-/** Конфигурация полей формы: порядок рендера и тип элемента. */
-const FIELDS = [
-  { name: 'name', type: 'text', tag: 'input' },
-  { name: 'email', type: 'email', tag: 'input' },
-  { name: 'subject', type: 'text', tag: 'input' },
-  { name: 'message', tag: 'textarea', rows: 5 },
-];
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-/**
- * Валидирует значение поля по его правилам.
- * @param {string} name - Имя поля.
- * @param {string} value - Текущее значение.
- * @returns {string|null} Ключ ошибки или null если всё верно.
- */
-function validateField(name, value) {
-  const rule = RULES[name];
-  if (!rule) return null;
-  const trimmed = value.trim();
-  if (rule.required && !trimmed) return 'required';
-  if (rule.isEmail && !EMAIL_RE.test(trimmed)) return 'email';
-  if (rule.minLength && trimmed.length < rule.minLength) return 'minLength';
-  return null;
-}
 
 /** Анимация fade + сдвиг вверх — для блока успеха и формы. */
 const FADE_UP = {
@@ -63,8 +23,9 @@ const SLIDE_DOWN = {
 };
 
 /**
- * Форма обратной связи с клиентской валидацией и отправкой через Web3Forms.
- * Состояния: idle → submitting → success | error.
+ * Форма обратной связи — чистый рендер без логики.
+ * Вся логика (стейт, валидация, отправка) — в useContactForm.
+ * API-слой (fetch) — в src/api/contactApi.js.
  *
  * @component
  * @param {Object}   props
@@ -75,96 +36,19 @@ const SLIDE_DOWN = {
  */
 const ContactForm = ({ onSuccess }) => {
   const { t } = useTranslation();
-
-  const [values, setValues] = useState(INITIAL_VALUES);
-  const [touched, setTouched] = useState({});
-  const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
-
-  const fieldRefs = useRef({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues((prev) => ({ ...prev, [name]: value }));
-    if (touched[name]) {
-      setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
-    }
-  };
-
-  const handleBlur = (e) => {
-    const { name, value } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const allTouched = Object.keys(INITIAL_VALUES).reduce(
-      (acc, k) => ({ ...acc, [k]: true }),
-      {}
-    );
-    setTouched(allTouched);
-
-    const allErrors = Object.keys(INITIAL_VALUES).reduce((acc, k) => {
-      const err = validateField(k, values[k]);
-      if (err) acc[k] = err;
-      return acc;
-    }, {});
-    setErrors(allErrors);
-
-    if (Object.keys(allErrors).length > 0) {
-      const firstErrName = FIELDS.find((f) => allErrors[f.name])?.name;
-      if (firstErrName) fieldRefs.current[firstErrName]?.focus();
-      return;
-    }
-
-    setStatus('submitting');
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: process.env.REACT_APP_WEB3FORMS_KEY,
-          name: values.name,
-          email: values.email,
-          subject: values.subject,
-          message: values.message,
-        }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setStatus('success');
-        onSuccess?.();
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
-    }
-  };
-
-  const handleReset = () => {
-    setValues(INITIAL_VALUES);
-    setTouched({});
-    setErrors({});
-    setStatus('idle');
-  };
-
-  /** Возвращает локализованное сообщение об ошибке. */
-  const getErrorMsg = (name, errorKey) => {
-    if (errorKey === 'minLength') {
-      return t('contactForm.errors.minLength', {
-        count: RULES[name].minLength,
-      });
-    }
-    return t(`contactForm.errors.${errorKey}`);
-  };
-
-  const isSubmitting = status === 'submitting';
+  const {
+    values,
+    touched,
+    errors,
+    status,
+    fieldRefs,
+    isSubmitting,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    handleReset,
+    getErrorMsg,
+  } = useContactForm(onSuccess);
 
   return (
     <LazyMotion features={domAnimation}>
