@@ -370,7 +370,7 @@
   },
   "contactForm": {
     "fields": {
-      "name": { "label": "Your name", "placeholder": "John Smith" },
+      "name": { "label": "Your name", "placeholder": "Your name" },
       "email": { "label": "Email", "placeholder": "example@mail.com" },
       "subject": { "label": "Subject", "placeholder": "Discuss a project" },
       "message": {

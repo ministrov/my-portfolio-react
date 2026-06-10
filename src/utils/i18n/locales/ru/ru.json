@@ -370,7 +370,7 @@
   },
   "contactForm": {
     "fields": {
-      "name": { "label": "Ваше имя", "placeholder": "Антон Жилин" },
+      "name": { "label": "Ваше имя", "placeholder": "Имя Фамилия" },
       "email": { "label": "Email", "placeholder": "example@mail.ru" },
       "subject": { "label": "Тема", "placeholder": "Обсудить проект" },
       "message": {
