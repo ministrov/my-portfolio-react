@@ -368,6 +368,35 @@
   "logo": {
     "ariaLabel": "{{text}} - home page"
   },
+  "contactForm": {
+    "fields": {
+      "name": { "label": "Your name", "placeholder": "Your name" },
+      "email": { "label": "Email", "placeholder": "example@mail.com" },
+      "subject": { "label": "Subject", "placeholder": "Discuss a project" },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell me about your project..."
+      }
+    },
+    "submit": "Send message",
+    "submitting": "Sending...",
+    "successTitle": "Message sent!",
+    "successText": "Thanks! I'll try to get back to you within 24 hours.",
+    "successReset": "Send another",
+    "errorText": "Something went wrong. Please try again later or reach out directly:",
+    "errors": {
+      "required": "This field is required",
+      "minLength": "Minimum {{count}} characters",
+      "email": "Please enter a valid email"
+    },
+    "info": {
+      "subtitle": "Let's discuss your project",
+      "email": "ministrov2018@gmail.com",
+      "location": "Moscow · Remote / Hybrid",
+      "hours": "Mon–Fri, 10:00–19:00",
+      "orderLink": "How does ordering work?"
+    }
+  },
   "modal": {
     "title": "4 <highlighed>steps</highlighed> of website <highlighed>development</highlighed> order",
     "stepsAriaLabel": "Website development process steps",

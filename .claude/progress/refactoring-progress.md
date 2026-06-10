@@ -54,7 +54,18 @@
 
 > Задачи из TODO закрыты. Следующие шаги — по согласованию.
 
-### Сделано в этой сессии (2026-06-09)
+### Сделано в этой сессии (2026-06-10)
+
+- **Редизайн секции Contact**: двухколоночный layout — карточка с контактными деталями (email, локация, часы, SocialList) слева + форма справа; кнопка «4 шага» → вторичный CTA «Как происходит заказ?» (`bffe206`–`ec9176c`). План: `.claude/plans/contact-form.md`.
+  - Новый компонент `ContactForm` (`src/components/contactForm/`): 4 поля, клиентская валидация без библиотек, состояния idle→submitting→success|error, отправка через Web3Forms (`fetch`, без npm), Framer Motion на success-блок и inline-ошибки.
+  - Фикс: `box-sizing: border-box` на инпутах (нет глобального сброса в проекте).
+  - Форма проверена в браузере — письма реально приходят на `ministrov2018@gmail.com`. Ключ в `.env.local` (`.env.local.example` добавлен в репо).
+- **Декомпозиция ContactForm** (`ea26c83`–`a59f2b0`): выделены API-слой (`src/api/contactApi.js`) и хук (`useContactForm.js`); `ContactForm.jsx` — чистый JSX. Добавлены подробные комментарии по async/await и `console.log` на каждом этапе запроса для обучения.
+- Мелкие фиксы: плейсхолдер поля «Ваше имя» (`f68714d`).
+
+> ⚠️ Перед релизом: убрать `console.log` из `contactApi.js` и `useContactForm.js`.
+
+### Сделано в предыдущей сессии (2026-06-09)
 
 - **Унификация заголовков страницы «Обо мне»**: i18n-разбивка `heading.capabilities/experience/education` на `name`+`accent` (`b480c5c`); три компонента переведены на `variant="display"` — `AboutCapabilities` (`bf7aba6`), `AboutExperience` (`253212c`), `AboutEducation` (`4c91bee`).
 - **Типографика страницы «Обо мне»**: карточный стиль (белый фон, border, radius 16px, левая синяя полоска) и story-типографика (clamp, `line-height: 1.75`, `gray-800`) для `aboutCapabilities` (`8c28b5c`), `aboutExperience` (`b273769`), `aboutEducation` (`4b8882d`); `aboutEducation` получил двухколоночный grid (раньше его не было); удалён мёртвый `.about-experience--dark`. План: `.claude/plans/about-page-typography.md`.

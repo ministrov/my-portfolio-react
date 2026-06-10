@@ -1,63 +1,132 @@
 .contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 78vh;
   padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: var(--color-gray-600);
-  border-top-left-radius: 42px;
-  border-top-right-radius: 42px;
-  border-bottom-left-radius: 42px;
-  border-bottom-right-radius: 42px;
+  border-radius: 42px;
 }
 
-.contact__btn-container {
-  max-width: 580px;
-  margin: 0 auto;
+/* ── Двухколоночный layout ──────────────────────────────── */
+
+.contact__layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 3rem;
 }
 
-.contact__btn {
+/* ── Левая карточка: контактные детали ─────────────────── */
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1.75rem;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-left: 4px solid var(--color-blue-700);
+  border-radius: 16px;
+}
+
+.contact__info-subtitle {
+  font-family: var(--font-headings);
+  font-size: clamp(1.125rem, 0.9rem + 1vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-gray-800);
+}
+
+.contact__info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contact__info-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 700;
-  white-space: nowrap;
-  text-transform: uppercase;
-  color: var(--color-white);
-  border: none;
-  border: 1px solid transparent;
-  background-color: var(--color-blue-700);
-  transition:
-    transform 0.5s ease-in-out,
-    box-shadow 0.5s ease-in-out,
-    opacity 0.5s ease-in-out;
-  cursor: pointer;
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+  color: var(--color-gray-800);
 }
 
-.contact__btn:hover {
+.contact__info-item svg {
+  font-size: 1.125rem;
   color: var(--color-blue-700);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-blue-700);
+  flex-shrink: 0;
+}
+
+.contact__info-item a {
+  color: var(--color-blue-700);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.contact__info-item a:hover {
+  text-decoration: underline;
+}
+
+.contact__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.contact__order-btn {
+  align-self: flex-start;
+  padding: 0;
+  font-family: var(--font-base);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-blue-700);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.contact__order-btn:hover {
+  opacity: 0.7;
+}
+
+/* ── Правая карточка: форма ─────────────────────────────── */
+
+.contact__form-wrap {
+  padding: 2rem 1.75rem;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+}
+
+/* ── Адаптив ─────────────────────────────────────────────── */
+
+@media screen and (max-width: 900px) {
+  .contact__layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .contact {
     padding-top: 4rem;
     padding-bottom: 4rem;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-radius: 16px;
   }
 
-  .contact__btn-container {
-    max-width: 100%;
-    margin: 0;
+  .contact__layout {
+    margin-top: 2rem;
+    gap: 1.25rem;
+  }
+
+  .contact__info,
+  .contact__form-wrap {
+    padding: 1.5rem;
   }
 }
