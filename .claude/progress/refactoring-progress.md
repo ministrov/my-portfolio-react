@@ -59,6 +59,11 @@
 - **Редизайн секции Contact**: двухколоночный layout — карточка с контактными деталями (email, локация, часы, SocialList) слева + форма справа; кнопка «4 шага» → вторичный CTA «Как происходит заказ?» (`bffe206`–`ec9176c`). План: `.claude/plans/contact-form.md`.
   - Новый компонент `ContactForm` (`src/components/contactForm/`): 4 поля, клиентская валидация без библиотек, состояния idle→submitting→success|error, отправка через Web3Forms (`fetch`, без npm), Framer Motion на success-блок и inline-ошибки.
   - Фикс: `box-sizing: border-box` на инпутах (нет глобального сброса в проекте).
+  - Форма проверена в браузере — письма реально приходят на `ministrov2018@gmail.com`. Ключ в `.env.local` (`.env.local.example` добавлен в репо).
+- **Декомпозиция ContactForm** (`ea26c83`–`a59f2b0`): выделены API-слой (`src/api/contactApi.js`) и хук (`useContactForm.js`); `ContactForm.jsx` — чистый JSX. Добавлены подробные комментарии по async/await и `console.log` на каждом этапе запроса для обучения.
+- Мелкие фиксы: плейсхолдер поля «Ваше имя» (`f68714d`).
+
+> ⚠️ Перед релизом: убрать `console.log` из `contactApi.js` и `useContactForm.js`.
 
 ### Сделано в предыдущей сессии (2026-06-09)
 
