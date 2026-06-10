@@ -368,6 +368,35 @@
   "logo": {
     "ariaLabel": "{{text}} - главная страница"
   },
+  "contactForm": {
+    "fields": {
+      "name": { "label": "Ваше имя", "placeholder": "Антон Жилин" },
+      "email": { "label": "Email", "placeholder": "example@mail.ru" },
+      "subject": { "label": "Тема", "placeholder": "Обсудить проект" },
+      "message": {
+        "label": "Сообщение",
+        "placeholder": "Расскажите о вашем проекте..."
+      }
+    },
+    "submit": "Отправить сообщение",
+    "submitting": "Отправляем...",
+    "successTitle": "Сообщение отправлено!",
+    "successText": "Спасибо! Постараюсь ответить в течение 24 часов.",
+    "successReset": "Написать ещё",
+    "errorText": "Что-то пошло не так. Попробуйте позже или напишите напрямую:",
+    "errors": {
+      "required": "Обязательное поле",
+      "minLength": "Минимум {{count}} символов",
+      "email": "Введите корректный email"
+    },
+    "info": {
+      "subtitle": "Давайте обсудим ваш проект",
+      "email": "ministrov2018@gmail.com",
+      "location": "Москва · Remote / Hybrid",
+      "hours": "Пн–Пт, 10:00–19:00",
+      "orderLink": "Как происходит заказ?"
+    }
+  },
   "modal": {
     "title": "4 <highlighed>шага</highlighed> заказа <highlighed>разработки</highlighed> сайта",
     "stepsAriaLabel": "Шаги процесса разработки сайта",
