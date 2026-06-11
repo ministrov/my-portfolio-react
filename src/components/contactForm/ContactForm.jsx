@@ -91,7 +91,10 @@ const ContactForm = ({ onSuccess }) => {
                     {...SLIDE_DOWN}
                   >
                     {t('contactForm.errorText')}{' '}
-                    <a href={`mailto:${t('contactForm.info.email')}`}>
+                    <a
+                      href={`mailto:${t('contactForm.info.email').trim()}`}
+                      title={`Send email to ${t('contactForm.info.email')}`}
+                    >
                       {t('contactForm.info.email')}
                     </a>
                   </m.div>
