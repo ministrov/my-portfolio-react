@@ -392,6 +392,8 @@
     "info": {
       "subtitle": "Let's discuss your project",
       "email": "ministrov2018@gmail.com",
+      "copy": "Copy email",
+      "copied": "Copied!",
       "location": "Moscow · Remote / Hybrid",
       "hours": "Mon–Fri, 10:00–19:00",
       "orderLink": "How does ordering work?"
