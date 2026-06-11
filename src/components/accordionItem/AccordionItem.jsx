@@ -6,23 +6,20 @@ import './style.css';
 
 /**
  * Варианты анимации для элемента аккордеона.
- * Определяет анимацию появления с пружинным эффектом.
+ * Мягкое появление: лёгкий подъём (y) + fade с плавной кривой.
  * @type {import('framer-motion').Variants}
  */
 const itemVariants = {
   hidden: {
-    x: '-100vw',
-    y: 20,
+    y: 24,
     opacity: 0,
   },
   visible: {
-    x: 0,
     y: 0,
     opacity: 1,
     transition: {
-      type: 'spring',
-      stiffness: 60,
-      damping: 14,
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
