@@ -5,33 +5,19 @@ import ProjectCard from '../projectCard/ProjectCard';
 import './style.css';
 
 /**
- * Анимационные варианты для элементов списка (левая сторона)
+ * Анимационные варианты для элементов списка.
+ * Мягкое появление: лёгкий подъём (y) + fade. Без влёта через весь экран —
+ * прежний `x: ±100vw` давал фантомный горизонтальный скролл.
  * @constant
  */
-const leftItemVariants = {
-  hidden: { x: '-100vw', opacity: 0 },
+const itemVariants = {
+  hidden: { y: 32, opacity: 0 },
   visible: {
-    x: 0,
+    y: 0,
     opacity: 1,
     transition: {
-      duration: 0.7,
-      ease: 'easeOut',
-    },
-  },
-};
-
-/**
- * Анимационные варианты для элементов списка (правая сторона)
- * @constant
- */
-const rightItemVariants = {
-  hidden: { x: '100vw', opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.7,
-      ease: 'easeOut',
+      duration: 0.6,
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
@@ -104,7 +90,7 @@ const ProjectsList = ({ projects = [] }) => {
               ]
                 .filter(Boolean)
                 .join(' ')}
-              variants={isReversed ? rightItemVariants : leftItemVariants}
+              variants={itemVariants}
             >
               <ProjectCard
                 title={t(title)}

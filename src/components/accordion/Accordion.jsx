@@ -14,7 +14,7 @@ const listVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.32,
+      staggerChildren: 0.12,
     },
   },
 };

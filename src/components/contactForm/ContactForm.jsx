@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { IoSend } from 'react-icons/io5';
 import { useContactForm, FIELDS } from './useContactForm';
+import CopyEmail from '../copyEmail/CopyEmail';
 import './style.css';
 
 /** Анимация fade + сдвиг вверх — для блока успеха и формы. */
@@ -91,9 +92,10 @@ const ContactForm = ({ onSuccess }) => {
                     {...SLIDE_DOWN}
                   >
                     {t('contactForm.errorText')}{' '}
-                    <a href={`mailto:${t('contactForm.info.email')}`}>
-                      {t('contactForm.info.email')}
-                    </a>
+                    <CopyEmail
+                      email={t('contactForm.info.email')}
+                      className="copy-email--danger"
+                    />
                   </m.div>
                 )}
               </AnimatePresence>

@@ -392,6 +392,8 @@
     "info": {
       "subtitle": "Давайте обсудим ваш проект",
       "email": "ministrov2018@gmail.com",
+      "copy": "Скопировать email",
+      "copied": "Скопировано!",
       "location": "Москва · Remote / Hybrid",
       "hours": "Пн–Пт, 10:00–19:00",
       "orderLink": "Как происходит заказ?"

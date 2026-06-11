@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-height: 300px;
   margin: 0;
   padding: 2.5rem;
@@ -20,9 +21,11 @@
   left: 0;
   width: 55%;
   aspect-ratio: 1;
-  background: radial-gradient(circle at top left,
-      rgba(0, 88, 167, 0.08) 0%,
-      transparent 70%);
+  background: radial-gradient(
+    circle at top left,
+    rgba(0, 88, 167, 0.08) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 

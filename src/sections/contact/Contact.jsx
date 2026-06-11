@@ -5,6 +5,7 @@ import Modal from '../../components/modal/Modal';
 import Heading from '../../components/heading/Heading';
 import SocialList from '../../components/socials/SocialList';
 import ContactForm from '../../components/contactForm/ContactForm';
+import CopyEmail from '../../components/copyEmail/CopyEmail';
 import './style.css';
 
 /** Задержка автоматического закрытия модального окна связи (мс). */
@@ -47,9 +48,10 @@ const Contact = () => {
             <ul className="contact__info-list">
               <li className="contact__info-item">
                 <MdEmail aria-hidden="true" />
-                <a href={`mailto:${t('contactForm.info.email')}`}>
-                  {t('contactForm.info.email')}
-                </a>
+                <CopyEmail
+                  email={t('contactForm.info.email')}
+                  className="copy-email--accent"
+                />
               </li>
               <li className="contact__info-item">
                 <MdLocationOn aria-hidden="true" />
