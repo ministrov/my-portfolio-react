@@ -1,11 +1,36 @@
 # Прогресс рефакторинга компонентов
 
-Дата последней сессии: **2026-06-08**
+Дата последней сессии: **2026-06-11**
 Ветка: `feature/production-tweaks`
 
 **Фаза 1 (`src/components/`) — завершена.** Прошли по всем компонентам по алфавиту, по одному за раз: код-ревью на безопасность / качество кода / общие принципы → исправление всех замечаний → коммит.
 
 **Фаза 2 (`src/sections/`) — завершена.** Прошли по всем секциям (та же методика, плюс при необходимости — дизайн-правки в рамках существующей дизайн-системы). Очередь секций закрыта (`cc7ce40`).
+
+---
+
+### Сделано в этой сессии (2026-06-11)
+
+**Mobile polish — производственные правки перед релизом:**
+
+- **`CopyEmail` компонент** (`c9c5fd5`) — новый компонент `src/components/copyEmail/` (JSX + CSS): заменяет `mailto:` на copy-to-clipboard кнопку с иконкой из `react-icons/md`, aria-live-аннонсом и 2-секундным сбросом. Хук `src/hooks/useCopyToClipboard.jsx` с `isMounted`-guard.
+- **Фикс `Up` hover/focus** (`d82e208`) — убраны мёртвые `transform` из transition/hover/active; hover обёрнут в `@media (hover: hover)`; `:focus` → `:focus-visible`; убран touch-undo хак.
+- **Фикс белого флэша `Up`** (`7098ba4`) — добавлены недостающие CSS-токены `--color-blue-800: #004889` и `--color-blue-900: #00386b` в `:root`; без них `background-color` давал `transparent` при клике.
+- **Флюидный `.container`** (`e84bc9a`) — `padding-inline: clamp(16px, 4vw, 32px)` + `box-sizing: border-box`; удалён дублирующий `@media (max-width: 768px)` блок.
+- **`scrollbar-gutter: stable both-edges`** (`37ec21d`) — резервирует равный жёлоб слева и справа, устраняет асимметрию «ушей» контейнера от вертикального скроллбара.
+- **Фикс горизонтального скролла на ~772px** (`77a658c`) — `authorIdentity__img` уменьшен до `120×120px` при `≤1104px`; жёсткий `260px` в flex-строке давал выход за вьюпорт.
+- **Мобильный `advantages`** (`d2ac300`) — `min-width: 0` + `overflow-wrap: break-word` на `.advantages__item`; одна колонка перенесена с `≤475px` на `≤768px`; шрифт карточек унифицирован до `1.125rem`; `min-height: auto` при ≤768px.
+- **Равная высота testimonial-карточек** (`812922d`, `b2113e9`) — `.testimonials__slide` → `display: flex`; `.testimonial-card` — `width: 100%` вместо `height: 100%` (percent-height circular resolve → clip).
+- **Флюидный padding FAQ + мягкая анимация** (`7bd8cfe`) — `padding-block/inline: clamp(...)` в `.faq__question`; `itemVariants.y` смягчён (`y: 24`), easing `[0.25, 0.1, 0.25, 1]`; `staggerChildren` `0.32`→`0.12`.
+- **Фикс фантомного скролла `ProjectsList`** (`4d81ecb`) — убраны `x: ±100vw` в `itemVariants`; заменены на `y: 32` fade-in, тот же easing.
+- **`aboutStory` мобайл** (`241b096`) — `≤768px`: убраны `padding/background/border/border-radius` с `.about-story__card`, `padding-inline: 0` на `.about-story__para`, `display: none` на `::before`; текст «распущен» по контейнеру.
+- **i18n** — добавлены ключи `contactForm.info.copy` / `contactForm.info.copied` в `en.json` + `ru.json`.
+- **Скилл `frontend-architect`** (`c26ac09`, `e84bc9a`) — `.claude/skills/frontend-architect/SKILL.md`: архитекторский скилл по семантике, адаптиву (desktop-first), SEO, a11y, CLS/performance.
+- **План** `mobile-section-polish.md` (`eb80cf3`) — план проверки мобильного 352px прохода.
+
+> ⚠️ Перед релизом (из сессии 2026-06-10): убрать `console.log` из `contactApi.js` и `useContactForm.js`.
+>
+> 🔍 Ещё не проверено: showcasing-карточки при 352px; gap-ритм секции About при 352px.
 
 ---
 
@@ -53,6 +78,13 @@
 ## ▶️ С чего продолжить дальше
 
 > Задачи из TODO закрыты. Следующие шаги — по согласованию.
+
+### Открытые задачи перед релизом
+
+- 🔍 Showcasing-карточки при 352px — читаемость не верифицирована.
+- 🔍 Gap-ритм секции About при 352px — не верифицирован.
+- 🧹 Убрать `console.log` из `src/api/contactApi.js` и `src/hooks/useContactForm.js` (добавлены для обучения async/await, не нужны в продакшне).
+- 🚀 Финальный прогон: `npx eslint src`, `npm run build`, `npm run analyze`, Lighthouse, аудит i18n-ключей.
 
 ### Сделано в этой сессии (2026-06-10)
 
