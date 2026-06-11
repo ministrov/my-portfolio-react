@@ -86,6 +86,8 @@ html {
   /* Для Firefox */
   scrollbar-width: thin;
   scrollbar-color: var(--color-blue-700) #f1f1f1;
+  /* Равный жёлоб слева и справа — чтобы скроллбар не делал «уши» разными */
+  scrollbar-gutter: stable both-edges;
 }
 
 body,
