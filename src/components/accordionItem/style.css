@@ -35,7 +35,7 @@
   align-items: center;
   gap: 1rem;
   width: 100%;
-  padding-block: clamp(1.25rem, 0.9rem + 1.8vw, 2.5rem);
+  padding-block: clamp(1.25rem, 0.9rem + 1.8vw, 1.75rem);
   padding-inline: clamp(1.25rem, 1rem + 1vw, 2rem);
   background: transparent;
   border: none;
