@@ -1,11 +1,32 @@
 # Прогресс рефакторинга компонентов
 
-Дата последней сессии: **2026-06-11**
+Дата последней сессии: **2026-06-12**
 Ветка: `feature/production-tweaks`
 
 **Фаза 1 (`src/components/`) — завершена.** Прошли по всем компонентам по алфавиту, по одному за раз: код-ревью на безопасность / качество кода / общие принципы → исправление всех замечаний → коммит.
 
 **Фаза 2 (`src/sections/`) — завершена.** Прошли по всем секциям (та же методика, плюс при необходимости — дизайн-правки в рамках существующей дизайн-системы). Очередь секций закрыта (`cc7ce40`).
+
+---
+
+### Сделано в этой сессии (2026-06-12)
+
+**Верификация 352px + рефактор `ShowcasingCard`:**
+
+- **Скилл `frontend-architect`** (`4ebca56`) — добавлена секция «Эталон разметки»: аннотированный HTML-пример из «6 cities» (BEM, семантика, ключевые паттерны). SVG-спрайт помечен как устаревший для React.
+- **Фикс showcasing при 352px** (`2fac7e4`) — `height: 100%; object-fit: cover; object-position: top` на `.showcasing-card__image` при `≤968px`: изображение заполняет контейнер без пустой полосы снизу.
+- **Рефактор `ShowcasingCard`** (`30b58aa`) — удалён лишний `div.showcasing-card__aspect-ratio`; `className` перенесён на `<picture>`; `aspect-ratio: 16/9 + object-fit: cover` применены напрямую на `<img>`; при `≤767px` — `aspect-ratio: 3/4` (portrait, ~427px при 320px ширине); убраны все мёртвые `min-height`-оверрайды.
+- **Унификация border-radius** (`dacc040`) — хардкод `border-top-left/right-radius: 17px` заменён на `border-radius: var(--border-radius-s)` во всех состояниях.
+- **Верификация About при 352px** — проверены три скрина: AuthorIdentity-карточка, буквица, статистика (2×2), tech-теги, ссылка. Всё в норме, правок не потребовалось.
+- **Финальный прогон:**
+  - `npx eslint src` — 0 ошибок, 0 предупреждений ✅
+  - `npm run build` — Compiled successfully, main JS 173.87 kB gzip ✅
+  - `npm run analyze` — source-map-explorer выдаёт «column Infinity» (баг совместимости с CRA, не наш код)
+  - Lighthouse (localhost:3001): Performance **52** (localhost-penalty, на реальном деплое выше), Accessibility **99**, Best Practices **100**, SEO **100** ✅
+
+> ⚠️ Console.log в `contactApi.js` и `useContactForm.js` — оставлены намеренно (пользователь использует для обучения).
+>
+> 🔍 Lighthouse Performance (52) замерен на localhost. Для объективного результата прогнать на реальном деплое.
 
 ---
 
@@ -81,10 +102,11 @@
 
 ### Открытые задачи перед релизом
 
-- 🔍 Showcasing-карточки при 352px — читаемость не верифицирована.
-- 🔍 Gap-ритм секции About при 352px — не верифицирован.
-- 🧹 Убрать `console.log` из `src/api/contactApi.js` и `src/hooks/useContactForm.js` (добавлены для обучения async/await, не нужны в продакшне).
-- 🚀 Финальный прогон: `npx eslint src`, `npm run build`, `npm run analyze`, Lighthouse, аудит i18n-ключей.
+- ~~🔍 Showcasing-карточки при 352px~~ ✅ Закрыто `2fac7e4`, `30b58aa`, `dacc040`
+- ~~🔍 Gap-ритм секции About при 352px~~ ✅ Верифицировано — норма, правок не потребовалось
+- ~~🚀 Финальный прогон~~ ✅ ESLint чист, билд собран, Lighthouse (localhost) 52/99/100/100
+- 🧹 Убрать `console.log` из `src/api/contactApi.js` и `src/hooks/useContactForm.js` — оставлены намеренно до завершения обучения async/await.
+- 🔍 Lighthouse Performance на реальном деплое — localhost даёт занижение из-за отсутствия CDN/cache headers.
 
 ### Сделано в этой сессии (2026-06-10)
 
