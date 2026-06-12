@@ -5,17 +5,22 @@
   gap: 1rem;
   max-height: fit-content;
   padding: 24px;
+  border: 1px solid transparent;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-s);
   transition:
     max-height 0.5s ease-in-out,
-    transform 0.5s ease-in-out;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   will-change: max-height;
   overflow: hidden;
 }
 
 .services__item:hover {
-  transform: translateY(-8px);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 88, 167, 0.18);
+  border-color: rgba(0, 88, 167, 0.2);
 }
 
 .services__item.services__expanded .services__description {
@@ -131,5 +136,15 @@
     padding-bottom: 0;
     font-size: 12px;
     line-height: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services__item {
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  .services__item:hover {
+    transform: none;
   }
 }
