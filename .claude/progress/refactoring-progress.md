@@ -28,6 +28,32 @@
 >
 > 🔍 Lighthouse Performance (52) замерен на localhost. Для объективного результата прогнать на реальном деплое.
 
+**Design polish + spacing audit — визуальная полировка перед релизом (`v1.1.0`):**
+
+- **`.gitignore`** — добавлены `.playwright-mcp/` и `screenshot-*.png`
+- **Убран `scrollbar-gutter: stable both-edges`** из `main.css`
+- **4-viewport скриншоты** (390/768/1366/1920px) + анализ через плагин `frontend-design`
+- **`.claude/plans/design-improvements-2026-06.md`** — 10-этапный план; этап 2 (градиент заголовка) отклонён
+- **Реализованы этапы 1, 3–10:**
+  - `--color-gray-600: #f7f7f7c7 → #f5f8ff` (убран полупрозрачный alpha)
+  - Services: `background-color: var(--color-gray-600)`, `border-radius: 42px` (16px мобайл), убран `min-height: 78vh`
+  - Advantages items: `border: 3px solid rgba(0,88,167,0.1)` + `box-shadow` + hover lift −4px
+  - Hero: `min-height: 78vh → 70vh`
+  - Testimonials: неактивный слайд `opacity: 0.4 → 0.55`
+  - Contact: `border-left: 4px solid var(--color-blue-700)` на `.contact__form-wrap`
+  - ServicesItem hover: `translateY(-5px)`, усиленная тень, border-color reveal
+  - ProjectCard: начальный border + тень + hover lift
+  - Heading: `@media ≤480px { font-size: 2.75rem }`
+- **`.claude/plans/spacing-audit-2026-06.md`** — 11-пунктовый аудит отступов, все реализованы:
+  - `wrapper margin-top: 120px → 80px`, `margin-bottom: 40px → 60px`
+  - Mobile `wrapper margin-top: 16px → 64px` (под фиксированный хедер)
+  - Container: промежуточные брейкпоинты 1520px→1200px, 1268px→1068px
+  - AccordionItem `padding-block: clamp(1.25rem, 0.9rem + 1.8vw, 1.75rem)`
+  - AccordionPanel `padding-inline: clamp(1.25rem, 1rem + 1vw, 2rem)`
+  - AccordionButton: мобильная иконка `1rem → 1.25rem` при ≤575px
+- Финальные 4 скриншота — пользователь одобрил: «получилось классно, можно версию релизить»
+- **Версионирование**: `CHANGELOG.md` в корне, `package.json` → `1.1.0`; после мержа в master: `git tag v1.1.0`
+
 ---
 
 ### Сделано в этой сессии (2026-06-11)
@@ -60,6 +86,10 @@
 ✅ **Фаза 1 (`src/components/`) пройдена полностью** — все компоненты прошли код-ревью и закоммичены (очередь закрыта коммитом `630dc5e`).
 
 ✅ **Фаза 2 (`src/sections/`) пройдена полностью** — все 8 секций (`promo`, `about`, `advantages`, `contact`, `faq`, `projects`, `services`, `showcasing`) прошли ревью и закоммичены.
+
+✅ **Design polish + spacing audit завершены** — визуальная полировка и аудит отступов реализованы; ветка `feature/production-tweaks` готова к релизу (`v1.1.0`).
+
+📋 **Версионирование введено** — `CHANGELOG.md` в корне, `package.json` → `1.1.0`. После мержа в master: `git tag v1.1.0`.
 
 Последний заход (2026-06-08) — **hero** и **footer** (мелкие правки вне основных фаз):
 
@@ -107,6 +137,8 @@
 - ~~🚀 Финальный прогон~~ ✅ ESLint чист, билд собран, Lighthouse (localhost) 52/99/100/100
 - 🧹 Убрать `console.log` из `src/api/contactApi.js` и `src/hooks/useContactForm.js` — оставлены намеренно до завершения обучения async/await.
 - 🔍 Lighthouse Performance на реальном деплое — localhost даёт занижение из-за отсутствия CDN/cache headers.
+- ~~🚀 Design polish + spacing audit~~ ✅ Реализовано, ветка `feature/production-tweaks` готова к мержу
+- ~~📋 Версионирование~~ ✅ `CHANGELOG.md` создан, `package.json` → `1.1.0`; после мержа в master: `git tag v1.1.0`
 
 ### Сделано в этой сессии (2026-06-10)
 
