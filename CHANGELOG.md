@@ -49,6 +49,14 @@ accessibility, i18n, code quality, and visual consistency.
 - **`.container`** — `padding-inline: clamp(16px, 4vw, 32px)` + `box-sizing: border-box`; removed duplicate `@media (max-width: 768px)` block
 - Removed `scrollbar-gutter: stable both-edges`
 
+### Removed
+
+- `src/sections/promo/` — old Promo component (100% commented out, replaced by Hero section)
+- `src/components/mouseScroll/` — MouseScroll component (all usages commented out in Hero and Promo)
+- `src/assets/png/my-avatar.webp`, `my-avatar-1000.webp`, `my-avatar-1500.webp` — avatar images used only in the removed Promo
+- `src/assets/svg/gitHub.svg`, `vk.svg` — replaced by `FaGithub` / `FaVk` from react-icons
+- `src/assets/svg/advantages-icon.svg` — no references anywhere
+
 ### Fixed
 
 - Mobile wrapper `margin-top: 16px → 64px` preventing header overlap on scroll
