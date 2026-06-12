@@ -24,8 +24,7 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: top;
-  border-top-left-radius: 17px;
-  border-top-right-radius: 17px;
+  border-radius: var(--border-radius-s);
 }
 
 @media screen and (max-width: 1268px) {
@@ -51,7 +50,6 @@
 @media screen and (max-width: 767px) {
   .showcasing-card__image {
     aspect-ratio: 3 / 4;
-    border-radius: var(--border-radius-s);
   }
 }
 
