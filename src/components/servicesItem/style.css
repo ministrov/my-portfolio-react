@@ -118,6 +118,13 @@
   }
 }
 
+@media screen and (max-width: 475px) {
+  .services__description {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
 @media screen and (max-width: 396px) {
   .services__item {
     padding: 1rem;
