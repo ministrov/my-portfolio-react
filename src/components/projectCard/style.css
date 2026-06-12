@@ -3,14 +3,18 @@
   gap: clamp(1.5rem, 4vw, 3rem);
   min-height: 32.5rem;
   padding: clamp(1rem, 2.5vw, 1.5rem);
-  border: 1px solid var(--color-blue-700);
+  border: 1px solid rgba(0, 88, 167, 0.2);
   border-radius: var(--border-radius-s);
   box-sizing: border-box;
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 2px 16px rgba(0, 88, 167, 0.08);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
 .project-card:hover {
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 8px 32px rgba(0, 88, 167, 0.18);
+  transform: translateY(-3px);
 }
 
 .project-card__item--reversed .project-card {
@@ -21,7 +25,7 @@
   overflow: hidden;
   flex: 1 1 50%;
   max-height: 536px;
-  border: 1px solid var(--color-blue-700);
+  border: 1px solid rgba(0, 88, 167, 0.2);
   border-radius: var(--border-radius-s);
 }
 
@@ -240,6 +244,7 @@
 
   .project-card:hover {
     box-shadow: none;
+    transform: none;
   }
 
   .project-card__img {

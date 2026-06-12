@@ -24,7 +24,7 @@
 
 /* Соседние (неактивные) карточки приглушены — приём «подглядывания» */
 .testimonials__slide:not(.swiper-slide-active) {
-  opacity: 0.4;
+  opacity: 0.55;
   transition: opacity 0.5s ease;
 }
 

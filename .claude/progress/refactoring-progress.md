@@ -1,11 +1,67 @@
 # Прогресс рефакторинга компонентов
 
-Дата последней сессии: **2026-06-11**
+Дата последней сессии: **2026-06-12**
 Ветка: `feature/production-tweaks`
 
 **Фаза 1 (`src/components/`) — завершена.** Прошли по всем компонентам по алфавиту, по одному за раз: код-ревью на безопасность / качество кода / общие принципы → исправление всех замечаний → коммит.
 
 **Фаза 2 (`src/sections/`) — завершена.** Прошли по всем секциям (та же методика, плюс при необходимости — дизайн-правки в рамках существующей дизайн-системы). Очередь секций закрыта (`cc7ce40`).
+
+---
+
+### Сделано в этой сессии (2026-06-12)
+
+**Верификация 352px + рефактор `ShowcasingCard`:**
+
+- **Скилл `frontend-architect`** (`4ebca56`) — добавлена секция «Эталон разметки»: аннотированный HTML-пример из «6 cities» (BEM, семантика, ключевые паттерны). SVG-спрайт помечен как устаревший для React.
+- **Фикс showcasing при 352px** (`2fac7e4`) — `height: 100%; object-fit: cover; object-position: top` на `.showcasing-card__image` при `≤968px`: изображение заполняет контейнер без пустой полосы снизу.
+- **Рефактор `ShowcasingCard`** (`30b58aa`) — удалён лишний `div.showcasing-card__aspect-ratio`; `className` перенесён на `<picture>`; `aspect-ratio: 16/9 + object-fit: cover` применены напрямую на `<img>`; при `≤767px` — `aspect-ratio: 3/4` (portrait, ~427px при 320px ширине); убраны все мёртвые `min-height`-оверрайды.
+- **Унификация border-radius** (`dacc040`) — хардкод `border-top-left/right-radius: 17px` заменён на `border-radius: var(--border-radius-s)` во всех состояниях.
+- **Верификация About при 352px** — проверены три скрина: AuthorIdentity-карточка, буквица, статистика (2×2), tech-теги, ссылка. Всё в норме, правок не потребовалось.
+- **Финальный прогон:**
+  - `npx eslint src` — 0 ошибок, 0 предупреждений ✅
+  - `npm run build` — Compiled successfully, main JS 173.87 kB gzip ✅
+  - `npm run analyze` — source-map-explorer выдаёт «column Infinity» (баг совместимости с CRA, не наш код)
+  - Lighthouse (localhost:3001): Performance **52** (localhost-penalty, на реальном деплое выше), Accessibility **99**, Best Practices **100**, SEO **100** ✅
+
+> ⚠️ Console.log в `contactApi.js` и `useContactForm.js` — оставлены намеренно (пользователь использует для обучения).
+>
+> 🔍 Lighthouse Performance (52) замерен на localhost. Для объективного результата прогнать на реальном деплое.
+
+**Design polish + spacing audit — визуальная полировка перед релизом (`v1.1.0`):**
+
+- **`.gitignore`** — добавлены `.playwright-mcp/` и `screenshot-*.png`
+- **Убран `scrollbar-gutter: stable both-edges`** из `main.css`
+- **4-viewport скриншоты** (390/768/1366/1920px) + анализ через плагин `frontend-design`
+- **`.claude/plans/design-improvements-2026-06.md`** — 10-этапный план; этап 2 (градиент заголовка) отклонён
+- **Реализованы этапы 1, 3–10:**
+  - `--color-gray-600: #f7f7f7c7 → #f5f8ff` (убран полупрозрачный alpha)
+  - Services: `background-color: var(--color-gray-600)`, `border-radius: 42px` (16px мобайл), убран `min-height: 78vh`
+  - Advantages items: `border: 3px solid rgba(0,88,167,0.1)` + `box-shadow` + hover lift −4px
+  - Hero: `min-height: 78vh → 70vh`
+  - Testimonials: неактивный слайд `opacity: 0.4 → 0.55`
+  - Contact: `border-left: 4px solid var(--color-blue-700)` на `.contact__form-wrap`
+  - ServicesItem hover: `translateY(-5px)`, усиленная тень, border-color reveal
+  - ProjectCard: начальный border + тень + hover lift
+  - Heading: `@media ≤480px { font-size: 2.75rem }`
+- **`.claude/plans/spacing-audit-2026-06.md`** — 11-пунктовый аудит отступов, все реализованы:
+  - `wrapper margin-top: 120px → 80px`, `margin-bottom: 40px → 60px`
+  - Mobile `wrapper margin-top: 16px → 64px` (под фиксированный хедер)
+  - Container: промежуточные брейкпоинты 1520px→1200px, 1268px→1068px
+  - AccordionItem `padding-block: clamp(1.25rem, 0.9rem + 1.8vw, 1.75rem)`
+  - AccordionPanel `padding-inline: clamp(1.25rem, 1rem + 1vw, 2rem)`
+  - AccordionButton: мобильная иконка `1rem → 1.25rem` при ≤575px
+- Финальные 4 скриншота — пользователь одобрил: «получилось классно, можно версию релизить»
+- **Версионирование**: `CHANGELOG.md` в корне, `package.json` → `1.1.0`; после мержа в master: `git tag v1.1.0`
+
+**Аудит мёртвого кода — удалено 10 файлов (`a0591a8`):**
+
+- `src/sections/promo/` (`Promo.jsx` + `style.css`) — `Promo.jsx` был закомментирован целиком; импорт в `HomePage.jsx` тоже закомментирован; секция заменена на `Hero`
+- `src/components/mouseScroll/` (`MouseScroll.jsx` + `style.css`) — все использования закомментированы в `Hero.jsx` и `Promo.jsx`
+- `src/assets/png/my-avatar{,.webp,-1000.webp,-1500.webp}` — были в старом Promo, нигде не импортируются
+- `src/assets/svg/gitHub.svg`, `vk.svg` — заменены на `FaGithub`/`FaVk` из react-icons
+- `src/assets/svg/advantages-icon.svg` — ни одного импорта
+- ESLint после удаления: 0 ошибок ✅
 
 ---
 
@@ -39,6 +95,10 @@
 ✅ **Фаза 1 (`src/components/`) пройдена полностью** — все компоненты прошли код-ревью и закоммичены (очередь закрыта коммитом `630dc5e`).
 
 ✅ **Фаза 2 (`src/sections/`) пройдена полностью** — все 8 секций (`promo`, `about`, `advantages`, `contact`, `faq`, `projects`, `services`, `showcasing`) прошли ревью и закоммичены.
+
+✅ **Design polish + spacing audit завершены** — визуальная полировка и аудит отступов реализованы; ветка `feature/production-tweaks` готова к релизу (`v1.1.0`).
+
+📋 **Версионирование введено** — `CHANGELOG.md` в корне, `package.json` → `1.1.0`. После мержа в master: `git tag v1.1.0`.
 
 Последний заход (2026-06-08) — **hero** и **footer** (мелкие правки вне основных фаз):
 
@@ -81,10 +141,13 @@
 
 ### Открытые задачи перед релизом
 
-- 🔍 Showcasing-карточки при 352px — читаемость не верифицирована.
-- 🔍 Gap-ритм секции About при 352px — не верифицирован.
-- 🧹 Убрать `console.log` из `src/api/contactApi.js` и `src/hooks/useContactForm.js` (добавлены для обучения async/await, не нужны в продакшне).
-- 🚀 Финальный прогон: `npx eslint src`, `npm run build`, `npm run analyze`, Lighthouse, аудит i18n-ключей.
+- ~~🔍 Showcasing-карточки при 352px~~ ✅ Закрыто `2fac7e4`, `30b58aa`, `dacc040`
+- ~~🔍 Gap-ритм секции About при 352px~~ ✅ Верифицировано — норма, правок не потребовалось
+- ~~🚀 Финальный прогон~~ ✅ ESLint чист, билд собран, Lighthouse (localhost) 52/99/100/100
+- 🧹 Убрать `console.log` из `src/api/contactApi.js` и `src/hooks/useContactForm.js` — оставлены намеренно до завершения обучения async/await.
+- 🔍 Lighthouse Performance на реальном деплое — localhost даёт занижение из-за отсутствия CDN/cache headers.
+- ~~🚀 Design polish + spacing audit~~ ✅ Реализовано, ветка `feature/production-tweaks` готова к мержу
+- ~~📋 Версионирование~~ ✅ `CHANGELOG.md` создан, `package.json` → `1.1.0`; после мержа в master: `git tag v1.1.0`
 
 ### Сделано в этой сессии (2026-06-10)
 
@@ -195,3 +258,8 @@
 - **Проверка:** прогонять `npx eslint <файлы>` перед коммитом.
 - **Стиль:** только функциональные компоненты, обычный CSS с БЭМ, JSDoc на русском, без новых зависимостей.
 - **Принцип:** не рефакторить ради рефакторинга — отделять реальные проблемы от косметики, крупные переделки (напр. canvas) — только по согласованию.
+- **Версионирование** (SemVer + Keep a Changelog):
+  - `MAJOR.MINOR.PATCH` в `package.json`; `MAJOR` = редизайн/слом API, `MINOR` = новая фича или итерация рефакторинга, `PATCH` = хотфикс.
+  - `CHANGELOG.md` в корне — **ведёт Claude** в конце каждого спринта; пользователь руками не трогает.
+  - После мержа ветки в `master` пользователь ставит аннотированный тег: `git tag -a vX.Y.Z -m "Release X.Y.Z"`.
+  - Следующая итерация = `v1.2.0`; Claude добавит секцию `## [1.2.0] - дата` в `CHANGELOG.md` при закрытии спринта.
