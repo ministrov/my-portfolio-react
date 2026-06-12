@@ -54,6 +54,15 @@
 - Финальные 4 скриншота — пользователь одобрил: «получилось классно, можно версию релизить»
 - **Версионирование**: `CHANGELOG.md` в корне, `package.json` → `1.1.0`; после мержа в master: `git tag v1.1.0`
 
+**Аудит мёртвого кода — удалено 10 файлов (`a0591a8`):**
+
+- `src/sections/promo/` (`Promo.jsx` + `style.css`) — `Promo.jsx` был закомментирован целиком; импорт в `HomePage.jsx` тоже закомментирован; секция заменена на `Hero`
+- `src/components/mouseScroll/` (`MouseScroll.jsx` + `style.css`) — все использования закомментированы в `Hero.jsx` и `Promo.jsx`
+- `src/assets/png/my-avatar{,.webp,-1000.webp,-1500.webp}` — были в старом Promo, нигде не импортируются
+- `src/assets/svg/gitHub.svg`, `vk.svg` — заменены на `FaGithub`/`FaVk` из react-icons
+- `src/assets/svg/advantages-icon.svg` — ни одного импорта
+- ESLint после удаления: 0 ошибок ✅
+
 ---
 
 ### Сделано в этой сессии (2026-06-11)
