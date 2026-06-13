@@ -1,19 +1,19 @@
 {
   "metadata": {
     "home": {
-      "title": "A Home page of Anton Zhilin professional portfolio",
-      "description": "A Home page of the frontend developer portfolio about developing stunning apps and web applications",
-      "keywords": "HTML, JavaScript, CSS, web layout, outsourcing, development, web development, Figma, PSD, build a site"
+      "title": "Anton Zhilin — Frontend Developer | React, Next.js, TypeScript",
+      "description": "Portfolio of a Moscow-based frontend developer. I build responsive interfaces with React and Next.js — pixel-perfect, Core Web Vitals optimized, WCAG 2.1 compliant. Open to new projects.",
+      "keywords": "frontend developer, React, Next.js, TypeScript, web development, portfolio, Anton Zhilin, hire developer, responsive design"
     },
     "about": {
-      "title": "About Me Page",
-      "description": "Discover the professional portfolio of frontend developer Anton Zhilin",
-      "keywords": "HTML, layout, outsourcing, development, web development, hire a developer, create a website, portfolio"
+      "title": "About — Anton Zhilin, Frontend Developer from Moscow",
+      "description": "Frontend developer from Moscow specializing in React, Next.js and TypeScript. Focused on responsive design, performance, and WCAG 2.1 accessibility. Available for office, hybrid, or remote work.",
+      "keywords": "Anton Zhilin, frontend developer, React, Next.js, TypeScript, about me, portfolio, Moscow"
     },
     "projects": {
-      "title": "Page of the all projects",
-      "description": "A stunning list of the incredible projects of the frontend developer that call Anton Zhilin",
-      "keywords": "HTML, JavaScript, CSS, web layout, outsourcing, development, web development, Figma, PSD, build a site"
+      "title": "Projects — Anton Zhilin Frontend Developer Portfolio",
+      "description": "Frontend development projects: React, Next.js, TypeScript, CSS. E-commerce platforms, landing pages, SPAs — pixel-perfect markup and modern tech stack.",
+      "keywords": "projects, React, Next.js, TypeScript, frontend, SPA, landing page, portfolio, Anton Zhilin"
     },
     "notFound": {
       "title": "Page Not Found — AntoshkinDev",
