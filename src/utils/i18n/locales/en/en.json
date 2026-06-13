@@ -14,6 +14,18 @@
       "title": "Page of the all projects",
       "description": "A stunning list of the incredible projects of the frontend developer that call Anton Zhilin",
       "keywords": "HTML, JavaScript, CSS, web layout, outsourcing, development, web development, Figma, PSD, build a site"
+    },
+    "notFound": {
+      "title": "Page Not Found — AntoshkinDev",
+      "description": "The page you are looking for doesn't exist or has been moved."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "About page"
+    },
+    "projects": {
+      "heading": "Projects page"
     }
   },
   "heading": {

@@ -49,9 +49,7 @@ const AboutPage = () => {
       <AnimatedBackground />
 
       {/* Скрытый заголовок для доступности */}
-      <h1 className="visually-hidden">
-        {t('pages.about.title') || 'Страница об авторе'}
-      </h1>
+      <h1 className="visually-hidden">{t('pages.about.title')}</h1>
 
       <div className="container">
         <Breadcrumbs items={BREADCRUMBS} />

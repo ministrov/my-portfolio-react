@@ -40,7 +40,6 @@ const Home = () => {
       </Helmet>
       <AnimatedBackground />
 
-      <h1 className="visually-hidden">Главная страница</h1>
       <Hero />
       {/* <Promo /> */}
       <About link />

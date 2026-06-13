@@ -34,7 +34,7 @@ const ProjectsPage = () => {
 
       <AnimatedBackground />
 
-      <h1 className="visually-hidden">Страница проектов автора</h1>
+      <h1 className="visually-hidden">{t('pages.projects.heading')}</h1>
 
       <Projects />
 
