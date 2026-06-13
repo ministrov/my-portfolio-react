@@ -1,4 +1,4 @@
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { m } from 'framer-motion';
 import { memo } from 'react';
 import './style.css';
@@ -32,31 +32,37 @@ const AdvantagesItem = ({
   altText = '',
   index = 0,
   ...props
-}) => (
-  <m.li
-    className="advantages__item"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.3 }}
-    transition={{ duration: 0.3, delay: index * ANIMATION_DELAY_FACTOR }}
-    {...props}
-  >
-    {typeof Icon === 'string' ? (
-      <img
-        className="advantages__item-img"
-        src={Icon}
-        width={ICON_SIZE}
-        height={ICON_SIZE}
-        alt={altText}
-        loading="lazy"
-      />
-    ) : (
-      <Icon className="advantages__item-img" aria-hidden="true" />
-    )}
-    <p className="advantages__item-text">
-      <Trans i18nKey={text} components={{ highlight: <strong /> }} />
-    </p>
-  </m.li>
-);
+}) => {
+  // Trans не подписывается на смену языка самостоятельно — без этого вызова
+  // memo блокирует ре-рендер для элементов без alt-текста (alt=undefined → altText всегда '')
+  useTranslation();
+
+  return (
+    <m.li
+      className="advantages__item"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.3, delay: index * ANIMATION_DELAY_FACTOR }}
+      {...props}
+    >
+      {typeof Icon === 'string' ? (
+        <img
+          className="advantages__item-img"
+          src={Icon}
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+          alt={altText}
+          loading="lazy"
+        />
+      ) : (
+        <Icon className="advantages__item-img" aria-hidden="true" />
+      )}
+      <p className="advantages__item-text">
+        <Trans i18nKey={text} components={{ highlight: <strong /> }} />
+      </p>
+    </m.li>
+  );
+};
 
 export default memo(AdvantagesItem);

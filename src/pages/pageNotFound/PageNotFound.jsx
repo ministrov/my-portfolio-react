@@ -19,15 +19,16 @@ const PageNotFound = () => {
   return (
     <>
       <Helmet>
-        <title>A Not Found Page</title>
+        <title>{t('metadata.notFound.title')}</title>
         <meta
           name="description"
-          content="A page for rendering a not found page"
+          content={t('metadata.notFound.description')}
           data-rh="true"
         />
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
       <section className="page-not-found">
-        <h2 className="visually-hidden">Страница ошибки 404</h2>
+        <h1 className="visually-hidden">{t('metadata.notFound.title')}</h1>
 
         <ErrorMessage
           textContent={t('errorMessage.message')}
