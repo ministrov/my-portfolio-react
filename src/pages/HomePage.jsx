@@ -24,6 +24,29 @@ import AnimatedBackground from '../components/animatedBackground/AnimatedBackgro
  *   <Home />
  * )
  */
+/** JSON-LD разметка автора — Person + WebSite schema для главной страницы. */
+const PERSON_SCHEMA = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Anton Zhilin',
+  jobTitle: 'Frontend Developer',
+  url: 'https://antoshkindev.ru',
+  email: 'ministrov2018@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Moscow',
+    addressCountry: 'RU',
+  },
+  sameAs: ['https://github.com/ministrov', 'https://t.me/antonzhilin83'],
+});
+
+const WEBSITE_SCHEMA = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'AntoshkinDev',
+  url: 'https://antoshkindev.ru',
+});
+
 const Home = () => {
   const { t } = useTranslation();
   const { canonical, ruUrl, enUrl, ogLocale, ogLocaleAlt, ogImage } =
@@ -57,6 +80,8 @@ const Home = () => {
         <meta name="twitter:title" content={PAGE_TITLE} />
         <meta name="twitter:description" content={PAGE_DESCRIPTION} />
         <meta name="twitter:image" content={ogImage} />
+        <script type="application/ld+json">{PERSON_SCHEMA}</script>
+        <script type="application/ld+json">{WEBSITE_SCHEMA}</script>
       </Helmet>
       <AnimatedBackground />
 

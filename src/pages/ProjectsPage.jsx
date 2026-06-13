@@ -27,6 +27,26 @@ const ProjectsPage = () => {
   const PAGE_DESCRIPTION = t('metadata.projects.description');
   const PAGE_KEYWORDS = t('metadata.projects.keywords');
 
+  // JSON-LD хлебных крошек для страницы Projects
+  const breadcrumbSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: t('breadcrumbs.home'),
+        item: 'https://antoshkindev.ru',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: t('breadcrumbs.projects'),
+        item: 'https://antoshkindev.ru/projects',
+      },
+    ],
+  });
+
   return (
     <>
       <Helmet>
@@ -50,6 +70,7 @@ const ProjectsPage = () => {
         <meta name="twitter:title" content={PAGE_TITLE} />
         <meta name="twitter:description" content={PAGE_DESCRIPTION} />
         <meta name="twitter:image" content={ogImage} />
+        <script type="application/ld+json">{breadcrumbSchema}</script>
       </Helmet>
 
       <AnimatedBackground />
