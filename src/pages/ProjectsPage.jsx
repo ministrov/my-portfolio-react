@@ -19,7 +19,8 @@ import AnimatedBackground from '../components/animatedBackground/AnimatedBackgro
  */
 const ProjectsPage = () => {
   const { t } = useTranslation();
-  const { canonical, ruUrl, enUrl } = useSeoMeta();
+  const { canonical, ruUrl, enUrl, ogLocale, ogLocaleAlt, ogImage } =
+    useSeoMeta();
 
   // Константы для метаданных
   const PAGE_TITLE = t('metadata.projects.title');
@@ -36,6 +37,19 @@ const ProjectsPage = () => {
         <link rel="alternate" hreflang="ru" href={ruUrl} />
         <link rel="alternate" hreflang="en" href={enUrl} />
         <link rel="alternate" hreflang="x-default" href={ruUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:description" content={PAGE_DESCRIPTION} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content={ogLocale} />
+        <meta property="og:locale:alternate" content={ogLocaleAlt} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={PAGE_TITLE} />
+        <meta name="twitter:description" content={PAGE_DESCRIPTION} />
+        <meta name="twitter:image" content={ogImage} />
       </Helmet>
 
       <AnimatedBackground />
