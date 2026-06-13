@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://antoshkindev.ru/?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://antoshkindev.ru/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoshkindev.ru/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoshkindev.ru/?lang=ru"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://antoshkindev.ru/?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://antoshkindev.ru/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoshkindev.ru/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoshkindev.ru/?lang=ru"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://antoshkindev.ru/about?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://antoshkindev.ru/about?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoshkindev.ru/about?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoshkindev.ru/about?lang=ru"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://antoshkindev.ru/about?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://antoshkindev.ru/about?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoshkindev.ru/about?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoshkindev.ru/about?lang=ru"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://antoshkindev.ru/projects?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://antoshkindev.ru/projects?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoshkindev.ru/projects?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoshkindev.ru/projects?lang=ru"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://antoshkindev.ru/projects?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://antoshkindev.ru/projects?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoshkindev.ru/projects?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoshkindev.ru/projects?lang=ru"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
