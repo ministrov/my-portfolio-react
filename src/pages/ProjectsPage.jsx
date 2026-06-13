@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { useSeoMeta } from '../hooks/useSeoMeta';
 import Projects from '../sections/projects/Projects.jsx';
 import Contact from '../sections/contact/Contact.jsx';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
@@ -18,6 +19,7 @@ import AnimatedBackground from '../components/animatedBackground/AnimatedBackgro
  */
 const ProjectsPage = () => {
   const { t } = useTranslation();
+  const { canonical, ruUrl, enUrl } = useSeoMeta();
 
   // Константы для метаданных
   const PAGE_TITLE = t('metadata.projects.title');
@@ -30,6 +32,10 @@ const ProjectsPage = () => {
         <title>{PAGE_TITLE}</title>
         <meta name="description" content={PAGE_DESCRIPTION} data-rh="true" />
         <meta name="keywords" content={PAGE_KEYWORDS} />
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" hreflang="ru" href={ruUrl} />
+        <link rel="alternate" hreflang="en" href={enUrl} />
+        <link rel="alternate" hreflang="x-default" href={ruUrl} />
       </Helmet>
 
       <AnimatedBackground />
