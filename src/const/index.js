@@ -108,6 +108,12 @@ export const education = [
     textKey: 'aboutEducation.textThree',
     dateKey: 'aboutEducation.dateThree',
   },
+  {
+    id: 4,
+    titleKey: 'aboutEducation.title4',
+    textKey: 'aboutEducation.textFour',
+    dateKey: 'aboutEducation.dateFour',
+  },
 ];
 
 // Массив данных для элементов опыта
