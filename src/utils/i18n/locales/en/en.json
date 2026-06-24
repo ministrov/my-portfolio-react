@@ -367,7 +367,10 @@
     "textThree": "Specialty: React. Developing Complex Client Applications.",
     "dateOne": "September 1998 — June 2002",
     "dateTwo": "May 2020 — March 2021",
-    "dateThree": "September 2024 — November 2024"
+    "dateThree": "September 2024 — November 2024",
+    "title4": "Educational Institution: PurpleSchool — Backend Developer in Python",
+    "textFour": "Purposefully expanding my competencies toward backend development: studying Python, FastAPI, Django, working with PostgreSQL and Redis, as well as DevOps tools — Docker, Kubernetes, and microservice architecture. Growing as a full-stack developer to better understand server-side logic and collaborate more effectively with backend teams.",
+    "dateFour": "June 2026 — Present"
   },
   "errorMessage": {
     "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",
