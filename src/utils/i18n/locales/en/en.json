@@ -344,7 +344,7 @@
     "githubAriaLabel": "GitHub of {{title}}"
   },
   "aboutCapabilities": {
-    "text": "I create modern landing pages and promo sites using JavaScript, HTML, and CSS with jQuery for dynamic interfaces and smooth animations. My skills enable fully responsive designs optimized for any device, converting visitors into customers. I've also worked with React, Next.js, RTK, and Zustand on complex projects with state management. I'm always eager to master new technologies, turning challenging tasks into intuitive interfaces. Ready for projects of any scale!"
+    "text": "Core stack — React, Next.js, TypeScript, RTK Query. I build e-commerce platforms and marketing landing pages with a focus on performance, pixel perfect, and accessibility (WCAG 2.1). I have a solid understanding of the full frontend cycle — from Figma layouts to Core Web Vitals optimization and working in Agile/Scrum. Continuing to grow: currently learning Python and backend development."
   },
   "aboutExperience": {
     "name": "OOO Service Market",
@@ -353,7 +353,7 @@
     "titleThree": "Frontend Developer",
     "textOne": "In a 2-week sprint, I built the WaterDel promo site from scratch for a company selling water purification devices. Used JavaScript, HTML, CSS, and jQuery to create dynamic interfaces, smooth animations, and fully responsive design. The site is optimized for conversions with a mobile-first approach and high loading speed.",
     "textTwo": "As part of the frontend team, contributed to the development of the high-load Vam Voda online store — an e-commerce platform serving 20,000+ active users monthly. Responsibilities included semantic responsive layout, implementing JavaScript components, and building product sliders and carousels with touch gesture support and smooth CSS animations. Paid close attention to cross-browser compatibility and rendering performance.",
-    "textThree": "At OOO «Service Market», I develop high-converting promotional landing pages and campaign pages using React and vanilla JavaScript. Responsibilities include: semantic responsive layout from Figma designs, implementing animations and interactive components, performance optimization (Lighthouse, Core Web Vitals), and maintaining and refactoring the existing frontend codebase. I work closely with the marketing team and backend developers — from task definition to production release.",
+    "textThree": "At OOO «Service Market», I develop and maintain an e-commerce platform (MAU 20,000+) using Next.js, TypeScript, RTK Query, and React i18next. Designed and implemented the Ratingus Review Service interactive review widget — boosting user engagement by 25%. I launch promotional landing pages together with the marketing team, build layouts from Figma designs, and implement animations and UI components. I monitor Core Web Vitals, WCAG 2.1 compliance, and production build stability.",
     "dateOne": "September 2021 — November 2023",
     "dateTwo": "November 2023 — November 2024",
     "dateThree": "November 2024 — Present"
