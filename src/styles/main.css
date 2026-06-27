@@ -162,6 +162,10 @@ img {
   box-sizing: border-box;
 }
 
+#main-content {
+  padding-top: 88px;
+}
+
 .wrapper {
   margin-top: 80px;
   margin-bottom: 60px;
@@ -180,6 +184,10 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  #main-content {
+    padding-top: 56px;
+  }
+
   .wrapper {
     margin-top: 64px;
   }
