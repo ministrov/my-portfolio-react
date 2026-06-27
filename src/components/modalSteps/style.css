@@ -1,53 +1,116 @@
-.modal-step__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
+/* ─── Список шагов ─────────────────────────────────────────────── */
+
+.modal-steps {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.modal-step__item {
   display: flex;
-  flex: 1 1 calc((100% - 25px) / 2);
-  gap: 7px;
+  flex-direction: column;
 }
 
-.modal-step__counter {
-  flex-shrink: 0;
-  color: #2A5961;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 800;
-  line-height: 154%;
+/* ─── Шаг ──────────────────────────────────────────────────────── */
+
+.modal-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 0 14px;
+}
+
+/* Коннектор между шагами — тянется от нижней границы номера до следующего */
+.modal-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 36px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(144, 232, 248, 0.2) 0%,
+    rgba(144, 232, 248, 0.04) 100%
+  );
+}
+
+/* ─── Номер шага ───────────────────────────────────────────────── */
+
+.modal-step__num {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  background-image: url("../../assets/svg/star.svg");
-  background-size: 100% 100%;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  font-size: 11px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: #90e8f8;
+  background: rgba(144, 232, 248, 0.07);
+  border: 1px solid rgba(144, 232, 248, 0.18);
+  border-radius: 10px;
 }
 
-.modal-step__text {
-  max-width: 205px;
+/* ─── Контент шага ─────────────────────────────────────────────── */
+
+.modal-step__body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 7px;
+  padding-bottom: 24px;
+}
+
+.modal-step:last-child .modal-step__body {
+  padding-bottom: 0;
+}
+
+.modal-step__title {
+  margin: 0;
   font-size: 14px;
-  font-weight: 500;
-  line-height: 139%;
-  color: white;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #f1f5f9;
 }
 
-.modal-step__text span {
-  color: #90E8F8;
+.modal-step__desc {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(241, 245, 249, 0.5);
 }
 
-@media screen and (max-width: 768px) {
-  .modal-step__item {
-    flex: 1 1 calc((100% - 25px));
-    align-items: center;
+/* ─── Адаптив ──────────────────────────────────────────────────── */
+
+@media screen and (max-width: 360px) {
+  .modal-step {
+    grid-template-columns: 30px 1fr;
+    gap: 0 10px;
   }
 
-  .modal-step__text {
-    max-width: 100%;
+  .modal-step::after {
+    left: 14px;
+    top: 30px;
+  }
+
+  .modal-step__num {
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+
+  .modal-step__body {
+    padding-top: 5px;
+    padding-bottom: 18px;
+  }
+
+  .modal-step__title {
+    font-size: 13px;
+  }
+
+  .modal-step__desc {
+    font-size: 12px;
   }
 }
