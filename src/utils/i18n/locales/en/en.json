@@ -415,16 +415,29 @@
     }
   },
   "modal": {
-    "title": "4 <highlighed>steps</highlighed> of website <highlighed>development</highlighed> order",
+    "eyebrow": "Working process",
+    "title": "How we will work together",
+    "meta": "Usually 2–8 weeks · 4 stages",
+    "cta": "Discuss a project",
     "stepsAriaLabel": "Website development process steps",
     "items": {
-      "first": "Our consultant will <highlighed>clarify the tasks</highlighed> and goals of the website",
-      "second": "We'll prepare a <highlighed>proposal and estimate</highlighed> tailored to your project",
-      "third": "We'll confirm the agreements and <highlighed>launch the development</highlighed>",
-      "fourth": "You receive a <highlighed>ready-to-launch website</highlighed>"
+      "first": {
+        "title": "Getting to know the project",
+        "text": "We’ll discuss the goals, audience and requirements"
+      },
+      "second": {
+        "title": "Proposal & estimate",
+        "text": "A detailed work plan with real timelines and pricing"
+      },
+      "third": {
+        "title": "Agreement & kickoff",
+        "text": "We sign the contract and launch development"
+      },
+      "fourth": {
+        "title": "Finished product",
+        "text": "You approve the work, we deploy and go live"
+      }
     },
-    "text": "Facing difficulties? Remember that I'm always available to offer guidance and assistance. No matter how big or small your problem mayseem, I’m here to provide support. Reach out today, and let's tackle it together.",
-    "promoText": "Development -50%",
     "close": "Close"
   }
 }
