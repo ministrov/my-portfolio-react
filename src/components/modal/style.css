@@ -16,10 +16,13 @@
 }
 
 .modal {
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
-  padding-top: 50px;
   max-width: 734px;
   width: 100%;
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: var(--border-radius-s);
