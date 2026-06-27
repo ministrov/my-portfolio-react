@@ -1,26 +1,27 @@
 import { useRef, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { AnimatePresence, LazyMotion, m, domAnimation } from 'framer-motion';
 import { IoCloseSharp } from 'react-icons/io5';
 import PropTypes from 'prop-types';
-import SocialList from '../socials/SocialList';
 import ModalSteps from '../modalSteps/ModalSteps';
-import ModalPromo from '../modalPromo/ModalPromo';
 import './style.css';
 
 /**
- * Компонент модального окна с анимацией, авто-закрытием и доступностью.
+ * Компонент модального окна «Как мы будем работать».
+ * Объясняет процесс сотрудничества и предлагает CTA-кнопку
+ * для прокрутки к форме обратной связи.
+ *
  * Рендерится в портал `#portal`. При открытии блокирует прокрутку фона,
  * переносит фокус в окно и закрывается по Escape; при закрытии возвращает
  * фокус на элемент, который его открыл.
  *
  * @component
- * @param {Object} props - Свойства компонента
- * @param {boolean} props.open - Флаг открытия модального окна
- * @param {Function} props.onClose - Функция обратного вызова при закрытии
- * @param {number} [props.autoCloseDelay] - Задержка автоматического закрытия в миллисекундах
- * @returns {JSX.Element|null} Портальный рендер модального окна или null
+ * @param {Object}   props
+ * @param {boolean}  props.open           - Флаг открытия модального окна
+ * @param {Function} props.onClose        - Колбек при закрытии
+ * @param {number}   [props.autoCloseDelay] - Задержка авто-закрытия (мс)
+ * @returns {JSX.Element|null}
  */
 const Modal = ({ open, onClose, autoCloseDelay }) => {
   const { t } = useTranslation();
@@ -40,6 +41,16 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
       timerRef.current = null;
     }
   }, [onClose]);
+
+  // Закрытие + прокрутка к форме контактов
+  const handleCta = useCallback(() => {
+    handleClose();
+    requestAnimationFrame(() => {
+      document
+        .querySelector('.contact')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    });
+  }, [handleClose]);
 
   // Блокировка прокрутки фона и авто-закрытие по таймеру
   useEffect(() => {
@@ -117,10 +128,10 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
         >
           <LazyMotion features={domAnimation}>
             <m.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ delay: 0.4, duration: 0.5, ease: 'easeInOut' }}
+              initial={{ opacity: 0, y: 12, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.97 }}
+              transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <div
                 className="modal"
@@ -138,27 +149,29 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
                   type="button"
                   data-testid="modal-close-button"
                 >
-                  <IoCloseSharp color="white" />
+                  <IoCloseSharp size={16} color="currentColor" />
                 </button>
 
                 <header className="modal__header">
-                  <p className="modal__title" id="modal-title">
-                    <Trans
-                      i18nKey="modal.title"
-                      components={{ highlighed: <span /> }}
-                    />
-                  </p>
-                  <ModalPromo />
+                  <span className="modal__eyebrow">{t('modal.eyebrow')}</span>
+                  <h2 className="modal__title" id="modal-title">
+                    {t('modal.title')}
+                  </h2>
+                  <p className="modal__meta">{t('modal.meta')}</p>
                 </header>
 
                 <ModalSteps />
 
-                <footer className="modal__footer">
-                  <p className="modal__text">{t('modal.text')}</p>
-                  <div className="modal__socials">
-                    <SocialList />
-                  </div>
-                </footer>
+                <button
+                  className="modal__cta"
+                  type="button"
+                  onClick={handleCta}
+                >
+                  <span>{t('modal.cta')}</span>
+                  <span className="modal__cta-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </button>
               </div>
             </m.div>
           </LazyMotion>
@@ -172,9 +185,9 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
 Modal.propTypes = {
   /** Флаг открытия модального окна */
   open: PropTypes.bool.isRequired,
-  /** Функция обратного вызова при закрытии */
+  /** Колбек при закрытии */
   onClose: PropTypes.func.isRequired,
-  /** Задержка автоматического закрытия в миллисекундах */
+  /** Задержка авто-закрытия в миллисекундах */
   autoCloseDelay: PropTypes.number,
 };
 
