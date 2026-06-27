@@ -1,12 +1,12 @@
 import { useRef, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation, Trans } from 'react-i18next';
+import { AnimatePresence, LazyMotion, m, domAnimation } from 'framer-motion';
+import { IoCloseSharp } from 'react-icons/io5';
 import PropTypes from 'prop-types';
 import SocialList from '../socials/SocialList';
 import ModalSteps from '../modalSteps/ModalSteps';
 import ModalPromo from '../modalPromo/ModalPromo';
-import ModalBackdrop from './ModalBackdrop';
-import ModalCloseButton from './ModalCloseButton';
 import './style.css';
 
 /**
@@ -91,7 +91,7 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
     };
   }, [open]);
 
-  // Закрытие по клику вне окна (по самому бэкдропу)
+  // Закрытие по клику на бэкдроп (не на само окно)
   const handleBackdropClick = useCallback(
     (e) => {
       if (e.target === e.currentTarget) {
@@ -101,51 +101,72 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
     [handleClose]
   );
 
-  // Если портальный корень не найден, не рендерим ничего
   if (!portalRoot) {
     console.warn('Portal root (#portal) not found in DOM');
     return null;
   }
 
   return createPortal(
-    <ModalBackdrop open={open} onClick={handleBackdropClick}>
-      <div
-        className="modal"
-        ref={modalRef}
-        onClick={(e) => e.stopPropagation()}
-        tabIndex={-1}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-title"
-      >
-        <ModalCloseButton
-          onClick={handleClose}
-          ariaLabel={t('modal.close')}
-          color="white"
-        />
+    <AnimatePresence>
+      {open && (
+        <div
+          className="backdrop"
+          onClick={handleBackdropClick}
+          role="presentation"
+          data-testid="modal-backdrop"
+        >
+          <LazyMotion features={domAnimation}>
+            <m.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.4, duration: 0.5, ease: 'easeInOut' }}
+            >
+              <div
+                className="modal"
+                ref={modalRef}
+                onClick={(e) => e.stopPropagation()}
+                tabIndex={-1}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="modal-title"
+              >
+                <button
+                  className="modal__close"
+                  onClick={handleClose}
+                  aria-label={t('modal.close')}
+                  type="button"
+                  data-testid="modal-close-button"
+                >
+                  <IoCloseSharp color="white" />
+                </button>
 
-        <div className="modal__inner">
-          <header className="modal__header">
-            <p className="modal__title" id="modal-title">
-              <Trans
-                i18nKey="modal.title"
-                components={{ highlighed: <span /> }}
-              />
-            </p>
-            <ModalPromo />
-          </header>
+                <div className="modal__inner">
+                  <header className="modal__header">
+                    <p className="modal__title" id="modal-title">
+                      <Trans
+                        i18nKey="modal.title"
+                        components={{ highlighed: <span /> }}
+                      />
+                    </p>
+                    <ModalPromo />
+                  </header>
 
-          <ModalSteps />
+                  <ModalSteps />
 
-          <footer className="modal__footer">
-            <p className="modal__text">{t('modal.text')}</p>
-            <div className="modal__socials">
-              <SocialList />
-            </div>
-          </footer>
+                  <footer className="modal__footer">
+                    <p className="modal__text">{t('modal.text')}</p>
+                    <div className="modal__socials">
+                      <SocialList />
+                    </div>
+                  </footer>
+                </div>
+              </div>
+            </m.div>
+          </LazyMotion>
         </div>
-      </div>
-    </ModalBackdrop>,
+      )}
+    </AnimatePresence>,
     portalRoot
   );
 };
