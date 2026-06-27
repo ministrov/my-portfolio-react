@@ -141,26 +141,24 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
                   <IoCloseSharp color="white" />
                 </button>
 
-                <div className="modal__inner">
-                  <header className="modal__header">
-                    <p className="modal__title" id="modal-title">
-                      <Trans
-                        i18nKey="modal.title"
-                        components={{ highlighed: <span /> }}
-                      />
-                    </p>
-                    <ModalPromo />
-                  </header>
+                <header className="modal__header">
+                  <p className="modal__title" id="modal-title">
+                    <Trans
+                      i18nKey="modal.title"
+                      components={{ highlighed: <span /> }}
+                    />
+                  </p>
+                  <ModalPromo />
+                </header>
 
-                  <ModalSteps />
+                <ModalSteps />
 
-                  <footer className="modal__footer">
-                    <p className="modal__text">{t('modal.text')}</p>
-                    <div className="modal__socials">
-                      <SocialList />
-                    </div>
-                  </footer>
-                </div>
+                <footer className="modal__footer">
+                  <p className="modal__text">{t('modal.text')}</p>
+                  <div className="modal__socials">
+                    <SocialList />
+                  </div>
+                </footer>
               </div>
             </m.div>
           </LazyMotion>
