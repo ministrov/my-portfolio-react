@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useSeoMeta } from '../hooks/useSeoMeta';
@@ -7,7 +6,6 @@ import AboutCapabilities from '../components/aboutCapabilities/AboutCapabilities
 import AboutExperience from '../components/aboutExperience/AboutExperience';
 import AboutEducation from '../components/aboutEducation/AboutEducation';
 import AuthorPhoto from '../components/authorPhoto/AuthorPhoto';
-import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import Contact from '../sections/contact/Contact';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground';
 
@@ -52,15 +50,6 @@ const AboutPage = () => {
     ],
   });
 
-  // Хлебные крошки с мемоизацией для оптимизации
-  const BREADCRUMBS = useMemo(
-    () => [
-      { id: 1, name: t('breadcrumbs.home'), link: '/' },
-      { id: 2, name: t('breadcrumbs.about') },
-    ],
-    [t]
-  );
-
   return (
     <>
       <Helmet>
@@ -92,11 +81,7 @@ const AboutPage = () => {
       {/* Скрытый заголовок для доступности */}
       <h1 className="visually-hidden">{t('pages.about.title')}</h1>
 
-      <div className="container">
-        <Breadcrumbs items={BREADCRUMBS} />
-      </div>
-
-      <About />
+      <About border />
 
       <div className="container wrapper">
         <AuthorPhoto />
