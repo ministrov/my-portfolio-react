@@ -128,7 +128,7 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
         >
           <LazyMotion features={domAnimation}>
             <m.div
-              style={{ width: '100%', maxWidth: '560px' }}
+              style={{ width: '100%', maxWidth: '760px' }}
               initial={{ opacity: 0, y: 12, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.97 }}
