@@ -30,12 +30,11 @@
 }
 
 .modal__inner {
-  position: relative;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 33px;
-  height: auto;
-  padding: 42px 35px 35px;
+  padding: 20px 35px 35px;
   box-shadow:
     0 630px 176px 0 rgba(0, 0, 0, 0),
     0 403px 161px 0 rgba(0, 0, 0, 0.02),
@@ -88,19 +87,22 @@
 }
 
 .modal__close {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   align-self: flex-end;
+  flex-shrink: 0;
   font-size: 2rem;
   width: 32px;
   height: 32px;
   background: rgba(240, 243, 246, 0.07);
   border: none;
-  border-radius: 900px;
+  border-radius: var(--border-radius-s);
   cursor: pointer;
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;
-  border-radius: var(--border-radius-s);
 }
 
 .modal__close:hover,

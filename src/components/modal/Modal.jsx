@@ -118,13 +118,13 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        <div className="modal__inner">
-          <ModalCloseButton
-            onClick={handleClose}
-            ariaLabel={t('modal.close')}
-            color="white"
-          />
+        <ModalCloseButton
+          onClick={handleClose}
+          ariaLabel={t('modal.close')}
+          color="white"
+        />
 
+        <div className="modal__inner">
           <header className="modal__header">
             <p className="modal__title" id="modal-title">
               <Trans
