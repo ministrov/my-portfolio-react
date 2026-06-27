@@ -14,7 +14,7 @@ import './style.css';
  * return <Header />
  */
 const Header = () => {
-  const SCROLL_THRESHOLD = 100;
+  const SCROLL_THRESHOLD = 40;
   const [headerBg, setHeaderBg] = useState(false);
 
   const handleScroll = useCallback(() => {

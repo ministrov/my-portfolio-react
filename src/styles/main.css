@@ -58,11 +58,15 @@
   --color-gray-800: #26292d;
   --color-gray-900: #171718;
 
-  /* Синяя палитра */
-  --color-blue-300: #3073c5;
-  --color-blue-700: #0058a7;
-  --color-blue-800: #004889;
-  --color-blue-900: #00386b;
+  /* Синяя палитра (Cobalt & Signal) */
+  --color-blue-300: #60a5fa;
+  --color-blue-700: #2563eb;
+  --color-blue-800: #1d4ed8;
+  --color-blue-900: #0b1220;
+
+  /* Фиолетовый сигнальный акцент */
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #7c3aed;
 
   /* Красная палитра */
   --color-red-100: #fdf2fa;
@@ -74,11 +78,8 @@
   --border-radius-s: 8px;
 
   --box-shadow: 0px 0px 8px 0px #00000026;
-  --gradient: linear-gradient(
-    to right,
-    var(--color-blue-700),
-    var(--color-blue-300)
-  );
+  --gradient: linear-gradient(120deg, #2563eb 0%, #6366f1 50%, #7c3aed 100%);
+  /* кобальт ──▸ индиго ──▸ фиолет  (спектральная диагональ) */
 }
 
 /* Глобальное изменение скроллбара для всей страницы */
@@ -180,6 +181,10 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  #main-content {
+    padding-top: 56px;
+  }
+
   .wrapper {
     margin-top: 64px;
   }

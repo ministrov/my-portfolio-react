@@ -6,6 +6,11 @@
   border-radius: 42px;
 }
 
+.about__without {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .about__wrapper {
   display: flex;
   align-items: flex-start;
