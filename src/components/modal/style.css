@@ -136,3 +136,46 @@
     max-width: 550px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .modal__inner {
+    padding: 16px 20px 28px;
+    gap: 24px;
+  }
+
+  .modal__title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal__inner {
+    padding: 12px 16px 24px;
+    gap: 20px;
+  }
+
+  .modal__title {
+    font-size: 22px;
+  }
+
+  .modal__footer {
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .backdrop {
+    padding: 10px 8px;
+  }
+
+  .modal__inner {
+    padding: 10px 12px 20px;
+    gap: 16px;
+  }
+
+  .modal__title {
+    font-size: 18px;
+  }
+}
