@@ -22,9 +22,14 @@
   left: 3px;
   right: 3px;
   bottom: 3px;
-  height: 42%;
+  height: 55%;
   border-radius: 0 0 21px 21px;
-  background: linear-gradient(to top, #6f97d2, transparent);
+  background: linear-gradient(
+    to top,
+    #6f97d2 0%,
+    #6f97d2 45%,
+    rgba(111, 151, 210, 0) 100%
+  );
   pointer-events: none;
 }
 
