@@ -54,7 +54,7 @@
   --color-gray-100: #fafafa;
   --color-gray-200: #eef4ff;
   --color-gray-500: #777;
-  --color-gray-600: #f5f8ff;
+  --color-gray-600: #e6edf8;
   --color-gray-800: #26292d;
   --color-gray-900: #171718;
 
@@ -65,6 +65,7 @@
   --color-blue-900: #0b1220;
 
   /* Фиолетовый сигнальный акцент */
+  --color-violet-50: #ece7f8;
   --color-violet-400: #a78bfa;
   --color-violet-500: #7c3aed;
 
