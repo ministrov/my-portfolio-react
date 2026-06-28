@@ -181,10 +181,6 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  #main-content {
-    padding-top: 56px;
-  }
-
   .wrapper {
     margin-top: 64px;
   }
