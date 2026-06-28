@@ -15,12 +15,27 @@
   box-shadow: 0 10px 28px rgba(37, 99, 235, 0.18);
 }
 
+/* Нижний скрим: растворяет обрезанный край бюста в подложке */
+.author-identity__photo-ring::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  height: 42%;
+  border-radius: 0 0 21px 21px;
+  background: linear-gradient(to top, #b9cdef, transparent);
+  pointer-events: none;
+}
+
 .author-identity__img {
   display: block;
   width: 260px;
   height: 260px;
   object-fit: cover;
   border-radius: 21px;
+  /* Подложка-«ниша» за прозрачным PNG */
+  background: linear-gradient(180deg, #e6edf8 0%, #b9cdef 100%);
 }
 
 /* Метаданные автора */
