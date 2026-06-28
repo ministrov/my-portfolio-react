@@ -112,54 +112,6 @@
   letter-spacing: 0.01em;
 }
 
-/* ─── CTA кнопка ───────────────────────────────────────────────── */
-
-.modal__cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  align-self: center;
-  padding: 14px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: #fff;
-  background: #1a6fbe;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    transform 0.15s ease,
-    box-shadow 0.2s ease;
-}
-
-.modal__cta:hover {
-  background: #2480d4;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(26, 111, 190, 0.45);
-}
-
-.modal__cta:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-.modal__cta:focus-visible {
-  outline: 2px solid rgba(144, 232, 248, 0.55);
-  outline-offset: 2px;
-}
-
-.modal__cta-arrow {
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-.modal__cta:hover .modal__cta-arrow {
-  transform: translateX(4px);
-}
-
 /* ─── Анимация бэкдропа ────────────────────────────────────────── */
 
 @keyframes fadeIn {
@@ -209,10 +161,5 @@
 
   .modal__title {
     font-size: 18px;
-  }
-
-  .modal__cta {
-    padding: 12px 18px;
-    font-size: 14px;
   }
 }

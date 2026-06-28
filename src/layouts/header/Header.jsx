@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import NavDesktop from '../../components/navDesktop/NavDesktop';
 import NavMobile from '../../components/navMobile/NavMobile';
 import Logo from '../../components/logo/Logo';
 import ToggleLang from '../../components/toggleLang/ToggleLang';
+import CtaButton from '../../components/ctaButton/CtaButton';
 import './style.css';
 
 /**
@@ -18,16 +18,10 @@ import './style.css';
  */
 const Header = () => {
   const SCROLL_THRESHOLD = 40;
-  const { t } = useTranslation();
   const [headerBg, setHeaderBg] = useState(false);
 
   const handleScroll = useCallback(() => {
     setHeaderBg(window.scrollY > SCROLL_THRESHOLD);
-  }, []);
-
-  // Плавный скролл к секции контактов (как в модальном окне)
-  const handleCta = useCallback(() => {
-    document.querySelector('.contact')?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
   useEffect(() => {
@@ -46,12 +40,7 @@ const Header = () => {
 
         <div className="header__actions">
           <ToggleLang className="nav__lang" />
-          <button className="header__cta" type="button" onClick={handleCta}>
-            <span>{t('modal.cta')}</span>
-            <span className="header__cta-arrow" aria-hidden="true">
-              →
-            </span>
-          </button>
+          <CtaButton variant="pill" />
           <NavMobile />
         </div>
       </nav>
