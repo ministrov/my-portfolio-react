@@ -34,7 +34,7 @@
   color: var(--color-blue-300);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .nav-list {
     display: none;
   }
