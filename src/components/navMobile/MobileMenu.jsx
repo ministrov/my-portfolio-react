@@ -3,6 +3,7 @@ import { LazyMotion, m, domAnimation, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ToggleLang from '../toggleLang/ToggleLang';
+import CtaButton from '../ctaButton/CtaButton';
 import { routes } from '../../const';
 import MenuItem from './MenuItem';
 
@@ -45,8 +46,15 @@ const MobileMenu = ({ isOpen, onClose }) => {
               ))}
             </ul>
 
-            <div className="nav-mobile__lang">
-              <ToggleLang />
+            <div className="nav-mobile__footer">
+              <CtaButton
+                variant="block"
+                className="nav-mobile__cta"
+                onClick={onClose}
+              />
+              <div className="nav-mobile__lang">
+                <ToggleLang />
+              </div>
             </div>
           </m.div>
         </LazyMotion>

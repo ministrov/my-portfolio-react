@@ -46,7 +46,7 @@
     padding: 1rem;
   }
 
-  .header__actions .cta-button {
+  .header__actions > .cta-button {
     display: none;
   }
 }
