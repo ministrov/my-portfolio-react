@@ -1,0 +1,90 @@
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.cta-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.cta-button__arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+/* ─── Вариант «пилюля» (шапка) ─────────────────────────────────── */
+
+.cta-button--pill {
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-headings);
+  font-size: 1rem;
+  background: var(--color-blue-700);
+  border-radius: 999px;
+}
+
+.cta-button--pill:hover {
+  background: var(--color-blue-800);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.cta-button--pill:focus-visible {
+  outline: 2px solid var(--color-blue-300);
+  outline-offset: 2px;
+}
+
+.cta-button--pill:hover .cta-button__arrow {
+  transform: translateX(3px);
+}
+
+/* ─── Вариант «блок» (модальное окно) ──────────────────────────── */
+
+.cta-button--block {
+  gap: 10px;
+  align-self: center;
+  padding: 14px 24px;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  background: #1a6fbe;
+  border-radius: 12px;
+}
+
+.cta-button--block:hover {
+  background: #2480d4;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(26, 111, 190, 0.45);
+}
+
+.cta-button--block:focus-visible {
+  outline: 2px solid rgba(144, 232, 248, 0.55);
+  outline-offset: 2px;
+}
+
+.cta-button--block:hover .cta-button__arrow {
+  transform: translateX(4px);
+}
+
+@media screen and (max-width: 360px) {
+  .cta-button--block {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button,
+  .cta-button__arrow {
+    transition: none;
+  }
+}

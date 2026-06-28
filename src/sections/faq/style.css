@@ -3,8 +3,7 @@
   padding-top: 6rem;
   padding-bottom: 6rem;
   color: var(--color-blue-700);
-  background-color: var(--color-gray-600);
-  border-radius: 42px;
+  background-color: var(--color-violet-50);
 }
 
 @media screen and (max-width: 768px) {

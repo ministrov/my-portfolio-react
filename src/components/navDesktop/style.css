@@ -2,16 +2,11 @@
   display: flex;
 }
 
-.nav-wrapper {
-  display: flex;
-  gap: 1rem;
-}
-
 .nav-list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .nav-list__item {
@@ -39,7 +34,7 @@
   color: var(--color-blue-300);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .nav-list {
     display: none;
   }

@@ -1,16 +1,10 @@
 import { GoProjectSymlink } from 'react-icons/go';
-import { BiHomeAlt2 } from 'react-icons/bi';
 import { FaUserTie } from 'react-icons/fa6';
 import { SlGlobe } from 'react-icons/sl';
 import { SiAffinitydesigner } from 'react-icons/si';
 import { TbSeo } from 'react-icons/tb';
 
 export const routes = [
-  {
-    title: 'mainNav.home',
-    href: '/',
-    Icon: BiHomeAlt2,
-  },
   {
     title: 'mainNav.about',
     href: '/about',

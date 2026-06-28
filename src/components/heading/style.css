@@ -2,7 +2,7 @@
   position: relative;
   display: block;
   margin-bottom: 2rem;
-  font-family: var(--font-headings);
+  font-family: var(--font-display);
   font-size: 3.8rem;
   font-weight: 400;
   line-height: 90%;
@@ -36,7 +36,7 @@
 /* Крупный двухтоновый вариант (display): не капсом, тёмное начало + градиентный акцент */
 .heading-sec--display {
   margin-bottom: 3rem;
-  font-family: var(--font-headings);
+  font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.1;

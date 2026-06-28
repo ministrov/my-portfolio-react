@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { NavLink, useMatch } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-import ToggleLang from '../toggleLang/ToggleLang';
 import { routes } from '../../const';
 import './style.css';
 
@@ -57,18 +56,15 @@ const NavDesktop = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="nav-wrapper">
-      <nav className="nav-main" aria-label={t('mainNav.ariaLabel')}>
-        <ul className="nav-list">
-          {routes.map(({ href, Icon, title }) => (
-            <li key={href} className="nav-list__item">
-              <NavItem href={href} Icon={Icon} label={t(title)} />
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <ToggleLang className="nav__lang" />
-    </div>
+    <nav className="nav-main" aria-label={t('mainNav.ariaLabel')}>
+      <ul className="nav-list">
+        {routes.map(({ href, Icon, title }) => (
+          <li key={href} className="nav-list__item">
+            <NavItem href={href} Icon={Icon} label={t(title)} />
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

@@ -5,6 +5,7 @@ import { AnimatePresence, LazyMotion, m, domAnimation } from 'framer-motion';
 import { IoCloseSharp } from 'react-icons/io5';
 import PropTypes from 'prop-types';
 import ModalSteps from '../modalSteps/ModalSteps';
+import CtaButton from '../ctaButton/CtaButton';
 import './style.css';
 
 /**
@@ -41,16 +42,6 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
       timerRef.current = null;
     }
   }, [onClose]);
-
-  // Закрытие + прокрутка к форме контактов
-  const handleCta = useCallback(() => {
-    handleClose();
-    requestAnimationFrame(() => {
-      document
-        .querySelector('.contact')
-        ?.scrollIntoView({ behavior: 'smooth' });
-    });
-  }, [handleClose]);
 
   // Блокировка прокрутки фона и авто-закрытие по таймеру
   useEffect(() => {
@@ -163,16 +154,7 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
 
                 <ModalSteps />
 
-                <button
-                  className="modal__cta"
-                  type="button"
-                  onClick={handleCta}
-                >
-                  <span>{t('modal.cta')}</span>
-                  <span className="modal__cta-arrow" aria-hidden="true">
-                    →
-                  </span>
-                </button>
+                <CtaButton variant="block" onClick={handleClose} />
               </div>
             </m.div>
           </LazyMotion>

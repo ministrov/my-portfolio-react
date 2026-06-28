@@ -2,11 +2,14 @@ import { useState, useEffect, useCallback } from 'react';
 import NavDesktop from '../../components/navDesktop/NavDesktop';
 import NavMobile from '../../components/navMobile/NavMobile';
 import Logo from '../../components/logo/Logo';
+import ToggleLang from '../../components/toggleLang/ToggleLang';
+import CtaButton from '../../components/ctaButton/CtaButton';
 import './style.css';
 
 /**
  * Компонент заголовка сайта с изменяемым фоном при прокрутке.
- * Отображает логотип и навигацию (десктопную и мобильную).
+ * Три зоны: логотип слева, навигация по центру, действия справа
+ * (переключатель языка, CTA «Обсудить проект», мобильный бургер).
  * Фон меняется при прокрутке страницы ниже порогового значения.
  *
  * @component
@@ -33,9 +36,12 @@ const Header = () => {
       <nav className="header__nav nav">
         <Logo />
 
-        <div className="nav__wrapper">
+        <NavDesktop />
+
+        <div className="header__actions">
+          <ToggleLang className="nav__lang" />
+          <CtaButton variant="pill" />
           <NavMobile />
-          <NavDesktop />
         </div>
       </nav>
     </header>
