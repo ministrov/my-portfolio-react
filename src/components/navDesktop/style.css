@@ -2,11 +2,6 @@
   display: flex;
 }
 
-.nav-wrapper {
-  display: flex;
-  gap: 1rem;
-}
-
 .nav-list {
   display: flex;
   flex-wrap: wrap;

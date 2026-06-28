@@ -28,9 +28,62 @@
 }
 
 .nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 1.25rem;
+  justify-self: end;
+}
+
+/* CTA «Обсудить проект» */
+.header__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-headings);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-blue-700);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.header__cta:hover {
+  background: var(--color-blue-800);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.header__cta:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.header__cta:focus-visible {
+  outline: 2px solid var(--color-blue-300);
+  outline-offset: 2px;
+}
+
+.header__cta-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.header__cta:hover .header__cta-arrow {
+  transform: translateX(3px);
 }
 
 @media only screen and (max-width: 768px) {
@@ -38,7 +91,14 @@
     padding: 1rem;
   }
 
-  .nav__wrapper {
-    display: flex;
+  .header__cta {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__cta,
+  .header__cta-arrow {
+    transition: none;
   }
 }
