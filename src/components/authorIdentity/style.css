@@ -24,7 +24,7 @@
   bottom: 3px;
   height: 42%;
   border-radius: 0 0 21px 21px;
-  background: linear-gradient(to top, #b9cdef, transparent);
+  background: linear-gradient(to top, #6f97d2, transparent);
   pointer-events: none;
 }
 
@@ -35,7 +35,7 @@
   object-fit: cover;
   border-radius: 21px;
   /* Подложка-«ниша» за прозрачным PNG */
-  background: linear-gradient(180deg, #e6edf8 0%, #b9cdef 100%);
+  background: linear-gradient(180deg, #e6edf8 0%, #6f97d2 100%);
 }
 
 /* Метаданные автора */
@@ -133,9 +133,9 @@
     justify-content: center;
   }
 
-  /* В строке кольцо прижато к началу и без верхнего отступа */
+  /* В строке кольцо с отступом от краёв карточки */
   .author-identity__photo-ring {
-    margin: 0;
+    margin: 1rem;
     align-self: center;
     border-radius: 16px;
   }
