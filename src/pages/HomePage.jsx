@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { memo, lazy, Suspense } from 'react';
 import { useSeoMeta } from '../hooks/useSeoMeta';
 import Hero from '../sections/hero/Hero';
 import About from '../sections/about/About';
@@ -9,8 +9,12 @@ import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
 import Contact from '../sections/contact/Contact.jsx';
 import Advantages from '../sections/advantages/Advantages.jsx';
-import Testimonials from '../sections/testimonials/Testimonials.jsx';
+import Loader from '../components/loader/Loader';
 import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
+
+const Testimonials = lazy(
+  () => import('../sections/testimonials/Testimonials.jsx')
+);
 
 /**
  * Компонент главной страницы портфолио.
@@ -89,7 +93,9 @@ const Home = () => {
       <Showcasing />
       <Services />
       <Advantages />
-      <Testimonials />
+      <Suspense fallback={<Loader />}>
+        <Testimonials />
+      </Suspense>
       <Faq />
       <Contact />
     </>
