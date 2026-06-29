@@ -13,3 +13,10 @@
     border-radius: 16px;
   }
 }
+
+@media screen and (max-width: 475px) {
+  .faq {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}

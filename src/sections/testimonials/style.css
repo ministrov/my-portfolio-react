@@ -53,6 +53,13 @@
   color: var(--color-gray-900);
 }
 
+@media screen and (max-width: 475px) {
+  .testimonials {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .testimonials__slide:not(.swiper-slide-active),
   .testimonials__logo-icon {

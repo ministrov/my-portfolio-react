@@ -31,3 +31,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media screen and (max-width: 475px) {
+  .services {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}

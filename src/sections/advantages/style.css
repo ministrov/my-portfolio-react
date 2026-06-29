@@ -143,6 +143,13 @@
   }
 }
 
+@media screen and (max-width: 475px) {
+  .advantages {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .advantages__item {
     transition: none;
