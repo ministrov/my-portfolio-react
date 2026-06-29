@@ -79,6 +79,10 @@
   color: transparent;
 }
 
+.hero__title-accent--block {
+  display: block;
+}
+
 .hero__subtitle {
   max-width: 46ch;
   margin: 0 auto 2.5rem;
