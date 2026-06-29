@@ -137,7 +137,9 @@
 
 @media screen and (max-width: 768px) {
   .hero {
-    padding-top: 3rem;
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .hero__kicker {
