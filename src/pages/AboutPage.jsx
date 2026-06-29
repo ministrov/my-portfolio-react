@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useSeoMeta } from '../hooks/useSeoMeta';
 import About from '../sections/about/About';
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import AboutCapabilities from '../components/aboutCapabilities/AboutCapabilities';
 import AboutExperience from '../components/aboutExperience/AboutExperience';
 import AboutEducation from '../components/aboutEducation/AboutEducation';
@@ -80,6 +81,13 @@ const AboutPage = () => {
 
       {/* Скрытый заголовок для доступности */}
       <h1 className="visually-hidden">{t('pages.about.title')}</h1>
+
+      <Breadcrumbs
+        items={[
+          { id: 1, name: t('breadcrumbs.home'), link: '/' },
+          { id: 2, name: t('breadcrumbs.about') },
+        ]}
+      />
 
       <About border />
 

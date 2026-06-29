@@ -1,11 +1,10 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import Heading from '../../components/heading/Heading';
 import ButtonLink from '../../components/buttonLink/ButtonLink';
 import SocialList from '../../components/socials/SocialList';
-import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import AboutStory from '../../components/aboutStory/AboutStory';
 import AuthorIdentity from '../../components/authorIdentity/AuthorIdentity';
 import Tag from '../../components/tag/Tag';
@@ -64,19 +63,9 @@ const About = ({ link = false, button = false, border = false }) => {
   // Используется дважды (как текст кнопки и внутри aria-label) — выносим в переменную
   const promoBtnText = t('promo.promoBtn');
 
-  // Хлебные крошки с мемоизацией для оптимизации
-  const BREADCRUMBS = useMemo(
-    () => [
-      { id: 1, name: t('breadcrumbs.home'), link: '/' },
-      { id: 2, name: t('breadcrumbs.about') },
-    ],
-    [t]
-  );
-
   return (
     <section className={`about ${border ? 'about__without' : ''}`}>
       <div className="container">
-        <Breadcrumbs items={BREADCRUMBS} />
         <div className="about__wrapper">
           <LazyMotion features={domAnimation}>
             {/* Левая колонка: заголовок + идентификационная карточка */}
