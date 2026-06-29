@@ -50,6 +50,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  white-space: nowrap;
 }
 
 .heading-sec__sub {
