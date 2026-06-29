@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'framer-motion';
 import Heading from '../heading/Heading';
 import Tag from '../tag/Tag';
 import { skills } from '../../const';
@@ -29,7 +29,7 @@ const itemVariants = {
 
 // Motion-обёртка для Tag, совместимая с Framer Motion.
 // Создаётся один раз на уровне модуля, чтобы не пересоздавать тип компонента на каждом рендере.
-const MotionTag = motion(Tag);
+const MotionTag = m(Tag);
 
 /**
  * Компонент секции "Возможности" (навыки и технологии).
@@ -57,22 +57,24 @@ const AboutCapabilities = () => {
               {t('aboutCapabilities.text')}
             </p>
 
-            <motion.ul
-              className="about-capabilities__list"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-50px' }}
-              aria-label={t('aboutCapabilities.ariaLabel', {
-                defaultValue: 'Список технологий',
-              })}
-            >
-              {skills.map((skill) => (
-                <MotionTag key={skill} variants={itemVariants}>
-                  {skill}
-                </MotionTag>
-              ))}
-            </motion.ul>
+            <LazyMotion features={domAnimation}>
+              <m.ul
+                className="about-capabilities__list"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                aria-label={t('aboutCapabilities.ariaLabel', {
+                  defaultValue: 'Список технологий',
+                })}
+              >
+                {skills.map((skill) => (
+                  <MotionTag key={skill} variants={itemVariants}>
+                    {skill}
+                  </MotionTag>
+                ))}
+              </m.ul>
+            </LazyMotion>
           </div>
         </div>
       </div>
