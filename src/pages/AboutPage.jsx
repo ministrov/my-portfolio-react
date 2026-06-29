@@ -82,12 +82,14 @@ const AboutPage = () => {
       {/* Скрытый заголовок для доступности */}
       <h1 className="visually-hidden">{t('pages.about.title')}</h1>
 
-      <Breadcrumbs
-        items={[
-          { id: 1, name: t('breadcrumbs.home'), link: '/' },
-          { id: 2, name: t('breadcrumbs.about') },
-        ]}
-      />
+      <div className="container">
+        <Breadcrumbs
+          items={[
+            { id: 1, name: t('breadcrumbs.home'), link: '/' },
+            { id: 2, name: t('breadcrumbs.about') },
+          ]}
+        />
+      </div>
 
       <About border />
 
