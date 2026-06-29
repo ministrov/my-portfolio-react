@@ -1,7 +1,6 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
-// import MouseScroll from '../../components/mouseScroll/MouseScroll';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -43,7 +42,7 @@ const fadeUp = {
  * <Hero />
  */
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="hero">
@@ -69,8 +68,10 @@ const Hero = () => {
                 delay: ANIMATION_DELAYS.TITLE,
               }}
             >
-              {t('hero.titleLead')}{' '}
-              <span className="hero__title-accent">
+              <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
+              <span
+                className={`hero__title-accent${i18n.language === 'ru' ? ' hero__title-accent--block' : ''}`}
+              >
                 {t('hero.titleAccent')}
               </span>
             </m.h1>
@@ -108,7 +109,6 @@ const Hero = () => {
             </m.div>
           </div>
         </LazyMotion>
-        {/* <MouseScroll className="promo__mouse-scroll-cont" /> */}
       </div>
     </section>
   );
