@@ -55,16 +55,6 @@
   border-top-color: #ffffff;
 }
 
-.loader--primary .loader__spinner {
-  border: 3px solid rgba(41, 128, 185, 0.2);
-  border-top-color: #2980b9;
-}
-
-.loader--secondary .loader__spinner {
-  border: 3px solid rgba(155, 89, 182, 0.2);
-  border-top-color: #9b59b6;
-}
-
 /* Текст под спиннером */
 .loader__text {
   margin-top: 16px;
@@ -85,14 +75,6 @@
 
 .loader--white .loader__text {
   color: #fff;
-}
-
-.loader--primary .loader__text {
-  color: #2980b9;
-}
-
-.loader--secondary .loader__text {
-  color: #9b59b6;
 }
 
 @keyframes loader-rotate {

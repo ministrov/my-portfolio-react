@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { useSeoMeta } from '../hooks/useSeoMeta';
 import Hero from '../sections/hero/Hero';
-// import Promo from '../sections/promo/Promo';
 import About from '../sections/about/About';
 import Showcasing from '../sections/showcasing/Showcasing.jsx';
 import Faq from '../sections/faq/Faq';
@@ -86,7 +85,6 @@ const Home = () => {
       <AnimatedBackground />
 
       <Hero />
-      {/* <Promo /> */}
       <About link />
       <Showcasing />
       <Services />

@@ -8,7 +8,7 @@ import './style.css';
  *
  * @component
  * @param {Object} props - Свойства компонента
- * @param {('blue'|'white'|'primary'|'secondary')} [props.color='blue'] - Цвет спиннера
+ * @param {('blue'|'white')} [props.color='blue'] - Цвет спиннера
  * @param {('small'|'medium'|'large')} [props.size='medium'] - Размер спиннера
  * @param {boolean} [props.fullScreen=false] - Если true, лоадер растягивается на весь экран с затемнённым фоном
  * @param {string} [props.text] - Текст, отображаемый под спиннером
@@ -51,7 +51,7 @@ const Loader = ({
 
 Loader.propTypes = {
   /** Цвет спиннера */
-  color: PropTypes.oneOf(['blue', 'white', 'primary', 'secondary']),
+  color: PropTypes.oneOf(['blue', 'white']),
   /** Размер спиннера */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Полноэкранный режим с затемнённым фоном */
