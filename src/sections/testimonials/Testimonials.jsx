@@ -12,7 +12,6 @@ import {
 import Heading from '../../components/heading/Heading';
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
 import { testimonials } from './testimonials';
-import 'swiper/css';
 import './style.css';
 
 /**

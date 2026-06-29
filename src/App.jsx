@@ -8,6 +8,8 @@ import Loader from './components/loader/Loader';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 
 import './styles/main.css';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
 
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));

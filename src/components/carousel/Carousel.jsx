@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ShowcasingCard from '../showcasingCard/ShowcasingCard';
 import { projects } from '../../sections/projects/projects';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
 
 /**
  * Карусель для отображения лучших проектов с использованием Swiper.
