@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <footer className="main-footer">
       <div className="main-footer__inner">
-        <Logo variant="white" />
+        <Logo />
 
         <p className="main-footer__copyright">
           &copy; {t('footer.copyright')}{' '}
@@ -34,7 +34,7 @@ const Footer = () => {
           </a>
         </p>
 
-        <SocialList className="main-footer__list" />
+        <SocialList className="main-footer__list" variant="blue" />
       </div>
     </footer>
   );
