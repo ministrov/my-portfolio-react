@@ -163,9 +163,28 @@
 /* Акцентная часть заголовка — синий градиент сайта по тексту */
 .hero__title-accent {
   background: var(--gradient);
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: hero-accent-shift 9s linear 1.8s infinite;
+}
+
+/* Бесконечное движение градиента по акцентной строке заголовка */
+@keyframes hero-accent-shift {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title-accent {
+    animation: none;
+  }
 }
 
 .hero__title-accent--block {
