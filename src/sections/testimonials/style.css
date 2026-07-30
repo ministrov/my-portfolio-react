@@ -28,30 +28,6 @@
   transition: opacity 0.5s ease;
 }
 
-.testimonials__logos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem 3rem;
-  margin-top: 3.5rem;
-}
-
-.testimonials__logo {
-  display: flex;
-}
-
-.testimonials__logo-icon {
-  display: block;
-  font-size: 2rem;
-  color: var(--color-gray-500);
-  transition: color 0.3s ease;
-}
-
-.testimonials__logo:hover .testimonials__logo-icon {
-  color: var(--color-gray-900);
-}
-
 @media screen and (max-width: 475px) {
   .testimonials {
     padding-top: 3rem;
@@ -60,8 +36,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .testimonials__slide:not(.swiper-slide-active),
-  .testimonials__logo-icon {
+  .testimonials__slide:not(.swiper-slide-active) {
     transition: none;
   }
 }
@@ -79,10 +54,5 @@
 
   .testimonials__slide {
     width: 88vw;
-  }
-
-  .testimonials__logos {
-    gap: 1.75rem 2.5rem;
-    margin-top: 2.5rem;
   }
 }

@@ -1,68 +1,56 @@
 /**
- * Моковые данные отзывов клиентов для секции Testimonials.
+ * Данные отзывов для секции Testimonials.
  *
  * Видимый текст хранится в виде i18n-ключей (резолвится через `t()` в карточке),
- * как в `src/sections/projects/projects.js`. Имена клиентов — имена собственные,
- * поэтому оставлены литералами. Поля `initials` и `accent` управляют CSS-аватаром
- * (цветной кружок с инициалами); `accent` подставляется как динамический inline-стиль.
+ * как в `src/sections/projects/projects.js`. Отзывы не привязаны к конкретному
+ * реальному человеку или компании — вместо имени указывается тип проекта
+ * (`context`), чтобы не выдумывать личности и названия организаций.
+ * Поле `accent` управляет цветом CSS-иконки цитаты и подставляется как
+ * динамический inline-стиль.
  *
  * @typedef {Object} Testimonial
  * @property {number} id - Уникальный идентификатор отзыва
- * @property {string} name - Имя клиента (литерал, имя собственное)
- * @property {string} initials - Инициалы для аватара-заглушки
- * @property {string} accent - HEX-цвет фона аватара (динамический inline-стиль)
+ * @property {string} accent - HEX-цвет иконки цитаты (динамический inline-стиль)
  * @property {string} quote - i18n-ключ текста отзыва
- * @property {string} position - i18n-ключ должности/компании
+ * @property {string} context - i18n-ключ типа проекта (например, «Клиент · Корпоративный сайт»)
  *
  * @type {Testimonial[]}
  */
 export const testimonials = [
   {
     id: 1,
-    name: 'Michael Johnson',
-    initials: 'MJ',
     accent: '#0058a7',
-    quote: 'testimonials.michael.quote',
-    position: 'testimonials.michael.position',
+    quote: 'testimonials.cards.one.quote',
+    context: 'testimonials.cards.one.context',
   },
   {
     id: 2,
-    name: 'Sarah Chen',
-    initials: 'SC',
     accent: '#7c3aed',
-    quote: 'testimonials.sarah.quote',
-    position: 'testimonials.sarah.position',
+    quote: 'testimonials.cards.two.quote',
+    context: 'testimonials.cards.two.context',
   },
   {
     id: 3,
-    name: 'David Müller',
-    initials: 'DM',
     accent: '#0e7490',
-    quote: 'testimonials.david.quote',
-    position: 'testimonials.david.position',
+    quote: 'testimonials.cards.three.quote',
+    context: 'testimonials.cards.three.context',
   },
   {
     id: 4,
-    name: 'Elena Rossi',
-    initials: 'ER',
     accent: '#be185d',
-    quote: 'testimonials.elena.quote',
-    position: 'testimonials.elena.position',
+    quote: 'testimonials.cards.four.quote',
+    context: 'testimonials.cards.four.context',
   },
   {
     id: 5,
-    name: 'James Carter',
-    initials: 'JC',
     accent: '#15803d',
-    quote: 'testimonials.james.quote',
-    position: 'testimonials.james.position',
+    quote: 'testimonials.cards.five.quote',
+    context: 'testimonials.cards.five.context',
   },
   {
     id: 6,
-    name: 'Aisha Khan',
-    initials: 'AK',
     accent: '#b45309',
-    quote: 'testimonials.aisha.quote',
-    position: 'testimonials.aisha.position',
+    quote: 'testimonials.cards.six.quote',
+    context: 'testimonials.cards.six.context',
   },
 ];

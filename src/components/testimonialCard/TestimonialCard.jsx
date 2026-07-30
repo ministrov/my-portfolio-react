@@ -1,47 +1,41 @@
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { FaQuoteLeft } from 'react-icons/fa';
 import './style.css';
 
 /**
- * Карточка отзыва клиента: цитата, аватар-заглушка с инициалами,
- * имя и должность. Текст цитаты и должности резолвится из i18n по ключам.
+ * Карточка отзыва: цитата, декоративная иконка кавычек и тип проекта.
+ * Отзыв не привязан к конкретному человеку или компании — вместо имени
+ * показывается тип проекта (`context`), чтобы не выдумывать личности.
+ * Текст цитаты и типа проекта резолвится из i18n по ключам.
  *
  * @component
  * @param {Object} props - Свойства компонента.
  * @param {string} props.quote - i18n-ключ текста отзыва.
- * @param {string} props.name - Имя клиента (литерал, имя собственное).
- * @param {string} props.position - i18n-ключ должности/компании.
- * @param {string} props.initials - Инициалы для аватара-заглушки.
- * @param {string} props.accent - HEX-цвет фона аватара (динамический inline-стиль).
+ * @param {string} props.context - i18n-ключ типа проекта (например, «Клиент · Корпоративный сайт»).
+ * @param {string} props.accent - HEX-цвет иконки цитаты (динамический inline-стиль).
  * @returns {React.ReactElement} Карточка отзыва.
  *
  * @example
  * <TestimonialCard
- *   quote="testimonials.michael.quote"
- *   name="Michael Johnson"
- *   position="testimonials.michael.position"
- *   initials="MJ"
+ *   quote="testimonials.cards.one.quote"
+ *   context="testimonials.cards.one.context"
  *   accent="#0058a7"
  * />
  */
-const TestimonialCard = ({ quote, name, position, initials, accent }) => {
+const TestimonialCard = ({ quote, context, accent }) => {
   const { t } = useTranslation();
 
   return (
     <figure className="testimonial-card">
+      <FaQuoteLeft
+        className="testimonial-card__icon"
+        style={{ color: accent }}
+        aria-hidden="true"
+      />
       <blockquote className="testimonial-card__quote">{t(quote)}</blockquote>
-      <figcaption className="testimonial-card__author">
-        <span
-          className="testimonial-card__avatar"
-          style={{ backgroundColor: accent }}
-          aria-hidden="true"
-        >
-          {initials}
-        </span>
-        <span className="testimonial-card__meta">
-          <span className="testimonial-card__name">{name}</span>
-          <span className="testimonial-card__position">{t(position)}</span>
-        </span>
+      <figcaption className="testimonial-card__context">
+        {t(context)}
       </figcaption>
     </figure>
   );
@@ -50,13 +44,9 @@ const TestimonialCard = ({ quote, name, position, initials, accent }) => {
 TestimonialCard.propTypes = {
   /** i18n-ключ текста отзыва */
   quote: PropTypes.string.isRequired,
-  /** Имя клиента (литерал, имя собственное) */
-  name: PropTypes.string.isRequired,
-  /** i18n-ключ должности/компании */
-  position: PropTypes.string.isRequired,
-  /** Инициалы для аватара-заглушки */
-  initials: PropTypes.string.isRequired,
-  /** HEX-цвет фона аватара */
+  /** i18n-ключ типа проекта */
+  context: PropTypes.string.isRequired,
+  /** HEX-цвет иконки цитаты */
   accent: PropTypes.string.isRequired,
 };
 
