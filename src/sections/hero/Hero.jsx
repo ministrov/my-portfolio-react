@@ -13,6 +13,7 @@ const ANIMATION_DELAYS = {
   TITLE: 0.25,
   SUBTITLE: 0.4,
   BUTTON: 0.55,
+  SCROLL_HINT: 0.7,
 };
 
 /**
@@ -107,6 +108,17 @@ const Hero = () => {
                 </span>
               </a>
             </m.div>
+
+            <m.p
+              className="hero__scroll-hint"
+              {...fadeUp}
+              transition={{
+                ...fadeUp.transition,
+                delay: ANIMATION_DELAYS.SCROLL_HINT,
+              }}
+            >
+              {t('hero.scrollHint')}
+            </m.p>
           </div>
         </LazyMotion>
       </div>

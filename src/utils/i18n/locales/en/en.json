@@ -96,7 +96,8 @@
     "titleLead": "Transforming concepts into seamless",
     "titleAccent": "living products",
     "subtitle": "Hi! I'm Anton Zhilin, a Frontend Developer based in Moscow",
-    "btn": "Download CV"
+    "btn": "Download CV",
+    "scrollHint": "Scroll ↓"
   },
   "about": {
     "title": "Greeting, new customers!",
