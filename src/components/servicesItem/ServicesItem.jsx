@@ -32,7 +32,9 @@ const ServicesItem = ({ service, open, onClick }) => {
       </div>
       <div id={contentId} className="services__content">
         <h3 className="services__subheading">{t(title)}</h3>
-        <p className="services__description">{t(description)}</p>
+        <div className="services__desc-collapse">
+          <p className="services__description">{t(description)}</p>
+        </div>
       </div>
 
       <button
