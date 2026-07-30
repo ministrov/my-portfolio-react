@@ -50,16 +50,12 @@ const Hero = () => {
       <div className="container">
         <LazyMotion features={domAnimation}>
           <div className="hero__inner">
-            <m.p
+            <p
               className="hero__kicker"
-              {...fadeUp}
-              transition={{
-                ...fadeUp.transition,
-                delay: ANIMATION_DELAYS.KICKER,
-              }}
+              style={{ '--kicker-delay': `${ANIMATION_DELAYS.KICKER}s` }}
             >
               {t('hero.kicker')}
-            </m.p>
+            </p>
 
             <m.h1
               className="hero__title"
