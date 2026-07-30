@@ -7,12 +7,12 @@ import './styles.css';
 /**
  * Компонент переключателя языка (русский/английский).
  * Использует кастомный хук `useLanguage` для получения текущего языка и функции переключения.
- * Визуально представляет собой кнопку-переключатель с индикатором текущего языка.
+ * Компактная пилюля с текстом текущего языка — клик мгновенно переключает язык.
  *
  * @component
  * @param {Object} props - Пропсы компонента.
  * @param {string} [props.className=''] - Дополнительные CSS-классы для кнопки переключателя.
- * @returns {JSX.Element} Кнопка-переключатель языка с индикатором текущего языка.
+ * @returns {JSX.Element} Кнопка-переключатель языка с текстом текущего языка.
  *
  * @example
  * // Базовое использование
@@ -27,9 +27,7 @@ const ToggleLang = ({ className = '' }) => {
   const { t } = useTranslation();
   const isRu = lang === LANGUAGES.RU;
 
-  const btnClassName = ['toggle-btn', className, !isRu && 'toggled']
-    .filter(Boolean)
-    .join(' ');
+  const btnClassName = ['toggle-btn', className].filter(Boolean).join(' ');
 
   return (
     <button
@@ -38,7 +36,7 @@ const ToggleLang = ({ className = '' }) => {
       onClick={toggleLang}
       aria-label={t('toggleLang.ariaLabel')}
     >
-      <div className="thumb">{isRu ? 'Ру' : 'En'}</div>
+      {isRu ? 'Ру' : 'En'}
     </button>
   );
 };
