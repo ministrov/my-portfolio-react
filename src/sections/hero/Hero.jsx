@@ -1,5 +1,5 @@
 import { useTranslation, Trans } from 'react-i18next';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
+import { LazyMotion, MotionConfig, m, domAnimation } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
@@ -32,6 +32,23 @@ const fadeUp = {
 };
 
 /**
+ * Появление заголовка сквозь маску: контент "всплывает" из-под нижней границы
+ * h1 (у которого overflow:hidden в CSS) со снятием блюра и лёгким поворотом.
+ * Единый блок вместо покадрового реveal по строкам — переносы строк зависят
+ * от языка (ru использует <br/>, en переносится естественно), поэтому строки
+ * не фиксированы и не могут анимироваться по отдельности без риска разъехаться.
+ */
+const titleReveal = {
+  initial: { y: '30%', rotate: 1.2, opacity: 0, filter: 'blur(10px)' },
+  animate: { y: 0, rotate: 0, opacity: 1, filter: 'blur(0px)' },
+  transition: {
+    duration: 1.05,
+    delay: ANIMATION_DELAYS.TITLE,
+    ease: [0.16, 1, 0.3, 1],
+  },
+};
+
+/**
  * Hero-секция главной страницы: центрированный блок с кикером,
  * крупным заголовком с градиентным акцентом, подзаголовком
  * и кнопкой скачивания резюме.
@@ -49,73 +66,82 @@ const Hero = () => {
     <section className="hero">
       <div className="container">
         <LazyMotion features={domAnimation}>
-          <div className="hero__inner">
-            <p
-              className="hero__kicker"
-              style={{ '--kicker-delay': `${ANIMATION_DELAYS.KICKER}s` }}
-            >
-              {t('hero.kicker')}
-            </p>
+          <MotionConfig reducedMotion="user">
+            <div className="hero__inner">
+              <m.div
+                className="hero__bloom"
+                aria-hidden="true"
+                initial={{ opacity: 0, scale: 0.3 }}
+                animate={{ opacity: [0, 0.85, 0], scale: [0.3, 1, 1.5] }}
+                transition={{
+                  duration: 2.2,
+                  delay: ANIMATION_DELAYS.TITLE + 0.1,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              />
 
-            <m.h1
-              className="hero__title"
-              {...fadeUp}
-              transition={{
-                ...fadeUp.transition,
-                delay: ANIMATION_DELAYS.TITLE,
-              }}
-            >
-              <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
-              <span
-                className={`hero__title-accent${i18n.language === 'ru' ? ' hero__title-accent--block' : ''}`}
+              <p
+                className="hero__kicker"
+                style={{ '--kicker-delay': `${ANIMATION_DELAYS.KICKER}s` }}
               >
-                {t('hero.titleAccent')}
-              </span>
-            </m.h1>
+                {t('hero.kicker')}
+              </p>
 
-            <m.p
-              className="hero__subtitle"
-              {...fadeUp}
-              transition={{
-                ...fadeUp.transition,
-                delay: ANIMATION_DELAYS.SUBTITLE,
-              }}
-            >
-              {t('hero.subtitle')}
-            </m.p>
+              <h1 className="hero__title">
+                <m.div {...titleReveal}>
+                  <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
+                  <span
+                    className={`hero__title-accent${i18n.language === 'ru' ? ' hero__title-accent--block' : ''}`}
+                  >
+                    {t('hero.titleAccent')}
+                  </span>
+                </m.div>
+              </h1>
 
-            <m.div
-              className="hero__actions"
-              {...fadeUp}
-              transition={{
-                ...fadeUp.transition,
-                delay: ANIMATION_DELAYS.BUTTON,
-              }}
-            >
-              <a
-                className="hero__btn"
-                href={cvPdf}
-                download="Anton_Zhilin_CV.pdf"
-                rel="noopener noreferrer"
+              <m.p
+                className="hero__subtitle"
+                {...fadeUp}
+                transition={{
+                  ...fadeUp.transition,
+                  delay: ANIMATION_DELAYS.SUBTITLE,
+                }}
               >
-                {t('hero.btn')}
-                <span className="hero__btn-icon">
-                  <GoArrowUpRight />
-                </span>
-              </a>
-            </m.div>
+                {t('hero.subtitle')}
+              </m.p>
 
-            <m.p
-              className="hero__scroll-hint"
-              {...fadeUp}
-              transition={{
-                ...fadeUp.transition,
-                delay: ANIMATION_DELAYS.SCROLL_HINT,
-              }}
-            >
-              {t('hero.scrollHint')}
-            </m.p>
-          </div>
+              <m.div
+                className="hero__actions"
+                {...fadeUp}
+                transition={{
+                  ...fadeUp.transition,
+                  delay: ANIMATION_DELAYS.BUTTON,
+                }}
+              >
+                <a
+                  className="hero__btn"
+                  href={cvPdf}
+                  download="Anton_Zhilin_CV.pdf"
+                  rel="noopener noreferrer"
+                >
+                  {t('hero.btn')}
+                  <span className="hero__btn-icon">
+                    <GoArrowUpRight />
+                  </span>
+                </a>
+              </m.div>
+
+              <m.p
+                className="hero__scroll-hint"
+                {...fadeUp}
+                transition={{
+                  ...fadeUp.transition,
+                  delay: ANIMATION_DELAYS.SCROLL_HINT,
+                }}
+              >
+                {t('hero.scrollHint')}
+              </m.p>
+            </div>
+          </MotionConfig>
         </LazyMotion>
       </div>
     </section>
