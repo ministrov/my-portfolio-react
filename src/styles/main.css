@@ -200,6 +200,12 @@ a {
   text-decoration: none;
 }
 
+/* Превентивно: если заголовок секции когда-нибудь станет якорной целью
+   (hash-навигация, scrollIntoView), фикс-хедер не перекроет его. */
+[id$='-heading'] {
+  scroll-margin-top: var(--header-height, 100px);
+}
+
 li {
   list-style: none;
 }

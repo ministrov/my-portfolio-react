@@ -1,3 +1,9 @@
+:root {
+  /* Фактическая высота фикс-хедера — используется как scroll-margin-top
+     для якорных заголовков секций, чтобы их не перекрывало хедером. */
+  --header-height: 109px;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -42,6 +48,10 @@
 }
 
 @media only screen and (max-width: 992px) {
+  :root {
+    --header-height: 81px;
+  }
+
   .header {
     padding: 1rem;
   }
