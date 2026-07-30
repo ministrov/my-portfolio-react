@@ -23,15 +23,16 @@
   font-size: 1.25rem;
   line-height: 1.5rem;
   text-decoration: none;
-  color: var(--color-blue-700);
+  color: var(--color-gray-900);
+  transition: color 0.3s ease-in-out;
 }
 
 .nav-list__link:hover {
-  color: var(--color-blue-300);
+  color: var(--color-blue-700);
 }
 
 .nav-list__link.active {
-  color: var(--color-blue-300);
+  color: var(--color-blue-700);
 }
 
 @media screen and (max-width: 992px) {

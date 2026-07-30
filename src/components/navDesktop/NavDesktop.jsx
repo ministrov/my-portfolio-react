@@ -8,15 +8,16 @@ import './style.css';
 /**
  * Элемент навигационного меню с корректным состоянием активности.
  * Использует useMatch для установки aria-current только у текущего маршрута.
+ * Иконка маршрута здесь не отображается (см. `routes` в `const/`) — она
+ * используется только в мобильном меню (`navMobile/MenuItem.jsx`).
  *
  * @component
  * @param {Object} props - Свойства компонента.
  * @param {string} props.href - Путь маршрута.
- * @param {React.ComponentType} props.Icon - Компонент иконки.
  * @param {string} props.label - Переведённый текст ссылки.
  * @returns {JSX.Element} Ссылка навигации.
  */
-const NavItem = ({ href, Icon, label }) => {
+const NavItem = ({ href, label }) => {
   const end = href === '/';
   const match = useMatch({ path: href, end });
 
@@ -27,7 +28,6 @@ const NavItem = ({ href, Icon, label }) => {
       className="nav-list__link"
       aria-current={match ? 'page' : undefined}
     >
-      <Icon size={24} aria-hidden="true" />
       {label}
     </NavLink>
   );
@@ -36,8 +36,6 @@ const NavItem = ({ href, Icon, label }) => {
 NavItem.propTypes = {
   /** Путь маршрута */
   href: PropTypes.string.isRequired,
-  /** Компонент иконки */
-  Icon: PropTypes.elementType.isRequired,
   /** Переведённый текст ссылки */
   label: PropTypes.string.isRequired,
 };
@@ -58,9 +56,9 @@ const NavDesktop = () => {
   return (
     <nav className="nav-main" aria-label={t('mainNav.ariaLabel')}>
       <ul className="nav-list">
-        {routes.map(({ href, Icon, title }) => (
+        {routes.map(({ href, title }) => (
           <li key={href} className="nav-list__item">
-            <NavItem href={href} Icon={Icon} label={t(title)} />
+            <NavItem href={href} label={t(title)} />
           </li>
         ))}
       </ul>
