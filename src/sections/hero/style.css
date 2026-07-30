@@ -10,15 +10,27 @@
   overflow: hidden;
 }
 
-/* Сетка на дальнем плане — едва видима */
+/* Сетка на дальнем плане — едва видима; чистый CSS-паттерн вместо растрового
+   изображения, чтобы линии оставались ровными на любом размере экрана */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../../assets/png/grid-pattern.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.06;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      rgba(23, 23, 24, 0.05) 0,
+      rgba(23, 23, 24, 0.05) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(23, 23, 24, 0.05) 0,
+      rgba(23, 23, 24, 0.05) 1px,
+      transparent 1px,
+      transparent 120px
+    );
   pointer-events: none;
   z-index: 0;
 }
