@@ -17,44 +17,6 @@
   z-index: 2;
 }
 
-.hero__kicker {
-  --kicker-spacing: 4px;
-  margin-bottom: 1.5rem;
-  font-family: var(--font-headings);
-  font-size: clamp(0.8125rem, 1.2vw, 1rem);
-  font-weight: 400;
-  line-height: 1.4;
-  text-transform: uppercase;
-  letter-spacing: var(--kicker-spacing);
-  color: var(--color-gray-500);
-  opacity: 0;
-  animation: hero-kicker-track 1.2s var(--kicker-delay, 0s)
-    cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-/* Кикер "проявляется" сужением межбуквенного интервала и снятием блюра */
-@keyframes hero-kicker-track {
-  from {
-    letter-spacing: 1.1em;
-    opacity: 0;
-    filter: blur(6px);
-  }
-
-  to {
-    letter-spacing: var(--kicker-spacing);
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__kicker {
-    animation: none;
-    opacity: 1;
-    filter: none;
-  }
-}
-
 .hero__title {
   position: relative;
   margin-bottom: 1.75rem;
@@ -358,10 +320,6 @@
     min-height: auto;
     padding-top: 5rem;
     padding-bottom: 5rem;
-  }
-
-  .hero__kicker {
-    --kicker-spacing: 3px;
   }
 
   .hero__title-accent--block {

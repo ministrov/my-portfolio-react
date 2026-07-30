@@ -6,10 +6,9 @@ import './style.css';
 
 /**
  * Константы для анимационных задержек появления (в секундах).
- * @type {{ KICKER: number, TITLE: number, SUBTITLE: number, BUTTON: number }}
+ * @type {{ TITLE: number, SUBTITLE: number, BUTTON: number }}
  */
 const ANIMATION_DELAYS = {
-  KICKER: 0.1,
   TITLE: 0.25,
   SUBTITLE: 0.4,
   BUTTON: 0.55,
@@ -97,13 +96,6 @@ const Hero = () => {
                   ease: [0.16, 1, 0.3, 1],
                 }}
               />
-
-              <p
-                className="hero__kicker"
-                style={{ '--kicker-delay': `${ANIMATION_DELAYS.KICKER}s` }}
-              >
-                {t('hero.kicker')}
-              </p>
 
               <h1 className="hero__title">
                 <m.div {...titleReveal}>
