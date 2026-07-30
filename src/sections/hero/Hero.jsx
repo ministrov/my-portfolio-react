@@ -172,16 +172,12 @@ const Hero = () => {
                 </div>
               </m.div>
 
-              <m.p
+              <p
                 className="hero__scroll-hint"
-                {...fadeUp}
-                transition={{
-                  ...fadeUp.transition,
-                  delay: ANIMATION_DELAYS.SCROLL_HINT,
-                }}
+                style={{ '--scroll-delay': `${ANIMATION_DELAYS.SCROLL_HINT}s` }}
               >
                 {t('hero.scrollHint')}
-              </m.p>
+              </p>
             </div>
           </MotionConfig>
         </LazyMotion>
