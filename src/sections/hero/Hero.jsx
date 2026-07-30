@@ -96,6 +96,22 @@ const Hero = () => {
                     {t('hero.titleAccent')}
                   </span>
                 </m.div>
+
+                <m.span
+                  className="hero__title-glare"
+                  aria-hidden="true"
+                  initial={{ x: '-120%', skewX: -18, opacity: 0 }}
+                  animate={{ x: '220%', skewX: -18, opacity: [0, 0.9, 0.9, 0] }}
+                  transition={{
+                    duration: 1.5,
+                    delay:
+                      ANIMATION_DELAYS.TITLE +
+                      titleReveal.transition.duration +
+                      0.2,
+                    times: [0, 0.12, 0.88, 1],
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                />
               </h1>
 
               <m.p
