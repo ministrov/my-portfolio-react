@@ -108,6 +108,7 @@ html {
   /* Для Firefox */
   scrollbar-width: thin;
   scrollbar-color: var(--color-blue-700) #f1f1f1;
+  overflow-x: clip;
 }
 
 body,
@@ -129,11 +130,19 @@ button {
 
 body {
   min-width: 320px;
+  overflow-x: hidden;
   font-family: var(--font-base);
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
   background-color: var(--color-white);
+}
+
+/* Корневой контейнер React — последний рубеж против горизонтального скролла
+   от абсолютно спозиционированных декоративных элементов и не докрученных
+   whileInView-анимаций ниже сгиба. */
+#root {
+  overflow-x: hidden;
 }
 
 /* Единый фоновый паттерн документа: едва заметная сетка + два рассеянных
