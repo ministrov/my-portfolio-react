@@ -1,7 +1,7 @@
 .filter__btn {
   min-width: 135px;
   height: 40px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-base);
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -21,7 +21,9 @@
 .filter__btn:focus {
   outline: 2px solid var(--color-blue-500);
   outline-offset: 2px;
-  text-shadow: 1px 0 0, 0.3px 0 0;
+  text-shadow:
+    1px 0 0,
+    0.3px 0 0;
 }
 
 .filter__btn--active {
