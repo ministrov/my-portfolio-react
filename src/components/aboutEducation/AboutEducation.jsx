@@ -19,7 +19,6 @@ const AboutEducation = () => {
       <div className="container">
         <div className="about-education__wrapper">
           <Heading
-            variant="display"
             title={t('heading.education.name')}
             accent={t('heading.education.accent')}
           />

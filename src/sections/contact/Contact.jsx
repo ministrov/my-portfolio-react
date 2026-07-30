@@ -32,7 +32,6 @@ const Contact = () => {
     <section className="contact" aria-labelledby="contact-heading">
       <div className="container">
         <Heading
-          variant="display"
           id="contact-heading"
           title={t('heading.contact.name')}
           accent={t('heading.contact.accent')}

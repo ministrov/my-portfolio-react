@@ -17,23 +17,10 @@
 }
 
 .about-experience__item {
-  position: relative;
   background: var(--color-white);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 16px;
   padding: clamp(1.4rem, 1rem + 1.6vw, 2.25rem);
-}
-
-.about-experience__item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 1rem;
-  bottom: 1rem;
-  width: 3px;
-  border-radius: 999px;
-  background: var(--color-blue-700);
-  opacity: 0.4;
 }
 
 .about-experience__head {

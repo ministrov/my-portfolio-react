@@ -47,7 +47,6 @@ const AboutCapabilities = () => {
       <div className="container">
         <div className="about-capabilities__wrapper">
           <Heading
-            variant="display"
             title={t('heading.capabilities.name')}
             accent={t('heading.capabilities.accent')}
           />

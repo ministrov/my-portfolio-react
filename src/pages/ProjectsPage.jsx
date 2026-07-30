@@ -4,7 +4,6 @@ import { memo } from 'react';
 import { useSeoMeta } from '../hooks/useSeoMeta';
 import Projects from '../sections/projects/Projects.jsx';
 import Contact from '../sections/contact/Contact.jsx';
-import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
 
 /**
  * Компонент страницы проектов портфолио.
@@ -72,8 +71,6 @@ const ProjectsPage = () => {
         <meta name="twitter:image" content={ogImage} />
         <script type="application/ld+json">{breadcrumbSchema}</script>
       </Helmet>
-
-      <AnimatedBackground />
 
       <h1 className="visually-hidden">{t('pages.projects.heading')}</h1>
 

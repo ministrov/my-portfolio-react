@@ -2,31 +2,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, A11y } from 'swiper/modules';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import {
-  SiAppwrite,
-  SiDocker,
-  SiVercel,
-  SiSupabase,
-  SiFirebase,
-} from 'react-icons/si';
 import Heading from '../../components/heading/Heading';
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
 import { testimonials } from './testimonials';
 import './style.css';
-
-/**
- * Бренды для лого-полосы «нам доверяют».
- * Точных брендов с референса (Cloudinary/Hostinger/Stream) нет в установленной
- * версии react-icons, поэтому взяты доступные узнаваемые иконки.
- * @type {Array<{ name: string, Icon: React.ComponentType }>}
- */
-const BRAND_LOGOS = [
-  { name: 'Appwrite', Icon: SiAppwrite },
-  { name: 'Docker', Icon: SiDocker },
-  { name: 'Vercel', Icon: SiVercel },
-  { name: 'Supabase', Icon: SiSupabase },
-  { name: 'Firebase', Icon: SiFirebase },
-];
 
 /**
  * Конфигурация Swiper: центрированный активный слайд с подглядывающими соседями.
@@ -73,8 +52,9 @@ const fadeUp = {
 };
 
 /**
- * Секция отзывов клиентов: двухтоновый заголовок в стиле hero,
- * свайпер карточек-отзывов и лого-полоса технологий/партнёров.
+ * Секция отзывов клиентов: двухтоновый заголовок в стиле hero и свайпер
+ * карточек-отзывов. Отзывы не привязаны к конкретному реальному человеку
+ * или компании — карточки показывают тип проекта вместо имени.
  *
  * Весь текст резолвится из i18n-словаря по ключам `testimonials.*`.
  *
@@ -91,7 +71,6 @@ const Testimonials = () => {
         <div className="container">
           <m.div {...fadeUp}>
             <Heading
-              variant="display"
               id="testimonials-heading"
               title={t('testimonials.title')}
               accent={t('testimonials.titleAccent')}
@@ -109,28 +88,12 @@ const Testimonials = () => {
             <SwiperSlide key={item.id} className="testimonials__slide">
               <TestimonialCard
                 quote={item.quote}
-                name={item.name}
-                position={item.position}
-                initials={item.initials}
+                context={item.context}
                 accent={item.accent}
               />
             </SwiperSlide>
           ))}
         </Swiper>
-
-        <div className="container">
-          <ul
-            className="testimonials__logos"
-            aria-label={t('testimonials.logosAriaLabel')}
-          >
-            {BRAND_LOGOS.map(({ name, Icon }) => (
-              <li key={name} className="testimonials__logo">
-                <Icon className="testimonials__logo-icon" aria-hidden="true" />
-                <span className="visually-hidden">{name}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
       </LazyMotion>
     </section>
   );

@@ -19,22 +19,22 @@ const Footer = () => {
   return (
     <footer className="main-footer">
       <div className="main-footer__inner">
-        <Logo variant="white" />
+        <Logo />
 
         <p className="main-footer__copyright">
-          &copy; {t('footer.copyright')}{' '}
+          &copy; {t('footer.copyright', { year: new Date().getFullYear() })}{' '}
           <a
             className="main-footer__author"
             rel="noreferrer"
             target="_blank"
-            href="#!"
+            href="https://github.com/ministrov"
             aria-label={t('footer.author')}
           >
             {t('footer.author')}
           </a>
         </p>
 
-        <SocialList className="main-footer__list" />
+        <SocialList className="main-footer__list" variant="blue" />
       </div>
     </footer>
   );

@@ -1,3 +1,9 @@
+:root {
+  /* Фактическая высота фикс-хедера — используется как scroll-margin-top
+     для якорных заголовков секций, чтобы их не перекрывало хедером. */
+  --header-height: 109px;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -42,11 +48,21 @@
 }
 
 @media only screen and (max-width: 992px) {
+  :root {
+    --header-height: 81px;
+  }
+
   .header {
     padding: 1rem;
   }
 
   .header__actions > .cta-button {
+    display: none;
+  }
+
+  /* Переключатель языка дублируется внутри NavMobile — на мобильном/планшете
+     оставляем только один, в выезжающем меню */
+  .header__actions > .nav__lang {
     display: none;
   }
 }

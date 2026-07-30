@@ -9,7 +9,6 @@ import Services from '../sections/services/Services.jsx';
 import Contact from '../sections/contact/Contact.jsx';
 import Advantages from '../sections/advantages/Advantages.jsx';
 import Loader from '../components/loader/Loader';
-import AnimatedBackground from '../components/animatedBackground/AnimatedBackground.jsx';
 
 const Showcasing = lazy(() => import('../sections/showcasing/Showcasing.jsx'));
 const Testimonials = lazy(
@@ -86,7 +85,6 @@ const Home = () => {
         <script type="application/ld+json">{PERSON_SCHEMA}</script>
         <script type="application/ld+json">{WEBSITE_SCHEMA}</script>
       </Helmet>
-      <AnimatedBackground />
 
       <Hero />
       <About link />

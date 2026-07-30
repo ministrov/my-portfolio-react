@@ -79,6 +79,7 @@ export function useContactForm(onSuccess) {
   const [touched, setTouched] = useState({}); // какие поля уже трогали
   const [errors, setErrors] = useState({}); // ключи ошибок по полям
   const [status, setStatus] = useState('idle'); // idle|submitting|success|error
+  const [hasSubmitted, setHasSubmitted] = useState(false); // была ли хоть одна попытка отправки
 
   // ref не вызывает перерендер — используем для доступа к DOM-элементам полей
   const fieldRefs = useRef({});
@@ -94,11 +95,19 @@ export function useContactForm(onSuccess) {
     }
   };
 
-  /** Помечает поле как «тронутое» при потере фокуса и сразу валидирует. */
+  /**
+   * Помечает поле как «тронутое» при потере фокуса и валидирует.
+   * До первой попытки отправки ошибку «обязательное поле» не показываем —
+   * иначе она вспыхивала бы от обычного прохода табом по пустому полю,
+   * до которого пользователь ещё не дошёл. Остальные ошибки (формат, длина)
+   * означают, что пользователь уже что-то ввёл, — их показываем сразу.
+   */
   const handleBlur = (e) => {
     const { name, value } = e.target;
     setTouched((prev) => ({ ...prev, [name]: true }));
-    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
+    const error = validateField(name, value);
+    if (error === 'required' && !hasSubmitted) return;
+    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   /**
@@ -107,6 +116,7 @@ export function useContactForm(onSuccess) {
    */
   const handleSubmit = async (e) => {
     e.preventDefault(); // Отменяем нативное поведение формы (перезагрузку страницы)
+    setHasSubmitted(true); // с этого момента blur снова показывает "обязательное поле"
 
     // Помечаем все поля как тронутые — чтобы показать ошибки на всех незаполненных
     const allTouched = Object.keys(INITIAL_VALUES).reduce(
@@ -172,6 +182,7 @@ export function useContactForm(onSuccess) {
     setTouched({});
     setErrors({});
     setStatus('idle');
+    setHasSubmitted(false);
   };
 
   /** Возвращает локализованное сообщение об ошибке для поля. */

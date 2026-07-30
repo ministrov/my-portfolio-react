@@ -92,11 +92,11 @@
     "promoBtn": "Download CV"
   },
   "hero": {
-    "kicker": "Dynamic web magic with React & Next.js",
     "titleLead": "Transforming concepts into seamless",
     "titleAccent": "living products",
     "subtitle": "Hi! I'm Anton Zhilin, a Frontend Developer based in Moscow",
-    "btn": "Download CV"
+    "btn": "Download CV",
+    "scrollHint": "Scroll ↓"
   },
   "about": {
     "title": "Greeting, new customers!",
@@ -124,11 +124,7 @@
       "one": "I craft responsive and intuitive web interfaces using cutting-edge technologies and best practices. My goal is to create websites that not only look stunning but also perform flawlessly across all devices.",
       "two": "I design user-centric interfaces that prioritize usability and aesthetics, ensuring a smooth and enjoyable user experience. My focus is on creating visually appealing designs that enhance engagement and simplify interactions.",
       "three": "I optimize websites to improve search engine rankings, driving organic traffic and increasing visibility online. By implementing effective SEO strategies, I ensure your content reaches its target audience and achieves maximum impact."
-    },
-    "showMore": "Read more",
-    "hide": "Collapse",
-    "ariaShowMore": "Read more about this service",
-    "ariaHide": "Collapse details"
+    }
   },
   "advantages": {
     "items": {
@@ -196,30 +192,31 @@
     "title": "Kind words from",
     "titleAccent": "satisfied clients",
     "ariaLabel": "Client testimonials",
-    "logosAriaLabel": "Technologies and partners",
-    "michael": {
-      "quote": "Collaborating with Anton was an absolute pleasure from the first call to final delivery. His professionalism, promptness, and dedication to exceptional results were evident at every stage of our project. Anton's enthusiasm for every facet of development — from architecture down to the smallest interaction — truly stands out. If you're looking to elevate your website and strengthen your brand, Anton is the ideal partner, and I'd gladly work with him again.",
-      "position": "Director of AlphaStream Technologies"
-    },
-    "sarah": {
-      "quote": "Anton turned our rough, half-formed ideas into a polished and genuinely fast interface. Communication stayed transparent throughout, and every single deadline was met to the day.",
-      "position": "Product Lead at Nimbus Labs"
-    },
-    "david": {
-      "quote": "You rarely find a developer who is equally attentive to pixels and to performance budgets. Anton covered both fronts without compromise, kept the codebase clean, and explained every technical trade-off in plain language our whole team could follow.",
-      "position": "CTO at Hauptbahn Digital"
-    },
-    "elena": {
-      "quote": "Our landing page started converting noticeably better within weeks of Anton's redesign, and the difference was obvious in the numbers. The animations are subtle and purposeful, never decorative for their own sake — exactly the restraint we were hoping for. He questioned the brief where it mattered, proposed sharper alternatives, and still delivered ahead of schedule. Working with him felt less like hiring a contractor and more like gaining a teammate.",
-      "position": "Founder of Vela Studio"
-    },
-    "james": {
-      "quote": "Anton fit into the team from day one: clean commits, clear and respectful code reviews, and zero surprises in production. We'll absolutely be working with him again on the next release.",
-      "position": "Engineering Manager at Northpeak"
-    },
-    "aisha": {
-      "quote": "He implemented our design system pixel-for-pixel across dozens of components, and then went further — suggesting accessibility improvements we simply hadn't considered. The result is a library that is not only beautiful but usable by everyone, and our designers finally trust the handoff.",
-      "position": "Head of Design at Lumen Co."
+    "cards": {
+      "one": {
+        "quote": "Collaborating with Anton was an absolute pleasure from the first call to final delivery. His professionalism, promptness, and dedication to exceptional results were evident at every stage of our project. Anton's enthusiasm for every facet of development — from architecture down to the smallest interaction — truly stands out. If you're looking to elevate your website and strengthen your brand, Anton is the ideal partner, and I'd gladly work with him again.",
+        "context": "Client · Corporate website"
+      },
+      "two": {
+        "quote": "Anton turned our rough, half-formed ideas into a polished and genuinely fast interface. Communication stayed transparent throughout, and every single deadline was met to the day.",
+        "context": "Client · UI/UX redesign"
+      },
+      "three": {
+        "quote": "You rarely find a developer who is equally attentive to pixels and to performance budgets. Anton covered both fronts without compromise, kept the codebase clean, and explained every technical trade-off in plain language our whole team could follow.",
+        "context": "Client · Performance optimization"
+      },
+      "four": {
+        "quote": "Our landing page started converting noticeably better within weeks of Anton's redesign, and the difference was obvious in the numbers. The animations are subtle and purposeful, never decorative for their own sake — exactly the restraint we were hoping for. He questioned the brief where it mattered, proposed sharper alternatives, and still delivered ahead of schedule. Working with him felt less like hiring a contractor and more like gaining a teammate.",
+        "context": "Client · Landing page redesign"
+      },
+      "five": {
+        "quote": "Anton fit into the team from day one: clean commits, clear and respectful code reviews, and zero surprises in production. We'll absolutely be working with him again on the next release.",
+        "context": "Client · Team-based development"
+      },
+      "six": {
+        "quote": "He implemented our design system pixel-for-pixel across dozens of components, and then went further — suggesting accessibility improvements we simply hadn't considered. The result is a library that is not only beautiful but usable by everyone, and our designers finally trust the handoff.",
+        "context": "Client · Design system"
+      }
     }
   },
   "socials": {
@@ -233,7 +230,7 @@
   },
   "footer": {
     "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
-    "copyright": "Copyright 2025. Made by",
+    "copyright": "Copyright {{year}}. Made by",
     "author": "Anton Zhilin",
     "reachOutButton": "Reach Out"
   },
@@ -244,7 +241,7 @@
     "photoAlt": "Close-up of the project author"
   },
   "aboutStory": {
-    "srHeading": "A unified About me section for a single-page portfolio, structured in three layers: result, approach, facts.",
+    "srHeading": "How I work: outcome, approach, and facts about me",
     "para1": "Frontend developer based in Moscow. I turn ideas into working products — interfaces that feel just as natural on a phone, a tablet, or a desktop, and never lose the user on the small details. I build clean, down to <mark>pixel-perfect</mark>, because aesthetics and usability aren't finishing touches — they're part of the result.",
     "para2": "Behind the polished surface is solid engineering: <stack>Next.js (Pages/App Router), TypeScript, RTK Query, React i18next, CSS Modules, mobile-first</stack>. I care about speed (optimizing <mark>Core Web Vitals</mark>) and about making products accessible to everyone (<mark>WCAG 2.1</mark>). I work in Agile/Scrum with CI/CD.",
     "para3": "<mark>Middle</mark> level confirmed at the HTML Academy championship. Open to office, hybrid, or remote work. <cta>Tell me what you need built?</cta>"

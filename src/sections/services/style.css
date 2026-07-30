@@ -4,12 +4,11 @@
   justify-content: center;
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-color: var(--color-gray-600);
 }
 
 .services__list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 2rem;
 }
 

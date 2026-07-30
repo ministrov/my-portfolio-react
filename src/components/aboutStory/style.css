@@ -1,12 +1,13 @@
 .about-story {
-  /* Слои в фирменной синей гамме: тёмный → средний → светлый.
-     Софт-тона — фон подсветки ключевых фраз (<mark>). */
+  /* Три слоя различаются оттенком (синий/бирюзовый/фиолетовый), а не светлотой —
+     все три цвета проходят WCAG AA (>=4.5:1) как цвет текста <mark>.
+     Софт-тона — фон подсветки ключевых фраз (<mark>), не участвуют в контрасте текста. */
   --layer-1: var(--color-blue-700);
   --layer-1-soft: #d6e7f6;
-  --layer-2: var(--color-blue-300);
-  --layer-2-soft: #e2edf9;
-  --layer-3: #6aa3db;
-  --layer-3-soft: #edf4fc;
+  --layer-2: #0e7490;
+  --layer-2-soft: #dbeef0;
+  --layer-3: var(--color-violet-500);
+  --layer-3-soft: var(--color-violet-50);
 
   /* Единый резкий акцент — для призыва к действию */
   --story-cta: var(--color-red-500);
@@ -36,7 +37,7 @@
 .about-story__para {
   position: relative;
   margin: 0;
-  padding: 0.45rem 0.4rem 0.45rem 1.15rem;
+  padding: 0.45rem 0.4rem;
   border-radius: 10px;
   font-size: clamp(1rem, 0.96rem + 0.3vw, 1.0625rem);
   line-height: 1.75;
@@ -45,19 +46,6 @@
 
 .about-story__para + .about-story__para {
   margin-top: 0.85rem;
-}
-
-/* Вертикальный маркер слева — цвет берётся из --accent слоя */
-.about-story__para::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.6rem;
-  bottom: 0.6rem;
-  width: 3px;
-  border-radius: 999px;
-  background: var(--accent);
-  opacity: 0.4;
 }
 
 /* Привязка цвета акцента к каждому слою */
@@ -89,10 +77,7 @@
   font-weight: 700;
   font-size: 3.1em;
   line-height: 0.74;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-blue-700);
 }
 
 /* ───────────────────────── Акценты внутри текста ───────────────────────── */

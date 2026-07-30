@@ -32,16 +32,15 @@
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
   scrollbar-width: none;
-  background: #0b1629;
+  background: #101d33;
   box-shadow:
-    0 0 0 1px rgba(144, 232, 248, 0.04),
-    0 32px 80px rgba(0, 0, 0, 0.6),
-    0 8px 24px rgba(0, 0, 0, 0.4);
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    0 8px 20px rgba(0, 0, 0, 0.25);
   cursor: default;
 }
 
 .modal:focus {
-  outline: 2px solid rgba(144, 232, 248, 0.45);
+  outline: 2px solid rgba(94, 202, 222, 0.45);
   outline-offset: 2px;
 }
 
@@ -76,7 +75,7 @@
 }
 
 .modal__close:focus-visible {
-  outline: 2px solid rgba(144, 232, 248, 0.55);
+  outline: 2px solid rgba(94, 202, 222, 0.55);
   outline-offset: 2px;
 }
 
@@ -94,7 +93,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #90e8f8;
+  color: #5ecade;
 }
 
 .modal__title {

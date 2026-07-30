@@ -7,7 +7,6 @@ import AboutExperience from '../components/aboutExperience/AboutExperience';
 import AboutEducation from '../components/aboutEducation/AboutEducation';
 import AuthorPhoto from '../components/authorPhoto/AuthorPhoto';
 import Contact from '../sections/contact/Contact';
-import AnimatedBackground from '../components/animatedBackground/AnimatedBackground';
 
 /**
  * Страница "Обо мне" - отображает информацию об авторе, опыт, образование и контактную форму.
@@ -75,8 +74,6 @@ const AboutPage = () => {
         <meta name="twitter:image" content={ogImage} />
         <script type="application/ld+json">{breadcrumbSchema}</script>
       </Helmet>
-
-      <AnimatedBackground />
 
       {/* Скрытый заголовок для доступности */}
       <h1 className="visually-hidden">{t('pages.about.title')}</h1>

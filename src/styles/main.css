@@ -73,7 +73,7 @@
   /* Серые оттенки */
   --color-gray-100: #fafafa;
   --color-gray-200: #eef4ff;
-  --color-gray-500: #777;
+  --color-gray-500: #6e6e6e;
   --color-gray-600: #e6edf8;
   --color-gray-800: #26292d;
   --color-gray-900: #171718;
@@ -108,6 +108,7 @@ html {
   /* Для Firefox */
   scrollbar-width: thin;
   scrollbar-color: var(--color-blue-700) #f1f1f1;
+  overflow-x: clip;
 }
 
 body,
@@ -129,11 +130,56 @@ button {
 
 body {
   min-width: 320px;
+  overflow-x: hidden;
   font-family: var(--font-base);
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
   background-color: var(--color-white);
+}
+
+/* Корневой контейнер React — последний рубеж против горизонтального скролла
+   от абсолютно спозиционированных декоративных элементов и не докрученных
+   whileInView-анимаций ниже сгиба. */
+#root {
+  overflow-x: hidden;
+}
+
+/* Единый фоновый паттерн документа: едва заметная сетка + два рассеянных
+   синих пятна у верхних углов. Раньше жил только внутри .hero, теперь виден
+   на всех страницах позади всех секций (звёзды AnimatedBackground рисуются
+   ещё дальше, см. animatedBackground/styles.css). */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      rgba(23, 23, 24, 0.05) 0,
+      rgba(23, 23, 24, 0.05) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(23, 23, 24, 0.05) 0,
+      rgba(23, 23, 24, 0.05) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    radial-gradient(
+      ellipse 55% 50% at 6% 0%,
+      rgba(0, 88, 167, 0.22) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 55% 50% at 94% 0%,
+      rgba(0, 88, 167, 0.16) 0%,
+      transparent 70%
+    );
 }
 
 body::-webkit-scrollbar {
@@ -152,6 +198,12 @@ body::-webkit-scrollbar-thumb {
 
 a {
   text-decoration: none;
+}
+
+/* Превентивно: если заголовок секции когда-нибудь станет якорной целью
+   (hash-навигация, scrollIntoView), фикс-хедер не перекроет его. */
+[id$='-heading'] {
+  scroll-margin-top: var(--header-height, 100px);
 }
 
 li {

@@ -3,43 +3,20 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-height: fit-content;
   padding: 24px;
   border: 1px solid transparent;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-s);
   transition:
-    max-height 0.5s ease-in-out,
     transform 0.3s ease,
     box-shadow 0.3s ease,
     border-color 0.3s ease;
-  will-change: max-height;
-  overflow: hidden;
 }
 
 .services__item:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 36px rgba(0, 88, 167, 0.18);
   border-color: rgba(0, 88, 167, 0.2);
-}
-
-.services__item.services__expanded .services__description {
-  overflow: initial;
-  white-space: initial;
-  line-height: 1.6;
-}
-
-.services__item.services__expanded {
-  max-height: none;
-  animation: fadeIn 0.6s ease-in-out forwards;
-}
-
-.services__item-text {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 42px;
-  color: transparent;
-  transition: all 0.3s ease;
 }
 
 .services__subheading {
@@ -50,13 +27,9 @@
 }
 
 .services__description {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   margin: 0;
   font-size: 18px;
   line-height: 24px;
-  transition: all 0.3s ease;
   color: var(--color-blue-700);
 }
 
@@ -75,31 +48,21 @@
   background-color: var(--color-blue-300);
 }
 
-.services__more {
-  display: flex;
-  max-width: fit-content;
-  margin-top: auto;
-  padding-bottom: 4px;
-  font-family: inherit;
-  font-size: 16px;
-  line-height: 20px;
-  color: var(--color-blue-700);
-  appearance: none;
-  border: none;
-  border-bottom: 1px solid var(--color-blue-700);
-  background-color: transparent;
-  cursor: pointer;
-  transition: border-bottom 0.5s ease-in-out;
+/* Флагманская услуга (первая карточка) — крупнее иконка и подзаголовок,
+   чтобы читаться как лид среди трёх равнозначных по вёрстке карточек. */
+.services__item:first-child .services__icon {
+  width: 84px;
+  padding: 14px;
 }
 
-.services__more:hover {
-  opacity: 0.7;
-  color: var(--color-blue-300);
-  border-bottom: 1px solid transparent;
+.services__item:first-child .services__icon svg {
+  width: 42px;
+  height: 42px;
 }
 
-.text-outline {
-  -webkit-text-stroke: 1px var(--color-blue-700);
+.services__item:first-child .services__subheading {
+  font-size: 30px;
+  line-height: 36px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -110,13 +73,6 @@
   .services__description {
     font-size: 18px;
     line-height: 24px;
-    white-space: nowrap;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .services__description {
-    max-width: 100%;
   }
 }
 
@@ -136,23 +92,9 @@
     font-size: 16px;
     line-height: 22px;
   }
-
-  .services__item.services__expanded .services__description {
-    max-width: 100%;
-  }
-
-  .services__more {
-    padding-bottom: 0;
-    font-size: 12px;
-    line-height: 18px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .services__item {
-    transition: max-height 0.5s ease-in-out;
-  }
-
   .services__item:hover {
     transform: none;
   }

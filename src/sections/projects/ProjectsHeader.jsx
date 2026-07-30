@@ -20,7 +20,6 @@ const ProjectsHeader = ({ breadcrumbs, title, accent }) => {
     <>
       <Breadcrumbs items={breadcrumbs} />
       <Heading
-        variant="display"
         id="projects-heading"
         title={title}
         accent={accent}

@@ -1,117 +1,21 @@
-.heading-sec__main {
-  position: relative;
-  display: block;
-  margin-bottom: 2rem;
-  font-family: var(--font-display);
-  font-size: 3.8rem;
-  font-weight: 400;
-  line-height: 90%;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--color-blue-700);
-}
-
-.heading-sec__main::after {
-  position: absolute;
-  content: '';
-  top: calc(100% + 1rem);
-  left: 50%;
-  height: 5px;
-  width: 48px;
-  transform: translateX(-50%);
-  border-radius: var(--border-radius-s);
-  background: var(--color-blue-700);
-  transition: opacity 0.2s ease;
-}
-
-.heading-sec__main--no-line::after {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.heading-sec__mb-med {
-  margin-bottom: 4rem;
-}
-
-/* Крупный двухтоновый вариант (display): не капсом, тёмное начало + градиентный акцент */
+/* Заголовок секции: тёмное начало + акцентная часть вторым цветом */
 .heading-sec--display {
   margin-bottom: 3rem;
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.1;
   text-align: center;
   color: var(--color-gray-900);
 }
 
-/* Акцентная часть заголовка — синий градиент сайта по тексту */
+/* Акцентная часть заголовка — однотонный фиолетовый, вес и размер уже дают акцент */
 .heading-sec__accent {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.heading-sec__sub {
-  display: block;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 30px;
-  text-align: center;
-  color: var(--color-blue-700);
-  margin-top: 0.5rem;
-}
-
-@media only screen and (max-width: 1348px) {
-  .heading-sec__main {
-    margin-bottom: 2rem;
-    font-size: 3.5rem;
-    line-height: 100%;
-  }
+  color: var(--color-violet-500);
 }
 
 @media screen and (max-width: 768px) {
-  .heading-sec__mb-med {
-    margin-bottom: 2rem;
-  }
-
   .heading-sec--display {
     margin-bottom: 2rem;
-  }
-
-  .heading-sec__sub {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
-
-@media screen and (max-width: 575px) {
-  .heading-sec__main {
-    font-size: 3rem;
-    text-align: start;
-  }
-
-  .heading-sec__main::after {
-    display: none;
-  }
-
-  .heading-sec__sub {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .heading-sec__main {
-    font-size: 2.75rem;
-  }
-}
-
-@media screen and (max-width: 374px) {
-  .heading-sec__main {
-    font-size: 2.5rem;
-  }
-
-  .heading-sec__mb-med {
-    margin-bottom: 1rem;
   }
 }

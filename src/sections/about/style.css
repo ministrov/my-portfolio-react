@@ -2,7 +2,6 @@
   position: relative;
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-color: var(--color-gray-600);
 }
 
 .about__without {
@@ -14,14 +13,6 @@
   display: flex;
   align-items: flex-start;
   gap: 3rem;
-}
-
-.about__wrapper .heading-sec__main::after {
-  display: none;
-}
-
-.about__wrapper .heading-sec__mb-med {
-  margin-bottom: 0;
 }
 
 /* ───────────────────────── Левая колонка ───────────────────────── */

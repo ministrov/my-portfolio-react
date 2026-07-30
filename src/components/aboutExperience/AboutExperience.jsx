@@ -22,7 +22,6 @@ const AboutExperience = () => {
       <div className="container">
         <div className="about-experience__wrapper">
           <Heading
-            variant="display"
             title={t('heading.experience.name')}
             accent={t('heading.experience.accent')}
           />

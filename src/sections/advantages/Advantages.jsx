@@ -23,7 +23,6 @@ const Advantages = () => {
     <section className="advantages">
       <div className="container">
         <Heading
-          variant="display"
           title={t('heading.advantages.name')}
           accent={t('heading.advantages.accent')}
         />

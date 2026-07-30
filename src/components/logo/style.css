@@ -9,14 +9,21 @@
   align-items: baseline;
   font-family: var(--font-headings);
   font-size: 1.75rem;
+  font-weight: 700;
   line-height: 2.125rem;
-  color: var(--color-blue-700);
+  color: var(--color-gray-900);
   text-decoration: none;
   cursor: pointer;
   transition:
     opacity 0.2s ease,
     transform 0.2s ease,
     color 0.3s ease-in-out;
+}
+
+/* Акцентный хвост wordmark'а (например "Dev") */
+.logo__text--accent {
+  color: var(--color-blue-700);
+  transition: color 0.3s ease-in-out;
 }
 
 .logo__link:hover {
@@ -34,7 +41,7 @@
 .logo__caret {
   margin-left: 0.08em;
   font-weight: 700;
-  color: var(--color-violet-500);
+  color: var(--color-blue-700);
   animation: logo-caret-blink 1.06s steps(1) infinite;
 }
 
@@ -49,11 +56,19 @@
   color: var(--color-white);
 }
 
+.logo__link--white .logo__text--accent {
+  color: var(--color-white);
+}
+
 .logo__link--white .logo__caret {
   color: var(--color-violet-400);
 }
 
 .logo__link--monochrome {
+  color: var(--color-gray-900);
+}
+
+.logo__link--monochrome .logo__text--accent {
   color: var(--color-gray-900);
 }
 
