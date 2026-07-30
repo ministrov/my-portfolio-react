@@ -2,7 +2,7 @@
   position: relative;
   width: 52px;
   height: 34px;
-  border: 2px solid var(--color-blue-700);
+  border: 1px solid rgba(23, 23, 24, 0.15);
   border-radius: 99px;
   transition:
     background-color 0.5s ease-in-out,
@@ -15,7 +15,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  color: var(--color-blue-700);
+  color: var(--color-gray-900);
 }
 
 .toggle-btn .thumb {
@@ -46,7 +46,7 @@
   .toggle-btn .thumb {
     left: 2px;
     border-radius: var(--border-radius-s);
-    background-color: var(--color-blue-700);
+    background-color: var(--color-gray-900);
   }
 
   .toggle-btn.toggled .thumb {
