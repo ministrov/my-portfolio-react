@@ -29,3 +29,6 @@ yarn-error.log*
 # playwright MCP artifacts
 .playwright-mcp/
 screenshot-*.png
+
+# impeccable skill local state (critique history, hook cache)
+.impeccable/
