@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import ServicesItem from '../../components/servicesItem/ServicesItem';
@@ -13,23 +12,11 @@ import './style.css';
 const ANIMATION_DELAY_FACTOR = 0.3;
 
 /**
- * Компонент секции услуг с раскрывающимися карточками
+ * Компонент секции услуг
  * @returns {JSX.Element} Секция услуг
  */
 const Services = () => {
-  const [openCards, setOpenCards] = useState({});
   const { t } = useTranslation();
-
-  /**
-   * Обработчик переключения состояния карточки
-   * @param {number} id - Идентификатор услуги
-   */
-  const handleToggleExpand = (id) => {
-    setOpenCards((prevState) => ({
-      ...prevState,
-      [id]: !prevState[id],
-    }));
-  };
 
   // Если услуг нет, не рендерим список
   if (!services || services.length === 0) {
@@ -50,7 +37,7 @@ const Services = () => {
           <LazyMotion features={domAnimation}>
             {services.map((service, index) => (
               <m.li
-                className={`services__item ${openCards[service.id] ? 'services__expanded' : ''}`}
+                className="services__item"
                 key={service.id}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -59,11 +46,7 @@ const Services = () => {
                   delay: index * ANIMATION_DELAY_FACTOR,
                 }}
               >
-                <ServicesItem
-                  service={service}
-                  open={openCards[service.id]}
-                  onClick={() => handleToggleExpand(service.id)}
-                />
+                <ServicesItem service={service} />
               </m.li>
             ))}
           </LazyMotion>
