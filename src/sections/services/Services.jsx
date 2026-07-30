@@ -27,7 +27,6 @@ const Services = () => {
     <section className="services" aria-labelledby="services-heading">
       <div className="container">
         <Heading
-          variant="display"
           id="services-heading"
           title={t('heading.myServices.name')}
           accent={t('heading.myServices.accent')}

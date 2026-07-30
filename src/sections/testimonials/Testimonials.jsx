@@ -71,7 +71,6 @@ const Testimonials = () => {
         <div className="container">
           <m.div {...fadeUp}>
             <Heading
-              variant="display"
               id="testimonials-heading"
               title={t('testimonials.title')}
               accent={t('testimonials.titleAccent')}

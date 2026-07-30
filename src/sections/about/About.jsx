@@ -80,7 +80,6 @@ const About = ({ link = false, button = false, border = false }) => {
             {/* Левая колонка: заголовок + идентификационная карточка */}
             <div className="about__left">
               <Heading
-                variant="display"
                 title={t('heading.about.name')}
                 accent={t('heading.about.accent')}
               />

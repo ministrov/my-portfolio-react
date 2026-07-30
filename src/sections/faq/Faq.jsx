@@ -24,7 +24,6 @@ const Faq = () => {
     <section className="faq" aria-labelledby="faq-heading">
       <div className="container">
         <Heading
-          variant="display"
           id="faq-heading"
           title={t('heading.faq.name')}
           accent={t('heading.faq.accent')}
