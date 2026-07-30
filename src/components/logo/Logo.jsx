@@ -20,6 +20,9 @@ import './style.css';
  * <Logo />
  * <Logo variant="white" size="large" />
  */
+/** Акцентная часть wordmark'а, которая красится отдельным цветом */
+const ACCENT_TEXT = 'Dev';
+
 const Logo = ({
   className = '',
   variant,
@@ -40,13 +43,22 @@ const Logo = ({
     .filter(Boolean)
     .join(' ');
 
+  // Двухцветный wordmark: базовая часть + акцентный хвост "Dev"
+  const hasAccent = text.endsWith(ACCENT_TEXT);
+  const baseText = hasAccent
+    ? text.slice(0, text.length - ACCENT_TEXT.length)
+    : text;
+
   return (
     <Link
       to="/"
       className={linkClasses}
       aria-label={t('logo.ariaLabel', { text })}
     >
-      <span className="logo__text">{text}</span>
+      <span className="logo__text">{baseText}</span>
+      {hasAccent && (
+        <span className="logo__text logo__text--accent">{ACCENT_TEXT}</span>
+      )}
       {showIcon && (
         <span className="logo__caret" aria-hidden="true">
           _
