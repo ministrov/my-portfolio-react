@@ -44,12 +44,9 @@
   color: var(--color-gray-900);
 }
 
-/* Акцентная часть заголовка — синий градиент сайта по тексту */
+/* Акцентная часть заголовка — однотонный фиолетовый, вес и размер уже дают акцент */
 .heading-sec__accent {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-violet-500);
 }
 
 .heading-sec__sub {
