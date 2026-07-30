@@ -205,10 +205,60 @@
   justify-content: center;
 }
 
-/* Стеклянная пилюля с радужным blur-свечением позади (::before) */
+/* Обёртка-рамка: держит вращающийся conic-gradient слой отдельно от
+   .hero__btn, у которого есть backdrop-filter — анимированный transform на
+   ::before внутри backdrop-filter элемента давал баг рендеринга (кнопка
+   "размазывалась" в гигантскую диагональную полосу), поэтому слой вынесен
+   в необлюренную обёртку с overflow:hidden, как в исходном хендоффе. */
+.hero__btn-frame {
+  position: relative;
+  display: inline-flex;
+  isolation: isolate;
+  padding: 2px;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(23, 23, 24, 0.08);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.hero__btn-frame:hover {
+  box-shadow: 0 12px 32px rgba(23, 23, 24, 0.14);
+}
+
+.hero__btn-frame:focus-within {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 4px;
+}
+
+/* Вращающаяся радужная рамка: синий → фиолетовый → розовый → синий */
+.hero__btn-spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: 300%;
+  height: 900%;
+  margin-top: -450%;
+  margin-left: -150%;
+  background: conic-gradient(
+    from 0deg,
+    var(--color-blue-700),
+    var(--color-violet-500),
+    var(--color-red-500),
+    var(--color-blue-700)
+  );
+  animation: hero-btn-spin 6s linear infinite;
+}
+
+@keyframes hero-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .hero__btn {
   position: relative;
-  isolation: isolate;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 16px;
@@ -218,65 +268,25 @@
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-gray-900);
-  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 999px;
   background-color: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(16px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
-  box-shadow: 0 8px 24px rgba(23, 23, 24, 0.08);
-  transition:
-    transform 0.3s ease-in-out,
-    box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Радужное свечение под пилюлей: розовый → фиолетовый → синий */
-.hero__btn::before {
-  content: '';
+/* Пульсирующее кольцо, дважды проигрывается при появлении кнопки */
+.hero__btn-ring {
   position: absolute;
-  inset: -18px;
+  inset: -2px;
   z-index: -1;
+  border: 2px solid var(--color-blue-700);
   border-radius: inherit;
-  background:
-    radial-gradient(
-      circle at 28% 30%,
-      rgba(193, 21, 116, 0.5) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      circle at 70% 35%,
-      rgba(124, 58, 237, 0.5) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      circle at 50% 85%,
-      rgba(37, 99, 235, 0.45) 0%,
-      transparent 60%
-    );
-  filter: blur(20px);
-  animation: hero-btn-glow 6s ease-in-out infinite;
+  pointer-events: none;
 }
 
-@keyframes hero-btn-glow {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.85;
-  }
-
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-}
-
-.hero__btn:hover {
+.hero__btn-frame:hover .hero__btn {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(23, 23, 24, 0.14);
-}
-
-.hero__btn:focus-visible {
-  outline: 2px solid var(--color-blue-700);
-  outline-offset: 4px;
 }
 
 .hero__btn-icon {
@@ -290,6 +300,24 @@
   color: var(--color-white);
   background: var(--gradient);
   border-radius: 50%;
+  animation: hero-btn-icon-orbit 3.6s ease-in-out 2.6s infinite;
+}
+
+/* Лёгкое покачивание иконки в собственной орбите, бесконечно */
+@keyframes hero-btn-icon-orbit {
+  0%,
+  62%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  74% {
+    transform: translate(3px, -3px);
+  }
+
+  86% {
+    transform: translate(0, 0);
+  }
 }
 
 .hero__scroll-hint {
@@ -305,8 +333,17 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero__btn,
-  .hero__btn::before {
+  .hero__btn-frame,
+  .hero__btn-spin {
     transition: none;
+    animation: none;
+  }
+
+  .hero__btn-ring {
+    display: none;
+  }
+
+  .hero__btn-icon {
     animation: none;
   }
 }
@@ -339,6 +376,11 @@
   }
 
   /* На узких экранах кнопка растягивается на всю ширину контента */
+  .hero__btn-frame {
+    display: flex;
+    width: 100%;
+  }
+
   .hero__btn {
     width: 100%;
     justify-content: space-between;

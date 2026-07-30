@@ -49,6 +49,24 @@ const titleReveal = {
 };
 
 /**
+ * Появление CTA-кнопки с небольшим "перелётом" (overshoot) по масштабу —
+ * кубическая безье с y1 > 1 естественно даёт эффект пружины без keyframe-массивов.
+ */
+const ctaPop = {
+  initial: { opacity: 0, scale: 0.82, y: 14 },
+  animate: { opacity: 1, scale: 1, y: 0 },
+  transition: {
+    duration: 0.95,
+    delay: ANIMATION_DELAYS.BUTTON,
+    ease: [0.2, 1.5, 0.35, 1],
+  },
+};
+
+/** Момент, когда пульсирующее кольцо у CTA начинает проигрываться (после pop) */
+const CTA_RING_DELAY =
+  ANIMATION_DELAYS.BUTTON + ctaPop.transition.duration + 0.15;
+
+/**
  * Hero-секция главной страницы: центрированный блок с кикером,
  * крупным заголовком с градиентным акцентом, подзаголовком
  * и кнопкой скачивания резюме.
@@ -125,25 +143,33 @@ const Hero = () => {
                 {t('hero.subtitle')}
               </m.p>
 
-              <m.div
-                className="hero__actions"
-                {...fadeUp}
-                transition={{
-                  ...fadeUp.transition,
-                  delay: ANIMATION_DELAYS.BUTTON,
-                }}
-              >
-                <a
-                  className="hero__btn"
-                  href={cvPdf}
-                  download="Anton_Zhilin_CV.pdf"
-                  rel="noopener noreferrer"
-                >
-                  {t('hero.btn')}
-                  <span className="hero__btn-icon">
-                    <GoArrowUpRight />
-                  </span>
-                </a>
+              <m.div className="hero__actions" {...ctaPop}>
+                <div className="hero__btn-frame">
+                  <span className="hero__btn-spin" aria-hidden="true" />
+                  <a
+                    className="hero__btn"
+                    href={cvPdf}
+                    download="Anton_Zhilin_CV.pdf"
+                    rel="noopener noreferrer"
+                  >
+                    <m.span
+                      className="hero__btn-ring"
+                      aria-hidden="true"
+                      initial={{ opacity: 0.5, scale: 0.9 }}
+                      animate={{ opacity: 0, scale: 1.55 }}
+                      transition={{
+                        duration: 1.5,
+                        delay: CTA_RING_DELAY,
+                        repeat: 1,
+                        ease: 'easeOut',
+                      }}
+                    />
+                    {t('hero.btn')}
+                    <span className="hero__btn-icon">
+                      <GoArrowUpRight />
+                    </span>
+                  </a>
+                </div>
               </m.div>
 
               <m.p
