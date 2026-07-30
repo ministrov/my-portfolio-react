@@ -136,6 +136,43 @@ body {
   background-color: var(--color-white);
 }
 
+/* Единый фоновый паттерн документа: едва заметная сетка + два рассеянных
+   синих пятна у верхних углов. Раньше жил только внутри .hero, теперь виден
+   на всех страницах позади всех секций (звёзды AnimatedBackground рисуются
+   ещё дальше, см. animatedBackground/styles.css). */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      rgba(23, 23, 24, 0.05) 0,
+      rgba(23, 23, 24, 0.05) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(23, 23, 24, 0.05) 0,
+      rgba(23, 23, 24, 0.05) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    radial-gradient(
+      ellipse 55% 50% at 6% 0%,
+      rgba(0, 88, 167, 0.22) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 55% 50% at 94% 0%,
+      rgba(0, 88, 167, 0.16) 0%,
+      transparent 70%
+    );
+}
+
 body::-webkit-scrollbar {
   width: 12px;
 }
