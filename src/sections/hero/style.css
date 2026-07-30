@@ -205,6 +205,15 @@
   justify-content: center;
 }
 
+/* Колонка под кнопку (соответствует структуре хендоффа: gap:14px оставляет
+   место для возможной подписи под кнопкой в будущем) */
+.hero__btn-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
 /* Обёртка-рамка: держит вращающийся conic-gradient слой отдельно от
    .hero__btn, у которого есть backdrop-filter — анимированный transform на
    ::before внутри backdrop-filter элемента давал баг рендеринга (кнопка
@@ -212,42 +221,34 @@
    в необлюренную обёртку с overflow:hidden, как в исходном хендоффе. */
 .hero__btn-frame {
   position: relative;
-  display: inline-flex;
   isolation: isolate;
   padding: 2px;
-  border-radius: 999px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(23, 23, 24, 0.08);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.hero__btn-frame:hover {
-  box-shadow: 0 12px 32px rgba(23, 23, 24, 0.14);
+  box-shadow: 0 20px 52px -16px rgba(47, 82, 247, 0.6);
 }
 
 .hero__btn-frame:focus-within {
-  outline: 2px solid var(--color-blue-700);
+  outline: 2px solid rgb(47, 82, 247);
   outline-offset: 4px;
 }
 
 /* Вращающаяся радужная рамка: синий → фиолетовый → розовый → синий */
 .hero__btn-spin {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 0;
-  width: 300%;
-  height: 900%;
-  margin-top: -450%;
-  margin-left: -150%;
+  top: -70%;
+  left: -35%;
+  width: 170%;
+  height: 240%;
   background: conic-gradient(
     from 0deg,
-    var(--color-blue-700),
-    var(--color-violet-500),
-    var(--color-red-500),
-    var(--color-blue-700)
+    rgb(47, 82, 247),
+    rgb(139, 63, 242),
+    rgb(255, 92, 138),
+    rgb(47, 82, 247)
   );
   animation: hero-btn-spin 6s linear infinite;
+  pointer-events: none;
 }
 
 @keyframes hero-btn-spin {
@@ -258,21 +259,41 @@
 
 .hero__btn {
   position: relative;
-  z-index: 1;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 16px;
-  padding: 8px 8px 8px 28px;
-  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  height: 62px;
+  padding: 0 32px;
+  font-family: var(--font-headings);
+  font-size: 1rem;
   line-height: 1;
   font-weight: 700;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--color-gray-900);
-  border-radius: 999px;
-  background-color: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  transition: transform 0.3s ease-in-out;
+  color: rgb(27, 33, 64);
+  border-radius: 16px;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -14px 26px -16px rgba(47, 82, 247, 0.55);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s ease;
+}
+
+.hero__btn:hover {
+  transform: translateY(-4px) scale(1.015);
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.72) 100%
+  );
 }
 
 /* Пульсирующее кольцо, дважды проигрывается при появлении кнопки */
@@ -280,27 +301,24 @@
   position: absolute;
   inset: -2px;
   z-index: -1;
-  border: 2px solid var(--color-blue-700);
+  border: 2px solid rgb(47, 82, 247);
   border-radius: inherit;
   pointer-events: none;
 }
 
-.hero__btn-frame:hover .hero__btn {
-  transform: translateY(-2px);
-}
-
 .hero__btn-icon {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  font-size: 1.15em;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
   color: var(--color-white);
-  background: var(--gradient);
+  background: linear-gradient(140deg, rgb(47, 82, 247), rgb(139, 63, 242));
   border-radius: 50%;
-  animation: hero-btn-icon-orbit 3.6s ease-in-out 2.6s infinite;
+  box-shadow: 0 6px 14px -4px rgba(47, 82, 247, 0.85);
+  animation: hero-btn-icon-orbit 3.6s ease-in-out 3s infinite;
 }
 
 /* Лёгкое покачивание иконки в собственной орбите, бесконечно */

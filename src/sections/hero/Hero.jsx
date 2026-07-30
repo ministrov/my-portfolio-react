@@ -144,31 +144,33 @@ const Hero = () => {
               </m.p>
 
               <m.div className="hero__actions" {...ctaPop}>
-                <div className="hero__btn-frame">
-                  <span className="hero__btn-spin" aria-hidden="true" />
-                  <a
-                    className="hero__btn"
-                    href={cvPdf}
-                    download="Anton_Zhilin_CV.pdf"
-                    rel="noopener noreferrer"
-                  >
-                    <m.span
-                      className="hero__btn-ring"
-                      aria-hidden="true"
-                      initial={{ opacity: 0.5, scale: 0.9 }}
-                      animate={{ opacity: 0, scale: 1.55 }}
-                      transition={{
-                        duration: 1.5,
-                        delay: CTA_RING_DELAY,
-                        repeat: 1,
-                        ease: 'easeOut',
-                      }}
-                    />
-                    {t('hero.btn')}
-                    <span className="hero__btn-icon">
-                      <GoArrowUpRight />
-                    </span>
-                  </a>
+                <div className="hero__btn-col">
+                  <div className="hero__btn-frame">
+                    <span className="hero__btn-spin" aria-hidden="true" />
+                    <a
+                      className="hero__btn"
+                      href={cvPdf}
+                      download="Anton_Zhilin_CV.pdf"
+                      rel="noopener noreferrer"
+                    >
+                      <m.span
+                        className="hero__btn-ring"
+                        aria-hidden="true"
+                        initial={{ opacity: 0.5, scale: 0.9 }}
+                        animate={{ opacity: 0, scale: 1.55 }}
+                        transition={{
+                          duration: 1.5,
+                          delay: CTA_RING_DELAY,
+                          repeat: 1,
+                          ease: 'easeOut',
+                        }}
+                      />
+                      {t('hero.btn')}
+                      <span className="hero__btn-icon">
+                        <GoArrowUpRight />
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </m.div>
 
