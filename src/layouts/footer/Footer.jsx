@@ -22,12 +22,12 @@ const Footer = () => {
         <Logo />
 
         <p className="main-footer__copyright">
-          &copy; {t('footer.copyright')}{' '}
+          &copy; {t('footer.copyright', { year: new Date().getFullYear() })}{' '}
           <a
             className="main-footer__author"
             rel="noreferrer"
             target="_blank"
-            href="#!"
+            href="https://github.com/ministrov"
             aria-label={t('footer.author')}
           >
             {t('footer.author')}
