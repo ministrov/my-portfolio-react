@@ -17,14 +17,12 @@ import './style.css';
  * @returns {React.ReactElement} Элемент услуги.
  */
 const ServicesItem = ({ service }) => {
-  const { id, icon, title, description } = service;
+  const { icon, title, description } = service;
   const { t } = useTranslation();
-  const formattedId = String(id).padStart(2, '0');
 
   return (
     <>
       <div className="services__header">
-        <div className="services__item-text text-outline">{formattedId}</div>
         <div className="services__icon">{icon}</div>
       </div>
       <div className="services__content">

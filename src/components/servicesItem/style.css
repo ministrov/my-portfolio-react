@@ -19,14 +19,6 @@
   border-color: rgba(0, 88, 167, 0.2);
 }
 
-.services__item-text {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 42px;
-  color: transparent;
-  transition: all 0.3s ease;
-}
-
 .services__subheading {
   margin: 0;
   font-size: 24px;
@@ -56,8 +48,21 @@
   background-color: var(--color-blue-300);
 }
 
-.text-outline {
-  -webkit-text-stroke: 1px var(--color-blue-700);
+/* Флагманская услуга (первая карточка) — крупнее иконка и подзаголовок,
+   чтобы читаться как лид среди трёх равнозначных по вёрстке карточек. */
+.services__item:first-child .services__icon {
+  width: 84px;
+  padding: 14px;
+}
+
+.services__item:first-child .services__icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.services__item:first-child .services__subheading {
+  font-size: 30px;
+  line-height: 36px;
 }
 
 @media screen and (max-width: 1024px) {
