@@ -9,6 +9,7 @@
   align-items: baseline;
   font-family: var(--font-headings);
   font-size: 1.75rem;
+  font-weight: 700;
   line-height: 2.125rem;
   color: var(--color-gray-900);
   text-decoration: none;
@@ -40,7 +41,7 @@
 .logo__caret {
   margin-left: 0.08em;
   font-weight: 700;
-  color: var(--color-violet-500);
+  color: var(--color-blue-700);
   animation: logo-caret-blink 1.06s steps(1) infinite;
 }
 
