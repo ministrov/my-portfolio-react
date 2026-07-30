@@ -49,4 +49,10 @@
   .header__actions > .cta-button {
     display: none;
   }
+
+  /* Переключатель языка дублируется внутри NavMobile — на мобильном/планшете
+     оставляем только один, в выезжающем меню */
+  .header__actions > .nav__lang {
+    display: none;
+  }
 }
