@@ -31,7 +31,7 @@
 }
 
 .breadcrumbs__current {
-  color: var(--color-blue-300);
+  color: var(--color-gray-800);
 }
 
 .breadcrumbs__arrow {
@@ -44,7 +44,7 @@
 .breadcrumbs__link:hover,
 .breadcrumbs__link:focus,
 .breadcrumbs__link:active {
-  color: var(--color-blue-300);
+  color: var(--color-blue-800);
 }
 
 .breadcrumbs__link:focus {

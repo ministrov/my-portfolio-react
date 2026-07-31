@@ -183,7 +183,9 @@
     "emptyMessage": "No projects to display",
     "slideLabel": "Slide: {{project}}",
     "prevSlide": "Previous slide",
-    "nextSlide": "Next slide"
+    "nextSlide": "Next slide",
+    "pause": "Pause carousel",
+    "play": "Play carousel"
   },
   "showcasing": {
     "alt": "{{project}} — project screenshot"
