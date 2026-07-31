@@ -1,7 +1,9 @@
+import { useRef } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
 import useScrambleText from '../../hooks/useScrambleText';
+import useCharWidths from '../../hooks/useCharWidths';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -79,6 +81,7 @@ const CTA_RING_DELAY =
  */
 const Hero = () => {
   const { t, i18n } = useTranslation();
+  const subtitleRef = useRef(null);
   const subtitleText = t('hero.subtitle');
   const subtitleGlyphs = useScrambleText(subtitleText, {
     delayMs: (ANIMATION_DELAYS.SUBTITLE + 0.15) * 1000,
@@ -87,6 +90,7 @@ const Hero = () => {
     loop: true,
     pauseMs: 7000,
   });
+  const subtitleCharWidths = useCharWidths(subtitleRef, subtitleText);
 
   return (
     <section className="hero">
@@ -133,6 +137,7 @@ const Hero = () => {
             </h1>
 
             <m.p
+              ref={subtitleRef}
               className="hero__subtitle"
               {...fadeUp}
               transition={{
@@ -147,6 +152,11 @@ const Hero = () => {
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
                     className={`hero__subtitle-char${locked ? '' : ' hero__subtitle-char--decoding'}`}
+                    style={
+                      subtitleCharWidths
+                        ? { width: `${subtitleCharWidths[index]}px` }
+                        : undefined
+                    }
                   >
                     {char}
                   </span>
