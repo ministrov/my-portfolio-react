@@ -375,3 +375,14 @@
     justify-content: space-between;
   }
 }
+
+@media screen and (max-width: 360px) {
+  /* Уже паддинг и текст кнопки, как у .cta-button--block — на самых узких
+     экранах uppercase-текст с letter-spacing и паддингом 32px подходит
+     впритык. */
+  .hero__btn {
+    gap: 12px;
+    padding: 0 20px;
+    font-size: 0.875rem;
+  }
+}
