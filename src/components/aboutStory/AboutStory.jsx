@@ -32,8 +32,10 @@ const AboutStory = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="about-story">
-      <h2 className="visually-hidden">{t('aboutStory.srHeading')}</h2>
+    <section className="about-story" aria-labelledby="about-story-heading">
+      <h2 id="about-story-heading" className="visually-hidden">
+        {t('aboutStory.srHeading')}
+      </h2>
 
       <article className="about-story__card">
         <p className="about-story__para about-story__para--1">
