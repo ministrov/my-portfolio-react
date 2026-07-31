@@ -391,6 +391,7 @@
         "placeholder": "Tell me about your project..."
       }
     },
+    "requiredHint": "* — required field",
     "submit": "Send message",
     "submitting": "Sending...",
     "successTitle": "Message sent!",
