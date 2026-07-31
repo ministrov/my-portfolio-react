@@ -82,6 +82,10 @@ const Hero = () => {
   const subtitleText = t('hero.subtitle');
   const subtitleGlyphs = useScrambleText(subtitleText, {
     delayMs: (ANIMATION_DELAYS.SUBTITLE + 0.15) * 1000,
+    stepMs: 30,
+    tickMs: 42,
+    loop: true,
+    pauseMs: 7000,
   });
 
   return (

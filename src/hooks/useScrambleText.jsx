@@ -30,26 +30,30 @@ function randomGlyphFor(char) {
 /**
  * Хук «декодирования» текста: символы раскрываются слева направо, а ещё не
  * зафиксированная часть мигает случайными символами того же алфавита до
- * своей очереди. Уважает `prefers-reduced-motion` (с live-подпиской на
- * изменение, как в AnimatedBackground) — в этом случае сразу отдаёт финальный
- * текст без анимации.
+ * своей очереди. При `loop: true` после полного раскрытия текст держится
+ * читаемым `pauseMs`, затем сбрасывается и расшифровывается заново — и так
+ * бесконечно. Уважает `prefers-reduced-motion` (с live-подпиской на изменение,
+ * как в AnimatedBackground) — в этом случае сразу отдаёт финальный текст без
+ * анимации и без цикла.
  *
  * @param {string} text - Финальный текст для отображения.
  * @param {Object} [options]
  * @param {number} [options.delayMs=0] - Задержка перед стартом расшифровки (мс).
  * @param {number} [options.stepMs=16] - Интервал раскрытия символов слева направо (мс/символ).
  * @param {number} [options.tickMs=35] - Частота смены случайных символов у нераскрытой части (мс).
+ * @param {boolean} [options.loop=false] - Зациклить расшифровку бесконечно.
+ * @param {number} [options.pauseMs=0] - Пауза читаемым текстом между циклами (мс), при `loop: true`.
  * @returns {Array<{ char: string, locked: boolean }>} Символы текста с флагом «уже раскрыт».
  *
  * @example
- * const glyphs = useScrambleText('Привет, мир', { delayMs: 400 });
+ * const glyphs = useScrambleText('Привет, мир', { delayMs: 400, loop: true, pauseMs: 7000 });
  * glyphs.map(({ char, locked }, i) => (
  *   <span key={i} className={locked ? '' : 'is-decoding'}>{char}</span>
  * ));
  */
 const useScrambleText = (
   text,
-  { delayMs = 0, stepMs = 16, tickMs = 35 } = {}
+  { delayMs = 0, stepMs = 16, tickMs = 35, loop = false, pauseMs = 0 } = {}
 ) => {
   const [glyphs, setGlyphs] = useState(() =>
     Array.from(text).map((char) => ({ char, locked: true }))
@@ -87,9 +91,11 @@ const useScrambleText = (
     }
 
     let interval;
-    let elapsed = 0;
+    let timeout;
 
-    const timeout = setTimeout(() => {
+    const decode = () => {
+      let elapsed = 0;
+
       interval = setInterval(() => {
         if (!isMountedRef.current) return;
 
@@ -106,15 +112,20 @@ const useScrambleText = (
           }))
         );
 
-        if (revealCount >= nextChars.length) clearInterval(interval);
+        if (revealCount >= nextChars.length) {
+          clearInterval(interval);
+          if (loop) timeout = setTimeout(decode, pauseMs);
+        }
       }, tickMs);
-    }, delayMs);
+    };
+
+    timeout = setTimeout(decode, delayMs);
 
     return () => {
       clearTimeout(timeout);
       clearInterval(interval);
     };
-  }, [text, delayMs, stepMs, tickMs, prefersReducedMotion]);
+  }, [text, delayMs, stepMs, tickMs, prefersReducedMotion, loop, pauseMs]);
 
   return glyphs;
 };
