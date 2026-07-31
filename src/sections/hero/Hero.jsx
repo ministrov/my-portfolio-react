@@ -1,6 +1,7 @@
 import { useTranslation, Trans } from 'react-i18next';
 import { LazyMotion, m, domAnimation } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
+import useScrambleText from '../../hooks/useScrambleText';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -78,6 +79,10 @@ const CTA_RING_DELAY =
  */
 const Hero = () => {
   const { t, i18n } = useTranslation();
+  const subtitleText = t('hero.subtitle');
+  const subtitleGlyphs = useScrambleText(subtitleText, {
+    delayMs: (ANIMATION_DELAYS.SUBTITLE + 0.15) * 1000,
+  });
 
   return (
     <section className="hero">
@@ -131,7 +136,18 @@ const Hero = () => {
                 delay: ANIMATION_DELAYS.SUBTITLE,
               }}
             >
-              {t('hero.subtitle')}
+              <span className="visually-hidden">{subtitleText}</span>
+              <span aria-hidden="true">
+                {subtitleGlyphs.map(({ char, locked }, index) => (
+                  <span
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index}
+                    className={`hero__subtitle-char${locked ? '' : ' hero__subtitle-char--decoding'}`}
+                  >
+                    {char}
+                  </span>
+                ))}
+              </span>
             </m.p>
 
             <m.div className="hero__actions" {...ctaPop}>
