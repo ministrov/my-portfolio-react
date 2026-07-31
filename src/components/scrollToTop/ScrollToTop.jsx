@@ -17,6 +17,19 @@ const ScrollToTop = ({ behavior = 'auto', top = 0, left = 0 }) => {
   const { pathname, hash } = useLocation();
   const prevPathnameRef = useRef(pathname);
 
+  // Браузер по умолчанию сам восстанавливает scroll-позицию записи истории
+  // при обычной перезагрузке страницы (F5) — это конфликтует с тем, что ниже
+  // мы явно управляем скроллом при смене маршрута в SPA. Отключаем нативное
+  // восстановление один раз, чтобы им не «перетягивало» страницу после reload.
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      'scrollRestoration' in window.history
+    ) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
   useEffect(() => {
     // Если изменился только hash (якорная ссылка), не скроллим наверх
     const isOnlyHashChange = prevPathnameRef.current === pathname && hash;
