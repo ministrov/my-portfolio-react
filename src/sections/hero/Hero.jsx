@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
+import { LazyMotion, m, domAnimation, useInView } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
 import useScrambleText from '../../hooks/useScrambleText';
 import useCharWidths from '../../hooks/useCharWidths';
@@ -82,6 +82,7 @@ const CTA_RING_DELAY =
 const Hero = () => {
   const { t, i18n } = useTranslation();
   const subtitleRef = useRef(null);
+  const isSubtitleInView = useInView(subtitleRef);
   const subtitleText = t('hero.subtitle');
   const subtitleGlyphs = useScrambleText(subtitleText, {
     delayMs: (ANIMATION_DELAYS.SUBTITLE + 0.15) * 1000,
@@ -89,6 +90,7 @@ const Hero = () => {
     tickMs: 42,
     loop: true,
     pauseMs: 7000,
+    active: isSubtitleInView,
   });
   const subtitleCharWidths = useCharWidths(subtitleRef, subtitleText);
 

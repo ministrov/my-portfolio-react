@@ -43,17 +43,27 @@ function randomGlyphFor(char) {
  * @param {number} [options.tickMs=35] - Частота смены случайных символов у нераскрытой части (мс).
  * @param {boolean} [options.loop=false] - Зациклить расшифровку бесконечно.
  * @param {number} [options.pauseMs=0] - Пауза читаемым текстом между циклами (мс), при `loop: true`.
+ * @param {boolean} [options.active=true] - Идёт ли цикл прямо сейчас. При `false` (например,
+ *   элемент вне вьюпорта) все таймеры останавливаются и текст замирает как есть, не тратя
+ *   CPU/батарею на невидимую анимацию; при возврате в `true` цикл стартует заново с `delayMs`.
  * @returns {Array<{ char: string, locked: boolean }>} Символы текста с флагом «уже раскрыт».
  *
  * @example
- * const glyphs = useScrambleText('Привет, мир', { delayMs: 400, loop: true, pauseMs: 7000 });
+ * const glyphs = useScrambleText('Привет, мир', { delayMs: 400, loop: true, pauseMs: 7000, active: isInView });
  * glyphs.map(({ char, locked }, i) => (
  *   <span key={i} className={locked ? '' : 'is-decoding'}>{char}</span>
  * ));
  */
 const useScrambleText = (
   text,
-  { delayMs = 0, stepMs = 16, tickMs = 35, loop = false, pauseMs = 0 } = {}
+  {
+    delayMs = 0,
+    stepMs = 16,
+    tickMs = 35,
+    loop = false,
+    pauseMs = 0,
+    active = true,
+  } = {}
 ) => {
   const [glyphs, setGlyphs] = useState(() =>
     Array.from(text).map((char) => ({ char, locked: true }))
@@ -90,6 +100,8 @@ const useScrambleText = (
       return undefined;
     }
 
+    if (!active) return undefined;
+
     let interval;
     let timeout;
 
@@ -125,7 +137,16 @@ const useScrambleText = (
       clearTimeout(timeout);
       clearInterval(interval);
     };
-  }, [text, delayMs, stepMs, tickMs, prefersReducedMotion, loop, pauseMs]);
+  }, [
+    text,
+    delayMs,
+    stepMs,
+    tickMs,
+    prefersReducedMotion,
+    loop,
+    pauseMs,
+    active,
+  ]);
 
   return glyphs;
 };
