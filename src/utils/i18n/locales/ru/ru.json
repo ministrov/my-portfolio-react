@@ -135,13 +135,6 @@
       "fifth": "<highlight>Надежный код</highlight> без багов и проблем.",
       "sixth": "Адаптивная вёрстка, <highlight>pixel-perfect</highlight> на любом экране.",
       "seventh": "Соответствие <highlight>WCAG 2.1</highlight> — сайт удобен для всех."
-    },
-    "alt": {
-      "first": "Иконка: сайт",
-      "second": "Иконка: деплой",
-      "third": "Иконка: React",
-      "fourth": "Иконка: SEO",
-      "fifth": "Иконка: код без багов"
     }
   },
   "faqs": {

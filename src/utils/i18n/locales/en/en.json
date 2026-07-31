@@ -135,13 +135,6 @@
       "fifth": "<highlight>Reliable code</highlight> without bugs and issues.",
       "sixth": "<highlight>Pixel-perfect</highlight> responsive layout on any screen.",
       "seventh": "Compliant with <highlight>WCAG 2.1</highlight> — accessible for everyone."
-    },
-    "alt": {
-      "first": "Website icon",
-      "second": "Deploy icon",
-      "third": "React icon",
-      "fourth": "SEO icon",
-      "fifth": "Bug-free code icon"
     }
   },
   "faqs": {

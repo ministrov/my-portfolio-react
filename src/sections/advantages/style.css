@@ -40,17 +40,10 @@
   overflow-wrap: break-word;
 }
 
-/* Иконка из <img> */
+/* Иконка (react-icons SVG-компонент) */
 .advantages__item-img {
-  width: 56px;
-  height: 56px;
-  margin-bottom: 15px;
-  object-fit: contain;
-}
-
-/* Иконка из react-icons — привести к тому же размеру */
-.advantages__item-img[aria-hidden] {
   display: block;
+  margin-bottom: 15px;
   font-size: 56px;
   color: var(--color-blue-700);
 }

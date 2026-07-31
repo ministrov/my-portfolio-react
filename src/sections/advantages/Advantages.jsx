@@ -30,14 +30,8 @@ const Advantages = () => {
 
         <AdvantagesList>
           <LazyMotion features={domAnimation}>
-            {advantages.map(({ id, text, icon, alt }, index) => (
-              <AdvantagesItem
-                key={id}
-                index={index}
-                text={text}
-                icon={icon}
-                altText={t(alt)}
-              />
+            {advantages.map(({ id, text, icon }, index) => (
+              <AdvantagesItem key={id} index={index} text={text} icon={icon} />
             ))}
           </LazyMotion>
         </AdvantagesList>
