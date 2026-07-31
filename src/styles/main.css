@@ -79,6 +79,7 @@
   --color-gray-900: #171718;
 
   /* Синяя палитра (Cobalt & Signal) */
+  --color-blue-100: #d6e7f6;
   --color-blue-300: #60a5fa;
   --color-blue-700: #2563eb;
   --color-blue-800: #1d4ed8;
@@ -88,6 +89,10 @@
   --color-violet-50: #ece7f8;
   --color-violet-400: #a78bfa;
   --color-violet-500: #7c3aed;
+
+  /* Бирюзовый акцент (второй слой подсветки в about-story) */
+  --color-teal-100: #dbeef0;
+  --color-teal-700: #0e7490;
 
   /* Красная палитра */
   --color-red-100: #fdf2fa;
