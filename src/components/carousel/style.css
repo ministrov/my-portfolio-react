@@ -14,14 +14,16 @@
   height: 40px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(11, 18, 32, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   color: var(--color-white);
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .carousel__toggle:hover {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(11, 18, 32, 0.75);
 }
 
 .carousel__toggle:focus-visible {
