@@ -1,6 +1,12 @@
 import { useRef } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
-import { LazyMotion, m, domAnimation, useInView } from 'framer-motion';
+import {
+  LazyMotion,
+  m,
+  domAnimation,
+  useInView,
+  useReducedMotion,
+} from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
 import useScrambleText from '../../hooks/useScrambleText';
 import useCharWidths from '../../hooks/useCharWidths';
@@ -34,6 +40,18 @@ const fadeUp = {
 };
 
 /**
+ * Облегчённая версия fadeUp для prefers-reduced-motion: только прозрачность,
+ * без вертикального сдвига — контент всё ещё проявляется, но не движется.
+ * @type {import('framer-motion').MotionProps}
+ */
+const fadeUpReduced = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true, margin: '-50px' },
+  transition: { duration: 0.4, ease: 'linear' },
+};
+
+/**
  * Появление заголовка сквозь маску: контент "всплывает" из-под нижней границы
  * h1 (у которого overflow:hidden в CSS) со снятием блюра и лёгким поворотом.
  * Единый блок вместо покадрового реveal по строкам — переносы строк зависят
@@ -51,6 +69,22 @@ const titleReveal = {
 };
 
 /**
+ * Облегчённая версия titleReveal для prefers-reduced-motion: только
+ * прозрачность, без сдвига, поворота и блюра — задержка сохранена, чтобы
+ * порядок появления секций остался прежним.
+ * @type {import('framer-motion').MotionProps}
+ */
+const titleRevealReduced = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: {
+    duration: 0.4,
+    delay: ANIMATION_DELAYS.TITLE,
+    ease: 'linear',
+  },
+};
+
+/**
  * Появление CTA-кнопки с небольшим "перелётом" (overshoot) по масштабу —
  * кубическая безье с y1 > 1 естественно даёт эффект пружины без keyframe-массивов.
  */
@@ -61,6 +95,21 @@ const ctaPop = {
     duration: 0.95,
     delay: ANIMATION_DELAYS.BUTTON,
     ease: [0.2, 1.5, 0.35, 1],
+  },
+};
+
+/**
+ * Облегчённая версия ctaPop для prefers-reduced-motion: только прозрачность,
+ * без масштаба и перелёта — задержка сохранена.
+ * @type {import('framer-motion').MotionProps}
+ */
+const ctaPopReduced = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: {
+    duration: 0.4,
+    delay: ANIMATION_DELAYS.BUTTON,
+    ease: 'linear',
   },
 };
 
@@ -81,6 +130,10 @@ const CTA_RING_DELAY =
  */
 const Hero = () => {
   const { t, i18n } = useTranslation();
+  const prefersReducedMotion = useReducedMotion();
+  const titleMotion = prefersReducedMotion ? titleRevealReduced : titleReveal;
+  const subtitleMotion = prefersReducedMotion ? fadeUpReduced : fadeUp;
+  const ctaMotion = prefersReducedMotion ? ctaPopReduced : ctaPop;
   const subtitleRef = useRef(null);
   const isSubtitleInView = useInView(subtitleRef);
   const subtitleText = t('hero.subtitle');
@@ -112,7 +165,7 @@ const Hero = () => {
             />
 
             <h1 className="hero__title">
-              <m.div {...titleReveal}>
+              <m.div {...titleMotion}>
                 <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
                 <span
                   className={`hero__title-accent${i18n.language === 'ru' ? ' hero__title-accent--block' : ''}`}
@@ -141,9 +194,9 @@ const Hero = () => {
             <m.p
               ref={subtitleRef}
               className="hero__subtitle"
-              {...fadeUp}
+              {...subtitleMotion}
               transition={{
-                ...fadeUp.transition,
+                ...subtitleMotion.transition,
                 delay: ANIMATION_DELAYS.SUBTITLE,
               }}
             >
@@ -166,7 +219,7 @@ const Hero = () => {
               </span>
             </m.p>
 
-            <m.div className="hero__actions" {...ctaPop}>
+            <m.div className="hero__actions" {...ctaMotion}>
               <div className="hero__btn-col">
                 <div className="hero__btn-frame">
                   <span className="hero__btn-spin" aria-hidden="true" />
