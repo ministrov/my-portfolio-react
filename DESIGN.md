@@ -7,6 +7,7 @@ colors:
   cobalt-focus: '#60a5fa'
   cobalt-mist: '#d6e7f6'
   cobalt-night: '#0b1220'
+  cobalt-shadow: '#0058a7'
   signal-violet: '#7c3aed'
   signal-violet-light: '#a78bfa'
   violet-mist: '#ece7f8'
@@ -134,6 +135,7 @@ Mostly a two-color system — cobalt as the one true action color, violet as a q
 - **Cobalt Focus** (`#60a5fa`): focus-ring and light-border accents (logo focus outline, filter-button active border).
 - **Cobalt Mist** (`#d6e7f6`): a pale cobalt tint used as a soft background layer (the first of about-story's three text-highlight layers).
 - **Cobalt Night** (`#0b1220`): the deepest cobalt step, used only for the scroll-to-top button's `:active` press state.
+- **Cobalt Shadow** (`#0058a7`): a deeper, more desaturated cobalt reserved exclusively for tinting shadows, borders, and background glow — never text or interactive fill. Alpha rises from a near-invisible ~0.08 at rest toward ~0.2–0.3 on hover/emphasis, rather than snapping between fixed steps (the same organic, content-driven tuning as the breakpoints in Layout). Appears in project cards, services items, advantages cards, about-story, the contact form's focus ring, the loader spinner, and the page background's corner glow (`main.css`). This is the literal color behind The Colored Shadow Rule below — pitched lower/duller than interactive Cobalt (`#2563eb`) so depth never reads as a second link color. A lighter tint step (`#3073c5`) appears once, in the About page author card's hover glow ring.
 
 ### Secondary
 
@@ -168,7 +170,7 @@ Mostly a two-color system — cobalt as the one true action color, violet as a q
 
 ### Named Rules
 
-**The Colored Shadow Rule.** Interactive surfaces rest with a neutral, near-invisible shadow (or none) and _deepen into a cobalt-tinted shadow_ (`rgba(0, 88, 167, …)`) specifically on hover — the brand's own hue casts the light, rather than generic black. The project card is the one exception that carries the cobalt tint even at rest, since it's the most showcase-forward surface in the system.
+**The Colored Shadow Rule.** Interactive surfaces rest with a neutral, near-invisible shadow (or none) and _deepen into a Cobalt Shadow-tinted shadow_ (`rgba(0, 88, 167, …)` — see Colors → Cobalt Shadow) specifically on hover — the brand's own hue casts the light, rather than generic black. The project card is the one exception that carries the cobalt tint even at rest, since it's the most showcase-forward surface in the system.
 
 **The One Gradient Rule.** The signature `linear-gradient(120deg, #2563eb 0%, #6366f1 50%, #7c3aed 100%)` diagonal appears in exactly four places — the hero title's accent text, the About page's showcasing overlay, and the photo ring in both `authorPhoto` and `authorIdentity`. It is a hero-moment device, never a general decorative fill. The hero CTA button's rotating border is a _separate_ device (see CTA Spotlight) and does not use this token.
 
@@ -211,7 +213,7 @@ The system is mostly flat-at-rest with soft, low-alpha ambient shadows that _dee
 ### Shadow Vocabulary
 
 - **Ambient** (`0px 0px 8px 0px #00000026`): the default token (`--box-shadow`) for services items and testimonial cards at rest — a near-invisible presence shadow.
-- **Cobalt Hover** (`0 8px 32px rgba(0, 88, 167, 0.18)` to `0 12px 36px rgba(0, 88, 167, 0.18)`): the hover-lift shadow for project cards and services items — brand-tinted, not neutral.
+- **Cobalt Hover** (`0 8px 32px rgba(0, 88, 167, 0.18)` to `0 12px 36px rgba(0, 88, 167, 0.18)`, i.e. Cobalt Shadow at ~0.18): the hover-lift shadow for project cards and services items — brand-tinted, not neutral.
 - **Deep Surface** (`0 24px 60px rgba(0,0,0,0.35), 0 8px 20px rgba(0,0,0,0.25)` for the modal; `0px 24px 60px rgba(0,0,0,0.55)` for the author card): reserved for the two "night" surfaces only.
 
 ### Named Rules
@@ -222,7 +224,7 @@ The system is mostly flat-at-rest with soft, low-alpha ambient shadows that _dee
 
 Corners default to a gentle **8px** (`--border-radius-s`) on buttons, cards, inputs, and images — the system's baseline geometry. Larger standalone surfaces scale their radius up with their size: 16px for the FAQ item and the about-story card, 20px for the modal (16px, then 14px as it shrinks on small screens), 24px for the author card. Fully circular **pill** radii (999px) are reserved for compact interactive/label chrome — the header's CTA button, the photo ring, the availability badge — never for content containers.
 
-Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tinted to match their surface rather than a flat gray: cobalt-tinted (`rgba(0, 88, 167, 0.2)`) on project imagery and cards, neutral-black-tinted (`rgba(0, 0, 0, 0.06–0.08)`) on light hairline dividers (header, FAQ, about-story card), white-tinted (`rgba(255, 255, 255, 0.05–0.1)`) on the two dark surfaces.
+Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tinted to match their surface rather than a flat gray: Cobalt Shadow-tinted (`rgba(0, 88, 167, 0.1–0.3)`) on project imagery, cards, and the loader spinner, neutral-black-tinted (`rgba(0, 0, 0, 0.06–0.08)`) on light hairline dividers (header, FAQ, about-story card), white-tinted (`rgba(255, 255, 255, 0.05–0.1)`) on the two dark surfaces.
 
 ### Named Rules
 
