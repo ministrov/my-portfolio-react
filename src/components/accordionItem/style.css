@@ -28,6 +28,7 @@
 }
 
 .faq__question h3 {
+  font-family: var(--font-headings);
   font-size: 22px;
   line-height: 1.4;
   font-weight: 600;

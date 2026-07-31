@@ -18,6 +18,7 @@ import './style.css';
  * @param {string} props.img - URL изображения для десктопа
  * @param {string} [props.imgTablet] - URL изображения для планшета
  * @param {string} [props.imgMobile] - URL изображения для мобильного
+ * @param {number} [props.imgHeight] - Реальная высота десктопного изображения при ширине 658px (для резервирования места и предотвращения CLS)
  * @param {string} props.overview - Краткое описание проекта (уже переведённая строка)
  * @param {string} [props.year] - Год реализации
  * @param {string} [props.role] - Роль в проекте
@@ -35,6 +36,7 @@ const ProjectCard = ({
   img,
   imgTablet,
   imgMobile,
+  imgHeight,
   overview,
   year,
   role,
@@ -70,7 +72,7 @@ const ProjectCard = ({
             className="project-card__img"
             src={img}
             width={658}
-            height={'auto'}
+            height={imgHeight}
             alt={t('projectCard.imgAlt', { title })}
             loading="lazy"
             decoding="async"
@@ -148,6 +150,8 @@ ProjectCard.propTypes = {
   imgTablet: PropTypes.string,
   /** URL изображения для мобильного */
   imgMobile: PropTypes.string,
+  /** Реальная высота десктопного изображения при ширине 658px */
+  imgHeight: PropTypes.number,
   /** Краткое описание проекта (уже переведённая строка) */
   overview: PropTypes.string.isRequired,
   /** Год реализации */

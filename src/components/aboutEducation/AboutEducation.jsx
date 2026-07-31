@@ -15,10 +15,11 @@ const AboutEducation = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="about-education">
+    <section className="about-education" aria-labelledby="education-heading">
       <div className="container">
         <div className="about-education__wrapper">
           <Heading
+            id="education-heading"
             title={t('heading.education.name')}
             accent={t('heading.education.accent')}
           />

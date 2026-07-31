@@ -12,7 +12,7 @@ import { memo } from 'react';
  */
 const ProjectsLayout = ({ children }) => {
   return (
-    <section className="projects">
+    <section className="projects" aria-labelledby="projects-heading">
       <div className="container">{children}</div>
     </section>
   );

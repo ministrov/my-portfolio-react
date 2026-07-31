@@ -19,7 +19,7 @@
 }
 
 .filter__btn:focus {
-  outline: 2px solid var(--color-blue-500);
+  outline: 2px solid var(--color-white);
   outline-offset: 2px;
   text-shadow:
     1px 0 0,
@@ -45,8 +45,8 @@
 
 @media screen and (max-width: 768px) {
   .filter__btn {
-    min-width: 265px;
+    min-width: 140px;
     font-size: 16px;
-    height: 36px;
+    height: 44px;
   }
 }

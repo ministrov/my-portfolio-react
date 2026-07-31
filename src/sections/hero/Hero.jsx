@@ -1,6 +1,15 @@
+import { useRef } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
-import { LazyMotion, MotionConfig, m, domAnimation } from 'framer-motion';
+import {
+  LazyMotion,
+  m,
+  domAnimation,
+  useInView,
+  useReducedMotion,
+} from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
+import useScrambleText from '../../hooks/useScrambleText';
+import useCharWidths from '../../hooks/useCharWidths';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -31,6 +40,18 @@ const fadeUp = {
 };
 
 /**
+ * Облегчённая версия fadeUp для prefers-reduced-motion: только прозрачность,
+ * без вертикального сдвига — контент всё ещё проявляется, но не движется.
+ * @type {import('framer-motion').MotionProps}
+ */
+const fadeUpReduced = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true, margin: '-50px' },
+  transition: { duration: 0.4, ease: 'linear' },
+};
+
+/**
  * Появление заголовка сквозь маску: контент "всплывает" из-под нижней границы
  * h1 (у которого overflow:hidden в CSS) со снятием блюра и лёгким поворотом.
  * Единый блок вместо покадрового реveal по строкам — переносы строк зависят
@@ -48,6 +69,22 @@ const titleReveal = {
 };
 
 /**
+ * Облегчённая версия titleReveal для prefers-reduced-motion: только
+ * прозрачность, без сдвига, поворота и блюра — задержка сохранена, чтобы
+ * порядок появления секций остался прежним.
+ * @type {import('framer-motion').MotionProps}
+ */
+const titleRevealReduced = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: {
+    duration: 0.4,
+    delay: ANIMATION_DELAYS.TITLE,
+    ease: 'linear',
+  },
+};
+
+/**
  * Появление CTA-кнопки с небольшим "перелётом" (overshoot) по масштабу —
  * кубическая безье с y1 > 1 естественно даёт эффект пружины без keyframe-массивов.
  */
@@ -58,6 +95,21 @@ const ctaPop = {
     duration: 0.95,
     delay: ANIMATION_DELAYS.BUTTON,
     ease: [0.2, 1.5, 0.35, 1],
+  },
+};
+
+/**
+ * Облегчённая версия ctaPop для prefers-reduced-motion: только прозрачность,
+ * без масштаба и перелёта — задержка сохранена.
+ * @type {import('framer-motion').MotionProps}
+ */
+const ctaPopReduced = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: {
+    duration: 0.4,
+    delay: ANIMATION_DELAYS.BUTTON,
+    ease: 'linear',
   },
 };
 
@@ -78,102 +130,133 @@ const CTA_RING_DELAY =
  */
 const Hero = () => {
   const { t, i18n } = useTranslation();
+  const prefersReducedMotion = useReducedMotion();
+  const titleMotion = prefersReducedMotion ? titleRevealReduced : titleReveal;
+  const subtitleMotion = prefersReducedMotion ? fadeUpReduced : fadeUp;
+  const ctaMotion = prefersReducedMotion ? ctaPopReduced : ctaPop;
+  const subtitleRef = useRef(null);
+  const isSubtitleInView = useInView(subtitleRef);
+  const subtitleText = t('hero.subtitle');
+  const subtitleGlyphs = useScrambleText(subtitleText, {
+    delayMs: (ANIMATION_DELAYS.SUBTITLE + 0.15) * 1000,
+    stepMs: 30,
+    tickMs: 42,
+    loop: true,
+    pauseMs: 7000,
+    active: isSubtitleInView,
+  });
+  const subtitleCharWidths = useCharWidths(subtitleRef, subtitleText);
 
   return (
     <section className="hero">
       <div className="container">
         <LazyMotion features={domAnimation}>
-          <MotionConfig reducedMotion="user">
-            <div className="hero__inner">
-              <m.div
-                className="hero__bloom"
-                aria-hidden="true"
-                initial={{ opacity: 0, scale: 0.3 }}
-                animate={{ opacity: [0, 0.85, 0], scale: [0.3, 1, 1.5] }}
-                transition={{
-                  duration: 2.2,
-                  delay: ANIMATION_DELAYS.TITLE + 0.1,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              />
+          <div className="hero__inner">
+            <m.div
+              className="hero__bloom"
+              aria-hidden="true"
+              initial={{ opacity: 0, scale: 0.3 }}
+              animate={{ opacity: [0, 0.85, 0], scale: [0.3, 1, 1.5] }}
+              transition={{
+                duration: 2.2,
+                delay: ANIMATION_DELAYS.TITLE + 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            />
 
-              <h1 className="hero__title">
-                <m.div {...titleReveal}>
-                  <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
-                  <span
-                    className={`hero__title-accent${i18n.language === 'ru' ? ' hero__title-accent--block' : ''}`}
-                  >
-                    {t('hero.titleAccent')}
-                  </span>
-                </m.div>
-
-                <m.span
-                  className="hero__title-glare"
-                  aria-hidden="true"
-                  initial={{ x: '-120%', skewX: -18, opacity: 0 }}
-                  animate={{ x: '220%', skewX: -18, opacity: [0, 0.9, 0.9, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    delay:
-                      ANIMATION_DELAYS.TITLE +
-                      titleReveal.transition.duration +
-                      0.2,
-                    times: [0, 0.12, 0.88, 1],
-                    ease: [0.4, 0, 0.2, 1],
-                  }}
-                />
-              </h1>
-
-              <m.p
-                className="hero__subtitle"
-                {...fadeUp}
-                transition={{
-                  ...fadeUp.transition,
-                  delay: ANIMATION_DELAYS.SUBTITLE,
-                }}
-              >
-                {t('hero.subtitle')}
-              </m.p>
-
-              <m.div className="hero__actions" {...ctaPop}>
-                <div className="hero__btn-col">
-                  <div className="hero__btn-frame">
-                    <span className="hero__btn-spin" aria-hidden="true" />
-                    <a
-                      className="hero__btn"
-                      href={cvPdf}
-                      download="Anton_Zhilin_CV.pdf"
-                      rel="noopener noreferrer"
-                    >
-                      <m.span
-                        className="hero__btn-ring"
-                        aria-hidden="true"
-                        initial={{ opacity: 0.5, scale: 0.9 }}
-                        animate={{ opacity: 0, scale: 1.55 }}
-                        transition={{
-                          duration: 1.5,
-                          delay: CTA_RING_DELAY,
-                          repeat: 1,
-                          ease: 'easeOut',
-                        }}
-                      />
-                      {t('hero.btn')}
-                      <span className="hero__btn-icon">
-                        <GoArrowUpRight />
-                      </span>
-                    </a>
-                  </div>
-                </div>
+            <h1 className="hero__title">
+              <m.div {...titleMotion}>
+                <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
+                <span
+                  className={`hero__title-accent${i18n.language === 'ru' ? ' hero__title-accent--block' : ''}`}
+                >
+                  {t('hero.titleAccent')}
+                </span>
               </m.div>
 
-              <p
-                className="hero__scroll-hint"
-                style={{ '--scroll-delay': `${ANIMATION_DELAYS.SCROLL_HINT}s` }}
-              >
-                {t('hero.scrollHint')}
-              </p>
-            </div>
-          </MotionConfig>
+              <m.span
+                className="hero__title-glare"
+                aria-hidden="true"
+                initial={{ x: '-120%', skewX: -18, opacity: 0 }}
+                animate={{ x: '220%', skewX: -18, opacity: [0, 0.9, 0.9, 0] }}
+                transition={{
+                  duration: 1.5,
+                  delay:
+                    ANIMATION_DELAYS.TITLE +
+                    titleReveal.transition.duration +
+                    0.2,
+                  times: [0, 0.12, 0.88, 1],
+                  ease: [0.4, 0, 0.2, 1],
+                }}
+              />
+            </h1>
+
+            <m.p
+              ref={subtitleRef}
+              className="hero__subtitle"
+              {...subtitleMotion}
+              transition={{
+                ...subtitleMotion.transition,
+                delay: ANIMATION_DELAYS.SUBTITLE,
+              }}
+            >
+              <span className="visually-hidden">{subtitleText}</span>
+              <span aria-hidden="true">
+                {subtitleGlyphs.map(({ char, locked }, index) => (
+                  <span
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index}
+                    className={`hero__subtitle-char${locked ? '' : ' hero__subtitle-char--decoding'}`}
+                    style={
+                      subtitleCharWidths
+                        ? { width: `${subtitleCharWidths[index]}px` }
+                        : undefined
+                    }
+                  >
+                    {char}
+                  </span>
+                ))}
+              </span>
+            </m.p>
+
+            <m.div className="hero__actions" {...ctaMotion}>
+              <div className="hero__btn-col">
+                <div className="hero__btn-frame">
+                  <span className="hero__btn-spin" aria-hidden="true" />
+                  <a
+                    className="hero__btn"
+                    href={cvPdf}
+                    download="Anton_Zhilin_CV.pdf"
+                    rel="noopener noreferrer"
+                  >
+                    <m.span
+                      className="hero__btn-ring"
+                      aria-hidden="true"
+                      initial={{ opacity: 0.5, scale: 0.9 }}
+                      animate={{ opacity: 0, scale: 1.55 }}
+                      transition={{
+                        duration: 1.5,
+                        delay: CTA_RING_DELAY,
+                        repeat: 1,
+                        ease: 'easeOut',
+                      }}
+                    />
+                    {t('hero.btn')}
+                    <span className="hero__btn-icon">
+                      <GoArrowUpRight />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </m.div>
+
+            <p
+              className="hero__scroll-hint"
+              style={{ '--scroll-delay': `${ANIMATION_DELAYS.SCROLL_HINT}s` }}
+            >
+              {t('hero.scrollHint')}
+            </p>
+          </div>
         </LazyMotion>
       </div>
     </section>

@@ -65,7 +65,10 @@ const About = ({ link = false, button = false, border = false }) => {
   const promoBtnText = t('promo.promoBtn');
 
   return (
-    <section className={`about ${border ? 'about__without' : ''}`}>
+    <section
+      className={`about ${border ? 'about__without' : ''}`}
+      aria-labelledby="about-heading"
+    >
       <div className="container">
         {border && (
           <Breadcrumbs
@@ -80,6 +83,7 @@ const About = ({ link = false, button = false, border = false }) => {
             {/* Левая колонка: заголовок + идентификационная карточка */}
             <div className="about__left">
               <Heading
+                id="about-heading"
                 title={t('heading.about.name')}
                 accent={t('heading.about.accent')}
               />

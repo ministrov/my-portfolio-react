@@ -1,6 +1,7 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { MotionConfig } from 'framer-motion';
 import { LanguageProvider } from './context/LanguageProvider';
 import HomePage from './pages/HomePage';
 import Layout from './layouts/Layout';
@@ -23,26 +24,28 @@ const App = () => {
   }, [i18n.language]);
 
   return (
-    <BrowserRouter
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
-    >
-      <ScrollToTop />
-      <LanguageProvider>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="*" element={<PageNotFound />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </LanguageProvider>
-    </BrowserRouter>
+    <MotionConfig reducedMotion="user">
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
+        <ScrollToTop />
+        <LanguageProvider>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </LanguageProvider>
+      </BrowserRouter>
+    </MotionConfig>
   );
 };
 

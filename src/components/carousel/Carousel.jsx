@@ -1,9 +1,12 @@
+import { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
+import { MdPause, MdPlayArrow } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import ShowcasingCard from '../showcasingCard/ShowcasingCard';
 import { projects } from '../../sections/projects/projects';
+import './style.css';
 
 /**
  * Карусель для отображения лучших проектов с использованием Swiper.
@@ -33,6 +36,8 @@ const Carousel = ({
   ariaLabel,
 }) => {
   const { t } = useTranslation();
+  const swiperRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
   const filteredProjects = projectsData.filter(filterFn);
 
   // Конфигурация Swiper по умолчанию
@@ -57,6 +62,21 @@ const Carousel = ({
     ...swiperConfig,
   };
 
+  // Ручное управление автопрокруткой: единственный способ для
+  // клавиатурных и тач-пользователей остановить движение (наведение
+  // мышью им недоступно) — требование WCAG 2.2.2.
+  const handleToggle = () => {
+    const swiper = swiperRef.current;
+    if (!swiper) return;
+
+    if (isPlaying) {
+      swiper.autoplay.stop();
+    } else {
+      swiper.autoplay.start();
+    }
+    setIsPlaying((prev) => !prev);
+  };
+
   // Если проектов нет, показываем сообщение
   if (filteredProjects.length === 0) {
     return (
@@ -67,26 +87,41 @@ const Carousel = ({
   }
 
   return (
-    <Swiper
-      {...defaultSwiperConfig}
-      aria-label={ariaLabel || t('carousel.ariaLabel')}
-      role="region"
-    >
-      {filteredProjects.map((project) => (
-        <SwiperSlide
-          key={project.id}
-          role="group"
-          aria-label={t('carousel.slideLabel', { project: t(project.title) })}
-        >
-          <ShowcasingCard
-            image={project.img}
-            tabletImg={project.imgTablet}
-            mobileImg={project.imgMobile}
-            name={project.title}
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="carousel">
+      <Swiper
+        {...defaultSwiperConfig}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        aria-label={ariaLabel || t('carousel.ariaLabel')}
+        role="region"
+      >
+        {filteredProjects.map((project) => (
+          <SwiperSlide
+            key={project.id}
+            role="group"
+            aria-label={t('carousel.slideLabel', { project: t(project.title) })}
+          >
+            <ShowcasingCard
+              image={project.img}
+              tabletImg={project.imgTablet}
+              mobileImg={project.imgMobile}
+              name={project.title}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <button
+        type="button"
+        className="carousel__toggle"
+        onClick={handleToggle}
+        aria-label={isPlaying ? t('carousel.pause') : t('carousel.play')}
+        aria-pressed={!isPlaying}
+      >
+        {isPlaying ? <MdPause size={20} /> : <MdPlayArrow size={20} />}
+      </button>
+    </div>
   );
 };
 

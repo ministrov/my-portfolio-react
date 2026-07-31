@@ -135,13 +135,6 @@
       "fifth": "<highlight>Reliable code</highlight> without bugs and issues.",
       "sixth": "<highlight>Pixel-perfect</highlight> responsive layout on any screen.",
       "seventh": "Compliant with <highlight>WCAG 2.1</highlight> — accessible for everyone."
-    },
-    "alt": {
-      "first": "Website icon",
-      "second": "Deploy icon",
-      "third": "React icon",
-      "fourth": "SEO icon",
-      "fifth": "Bug-free code icon"
     }
   },
   "faqs": {
@@ -183,7 +176,9 @@
     "emptyMessage": "No projects to display",
     "slideLabel": "Slide: {{project}}",
     "prevSlide": "Previous slide",
-    "nextSlide": "Next slide"
+    "nextSlide": "Next slide",
+    "pause": "Pause carousel",
+    "play": "Play carousel"
   },
   "showcasing": {
     "alt": "{{project}} — project screenshot"
@@ -389,6 +384,7 @@
         "placeholder": "Tell me about your project..."
       }
     },
+    "requiredHint": "* — required field",
     "submit": "Send message",
     "submitting": "Sending...",
     "successTitle": "Message sent!",

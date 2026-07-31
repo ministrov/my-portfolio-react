@@ -1,41 +1,32 @@
 import { BsPhone } from 'react-icons/bs';
 import { MdOutlineAccessibility } from 'react-icons/md';
-import website from '../../assets/svg/website.svg';
-import deploy from '../../assets/png/deploy.webp';
-import reactIcon from '../../assets/svg/react-js.svg';
-import seo from '../../assets/png/seo.webp';
-import bug from '../../assets/png/bag.webp';
+import { TbBolt, TbRocket, TbCode, TbSeo, TbBugOff } from 'react-icons/tb';
 
 const items = [
   {
     id: 1,
     text: 'advantages.items.first',
-    icon: website,
-    alt: 'advantages.alt.first',
+    icon: TbBolt,
   },
   {
     id: 2,
     text: 'advantages.items.second',
-    icon: deploy,
-    alt: 'advantages.alt.second',
+    icon: TbRocket,
   },
   {
     id: 3,
     text: 'advantages.items.third',
-    icon: reactIcon,
-    alt: 'advantages.alt.third',
+    icon: TbCode,
   },
   {
     id: 4,
     text: 'advantages.items.fourth',
-    icon: seo,
-    alt: 'advantages.alt.fourth',
+    icon: TbSeo,
   },
   {
     id: 5,
     text: 'advantages.items.fifth',
-    icon: bug,
-    alt: 'advantages.alt.fifth',
+    icon: TbBugOff,
   },
   {
     id: 6,

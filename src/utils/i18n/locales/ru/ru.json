@@ -135,13 +135,6 @@
       "fifth": "<highlight>Надежный код</highlight> без багов и проблем.",
       "sixth": "Адаптивная вёрстка, <highlight>pixel-perfect</highlight> на любом экране.",
       "seventh": "Соответствие <highlight>WCAG 2.1</highlight> — сайт удобен для всех."
-    },
-    "alt": {
-      "first": "Иконка: сайт",
-      "second": "Иконка: деплой",
-      "third": "Иконка: React",
-      "fourth": "Иконка: SEO",
-      "fifth": "Иконка: код без багов"
     }
   },
   "faqs": {
@@ -183,7 +176,9 @@
     "emptyMessage": "Нет проектов для отображения",
     "slideLabel": "Слайд: {{project}}",
     "prevSlide": "Предыдущий слайд",
-    "nextSlide": "Следующий слайд"
+    "nextSlide": "Следующий слайд",
+    "pause": "Остановить карусель",
+    "play": "Запустить карусель"
   },
   "showcasing": {
     "alt": "{{project}} — скриншот проекта"
@@ -389,6 +384,7 @@
         "placeholder": "Расскажите о вашем проекте..."
       }
     },
+    "requiredHint": "* — обязательное поле",
     "submit": "Отправить сообщение",
     "submitting": "Отправляем...",
     "successTitle": "Сообщение отправлено!",

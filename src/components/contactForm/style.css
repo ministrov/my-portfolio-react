@@ -24,6 +24,16 @@
   color: var(--color-gray-800);
 }
 
+.contact-form__required-mark {
+  color: var(--color-red-500);
+}
+
+.contact-form__required-hint {
+  margin: -0.5rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--color-gray-500);
+}
+
 /* ── Поля ввода ─────────────────────────────────────────── */
 
 .contact-form__input,
@@ -183,7 +193,7 @@
 
 .contact-form__success-icon {
   font-size: 3rem;
-  color: var(--color-green-500);
+  color: var(--color-green-700);
 }
 
 .contact-form__success-title {

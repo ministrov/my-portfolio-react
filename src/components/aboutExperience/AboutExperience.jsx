@@ -18,10 +18,11 @@ const AboutExperience = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="about-experience">
+    <section className="about-experience" aria-labelledby="experience-heading">
       <div className="container">
         <div className="about-experience__wrapper">
           <Heading
+            id="experience-heading"
             title={t('heading.experience.name')}
             accent={t('heading.experience.accent')}
           />

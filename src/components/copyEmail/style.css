@@ -44,7 +44,7 @@
 }
 
 .copy-email .copy-email__icon--ok {
-  color: var(--color-green-500);
+  color: var(--color-green-700);
   opacity: 1;
 }
 

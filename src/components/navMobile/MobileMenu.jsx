@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { LazyMotion, m, domAnimation, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -10,6 +10,12 @@ import MenuItem from './MenuItem';
 /**
  * Анимированное мобильное меню-оверлей.
  *
+ * При открытии переносит фокус в меню, при закрытии возвращает его
+ * на элемент, который меню открыл (обычно кнопку-гамбургер) — иначе
+ * `aria-modal="true"` вводит в заблуждение вспомогательные технологии,
+ * которые считают остальную страницу неактивной, а фокус туда всё
+ * ещё может попасть.
+ *
  * @component
  * @param {Object} props - Свойства компонента.
  * @param {boolean} props.isOpen - Флаг открытия меню.
@@ -18,12 +24,28 @@ import MenuItem from './MenuItem';
  */
 const MobileMenu = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
+  const menuRef = useRef(null);
+  const lastFocusedRef = useRef(null);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    lastFocusedRef.current = document.activeElement;
+    menuRef.current?.focus();
+
+    return () => {
+      if (lastFocusedRef.current instanceof HTMLElement) {
+        lastFocusedRef.current.focus();
+      }
+    };
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
       {isOpen && (
         <LazyMotion features={domAnimation}>
           <m.div
+            ref={menuRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

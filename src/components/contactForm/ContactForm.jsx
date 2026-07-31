@@ -56,7 +56,12 @@ const ContactForm = ({ onSuccess }) => {
       <div className="contact-form">
         <AnimatePresence mode="wait">
           {status === 'success' ? (
-            <m.div key="success" className="contact-form__success" {...FADE_UP}>
+            <m.div
+              key="success"
+              className="contact-form__success"
+              role="status"
+              {...FADE_UP}
+            >
               <BsCheckCircleFill
                 className="contact-form__success-icon"
                 aria-hidden="true"
@@ -100,6 +105,10 @@ const ContactForm = ({ onSuccess }) => {
                 )}
               </AnimatePresence>
 
+              <p className="contact-form__required-hint">
+                {t('contactForm.requiredHint')}
+              </p>
+
               {FIELDS.map((field) => {
                 const hasError = touched[field.name] && !!errors[field.name];
                 const fieldId = `contact-form-${field.name}`;
@@ -117,6 +126,13 @@ const ContactForm = ({ onSuccess }) => {
                   >
                     <label className="contact-form__label" htmlFor={fieldId}>
                       {t(`contactForm.fields.${field.name}.label`)}
+                      <span
+                        className="contact-form__required-mark"
+                        aria-hidden="true"
+                      >
+                        {' '}
+                        *
+                      </span>
                     </label>
 
                     {field.tag === 'textarea' ? (
@@ -132,6 +148,7 @@ const ContactForm = ({ onSuccess }) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         disabled={isSubmitting}
+                        aria-required="true"
                         aria-invalid={hasError || undefined}
                         aria-describedby={hasError ? errorId : undefined}
                         ref={(el) => {
@@ -151,6 +168,7 @@ const ContactForm = ({ onSuccess }) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         disabled={isSubmitting}
+                        aria-required="true"
                         aria-invalid={hasError || undefined}
                         aria-describedby={hasError ? errorId : undefined}
                         ref={(el) => {
