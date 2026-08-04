@@ -267,13 +267,14 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 ### Signature: The Developer's Console
 
-Three cross-cutting moments carry the "developer console" identity, deliberately using the same reserved monospace stack and cobalt hue rather than three unrelated ideas:
+Four cross-cutting moments carry the "developer console" identity, deliberately using the same reserved monospace stack and cobalt hue rather than unrelated ideas:
 
 1. **Logo caret** — the wordmark "AntoshkinDev" ends in a blinking cobalt caret (`steps(1)` blink, 1.06s), a literal cursor.
 2. **Author IDE card** (About page) — a dark, 24px-radius card styled as a code editor window: red/yellow/green traffic-light dots, a lowercase monospace title bar, and a syntax-highlighted fake code snippet in the footer.
 3. **Decoding hero subtitle** — the hero's identity line decodes itself character-by-character (unresolved characters cycle through random glyphs of the same alphabet in cobalt, then lock to Ink) on load and again on a long loop, echoing a terminal printing text.
+4. **PhotoRing inspect hover** — hovering the author photo ring (shared by `AuthorIdentity` and `AuthorPhoto`) reveals a dashed cobalt outline and a `<PhotoRing />` tag chip in the reserved monospace stack, echoing a browser devtools "inspect element" highlight — a grace note for the technically literate visitor that doubles as a wink at the site's own React/JSX stack.
 
-All three respect `prefers-reduced-motion` by disabling their animation and rendering statically.
+All four respect `prefers-reduced-motion` by disabling their transition and rendering statically (the caret, card glow, and subtitle stop animating; the inspect overlay's hover fade becomes instant rather than eased).
 
 ## Do's and Don'ts
 
