@@ -1,7 +1,7 @@
 import { m } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { BsGeoAlt } from 'react-icons/bs';
-import SocialList from '../socials/SocialList';
+import PhotoRing from '../photoRing/PhotoRing';
+import AuthorMeta from '../authorMeta/AuthorMeta';
 import photo from '../../assets/png/photo.webp';
 import './style.css';
 
@@ -34,36 +34,15 @@ const AuthorIdentity = () => {
 
   return (
     <m.div className="author-identity" {...IDENTITY_ANIMATION}>
-      <figure className="author-identity__photo-ring">
-        <img
-          className="author-identity__img"
+      <div className="author-identity__photo">
+        <PhotoRing
           src={photo}
-          width={260}
-          height={260}
           alt={t('authorPhoto.photoAlt')}
-          loading="lazy"
+          variant="light"
         />
-      </figure>
-
-      {/* Метаданные автора */}
-      <div className="author-identity__meta">
-        <p className="author-identity__name">{t('authorPhoto.name')}</p>
-        <p className="author-identity__role">{t('authorPhoto.role')}</p>
-        <p className="author-identity__location">
-          <BsGeoAlt
-            className="author-identity__location-icon"
-            aria-hidden="true"
-          />
-          {t('authorPhoto.location')}
-        </p>
-
-        <div className="author-identity__available">
-          <span className="author-identity__available-dot" aria-hidden="true" />
-          {t('about.available')}
-        </div>
-
-        <SocialList variant="blue" />
       </div>
+
+      <AuthorMeta variant="light" />
     </m.div>
   );
 };
