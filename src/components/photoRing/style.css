@@ -1,7 +1,10 @@
-/* Кольцо-фото: градиентная рамка + скругление-сквирк */
+/* Кольцо-фото: градиентная рамка + скругление-сквирк.
+   margin:0 сбрасывает дефолтный отступ браузера у <figure> (обычно 1em 40px) —
+   без этого выравнивание по левому краю у AuthorIdentity ломается */
 .photo-ring {
   position: relative;
   width: fit-content;
+  margin: 0;
   padding: 3px;
   border-radius: 24px;
   background: var(--gradient);
