@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdEmail, MdLocationOn, MdAccessTime } from 'react-icons/md';
 import Modal from '../../components/modal/Modal';
@@ -22,11 +22,16 @@ const Contact = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
+  /* useCallback здесь не для микрооптимизации: Modal передаёт onClose
+     дальше в зависимости своих эффектов (авто-закрытие по таймеру,
+     блокировка скролла) — нестабильная ссылка заставляла их
+     перезапускаться на каждый чужой ре-рендер Contact. */
+
   /** Открывает модальное окно заказа. */
-  const handleOpenModal = () => setIsOpen(true);
+  const handleOpenModal = useCallback(() => setIsOpen(true), []);
 
   /** Закрывает модальное окно заказа. */
-  const handleCloseModal = () => setIsOpen(false);
+  const handleCloseModal = useCallback(() => setIsOpen(false), []);
 
   return (
     <section className="contact" aria-labelledby="contact-heading">
