@@ -1,0 +1,104 @@
+/* Кольцо-фото: градиентная рамка + скругление-сквирк.
+   margin:0 сбрасывает дефолтный отступ браузера у <figure> (обычно 1em 40px) —
+   без этого выравнивание по левому краю у AuthorIdentity ломается */
+.photo-ring {
+  position: relative;
+  width: fit-content;
+  margin: 0;
+  padding: 3px;
+  border-radius: 24px;
+  background: var(--gradient);
+  transition: box-shadow 260ms ease;
+}
+
+.photo-ring--light {
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.18);
+}
+
+.photo-ring--light:hover {
+  box-shadow: 0 16px 40px rgba(0, 88, 167, 0.28);
+}
+
+.photo-ring--dark {
+  box-shadow:
+    0 0 0 1px var(--color-gray-900),
+    0 18px 45px rgba(0, 0, 0, 0.85);
+}
+
+.photo-ring--dark:hover {
+  box-shadow:
+    0 0 0 1px rgba(48, 115, 197, 0.6),
+    0 22px 50px rgba(0, 0, 0, 0.9);
+}
+
+/* Нижний скрим: растворяет обрезанный край бюста в подложке фото */
+.photo-ring::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  height: 55%;
+  border-radius: 0 0 21px 21px;
+  background: linear-gradient(
+    to top,
+    #6f97d2 0%,
+    #6f97d2 45%,
+    rgba(111, 151, 210, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.photo-ring__img {
+  display: block;
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 21px;
+  /* Подложка-«ниша» за прозрачным PNG */
+  background: linear-gradient(180deg, #e6edf8 0%, #6f97d2 100%);
+}
+
+/* Оверлей в духе devtools-инспектора: пунктирная рамка + JSX-тег на ховере.
+   z-index обязателен — иначе скрим (::after, всегда рисуется последним
+   среди детей .photo-ring) перекрывает оверлей в нижней части кольца. */
+.photo-ring__inspect {
+  position: absolute;
+  z-index: 1;
+  inset: 3px;
+  border-radius: 21px;
+  border: 1.5px dashed rgba(37, 99, 235, 0.85);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.photo-ring:hover .photo-ring__inspect,
+.photo-ring:active .photo-ring__inspect {
+  opacity: 1;
+}
+
+.photo-ring__inspect-tag {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--color-blue-700);
+  color: var(--color-white);
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Уважение к системной настройке «уменьшить движение» */
+@media (prefers-reduced-motion: reduce) {
+  .photo-ring,
+  .photo-ring__inspect {
+    transition: none;
+  }
+}

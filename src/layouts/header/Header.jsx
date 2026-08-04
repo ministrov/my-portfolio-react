@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import NavDesktop from '../../components/navDesktop/NavDesktop';
 import NavMobile from '../../components/navMobile/NavMobile';
+import useMenuControl from '../../components/navMobile/useMenuControl';
 import Logo from '../../components/logo/Logo';
 import ToggleLang from '../../components/toggleLang/ToggleLang';
 import CtaButton from '../../components/ctaButton/CtaButton';
@@ -10,7 +11,12 @@ import './style.css';
  * Компонент заголовка сайта с изменяемым фоном при прокрутке.
  * Три зоны: логотип слева, навигация по центру, действия справа
  * (переключатель языка, CTA «Обсудить проект», мобильный бургер).
- * Фон меняется при прокрутке страницы ниже порогового значения.
+ * Фон меняется при прокрутке страницы ниже порогового значения, а также
+ * остаётся сплошным, пока открыто мобильное меню — иначе сквозь прозрачный
+ * хедер видна прокручивающаяся страница позади оверлея.
+ *
+ * Состояние мобильного меню владеется здесь (а не в `NavMobile`), потому
+ * что оно нужно и хедеру (фон), и самому меню.
  *
  * @component
  * @example
@@ -18,10 +24,11 @@ import './style.css';
  */
 const Header = () => {
   const SCROLL_THRESHOLD = 40;
-  const [headerBg, setHeaderBg] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { isOpen, handleMenuToggle, handleMenuClose } = useMenuControl();
 
   const handleScroll = useCallback(() => {
-    setHeaderBg(window.scrollY > SCROLL_THRESHOLD);
+    setScrolled(window.scrollY > SCROLL_THRESHOLD);
   }, []);
 
   useEffect(() => {
@@ -31,8 +38,10 @@ const Header = () => {
     };
   }, [handleScroll]);
 
+  const showHeaderBg = scrolled || isOpen;
+
   return (
-    <header className={`header ${headerBg ? 'header--bg' : ''}`}>
+    <header className={`header ${showHeaderBg ? 'header--bg' : ''}`}>
       <nav className="header__nav nav">
         <Logo />
 
@@ -41,7 +50,11 @@ const Header = () => {
         <div className="header__actions">
           <ToggleLang className="nav__lang" />
           <CtaButton variant="pill" />
-          <NavMobile />
+          <NavMobile
+            isOpen={isOpen}
+            onToggle={handleMenuToggle}
+            onClose={handleMenuClose}
+          />
         </div>
       </nav>
     </header>

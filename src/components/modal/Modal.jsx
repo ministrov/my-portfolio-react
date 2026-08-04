@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { AnimatePresence, LazyMotion, m, domAnimation } from 'framer-motion';
 import { IoCloseSharp } from 'react-icons/io5';
 import PropTypes from 'prop-types';
+import useBodyScrollLock from '../../hooks/useBodyScrollLock';
 import ModalSteps from '../modalSteps/ModalSteps';
 import CtaButton from '../ctaButton/CtaButton';
 import './style.css';
@@ -33,34 +34,28 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
   const portalRoot =
     typeof document !== 'undefined' ? document.getElementById('portal') : null;
 
-  // Единая функция закрытия с очисткой таймера и восстановлением overflow
+  useBodyScrollLock(open);
+
+  // Единая функция закрытия с очисткой таймера
   const handleClose = useCallback(() => {
     onClose();
-    document.body.style.overflow = 'unset';
     if (timerRef.current) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
     }
   }, [onClose]);
 
-  // Блокировка прокрутки фона и авто-закрытие по таймеру
+  // Авто-закрытие по таймеру
   useEffect(() => {
-    if (!open) {
-      document.body.style.overflow = 'unset';
-      return undefined;
-    }
+    if (!open || !autoCloseDelay) return undefined;
 
-    document.body.style.overflow = 'hidden';
-    if (autoCloseDelay) {
-      timerRef.current = setTimeout(handleClose, autoCloseDelay);
-    }
+    timerRef.current = setTimeout(handleClose, autoCloseDelay);
 
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
         timerRef.current = null;
       }
-      document.body.style.overflow = 'unset';
     };
   }, [open, autoCloseDelay, handleClose]);
 
