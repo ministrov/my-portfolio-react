@@ -118,7 +118,7 @@ The two registers coexist deliberately: most of the site stays warm, approachabl
 **Key Characteristics:**
 
 - Cobalt blue (`#2563eb`) is the one unmistakable action color — links, active nav, focus rings, primary buttons.
-- Corners default to a gentle 8px; pills (999px) are reserved for compact, tappable chrome (the header CTA, tags, the photo ring).
+- Corners default to a gentle 8px; pills (999px) are reserved for compact, tappable chrome (the header CTA, tags, the availability badge).
 - Borders and hover shadows are tinted with the brand's own blue hue, not neutral black.
 - A three-color cobalt → indigo → violet diagonal gradient exists in exactly four places, never as generic decoration.
 - The hero's flagship CV-download button carries its own one-off "spotlight" rainbow (cobalt → violet → pink), distinct from the shared gradient token.
@@ -172,7 +172,7 @@ Mostly a two-color system — cobalt as the one true action color, violet as a q
 
 **The Colored Shadow Rule.** Interactive surfaces rest with a neutral, near-invisible shadow (or none) and _deepen into a Cobalt Shadow-tinted shadow_ (`rgba(0, 88, 167, …)` — see Colors → Cobalt Shadow) specifically on hover — the brand's own hue casts the light, rather than generic black. The project card is the one exception that carries the cobalt tint even at rest, since it's the most showcase-forward surface in the system.
 
-**The One Gradient Rule.** The signature `linear-gradient(120deg, #2563eb 0%, #6366f1 50%, #7c3aed 100%)` diagonal appears in exactly four places — the hero title's accent text, the About page's showcasing overlay, and the photo ring in both `authorPhoto` and `authorIdentity`. It is a hero-moment device, never a general decorative fill. The hero CTA button's rotating border is a _separate_ device (see CTA Spotlight) and does not use this token.
+**The One Gradient Rule.** The signature `linear-gradient(120deg, #2563eb 0%, #6366f1 50%, #7c3aed 100%)` diagonal appears in exactly four places — the hero title's accent text, the About page's showcasing overlay, and the photo ring shared by `AuthorPhoto` and `AuthorIdentity` (both compose the same `PhotoRing` component). It is a hero-moment device, never a general decorative fill. The hero CTA button's rotating border is a _separate_ device (see CTA Spotlight) and does not use this token.
 
 **The CTA Spotlight Rule.** The hero's CV-download button is the one place allowed to break from the documented cobalt/violet palette into its own punchier rainbow (CTA Spotlight Blue/Violet/Pink/Ink). It is a single, deliberately hand-tuned exception for the site's most important CTA — not a precedent for adding more one-off colors elsewhere.
 
@@ -222,7 +222,7 @@ The system is mostly flat-at-rest with soft, low-alpha ambient shadows that _dee
 
 ## Shapes
 
-Corners default to a gentle **8px** (`--border-radius-s`) on buttons, cards, inputs, and images — the system's baseline geometry. Larger standalone surfaces scale their radius up with their size: 16px for the FAQ item and the about-story card, 20px for the modal (16px, then 14px as it shrinks on small screens), 24px for the author card. Fully circular **pill** radii (999px) are reserved for compact interactive/label chrome — the header's CTA button, the photo ring, the availability badge — never for content containers.
+Corners default to a gentle **8px** (`--border-radius-s`) on buttons, cards, inputs, and images — the system's baseline geometry. Larger standalone surfaces scale their radius up with their size: 16px for the FAQ item and the about-story card, 20px for the modal (16px, then 14px as it shrinks on small screens), 24px for the author card. Fully circular **pill** radii (999px) are reserved for compact interactive/label chrome — the header's CTA button, the availability badge — never for content containers. The author photo ring is the one deliberate exception to the corner scale: a squircle (24px ring / 21px image, one step past the standalone-surface ceiling) rather than a pill, because its bottom edge carries a scrim gradient that dissolves the photo's cropped edge into its own backdrop — an effect a circular crop would fight rather than support.
 
 Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tinted to match their surface rather than a flat gray: Cobalt Shadow-tinted (`rgba(0, 88, 167, 0.1–0.3)`) on project imagery, cards, and the loader spinner, neutral-black-tinted (`rgba(0, 0, 0, 0.06–0.08)`) on light hairline dividers (header, FAQ, about-story card), white-tinted (`rgba(255, 255, 255, 0.05–0.1)`) on the two dark surfaces.
 
