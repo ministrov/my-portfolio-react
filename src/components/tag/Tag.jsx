@@ -4,7 +4,7 @@ import './style.css';
 
 /**
  * Компонент тега для отображения категорий, технологий или меток.
- * Поддерживает forwardRef для совместимости с motion() из Framer Motion.
+ * Поддерживает forwardRef для совместимости с m.create() из motion.
  *
  * @component
  * @param {Object} props - Пропсы компонента.

@@ -4,10 +4,9 @@ import {
   useMemo,
   useEffect,
   useCallback,
-  useRef,
 } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useUrlParams } from '../hooks/useUrlParams';
+import { resolveInitialLang } from '../utils/lang';
 import { LANGUAGES, LOCAL_STORAGE_KEY } from '../const';
 
 /**
@@ -42,27 +41,17 @@ export const LanguageContext = createContext({
  * </LanguageProvider>
  */
 export function LanguageProvider({ children }) {
-  const location = useLocation();
-  const [lang, setLang] = useUrlParams('lang', LANGUAGES.RU);
-  const isMounted = useRef(true);
-
-  // Восстановление языка из localStorage при монтировании (если нет параметра в URL)
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    if (!params.has('lang')) {
-      const savedLang = localStorage.getItem(LOCAL_STORAGE_KEY);
-      if (savedLang === LANGUAGES.RU || savedLang === LANGUAGES.EN) {
-        // Проверка на демонтирование компонента
-        if (isMounted.current) {
-          setLang(savedLang);
-        }
-      }
-    }
-
-    return () => {
-      isMounted.current = false;
-    };
-  }, [location.search, setLang]);
+  // Начальный язык разрешается синхронно, до первого рендера: URL → localStorage → 'ru'.
+  // useUrlParams читает initialValue ровно один раз, в инициализаторе useState.
+  //
+  // Раньше здесь был эффект, который восстанавливал язык из localStorage уже
+  // после монтирования, и рефа isMounted, гасившая его повторный вызов. Связка
+  // была нерабочей: эффект сохранения (ниже) успевал записать в localStorage
+  // текущий, ещё дефолтный 'ru' до того, как StrictMode прогонял эффект
+  // восстановления во второй раз — тот читал уже затёртое значение и возвращал
+  // язык к 'ru'. Рефа эту гонку лишь маскировала, глуша второй прогон.
+  // Синхронное разрешение убирает и эффект, и гонку целиком.
+  const [lang, setLang] = useUrlParams('lang', resolveInitialLang());
 
   // Сохранение языка в localStorage при изменении
   useEffect(() => {
