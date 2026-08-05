@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+import { resolveInitialLang } from '../lang';
 import EnLang from './locales/en/en.json';
 import RuLang from './locales/ru/ru.json';
 
@@ -13,25 +14,13 @@ const resources = {
   },
 };
 
-/**
- * Определяет начальный язык интерфейса до инициализации i18next.
- * Приоритет: URL-параметр `lang` → localStorage → 'ru'.
- * Позволяет избежать флэша неправильного языка при первом рендере.
- *
- * @returns {'ru'|'en'} Код начального языка.
- */
-const getInitialLang = () => {
-  const urlLang = new URLSearchParams(window.location.search).get('lang');
-  if (urlLang === 'ru' || urlLang === 'en') return urlLang;
-  const saved = localStorage.getItem('preferredLang');
-  if (saved === 'ru' || saved === 'en') return saved;
-  return 'ru';
-};
-
 i18n.use(initReactI18next).init({
   resources,
   fallbackLng: 'ru',
-  lng: getInitialLang(),
+  // Приоритет URL → localStorage → 'ru' живёт в utils/lang.
+  // Тот же резолвер задаёт начальное состояние LanguageProvider, поэтому оба
+  // слоя стартуют с одним языком и не перебивают друг друга.
+  lng: resolveInitialLang(),
 
   interpolation: {
     escapeValue: false,

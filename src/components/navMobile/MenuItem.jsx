@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { NavLink, useMatch } from 'react-router-dom';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 

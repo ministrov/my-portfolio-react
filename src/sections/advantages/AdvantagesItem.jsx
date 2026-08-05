@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { memo } from 'react';
 import './style.css';
 

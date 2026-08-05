@@ -1,7 +1,10 @@
 import { GoProjectSymlink } from 'react-icons/go';
 import { FaUserTie } from 'react-icons/fa6';
 import { SlGlobe } from 'react-icons/sl';
-import { SiAffinitydesigner } from 'react-icons/si';
+// Здесь была SiAffinitydesigner — Simple Icons убрали бренд Affinity Designer,
+// в react-icons 5 его больше нет. Услуга описывает дизайн вообще, а не работу
+// в конкретном редакторе, поэтому взята нейтральная иконка Material.
+import { MdDesignServices } from 'react-icons/md';
 import { TbSeo } from 'react-icons/tb';
 
 export const routes = [
@@ -35,7 +38,7 @@ export const services = [
     id: 2,
     title: 'services.title.two',
     description: 'services.description.two',
-    icon: <SiAffinitydesigner color="white" size={25} />,
+    icon: <MdDesignServices color="white" size={25} />,
   },
   {
     id: 3,

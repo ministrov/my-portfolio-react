@@ -6,7 +6,7 @@ import {
   domAnimation,
   useInView,
   useReducedMotion,
-} from 'framer-motion';
+} from 'motion/react';
 import { GoArrowUpRight } from 'react-icons/go';
 import useScrambleText from '../../hooks/useScrambleText';
 import useCharWidths from '../../hooks/useCharWidths';
@@ -27,7 +27,7 @@ const ANIMATION_DELAYS = {
 /**
  * Базовая конфигурация анимации появления элементов снизу вверх.
  * Используется как общий пресет, поверх которого задаётся индивидуальная задержка.
- * @type {import('framer-motion').MotionProps}
+ * @type {import('motion/react').MotionProps}
  */
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -42,7 +42,7 @@ const fadeUp = {
 /**
  * Облегчённая версия fadeUp для prefers-reduced-motion: только прозрачность,
  * без вертикального сдвига — контент всё ещё проявляется, но не движется.
- * @type {import('framer-motion').MotionProps}
+ * @type {import('motion/react').MotionProps}
  */
 const fadeUpReduced = {
   initial: { opacity: 0 },
@@ -72,7 +72,7 @@ const titleReveal = {
  * Облегчённая версия titleReveal для prefers-reduced-motion: только
  * прозрачность, без сдвига, поворота и блюра — задержка сохранена, чтобы
  * порядок появления секций остался прежним.
- * @type {import('framer-motion').MotionProps}
+ * @type {import('motion/react').MotionProps}
  */
 const titleRevealReduced = {
   initial: { opacity: 0 },
@@ -101,7 +101,7 @@ const ctaPop = {
 /**
  * Облегчённая версия ctaPop для prefers-reduced-motion: только прозрачность,
  * без масштаба и перелёта — задержка сохранена.
- * @type {import('framer-motion').MotionProps}
+ * @type {import('motion/react').MotionProps}
  */
 const ctaPopReduced = {
   initial: { opacity: 0 },

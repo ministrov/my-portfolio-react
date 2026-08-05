@@ -1,7 +1,7 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { MotionConfig } from 'framer-motion';
+import { MotionConfig } from 'motion/react';
 import { LanguageProvider } from './context/LanguageProvider';
 import HomePage from './pages/HomePage';
 import Layout from './layouts/Layout';
@@ -25,12 +25,7 @@ const App = () => {
 
   return (
     <MotionConfig reducedMotion="user">
-      <BrowserRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
+      <BrowserRouter>
         <ScrollToTop />
         <LanguageProvider>
           <Suspense fallback={<Loader />}>

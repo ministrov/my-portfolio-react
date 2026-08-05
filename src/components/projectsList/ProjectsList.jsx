@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import ProjectCard from '../projectCard/ProjectCard';
 import './style.css';

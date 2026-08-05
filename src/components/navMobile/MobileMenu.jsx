@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef } from 'react';
-import { LazyMotion, m, domAnimation, AnimatePresence } from 'framer-motion';
+import { LazyMotion, m, domAnimation, AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ToggleLang from '../toggleLang/ToggleLang';

@@ -1,7 +1,7 @@
 import { useRef, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import { AnimatePresence, LazyMotion, m, domAnimation } from 'framer-motion';
+import { AnimatePresence, LazyMotion, m, domAnimation } from 'motion/react';
 import { IoCloseSharp } from 'react-icons/io5';
 import PropTypes from 'prop-types';
 import useBodyScrollLock from '../../hooks/useBodyScrollLock';

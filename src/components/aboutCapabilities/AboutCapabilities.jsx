@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'motion/react';
 import Heading from '../heading/Heading';
 import Tag from '../tag/Tag';
 import { skills } from '../../const';
@@ -27,9 +27,10 @@ const itemVariants = {
   },
 };
 
-// Motion-обёртка для Tag, совместимая с Framer Motion.
+// Motion-обёртка для Tag.
 // Создаётся один раз на уровне модуля, чтобы не пересоздавать тип компонента на каждом рендере.
-const MotionTag = m(Tag);
+// В motion 12 вызов m(Tag) объявлен устаревшим в пользу m.create(Tag).
+const MotionTag = m.create(Tag);
 
 /**
  * Компонент секции "Возможности" (навыки и технологии).

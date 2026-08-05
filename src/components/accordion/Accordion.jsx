@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'motion/react';
 import { faqs } from '../../const';
 import AccordionItem from '../accordionItem/AccordionItem';
 import './style.css';
@@ -8,7 +8,7 @@ import './style.css';
 /**
  * Варианты анимации для контейнера списка.
  * Определяет staggered анимацию для дочерних элементов.
- * @type {import('framer-motion').Variants}
+ * @type {import('motion/react').Variants}
  */
 const listVariants = {
   hidden: {},

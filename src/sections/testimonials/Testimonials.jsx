@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, A11y } from 'swiper/modules';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
@@ -39,7 +39,7 @@ const getSwiperConfig = (t) => ({
 
 /**
  * Базовая конфигурация анимации появления заголовка снизу вверх.
- * @type {import('framer-motion').MotionProps}
+ * @type {import('motion/react').MotionProps}
  */
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
