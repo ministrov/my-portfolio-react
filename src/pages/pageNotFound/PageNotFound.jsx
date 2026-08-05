@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import ErrorMessage from '../../components/errorMessage/ErrorMessage';
 import './style.css';
@@ -18,15 +17,10 @@ const PageNotFound = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('metadata.notFound.title')}</title>
-        <meta
-          name="description"
-          content={t('metadata.notFound.description')}
-          data-rh="true"
-        />
-        <meta name="robots" content="noindex, follow" />
-      </Helmet>
+      <title>{t('metadata.notFound.title')}</title>
+      <meta name="description" content={t('metadata.notFound.description')} />
+      <meta name="robots" content="noindex, follow" />
+
       <section className="page-not-found">
         <h1 className="visually-hidden">{t('metadata.notFound.title')}</h1>
 

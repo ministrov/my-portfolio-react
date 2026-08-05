@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { useSeoMeta } from '../hooks/useSeoMeta';
@@ -8,7 +7,7 @@ import Contact from '../sections/contact/Contact.jsx';
 /**
  * Компонент страницы проектов портфолио.
  * Отображает секцию со всеми проектами и контактную форму.
- * Использует React Helmet для управления мета-тегами и переводы через i18n.
+ * Мета-теги объявляются нативно — React 19 сам поднимает их в <head>. Переводы через i18n.
  *
  * @component
  * @example
@@ -48,29 +47,32 @@ const ProjectsPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{PAGE_TITLE}</title>
-        <meta name="description" content={PAGE_DESCRIPTION} data-rh="true" />
-        <meta name="keywords" content={PAGE_KEYWORDS} />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" hrefLang="ru" href={ruUrl} />
-        <link rel="alternate" hrefLang="en" href={enUrl} />
-        <link rel="alternate" hrefLang="x-default" href={ruUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:title" content={PAGE_TITLE} />
-        <meta property="og:description" content={PAGE_DESCRIPTION} />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:locale" content={ogLocale} />
-        <meta property="og:locale:alternate" content={ogLocaleAlt} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={PAGE_TITLE} />
-        <meta name="twitter:description" content={PAGE_DESCRIPTION} />
-        <meta name="twitter:image" content={ogImage} />
-        <script type="application/ld+json">{breadcrumbSchema}</script>
-      </Helmet>
+      <title>{PAGE_TITLE}</title>
+      <meta name="description" content={PAGE_DESCRIPTION} />
+      <meta name="keywords" content={PAGE_KEYWORDS} />
+      <link rel="canonical" href={canonical} />
+      <link rel="alternate" hrefLang="ru" href={ruUrl} />
+      <link rel="alternate" hrefLang="en" href={enUrl} />
+      <link rel="alternate" hrefLang="x-default" href={ruUrl} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:title" content={PAGE_TITLE} />
+      <meta property="og:description" content={PAGE_DESCRIPTION} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:locale" content={ogLocale} />
+      <meta property="og:locale:alternate" content={ogLocaleAlt} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={PAGE_TITLE} />
+      <meta name="twitter:description" content={PAGE_DESCRIPTION} />
+      <meta name="twitter:image" content={ogImage} />
+
+      {/* Зависит от языка, поэтому остаётся в компоненте и рендерится в <body>. См. AboutPage. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbSchema }}
+      />
 
       <h1 className="visually-hidden">{t('pages.projects.heading')}</h1>
 
