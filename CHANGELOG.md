@@ -9,6 +9,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Build tooling: Create React App → Vite 8.** `react-scripts` removed. Dev server cold start 227 ms, production build 1.3 s (was 71 s). `public/index.html` moved to the project root; `outDir` kept as `build/` so deploy settings and `npm run prod` keep working.
+- **React 18 → 19** (19.2.8), plus the whole dependency tree: `react-router-dom` 6 → 7, `framer-motion` 10 → `motion` 12, `i18next` 24 → 26, `react-i18next` 15 → 17, `swiper` 11 → 14.
+- **SEO now uses React 19 native metadata** — `react-helmet-async` removed. The language-independent `Person` and `WebSite` JSON-LD moved into `index.html`, so crawlers see them without executing JavaScript; the localized `BreadcrumbList` schemas stay in their pages.
+- **Linting moved to ESLint 9 flat config** (`eslint.config.js`), replacing the `eslintConfig` block that came with CRA. A real `npm run lint` script exists now.
+- Files carrying JSX renamed to `.jsx`: `src/index.jsx`, `src/const/index.jsx`, `src/components/socials/socials.jsx`.
+- Web3Forms key switched from `REACT_APP_WEB3FORMS_KEY` to `VITE_WEB3FORMS_KEY`.
+- `browserslist` dropped in favour of Vite's `baseline-widely-available` target — a deliberate narrowing of browser support.
+
+### Added
+
+- **Vitest harness** (`vitest`, Testing Library, jsdom) replacing the Jest that left with `react-scripts`, plus `npm test` / `npm run test:run`.
+- Tests for the projects filter reducer and for the language resolver.
+- `src/utils/lang.js` — single source of truth for the initial-language precedence (`?lang=` → `localStorage` → `ru`), shared by the i18next bootstrap and `LanguageProvider`.
+
+### Fixed
+
+- **Language choice no longer resets to Russian.** `LanguageProvider` restored the language in an effect that raced its own save-to-`localStorage` effect; under StrictMode the second pass read an already-overwritten value and reverted to `ru`. The initial language is now resolved synchronously before first render, and the effect is gone. The `isMounted` ref that had been masking the race was removed with it.
+- `hreflang` → `hrefLang` in the three page components — React 19 rejects the lowercase DOM property.
+- `m(Tag)` → `m.create(Tag)` in `AboutCapabilities`, silencing a Motion 12 deprecation warning.
+- Lexical declaration inside a `case` block in `projectsReduce.js`.
+
+### Security
+
+- Critical prototype-pollution advisory in `swiper` closed by the v14 upgrade. Remaining production advisories are the React Router RSC-mode issue, which does not apply to this client-side SPA.
+
 ## [1.1.0] - 2026-06-12
 
 Major refactoring sprint + design polish. All components and sections audited for

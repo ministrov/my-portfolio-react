@@ -1,12 +1,12 @@
 # Портфолио фронтенд-разработчика — Антон Жилин
 
-Персональный сайт-портфолио (SPA) фронтенд-разработчика, построенный на **React 18**. Двуязычный интерфейс (русский по умолчанию, английский), плавные анимации, адаптивная вёрстка и SEO-оптимизация.
+Персональный сайт-портфолио (SPA) фронтенд-разработчика, построенный на **React 19** и **Vite 8**. Двуязычный интерфейс (русский по умолчанию, английский), плавные анимации, адаптивная вёрстка и SEO-оптимизация.
 
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
-![Create React App](https://img.shields.io/badge/CRA-5-09D3AC?logo=createreactapp&logoColor=white)
-![React Router](https://img.shields.io/badge/React_Router-6-CA4245?logo=reactrouter&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-7-CA4245?logo=reactrouter&logoColor=white)
 ![i18next](https://img.shields.io/badge/i18n-RU%20%2F%20EN-26A69A?logo=i18next&logoColor=white)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-10-0055FF?logo=framer&logoColor=white)
+![Motion](https://img.shields.io/badge/Motion-12-0055FF?logo=framer&logoColor=white)
 
 ![Превью проекта](my-portfolio.png)
 
@@ -61,11 +61,11 @@
 ## ✨ Возможности
 
 - 🌐 **Двуязычность (i18n)** — переключение RU/EN на лету. Выбранный язык хранится в URL (`?lang=`) и `localStorage`, поэтому ссылку можно расшарить с нужным языком.
-- 🎨 **Анимации** — переходы и эффекты на Framer Motion, анимированный звёздный фон.
+- 🎨 **Анимации** — переходы и эффекты на Motion, анимированный звёздный фон.
 - 🗂 **Фильтрация проектов** — фильтры по технологиям (All / React / Next / JavaScript).
 - 📱 **Адаптивность** — отдельные изображения проектов для desktop / tablet / mobile, резиновая вёрстка на мобильных.
-- ⚡ **Производительность** — code-splitting страниц и тяжёлых секций через `React.lazy`, мемоизация компонентов, оптимизированный tree-shaking Framer Motion.
-- 🔍 **SEO** — управление `<head>` (title, description, keywords) через `react-helmet-async`, локализованные мета-теги.
+- ⚡ **Производительность** — code-splitting страниц и тяжёлых секций через `React.lazy`, мемоизация компонентов, оптимизированный tree-shaking Motion.
+- 🔍 **SEO** — нативные метаданные React 19 (`title`, `description`, `canonical`, `hreflang`, Open Graph), локализованные мета-теги, JSON-LD `Person`/`WebSite` статикой в `index.html`.
 - ♿ **Доступность** — скрытые заголовки `h1`, `aria-label`, обработка `Escape` и блокировка прокрутки для модальных окон.
 - 📨 **Форма связи** — модальное окно обратной связи и ссылки на соцсети (GitHub, Telegram, VK, MAX).
 
@@ -88,20 +88,21 @@
 
 ## 🧰 Технологический стек
 
-| Категория          | Технология                                                |
-| ------------------ | --------------------------------------------------------- |
-| Фреймворк / сборка | Create React App (`react-scripts` 5)                      |
-| UI                 | React 18 (функциональные компоненты + хуки)               |
-| Язык               | JavaScript (JSX), типизация через JSDoc                   |
-| Маршрутизация      | React Router DOM v6 (с future-флагами v7)                 |
-| Состояние          | Context API (глобальное) + `useReducer` (фильтр проектов) |
-| Локализация        | i18next + react-i18next                                   |
-| Анимации           | Framer Motion                                             |
-| Слайдеры           | Swiper                                                    |
-| SEO                | react-helmet-async                                        |
-| Иконки             | React Icons                                               |
-| Меню               | hamburger-react                                           |
-| Стили              | Обычный CSS с БЭМ-неймингом                               |
+| Категория     | Технология                                                |
+| ------------- | --------------------------------------------------------- |
+| Сборка        | Vite 8 (`@vitejs/plugin-react`)                           |
+| UI            | React 19 (функциональные компоненты + хуки)               |
+| Язык          | JavaScript (JSX), типизация через JSDoc                   |
+| Маршрутизация | React Router DOM v7                                       |
+| Состояние     | Context API (глобальное) + `useReducer` (фильтр проектов) |
+| Локализация   | i18next 26 + react-i18next 17                             |
+| Анимации      | Motion 12 (бывший Framer Motion)                          |
+| Слайдеры      | Swiper 14                                                 |
+| SEO           | Нативные метаданные React 19                              |
+| Тесты         | Vitest + Testing Library                                  |
+| Иконки        | React Icons                                               |
+| Меню          | hamburger-react                                           |
+| Стили         | Обычный CSS с БЭМ-неймингом                               |
 
 ---
 
@@ -140,7 +141,7 @@ src/
 
 ### Требования
 
-- **Node.js** 16+ и **npm** (проект на CRA 5).
+- **Node.js** `^20.19.0 || >=22.12.0` и **npm** (требование Vite 8).
 - Git.
 
 ### Шаги
@@ -159,16 +160,16 @@ npm start
 
 ### Доступные команды
 
-| Команда           | Назначение                                      |
-| ----------------- | ----------------------------------------------- |
-| `npm start`       | Дев-сервер с hot-reload на `localhost:3000`     |
-| `npm run build`   | Продакшен-сборка в каталог `build/`             |
-| `npm test`        | Запуск тестов (Jest, watch-режим)               |
-| `npm run prod`    | Сборка и раздача статики через `serve -s build` |
-| `npm run analyze` | Анализ размера бандла (`source-map-explorer`)   |
-
-> [!NOTE]
-> Линтинг встроен в `react-scripts` (конфиг `react-app`). Отдельной команды `npm run lint` нет — для разовой проверки используйте `npx eslint src`.
+| Команда            | Назначение                                      |
+| ------------------ | ----------------------------------------------- |
+| `npm start`        | Дев-сервер с HMR на `localhost:3000`            |
+| `npm run build`    | Продакшен-сборка в каталог `build/`             |
+| `npm run preview`  | Локальная раздача собранного билда              |
+| `npm test`         | Тесты в watch-режиме (Vitest)                   |
+| `npm run test:run` | Тесты одним прогоном                            |
+| `npm run lint`     | Проверка ESLint по `src`                        |
+| `npm run prod`     | Сборка и раздача статики через `serve -s build` |
+| `npm run analyze`  | Анализ размера бандла (`source-map-explorer`)   |
 
 ---
 
