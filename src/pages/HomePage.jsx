@@ -66,9 +66,9 @@ const Home = () => {
         <meta name="description" content={PAGE_DESCRIPTION} data-rh="true" />
         <meta name="keywords" content={PAGE_KEYWORDS} />
         <link rel="canonical" href={canonical} />
-        <link rel="alternate" hreflang="ru" href={ruUrl} />
-        <link rel="alternate" hreflang="en" href={enUrl} />
-        <link rel="alternate" hreflang="x-default" href={ruUrl} />
+        <link rel="alternate" hrefLang="ru" href={ruUrl} />
+        <link rel="alternate" hrefLang="en" href={enUrl} />
+        <link rel="alternate" hrefLang="x-default" href={ruUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonical} />
         <meta property="og:title" content={PAGE_TITLE} />
