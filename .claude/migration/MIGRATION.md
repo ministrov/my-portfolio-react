@@ -668,6 +668,7 @@ npm uninstall react-helmet-async
 - при переключении языка мета-теги обновляются;
 - при навигации между маршрутами старые теги не накапливаются дублями;
 - Rich Results Test находит схемы `Person` и `WebSite`;
+- **`hreflang` пережил подъём в `<head>`.** В `HomePage.jsx:69-71`, `AboutPage.jsx:59-61`, `ProjectsPage.jsx:56-58` атрибут написан строчными (`hreflang`), а не как `hrefLang`. Пока теги сериализовал Helmet, это работало; после его снятия `<link>` рендерит сам React. Проверить в devtools, что все три `hreflang` (ru/en/x-default) реально присутствуют в `<head>` — и заодно привести написание к `hrefLang`. Линт об этом не предупредит: правило `react/no-unknown-property` отключено вместе с `react.configs.flat.recommended` на этапе 1;
 - превью ссылки корректно рендерится (проверить в Telegram — самый быстрый способ).
 
 **Откат:** `git revert` коммита.
@@ -905,6 +906,8 @@ React 19 не валидирует `propTypes` в рантайме — объя�
 - `<div id="portal">` присутствует и в `index.html`, и в выдаче `vite preview` — **Р3 закрыт**;
 - три файла с JSX переименованы в `.jsx`, контрольный `grep` по `--include="*.js"` пуст, все модули отдают 200 на дев-сервере — **Р7 закрыт**;
 - `npx eslint src` → 0 ошибок, 5 предупреждений;
+- шрифты эмитятся: все 7 `woff2` (Oswald ×3, Unbounded ×2, Golos Text ×2) лежат в `build/assets/` с хешами, `url()` в собранном CSS указывают на `/assets/<имя>-<хеш>.woff2`;
+- реальная загрузка в браузере (Playwright, холодный старт): приложение монтируется, рендерятся хедер, hero, все секции включая lazy-подгружаемые `Showcasing` и `Testimonials`, футер; тексты разрешились из i18n-ключей; `?lang=ru` подставился; **консоль чистая** — только HMR-хендшейк Vite и стандартная подсказка React DevTools;
 - дев-сервер стартует за 269 мс, прод-сборка — за 468 мс;
 - `vite preview`: SPA-фоллбэк отдаёт 200 на `/about`, `/projects`, `/nonexistent`, `/?lang=en`; статика из `public/` (`favicon.ico`, `manifest.json`, `robots.txt`, `sitemap.xml`) на месте;
 - code-splitting сохранён: `AboutPage`, `ProjectsPage`, `PageNotFound`, `Showcasing`, `Testimonials`, `Carousel` — отдельные чанки.
@@ -912,3 +915,7 @@ React 19 не валидирует `propTypes` в рантайме — объя�
 **Замер после этапа 1 (React ещё 18):** JS gzip ≈ 183.8 kB в 19 чанках, CSS gzip ≈ 18.6 kB в 11 чанках. По весу JS паритет с CRA, дробление мельче. Финальный замер — на этапе 8.
 
 **Побочная находка.** `npm audit` на CRA-дереве показывал critical prototype pollution в `swiper` (лечится этапом 6) и уязвимости `react-router` (этап 3) — оба этапа заодно закрывают безопасность.
+
+**Решение по `browserslist` (шаг 1.7).** Принят **вариант 1** — секция удалена, сужение до дефолтного `build.target` Vite (`baseline-widely-available`) принято как осознанный компромисс. Это то самое «единственное исключение из поведенческого паритета» из раздела 7.
+
+**Долг, заведённый этапом 1.** Отказ от `react.configs.flat.recommended` заглушил 9 реальных находок `react/no-unknown-property`: в `HomePage.jsx:69-71`, `AboutPage.jsx:59-61` и `ProjectsPage.jsx:56-58` атрибут написан как `hreflang`, а в JSX канонично `hrefLang`. Сейчас безвредно — теги сериализует Helmet, а React пропускает нераспознанный атрибут в DOM как есть. **На этапе 7 это перестаёт быть безобидным:** `<link>` начнёт поднимать в `<head>` сам React 19, а линт об этом больше не предупредит. Пункт добавлен в критерий готовности этапа 7.
