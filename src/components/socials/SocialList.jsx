@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import SocialItem from './SocialItem.jsx';
-import { socials } from './socials.js';
+import { socials } from './socials';
 import './style.css';
 
 /**

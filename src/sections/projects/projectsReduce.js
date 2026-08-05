@@ -11,7 +11,7 @@ export const initialState = {
 
 export const projectsReducer = (state, action) => {
   switch (action.type) {
-    case ActionTypes.SET_FILTER:
+    case ActionTypes.SET_FILTER: {
       const filteredItems =
         action.payload === 'All'
           ? projects
@@ -24,6 +24,7 @@ export const projectsReducer = (state, action) => {
         filteredProjects: filteredItems,
         activeFilter: action.payload,
       };
+    }
 
     default:
       return state;

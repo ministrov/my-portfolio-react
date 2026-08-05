@@ -37,7 +37,7 @@ const API_URL = 'https://api.web3forms.com/submit';
 export async function submitContactForm(data) {
   // Собираем тело запроса: ключ API + данные формы
   const payload = {
-    access_key: process.env.REACT_APP_WEB3FORMS_KEY,
+    access_key: import.meta.env.VITE_WEB3FORMS_KEY,
     ...data,
   };
 
