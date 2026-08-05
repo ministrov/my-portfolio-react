@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useMemo, useRef } from 'react';
-import { LazyMotion, m, domAnimation, AnimatePresence } from 'framer-motion';
+import { LazyMotion, m, domAnimation, AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { FaLongArrowAltUp } from 'react-icons/fa';
 import PropTypes from 'prop-types';

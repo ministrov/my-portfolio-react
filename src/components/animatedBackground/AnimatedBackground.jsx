@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'motion/react';
 import debounce from '../../utils/debounce';
 import { DEFAULT_CONFIG, BREAKPOINTS } from '../../const';
 import './styles.css';

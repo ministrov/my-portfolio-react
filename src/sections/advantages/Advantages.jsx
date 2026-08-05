@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { LazyMotion, domAnimation } from 'framer-motion';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { memo } from 'react';
 import Heading from '../../components/heading/Heading';
 import AdvantagesList from './AdvantagesList';

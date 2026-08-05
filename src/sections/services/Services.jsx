@@ -1,4 +1,4 @@
-import { LazyMotion, m, domAnimation } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import ServicesItem from '../../components/servicesItem/ServicesItem';
 import Heading from '../../components/heading/Heading';

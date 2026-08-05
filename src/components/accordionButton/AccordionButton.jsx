@@ -1,11 +1,11 @@
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { FaPlus } from 'react-icons/fa6';
 import './style.css';
 
 /**
  * Варианты анимации иконки.
  * Определяет вращение иконки в зависимости от состояния.
- * @type {import('framer-motion').Variants}
+ * @type {import('motion/react').Variants}
  */
 const iconVariants = {
   open: { rotate: 45 },

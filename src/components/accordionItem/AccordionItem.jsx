@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import AccordionPanel from '../accordionPanel/AccordionPanel';
 import AccordionButton from '../accordionButton/AccordionButton';
 import './style.css';
@@ -7,7 +7,7 @@ import './style.css';
 /**
  * Варианты анимации для элемента аккордеона.
  * Мягкое появление: лёгкий подъём (y) + fade с плавной кривой.
- * @type {import('framer-motion').Variants}
+ * @type {import('motion/react').Variants}
  */
 const itemVariants = {
   hidden: {

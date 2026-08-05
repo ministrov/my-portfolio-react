@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import PhotoRing from '../photoRing/PhotoRing';
 import AuthorMeta from '../authorMeta/AuthorMeta';

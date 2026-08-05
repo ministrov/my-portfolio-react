@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { LazyMotion, m, domAnimation } from 'framer-motion';
+import { LazyMotion, m, domAnimation } from 'motion/react';
 import Heading from '../heading/Heading';
 import Tag from '../tag/Tag';
 import { skills } from '../../const';
