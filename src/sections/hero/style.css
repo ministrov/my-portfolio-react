@@ -347,10 +347,6 @@
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
-
-  .hero__title-accent--block {
-    display: inline;
-  }
 }
 
 @media screen and (max-width: 475px) {
@@ -377,6 +373,12 @@
 }
 
 @media screen and (max-width: 360px) {
+  /* Акцентная строка заголовка шире контейнера на несколько пикселей и рвётся,
+     оставляя сироту. Шаг кегля вниз держит каждый такт заголовка одной строкой */
+  .hero__title {
+    font-size: 1.8rem;
+  }
+
   /* Уже паддинг и текст кнопки, как у .cta-button--block — на самых узких
      экранах uppercase-текст с letter-spacing и паддингом 32px подходит
      впритык. */

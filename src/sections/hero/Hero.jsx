@@ -129,7 +129,7 @@ const CTA_RING_DELAY =
  * <Hero />
  */
 const Hero = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const titleMotion = prefersReducedMotion ? titleRevealReduced : titleReveal;
   const subtitleMotion = prefersReducedMotion ? fadeUpReduced : fadeUp;
@@ -167,9 +167,9 @@ const Hero = () => {
             <h1 className="hero__title">
               <m.div {...titleMotion}>
                 <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
-                <span
-                  className={`hero__title-accent${i18n.language === 'ru' ? ' hero__title-accent--block' : ''}`}
-                >
+                {/* Акцент всегда с новой строки: заголовок построен как афоризм
+                    из двух тактов, и разрыв между ними держит его ритм в обеих локалях */}
+                <span className="hero__title-accent hero__title-accent--block">
                   {t('hero.titleAccent')}
                 </span>
               </m.div>
