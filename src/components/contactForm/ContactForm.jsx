@@ -203,17 +203,15 @@ const ContactForm = ({ onSuccess }) => {
                   .join(' ')}
                 disabled={isSubmitting}
               >
-                {isSubmitting ? (
-                  t('contactForm.submitting')
-                ) : (
-                  <>
-                    {t('contactForm.submit')}
-                    <IoSend
-                      className="contact-form__submit-icon"
-                      aria-hidden="true"
-                    />
-                  </>
-                )}
+                {/* Иконка остаётся и во время отправки: именно она несёт
+                    состояние «идёт отправка» (см. cf-send в style.css) */}
+                {isSubmitting
+                  ? t('contactForm.submitting')
+                  : t('contactForm.submit')}
+                <IoSend
+                  className="contact-form__submit-icon"
+                  aria-hidden="true"
+                />
               </button>
             </m.form>
           )}
