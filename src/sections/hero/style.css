@@ -199,6 +199,13 @@
   );
 }
 
+/* Отклик на нажатие: кнопка проседает под пальцем/курсором быстрее,
+   чем поднимается на hover — уход всегда короче прихода */
+.hero__btn:active {
+  transform: translateY(-1px) scale(0.99);
+  transition-duration: 0.12s;
+}
+
 .hero__btn-icon {
   display: flex;
   align-items: center;
@@ -215,6 +222,14 @@
   );
   border-radius: 50%;
   box-shadow: 0 6px 14px -4px rgba(var(--cta-spotlight-blue), 0.85);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Приём нажатия: бейдж коротко подрастает, а стрелка внутри меняется на
+   галочку. Цвет остаётся собственным градиентом CTA Spotlight — зелёный
+   успеха закреплён за формой обратной связи (DESIGN.md → Colors) */
+.hero__btn--acked .hero__btn-icon {
+  transform: scale(1.14);
 }
 
 .hero__scroll-hint {
@@ -263,9 +278,16 @@
 @media (prefers-reduced-motion: reduce) {
   .hero__btn,
   .hero__btn-frame,
-  .hero__btn-spin {
+  .hero__btn-spin,
+  .hero__btn-icon {
     transition: none;
     animation: none;
+  }
+
+  /* Подтверждение нажатия остаётся, но приходит мгновенно: смена стрелки
+     на галочку — это состояние, а не украшение */
+  .hero__btn--acked .hero__btn-icon {
+    transform: none;
   }
 }
 

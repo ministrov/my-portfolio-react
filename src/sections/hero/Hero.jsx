@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import {
   LazyMotion,
@@ -7,7 +7,7 @@ import {
   useInView,
   useReducedMotion,
 } from 'motion/react';
-import { GoArrowUpRight } from 'react-icons/go';
+import { GoArrowUpRight, GoCheck } from 'react-icons/go';
 import useScrambleText from '../../hooks/useScrambleText';
 import useCharWidths from '../../hooks/useCharWidths';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
@@ -114,6 +114,13 @@ const ctaPopReduced = {
 };
 
 /**
+ * Сколько кнопка CV держит подтверждение нажатия (мс).
+ * Скачивание файла уходит в хром браузера и никак не отражается на самой
+ * странице — без этого отклика главная конверсия сайта срабатывает молча.
+ */
+const DOWNLOAD_ACK_MS = 2200;
+
+/**
  * Hero-секция главной страницы: центрированный блок с кикером,
  * крупным заголовком с градиентным акцентом, подзаголовком
  * и кнопкой скачивания резюме.
@@ -142,6 +149,22 @@ const Hero = () => {
     active: isSubtitleInView,
   });
   const subtitleCharWidths = useCharWidths(subtitleRef, subtitleText);
+  const [isDownloadAcked, setIsDownloadAcked] = useState(false);
+  const ackTimeoutRef = useRef(null);
+
+  // Таймер отклика переживает размонтирование секции, поэтому снимается явно.
+  // Флага isMounted здесь быть не должно: обработчик синхронный, гонки нет
+  useEffect(() => () => clearTimeout(ackTimeoutRef.current), []);
+
+  /** Подтверждает нажатие на кнопку скачивания резюме. */
+  const handleDownload = useCallback(() => {
+    setIsDownloadAcked(true);
+    clearTimeout(ackTimeoutRef.current);
+    ackTimeoutRef.current = setTimeout(
+      () => setIsDownloadAcked(false),
+      DOWNLOAD_ACK_MS
+    );
+  }, []);
 
   // Глифы, сгруппированные по словам. Каждый символ подзаголовка — отдельный
   // inline-block, а значит браузер имеет право перенести строку между любыми
@@ -247,17 +270,22 @@ const Hero = () => {
                 <div className="hero__btn-frame">
                   <span className="hero__btn-spin" aria-hidden="true" />
                   <a
-                    className="hero__btn"
+                    className={`hero__btn${isDownloadAcked ? ' hero__btn--acked' : ''}`}
                     href={cvPdf}
                     download="Anton_Zhilin_CV.pdf"
                     rel="noopener noreferrer"
+                    onClick={handleDownload}
                   >
                     {t('hero.btn')}
                     <span className="hero__btn-icon">
-                      <GoArrowUpRight />
+                      {isDownloadAcked ? <GoCheck /> : <GoArrowUpRight />}
                     </span>
                   </a>
                 </div>
+
+                <span className="visually-hidden" role="status">
+                  {isDownloadAcked ? t('hero.btnDownloading') : ''}
+                </span>
               </div>
             </m.div>
 
