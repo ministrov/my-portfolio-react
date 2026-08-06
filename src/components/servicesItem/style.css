@@ -8,13 +8,14 @@
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-s);
   transition:
-    transform 0.3s ease,
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
 
+/* Карточка не приподнимается: подъём всей рамки ничего не сообщает об
+   услуге. Глубина остаётся за тенью и границей, а отвечает на наведение
+   иконка — единственный смысловой центр карточки (см. .services__icon) */
 .services__item:hover {
-  transform: translateY(-5px);
   box-shadow: 0 12px 36px rgba(0, 88, 167, 0.18);
   border-color: rgba(0, 88, 167, 0.2);
 }
@@ -41,11 +42,16 @@
   padding: 8px;
   border-radius: var(--border-radius-s);
   background-color: var(--color-blue-700);
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.services__icon:hover {
+/* Отклик привязан к наведению на карточку, а не на сам бейдж: иконка
+   декоративная и не кликабельна, попасть в её 50 px курсором незачем */
+.services__item:hover .services__icon {
   background-color: var(--color-blue-300);
+  transform: translateY(-3px) scale(1.06);
 }
 
 /* Флагманская услуга (первая карточка) — крупнее иконка и подзаголовок,
@@ -95,7 +101,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .services__item:hover {
+  /* Смена цвета бейджа остаётся — это состояние наведения, а не движение */
+  .services__item:hover .services__icon {
     transform: none;
+  }
+
+  .services__icon {
+    transition: background-color 0.3s ease;
   }
 }
