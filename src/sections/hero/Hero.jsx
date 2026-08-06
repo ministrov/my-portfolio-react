@@ -137,10 +137,11 @@ const Hero = () => {
   const titleMotion = prefersReducedMotion ? titleRevealReduced : titleReveal;
   const subtitleMotion = prefersReducedMotion ? fadeUpReduced : fadeUp;
   const ctaMotion = prefersReducedMotion ? ctaPopReduced : ctaPop;
-  const sectionRef = useRef(null);
-  // Вращение рамки CTA бесконечно и не несёт смысла за кадром: как только
-  // hero уходит из вида, анимация встаёт (см. .hero--offscreen в style.css)
-  const isSectionInView = useInView(sectionRef);
+  // Наблюдаем за блоком контента, а не за секцией: .hero тянется на 100vh и
+  // покидает вьюпорт только через целый экран скролла, из-за чего циклы
+  // продолжали крутиться далеко за кадром и мигали классом на границе
+  const contentRef = useRef(null);
+  const isContentInView = useInView(contentRef);
   const subtitleRef = useRef(null);
   const isSubtitleInView = useInView(subtitleRef);
   const subtitleText = t('hero.subtitle');
@@ -198,13 +199,10 @@ const Hero = () => {
   }, [subtitleGlyphs]);
 
   return (
-    <section
-      ref={sectionRef}
-      className={`hero${isSectionInView ? '' : ' hero--offscreen'}`}
-    >
+    <section className={`hero${isContentInView ? '' : ' hero--offscreen'}`}>
       <div className="container">
         <LazyMotion features={domAnimation}>
-          <div className="hero__inner">
+          <div className="hero__inner" ref={contentRef}>
             <h1 className="hero__title">
               <m.div {...titleMotion}>
                 <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
@@ -290,7 +288,11 @@ const Hero = () => {
                   </a>
                 </div>
 
-                <span className="visually-hidden" role="status">
+                <span
+                  className="visually-hidden"
+                  role="status"
+                  aria-live="polite"
+                >
                   {isDownloadAcked ? t('hero.btnDownloading') : ''}
                 </span>
               </div>
