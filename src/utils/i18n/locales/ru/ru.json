@@ -323,7 +323,8 @@
     }
   },
   "aboutCapabilities": {
-    "text": "Основной стек — React, Next.js, TypeScript, RTK Query. Строю e-commerce платформы и маркетинговые лендинги с акцентом на производительность, pixel perfect и доступность (WCAG 2.1). Хорошо понимаю полный цикл фронтенда — от вёрстки по Figma до оптимизации Core Web Vitals и работы в Agile/Scrum. Продолжаю расти: сейчас осваиваю Python и backend-разработку."
+    "text": "Основной стек — React, Next.js, TypeScript, RTK Query. Строю e-commerce платформы и маркетинговые лендинги с акцентом на производительность, pixel perfect и доступность (WCAG 2.1). Хорошо понимаю полный цикл фронтенда — от вёрстки по Figma до оптимизации Core Web Vitals и работы в Agile/Scrum. Продолжаю расти: сейчас осваиваю Python и backend-разработку.",
+    "ariaLabel": "Список технологий"
   },
   "aboutExperience": {
     "name": "ООО Сервис Маркет",

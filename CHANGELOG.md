@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `hreflang` → `hrefLang` in the three page components — React 19 rejects the lowercase DOM property.
 - `m(Tag)` → `m.create(Tag)` in `AboutCapabilities`, silencing a Motion 12 deprecation warning.
 - Lexical declaration inside a `case` block in `projectsReduce.js`.
+- **Russian `aria-label` in the English UI.** The technologies list in `AboutCapabilities` fell back to a hard-coded `defaultValue` because `aboutCapabilities.ariaLabel` was missing from both locales. The key now exists in `ru.json` and `en.json`, and the fallback is gone.
 
 ### Security
 
