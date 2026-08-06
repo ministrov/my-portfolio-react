@@ -1,6 +1,5 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -58,19 +57,6 @@ const CtaButton = ({
       </span>
     </button>
   );
-};
-
-CtaButton.propTypes = {
-  /** Вариант оформления */
-  variant: PropTypes.oneOf(['pill', 'block']),
-  /** Текст кнопки; по умолчанию ключ `modal.cta` */
-  label: PropTypes.string,
-  /** Доп. колбэк перед скроллом */
-  onClick: PropTypes.func,
-  /** Дополнительные CSS-классы */
-  className: PropTypes.string,
-  /** data-testid */
-  testId: PropTypes.string,
 };
 
 export default memo(CtaButton);

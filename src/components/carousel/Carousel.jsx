@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
 import { MdPause, MdPlayArrow } from 'react-icons/md';
-import PropTypes from 'prop-types';
 import ShowcasingCard from '../showcasingCard/ShowcasingCard';
 import { projects } from '../../sections/projects/projects';
 import './style.css';
@@ -123,17 +122,6 @@ const Carousel = ({
       </button>
     </div>
   );
-};
-
-Carousel.propTypes = {
-  /** Массив проектов для отображения */
-  projectsData: PropTypes.array,
-  /** Функция фильтрации проектов */
-  filterFn: PropTypes.func,
-  /** Конфигурация Swiper (объект с параметрами) */
-  swiperConfig: PropTypes.object,
-  /** ARIA-метка для доступности */
-  ariaLabel: PropTypes.string,
 };
 
 export default Carousel;

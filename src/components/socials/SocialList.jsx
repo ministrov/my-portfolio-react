@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import SocialItem from './SocialItem.jsx';
 import { socials } from './socials';
 import './style.css';
@@ -10,7 +9,7 @@ import './style.css';
  * @component
  * @param {Object} props - Пропсы компонента.
  * @param {string} [props.className='socials__list'] - Дополнительный CSS-класс для контейнера списка.
- * @param {string} [props.variant='white'] - Вариант стилизации элементов ('white' или 'blue').
+ * @param {('white'|'blue')} [props.variant='white'] - Вариант стилизации элементов.
  * @returns {JSX.Element} Неупорядоченный список элементов социальных сетей.
  */
 const SocialList = ({ className = 'socials__list', variant = 'white' }) => {
@@ -21,11 +20,6 @@ const SocialList = ({ className = 'socials__list', variant = 'white' }) => {
       ))}
     </ul>
   );
-};
-
-SocialList.propTypes = {
-  className: PropTypes.string,
-  variant: PropTypes.oneOf(['white', 'blue']),
 };
 
 export default SocialList;

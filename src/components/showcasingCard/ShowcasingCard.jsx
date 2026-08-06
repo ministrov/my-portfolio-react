@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import './style.css';
 
@@ -82,23 +81,6 @@ const ShowcasingCard = ({
       </picture>
     </article>
   );
-};
-
-ShowcasingCard.propTypes = {
-  /** Ключ перевода названия проекта */
-  name: PropTypes.string.isRequired,
-  /** URL десктопного изображения (WebP) */
-  image: PropTypes.string.isRequired,
-  /** URL планшетного изображения (WebP) */
-  tabletImg: PropTypes.string,
-  /** URL мобильного изображения (WebP) */
-  mobileImg: PropTypes.string,
-  /** Fallback JPEG для десктопа */
-  imageJpeg: PropTypes.string,
-  /** Fallback JPEG для планшета */
-  tabletImgJpeg: PropTypes.string,
-  /** Fallback JPEG для мобилки */
-  mobileImgJpeg: PropTypes.string,
 };
 
 export default ShowcasingCard;

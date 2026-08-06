@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -47,17 +46,6 @@ const Loader = ({
       {text && <p className="loader__text">{text}</p>}
     </div>
   );
-};
-
-Loader.propTypes = {
-  /** Цвет спиннера */
-  color: PropTypes.oneOf(['blue', 'white']),
-  /** Размер спиннера */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** Полноэкранный режим с затемнённым фоном */
-  fullScreen: PropTypes.bool,
-  /** Текст под спиннером */
-  text: PropTypes.string,
 };
 
 export default Loader;

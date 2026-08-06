@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { AnimatePresence, LazyMotion, m, domAnimation } from 'motion/react';
 import { IoCloseSharp } from 'react-icons/io5';
-import PropTypes from 'prop-types';
 import useBodyScrollLock from '../../hooks/useBodyScrollLock';
 import ModalSteps from '../modalSteps/ModalSteps';
 import CtaButton from '../ctaButton/CtaButton';
@@ -158,15 +157,6 @@ const Modal = ({ open, onClose, autoCloseDelay }) => {
     </AnimatePresence>,
     portalRoot
   );
-};
-
-Modal.propTypes = {
-  /** Флаг открытия модального окна */
-  open: PropTypes.bool.isRequired,
-  /** Колбек при закрытии */
-  onClose: PropTypes.func.isRequired,
-  /** Задержка авто-закрытия в миллисекундах */
-  autoCloseDelay: PropTypes.number,
 };
 
 export default Modal;

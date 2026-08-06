@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { memo } from 'react';
 
 /**
@@ -16,10 +15,6 @@ const ProjectsLayout = ({ children }) => {
       <div className="container">{children}</div>
     </section>
   );
-};
-
-ProjectsLayout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default memo(ProjectsLayout);

@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import { MdContentCopy, MdCheck } from 'react-icons/md';
 import useCopyToClipboard from '../../hooks/useCopyToClipboard';
 import './style.css';
@@ -43,13 +42,6 @@ const CopyEmail = ({ email, className = '' }) => {
       </span>
     </button>
   );
-};
-
-CopyEmail.propTypes = {
-  /** Email-адрес для отображения и копирования. */
-  email: PropTypes.string.isRequired,
-  /** Доп. класс-модификатор (цвет под контекст). */
-  className: PropTypes.string,
 };
 
 export default CopyEmail;

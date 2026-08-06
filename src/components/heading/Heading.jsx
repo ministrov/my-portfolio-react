@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -10,7 +9,7 @@ import './style.css';
  * @param {string} props.title - Основной заголовок (обязательный)
  * @param {string} [props.accent] - Акцентная часть заголовка
  * @param {string} [props.className] - Дополнительные CSS-классы
- * @param {number} [props.level=2] - Уровень заголовка (1-6) для семантики HTML
+ * @param {(1|2|3|4|5|6)} [props.level=2] - Уровень заголовка для семантики HTML
  * @param {string} [props.id] - HTML-идентификатор для навигации и доступности
  * @returns {JSX.Element} Заголовок секции с семантической разметкой
  */
@@ -39,19 +38,6 @@ const Heading = ({ title, accent, className = '', level = 2, id }) => {
       )}
     </HeadingTag>
   );
-};
-
-Heading.propTypes = {
-  /** Основной заголовок (обязательный) */
-  title: PropTypes.string.isRequired,
-  /** Акцентная часть заголовка */
-  accent: PropTypes.string,
-  /** Дополнительные CSS-классы */
-  className: PropTypes.string,
-  /** Уровень заголовка (1-6) для семантики HTML */
-  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
-  /** HTML-идентификатор для навигации и доступности */
-  id: PropTypes.string,
 };
 
 export default Heading;

@@ -1,7 +1,6 @@
 import { memo, useEffect, useRef } from 'react';
 import { LazyMotion, m, domAnimation, AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import ToggleLang from '../toggleLang/ToggleLang';
 import CtaButton from '../ctaButton/CtaButton';
 import { routes } from '../../const';
@@ -83,13 +82,6 @@ const MobileMenu = ({ isOpen, onClose }) => {
       )}
     </AnimatePresence>
   );
-};
-
-MobileMenu.propTypes = {
-  /** Флаг открытия меню */
-  isOpen: PropTypes.bool.isRequired,
-  /** Функция закрытия меню */
-  onClose: PropTypes.func.isRequired,
 };
 
 export default memo(MobileMenu);

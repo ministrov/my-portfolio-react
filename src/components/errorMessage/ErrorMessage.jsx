@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
-import PropTypes from 'prop-types';
 import img from '../../assets/error.gif';
 import './style.css';
 
@@ -39,13 +38,6 @@ const ErrorMessage = ({ textContent, btnText }) => {
       </Link>
     </section>
   );
-};
-
-ErrorMessage.propTypes = {
-  /** Текст сообщения об ошибке */
-  textContent: PropTypes.string,
-  /** Текст на кнопке возврата */
-  btnText: PropTypes.string,
 };
 
 export default ErrorMessage;

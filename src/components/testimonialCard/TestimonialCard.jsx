@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { FaQuoteLeft } from 'react-icons/fa';
 import './style.css';
@@ -39,15 +38,6 @@ const TestimonialCard = ({ quote, context, accent }) => {
       </figcaption>
     </figure>
   );
-};
-
-TestimonialCard.propTypes = {
-  /** i18n-ключ текста отзыва */
-  quote: PropTypes.string.isRequired,
-  /** i18n-ключ типа проекта */
-  context: PropTypes.string.isRequired,
-  /** HEX-цвет иконки цитаты */
-  accent: PropTypes.string.isRequired,
 };
 
 export default TestimonialCard;

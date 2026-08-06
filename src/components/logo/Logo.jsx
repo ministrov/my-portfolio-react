@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -66,19 +65,6 @@ const Logo = ({
       )}
     </Link>
   );
-};
-
-Logo.propTypes = {
-  /** Дополнительные CSS-классы */
-  className: PropTypes.string,
-  /** Вариант оформления; не задан — кобальтовый по умолчанию */
-  variant: PropTypes.oneOf(['white', 'monochrome']),
-  /** Размер логотипа */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** Показывать ли акцентную каретку-курсор */
-  showIcon: PropTypes.bool,
-  /** Текст логотипа */
-  text: PropTypes.string,
 };
 
 export default Logo;

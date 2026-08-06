@@ -1,5 +1,4 @@
 import { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -22,10 +21,5 @@ const Tag = forwardRef(({ children, ...props }, ref) => {
     </li>
   );
 });
-
-Tag.propTypes = {
-  /** Содержимое тега */
-  children: PropTypes.node.isRequired,
-};
 
 export default Tag;

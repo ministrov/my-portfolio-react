@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LazyMotion, m, domAnimation } from 'motion/react';
-import PropTypes from 'prop-types';
 import './style.css';
 
 /** Шаги процесса разработки по умолчанию (ключи из i18n). */
@@ -56,7 +55,11 @@ const itemVariants = {
  *
  * @component
  * @param {Object}   props
- * @param {Array}    [props.steps]    - Шаги; если не указаны — DEFAULT_STEPS
+ * @param {Object[]} [props.steps]    - Шаги; если не указаны — DEFAULT_STEPS
+ * @param {string}   props.steps[].id - Уникальный идентификатор шага
+ * @param {string}   props.steps[].num - Порядковый номер шага для вывода
+ * @param {string}   props.steps[].titleKey - Ключ перевода заголовка шага
+ * @param {string}   props.steps[].descKey - Ключ перевода описания шага
  * @param {string}   [props.testId]   - data-testid для корневого элемента
  * @param {string}   [props.className] - Дополнительные CSS-классы
  * @returns {JSX.Element}
@@ -92,22 +95,6 @@ const ModalSteps = ({ steps, testId = 'modal-steps', className = '' }) => {
       </m.ol>
     </LazyMotion>
   );
-};
-
-ModalSteps.propTypes = {
-  /** Массив шагов для отображения */
-  steps: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      num: PropTypes.string.isRequired,
-      titleKey: PropTypes.string.isRequired,
-      descKey: PropTypes.string.isRequired,
-    })
-  ),
-  /** data-testid */
-  testId: PropTypes.string,
-  /** Дополнительные CSS-классы */
-  className: PropTypes.string,
 };
 
 export default memo(ModalSteps);

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -48,19 +47,6 @@ const FilterButton = ({
       {filterName}
     </button>
   );
-};
-
-FilterButton.propTypes = {
-  /** Обработчик клика по кнопке */
-  onClick: PropTypes.func.isRequired,
-  /** Отображаемое название фильтра */
-  filterName: PropTypes.string.isRequired,
-  /** Активный фильтр (значение) */
-  active: PropTypes.string.isRequired,
-  /** Значение фильтра этой кнопки */
-  currentBtn: PropTypes.string.isRequired,
-  /** Неактивное состояние кнопки */
-  disabled: PropTypes.bool,
 };
 
 export default FilterButton;

@@ -25,6 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tests for the projects filter reducer and for the language resolver.
 - `src/utils/lang.js` — single source of truth for the initial-language precedence (`?lang=` → `localStorage` → `ru`), shared by the i18next bootstrap and `LanguageProvider`.
 
+### Removed
+
+- **`propTypes` declarations and the `prop-types` dependency.** React 19 no longer validates them at runtime, so all 36 blocks (402 lines) were dead code. JSDoc is now the single source of prop documentation — it was audited against every declaration first, and enriched where `propTypes` had been more precise: enum unions (`Heading.level`, `ScrollToTop.behavior`, `SocialItem`/`SocialList.variant`), nested shapes (`ModalSteps.steps`, `MenuItem.route`, `FilterList.filters`, `ProjectsHeader.breadcrumbs`) and optionality markers for the two props carrying defaults. Bundle: −1.5 kB gzip.
+
 ### Fixed
 
 - **Language choice no longer resets to Russian.** `LanguageProvider` restored the language in an effect that raced its own save-to-`localStorage` effect; under StrictMode the second pass read an already-overwritten value and reverted to `ru`. The initial language is now resolved synchronously before first render, and the effect is gone. The `isMounted` ref that had been masking the race was removed with it.

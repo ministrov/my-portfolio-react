@@ -2,7 +2,6 @@ import { useEffect, useState, useCallback, useMemo, useRef } from 'react';
 import { LazyMotion, m, domAnimation, AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { FaLongArrowAltUp } from 'react-icons/fa';
-import PropTypes from 'prop-types';
 import debounce from '../../utils/debounce';
 import useKeyboardHandlers from '../../hooks/useKeyboardHandlers';
 import './style.css';
@@ -165,23 +164,6 @@ const Up = ({
       )}
     </AnimatePresence>
   );
-};
-
-Up.propTypes = {
-  threshold: PropTypes.number,
-  icon: PropTypes.node,
-  iconSize: PropTypes.number,
-  iconColor: PropTypes.string,
-  className: PropTypes.string,
-  ariaLabel: PropTypes.string,
-  smoothScroll: PropTypes.bool,
-  debounceDelay: PropTypes.number,
-  animationDuration: PropTypes.number,
-  animationEase: PropTypes.string,
-  enableEscape: PropTypes.bool,
-  autoFocus: PropTypes.bool,
-  tabIndex: PropTypes.number,
-  onClick: PropTypes.func,
 };
 
 export default Up;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { LazyMotion, m, domAnimation } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import ProjectCard from '../projectCard/ProjectCard';
@@ -54,7 +53,7 @@ const parseSkills = (skillsData) => {
  *
  * @component
  * @param {Object} props - Пропсы компонента
- * @param {Object[]} props.projects - Массив объектов проектов
+ * @param {Object[]} [props.projects=[]] - Массив объектов проектов
  * @returns {JSX.Element} Список проектов с анимациями
  */
 const ProjectsList = ({ projects = [] }) => {
@@ -104,11 +103,6 @@ const ProjectsList = ({ projects = [] }) => {
       </m.ul>
     </LazyMotion>
   );
-};
-
-ProjectsList.propTypes = {
-  /** Массив объектов проектов */
-  projects: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default ProjectsList;

@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { LazyMotion, domAnimation, AnimatePresence, m } from 'motion/react';
-import PropTypes from 'prop-types';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { IoSend } from 'react-icons/io5';
 import { useContactForm, FIELDS } from './useContactForm';
@@ -222,11 +221,6 @@ const ContactForm = ({ onSuccess }) => {
       </div>
     </LazyMotion>
   );
-};
-
-ContactForm.propTypes = {
-  /** Коллбек при успешной отправке формы. */
-  onSuccess: PropTypes.func,
 };
 
 export default ContactForm;

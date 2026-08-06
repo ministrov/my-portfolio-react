@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import './style.css';
 
@@ -24,7 +23,7 @@ const SOCIAL_NAME_MAP = {
  * @param {React.ReactNode} props.social.icon - Иконка социальной сети (React-элемент).
  * @param {string} props.social.name - Название социальной сети (например, 'github').
  * @param {string} props.social.path - URL-адрес профиля.
- * @param {string} [props.variant='white'] - Вариант стилизации ('white' или 'blue').
+ * @param {('white'|'blue')} [props.variant='white'] - Вариант стилизации.
  * @param {Object} [props.rest] - Дополнительные атрибуты для элемента <a>.
  * @returns {JSX.Element} Элемент списка с ссылкой на социальную сеть.
  */
@@ -55,15 +54,6 @@ const SocialItem = ({ social, variant = 'white', ...rest }) => {
       </a>
     </li>
   );
-};
-
-SocialItem.propTypes = {
-  social: PropTypes.shape({
-    icon: PropTypes.node.isRequired,
-    name: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-  }).isRequired,
-  variant: PropTypes.oneOf(['white', 'blue']),
 };
 
 export default SocialItem;

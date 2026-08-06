@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -69,19 +68,6 @@ const ButtonLink = ({
       {content}
     </Link>
   );
-};
-
-ButtonLink.propTypes = {
-  /** Дополнительные CSS-классы */
-  className: PropTypes.string,
-  /** Путь для навигации (внутренний) или URL (внешний) */
-  path: PropTypes.string.isRequired,
-  /** Текст ссылки */
-  text: PropTypes.string.isRequired,
-  /** Иконка (React-элемент или строка) */
-  icon: PropTypes.node,
-  /** Открывать ли ссылку в новой вкладке */
-  target: PropTypes.bool,
 };
 
 export default ButtonLink;

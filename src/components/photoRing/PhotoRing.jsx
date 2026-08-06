@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -38,12 +37,5 @@ const PhotoRing = ({ src, alt, size = 260, variant = 'light' }) => (
     </span>
   </figure>
 );
-
-PhotoRing.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  size: PropTypes.number,
-  variant: PropTypes.oneOf(['light', 'dark']),
-};
 
 export default PhotoRing;
