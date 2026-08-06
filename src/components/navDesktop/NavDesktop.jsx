@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { NavLink, useMatch } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import { routes } from '../../const';
 import './style.css';
 
@@ -31,13 +30,6 @@ const NavItem = ({ href, label }) => {
       {label}
     </NavLink>
   );
-};
-
-NavItem.propTypes = {
-  /** Путь маршрута */
-  href: PropTypes.string.isRequired,
-  /** Переведённый текст ссылки */
-  label: PropTypes.string.isRequired,
 };
 
 /**

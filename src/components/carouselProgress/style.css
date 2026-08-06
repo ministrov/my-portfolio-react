@@ -1,0 +1,35 @@
+/* Дорожка индикатора: тонкая линия во всю ширину карусели.
+   Позиционируется родителем (.carousel / .testimonials__swiper-wrap),
+   у которого должен быть position: relative */
+.carousel-progress {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  overflow: hidden;
+  border-radius: var(--border-radius-s);
+  background: rgba(0, 88, 167, 0.12);
+  pointer-events: none;
+}
+
+/* Заполнение. scaleX вместо width — трансформация не вызывает пересчёт
+   раскладки, а событие таймера приходит каждый кадр */
+.carousel-progress__bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-blue-700);
+  transform: scaleX(var(--carousel-progress, 0));
+  transform-origin: left center;
+}
+
+/* Поверх тёмной витрины линия-подложка на синем почти не видна */
+.carousel-progress--on-dark {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.carousel-progress--on-dark .carousel-progress__bar {
+  background: var(--color-white);
+}

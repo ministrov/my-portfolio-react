@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
@@ -14,7 +13,7 @@ import './style.css';
  * @component
  * @param {Object} props - Пропсы компонента
  * @param {string} props.title - Заголовок проекта (уже переведённая строка)
- * @param {string[]} props.skills - Массив технологий/навыков
+ * @param {string[]} [props.skills=[]] - Массив технологий/навыков
  * @param {string} props.img - URL изображения для десктопа
  * @param {string} [props.imgTablet] - URL изображения для планшета
  * @param {string} [props.imgMobile] - URL изображения для мобильного
@@ -137,39 +136,6 @@ const ProjectCard = ({
       </div>
     </article>
   );
-};
-
-ProjectCard.propTypes = {
-  /** Заголовок проекта (уже переведённая строка) */
-  title: PropTypes.string.isRequired,
-  /** Массив технологий/навыков */
-  skills: PropTypes.arrayOf(PropTypes.string),
-  /** URL изображения для десктопа */
-  img: PropTypes.string.isRequired,
-  /** URL изображения для планшета */
-  imgTablet: PropTypes.string,
-  /** URL изображения для мобильного */
-  imgMobile: PropTypes.string,
-  /** Реальная высота десктопного изображения при ширине 658px */
-  imgHeight: PropTypes.number,
-  /** Краткое описание проекта (уже переведённая строка) */
-  overview: PropTypes.string.isRequired,
-  /** Год реализации */
-  year: PropTypes.string,
-  /** Роль в проекте */
-  role: PropTypes.string,
-  /** Заголовок блока информации (переводной ключ) */
-  infoTitle: PropTypes.string,
-  /** Заголовок блока технологий (переводной ключ) */
-  toolsTitle: PropTypes.string,
-  /** Текст для года (переводной ключ) */
-  yearText: PropTypes.string,
-  /** Текст для роли (переводной ключ) */
-  roleText: PropTypes.string,
-  /** Ссылка на живой демо-проект */
-  demoLink: PropTypes.string,
-  /** Ссылка на репозиторий GitHub */
-  gitHubLink: PropTypes.string,
 };
 
 export default ProjectCard;

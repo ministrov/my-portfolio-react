@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import PropTypes from 'prop-types';
 import useBodyScrollLock from '../../hooks/useBodyScrollLock';
 import useEscapeKey from './useEscapeKey';
 import HamburgerButton from './HamburgerButton';
@@ -32,15 +31,6 @@ const NavMobile = ({ isOpen, onToggle, onClose }) => {
       <MobileMenu isOpen={isOpen} onClose={onClose} />
     </div>
   );
-};
-
-NavMobile.propTypes = {
-  /** Флаг открытия меню */
-  isOpen: PropTypes.bool.isRequired,
-  /** Функция переключения состояния меню */
-  onToggle: PropTypes.func.isRequired,
-  /** Функция закрытия меню */
-  onClose: PropTypes.func.isRequired,
 };
 
 export default memo(NavMobile);

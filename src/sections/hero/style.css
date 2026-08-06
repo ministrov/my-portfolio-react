@@ -61,56 +61,14 @@
   }
 }
 
-/* Фоновая "вспышка" за заголовком, один раз проигрывается при появлении */
-.hero__bloom {
-  position: absolute;
-  left: 50%;
-  top: 46%;
-  z-index: -1;
-  width: 900px;
-  height: 900px;
-  margin: -450px 0 0 -450px;
-  pointer-events: none;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(37, 99, 235, 0.18) 0%,
-    rgba(124, 58, 237, 0.1) 38%,
-    rgba(255, 255, 255, 0) 68%
-  );
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__bloom {
-    display: none;
-  }
-}
-
-/* Акцентная часть заголовка — синий градиент сайта по тексту */
+/* Акцентная часть заголовка — синий градиент сайта по тексту.
+   Градиент статичен: бесконечный сдвиг background-position конкурировал
+   с однократным бликом .hero__title-glare за один и тот же жест. */
 .hero__title-accent {
   background: var(--gradient);
-  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: hero-accent-shift 9s linear 1.8s infinite;
-}
-
-/* Бесконечное движение градиента по акцентной строке заголовка */
-@keyframes hero-accent-shift {
-  from {
-    background-position: 0% 50%;
-  }
-
-  to {
-    background-position: 200% 50%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__title-accent {
-    animation: none;
-  }
 }
 
 .hero__title-accent--block {
@@ -130,6 +88,12 @@
    ширину слова и не сдвигала переносы строк во время анимации */
 .hero__subtitle-char {
   display: inline-block;
+}
+
+/* Слово подзаголовка целиком: держит посимвольные inline-block вместе,
+   чтобы перенос строки случался на пробеле, а не посреди слова */
+.hero__subtitle-word {
+  white-space: nowrap;
 }
 
 /* Символ подзаголовка, ещё не раскрытый расшифровкой */
@@ -196,6 +160,19 @@
   }
 }
 
+/* Бесконечные циклы hero не крутятся за кадром: класс вешает Hero.jsx
+   по useInView самой секции */
+.hero--offscreen .hero__btn-spin {
+  animation-play-state: paused;
+}
+
+/* У подсказки скролла две анимации: разовое проявление и бесконечное
+   покачивание. Останавливается только вторая — первая обязана доиграть,
+   иначе на первом кадре (useInView ещё false) подсказка застынет невидимой */
+.hero--offscreen .hero__scroll-hint {
+  animation-play-state: running, paused;
+}
+
 .hero__btn {
   position: relative;
   display: flex;
@@ -235,14 +212,11 @@
   );
 }
 
-/* Пульсирующее кольцо, дважды проигрывается при появлении кнопки */
-.hero__btn-ring {
-  position: absolute;
-  inset: -2px;
-  z-index: -1;
-  border: 2px solid rgb(var(--cta-spotlight-blue));
-  border-radius: inherit;
-  pointer-events: none;
+/* Отклик на нажатие: кнопка проседает под пальцем/курсором быстрее,
+   чем поднимается на hover — уход всегда короче прихода */
+.hero__btn:active {
+  transform: translateY(-1px) scale(0.99);
+  transition-duration: 0.12s;
 }
 
 .hero__btn-icon {
@@ -261,24 +235,14 @@
   );
   border-radius: 50%;
   box-shadow: 0 6px 14px -4px rgba(var(--cta-spotlight-blue), 0.85);
-  animation: hero-btn-icon-orbit 3.6s ease-in-out 3s infinite;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Лёгкое покачивание иконки в собственной орбите, бесконечно */
-@keyframes hero-btn-icon-orbit {
-  0%,
-  62%,
-  100% {
-    transform: translate(0, 0);
-  }
-
-  74% {
-    transform: translate(3px, -3px);
-  }
-
-  86% {
-    transform: translate(0, 0);
-  }
+/* Приём нажатия: бейдж коротко подрастает, а стрелка внутри меняется на
+   галочку. Цвет остаётся собственным градиентом CTA Spotlight — зелёный
+   успеха закреплён за формой обратной связи (DESIGN.md → Colors) */
+.hero__btn--acked .hero__btn-icon {
+  transform: scale(1.14);
 }
 
 .hero__scroll-hint {
@@ -327,17 +291,16 @@
 @media (prefers-reduced-motion: reduce) {
   .hero__btn,
   .hero__btn-frame,
-  .hero__btn-spin {
+  .hero__btn-spin,
+  .hero__btn-icon {
     transition: none;
     animation: none;
   }
 
-  .hero__btn-ring {
-    display: none;
-  }
-
-  .hero__btn-icon {
-    animation: none;
+  /* Подтверждение нажатия остаётся, но приходит мгновенно: смена стрелки
+     на галочку — это состояние, а не украшение */
+  .hero__btn--acked .hero__btn-icon {
+    transform: none;
   }
 }
 
@@ -346,10 +309,6 @@
     min-height: auto;
     padding-top: 5rem;
     padding-bottom: 5rem;
-  }
-
-  .hero__title-accent--block {
-    display: inline;
   }
 }
 
@@ -377,6 +336,12 @@
 }
 
 @media screen and (max-width: 360px) {
+  /* Акцентная строка заголовка шире контейнера на несколько пикселей и рвётся,
+     оставляя сироту. Шаг кегля вниз держит каждый такт заголовка одной строкой */
+  .hero__title {
+    font-size: 1.8rem;
+  }
+
   /* Уже паддинг и текст кнопки, как у .cta-button--block — на самых узких
      экранах uppercase-текст с letter-spacing и паддингом 32px подходит
      впритык. */

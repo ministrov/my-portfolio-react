@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -8,7 +7,7 @@ import { useLocation } from 'react-router-dom';
  *
  * @component
  * @param {Object} props - Пропсы компонента
- * @param {string} [props.behavior='auto'] - Поведение скролла: 'auto' или 'smooth'
+ * @param {('auto'|'smooth'|'instant')} [props.behavior='auto'] - Поведение скролла
  * @param {number} [props.top=0] - Вертикальная позиция скролла (пиксели)
  * @param {number} [props.left=0] - Горизонтальная позиция скролла (пиксели)
  * @returns {null} Компонент не рендерит никакого UI
@@ -55,15 +54,6 @@ const ScrollToTop = ({ behavior = 'auto', top = 0, left = 0 }) => {
   }, [pathname, hash, behavior, top, left]);
 
   return null;
-};
-
-ScrollToTop.propTypes = {
-  /** Поведение скролла */
-  behavior: PropTypes.oneOf(['auto', 'smooth', 'instant']),
-  /** Вертикальная позиция скролла (пиксели) */
-  top: PropTypes.number,
-  /** Горизонтальная позиция скролла (пиксели) */
-  left: PropTypes.number,
 };
 
 export default ScrollToTop;

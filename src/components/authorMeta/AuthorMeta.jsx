@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { BsGeoAlt } from 'react-icons/bs';
 import SocialList from '../socials/SocialList';
@@ -39,10 +38,6 @@ const AuthorMeta = ({ variant = 'light' }) => {
       <SocialList variant={variant === 'dark' ? 'white' : 'blue'} />
     </div>
   );
-};
-
-AuthorMeta.propTypes = {
-  variant: PropTypes.oneOf(['light', 'dark']),
 };
 
 export default AuthorMeta;

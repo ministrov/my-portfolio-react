@@ -1,7 +1,6 @@
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -58,20 +57,6 @@ const Breadcrumbs = ({ items, ...props }) => {
       </ol>
     </nav>
   );
-};
-
-Breadcrumbs.propTypes = {
-  /** Массив элементов хлебных крошек */
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      /** Уникальный идентификатор элемента (строка или число) */
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      /** Отображаемое название элемента */
-      name: PropTypes.string.isRequired,
-      /** Ссылка для перехода (опционально) */
-      link: PropTypes.string,
-    })
-  ).isRequired,
 };
 
 export default Breadcrumbs;

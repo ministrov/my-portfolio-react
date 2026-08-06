@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import FilterButton from '../../components/filterButton/FilterButton';
@@ -12,7 +11,10 @@ import './style.css';
  *
  * @component
  * @param {Object} props - Свойства компонента
- * @param {Array} props.filters - Массив фильтров с `id`, `value` и `label`
+ * @param {Object[]} props.filters - Массив фильтров
+ * @param {number} props.filters[].id - Уникальный идентификатор фильтра
+ * @param {string} props.filters[].value - Значение фильтра (навык)
+ * @param {string} props.filters[].label - Ключ перевода подписи кнопки
  * @param {string} props.activeFilter - Активный фильтр (значение)
  * @param {Function} props.onFilterClick - Обработчик клика по фильтру
  * @returns {JSX.Element} Список фильтров
@@ -36,18 +38,6 @@ const FilterList = ({ filters, activeFilter, onFilterClick }) => {
       </ul>
     </div>
   );
-};
-
-FilterList.propTypes = {
-  filters: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  activeFilter: PropTypes.string.isRequired,
-  onFilterClick: PropTypes.func.isRequired,
 };
 
 export default memo(FilterList);

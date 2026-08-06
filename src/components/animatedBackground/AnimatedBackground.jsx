@@ -92,7 +92,6 @@ const AnimatedBackground = ({
   disabledOnMobile = true,
   responsive = true,
 }) => {
-  const [stars, setStars] = useState([]);
   const [windowSize, setWindowSize] = useState({
     width: typeof window !== 'undefined' ? window.innerWidth : 1200,
     height: typeof window !== 'undefined' ? window.innerHeight : 800,
@@ -119,14 +118,17 @@ const AnimatedBackground = ({
     const newStars = [];
     for (let i = 0; i < countStars; i++) {
       const color = colors[Math.floor(Math.random() * colors.length)];
-      const size = Math.random() *
-        (DEFAULT_CONFIG.STAR_SIZE_MAX - DEFAULT_CONFIG.STAR_SIZE_MIN) +
+      const size =
+        Math.random() *
+          (DEFAULT_CONFIG.STAR_SIZE_MAX - DEFAULT_CONFIG.STAR_SIZE_MIN) +
         DEFAULT_CONFIG.STAR_SIZE_MIN;
-      const baseOpacity = Math.random() *
-        (DEFAULT_CONFIG.STAR_OPACITY_MAX - DEFAULT_CONFIG.STAR_OPACITY_MIN) +
+      const baseOpacity =
+        Math.random() *
+          (DEFAULT_CONFIG.STAR_OPACITY_MAX - DEFAULT_CONFIG.STAR_OPACITY_MIN) +
         DEFAULT_CONFIG.STAR_OPACITY_MIN;
 
-      const animationType = Math.random() > DEFAULT_CONFIG.PULSE_PROBABILITY ? 'pulse' : 'drift';
+      const animationType =
+        Math.random() > DEFAULT_CONFIG.PULSE_PROBABILITY ? 'pulse' : 'drift';
 
       newStars.push({
         id: i,
@@ -135,19 +137,27 @@ const AnimatedBackground = ({
         y: Math.random() * 100,
         baseOpacity,
         animationType,
-        driftDistance: Math.random() *
-          (DEFAULT_CONFIG.DRIFT_DISTANCE_MAX - DEFAULT_CONFIG.DRIFT_DISTANCE_MIN) +
+        driftDistance:
+          Math.random() *
+            (DEFAULT_CONFIG.DRIFT_DISTANCE_MAX -
+              DEFAULT_CONFIG.DRIFT_DISTANCE_MIN) +
           DEFAULT_CONFIG.DRIFT_DISTANCE_MIN,
         driftAngle: Math.random() * 360,
-        pulseIntensity: Math.random() *
-          (DEFAULT_CONFIG.PULSE_INTENSITY_MAX - DEFAULT_CONFIG.PULSE_INTENSITY_MIN) +
+        pulseIntensity:
+          Math.random() *
+            (DEFAULT_CONFIG.PULSE_INTENSITY_MAX -
+              DEFAULT_CONFIG.PULSE_INTENSITY_MIN) +
           DEFAULT_CONFIG.PULSE_INTENSITY_MIN,
-        pulseDuration: Math.random() *
-          (DEFAULT_CONFIG.PULSE_DURATION_MAX - DEFAULT_CONFIG.PULSE_DURATION_MIN) +
+        pulseDuration:
+          Math.random() *
+            (DEFAULT_CONFIG.PULSE_DURATION_MAX -
+              DEFAULT_CONFIG.PULSE_DURATION_MIN) +
           DEFAULT_CONFIG.PULSE_DURATION_MIN,
         color,
-        duration: Math.random() *
-          (DEFAULT_CONFIG.DRIFT_DURATION_MAX - DEFAULT_CONFIG.DRIFT_DURATION_MIN) +
+        duration:
+          Math.random() *
+            (DEFAULT_CONFIG.DRIFT_DURATION_MAX -
+              DEFAULT_CONFIG.DRIFT_DURATION_MIN) +
           DEFAULT_CONFIG.DRIFT_DURATION_MIN,
       });
     }
@@ -193,12 +203,12 @@ const AnimatedBackground = ({
   }, []);
 
   /**
-   * Генерация звёзд при изменении зависимостей
+   * Звёзды — производная от параметров и ширины окна, поэтому вычисляются
+   * мемоизацией, а не состоянием: эффект с setState давал лишний рендер и
+   * пустой фон на первом кадре. `generateStars` использует Math.random(),
+   * так что пересчёт допустим только при смене его зависимостей.
    */
-  useEffect(() => {
-    const newStars = generateStars();
-    setStars(newStars);
-  }, [generateStars]);
+  const stars = useMemo(() => generateStars(), [generateStars]);
 
   /**
    * Мемоизированный рендер звёзд для оптимизации.
@@ -236,14 +246,8 @@ const AnimatedBackground = ({
   }
 
   return (
-    <div
-      className="background"
-      aria-hidden="true"
-      role="presentation"
-    >
-      <LazyMotion features={domAnimation}>
-        {renderedStars}
-      </LazyMotion>
+    <div className="background" aria-hidden="true" role="presentation">
+      <LazyMotion features={domAnimation}>{renderedStars}</LazyMotion>
     </div>
   );
 };

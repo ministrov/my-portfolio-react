@@ -92,10 +92,11 @@
     "promoBtn": "Download CV"
   },
   "hero": {
-    "titleLead": "Transforming concepts into seamless",
-    "titleAccent": "living products",
+    "titleLead": "Fast with AI.",
+    "titleAccent": "Exact — myself",
     "subtitle": "Hi! I'm Anton Zhilin, a Frontend Developer based in Moscow",
     "btn": "Download CV",
+    "btnDownloading": "Download started",
     "scrollHint": "Scroll ↓"
   },
   "about": {
@@ -335,7 +336,8 @@
     "githubAriaLabel": "GitHub of {{title}}"
   },
   "aboutCapabilities": {
-    "text": "Core stack — React, Next.js, TypeScript, RTK Query. I build e-commerce platforms and marketing landing pages with a focus on performance, pixel perfect, and accessibility (WCAG 2.1). I have a solid understanding of the full frontend cycle — from Figma layouts to Core Web Vitals optimization and working in Agile/Scrum. Continuing to grow: currently learning Python and backend development."
+    "text": "Core stack — React, Next.js, TypeScript, RTK Query. I build e-commerce platforms and marketing landing pages with a focus on performance, pixel perfect, and accessibility (WCAG 2.1). I have a solid understanding of the full frontend cycle — from Figma layouts to Core Web Vitals optimization and working in Agile/Scrum. Continuing to grow: currently learning Python and backend development.",
+    "ariaLabel": "List of technologies"
   },
   "aboutExperience": {
     "name": "OOO Service Market",

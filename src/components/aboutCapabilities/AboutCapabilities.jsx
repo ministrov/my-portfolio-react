@@ -68,9 +68,7 @@ const AboutCapabilities = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-50px' }}
-                aria-label={t('aboutCapabilities.ariaLabel', {
-                  defaultValue: 'Список технологий',
-                })}
+                aria-label={t('aboutCapabilities.ariaLabel')}
               >
                 {skills.map((skill) => (
                   <MotionTag key={skill} variants={itemVariants}>

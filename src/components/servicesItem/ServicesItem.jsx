@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import './style.css';
 
 /**
@@ -31,20 +30,6 @@ const ServicesItem = ({ service }) => {
       </div>
     </>
   );
-};
-
-ServicesItem.propTypes = {
-  /** Объект услуги */
-  service: PropTypes.shape({
-    /** Уникальный идентификатор */
-    id: PropTypes.number.isRequired,
-    /** Иконка услуги */
-    icon: PropTypes.node.isRequired,
-    /** Ключ перевода заголовка */
-    title: PropTypes.string.isRequired,
-    /** Ключ перевода описания */
-    description: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default ServicesItem;

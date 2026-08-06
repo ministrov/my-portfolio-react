@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { LANGUAGES } from '../../const';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -39,11 +38,6 @@ const ToggleLang = ({ className = '' }) => {
       {isRu ? 'Ру' : 'En'}
     </button>
   );
-};
-
-ToggleLang.propTypes = {
-  /** Дополнительные CSS-классы для кнопки переключателя */
-  className: PropTypes.string,
 };
 
 export default ToggleLang;

@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { Squash as Hamburger } from 'hamburger-react';
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 
 /**
  * Компонент кнопки гамбургера для мобильного меню.
@@ -29,13 +28,6 @@ const HamburgerButton = ({ isOpen, onToggle }) => {
       />
     </div>
   );
-};
-
-HamburgerButton.propTypes = {
-  /** Текущее состояние меню */
-  isOpen: PropTypes.bool.isRequired,
-  /** Функция переключения состояния меню */
-  onToggle: PropTypes.func.isRequired,
 };
 
 export default memo(HamburgerButton);

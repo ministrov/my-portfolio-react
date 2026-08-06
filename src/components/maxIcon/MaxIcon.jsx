@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import maxSvg from '../../assets/svg/max.svg';
 
 /**
@@ -22,13 +21,6 @@ import maxSvg from '../../assets/svg/max.svg';
  */
 const MaxIcon = ({ width = 32, height = 32 }) => {
   return <img src={maxSvg} width={width} height={height} alt="" />;
-};
-
-MaxIcon.propTypes = {
-  /** Ширина иконки в пикселях */
-  width: PropTypes.number,
-  /** Высота иконки в пикселях */
-  height: PropTypes.number,
 };
 
 export default MaxIcon;

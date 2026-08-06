@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { LazyMotion, domAnimation, AnimatePresence, m } from 'motion/react';
-import PropTypes from 'prop-types';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { IoSend } from 'react-icons/io5';
 import { useContactForm, FIELDS } from './useContactForm';
@@ -204,17 +203,15 @@ const ContactForm = ({ onSuccess }) => {
                   .join(' ')}
                 disabled={isSubmitting}
               >
-                {isSubmitting ? (
-                  t('contactForm.submitting')
-                ) : (
-                  <>
-                    {t('contactForm.submit')}
-                    <IoSend
-                      className="contact-form__submit-icon"
-                      aria-hidden="true"
-                    />
-                  </>
-                )}
+                {/* Иконка остаётся и во время отправки: именно она несёт
+                    состояние «идёт отправка» (см. cf-send в style.css) */}
+                {isSubmitting
+                  ? t('contactForm.submitting')
+                  : t('contactForm.submit')}
+                <IoSend
+                  className="contact-form__submit-icon"
+                  aria-hidden="true"
+                />
               </button>
             </m.form>
           )}
@@ -222,11 +219,6 @@ const ContactForm = ({ onSuccess }) => {
       </div>
     </LazyMotion>
   );
-};
-
-ContactForm.propTypes = {
-  /** Коллбек при успешной отправке формы. */
-  onSuccess: PropTypes.func,
 };
 
 export default ContactForm;

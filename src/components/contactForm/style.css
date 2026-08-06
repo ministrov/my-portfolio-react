@@ -162,20 +162,72 @@
 .contact-form__submit-icon {
   font-size: 1.125rem;
   flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* loading: пульсирующая opacity вместо спиннера */
-.contact-form__submit--loading {
-  animation: cf-pulse 1.2s ease-in-out infinite;
+.contact-form__submit:hover:not(:disabled) .contact-form__submit-icon {
+  transform: translateX(3px);
 }
 
-@keyframes cf-pulse {
-  0%,
-  100% {
-    opacity: 0.65;
-  }
-  50% {
+/* Отправка: самолётик улетает вправо и заходит слева на новый круг.
+   Пульсация прозрачности, стоявшая здесь раньше, делала ровно то же, что
+   правило :disabled двумя блоками выше, и читалась как «недоступно»,
+   а не как «идёт отправка» */
+.contact-form__submit--loading .contact-form__submit-icon {
+  transition: none;
+  animation: cf-send 1.1s ease-in-out infinite;
+}
+
+@keyframes cf-send {
+  0% {
+    transform: translateX(0);
     opacity: 1;
+  }
+
+  45% {
+    transform: translateX(14px);
+    opacity: 0;
+  }
+
+  55% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* При «уменьшить движение» самолётик не летает. Пульсация прозрачности
+   остаётся сознательно: это единственный признак того, что отправка идёт,
+   то есть цикл здесь обязательный, а не декоративный — правило «бесконечное
+   должно останавливаться» к нему не относится. Мигания положением нет,
+   только прозрачность, что для вестибулярной чувствительности безопасно.
+   Живёт ровно столько, сколько длится запрос */
+@media (prefers-reduced-motion: reduce) {
+  .contact-form__submit-icon {
+    transition: none;
+  }
+
+  .contact-form__submit:hover:not(:disabled) .contact-form__submit-icon {
+    transform: none;
+  }
+
+  .contact-form__submit--loading .contact-form__submit-icon {
+    animation: cf-fade 1.4s ease-in-out infinite;
+  }
+
+  @keyframes cf-fade {
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.4;
+    }
   }
 }
 

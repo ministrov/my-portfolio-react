@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import {
   LazyMotion,
@@ -7,7 +7,7 @@ import {
   useInView,
   useReducedMotion,
 } from 'motion/react';
-import { GoArrowUpRight } from 'react-icons/go';
+import { GoArrowUpRight, GoCheck } from 'react-icons/go';
 import useScrambleText from '../../hooks/useScrambleText';
 import useCharWidths from '../../hooks/useCharWidths';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
@@ -113,9 +113,12 @@ const ctaPopReduced = {
   },
 };
 
-/** Момент, когда пульсирующее кольцо у CTA начинает проигрываться (после pop) */
-const CTA_RING_DELAY =
-  ANIMATION_DELAYS.BUTTON + ctaPop.transition.duration + 0.15;
+/**
+ * Сколько кнопка CV держит подтверждение нажатия (мс).
+ * Скачивание файла уходит в хром браузера и никак не отражается на самой
+ * странице — без этого отклика главная конверсия сайта срабатывает молча.
+ */
+const DOWNLOAD_ACK_MS = 2200;
 
 /**
  * Hero-секция главной страницы: центрированный блок с кикером,
@@ -129,11 +132,16 @@ const CTA_RING_DELAY =
  * <Hero />
  */
 const Hero = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const titleMotion = prefersReducedMotion ? titleRevealReduced : titleReveal;
   const subtitleMotion = prefersReducedMotion ? fadeUpReduced : fadeUp;
   const ctaMotion = prefersReducedMotion ? ctaPopReduced : ctaPop;
+  // Наблюдаем за блоком контента, а не за секцией: .hero тянется на 100vh и
+  // покидает вьюпорт только через целый экран скролла, из-за чего циклы
+  // продолжали крутиться далеко за кадром и мигали классом на границе
+  const contentRef = useRef(null);
+  const isContentInView = useInView(contentRef);
   const subtitleRef = useRef(null);
   const isSubtitleInView = useInView(subtitleRef);
   const subtitleText = t('hero.subtitle');
@@ -146,30 +154,61 @@ const Hero = () => {
     active: isSubtitleInView,
   });
   const subtitleCharWidths = useCharWidths(subtitleRef, subtitleText);
+  const [isDownloadAcked, setIsDownloadAcked] = useState(false);
+  const ackTimeoutRef = useRef(null);
+
+  // Таймер отклика переживает размонтирование секции, поэтому снимается явно.
+  // Флага isMounted здесь быть не должно: обработчик синхронный, гонки нет
+  useEffect(() => () => clearTimeout(ackTimeoutRef.current), []);
+
+  /** Подтверждает нажатие на кнопку скачивания резюме. */
+  const handleDownload = useCallback(() => {
+    setIsDownloadAcked(true);
+    clearTimeout(ackTimeoutRef.current);
+    ackTimeoutRef.current = setTimeout(
+      () => setIsDownloadAcked(false),
+      DOWNLOAD_ACK_MS
+    );
+  }, []);
+
+  // Глифы, сгруппированные по словам. Каждый символ подзаголовка — отдельный
+  // inline-block, а значит браузер имеет право перенести строку между любыми
+  // двумя символами и рвёт слова посередине. Слово в неразрывной обёртке
+  // возвращает переносы на пробелы. Исходный индекс сохраняется: по нему
+  // берётся измеренная ширина символа.
+  const subtitleWords = useMemo(() => {
+    const words = [];
+    let word = null;
+
+    subtitleGlyphs.forEach((glyph, index) => {
+      if (glyph.char === ' ') {
+        word = null;
+        words.push({ space: true, glyphs: [{ ...glyph, index }] });
+        return;
+      }
+
+      if (!word) {
+        word = { space: false, glyphs: [] };
+        words.push(word);
+      }
+
+      word.glyphs.push({ ...glyph, index });
+    });
+
+    return words;
+  }, [subtitleGlyphs]);
 
   return (
-    <section className="hero">
+    <section className={`hero${isContentInView ? '' : ' hero--offscreen'}`}>
       <div className="container">
         <LazyMotion features={domAnimation}>
-          <div className="hero__inner">
-            <m.div
-              className="hero__bloom"
-              aria-hidden="true"
-              initial={{ opacity: 0, scale: 0.3 }}
-              animate={{ opacity: [0, 0.85, 0], scale: [0.3, 1, 1.5] }}
-              transition={{
-                duration: 2.2,
-                delay: ANIMATION_DELAYS.TITLE + 0.1,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-            />
-
+          <div className="hero__inner" ref={contentRef}>
             <h1 className="hero__title">
               <m.div {...titleMotion}>
                 <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
-                <span
-                  className={`hero__title-accent${i18n.language === 'ru' ? ' hero__title-accent--block' : ''}`}
-                >
+                {/* Акцент всегда с новой строки: заголовок построен как афоризм
+                    из двух тактов, и разрыв между ними держит его ритм в обеих локалях */}
+                <span className="hero__title-accent hero__title-accent--block">
                   {t('hero.titleAccent')}
                 </span>
               </m.div>
@@ -202,20 +241,32 @@ const Hero = () => {
             >
               <span className="visually-hidden">{subtitleText}</span>
               <span aria-hidden="true">
-                {subtitleGlyphs.map(({ char, locked }, index) => (
-                  <span
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={index}
-                    className={`hero__subtitle-char${locked ? '' : ' hero__subtitle-char--decoding'}`}
-                    style={
-                      subtitleCharWidths
-                        ? { width: `${subtitleCharWidths[index]}px` }
-                        : undefined
-                    }
-                  >
-                    {char}
-                  </span>
-                ))}
+                {subtitleWords.map(({ space, glyphs }) => {
+                  const chars = glyphs.map(({ char, locked, index }) => (
+                    <span
+                      // Индекс здесь корректный ключ: глифы скрамбла позиционные,
+                      // массив не переупорядочивается и не фильтруется
+                      key={index}
+                      className={`hero__subtitle-char${locked ? '' : ' hero__subtitle-char--decoding'}`}
+                      style={
+                        subtitleCharWidths
+                          ? { width: `${subtitleCharWidths[index]}px` }
+                          : undefined
+                      }
+                    >
+                      {char}
+                    </span>
+                  ));
+
+                  // Пробел остаётся голым символом — на нём и происходит перенос
+                  return space ? (
+                    chars
+                  ) : (
+                    <span key={glyphs[0].index} className="hero__subtitle-word">
+                      {chars}
+                    </span>
+                  );
+                })}
               </span>
             </m.p>
 
@@ -224,29 +275,26 @@ const Hero = () => {
                 <div className="hero__btn-frame">
                   <span className="hero__btn-spin" aria-hidden="true" />
                   <a
-                    className="hero__btn"
+                    className={`hero__btn${isDownloadAcked ? ' hero__btn--acked' : ''}`}
                     href={cvPdf}
                     download="Anton_Zhilin_CV.pdf"
                     rel="noopener noreferrer"
+                    onClick={handleDownload}
                   >
-                    <m.span
-                      className="hero__btn-ring"
-                      aria-hidden="true"
-                      initial={{ opacity: 0.5, scale: 0.9 }}
-                      animate={{ opacity: 0, scale: 1.55 }}
-                      transition={{
-                        duration: 1.5,
-                        delay: CTA_RING_DELAY,
-                        repeat: 1,
-                        ease: 'easeOut',
-                      }}
-                    />
                     {t('hero.btn')}
                     <span className="hero__btn-icon">
-                      <GoArrowUpRight />
+                      {isDownloadAcked ? <GoCheck /> : <GoArrowUpRight />}
                     </span>
                   </a>
                 </div>
+
+                <span
+                  className="visually-hidden"
+                  role="status"
+                  aria-live="polite"
+                >
+                  {isDownloadAcked ? t('hero.btnDownloading') : ''}
+                </span>
               </div>
             </m.div>
 
