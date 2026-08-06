@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, A11y } from 'swiper/modules';
-import { LazyMotion, m, domAnimation, useInView } from 'motion/react';
+import { useInView } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
-import useRevealMotion from '../../hooks/useRevealMotion';
 import { testimonials } from './testimonials';
 import './style.css';
 
@@ -52,7 +51,6 @@ const getSwiperConfig = (t) => ({
  */
 const Testimonials = () => {
   const { t } = useTranslation();
-  const headingMotion = useRevealMotion();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef);
   const [swiper, setSwiper] = useState(null);
@@ -76,35 +74,31 @@ const Testimonials = () => {
       className="testimonials"
       aria-labelledby="testimonials-heading"
     >
-      <LazyMotion features={domAnimation}>
-        <div className="container">
-          <m.div {...headingMotion}>
-            <Heading
-              id="testimonials-heading"
-              title={t('testimonials.title')}
-              accent={t('testimonials.titleAccent')}
-            />
-          </m.div>
-        </div>
+      <div className="container">
+        <Heading
+          id="testimonials-heading"
+          title={t('testimonials.title')}
+          accent={t('testimonials.titleAccent')}
+        />
+      </div>
 
-        <Swiper
-          className="testimonials__swiper"
-          {...getSwiperConfig(t)}
-          onSwiper={setSwiper}
-          aria-label={t('testimonials.ariaLabel')}
-          role="region"
-        >
-          {testimonials.map((item) => (
-            <SwiperSlide key={item.id} className="testimonials__slide">
-              <TestimonialCard
-                quote={item.quote}
-                context={item.context}
-                accent={item.accent}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </LazyMotion>
+      <Swiper
+        className="testimonials__swiper"
+        {...getSwiperConfig(t)}
+        onSwiper={setSwiper}
+        aria-label={t('testimonials.ariaLabel')}
+        role="region"
+      >
+        {testimonials.map((item) => (
+          <SwiperSlide key={item.id} className="testimonials__slide">
+            <TestimonialCard
+              quote={item.quote}
+              context={item.context}
+              accent={item.accent}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 };

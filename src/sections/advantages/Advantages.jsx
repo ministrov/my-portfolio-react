@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { LazyMotion, domAnimation } from 'motion/react';
 import { memo } from 'react';
 import Heading from '../../components/heading/Heading';
 import AdvantagesList from './AdvantagesList';
@@ -29,11 +28,9 @@ const Advantages = () => {
         />
 
         <AdvantagesList>
-          <LazyMotion features={domAnimation}>
-            {advantages.map(({ id, text, icon }, index) => (
-              <AdvantagesItem key={id} index={index} text={text} icon={icon} />
-            ))}
-          </LazyMotion>
+          {advantages.map(({ id, text, icon }) => (
+            <AdvantagesItem key={id} text={text} icon={icon} />
+          ))}
         </AdvantagesList>
       </div>
     </section>
