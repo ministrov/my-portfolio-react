@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { LazyMotion, m, domAnimation } from 'motion/react';
+import { LazyMotion, m, domAnimation, useReducedMotion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import Heading from '../../components/heading/Heading';
@@ -9,29 +9,28 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import AboutStory from '../../components/aboutStory/AboutStory';
 import AuthorIdentity from '../../components/authorIdentity/AuthorIdentity';
 import Tag from '../../components/tag/Tag';
+import useRevealMotion, {
+  REVEAL_EASE,
+  REVEAL_VIEWPORT,
+} from '../../hooks/useRevealMotion';
 import { ABOUT_TECH_TAGS, ABOUT_STATS } from '../../const';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
-/** Кривая плавности, общая для всех анимаций секции */
-const EASE = [0.25, 0.1, 0.25, 1];
+/** Стартовое состояние правой колонки: короткий заход справа */
+const RIGHT_COLUMN_FROM = { opacity: 0, scale: 0.96, x: 30 };
 
-/** Общие настройки viewport для анимаций по скроллу */
-const VIEWPORT = { once: true, margin: '-50px' };
-
-/** Анимация правой колонки: появление справа */
-const ANIMATION_CONFIG = {
-  initial: { opacity: 0, scale: 0.96, x: 30 },
-  whileInView: { opacity: 1, scale: 1, x: 0 },
-  viewport: VIEWPORT,
-  transition: { duration: 0.8, ease: EASE, delay: 0.4 },
-};
-
-/** Варианты анимации для стаггерного списка статистики (контейнер) */
+/**
+ * Варианты анимации для стаггерного списка статистики (контейнер).
+ * Цифры «4+ года / 10+ проектов / Middle / B2» — главное доказательство
+ * квалификации на странице, поэтому цепочка задержек до них сведена к
+ * минимуму: прежние delay 0.4 + delayChildren 0.55 откладывали их почти
+ * на секунду после появления самой секции.
+ */
 const STATS_CONTAINER = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.55 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
   },
 };
 
@@ -41,8 +40,14 @@ const STATS_ITEM = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: EASE },
+    transition: { duration: 0.35, ease: REVEAL_EASE },
   },
+};
+
+/** Облегчённый вариант элемента статистики для prefers-reduced-motion */
+const STATS_ITEM_REDUCED = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.3, ease: 'linear' } },
 };
 
 /**
@@ -60,6 +65,13 @@ const STATS_ITEM = {
  */
 const About = ({ link = false, button = false, border = false }) => {
   const { t } = useTranslation();
+  const prefersReducedMotion = useReducedMotion();
+  const rightColumnMotion = useRevealMotion({
+    from: RIGHT_COLUMN_FROM,
+    duration: 0.6,
+    delay: 0.15,
+  });
+  const statsItem = prefersReducedMotion ? STATS_ITEM_REDUCED : STATS_ITEM;
 
   // Используется дважды (как текст кнопки и внутри aria-label) — выносим в переменную
   const promoBtnText = t('promo.promoBtn');
@@ -91,7 +103,7 @@ const About = ({ link = false, button = false, border = false }) => {
             </div>
 
             {/* Правая колонка: нарратив, статистика, стек, CTA */}
-            <m.div className="about__right" {...ANIMATION_CONFIG}>
+            <m.div className="about__right" {...rightColumnMotion}>
               <AboutStory />
 
               {/* Статистика — чипы с ключевыми фактами */}
@@ -100,13 +112,13 @@ const About = ({ link = false, button = false, border = false }) => {
                 variants={STATS_CONTAINER}
                 initial="hidden"
                 whileInView="visible"
-                viewport={VIEWPORT}
+                viewport={REVEAL_VIEWPORT}
               >
                 {ABOUT_STATS.map(({ number, labelKey }) => (
                   <m.li
                     key={labelKey}
                     className="about__stat"
-                    variants={STATS_ITEM}
+                    variants={statsItem}
                   >
                     <span className="about__stat-number">{number}</span>
                     <span className="about__stat-label">{t(labelKey)}</span>
