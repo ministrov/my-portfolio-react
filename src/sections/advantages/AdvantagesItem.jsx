@@ -1,10 +1,15 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { m } from 'motion/react';
 import { memo } from 'react';
+import useRevealMotion from '../../hooks/useRevealMotion';
 import './style.css';
 
-/** Коэффициент задержки появления карточек (в секундах) для stagger-эффекта. */
-const ANIMATION_DELAY_FACTOR = 0.15;
+/**
+ * Коэффициент задержки появления карточек (в секундах) для stagger-эффекта.
+ * Семь карточек укладываются в 0.36 с: каскад читается как единый жест,
+ * а не как поочерёдная выдача (прежние 0.15 с растягивали его на 0.9 с).
+ */
+const ANIMATION_DELAY_FACTOR = 0.06;
 
 /**
  * Компонент элемента списка преимуществ.
@@ -25,16 +30,10 @@ const AdvantagesItem = ({ text, icon: Icon, index = 0, ...props }) => {
   // Trans не подписывается на смену языка самостоятельно — без этого вызова
   // memo блокирует ре-рендер элемента при смене языка
   useTranslation();
+  const reveal = useRevealMotion({ delay: index * ANIMATION_DELAY_FACTOR });
 
   return (
-    <m.li
-      className="advantages__item"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.3, delay: index * ANIMATION_DELAY_FACTOR }}
-      {...props}
-    >
+    <m.li className="advantages__item" {...reveal} {...props}>
       <Icon className="advantages__item-img" aria-hidden="true" />
       <p className="advantages__item-text">
         <Trans i18nKey={text} components={{ highlight: <strong /> }} />
