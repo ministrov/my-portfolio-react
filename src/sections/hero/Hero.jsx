@@ -204,7 +204,8 @@ const Hero = () => {
               <span aria-hidden="true">
                 {subtitleGlyphs.map(({ char, locked }, index) => (
                   <span
-                    // eslint-disable-next-line react/no-array-index-key
+                    // Индекс здесь корректный ключ: глифы скрамбла позиционные,
+                    // массив не переупорядочивается и не фильтруется
                     key={index}
                     className={`hero__subtitle-char${locked ? '' : ' hero__subtitle-char--decoding'}`}
                     style={
