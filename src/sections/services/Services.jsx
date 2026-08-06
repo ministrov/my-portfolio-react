@@ -3,13 +3,38 @@ import { useTranslation } from 'react-i18next';
 import ServicesItem from '../../components/servicesItem/ServicesItem';
 import Heading from '../../components/heading/Heading';
 import ServicesList from './ServicesList';
+import useRevealMotion from '../../hooks/useRevealMotion';
 import { services } from '../../const';
 import './style.css';
 
 /**
- * Коэффициент задержки анимации между элементами (в секундах)
+ * Коэффициент задержки появления между карточками (в секундах).
+ * Каскад читается как «список появился», а не как очередь: три карточки
+ * укладываются в 0.16 с вместо прежних 0.6 с.
  */
-const ANIMATION_DELAY_FACTOR = 0.3;
+const ANIMATION_DELAY_FACTOR = 0.08;
+
+/**
+ * Карточка услуги: появление по скроллу с общим пресетом секции.
+ * Вынесена в отдельный компонент, потому что useRevealMotion — хук
+ * и не может вызываться внутри map родителя.
+ *
+ * @component
+ * @param {Object} props - Пропсы компонента
+ * @param {Object} props.service - Объект услуги (id, title, description, icon)
+ * @param {number} props.index - Порядковый номер для расчёта задержки каскада
+ * @example
+ * <ServicesCard service={service} index={0} />
+ */
+const ServicesCard = ({ service, index }) => {
+  const reveal = useRevealMotion({ delay: index * ANIMATION_DELAY_FACTOR });
+
+  return (
+    <m.li className="services__item" {...reveal}>
+      <ServicesItem service={service} />
+    </m.li>
+  );
+};
 
 /**
  * Компонент секции услуг
@@ -35,18 +60,7 @@ const Services = () => {
         <ServicesList>
           <LazyMotion features={domAnimation}>
             {services.map((service, index) => (
-              <m.li
-                className="services__item"
-                key={service.id}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{
-                  duration: 0.3,
-                  delay: index * ANIMATION_DELAY_FACTOR,
-                }}
-              >
-                <ServicesItem service={service} />
-              </m.li>
+              <ServicesCard key={service.id} service={service} index={index} />
             ))}
           </LazyMotion>
         </ServicesList>
