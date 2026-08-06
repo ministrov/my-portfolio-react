@@ -17,12 +17,9 @@
   transform: translateZ(0);
 }
 
-/* Отключаем анимации при reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .star {
-    animation: none;
-  }
-}
+/* Звёзды анимируются из JS (motion), а не CSS-кейфреймами, поэтому
+   `animation: none` здесь ничего не выключал. Настройку «уменьшить движение»
+   гасит сам компонент: см. prefersReducedMotion в AnimatedBackground.jsx */
 
 @media screen and (max-width: 375px) {
   .background {
