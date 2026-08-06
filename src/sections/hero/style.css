@@ -132,6 +132,12 @@
   display: inline-block;
 }
 
+/* Слово подзаголовка целиком: держит посимвольные inline-block вместе,
+   чтобы перенос строки случался на пробеле, а не посреди слова */
+.hero__subtitle-word {
+  white-space: nowrap;
+}
+
 /* Символ подзаголовка, ещё не раскрытый расшифровкой */
 .hero__subtitle-char--decoding {
   color: rgb(var(--cta-spotlight-blue));

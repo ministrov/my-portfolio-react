@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import {
   LazyMotion,
@@ -147,6 +147,33 @@ const Hero = () => {
   });
   const subtitleCharWidths = useCharWidths(subtitleRef, subtitleText);
 
+  // Глифы, сгруппированные по словам. Каждый символ подзаголовка — отдельный
+  // inline-block, а значит браузер имеет право перенести строку между любыми
+  // двумя символами и рвёт слова посередине. Слово в неразрывной обёртке
+  // возвращает переносы на пробелы. Исходный индекс сохраняется: по нему
+  // берётся измеренная ширина символа.
+  const subtitleWords = useMemo(() => {
+    const words = [];
+    let word = null;
+
+    subtitleGlyphs.forEach((glyph, index) => {
+      if (glyph.char === ' ') {
+        word = null;
+        words.push({ space: true, glyphs: [{ ...glyph, index }] });
+        return;
+      }
+
+      if (!word) {
+        word = { space: false, glyphs: [] };
+        words.push(word);
+      }
+
+      word.glyphs.push({ ...glyph, index });
+    });
+
+    return words;
+  }, [subtitleGlyphs]);
+
   return (
     <section className="hero">
       <div className="container">
@@ -202,21 +229,32 @@ const Hero = () => {
             >
               <span className="visually-hidden">{subtitleText}</span>
               <span aria-hidden="true">
-                {subtitleGlyphs.map(({ char, locked }, index) => (
-                  <span
-                    // Индекс здесь корректный ключ: глифы скрамбла позиционные,
-                    // массив не переупорядочивается и не фильтруется
-                    key={index}
-                    className={`hero__subtitle-char${locked ? '' : ' hero__subtitle-char--decoding'}`}
-                    style={
-                      subtitleCharWidths
-                        ? { width: `${subtitleCharWidths[index]}px` }
-                        : undefined
-                    }
-                  >
-                    {char}
-                  </span>
-                ))}
+                {subtitleWords.map(({ space, glyphs }) => {
+                  const chars = glyphs.map(({ char, locked, index }) => (
+                    <span
+                      // Индекс здесь корректный ключ: глифы скрамбла позиционные,
+                      // массив не переупорядочивается и не фильтруется
+                      key={index}
+                      className={`hero__subtitle-char${locked ? '' : ' hero__subtitle-char--decoding'}`}
+                      style={
+                        subtitleCharWidths
+                          ? { width: `${subtitleCharWidths[index]}px` }
+                          : undefined
+                      }
+                    >
+                      {char}
+                    </span>
+                  ));
+
+                  // Пробел остаётся голым символом — на нём и происходит перенос
+                  return space ? (
+                    chars
+                  ) : (
+                    <span key={glyphs[0].index} className="hero__subtitle-word">
+                      {chars}
+                    </span>
+                  );
+                })}
               </span>
             </m.p>
 
