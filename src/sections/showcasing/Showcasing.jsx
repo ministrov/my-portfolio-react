@@ -3,23 +3,18 @@ import { LazyMotion, m, domAnimation } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import Loader from '../../components/loader/Loader';
+import useRevealMotion from '../../hooks/useRevealMotion';
 import './style.css';
 
 const LazyCarousel = lazy(() => import('../../components/carousel/Carousel'));
 
 /**
- * Константы анимации для компонента Showcasing
- * @constant {Object}
+ * Стартовое состояние секции: только короткий подъём.
+ * Масштаб (прежний scale: 0.9) убран намеренно — он приводил карточки
+ * проектов в кадр интерполированными и потому нерезкими, а это
+ * единственная секция, где работы должны читаться сразу.
  */
-const ANIMATION_CONFIG = {
-  INITIAL: { opacity: 0, scale: 0.9, y: 30 },
-  ANIMATE: { opacity: 1, scale: 1, y: 0 },
-  VIEWPORT: { once: true, margin: '-50px' },
-  TRANSITION: {
-    duration: 0.8,
-    ease: [0.25, 0.1, 0.25, 1],
-  },
-};
+const SHOWCASING_FROM = { opacity: 0, y: 24 };
 
 /**
  * Компонент секции "Портфолио" (Showcasing) - отображает карусель проектов с анимацией
@@ -39,6 +34,7 @@ const ANIMATION_CONFIG = {
  */
 const Showcasing = () => {
   const { t } = useTranslation();
+  const reveal = useRevealMotion({ from: SHOWCASING_FROM, duration: 0.55 });
 
   return (
     <section className="showcasing" aria-labelledby="showcasing-heading">
@@ -50,13 +46,7 @@ const Showcasing = () => {
         />
       </div>
       <LazyMotion features={domAnimation}>
-        <m.div
-          className="showcasing__wrapper"
-          initial={ANIMATION_CONFIG.INITIAL}
-          whileInView={ANIMATION_CONFIG.ANIMATE}
-          viewport={ANIMATION_CONFIG.VIEWPORT}
-          transition={ANIMATION_CONFIG.TRANSITION}
-        >
+        <m.div className="showcasing__wrapper" {...reveal}>
           <Suspense fallback={<Loader />}>
             <div className="container">
               <LazyCarousel />
