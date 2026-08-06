@@ -4,6 +4,8 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
 import { MdPause, MdPlayArrow } from 'react-icons/md';
 import ShowcasingCard from '../showcasingCard/ShowcasingCard';
+import CarouselProgress from '../carouselProgress/CarouselProgress';
+import useAutoplayProgress from '../../hooks/useAutoplayProgress';
 import { projects } from '../../sections/projects/projects';
 import './style.css';
 
@@ -37,6 +39,7 @@ const Carousel = ({
   const { t } = useTranslation();
   const swiperRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
+  const { progressRef, handleAutoplayTimeLeft } = useAutoplayProgress();
   const filteredProjects = projectsData.filter(filterFn);
 
   // Конфигурация Swiper по умолчанию
@@ -92,6 +95,7 @@ const Carousel = ({
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
+        onAutoplayTimeLeft={handleAutoplayTimeLeft}
         aria-label={ariaLabel || t('carousel.ariaLabel')}
         role="region"
       >
@@ -120,6 +124,11 @@ const Carousel = ({
       >
         {isPlaying ? <MdPause size={20} /> : <MdPlayArrow size={20} />}
       </button>
+
+      <CarouselProgress
+        ref={progressRef}
+        className="carousel-progress--on-dark"
+      />
     </div>
   );
 };

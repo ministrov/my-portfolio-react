@@ -5,6 +5,8 @@ import { useInView } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
+import CarouselProgress from '../../components/carouselProgress/CarouselProgress';
+import useAutoplayProgress from '../../hooks/useAutoplayProgress';
 import { testimonials } from './testimonials';
 import './style.css';
 
@@ -54,6 +56,7 @@ const Testimonials = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef);
   const [swiper, setSwiper] = useState(null);
+  const { progressRef, handleAutoplayTimeLeft } = useAutoplayProgress();
 
   // Автопрокрутка отзывов ничего не сообщает, пока секции нет на экране,
   // но продолжает перелистывать слайды и держать таймер. Останавливаем её
@@ -82,23 +85,28 @@ const Testimonials = () => {
         />
       </div>
 
-      <Swiper
-        className="testimonials__swiper"
-        {...getSwiperConfig(t)}
-        onSwiper={setSwiper}
-        aria-label={t('testimonials.ariaLabel')}
-        role="region"
-      >
-        {testimonials.map((item) => (
-          <SwiperSlide key={item.id} className="testimonials__slide">
-            <TestimonialCard
-              quote={item.quote}
-              context={item.context}
-              accent={item.accent}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="testimonials__player">
+        <Swiper
+          className="testimonials__swiper"
+          {...getSwiperConfig(t)}
+          onSwiper={setSwiper}
+          onAutoplayTimeLeft={handleAutoplayTimeLeft}
+          aria-label={t('testimonials.ariaLabel')}
+          role="region"
+        >
+          {testimonials.map((item) => (
+            <SwiperSlide key={item.id} className="testimonials__slide">
+              <TestimonialCard
+                quote={item.quote}
+                context={item.context}
+                accent={item.accent}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <CarouselProgress ref={progressRef} />
+      </div>
     </section>
   );
 };

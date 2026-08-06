@@ -4,6 +4,20 @@
   overflow: hidden;
 }
 
+/* Опора для индикатора прогресса автопрокрутки */
+.testimonials__player {
+  position: relative;
+}
+
+/* Свайпер идёт во всю ширину экрана, а полоса прогресса относится к
+   активной карточке — поэтому сужаем её ровно до ширины слайда */
+.testimonials__player .carousel-progress {
+  right: auto;
+  left: 50%;
+  width: min(1100px, 82vw);
+  transform: translateX(-50%);
+}
+
 /* Вертикальный запас, чтобы тень карточек не обрезалась overflow swiper */
 .testimonials__swiper {
   padding-top: 1rem;
@@ -53,6 +67,10 @@
   }
 
   .testimonials__slide {
+    width: 88vw;
+  }
+
+  .testimonials__player .carousel-progress {
     width: 88vw;
   }
 }
