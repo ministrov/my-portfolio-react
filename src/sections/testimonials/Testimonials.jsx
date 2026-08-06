@@ -4,6 +4,7 @@ import { LazyMotion, m, domAnimation } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
+import useRevealMotion from '../../hooks/useRevealMotion';
 import { testimonials } from './testimonials';
 import './style.css';
 
@@ -38,20 +39,6 @@ const getSwiperConfig = (t) => ({
 });
 
 /**
- * Базовая конфигурация анимации появления заголовка снизу вверх.
- * @type {import('motion/react').MotionProps}
- */
-const fadeUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-50px' },
-  transition: {
-    duration: 0.8,
-    ease: [0.25, 0.1, 0.25, 1],
-  },
-};
-
-/**
  * Секция отзывов клиентов: двухтоновый заголовок в стиле hero и свайпер
  * карточек-отзывов. Отзывы не привязаны к конкретному реальному человеку
  * или компании — карточки показывают тип проекта вместо имени.
@@ -64,12 +51,13 @@ const fadeUp = {
  */
 const Testimonials = () => {
   const { t } = useTranslation();
+  const headingMotion = useRevealMotion();
 
   return (
     <section className="testimonials" aria-labelledby="testimonials-heading">
       <LazyMotion features={domAnimation}>
         <div className="container">
-          <m.div {...fadeUp}>
+          <m.div {...headingMotion}>
             <Heading
               id="testimonials-heading"
               title={t('testimonials.title')}
