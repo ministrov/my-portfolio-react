@@ -113,10 +113,6 @@ const ctaPopReduced = {
   },
 };
 
-/** Момент, когда пульсирующее кольцо у CTA начинает проигрываться (после pop) */
-const CTA_RING_DELAY =
-  ANIMATION_DELAYS.BUTTON + ctaPop.transition.duration + 0.15;
-
 /**
  * Hero-секция главной страницы: центрированный блок с кикером,
  * крупным заголовком с градиентным акцентом, подзаголовком
@@ -179,18 +175,6 @@ const Hero = () => {
       <div className="container">
         <LazyMotion features={domAnimation}>
           <div className="hero__inner">
-            <m.div
-              className="hero__bloom"
-              aria-hidden="true"
-              initial={{ opacity: 0, scale: 0.3 }}
-              animate={{ opacity: [0, 0.85, 0], scale: [0.3, 1, 1.5] }}
-              transition={{
-                duration: 2.2,
-                delay: ANIMATION_DELAYS.TITLE + 0.1,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-            />
-
             <h1 className="hero__title">
               <m.div {...titleMotion}>
                 <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
@@ -268,18 +252,6 @@ const Hero = () => {
                     download="Anton_Zhilin_CV.pdf"
                     rel="noopener noreferrer"
                   >
-                    <m.span
-                      className="hero__btn-ring"
-                      aria-hidden="true"
-                      initial={{ opacity: 0.5, scale: 0.9 }}
-                      animate={{ opacity: 0, scale: 1.55 }}
-                      transition={{
-                        duration: 1.5,
-                        delay: CTA_RING_DELAY,
-                        repeat: 1,
-                        ease: 'easeOut',
-                      }}
-                    />
                     {t('hero.btn')}
                     <span className="hero__btn-icon">
                       <GoArrowUpRight />
