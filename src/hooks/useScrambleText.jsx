@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 /** Медиа-запрос для определения предпочтения уменьшенного движения */
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
@@ -34,7 +34,9 @@ function randomGlyphFor(char) {
  * читаемым `pauseMs`, затем сбрасывается и расшифровывается заново — и так
  * бесконечно. Уважает `prefers-reduced-motion` (с live-подпиской на изменение,
  * как в AnimatedBackground) — в этом случае сразу отдаёт финальный текст без
- * анимации и без цикла.
+ * анимации и без цикла, не трогая внутреннее состояние. Побочное следствие:
+ * если настройку выключить посреди сессии, до перезапуска расшифровки (`delayMs`)
+ * будет виден замерший скрамбл, а не чистый текст.
  *
  * @param {string} text - Финальный текст для отображения.
  * @param {Object} [options]
@@ -92,15 +94,16 @@ const useScrambleText = (
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
+  /** Готовый текст без анимации — то, что отдаётся при `prefers-reduced-motion` */
+  const finalGlyphs = useMemo(
+    () => Array.from(text).map((char) => ({ char, locked: true })),
+    [text]
+  );
+
   useEffect(() => {
+    if (prefersReducedMotion || !active) return undefined;
+
     const nextChars = Array.from(text);
-
-    if (prefersReducedMotion) {
-      setGlyphs(nextChars.map((char) => ({ char, locked: true })));
-      return undefined;
-    }
-
-    if (!active) return undefined;
 
     let interval;
     let timeout;
@@ -148,7 +151,7 @@ const useScrambleText = (
     active,
   ]);
 
-  return glyphs;
+  return prefersReducedMotion ? finalGlyphs : glyphs;
 };
 
 export default useScrambleText;
