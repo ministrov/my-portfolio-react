@@ -1,6 +1,7 @@
+import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, A11y } from 'swiper/modules';
-import { LazyMotion, m, domAnimation } from 'motion/react';
+import { LazyMotion, m, domAnimation, useInView } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
@@ -52,9 +53,29 @@ const getSwiperConfig = (t) => ({
 const Testimonials = () => {
   const { t } = useTranslation();
   const headingMotion = useRevealMotion();
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef);
+  const [swiper, setSwiper] = useState(null);
+
+  // Автопрокрутка отзывов ничего не сообщает, пока секции нет на экране,
+  // но продолжает перелистывать слайды и держать таймер. Останавливаем её
+  // за кадром и возвращаем, когда секция снова видна
+  useEffect(() => {
+    if (!swiper?.autoplay) return;
+
+    if (isInView) {
+      swiper.autoplay.start();
+    } else {
+      swiper.autoplay.stop();
+    }
+  }, [swiper, isInView]);
 
   return (
-    <section className="testimonials" aria-labelledby="testimonials-heading">
+    <section
+      ref={sectionRef}
+      className="testimonials"
+      aria-labelledby="testimonials-heading"
+    >
       <LazyMotion features={domAnimation}>
         <div className="container">
           <m.div {...headingMotion}>
@@ -69,6 +90,7 @@ const Testimonials = () => {
         <Swiper
           className="testimonials__swiper"
           {...getSwiperConfig(t)}
+          onSwiper={setSwiper}
           aria-label={t('testimonials.ariaLabel')}
           role="region"
         >

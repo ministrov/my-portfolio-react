@@ -137,6 +137,10 @@ const Hero = () => {
   const titleMotion = prefersReducedMotion ? titleRevealReduced : titleReveal;
   const subtitleMotion = prefersReducedMotion ? fadeUpReduced : fadeUp;
   const ctaMotion = prefersReducedMotion ? ctaPopReduced : ctaPop;
+  const sectionRef = useRef(null);
+  // Вращение рамки CTA бесконечно и не несёт смысла за кадром: как только
+  // hero уходит из вида, анимация встаёт (см. .hero--offscreen в style.css)
+  const isSectionInView = useInView(sectionRef);
   const subtitleRef = useRef(null);
   const isSubtitleInView = useInView(subtitleRef);
   const subtitleText = t('hero.subtitle');
@@ -194,7 +198,10 @@ const Hero = () => {
   }, [subtitleGlyphs]);
 
   return (
-    <section className="hero">
+    <section
+      ref={sectionRef}
+      className={`hero${isSectionInView ? '' : ' hero--offscreen'}`}
+    >
       <div className="container">
         <LazyMotion features={domAnimation}>
           <div className="hero__inner">

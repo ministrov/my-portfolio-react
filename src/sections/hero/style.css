@@ -160,6 +160,19 @@
   }
 }
 
+/* Бесконечные циклы hero не крутятся за кадром: класс вешает Hero.jsx
+   по useInView самой секции */
+.hero--offscreen .hero__btn-spin {
+  animation-play-state: paused;
+}
+
+/* У подсказки скролла две анимации: разовое проявление и бесконечное
+   покачивание. Останавливается только вторая — первая обязана доиграть,
+   иначе на первом кадре (useInView ещё false) подсказка застынет невидимой */
+.hero--offscreen .hero__scroll-hint {
+  animation-play-state: running, paused;
+}
+
 .hero__btn {
   position: relative;
   display: flex;
