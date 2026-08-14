@@ -5,7 +5,7 @@
 **Ветка:** `feature/home-motion`
 **Метод:** механический детектор (`detect.mjs`, 63 файла, homepage-scope) + ручная проверка в браузере (сборка, Playwright: desktop 1440px, mobile 390px, вычисленные стили, контраст по формуле WCAG)
 
-**Статус исправлений:** P1 — сделано (`ff18d6d`). Оба P2 — сделаны (не закоммичены). P3 — не начаты.
+**Статус исправлений:** P1 — сделано (`ff18d6d`). Оба P2 — сделаны (`bee4b79`, `14043b7`). P3 «reduced-motion для соцссылок» — сделано (не закоммичено). Осталось P3 «дрейф токенов design-system».
 
 ---
 
@@ -92,13 +92,15 @@
 - **Impact:** DESIGN.md документирует типографическую шкалу/палитру/радиусы, которым код не следует буквально. Часть значений повторяется в нескольких файлах (например, `12px` radius, `32px` font-size) — кандидаты не на подгонку под существующую шкалу, а на новый документированный токен.
 - **Команда:** `/impeccable extract`
 
-### [P3] Hover-подъём `.socials__link` без `prefers-reduced-motion`
+### [P3] Hover-подъём `.socials__link` без `prefers-reduced-motion` — ✅ СДЕЛАНО
 
 - **Категория:** Accessibility
 - **Локация:** `src/components/socials/style.css`
 - **Как проверено:** `grep` на `transition`/`prefers-reduced-motion` в файле — 3 transition-объявления, 0 guard'ов.
 - **Impact:** `transform: translateY(-2px) scale(1.02)` на hover — реальное движение без возможности отключить через системную настройку, в отличие от почти всех остальных анимированных компонентов сайта (DESIGN.md заявляет 100%-е покрытие — здесь фактически нет).
-- **Команда:** `/impeccable polish`
+- **Что сделано:** добавлен `@media (prefers-reduced-motion: reduce)` — `transition: none` на `.socials__link`/`.socials__link--blue`, `.socials__link:hover { transform: none }` (по образцу `.advantages__item`). Смена состояния (`opacity: 0.9` на hover) остаётся, просто мгновенно — не движение, гасить незачем.
+- **Проверено:** Playwright с `emulateMedia({ reducedMotion: 'reduce' })` — computed `transform` на hover: `none` (обычный режим — реальная матрица translateY/scale), `transitionDuration: 0s`, `opacity` всё ещё переключается на `0.9`. Детектор — 3 находки, все пре-существующие font-size (не моё).
+- **Не закоммичено.**
 
 ## Паттерны и системные проблемы
 
@@ -120,6 +122,6 @@
 2. ~~**[P2]** `/impeccable optimize showcasing` — сжать переразмеренные mobile/tablet-варианты изображений~~ — ✅ сделано (не закоммичено)
 3. ~~**[P2]** `/impeccable polish` — заменить `--color-blue-300` на кольцо фокуса ≥3:1 в 4 местах~~ — ✅ сделано (не закоммичено)
 4. **[P3]** `/impeccable extract` — вынести повторяющиеся значения в токены DESIGN.md
-5. **[P3]** `/impeccable polish` — reduced-motion guard для hover-подъёма соцссылок
+5. ~~**[P3]** `/impeccable polish` — reduced-motion guard для hover-подъёма соцссылок~~ — ✅ сделано (не закоммичено)
 
 Перезапустить `/impeccable audit` после фиксов — сравнить рост счёта.
