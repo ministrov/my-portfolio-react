@@ -21,6 +21,25 @@ import mish from '../../assets/projects/mish.webp';
 import mishTablet from '../../assets/projects/mish-tablet.webp';
 import mishMobile from '../../assets/projects/mish-mobile.webp';
 
+// Кроп 16:9 (десктоп/планшет) и 3:4 (мобильный) под ShowcasingCard — только
+// для isBest-проектов, которые попадают в карусель на главной. `img*` выше —
+// нетронутые полные скриншоты, которые нужны ProjectCard на /projects
+// (там `imgHeight` посчитан под их собственное натуральное соотношение
+// сторон, кроп его сломает). У showcasing свой набор файлов, чтобы одна
+// карточка не тянула за собой требования другой.
+import vamvodaCover from '../../assets/projects/vam-voda-cover.webp';
+import vamvodaTabletCover from '../../assets/projects/vam-voda-tablet-cover.webp';
+import vamvodaMobileCover from '../../assets/projects/vam-voda-mobile-cover.webp';
+import waterdelCover from '../../assets/projects/waterdel-cover.webp';
+import waterdelTabletCover from '../../assets/projects/waterdel-tablet-cover.webp';
+import waterdelMobileCover from '../../assets/projects/waterdel-mobile-cover.webp';
+import landingCover from '../../assets/projects/landing-area-cover.webp';
+import landingTabletCover from '../../assets/projects/landing-area-tablet-cover.webp';
+import landingMobileCover from '../../assets/projects/landing-area-mobile-cover.webp';
+import mishCover from '../../assets/projects/mish-cover.webp';
+import mishTabletCover from '../../assets/projects/mish-tablet-cover.webp';
+import mishMobileCover from '../../assets/projects/mish-mobile-cover.webp';
+
 export const projects = [
   {
     id: 1,
@@ -29,6 +48,9 @@ export const projects = [
     img: vamvoda,
     imgTablet: vamvodaTablet,
     imgMobile: vamvodaMobile,
+    imgCover: vamvodaCover,
+    imgCoverTablet: vamvodaTabletCover,
+    imgCoverMobile: vamvodaMobileCover,
     imgHeight: 470,
     slogan: 'projects.vamvoda.slogan',
     overview: 'projects.vamvoda.overview',
@@ -49,6 +71,9 @@ export const projects = [
     img: waterdel,
     imgTablet: waterdelTablet,
     imgMobile: waterdelMobile,
+    imgCover: waterdelCover,
+    imgCoverTablet: waterdelTabletCover,
+    imgCoverMobile: waterdelMobileCover,
     imgHeight: 421,
     slogan: 'projects.waterdel.slogan',
     overview: 'projects.waterdel.overview',
@@ -90,6 +115,9 @@ export const projects = [
     img: landing,
     imgTablet: landingTablet,
     imgMobile: landingMobile,
+    imgCover: landingCover,
+    imgCoverTablet: landingTabletCover,
+    imgCoverMobile: landingMobileCover,
     imgHeight: 526,
     slogan: 'projects.area.slogan',
     gitHubLink: 'https://github.com/ministrov/landing-area-next-ts',
@@ -171,6 +199,9 @@ export const projects = [
     img: mish,
     imgTablet: mishTablet,
     imgMobile: mishMobile,
+    imgCover: mishCover,
+    imgCoverTablet: mishTabletCover,
+    imgCoverMobile: mishMobileCover,
     imgHeight: 1383,
     gitHubLink: 'https://github.com/ministrov/champ-project',
     // demoLink: 'https://create-x-construction.vercel.app/',

@@ -107,9 +107,9 @@ const Carousel = ({
           >
             <ShowcasingCard
               id={project.id}
-              image={project.img}
-              tabletImg={project.imgTablet}
-              mobileImg={project.imgMobile}
+              image={project.imgCover}
+              tabletImg={project.imgCoverTablet}
+              mobileImg={project.imgCoverMobile}
               name={project.title}
             />
           </SwiperSlide>
