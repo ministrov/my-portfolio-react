@@ -1,5 +1,6 @@
-import { memo } from 'react';
+import { memo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useInView } from 'motion/react';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import Heading from '../../components/heading/Heading';
 import ButtonLink from '../../components/buttonLink/ButtonLink';
@@ -7,6 +8,7 @@ import SocialList from '../../components/socials/SocialList';
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import AboutStory from '../../components/aboutStory/AboutStory';
 import AuthorIdentity from '../../components/authorIdentity/AuthorIdentity';
+import AboutStat from '../../components/aboutStat/AboutStat';
 import Tag from '../../components/tag/Tag';
 import { ABOUT_TECH_TAGS, ABOUT_STATS } from '../../const';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
@@ -27,6 +29,11 @@ import './style.css';
  */
 const About = ({ link = false, button = false, border = false }) => {
   const { t } = useTranslation();
+  // Гейт расшифровки плашек: строка статистики должна попасть в кадр.
+  // `once` обязателен — расшифровка это момент прибытия, а не фоновый цикл;
+  // без него факты переигрывались бы на каждом возврате скроллом
+  const statsRef = useRef(null);
+  const areStatsInView = useInView(statsRef, { once: true });
 
   // Используется дважды (как текст кнопки и внутри aria-label) — выносим в переменную
   const promoBtnText = t('promo.promoBtn');
@@ -61,12 +68,18 @@ const About = ({ link = false, button = false, border = false }) => {
             <AboutStory />
 
             {/* Статистика — чипы с ключевыми фактами */}
-            <ul className="about__stats">
-              {ABOUT_STATS.map(({ number, labelKey }) => (
-                <li key={labelKey} className="about__stat">
-                  <span className="about__stat-number">{number}</span>
-                  <span className="about__stat-label">{t(labelKey)}</span>
-                </li>
+            <ul className="about__stats" ref={statsRef}>
+              {ABOUT_STATS.map(({ number, labelKey }, index) => (
+                <AboutStat
+                  key={labelKey}
+                  value={number}
+                  label={t(labelKey)}
+                  // Плашки расходятся во времени, но суммарная задержка
+                  // ограничена: четыре чипа читаются как один ряд, а не
+                  // как четыре отдельных события
+                  delayMs={index * 90}
+                  active={areStatsInView}
+                />
               ))}
             </ul>
 
