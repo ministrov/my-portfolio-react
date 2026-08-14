@@ -27,15 +27,6 @@
   object-position: top;
   border-radius: var(--border-radius-s);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-  transition:
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-}
-
-.showcasing-card:hover .showcasing-card__image,
-.showcasing-card:focus-within .showcasing-card__image {
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
-  transform: translateY(-4px);
 }
 
 /* Ссылка растянута на всю карточку (заголовок + фото) — единая цель
@@ -95,7 +86,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .showcasing-card__image,
   .showcasing-card__cue,
   .showcasing-card__cue-icon {
     transition: none;
