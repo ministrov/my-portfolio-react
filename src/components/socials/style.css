@@ -23,7 +23,11 @@
   line-height: 38px;
   color: var(--color-white);
   text-decoration: none;
-  transition: transform 0.35s ease, opacity 0.5s ease, color 0.3s ease, background-color 0.3s ease;
+  transition:
+    transform 0.35s ease,
+    opacity 0.5s ease,
+    color 0.3s ease,
+    background-color 0.3s ease;
   border-radius: var(--border-radius-s);
   /* Увеличиваем область клика */
 }
@@ -42,7 +46,10 @@
   text-decoration: none;
   padding: 0;
   margin: 0;
-  transition: transform 0.5s ease-in-out, background-color 0.5s, opacity 0.5s ease-in-out;
+  transition:
+    transform 0.5s ease-in-out,
+    background-color 0.5s,
+    opacity 0.5s ease-in-out;
 }
 
 .socials__link:hover {
@@ -54,8 +61,20 @@
   opacity: 0.9;
 }
 
-.socials__link:focus {
+/* Клавиатурный фокус только по табу, не по клику мышью — как у остальных
+   интерактивных элементов сайта (ButtonLink, Logo, ScrollToTop и др.). */
+.socials__link:focus-visible {
   outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* Вариант `--blue` — залитый кобальтом кружок на светлом фоне (AuthorIdentity,
+   Footer, About, Contact). Белое кольцо базового правила выше там невидимо —
+   оно рассчитано на тёмную подложку (единственный текущий пример — вариант
+   `--white` на IDE-карточке автора). Кольцо light-cobalt — тот же приём, что
+   у cta-button--pill/Logo/toggle-btn для залитых кобальтом контролов на белом. */
+.socials__link--blue:focus-visible {
+  outline: 2px solid var(--color-blue-300);
   outline-offset: 2px;
 }
 
