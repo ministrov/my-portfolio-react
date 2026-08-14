@@ -182,7 +182,9 @@
     "play": "Запустить карусель"
   },
   "showcasing": {
-    "alt": "{{project}} — скриншот проекта"
+    "alt": "{{project}} — скриншот проекта",
+    "viewProject": "Смотреть проект",
+    "ariaLabel": "Открыть проект «{{project}}»"
   },
   "testimonials": {
     "title": "Тёплые слова от",

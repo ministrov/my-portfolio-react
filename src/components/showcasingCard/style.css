@@ -1,4 +1,5 @@
 .showcasing-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -25,6 +26,80 @@
   object-fit: cover;
   object-position: top;
   border-radius: var(--border-radius-s);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.showcasing-card:hover .showcasing-card__image,
+.showcasing-card:focus-within .showcasing-card__image {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+  transform: translateY(-4px);
+}
+
+/* Ссылка растянута на всю карточку (заголовок + фото) — единая цель
+   клика/тапа/фокуса, ведущая к этому же проекту на /projects. */
+.showcasing-card__link {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-s);
+}
+
+.showcasing-card__link:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: -4px;
+}
+
+/* Подсказка «смотреть проект» — видна на hover/focus, у самого низа фото.
+   aria-hidden: смысл ссылки уже несёт aria-label на .showcasing-card__link. */
+.showcasing-card__cue {
+  position: absolute;
+  bottom: clamp(1rem, 4vw, 2rem);
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(11, 18, 32, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--color-white);
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  pointer-events: none;
+}
+
+.showcasing-card__cue-icon {
+  transition: transform 0.2s ease;
+}
+
+.showcasing-card:hover .showcasing-card__cue,
+.showcasing-card:focus-within .showcasing-card__cue {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.showcasing-card:hover .showcasing-card__cue-icon,
+.showcasing-card:focus-within .showcasing-card__cue-icon {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcasing-card__image,
+  .showcasing-card__cue,
+  .showcasing-card__cue-icon {
+    transition: none;
+  }
 }
 
 @media screen and (max-width: 1268px) {
