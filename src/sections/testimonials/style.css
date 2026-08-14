@@ -4,18 +4,74 @@
   overflow: hidden;
 }
 
-/* Опора для индикатора прогресса автопрокрутки */
+/* Опора для панели «пауза + прогресс» под каруселью */
 .testimonials__player {
   position: relative;
 }
 
-/* Свайпер идёт во всю ширину экрана, а полоса прогресса относится к
-   активной карточке — поэтому сужаем её ровно до ширины слайда */
-.testimonials__player .carousel-progress {
-  right: auto;
+/* Панель под активной карточкой: кнопка паузы слева, полоса прогресса
+   занимает остаток. Центрирована и той же ширины, что и слайд — раньше
+   тут стояла только полоса прогресса без кнопки, и у автопрокрутки не
+   было способа остановиться с клавиатуры/тача (WCAG 2.2.2), в отличие от
+   Carousel, где эта кнопка уже есть.
+   `top: 100%`, а не `bottom: 0`: якорь на нижний край .testimonials__player
+   (который уже ниже самой карточки на паддинг свайпера) — иначе 44px-кнопка
+   перекрывала бы нижнюю часть карточки отзыва. */
+.testimonials__transport {
+  position: absolute;
   left: 50%;
+  top: 100%;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: min(1100px, 82vw);
   transform: translateX(-50%);
+}
+
+/* Полоса прогресса сама себя не позиционирует внутри панели —
+   .carousel-progress по умолчанию absolute, здесь она в потоке flex */
+.testimonials__progress {
+  position: static;
+  right: auto;
+  left: auto;
+  bottom: auto;
+  flex: 1;
+}
+
+.testimonials__toggle {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(0, 88, 167, 0.15);
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: var(--box-shadow);
+  color: var(--color-blue-700);
+  cursor: pointer;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+@media (hover: hover) {
+  .testimonials__toggle:hover {
+    box-shadow: 0 8px 24px rgba(0, 88, 167, 0.18);
+    border-color: rgba(0, 88, 167, 0.3);
+  }
+}
+
+.testimonials__toggle:active {
+  transform: scale(0.96);
+}
+
+.testimonials__toggle:focus-visible {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 2px;
 }
 
 /* Вертикальный запас, чтобы тень карточек не обрезалась overflow swiper */
@@ -53,6 +109,10 @@
   .testimonials__slide:not(.swiper-slide-active) {
     transition: none;
   }
+
+  .testimonials__toggle {
+    transition: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -70,7 +130,7 @@
     width: 88vw;
   }
 
-  .testimonials__player .carousel-progress {
+  .testimonials__transport {
     width: 88vw;
   }
 }

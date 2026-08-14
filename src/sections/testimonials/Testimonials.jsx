@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, A11y } from 'swiper/modules';
 import { useInView } from 'motion/react';
 import { useTranslation } from 'react-i18next';
+import { MdPause, MdPlayArrow } from 'react-icons/md';
 import Heading from '../../components/heading/Heading';
 import TestimonialCard from '../../components/testimonialCard/TestimonialCard';
 import CarouselProgress from '../../components/carouselProgress/CarouselProgress';
@@ -56,20 +57,28 @@ const Testimonials = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef);
   const [swiper, setSwiper] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(true);
   const { progressRef, handleAutoplayTimeLeft } = useAutoplayProgress();
 
-  // Автопрокрутка отзывов ничего не сообщает, пока секции нет на экране,
-  // но продолжает перелистывать слайды и держать таймер. Останавливаем её
-  // за кадром и возвращаем, когда секция снова видна
+  // Автопрокрутка идёт, только когда секция видна И пользователь её не
+  // поставил на паузу — оба условия управляют одним и тем же вызовом,
+  // чтобы возврат в кадр не сбрасывал ручную паузу.
   useEffect(() => {
     if (!swiper?.autoplay) return;
 
-    if (isInView) {
+    if (isInView && isPlaying) {
       swiper.autoplay.start();
     } else {
       swiper.autoplay.stop();
     }
-  }, [swiper, isInView]);
+  }, [swiper, isInView, isPlaying]);
+
+  // Ручное управление автопрокруткой: единственный способ для клавиатурных
+  // и тач-пользователей остановить движение (наведение мышью им недоступно)
+  // — требование WCAG 2.2.2. Та же логика, что и в Carousel.
+  const handleToggle = () => {
+    setIsPlaying((prev) => !prev);
+  };
 
   return (
     <section
@@ -105,7 +114,22 @@ const Testimonials = () => {
           ))}
         </Swiper>
 
-        <CarouselProgress ref={progressRef} />
+        <div className="testimonials__transport">
+          <button
+            type="button"
+            className="testimonials__toggle"
+            onClick={handleToggle}
+            aria-label={isPlaying ? t('carousel.pause') : t('carousel.play')}
+            aria-pressed={!isPlaying}
+          >
+            {isPlaying ? <MdPause size={18} /> : <MdPlayArrow size={18} />}
+          </button>
+
+          <CarouselProgress
+            ref={progressRef}
+            className="testimonials__progress"
+          />
+        </div>
       </div>
     </section>
   );
