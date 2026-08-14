@@ -98,3 +98,17 @@
     line-height: 34px;
   }
 }
+
+/* Уважение к системной настройке «уменьшить движение»: hover-подъём —
+   реальное движение (translateY + scale), а не просто смена цвета, и до
+   этого был единственным анимированным приёмом сайта без guard'а. */
+@media (prefers-reduced-motion: reduce) {
+  .socials__link,
+  .socials__link--blue {
+    transition: none;
+  }
+
+  .socials__link:hover {
+    transform: none;
+  }
+}
