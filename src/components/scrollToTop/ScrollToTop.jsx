@@ -3,7 +3,9 @@ import { useLocation } from 'react-router-dom';
 
 /**
  * Компонент для автоматической прокрутки страницы вверх при изменении маршрута.
- * Поддерживает плавную анимацию и игнорирует изменения hash-части URL.
+ * Если в URL есть hash, скроллит к элементу с этим id вместо верха страницы —
+ * цель может быть частью лениво загружаемой (`React.lazy`) страницы, поэтому
+ * попытки повторяются по кадрам, пока элемент не появится в DOM.
  *
  * @component
  * @param {Object} props - Пропсы компонента
@@ -30,8 +32,29 @@ const ScrollToTop = ({ behavior = 'auto', top = 0, left = 0 }) => {
   }, []);
 
   useEffect(() => {
-    // Если изменился только hash (якорная ссылка), не скроллим наверх
     const isOnlyHashChange = prevPathnameRef.current === pathname && hash;
+    prevPathnameRef.current = pathname;
+
+    if (hash) {
+      const targetId = hash.slice(1);
+      let attemptsLeft = 30; // ~0.5s при 60fps — запас на загрузку lazy-чанка
+      let frameId;
+
+      const tryScrollToTarget = () => {
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior, block: 'start' });
+          return;
+        }
+        attemptsLeft -= 1;
+        if (attemptsLeft > 0) {
+          frameId = requestAnimationFrame(tryScrollToTarget);
+        }
+      };
+
+      tryScrollToTarget();
+      return () => cancelAnimationFrame(frameId);
+    }
 
     if (!isOnlyHashChange) {
       try {
@@ -50,7 +73,7 @@ const ScrollToTop = ({ behavior = 'auto', top = 0, left = 0 }) => {
       }
     }
 
-    prevPathnameRef.current = pathname;
+    return undefined;
   }, [pathname, hash, behavior, top, left]);
 
   return null;

@@ -4,6 +4,12 @@
   gap: 5rem;
 }
 
+/* Якорная цель для перехода из Showcasing-карусели на главной —
+   фикс-хедер не должен перекрывать карточку при скролле к ней. */
+.project-card__item {
+  scroll-margin-top: var(--header-height, 100px);
+}
+
 @media screen and (max-width: 1024px) {
   .projects__list {
     gap: 4rem;
