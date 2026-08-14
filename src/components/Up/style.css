@@ -35,9 +35,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Outline только при клавиатурной навигации, не по клику мышью. */
+/* Outline только при клавиатурной навигации, не по клику мышью.
+   Кольцо light-cobalt, а не белое: кнопка залита кобальтом и плавает над
+   светлым фоном страницы почти всегда (см. тот же выбор у cta-button--pill,
+   Logo, toggle-btn) — белое кольцо здесь было невидимо, ровно как у
+   .socials__link--blue до недавнего исправления. */
 .scroll-to:focus-visible {
-  outline: 2px solid var(--color-white);
+  outline: 2px solid var(--color-blue-300);
   outline-offset: 2px;
 }
 
