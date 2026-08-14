@@ -79,8 +79,6 @@ const ShowcasingCard = ({
           src={image}
           className="showcasing-card__image"
           alt={altText}
-          width={1600}
-          height={900}
           loading="lazy"
           decoding="async"
         />
