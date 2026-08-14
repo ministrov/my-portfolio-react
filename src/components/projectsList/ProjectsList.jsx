@@ -83,6 +83,7 @@ const ProjectsList = ({ projects = [] }) => {
           return (
             <m.li
               key={id}
+              id={`project-${id}`}
               className={[
                 'project-card__item',
                 isReversed && 'project-card__item--reversed',

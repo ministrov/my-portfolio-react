@@ -182,7 +182,9 @@
     "play": "Play carousel"
   },
   "showcasing": {
-    "alt": "{{project}} — project screenshot"
+    "alt": "{{project}} — project screenshot",
+    "viewProject": "View project",
+    "ariaLabel": "Open the {{project}} project"
   },
   "testimonials": {
     "title": "Kind words from",

@@ -42,11 +42,22 @@ export function useUrlParams(paramName, initialValue) {
     // Формируем новый URL без лишних параметров
     const newSearch = params.toString();
 
-    // Выполняем навигацию только если URL изменился
+    // Выполняем навигацию только если URL изменился.
+    // Сохраняем hash — иначе переход по якорной ссылке (например, из
+    // Showcasing-карусели на /projects#project-1) тут же терял бы его.
     if (location.search !== `?${newSearch}`) {
-      navigate(`${location.pathname}?${newSearch}`, { replace: true });
+      navigate(`${location.pathname}?${newSearch}${location.hash}`, {
+        replace: true,
+      });
     }
-  }, [value, paramName, location.search, navigate, location.pathname]);
+  }, [
+    value,
+    paramName,
+    location.search,
+    location.hash,
+    navigate,
+    location.pathname,
+  ]);
 
   return [value, setValue];
 }

@@ -106,9 +106,10 @@ const Carousel = ({
             aria-label={t('carousel.slideLabel', { project: t(project.title) })}
           >
             <ShowcasingCard
-              image={project.img}
-              tabletImg={project.imgTablet}
-              mobileImg={project.imgMobile}
+              id={project.id}
+              image={project.imgCover}
+              tabletImg={project.imgCoverTablet}
+              mobileImg={project.imgCoverMobile}
               name={project.title}
             />
           </SwiperSlide>

@@ -2,6 +2,14 @@
   position: relative;
 }
 
+/* Fade-эффект оставляет неактивные слайды в потоке (только opacity: 0),
+   так что их ссылка на карточку иначе осталась бы кликабельной под активным
+   слайдом и доступной по Tab. Прячем её у всех, кроме видимого слайда. */
+.swiper-slide:not(.swiper-slide-active):not(.swiper-slide-duplicate-active)
+  .showcasing-card__link {
+  visibility: hidden;
+}
+
 .carousel__toggle {
   position: absolute;
   z-index: 2;
