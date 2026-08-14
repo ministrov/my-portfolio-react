@@ -71,10 +71,12 @@
 /* Вариант `--blue` — залитый кобальтом кружок на светлом фоне (AuthorIdentity,
    Footer, About, Contact). Белое кольцо базового правила выше там невидимо —
    оно рассчитано на тёмную подложку (единственный текущий пример — вариант
-   `--white` на IDE-карточке автора). Кольцо light-cobalt — тот же приём, что
-   у cta-button--pill/Logo/toggle-btn для залитых кобальтом контролов на белом. */
+   `--white` на IDE-карточке автора). Кольцо сплошным кобальтом (не
+   --color-blue-300 — у него 2.54:1 на белом, ниже порога WCAG 1.4.11 в 3:1;
+   --color-blue-700 даёт 5.17:1) — тот же приём, что у ButtonLink/toggle-btn
+   для контролов на белом. */
 .socials__link--blue:focus-visible {
-  outline: 2px solid var(--color-blue-300);
+  outline: 2px solid var(--color-blue-700);
   outline-offset: 2px;
 }
 
