@@ -102,7 +102,14 @@ const StickyShowcase = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      // StrictMode запускает эффект дважды подряд (mount → cleanup → mount);
+      // без сброса в null отменённый здесь id остаётся «висеть» в rafRef, и
+      // handleScroll после повторного mount навсегда молча выходит по своей
+      // же проверке `rafRef.current !== null`, ни разу не планируя новый кадр.
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
     };
   }, [prefersReducedMotion, count, recalc]);
 
