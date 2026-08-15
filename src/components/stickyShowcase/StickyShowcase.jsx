@@ -16,6 +16,17 @@ const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const pad = (value) => String(value).padStart(2, '0');
 
 /**
+ * Класс на `<body>`, пока секция закреплена (`position: sticky` реально
+ * прижата к верху вьюпорта). Секция рендерится на весь экран без отступа под
+ * фикс-хедер (см. JSDoc StickyShowcase), поэтому хедер в это время визуально
+ * перекрыт содержимым секции — сам по себе класс скрывает его через
+ * `visibility: hidden` (см. style.css), а не оставляет просто перекрытым по
+ * z-index: иначе его ссылки остались бы фокусируемыми по Tab, будучи
+ * невидимыми — та же ловушка, которую фиксили для неактивных карточек.
+ */
+const HEADER_HIDDEN_CLASS = 'sticky-showcase-pinned';
+
+/**
  * Возвращает непрозрачность карточки-изображения для текущего непрерывного
  * индекса скролла. Первая карточка всегда полностью непрозрачна — ей не за
  * кем прятаться. Остальные проявляются поверх предыдущей на последних
@@ -115,6 +126,9 @@ const StickyShowcase = () => {
     }
 
     const scrolled = -wrapper.getBoundingClientRect().top;
+    const isPinned = scrolled >= 0 && scrolled <= scrollableDistance;
+    document.body.classList.toggle(HEADER_HIDDEN_CLASS, isPinned);
+
     const progress = clamp(scrolled / scrollableDistance, 0, 1);
     setContinuousIndex(progress * (count - 1));
   }, [count]);
@@ -145,6 +159,7 @@ const StickyShowcase = () => {
         cancelAnimationFrame(rafRef.current);
         rafRef.current = null;
       }
+      document.body.classList.remove(HEADER_HIDDEN_CLASS);
     };
   }, [prefersReducedMotion, count, recalc]);
 

@@ -4,11 +4,20 @@
 
 .sticky-showcase__viewport {
   position: sticky;
-  top: var(--header-height, 109px);
-  height: calc(100vh - var(--header-height, 109px));
-  height: calc(100svh - var(--header-height, 109px));
+  top: 0;
+  height: 100vh;
+  height: 100svh;
   display: flex;
   overflow: hidden;
+}
+
+/* Пока секция закреплена, она занимает весь экран без отступа под хедер, так
+   что визуально его перекрывает. Явно прячем через visibility (не оставляем
+   просто перекрытым по z-index), чтобы его ссылки заодно вышли из порядка
+   табуляции — см. JSDoc HEADER_HIDDEN_CLASS в StickyShowcase.jsx. */
+body.sticky-showcase-pinned .header {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .sticky-showcase__stage {
