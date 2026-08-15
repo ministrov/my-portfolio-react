@@ -184,7 +184,10 @@
   "showcasing": {
     "alt": "{{project}} — project screenshot",
     "viewProject": "View project",
-    "ariaLabel": "Open the {{project}} project"
+    "ariaLabel": "Open the {{project}} project",
+    "regionAriaLabel": "Showcase of best projects",
+    "dotAriaLabel": "Go to the {{project}} project",
+    "emptyMessage": "No projects to display"
   },
   "testimonials": {
     "title": "Kind words from",

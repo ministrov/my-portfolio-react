@@ -1,13 +1,11 @@
-import { Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import Heading from '../../components/heading/Heading';
-import Loader from '../../components/loader/Loader';
+import StickyShowcase from '../../components/stickyShowcase/StickyShowcase';
 import './style.css';
 
-const LazyCarousel = lazy(() => import('../../components/carousel/Carousel'));
-
 /**
- * Компонент секции "Портфолио" (Showcasing) - отображает карусель проектов с анимацией
+ * Компонент секции "Портфолио" (Showcasing) - отображает липкую витрину
+ * лучших проектов, управляемую прокруткой пользователя
  *
  * @component
  * @example
@@ -17,10 +15,10 @@ const LazyCarousel = lazy(() => import('../../components/carousel/Carousel'));
  *
  * @description
  * Этот компонент отвечает за отображение секции портфолио на главной странице.
- * Использует ленивую загрузку карусели проектов для оптимизации производительности.
- * Применяет анимации с помощью Framer Motion для плавного появления.
+ * Смена проекта происходит по мере прокрутки страницы — скорость и направление
+ * задаёт сам пользователь, см. {@link StickyShowcase}.
  *
- * @returns {JSX.Element} Секция с заголовком и каруселью проектов
+ * @returns {JSX.Element} Секция с заголовком и витриной проектов
  */
 const Showcasing = () => {
   const { t } = useTranslation();
@@ -35,11 +33,7 @@ const Showcasing = () => {
         />
       </div>
       <div className="showcasing__wrapper">
-        <Suspense fallback={<Loader />}>
-          <div className="container">
-            <LazyCarousel />
-          </div>
-        </Suspense>
+        <StickyShowcase />
       </div>
     </section>
   );

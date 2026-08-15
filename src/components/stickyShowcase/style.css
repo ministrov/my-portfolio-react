@@ -1,0 +1,132 @@
+.sticky-showcase {
+  position: relative;
+}
+
+.sticky-showcase__viewport {
+  position: sticky;
+  top: var(--header-height, 109px);
+  height: calc(100vh - var(--header-height, 109px));
+  height: calc(100svh - var(--header-height, 109px));
+  display: flex;
+  overflow: hidden;
+}
+
+.sticky-showcase__stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  height: 100%;
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+  box-sizing: border-box;
+  gap: 1.5rem;
+}
+
+.sticky-showcase__cards {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.sticky-showcase__card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sticky-showcase__card .showcasing-card {
+  width: 100%;
+  padding-top: 0;
+}
+
+.sticky-showcase__card .showcasing-card__image {
+  max-height: min(52vh, 560px);
+}
+
+/* Ссылка кликабельна и доступна по Tab только у активной карточки — иначе
+   невидимая карточка выше по DOM-порядку перехватывала бы клик по видимой
+   (см. JSDoc StickyShowcase). */
+.sticky-showcase__card:not(.sticky-showcase__card--active)
+  .showcasing-card__link {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.sticky-showcase__meta {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.sticky-showcase__counter {
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sticky-showcase__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sticky-showcase__dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.sticky-showcase__dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.sticky-showcase__dot--active {
+  background: var(--color-white);
+  transform: scale(1.2);
+}
+
+.sticky-showcase__dot:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+.sticky-showcase__empty {
+  padding: 4rem 0;
+  color: var(--color-white);
+  text-align: center;
+}
+
+/* Фолбэк без scroll-driven механики: карточки друг под другом в обычном
+   потоке документа, без sticky и без JS-пересчёта. */
+.sticky-showcase__stage--static {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-block: clamp(2rem, 6vw, 4rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-showcase__dot {
+    transition: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sticky-showcase__stage {
+    gap: 1rem;
+  }
+}

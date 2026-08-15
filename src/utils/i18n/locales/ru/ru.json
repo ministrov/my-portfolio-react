@@ -184,7 +184,10 @@
   "showcasing": {
     "alt": "{{project}} — скриншот проекта",
     "viewProject": "Смотреть проект",
-    "ariaLabel": "Открыть проект «{{project}}»"
+    "ariaLabel": "Открыть проект «{{project}}»",
+    "regionAriaLabel": "Витрина лучших проектов",
+    "dotAriaLabel": "Перейти к проекту «{{project}}»",
+    "emptyMessage": "Нет проектов для отображения"
   },
   "testimonials": {
     "title": "Тёплые слова от",
