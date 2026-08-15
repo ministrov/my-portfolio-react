@@ -79,30 +79,31 @@ body.sticky-showcase-pinned .header {
 .sticky-showcase__card {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* Вписываем картинку в доступное место (высота .sticky-showcase__cards уже
-   точно посчитана через flex: 1 — остаток экрана после инфоблока и подвала),
-   сохраняя её собственную пропорцию (16:9 десктоп/планшет, 3:4 мобильный —
-   из базового .showcasing-card__image) и увеличивая её до предела по обеим
-   осям одновременно. Именно auto-размер + max-width/max-height, а не
-   width:100%/height:100%: иначе на мобильном, где доступной высоты намного
-   больше ширины, картинка растягивалась бы под форму контейнера и обрезала
-   бы кадр сильнее, чем задумано в imgCoverMobile. */
+/* И <picture>, и <img> — position:absolute/inset:0 сами по себе (не
+   width/height:100% через обычный поток): так их размер задаётся жёсткой
+   геометрией родителя, а не резолвом процентов через height:auto у
+   <picture> в потоке. Раньше `max-height: 100%` на картинке молча
+   игнорировался именно по этой причине — <picture> между .sticky-showcase__card
+   и <img> была height:auto, проценты упирались в неё и не доходили до
+   реальной высоты .sticky-showcase__cards (flex: 1 — остаток экрана после
+   инфоблока и подвала), картинка считала себя только от ширины через
+   aspect-ratio и наезжала на подвал. object-fit: contain (не cover) вписывает
+   уже готовый 16:9/3:4-кроп (imgCover/imgCoverMobile) в этот жёсткий бокс
+   целиком, без дальнейшей обрезки. */
 .sticky-showcase__card .showcasing-card__picture {
+  position: absolute;
+  inset: 0;
   display: block;
-  max-width: 100%;
-  max-height: 100%;
 }
 
 .sticky-showcase__card .showcasing-card__image {
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
 }
 
 .sticky-showcase__footer {
