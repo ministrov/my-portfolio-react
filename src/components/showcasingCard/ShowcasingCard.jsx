@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { MdArrowForward } from 'react-icons/md';
+import ShowcasingCardPicture from './ShowcasingCardPicture';
 import './style.css';
 
 /**
@@ -37,58 +38,19 @@ const ShowcasingCard = ({
   renderName = true,
 }) => {
   const { t } = useTranslation();
-  const altText = t('showcasing.alt', { project: t(name) });
 
   return (
     <article className="showcasing-card">
       {renderName && <h2 className="showcasing-card__name">{t(name)}</h2>}
-      <picture className="showcasing-card__picture">
-        {/* Мобильные устройства (до 767px) */}
-        <source
-          media="(max-width: 767px)"
-          type="image/webp"
-          srcSet={mobileImg}
-        />
-        {mobileImgJpeg && (
-          <source
-            media="(max-width: 767px)"
-            type="image/jpeg"
-            srcSet={mobileImgJpeg}
-          />
-        )}
-
-        {/* Планшеты (768px — 1024px) */}
-        <source
-          media="(min-width: 768px) and (max-width: 1024px)"
-          type="image/webp"
-          srcSet={tabletImg}
-        />
-        {tabletImgJpeg && (
-          <source
-            media="(min-width: 768px) and (max-width: 1024px)"
-            type="image/jpeg"
-            srcSet={tabletImgJpeg}
-          />
-        )}
-
-        {/* Десктоп (1025px и выше) */}
-        <source media="(min-width: 1025px)" type="image/webp" srcSet={image} />
-        {imageJpeg && (
-          <source
-            media="(min-width: 1025px)"
-            type="image/jpeg"
-            srcSet={imageJpeg}
-          />
-        )}
-
-        <img
-          src={image}
-          className="showcasing-card__image"
-          alt={altText}
-          loading="lazy"
-          decoding="async"
-        />
-      </picture>
+      <ShowcasingCardPicture
+        name={name}
+        image={image}
+        tabletImg={tabletImg}
+        mobileImg={mobileImg}
+        imageJpeg={imageJpeg}
+        tabletImgJpeg={tabletImgJpeg}
+        mobileImgJpeg={mobileImgJpeg}
+      />
 
       <span className="showcasing-card__cue" aria-hidden="true">
         {t('showcasing.viewProject')}
