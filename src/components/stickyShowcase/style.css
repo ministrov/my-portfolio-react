@@ -24,17 +24,40 @@
   gap: 1.5rem;
 }
 
-/* Один общий узел заголовка на все наложенные карточки — почему не
-   заголовок каждой карточки по отдельности, см. JSDoc getTitleOpacity. */
-.sticky-showcase__title {
+/* Один общий инфоблок на все наложенные карточки-изображения — почему не
+   по одному на карточку, см. JSDoc getInfoOpacity. */
+.sticky-showcase__info {
+  display: flex;
   flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.sticky-showcase__eyebrow {
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sticky-showcase__title {
   margin: 0;
   font-family: var(--font-headings);
   font-size: 48px;
   font-weight: 500;
   line-height: 54px;
   color: var(--color-white);
-  text-align: center;
+}
+
+.sticky-showcase__subtitle {
+  max-width: 40ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
 }
 
 .sticky-showcase__cards {
@@ -50,49 +73,100 @@
   align-items: center;
 }
 
-.sticky-showcase__card .showcasing-card {
-  width: 100%;
-  padding-top: 0;
-}
-
 .sticky-showcase__card .showcasing-card__image {
-  max-height: min(52vh, 560px);
+  width: 100%;
+  max-height: min(45vh, 480px);
 }
 
-/* Ссылка кликабельна и доступна по Tab только у активной карточки — иначе
-   невидимая карточка выше по DOM-порядку перехватывала бы клик по видимой
-   (см. JSDoc StickyShowcase). */
-.sticky-showcase__card:not(.sticky-showcase__card--active)
-  .showcasing-card__link {
-  visibility: hidden;
-  pointer-events: none;
+.sticky-showcase__footer {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .sticky-showcase__meta {
   display: flex;
-  flex: none;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sticky-showcase__meta-role {
+  text-transform: uppercase;
+}
+
+.sticky-showcase__meta span:not(:last-child)::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-left: 0.75rem;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: middle;
+}
+
+/* Декоративная подсказка-кнопка: постоянно видима (не только на hover), так
+   как на тач-устройствах hover недоступен и раньше подсказку было не увидеть
+   без вслепую сделанного тапа. Реальная семантика — на .sticky-showcase__link. */
+.sticky-showcase__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-blue-700);
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Общая ссылка на активный проект поверх инфоблока и картинок — одна цель
+   для клика и Tab вместо одной на каждую из наложенных карточек (см. JSDoc
+   StickyShowcase про то, почему разметка ушла от этого подхода). */
+.sticky-showcase__link {
+  position: absolute;
+  inset: 0;
+}
+
+.sticky-showcase__link:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: -4px;
 }
 
 .sticky-showcase__counter {
+  position: absolute;
+  left: clamp(16px, 4vw, 48px);
+  bottom: clamp(16px, 4vw, 48px);
   font-family: var(--font-headings);
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
 }
 
 .sticky-showcase__dots {
+  position: absolute;
+  top: 50%;
+  right: clamp(16px, 4vw, 48px);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  transform: translateY(-50%);
 }
 
 .sticky-showcase__dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border: none;
   border-radius: 50%;
   padding: 0;
@@ -148,6 +222,12 @@
 @media screen and (max-width: 768px) {
   .sticky-showcase__stage {
     gap: 1rem;
+  }
+
+  /* Вертикальному столбику точек некуда деться на узком экране — счётчик
+     внизу слева остаётся единственным индикатором прогресса. */
+  .sticky-showcase__dots {
+    display: none;
   }
 }
 

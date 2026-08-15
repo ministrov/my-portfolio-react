@@ -184,7 +184,8 @@
     "ariaLabel": "Открыть проект «{{project}}»",
     "regionAriaLabel": "Витрина лучших проектов",
     "dotAriaLabel": "Перейти к проекту «{{project}}»",
-    "emptyMessage": "Нет проектов для отображения"
+    "emptyMessage": "Нет проектов для отображения",
+    "eyebrow": "Проект {{current}} из {{total}}"
   },
   "testimonials": {
     "title": "Тёплые слова от",

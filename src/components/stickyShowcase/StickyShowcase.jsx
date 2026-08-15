@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useReducedMotion } from 'motion/react';
+import { MdArrowForward } from 'react-icons/md';
 import ShowcasingCard from '../showcasingCard/ShowcasingCard';
+import ShowcasingCardPicture from '../showcasingCard/ShowcasingCardPicture';
 import { projects } from '../../sections/projects/projects';
 import './style.css';
 
@@ -9,6 +12,8 @@ import './style.css';
 const OVERLAP = 0.15;
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const pad = (value) => String(value).padStart(2, '0');
 
 /**
  * Возвращает непрозрачность карточки-изображения для текущего непрерывного
@@ -19,8 +24,8 @@ const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
  * смены (в отличие от симметричного затухания обеих карточек одновременно).
  *
  * Годится только для сплошной картинки: она непрозрачна на каждом пикселе,
- * поэтому верхний слой полностью перекрывает нижний. Для заголовка так не
- * получится (см. {@link getTitleOpacity}).
+ * поэтому верхний слой полностью перекрывает нижний. Для текста так не
+ * получится (см. {@link getInfoOpacity}).
  *
  * @param {number} continuousIndex - Непрерывный индекс прокрутки (0…N-1)
  * @param {number} cardIndex - Индекс карточки в массиве
@@ -32,24 +37,25 @@ const getCardOpacity = (continuousIndex, cardIndex) => {
 };
 
 /**
- * Возвращает непрозрачность общего узла заголовка.
+ * Возвращает непрозрачность общего инфоблока (эйброу, заголовок, слоган,
+ * мета, кнопка-подсказка).
  *
  * В отличие от фото, буквы не сплошные — у них прозрачные промежутки между
- * штрихами. Если держать заголовки всех карточек наложенными друг на друга
- * (как фото в {@link getCardOpacity}), заголовок нижней карточки просвечивает
+ * штрихами. Если бы этот текст дублировался в каждой из наложенных карточек
+ * (как фото в {@link getCardOpacity}), текст нижней карточки просвечивал бы
  * сквозь эти промежутки даже после того, как переход давно завершился —
- * получается нечитаемая накладка из двух текстов. Поэтому в разметке всего
- * один узел заголовка с текстом активного проекта; сам он на подходе к
- * границе между карточками ненадолго гаснет (симметрично, до 0) и к моменту,
- * когда текст меняется на следующий (в момент округления `continuousIndex`
- * до соседнего целого), уже почти не виден — смена текста происходит во время
- * провала непрозрачности, а не поверх видимого предыдущего заголовка.
+ * получилась бы нечитаемая накладка. Поэтому в разметке всего один инфоблок
+ * с данными активного проекта; сам он на подходе к границе между карточками
+ * ненадолго гаснет (симметрично, до 0) и к моменту, когда контент меняется на
+ * следующий (в момент округления `continuousIndex` до соседнего целого), уже
+ * почти не виден — смена происходит во время провала непрозрачности, а не
+ * поверх видимого предыдущего текста.
  *
  * @param {number} continuousIndex - Непрерывный индекс прокрутки (0…N-1)
- * @param {number} activeIndex - Индекс карточки, чей заголовок сейчас показан
- * @returns {number} Непрозрачность заголовка (0…1)
+ * @param {number} activeIndex - Индекс карточки, чьи данные сейчас показаны
+ * @returns {number} Непрозрачность инфоблока (0…1)
  */
-const getTitleOpacity = (continuousIndex, activeIndex) => {
+const getInfoOpacity = (continuousIndex, activeIndex) => {
   const distanceFromCenter = Math.abs(continuousIndex - activeIndex);
   const plateau = 0.5 - OVERLAP;
   if (distanceFromCenter <= plateau) return 1;
@@ -62,21 +68,21 @@ const getTitleOpacity = (continuousIndex, activeIndex) => {
  * Высокая обёртка (N экранов) держит внутри себя `position: sticky`-вьюпорт
  * высотой в экран; по мере прокрутки родительской обёртки пользователем
  * непрерывный индекс (0…N-1), посчитанный из геометрии обёртки и вьюпорта,
- * управляет кроссфейдом карточек, активной точкой-индикатором и счётчиком.
- * Направление и скорость смены проекта задаёт сам пользователь — таймера нет,
- * поэтому кнопка паузы (обязательная для автопрокрутки по WCAG 2.2.2) здесь
- * не нужна по конструкции.
+ * управляет кроссфейдом карточек-изображений, общим инфоблоком (эйброу,
+ * заголовок, слоган, год/роль, кнопка-подсказка), активной точкой-индикатором
+ * и счётчиком. Направление и скорость смены проекта задаёт сам пользователь —
+ * таймера нет, поэтому кнопка паузы (обязательная для автопрокрутки по
+ * WCAG 2.2.2) здесь не нужна по конструкции.
  *
- * Ссылка на карточку (`ShowcasingCard`) кликабельна и доступна по Tab только
- * у активной карточки — `visibility: hidden` у остальных не только убирает их
- * из-под клика (иначе верхняя по DOM-порядку невидимая карточка перехватывала
- * бы клик по видимой), но и сама по себе выводит их ссылки из порядка
- * табуляции, так что фокус не может увести на карточку вне текущего окна
- * прокрутки.
+ * Ссылка на активный проект — один общий узел поверх инфоблока и картинок
+ * (см. {@link getInfoOpacity} про то, почему не по одной на карточку), так
+ * что всегда есть ровно одна цель для клика и Tab, синхронная с тем, что
+ * видно на экране.
  *
  * При `prefers-reduced-motion: reduce` рендерится статичный фолбэк: те же
- * карточки друг под другом в обычном потоке документа, без `sticky` и без
- * слушателя скролла.
+ * карточки (уже с собственным заголовком, подсказкой и ссылкой через
+ * {@link ShowcasingCard}) друг под другом в обычном потоке документа, без
+ * `sticky` и без слушателя скролла.
  *
  * @component
  * @example
@@ -190,6 +196,9 @@ const StickyShowcase = () => {
     );
   }
 
+  const activeProject = bestProjects[activeIndex];
+  const infoOpacity = getInfoOpacity(continuousIndex, activeIndex);
+
   return (
     <div
       className="sticky-showcase"
@@ -202,12 +211,21 @@ const StickyShowcase = () => {
           role="region"
           aria-label={t('showcasing.regionAriaLabel')}
         >
-          <h2
-            className="sticky-showcase__title"
-            style={{ opacity: getTitleOpacity(continuousIndex, activeIndex) }}
+          <div
+            className="sticky-showcase__info"
+            style={{ opacity: infoOpacity }}
           >
-            {t(bestProjects[activeIndex].title)}
-          </h2>
+            <span className="sticky-showcase__eyebrow">
+              {t('showcasing.eyebrow', {
+                current: pad(activeIndex + 1),
+                total: pad(count),
+              })}
+            </span>
+            <h2 className="sticky-showcase__title">{t(activeProject.title)}</h2>
+            <p className="sticky-showcase__subtitle">
+              {t(activeProject.slogan)}
+            </p>
+          </div>
 
           <div className="sticky-showcase__cards">
             {bestProjects.map((project, index) => (
@@ -220,43 +238,63 @@ const StickyShowcase = () => {
                 }
                 style={{ opacity: getCardOpacity(continuousIndex, index) }}
               >
-                <ShowcasingCard
-                  id={project.id}
+                <ShowcasingCardPicture
                   image={project.imgCover}
                   tabletImg={project.imgCoverTablet}
                   mobileImg={project.imgCoverMobile}
                   name={project.title}
-                  renderName={false}
                 />
               </div>
             ))}
           </div>
 
-          <div className="sticky-showcase__meta">
-            <span className="sticky-showcase__counter" aria-hidden="true">
-              {String(activeIndex + 1).padStart(2, '0')} /{' '}
-              {String(count).padStart(2, '0')}
-            </span>
-
-            <div className="sticky-showcase__dots">
-              {bestProjects.map((project, index) => (
-                <button
-                  key={project.id}
-                  type="button"
-                  className={
-                    index === activeIndex
-                      ? 'sticky-showcase__dot sticky-showcase__dot--active'
-                      : 'sticky-showcase__dot'
-                  }
-                  aria-current={index === activeIndex}
-                  aria-label={t('showcasing.dotAriaLabel', {
-                    project: t(project.title),
-                  })}
-                  onClick={() => scrollToSegment(index)}
-                />
-              ))}
+          <div
+            className="sticky-showcase__footer"
+            style={{ opacity: infoOpacity }}
+          >
+            <div className="sticky-showcase__meta">
+              <span>{activeProject.year}</span>
+              <span className="sticky-showcase__meta-role">
+                {activeProject.role}
+              </span>
             </div>
+
+            <span className="sticky-showcase__cta" aria-hidden="true">
+              {t('showcasing.viewProject')}
+              <MdArrowForward className="sticky-showcase__cta-icon" size={18} />
+            </span>
           </div>
+
+          <Link
+            to={`/projects#project-${activeProject.id}`}
+            className="sticky-showcase__link"
+            aria-label={t('showcasing.ariaLabel', {
+              project: t(activeProject.title),
+            })}
+          />
+        </div>
+
+        <span className="sticky-showcase__counter" aria-hidden="true">
+          {pad(activeIndex + 1)} / {pad(count)}
+        </span>
+
+        <div className="sticky-showcase__dots">
+          {bestProjects.map((project, index) => (
+            <button
+              key={project.id}
+              type="button"
+              className={
+                index === activeIndex
+                  ? 'sticky-showcase__dot sticky-showcase__dot--active'
+                  : 'sticky-showcase__dot'
+              }
+              aria-current={index === activeIndex}
+              aria-label={t('showcasing.dotAriaLabel', {
+                project: t(project.title),
+              })}
+              onClick={() => scrollToSegment(index)}
+            />
+          ))}
         </div>
       </div>
     </div>
