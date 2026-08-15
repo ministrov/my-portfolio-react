@@ -1,0 +1,274 @@
+.sticky-showcase {
+  position: relative;
+}
+
+.sticky-showcase__viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Пока секция закреплена, она занимает весь экран без отступа под хедер, так
+   что визуально его перекрывает. Явно прячем через visibility (не оставляем
+   просто перекрытым по z-index), чтобы его ссылки заодно вышли из порядка
+   табуляции — см. JSDoc HEADER_HIDDEN_CLASS в StickyShowcase.jsx. */
+body.sticky-showcase-pinned .header {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.sticky-showcase__stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  height: 100%;
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+  box-sizing: border-box;
+  gap: 1.5rem;
+}
+
+/* Один общий инфоблок на все наложенные карточки-изображения — почему не
+   по одному на карточку, см. JSDoc getInfoOpacity. */
+.sticky-showcase__info {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.sticky-showcase__eyebrow {
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sticky-showcase__title {
+  margin: 0;
+  font-family: var(--font-headings);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 54px;
+  color: var(--color-white);
+}
+
+.sticky-showcase__subtitle {
+  max-width: 44ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.sticky-showcase__cards {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.sticky-showcase__card {
+  position: absolute;
+  inset: 0;
+}
+
+/* <picture> — position:absolute/inset:0 сама по себе (не через обычный
+   поток): так у неё жёсткая, определённая геометрия, и проценты у дочерней
+   картинки корректно резолвятся именно от неё. Раньше `max-height: 100%` на
+   картинке молча игнорировался ровно по обратной причине — <picture> была
+   height:auto (обычный поток), процент от неопределённой высоты по спеке
+   резолвится как none, и картинка считала себя только от ширины через
+   aspect-ratio, наезжая на подвал.
+   Сама картинка — auto-размер (не 100%): бокс уменьшается до максимального,
+   что вписывается в отведённое место по обеим осям одновременно, сохраняя
+   пропорцию (16:9/3:4 из aspect-ratio базового .showcasing-card__image), без
+   прозрачных полей вокруг. Именно отсутствие полей и важно: card--active
+   лежит поверх предыдущей (opacity: 1, см. getCardOpacity) карточки, и любое
+   незаполненное поле в верхнем слое давало «уши» — сквозь него просвечивала
+   картинка нижней карточки (было с object-fit: contain, который полей не
+   убирает, а оставляет прозрачными). margin: auto центрирует уменьшенный
+   бокс внутри inset: 0. */
+.sticky-showcase__card .showcasing-card__picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.sticky-showcase__card .showcasing-card__image {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.sticky-showcase__footer {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sticky-showcase__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sticky-showcase__meta-role {
+  text-transform: uppercase;
+}
+
+.sticky-showcase__meta span:not(:last-child)::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-left: 0.75rem;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: middle;
+}
+
+/* Декоративная подсказка-кнопка: постоянно видима (не только на hover), так
+   как на тач-устройствах hover недоступен и раньше подсказку было не увидеть
+   без вслепую сделанного тапа. Реальная семантика — на .sticky-showcase__link. */
+.sticky-showcase__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-blue-700);
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Общая ссылка на активный проект поверх инфоблока и картинок — одна цель
+   для клика и Tab вместо одной на каждую из наложенных карточек (см. JSDoc
+   StickyShowcase про то, почему разметка ушла от этого подхода). */
+.sticky-showcase__link {
+  position: absolute;
+  inset: 0;
+}
+
+.sticky-showcase__link:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: -4px;
+}
+
+.sticky-showcase__counter {
+  position: absolute;
+  left: clamp(16px, 4vw, 48px);
+  bottom: clamp(16px, 4vw, 48px);
+  font-family: var(--font-headings);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+}
+
+.sticky-showcase__dots {
+  position: absolute;
+  top: 50%;
+  right: clamp(16px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transform: translateY(-50%);
+}
+
+.sticky-showcase__dot {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.sticky-showcase__dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.sticky-showcase__dot--active {
+  background: var(--color-white);
+  transform: scale(1.2);
+}
+
+.sticky-showcase__dot:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+.sticky-showcase__empty {
+  padding: 4rem 0;
+  color: var(--color-white);
+  text-align: center;
+}
+
+/* Фолбэк без scroll-driven механики: карточки друг под другом в обычном
+   потоке документа, без sticky и без JS-пересчёта. */
+.sticky-showcase__stage--static {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-block: clamp(2rem, 6vw, 4rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-showcase__dot {
+    transition: none;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .sticky-showcase__title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sticky-showcase__stage {
+    gap: 1rem;
+  }
+
+  /* Вертикальному столбику точек некуда деться на узком экране — счётчик
+     внизу слева остаётся единственным индикатором прогресса. */
+  .sticky-showcase__dots {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .sticky-showcase__title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

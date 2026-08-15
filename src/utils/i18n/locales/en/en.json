@@ -173,9 +173,6 @@
     "emptyMessage": "No questions available"
   },
   "carousel": {
-    "ariaLabel": "Carousel of best projects",
-    "emptyMessage": "No projects to display",
-    "slideLabel": "Slide: {{project}}",
     "prevSlide": "Previous slide",
     "nextSlide": "Next slide",
     "pause": "Pause carousel",
@@ -184,7 +181,11 @@
   "showcasing": {
     "alt": "{{project}} — project screenshot",
     "viewProject": "View project",
-    "ariaLabel": "Open the {{project}} project"
+    "ariaLabel": "Open the {{project}} project",
+    "regionAriaLabel": "Showcase of best projects",
+    "dotAriaLabel": "Go to the {{project}} project",
+    "emptyMessage": "No projects to display",
+    "eyebrow": "Project {{current}} of {{total}}"
   },
   "testimonials": {
     "title": "Kind words from",

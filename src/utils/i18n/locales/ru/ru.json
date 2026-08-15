@@ -173,9 +173,6 @@
     "emptyMessage": "Нет доступных вопросов"
   },
   "carousel": {
-    "ariaLabel": "Карусель лучших проектов",
-    "emptyMessage": "Нет проектов для отображения",
-    "slideLabel": "Слайд: {{project}}",
     "prevSlide": "Предыдущий слайд",
     "nextSlide": "Следующий слайд",
     "pause": "Остановить карусель",
@@ -184,7 +181,11 @@
   "showcasing": {
     "alt": "{{project}} — скриншот проекта",
     "viewProject": "Смотреть проект",
-    "ariaLabel": "Открыть проект «{{project}}»"
+    "ariaLabel": "Открыть проект «{{project}}»",
+    "regionAriaLabel": "Витрина лучших проектов",
+    "dotAriaLabel": "Перейти к проекту «{{project}}»",
+    "emptyMessage": "Нет проектов для отображения",
+    "eyebrow": "Проект {{current}} из {{total}}"
   },
   "testimonials": {
     "title": "Тёплые слова от",
