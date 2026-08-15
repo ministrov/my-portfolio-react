@@ -18,6 +18,11 @@ import './style.css';
  * @param {string} [props.imageJpeg] - Fallback JPEG для десктопа.
  * @param {string} [props.tabletImgJpeg] - Fallback JPEG для планшета.
  * @param {string} [props.mobileImgJpeg] - Fallback JPEG для мобилки.
+ * @param {boolean} [props.renderName=true] - Рендерить ли собственный `<h2>` с названием.
+ *   `false` — когда заголовок рисует снаружи один общий узел (см. `StickyShowcase`):
+ *   при нескольких наложенных карточках текст не самоперекрывающийся, как фото
+ *   (у букв прозрачные промежутки), и заголовок нижней карточки просвечивал бы
+ *   сквозь заголовок верхней даже после того, как переход между ними завершился.
  * @returns {React.ReactElement} Карточка проекта.
  */
 const ShowcasingCard = ({
@@ -29,13 +34,14 @@ const ShowcasingCard = ({
   imageJpeg,
   tabletImgJpeg,
   mobileImgJpeg,
+  renderName = true,
 }) => {
   const { t } = useTranslation();
   const altText = t('showcasing.alt', { project: t(name) });
 
   return (
     <article className="showcasing-card">
-      <h2 className="showcasing-card__name">{t(name)}</h2>
+      {renderName && <h2 className="showcasing-card__name">{t(name)}</h2>}
       <picture className="showcasing-card__picture">
         {/* Мобильные устройства (до 767px) */}
         <source

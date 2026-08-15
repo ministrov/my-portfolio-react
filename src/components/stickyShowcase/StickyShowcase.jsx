@@ -11,12 +11,16 @@ const OVERLAP = 0.15;
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
 /**
- * Возвращает непрозрачность карточки для текущего непрерывного индекса скролла.
- * Первая карточка всегда полностью непрозрачна — ей не за кем прятаться.
- * Остальные проявляются поверх предыдущей на последних `OVERLAP` долях её
- * сегмента: предыдущая карточка при этом не гаснет, а остаётся `opacity: 1`
- * под входящей — так фон секции не проступает в момент смены (в отличие от
- * симметричного затухания обеих карточек одновременно).
+ * Возвращает непрозрачность карточки-изображения для текущего непрерывного
+ * индекса скролла. Первая карточка всегда полностью непрозрачна — ей не за
+ * кем прятаться. Остальные проявляются поверх предыдущей на последних
+ * `OVERLAP` долях её сегмента: предыдущая карточка при этом не гаснет, а
+ * остаётся `opacity: 1` под входящей — так фон секции не проступает в момент
+ * смены (в отличие от симметричного затухания обеих карточек одновременно).
+ *
+ * Годится только для сплошной картинки: она непрозрачна на каждом пикселе,
+ * поэтому верхний слой полностью перекрывает нижний. Для заголовка так не
+ * получится (см. {@link getTitleOpacity}).
  *
  * @param {number} continuousIndex - Непрерывный индекс прокрутки (0…N-1)
  * @param {number} cardIndex - Индекс карточки в массиве
@@ -25,6 +29,31 @@ const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const getCardOpacity = (continuousIndex, cardIndex) => {
   if (cardIndex === 0) return 1;
   return clamp((continuousIndex - (cardIndex - OVERLAP)) / OVERLAP, 0, 1);
+};
+
+/**
+ * Возвращает непрозрачность общего узла заголовка.
+ *
+ * В отличие от фото, буквы не сплошные — у них прозрачные промежутки между
+ * штрихами. Если держать заголовки всех карточек наложенными друг на друга
+ * (как фото в {@link getCardOpacity}), заголовок нижней карточки просвечивает
+ * сквозь эти промежутки даже после того, как переход давно завершился —
+ * получается нечитаемая накладка из двух текстов. Поэтому в разметке всего
+ * один узел заголовка с текстом активного проекта; сам он на подходе к
+ * границе между карточками ненадолго гаснет (симметрично, до 0) и к моменту,
+ * когда текст меняется на следующий (в момент округления `continuousIndex`
+ * до соседнего целого), уже почти не виден — смена текста происходит во время
+ * провала непрозрачности, а не поверх видимого предыдущего заголовка.
+ *
+ * @param {number} continuousIndex - Непрерывный индекс прокрутки (0…N-1)
+ * @param {number} activeIndex - Индекс карточки, чей заголовок сейчас показан
+ * @returns {number} Непрозрачность заголовка (0…1)
+ */
+const getTitleOpacity = (continuousIndex, activeIndex) => {
+  const distanceFromCenter = Math.abs(continuousIndex - activeIndex);
+  const plateau = 0.5 - OVERLAP;
+  if (distanceFromCenter <= plateau) return 1;
+  return clamp(1 - (distanceFromCenter - plateau) / OVERLAP, 0, 1);
 };
 
 /**
@@ -173,6 +202,13 @@ const StickyShowcase = () => {
           role="region"
           aria-label={t('showcasing.regionAriaLabel')}
         >
+          <h2
+            className="sticky-showcase__title"
+            style={{ opacity: getTitleOpacity(continuousIndex, activeIndex) }}
+          >
+            {t(bestProjects[activeIndex].title)}
+          </h2>
+
           <div className="sticky-showcase__cards">
             {bestProjects.map((project, index) => (
               <div
@@ -190,6 +226,7 @@ const StickyShowcase = () => {
                   tabletImg={project.imgCoverTablet}
                   mobileImg={project.imgCoverMobile}
                   name={project.title}
+                  renderName={false}
                 />
               </div>
             ))}
