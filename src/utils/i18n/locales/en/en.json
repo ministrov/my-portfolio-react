@@ -173,9 +173,6 @@
     "emptyMessage": "No questions available"
   },
   "carousel": {
-    "ariaLabel": "Carousel of best projects",
-    "emptyMessage": "No projects to display",
-    "slideLabel": "Slide: {{project}}",
     "prevSlide": "Previous slide",
     "nextSlide": "Next slide",
     "pause": "Pause carousel",
