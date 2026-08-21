@@ -100,7 +100,19 @@ body.sticky-showcase-pinned .header {
   color: var(--color-white);
 }
 
+/* min-height на 2 строки текущего line-height — слоганы разных проектов
+   занимают от 0 (пустой) до 2 строк (см. projects.js), а .sticky-showcase__
+   cards рядом сидит с flex: 1 внутри flex-column .sticky-showcase__stage:
+   без фиксированной высоты у subtitle каждое изменение числа строк слогана
+   меняло высоту .sticky-showcase__info и тем самым — доступную высоту под
+   картинку, что выглядело как «прыжок» картинки ровно в момент смены
+   активного проекта. display:flex тут же центрирует короткий/пустой слоган
+   в зарезервированной высоте, а не прижимает его к верху бокса. */
 .sticky-showcase__subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(1.125rem * 1.5 * 2);
   max-width: 44ch;
   margin: 0;
   color: rgba(255, 255, 255, 0.8);
