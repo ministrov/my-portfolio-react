@@ -6,16 +6,20 @@
   padding-bottom: 6rem;
 }
 
+/* 2 колонки на всех ширинах от планшета до широкого десктопа — одна и та же
+   сетка, никакого отдельного десктопного варианта на 3 колонки. Первая
+   карточка (флагман, см. servicesItem/style.css) занимает обе колонки,
+   поэтому карточки 2 и 3 всегда встают ровной парой во втором ряду — при
+   трёх услугах и 2 колонках без span получалась осиротевшая карточка с
+   пустой ячейкой рядом ровно на этом диапазоне. */
 .services__list {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 
-@media (max-width: 1024px) {
-  .services__list {
-    grid-template-columns: 1fr 1fr;
-  }
+.services__item:first-child {
+  grid-column: 1 / -1;
 }
 
 @media screen and (max-width: 768px) {

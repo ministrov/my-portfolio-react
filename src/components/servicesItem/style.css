@@ -54,8 +54,35 @@
   transform: translateY(-3px) scale(1.06);
 }
 
-/* Флагманская услуга (первая карточка) — крупнее иконка и подзаголовок,
-   чтобы читаться как лид среди трёх равнозначных по вёрстке карточек. */
+/* Флагманская услуга (первая карточка) — не просто крупнее текстом в такой
+   же по форме ячейке (так было раньше и переставало читаться как лид, стоило
+   сетке ниже схлопнуться в 2 колонки — см. services/style.css), а настоящая
+   полноширинная строка: иконка слева, заголовок и описание — справа, тем же
+   приёмом icon-left/text-right, что уже использует Contact для строк
+   email/адреса/часов. У длинного описания вся ширина контейнера вместо узкой
+   колонки — 2-3 строки вместо 5-6, без рваных по высоте карточек. max-width
+   в ch держит строку читаемой на широком десктопе (тот же приём, что у
+   .hero__subtitle и .sticky-showcase__subtitle). */
+.services__item:first-child {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.75rem;
+}
+
+.services__item:first-child .services__header {
+  flex-shrink: 0;
+}
+
+.services__item:first-child .services__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.services__item:first-child .services__description {
+  max-width: 65ch;
+}
+
 .services__item:first-child .services__icon {
   width: 84px;
   padding: 14px;
@@ -79,6 +106,21 @@
   .services__description {
     font-size: 18px;
     line-height: 24px;
+  }
+}
+
+/* Секция уходит в 1 колонку на этом же брейкпоинте (см. services/style.css)
+   — узкому телефону ширины для строки icon-left/text-right уже не хватает,
+   возвращаем спотлайту обычную вертикальную раскладку остальных карточек. */
+@media screen and (max-width: 768px) {
+  .services__item:first-child {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .services__item:first-child .services__description {
+    max-width: none;
   }
 }
 
