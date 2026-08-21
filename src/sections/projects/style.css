@@ -1,6 +1,13 @@
+/* padding-top привязан к --header-height (см. layouts/header/style.css) —
+   хедер fixed, а не в потоке, так что это единственное, что отделяет
+   хлебные крошки от него. Фиксированный rem не отслеживал изменение
+   --header-height на ≤992px (109px → 81px) и на мобильных давал зазор
+   (3rem=48px) меньше самой высоты хедера. calc() решает это раз и
+   навсегда для всех брейкпоинтов сразу — media-запросы ниже больше не
+   переопределяют padding-top отдельно. */
 .projects {
   overflow: hidden;
-  padding-top: 6rem;
+  padding-top: calc(var(--header-height) + 1rem);
   padding-bottom: 6rem;
 }
 
@@ -33,7 +40,6 @@
 
 @media screen and (max-width: 768px) {
   .projects {
-    padding-top: 4rem;
     padding-bottom: 4rem;
     border-radius: 16px;
   }
@@ -46,7 +52,6 @@
 
 @media screen and (max-width: 475px) {
   .projects {
-    padding-top: 3rem;
     padding-bottom: 3rem;
   }
 }
