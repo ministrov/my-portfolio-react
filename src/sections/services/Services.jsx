@@ -28,7 +28,7 @@ const Services = () => {
 
         <ServicesList>
           {services.map((service) => (
-            <li className="services__item" key={service.id}>
+            <li className="services__row" key={service.id}>
               <ServicesItem service={service} />
             </li>
           ))}

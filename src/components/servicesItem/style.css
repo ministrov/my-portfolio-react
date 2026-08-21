@@ -1,45 +1,39 @@
-.services__item {
+/* Строка услуги — не карточка. Раньше три одинаковые по форме "иконка +
+   заголовок + текст" коробки читались общо (см. историю правок этого
+   файла) — тут вместо рамок и теней большое типографское имя услуги
+   (масштаб заголовков секций) на паузе между hairline-разделителями, а
+   описание — вторым планом. Контраст размера и есть акцент, не декор. */
+.services__row {
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.services__row:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.services__row-main {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 24px;
-  border: 1px solid transparent;
-  box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius-s);
-  transition:
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-/* Карточка не приподнимается: подъём всей рамки ничего не сообщает об
-   услуге. Глубина остаётся за тенью и границей, а отвечает на наведение
-   иконка — единственный смысловой центр карточки (см. .services__icon) */
-.services__item:hover {
-  box-shadow: 0 12px 36px rgba(0, 88, 167, 0.18);
-  border-color: rgba(0, 88, 167, 0.2);
-}
-
-.services__subheading {
-  margin: 0;
-  font-size: 24px;
-  line-height: 30px;
-  color: var(--color-blue-700);
-}
-
-.services__description {
-  margin: 0;
-  font-size: 18px;
-  line-height: 24px;
-  color: var(--color-blue-700);
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 1.25rem;
+  row-gap: 0.5rem;
+  min-width: 0;
 }
 
 .services__icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  padding: 8px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
   border-radius: var(--border-radius-s);
   background-color: var(--color-blue-700);
   transition:
@@ -47,108 +41,154 @@
     transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Отклик привязан к наведению на карточку, а не на сам бейдж: иконка
-   декоративная и не кликабельна, попасть в её 50 px курсором незачем */
-.services__item:hover .services__icon {
+.services__row:hover .services__icon {
   background-color: var(--color-blue-300);
-  transform: translateY(-3px) scale(1.06);
+  transform: translateY(-2px) scale(1.06);
 }
 
-/* Флагманская услуга (первая карточка) — не просто крупнее текстом в такой
-   же по форме ячейке (так было раньше и переставало читаться как лид, стоило
-   сетке ниже схлопнуться в 2 колонки — см. services/style.css), а настоящая
-   полноширинная строка: иконка слева, заголовок и описание — справа, тем же
-   приёмом icon-left/text-right, что уже использует Contact для строк
-   email/адреса/часов. У длинного описания вся ширина контейнера вместо узкой
-   колонки — 2-3 строки вместо 5-6, без рваных по высоте карточек. max-width
-   в ch держит строку читаемой на широком десктопе (тот же приём, что у
-   .hero__subtitle и .sticky-showcase__subtitle). */
-.services__item:first-child {
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 1.75rem;
+.services__name {
+  flex-basis: 100%;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-gray-900);
+  transition: color 0.25s ease;
 }
 
-.services__item:first-child .services__header {
-  flex-shrink: 0;
+.services__row:hover .services__name {
+  color: var(--color-blue-700);
 }
 
-.services__item:first-child .services__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.services__description {
+  flex-basis: 100%;
+  margin: 0;
+  max-width: 62ch;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-gray-500);
 }
 
-.services__item:first-child .services__description {
+/* Флагманская услуга (первая строка) — крупнее имя, чтобы читаться как лид
+   среди равнозначных по вёрстке остальных. Тот же clamp, что у заголовков
+   секций (см. heading/style.css) — лид-строка буквально на масштабе
+   секционного заголовка, а не на произвольном шаге между ним и обычным
+   .services__name. */
+.services__row:first-child .services__name {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.services__row:first-child .services__description {
+  font-size: 1.125rem;
   max-width: 65ch;
 }
 
-.services__item:first-child .services__icon {
-  width: 84px;
-  padding: 14px;
+/* Подсказка «Обсудить проект» — Ghost-приём сайта (retracting underline,
+   см. buttonLink/style.css): текст без фона, подчёркивание уезжает влево
+   на hover вместо того, чтобы появляться, стрелка сдвигается вправо. Это
+   button, а не Link — клик скроллит к .contact (тот же приём, что у
+   CtaButton), отдельный React Router путь тут не нужен. */
+.services__cue {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-blue-700);
+  white-space: nowrap;
+  cursor: pointer;
 }
 
-.services__item:first-child .services__icon svg {
-  width: 42px;
-  height: 42px;
+.services__cue::before {
+  position: absolute;
+  content: '';
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-blue-700);
+  transform-origin: left;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
-.services__item:first-child .services__subheading {
-  font-size: 30px;
-  line-height: 36px;
+.services__row:hover .services__cue::before,
+.services__cue:hover::before,
+.services__cue:focus-visible::before {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+.services__cue-icon {
+  transition: transform 0.3s ease;
+}
+
+.services__row:hover .services__cue-icon,
+.services__cue:hover .services__cue-icon {
+  transform: translateX(4px);
+}
+
+.services__cue:focus-visible {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 @media screen and (max-width: 1024px) {
-  .services__item {
-    padding: 1.5rem;
-  }
-
-  .services__description {
-    font-size: 18px;
-    line-height: 24px;
+  .services__row {
+    padding: 1.5rem 0;
   }
 }
 
-/* Секция уходит в 1 колонку на этом же брейкпоинте (см. services/style.css)
-   — узкому телефону ширины для строки icon-left/text-right уже не хватает,
-   возвращаем спотлайту обычную вертикальную раскладку остальных карточек. */
+/* Секция уже в 1 колонку на этом брейкпоинте (см. services/style.css) —
+   подсказка снята: на тач-устройствах hover недоступен, а отдельная кнопка
+   «Обсудить проект» на каждой строке дублирует основной CTA страницы. */
 @media screen and (max-width: 768px) {
-  .services__item:first-child {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
+  .services__row {
+    grid-template-columns: 1fr;
+    row-gap: 0.75rem;
   }
 
-  .services__item:first-child .services__description {
-    max-width: none;
+  .services__cue {
+    display: none;
+  }
+
+  .services__name {
+    font-size: 1.5rem;
+  }
+
+  .services__row:first-child .services__name {
+    font-size: 1.8rem;
   }
 }
 
 @media screen and (max-width: 475px) {
   .services__description {
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-
-@media screen and (max-width: 396px) {
-  .services__item {
-    padding: 1rem;
-  }
-
-  .services__description {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 0.9375rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  /* Смена цвета бейджа остаётся — это состояние наведения, а не движение */
-  .services__item:hover .services__icon {
+  .services__row:hover .services__icon {
     transform: none;
   }
 
-  .services__icon {
-    transition: background-color 0.3s ease;
+  .services__icon,
+  .services__name,
+  .services__cue::before,
+  .services__cue-icon {
+    transition:
+      background-color 0.3s ease,
+      color 0.25s ease;
   }
 }

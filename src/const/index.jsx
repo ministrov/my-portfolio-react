@@ -5,7 +5,7 @@ import { SlGlobe } from 'react-icons/sl';
 // в react-icons 5 его больше нет. Услуга описывает дизайн вообще, а не работу
 // в конкретном редакторе, поэтому взята нейтральная иконка Material.
 import { MdDesignServices } from 'react-icons/md';
-import { TbSeo } from 'react-icons/tb';
+import { TbSeo, TbSparkles, TbDatabase } from 'react-icons/tb';
 
 export const routes = [
   {
@@ -45,6 +45,18 @@ export const services = [
     title: 'services.title.three',
     description: 'services.description.three',
     icon: <TbSeo color="white" size={25} />,
+  },
+  {
+    id: 4,
+    title: 'services.title.four',
+    description: 'services.description.four',
+    icon: <TbSparkles color="white" size={25} />,
+  },
+  {
+    id: 5,
+    title: 'services.title.five',
+    description: 'services.description.five',
+    icon: <TbDatabase color="white" size={25} />,
   },
 ];
 

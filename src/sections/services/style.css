@@ -6,20 +6,16 @@
   padding-bottom: 6rem;
 }
 
-/* 2 колонки на всех ширинах от планшета до широкого десктопа — одна и та же
-   сетка, никакого отдельного десктопного варианта на 3 колонки. Первая
-   карточка (флагман, см. servicesItem/style.css) занимает обе колонки,
-   поэтому карточки 2 и 3 всегда встают ровной парой во втором ряду — при
-   трёх услугах и 2 колонках без span получалась осиротевшая карточка с
-   пустой ячейкой рядом ровно на этом диапазоне. */
+/* Типографский список, не сетка карточек — каждая услуга это строка на всю
+   ширину, разделённая тонкой линией (тем же hairline-приёмом, что у FAQ).
+   Список сам масштабируется на любое число услуг, поэтому сюда не нужна
+   отдельная логика под 3/5/N элементов, в отличие от прежней card-сетки. */
 .services__list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.services__item:first-child {
-  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -28,10 +24,6 @@
     padding-top: 4rem;
     padding-bottom: 4rem;
     border-radius: 16px;
-  }
-
-  .services__list {
-    grid-template-columns: 1fr;
   }
 }
 
