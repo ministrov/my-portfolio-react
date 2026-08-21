@@ -1,40 +1,35 @@
+/* Визуальный язык взят из .nav-list__link шапки (см. layouts/header):
+   тот же Oswald, тот же переход gray-900 → blue-700, никакой фоновой
+   рамки — фильтр читается как таб, а не как отдельная кнопка */
 .filter__btn {
-  min-width: 135px;
-  height: 40px;
-  font-family: var(--font-base);
-  font-size: 18px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 0.85rem 0.5rem;
+  font-family: var(--font-headings);
+  font-size: 1rem;
   font-weight: 500;
-  line-height: 24px;
-  color: var(--color-blue-700);
-  background-color: var(--color-white);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: var(--color-gray-900);
+  background: none;
   border: none;
-  border-radius: var(--border-radius-s);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  padding: 0 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  white-space: nowrap;
+  transition: color 0.3s ease-in-out;
   user-select: none;
 }
 
-.filter__btn:focus {
-  outline: 2px solid var(--color-white);
-  outline-offset: 2px;
-  text-shadow:
-    1px 0 0,
-    0.3px 0 0;
-}
-
+.filter__btn:hover:not(.filter__btn--disabled),
 .filter__btn--active {
-  color: var(--color-white);
-  background-color: var(--color-blue-700);
-  border: 2px solid var(--color-white);
+  color: var(--color-blue-700);
 }
 
-.filter__btn--active:hover:not(.filter__btn--disabled) {
-  background-color: var(--color-blue-800);
-  border-color: var(--color-blue-100);
+.filter__btn:focus-visible {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-s);
 }
 
 .filter__btn--disabled {
@@ -45,8 +40,6 @@
 
 @media screen and (max-width: 768px) {
   .filter__btn {
-    min-width: 140px;
-    font-size: 16px;
-    height: 44px;
+    font-size: 0.9375rem;
   }
 }

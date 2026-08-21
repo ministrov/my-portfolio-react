@@ -12,29 +12,55 @@
 }
 
 .projects__filter {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
   margin-bottom: 4rem;
-  background-color: var(--color-blue-700);
-  border-radius: var(--border-radius-s);
+}
+
+/* Скроллится целиком (ul + бегунок) как один блок, поэтому бегунок
+   остаётся синхронизирован с колонками даже если ряд когда-нибудь
+   не поместится по ширине — см. .projects__filter-list ниже */
+.projects__filter-track {
+  position: relative;
+  overflow-x: auto;
 }
 
 .projects__filter-list {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
-  background-color: var(--color-blue-700);
+  display: grid;
+  /* minmax(min-content, 1fr): колонки растягиваются поровну, но не сжимают
+     текст лейбла — при нехватке места ряд уезжает в скролл track, а не
+     переносится в несколько строк или обрезает подписи */
+  grid-template-columns: repeat(
+    var(--filter-count, 4),
+    minmax(min-content, 1fr)
+  );
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-@media screen and (max-width: 1024px) {
-  .projects__filter {
-    margin-bottom: 4rem;
-  }
+.projects__filter-item {
+  display: flex;
+}
 
-  .projects__filter-list {
-    flex-wrap: wrap;
+/* Бегунок под активным табом: ширина — доля от общей ширины ряда,
+   позиция — сдвиг на N собственных ширин, оба через CSS custom
+   properties, которые проставляет FilterList.jsx. Без замера DOM —
+   не зависит от того, успел ли догрузиться шрифт заголовков */
+.projects__filter-indicator {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: calc(100% / var(--filter-count, 4));
+  height: 2px;
+  background-color: var(--color-blue-700);
+  transform: translateX(calc(var(--active-index, 0) * 100%));
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects__filter-indicator {
+    transition: none;
   }
 }
 
@@ -42,11 +68,6 @@
   .projects {
     padding-bottom: 4rem;
     border-radius: 16px;
-  }
-
-  .projects__filter-list {
-    align-items: center;
-    justify-content: center;
   }
 }
 
