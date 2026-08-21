@@ -1,4 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useReducedMotion } from 'motion/react';
@@ -107,6 +114,7 @@ const StickyShowcase = () => {
   const viewportRef = useRef(null);
   const rafRef = useRef(null);
   const [continuousIndex, setContinuousIndex] = useState(0);
+  const [isPinned, setIsPinned] = useState(false);
 
   const bestProjects = useMemo(
     () => projects.filter((item) => item.isBest),
@@ -122,18 +130,31 @@ const StickyShowcase = () => {
     const scrollableDistance = wrapper.offsetHeight - viewport.offsetHeight;
     if (scrollableDistance <= 0) {
       setContinuousIndex(0);
+      setIsPinned(false);
       return;
     }
 
     const scrolled = -wrapper.getBoundingClientRect().top;
-    const isPinned = scrolled >= 0 && scrolled <= scrollableDistance;
-    document.body.classList.toggle(HEADER_HIDDEN_CLASS, isPinned);
+    setIsPinned(scrolled >= 0 && scrolled <= scrollableDistance);
 
     const progress = clamp(scrolled / scrollableDistance, 0, 1);
     setContinuousIndex(progress * (count - 1));
   }, [count]);
 
+  /**
+   * Синхронизирует класс, скрывающий хедер, с состоянием `isPinned` —
+   * отдельно от измерения скролла в {@link recalc}, чтобы добавление и
+   * удаление класса были симметричны по построению (одна и та же функция
+   * эффекта, а не разнесённые по разным колбэкам add/remove).
+   */
   useEffect(() => {
+    document.body.classList.toggle(HEADER_HIDDEN_CLASS, isPinned);
+    return () => {
+      document.body.classList.remove(HEADER_HIDDEN_CLASS);
+    };
+  }, [isPinned]);
+
+  useLayoutEffect(() => {
     if (prefersReducedMotion || count < 2) return undefined;
 
     const handleScroll = () => {
@@ -159,7 +180,6 @@ const StickyShowcase = () => {
         cancelAnimationFrame(rafRef.current);
         rafRef.current = null;
       }
-      document.body.classList.remove(HEADER_HIDDEN_CLASS);
     };
   }, [prefersReducedMotion, count, recalc]);
 
