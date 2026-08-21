@@ -15,9 +15,6 @@ import ShowcasingCardPicture from '../showcasingCard/ShowcasingCardPicture';
 import { projects } from '../../sections/projects/projects';
 import './style.css';
 
-/** Доля сегмента (0…1), на которую соседние карточки перекрываются при кроссфейде. */
-const OVERLAP = 0.15;
-
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
 const pad = (value) => String(value).padStart(2, '0');
@@ -34,53 +31,6 @@ const pad = (value) => String(value).padStart(2, '0');
 const HEADER_HIDDEN_CLASS = 'sticky-showcase-pinned';
 
 /**
- * Возвращает непрозрачность карточки-изображения для текущего непрерывного
- * индекса скролла. Первая карточка всегда полностью непрозрачна — ей не за
- * кем прятаться. Остальные проявляются поверх предыдущей на последних
- * `OVERLAP` долях её сегмента: предыдущая карточка при этом не гаснет, а
- * остаётся `opacity: 1` под входящей — так фон секции не проступает в момент
- * смены (в отличие от симметричного затухания обеих карточек одновременно).
- *
- * Годится только для сплошной картинки: она непрозрачна на каждом пикселе,
- * поэтому верхний слой полностью перекрывает нижний. Для текста так не
- * получится (см. {@link getInfoOpacity}).
- *
- * @param {number} continuousIndex - Непрерывный индекс прокрутки (0…N-1)
- * @param {number} cardIndex - Индекс карточки в массиве
- * @returns {number} Непрозрачность карточки (0…1)
- */
-const getCardOpacity = (continuousIndex, cardIndex) => {
-  if (cardIndex === 0) return 1;
-  return clamp((continuousIndex - (cardIndex - OVERLAP)) / OVERLAP, 0, 1);
-};
-
-/**
- * Возвращает непрозрачность общего инфоблока (эйброу, заголовок, слоган,
- * мета, кнопка-подсказка).
- *
- * В отличие от фото, буквы не сплошные — у них прозрачные промежутки между
- * штрихами. Если бы этот текст дублировался в каждой из наложенных карточек
- * (как фото в {@link getCardOpacity}), текст нижней карточки просвечивал бы
- * сквозь эти промежутки даже после того, как переход давно завершился —
- * получилась бы нечитаемая накладка. Поэтому в разметке всего один инфоблок
- * с данными активного проекта; сам он на подходе к границе между карточками
- * ненадолго гаснет (симметрично, до 0) и к моменту, когда контент меняется на
- * следующий (в момент округления `continuousIndex` до соседнего целого), уже
- * почти не виден — смена происходит во время провала непрозрачности, а не
- * поверх видимого предыдущего текста.
- *
- * @param {number} continuousIndex - Непрерывный индекс прокрутки (0…N-1)
- * @param {number} activeIndex - Индекс карточки, чьи данные сейчас показаны
- * @returns {number} Непрозрачность инфоблока (0…1)
- */
-const getInfoOpacity = (continuousIndex, activeIndex) => {
-  const distanceFromCenter = Math.abs(continuousIndex - activeIndex);
-  const plateau = 0.5 - OVERLAP;
-  if (distanceFromCenter <= plateau) return 1;
-  return clamp(1 - (distanceFromCenter - plateau) / OVERLAP, 0, 1);
-};
-
-/**
  * Липкая витрина лучших проектов на главной странице.
  *
  * Высокая обёртка (N экранов) держит внутри себя `position: sticky`-вьюпорт
@@ -90,12 +40,14 @@ const getInfoOpacity = (continuousIndex, activeIndex) => {
  * заголовок, слоган, год/роль, кнопка-подсказка), активной точкой-индикатором
  * и счётчиком. Направление и скорость смены проекта задаёт сам пользователь —
  * таймера нет, поэтому кнопка паузы (обязательная для автопрокрутки по
- * WCAG 2.2.2) здесь не нужна по конструкции.
+ * WCAG 2.2.2) здесь не нужна по конструкции. Сам кроссфейд считает CSS через
+ * `--continuous-index`/`--active-index` (см. style.css), а не React state —
+ * подробности и обоснование асимметрии между фото и текстом там же.
  *
  * Ссылка на активный проект — один общий узел поверх инфоблока и картинок
- * (см. {@link getInfoOpacity} про то, почему не по одной на карточку), так
- * что всегда есть ровно одна цель для клика и Tab, синхронная с тем, что
- * видно на экране.
+ * (см. комментарий к opacity у `.sticky-showcase__info` в style.css про то,
+ * почему не по одной на карточку), так что всегда есть ровно одна цель для
+ * клика и Tab, синхронная с тем, что видно на экране.
  *
  * При `prefers-reduced-motion: reduce` рендерится статичный фолбэк: те же
  * карточки (уже с собственным заголовком, подсказкой и ссылкой через
@@ -112,8 +64,9 @@ const StickyShowcase = () => {
   const prefersReducedMotion = useReducedMotion();
   const wrapperRef = useRef(null);
   const viewportRef = useRef(null);
+  const stageRef = useRef(null);
   const rafRef = useRef(null);
-  const [continuousIndex, setContinuousIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isPinned, setIsPinned] = useState(false);
 
   const bestProjects = useMemo(
@@ -122,6 +75,19 @@ const StickyShowcase = () => {
   );
   const count = bestProjects.length;
 
+  /**
+   * Пишет непрерывный индекс прокрутки прямо в CSS-переменную на `stage`
+   * (минуя React state), откуда его читают формулы `opacity` в style.css —
+   * see `--continuous-index` там же. В отличие от `activeIndex` (меняется
+   * лишь раз на сегмент и обязан быть React state, раз от него зависит
+   * рендер текста/ссылки), continuous-значение обновляется на каждом кадре
+   * скролла; проведение его через setState гоняло бы полный ре-рендер и
+   * реконсиляцию карточек+инфоблока по 60 раз в секунду.
+   */
+  const setContinuousIndexVar = useCallback((value) => {
+    stageRef.current?.style.setProperty('--continuous-index', value);
+  }, []);
+
   const recalc = useCallback(() => {
     const wrapper = wrapperRef.current;
     const viewport = viewportRef.current;
@@ -129,7 +95,8 @@ const StickyShowcase = () => {
 
     const scrollableDistance = wrapper.offsetHeight - viewport.offsetHeight;
     if (scrollableDistance <= 0) {
-      setContinuousIndex(0);
+      setContinuousIndexVar(0);
+      setActiveIndex(0);
       setIsPinned(false);
       return;
     }
@@ -138,8 +105,14 @@ const StickyShowcase = () => {
     setIsPinned(scrolled >= 0 && scrolled <= scrollableDistance);
 
     const progress = clamp(scrolled / scrollableDistance, 0, 1);
-    setContinuousIndex(progress * (count - 1));
-  }, [count]);
+    const continuousIndex = progress * (count - 1);
+    setContinuousIndexVar(continuousIndex);
+
+    const nextActiveIndex = clamp(Math.round(continuousIndex), 0, count - 1);
+    setActiveIndex((prev) =>
+      prev === nextActiveIndex ? prev : nextActiveIndex
+    );
+  }, [count, setContinuousIndexVar]);
 
   /**
    * Синхронизирует класс, скрывающий хедер, с состоянием `isPinned` —
@@ -182,8 +155,6 @@ const StickyShowcase = () => {
       }
     };
   }, [prefersReducedMotion, count, recalc]);
-
-  const activeIndex = clamp(Math.round(continuousIndex), 0, count - 1);
 
   const scrollToSegment = useCallback(
     (index) => {
@@ -232,7 +203,6 @@ const StickyShowcase = () => {
   }
 
   const activeProject = bestProjects[activeIndex];
-  const infoOpacity = getInfoOpacity(continuousIndex, activeIndex);
 
   return (
     <div
@@ -245,11 +215,10 @@ const StickyShowcase = () => {
           className="container sticky-showcase__stage"
           role="region"
           aria-label={t('showcasing.regionAriaLabel')}
+          ref={stageRef}
+          style={{ '--active-index': activeIndex }}
         >
-          <div
-            className="sticky-showcase__info"
-            style={{ opacity: infoOpacity }}
-          >
+          <div className="sticky-showcase__info">
             <span className="sticky-showcase__eyebrow">
               {t('showcasing.eyebrow', {
                 current: pad(activeIndex + 1),
@@ -271,7 +240,7 @@ const StickyShowcase = () => {
                     ? 'sticky-showcase__card sticky-showcase__card--active'
                     : 'sticky-showcase__card'
                 }
-                style={{ opacity: getCardOpacity(continuousIndex, index) }}
+                style={{ '--card-index': index }}
               >
                 <ShowcasingCardPicture
                   image={project.imgCover}
@@ -283,10 +252,7 @@ const StickyShowcase = () => {
             ))}
           </div>
 
-          <div
-            className="sticky-showcase__footer"
-            style={{ opacity: infoOpacity }}
-          >
+          <div className="sticky-showcase__footer">
             <div className="sticky-showcase__meta">
               <span>{activeProject.year}</span>
               <span className="sticky-showcase__meta-role">
