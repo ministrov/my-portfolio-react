@@ -281,6 +281,12 @@ body.sticky-showcase-pinned .header {
   pointer-events: none;
 }
 
+/* Точки лежат прямо на картинке проекта — без своей подложки контраст
+   целиком зависит от того, что оказалось под ними в конкретном кадре
+   (пёстрый/светлый скриншот — и белые точки почти не видно). Плашка —
+   тот же rgba(11, 18, 32, 0.55) + blur, что уже держит подсказку
+   «смотреть проект» в showcasing-card__cue: гарантирует контраст на любом
+   фоне, а не полагается на удачное совпадение цветов. */
 .sticky-showcase__dots {
   position: absolute;
   top: 50%;
@@ -289,6 +295,11 @@ body.sticky-showcase-pinned .header {
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
+  padding: 0.75rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(11, 18, 32, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   transform: translateY(-50%);
 }
 
