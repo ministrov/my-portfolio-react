@@ -104,10 +104,6 @@ const ContactForm = ({ onSuccess }) => {
                 )}
               </AnimatePresence>
 
-              <p className="contact-form__required-hint">
-                {t('contactForm.requiredHint')}
-              </p>
-
               {FIELDS.map((field) => {
                 const hasError = touched[field.name] && !!errors[field.name];
                 const fieldId = `contact-form-${field.name}`;
@@ -192,6 +188,10 @@ const ContactForm = ({ onSuccess }) => {
                   </div>
                 );
               })}
+
+              <p className="contact-form__required-hint">
+                {t('contactForm.requiredHint')}
+              </p>
 
               <button
                 type="submit"

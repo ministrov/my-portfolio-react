@@ -9,6 +9,18 @@
   border-top-right-radius: 0;
 }
 
+/* Только у страницы "Обо мне" (<About border />, хлебные крошки идут
+   первым элементом) padding-top должен ещё и отделять контент от fixed
+   .header — на HomePage (<About link />, без border) секция идёт после
+   Hero, а не от самого верха страницы, и её отступ — просто дыхание между
+   секциями, трогать не нужно. Составной селектор .about.about__without
+   специально специфичнее одноклассовых @media-переопределений padding-top
+   у .about ниже — побеждает независимо от порядка в файле. Тот же разрыв
+   («паддинг < высота хедера на мобильном») см. в projects/style.css. */
+.about.about__without {
+  padding-top: calc(var(--header-height) + 1rem);
+}
+
 .about__wrapper {
   display: flex;
   align-items: flex-start;
