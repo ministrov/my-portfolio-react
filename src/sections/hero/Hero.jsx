@@ -204,6 +204,12 @@ const Hero = () => {
         <LazyMotion features={domAnimation}>
           <div className="hero__inner" ref={contentRef}>
             <h1 className="hero__title">
+              {/* Визуальный заголовок — афоризм без ключевых слов; для
+                  краулеров и AI-выдачи (GEO) в тот же h1 добавлена
+                  скрытая keyword-фраза из meta title, см. metadata.home.title */}
+              <span className="visually-hidden">
+                {t('metadata.home.title')}
+              </span>
               <m.div {...titleMotion}>
                 <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
                 {/* Акцент всегда с новой строки: заголовок построен как афоризм

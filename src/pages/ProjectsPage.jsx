@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { useSeoMeta } from '../hooks/useSeoMeta';
 import Projects from '../sections/projects/Projects.jsx';
 import Contact from '../sections/contact/Contact.jsx';
+import { projects } from '../sections/projects/projects.js';
 
 /**
  * Компонент страницы проектов портфолио.
@@ -45,6 +46,30 @@ const ProjectsPage = () => {
     ],
   });
 
+  // JSON-LD по каждому кейсу: помогает поисковым сниппетам и AI-выдаче
+  // (GEO) сопоставлять проект с автором и стеком без парсинга вёрстки.
+  const projectsSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: projects.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'CreativeWork',
+        name: t(project.title),
+        description: t(project.overview),
+        url: project.demoLink,
+        dateCreated: project.year,
+        keywords: project.skills,
+        author: {
+          '@type': 'Person',
+          name: 'Anton Zhilin',
+          url: 'https://antoshkindev.ru',
+        },
+      },
+    })),
+  });
+
   return (
     <>
       <title>{PAGE_TITLE}</title>
@@ -72,6 +97,10 @@ const ProjectsPage = () => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: breadcrumbSchema }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: projectsSchema }}
       />
 
       <h1 className="visually-hidden">{t('pages.projects.heading')}</h1>
