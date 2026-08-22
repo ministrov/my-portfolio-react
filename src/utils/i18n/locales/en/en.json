@@ -1,13 +1,13 @@
 {
   "metadata": {
     "home": {
-      "title": "Anton Zhilin — Frontend Developer | React, Next.js, TypeScript",
-      "description": "Portfolio of a Moscow-based frontend developer. I build responsive interfaces with React and Next.js — pixel-perfect, Core Web Vitals optimized, WCAG 2.1 compliant. Open to new projects.",
+      "title": "Anton Zhilin — Frontend Developer | React, Next.js",
+      "description": "Portfolio of a Moscow-based frontend developer. React, Next.js, pixel-perfect UI, Core Web Vitals optimized, WCAG 2.1 compliant.",
       "keywords": "frontend developer, React, Next.js, TypeScript, web development, portfolio, Anton Zhilin, hire developer, responsive design"
     },
     "about": {
       "title": "About — Anton Zhilin, Frontend Developer from Moscow",
-      "description": "Frontend developer from Moscow specializing in React, Next.js and TypeScript. Focused on responsive design, performance, and WCAG 2.1 accessibility. Available for office, hybrid, or remote work.",
+      "description": "Moscow-based frontend developer: React, Next.js, TypeScript. Responsive interfaces, performance, WCAG 2.1 accessibility.",
       "keywords": "Anton Zhilin, frontend developer, React, Next.js, TypeScript, about me, portfolio, Moscow"
     },
     "projects": {
