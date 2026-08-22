@@ -260,7 +260,7 @@
     "vamvoda": {
       "title": "Vam Voda",
       "slogan": "A moder water E-Commerce platform",
-      "overview": "Water e-commerce store built with featuring dynamic product filtering with virtual scrolling and animated transitions, along with a responsive gallery.",
+      "overview": "The previous site was slow, had clunky product filtering, and wasn't adapted for mobile. I designed and coded all 65 pages mobile-first, built a state-driven component for dynamic catalog filtering, and put together a responsive gallery with Flex/Grid. The site has been live and stable for 9 months — user feedback points to a noticeably smoother, faster, clearer experience that renders correctly on every device.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -269,7 +269,7 @@
     "waterdel": {
       "title": "Waterdel",
       "slogan": "An e-commerce platform for puryfing systems",
-      "overview": "VodaOnline — a contemporary online store for water purification equipment built with JavaScript, HTML, and CSS. Elegant and intuitive interface helps users quickly select products and place orders.",
+      "overview": "The brief was to launch a product showcase for water purifiers fast, with a pleasant, animated feel, on a tight deadline. I designed and built the site from scratch in native HTML, CSS, and JavaScript (ES6), deliberately skipping React and Next.js since they'd have been overkill for that timeline. Every bit of interactivity on the site is hand-written: animated lists, a header progress bar, a testimonials slider. The site drove sales and earned positive feedback — customers said the friendly, clear interface with unobtrusive effects was part of why they bought.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
