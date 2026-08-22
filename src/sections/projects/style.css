@@ -21,6 +21,7 @@
 .projects__filter-track {
   position: relative;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .projects__filter-list {
