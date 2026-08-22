@@ -1,0 +1,15 @@
+# Anton Zhilin — Frontend Developer
+
+> Portfolio of Anton Zhilin, a Moscow-based frontend developer specializing in React, Next.js, and TypeScript. Builds responsive, pixel-perfect interfaces with a focus on performance and WCAG 2.1 accessibility.
+
+## Pages
+
+- [Home](https://antoshkindev.ru/): Introduction, services, featured projects, testimonials, FAQ, and contact form.
+- [About](https://antoshkindev.ru/about): Experience, education, and technical skills.
+- [Projects](https://antoshkindev.ru/projects): Full case-study portfolio — e-commerce platforms, landing pages, and SPAs built with React, Next.js, and vanilla JS.
+
+## Contact
+
+- Email: ministrov2018@gmail.com
+- GitHub: https://github.com/ministrov
+- Telegram: https://t.me/antonzhilin83

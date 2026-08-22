@@ -47,5 +47,11 @@
   },
   "prettier.enable": true,
   "prettier.requireConfig": true,
-  "js/ts.validate.enable": false
+  "js/ts.validate.enable": false,
+  "json.schemas": [
+    {
+      "fileMatch": ["package.json"],
+      "url": "https://json.schemastore.org/package.json"
+    }
+  ]
 }

@@ -1,13 +1,13 @@
 {
   "metadata": {
     "home": {
-      "title": "Anton Zhilin — Frontend Developer | React, Next.js, TypeScript",
-      "description": "Portfolio of a Moscow-based frontend developer. I build responsive interfaces with React and Next.js — pixel-perfect, Core Web Vitals optimized, WCAG 2.1 compliant. Open to new projects.",
+      "title": "Anton Zhilin — Frontend Developer | React, Next.js",
+      "description": "Portfolio of a Moscow-based frontend developer. React, Next.js, pixel-perfect UI, Core Web Vitals optimized, WCAG 2.1 compliant.",
       "keywords": "frontend developer, React, Next.js, TypeScript, web development, portfolio, Anton Zhilin, hire developer, responsive design"
     },
     "about": {
       "title": "About — Anton Zhilin, Frontend Developer from Moscow",
-      "description": "Frontend developer from Moscow specializing in React, Next.js and TypeScript. Focused on responsive design, performance, and WCAG 2.1 accessibility. Available for office, hybrid, or remote work.",
+      "description": "Moscow-based frontend developer: React, Next.js, TypeScript. Responsive interfaces, performance, WCAG 2.1 accessibility.",
       "keywords": "Anton Zhilin, frontend developer, React, Next.js, TypeScript, about me, portfolio, Moscow"
     },
     "projects": {
@@ -54,7 +54,7 @@
       "accent": "me"
     },
     "projects": {
-      "name": "All my",
+      "name": "My",
       "accent": "projects"
     },
     "contact": {
@@ -260,7 +260,7 @@
     "vamvoda": {
       "title": "Vam Voda",
       "slogan": "A moder water E-Commerce platform",
-      "overview": "Water e-commerce store built with featuring dynamic product filtering with virtual scrolling and animated transitions, along with a responsive gallery.",
+      "overview": "The previous site was slow, had clunky product filtering, and wasn't adapted for mobile. I designed and coded all 65 pages mobile-first, built a state-driven component for dynamic catalog filtering, and put together a responsive gallery with Flex/Grid. The site has been live and stable for 9 months — user feedback points to a noticeably smoother, faster, clearer experience that renders correctly on every device.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -269,7 +269,7 @@
     "waterdel": {
       "title": "Waterdel",
       "slogan": "An e-commerce platform for puryfing systems",
-      "overview": "VodaOnline — a contemporary online store for water purification equipment built with JavaScript, HTML, and CSS. Elegant and intuitive interface helps users quickly select products and place orders.",
+      "overview": "The brief was to launch a product showcase for water purifiers fast, with a pleasant, animated feel, on a tight deadline. I designed and built the site from scratch in native HTML, CSS, and JavaScript (ES6), deliberately skipping React and Next.js since they'd have been overkill for that timeline. Every bit of interactivity on the site is hand-written: animated lists, a header progress bar, a testimonials slider. The site drove sales and earned positive feedback — customers said the friendly, clear interface with unobtrusive effects was part of why they bought.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -278,7 +278,7 @@
     "only": {
       "title": "Only development studio",
       "slogan": "A stunning Only development studio",
-      "overview": "Only development studio is a team that creates bold and minimalist digital projects with a focus on modern frontend and expressive visuals.",
+      "overview": "A training project at the intersection of markup and React: broke a finished design into reusable components and practiced their composition along with transition animations between blocks. This is where the habit of thinking in components, not pages, took hold.",
       "infoTitle": "Project Info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -287,7 +287,7 @@
     "area": {
       "title": "Digital Studio Area",
       "slogan": "Landing page for Area development studio",
-      "overview": "A digital design service with a dynamic and impressive interface built on Next.js, TypeScript, and React. Interactive Framer Motion animations and a convenient React Hook Form order form simplify the creation of unique projects.",
+      "overview": "The next step in the same practice, one level harder: added interactive Framer Motion animations and a full order form built with React Hook Form. The focus shifted from pure decomposition to tying animation state to form state — closer to what real projects actually demand.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -296,7 +296,7 @@
     "ratingus": {
       "title": "Ratingus",
       "slogan": "A platform to rate any of web apps",
-      "overview": "Ratingus — an objective mobile app evaluation platform crafted with Next.js, TypeScript, and React. Smooth animations by Framer Motion and secure voting process ensured by Yup & Formik validators.",
+      "overview": "Real production work, not a training exercise: during an internship at PurpleSchool's digital studio, I worked directly in their live codebase. I designed and built the community page from scratch — with user tags and a member list — plus a Reviews/Rating tab-switch feature on the user profile page, including the API for that data. I worked Scrum alongside the studio's own developers: dailies, retrospectives, planning, and task estimation.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",
@@ -314,7 +314,7 @@
     "createx": {
       "title": "Create-x Construction",
       "slogan": "A stunning construction company",
-      "overview": "«Kreatex Construction» — the digital calling card of a construction brand. The HTML5, CSS3, and JavaScript stack is assembled into an interface where thoughtful design meets intuitive mechanics. Smooth transitions and crisp typography evoke a sense of structural reliability — exactly what you'd expect from a construction company.",
+      "overview": "My first paid project: an acquaintance needed a prototype site for a construction company to validate a business idea before full-scale development. I built all 8 pages solo — native HTML/CSS/JS, BEM methodology, SASS mixins, Swiper.js sliders and galleries, contact forms, tabs. It felt like a big undertaking at the time, and it became a solid, hands-on drill in the fundamental markup patterns everything else builds on.",
       "infoTitle": "Project info",
       "toolsTitle": "Project Tools",
       "yearText": "Year",

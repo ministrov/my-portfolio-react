@@ -9,6 +9,10 @@ import './style.css';
  * Значение фильтра (`value`) используется для матчинга, `label` — ключ
  * перевода для видимого текста кнопки.
  *
+ * Визуально — подчёркнутые табы: равные колонки грида задают позиции,
+ * а бегунок под активной кнопкой сдвигается через CSS custom properties
+ * (`--filter-count`, `--active-index`), без замера DOM в JS.
+ *
  * @component
  * @param {Object} props - Свойства компонента
  * @param {Object[]} props.filters - Массив фильтров
@@ -21,21 +25,37 @@ import './style.css';
  */
 const FilterList = ({ filters, activeFilter, onFilterClick }) => {
   const { t } = useTranslation();
+  const activeIndex = Math.max(
+    0,
+    filters.findIndex((filter) => filter.value === activeFilter)
+  );
 
   return (
     <div className="projects__filter">
-      <ul className="projects__filter-list" aria-label={t('filters.ariaLabel')}>
-        {filters.map((filter) => (
-          <li key={filter.id} className="projects__filter-list-item filter">
-            <FilterButton
-              active={activeFilter}
-              currentBtn={filter.value}
-              filterName={t(filter.label)}
-              onClick={() => onFilterClick(filter.value)}
-            />
-          </li>
-        ))}
-      </ul>
+      <div
+        className="projects__filter-track"
+        style={{
+          '--filter-count': filters.length,
+          '--active-index': activeIndex,
+        }}
+      >
+        <ul
+          className="projects__filter-list"
+          aria-label={t('filters.ariaLabel')}
+        >
+          {filters.map((filter) => (
+            <li key={filter.id} className="projects__filter-item">
+              <FilterButton
+                active={activeFilter}
+                currentBtn={filter.value}
+                filterName={t(filter.label)}
+                onClick={() => onFilterClick(filter.value)}
+              />
+            </li>
+          ))}
+        </ul>
+        <span className="projects__filter-indicator" aria-hidden="true" />
+      </div>
     </div>
   );
 };

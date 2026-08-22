@@ -240,7 +240,7 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 - **Hero Spotlight (CV download):** the one glassmorphic button in the system — frosted white glass (`backdrop-filter: blur(16px) saturate(170%)`), CTA Spotlight Ink text, wrapped in a frame with a rotating CTA Spotlight rainbow border and a pulsing ring on entrance (see Colors → CTA Spotlight). This is the single most important conversion action on the page (CV download) and is the only button allowed this treatment.
 - **Submit (form):** cobalt background, white text, uppercase Oswald label with `0.04em` tracking, full-width in the contact form. Hover **inverts** (white background, cobalt text/border) rather than darkening — the one button variant that swaps instead of deepens.
 - **Ghost (text link):** no background, cobalt text, an animated underline that retracts on hover instead of appearing — used for "read more" style links.
-- **Filter toggle:** white/cobalt-text at rest, solid cobalt with a white ring border when active — a stateful toggle, not a one-off button.
+- **Filter toggle:** underline tab, matching the header nav's text-link language — gray-900 Oswald text at rest, turning cobalt on hover/active, with a cobalt underline sliding beneath the active item. No background chrome. Still a stateful toggle (`aria-pressed`), not real ARIA tabs — it filters a list in place rather than switching panels.
 
 ### Chips (Tag)
 

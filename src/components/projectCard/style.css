@@ -1,5 +1,6 @@
 .project-card {
   display: flex;
+  align-items: flex-start;
   gap: clamp(1.5rem, 4vw, 3rem);
   min-height: 32.5rem;
   padding: clamp(1rem, 2.5vw, 1.5rem);
