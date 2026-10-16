@@ -237,6 +237,7 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 - **Shape:** 8px radius by default; fully pill (999px) for the header/nav-mobile CTA.
 - **Primary (pill):** cobalt background, white text, Oswald label typography, uppercase-free — used in the header and mobile nav for the "Discuss a project" CTA. Hover darkens to Cobalt Deep and lifts `-1px` with a cobalt-tinted glow.
+- **Outline (secondary):** transparent background, a 1.5px cobalt border, cobalt Oswald text, `min-height: 48px`, fully pill — the quiet partner placed next to a primary action, never on its own. Frost background on hover (mouse only, under `@media (hover: hover)`) and on `:active` as touch feedback. Currently used by the hero below 768px, as "Discuss a project" under the CV download, sized to the Spotlight button's width.
 - **Hero Spotlight (CV download):** the one glassmorphic button in the system — frosted white glass (`backdrop-filter: blur(16px) saturate(170%)`), CTA Spotlight Ink text, wrapped in a frame with a rotating CTA Spotlight rainbow border and a pulsing ring on entrance (see Colors → CTA Spotlight). This is the single most important conversion action on the page (CV download) and is the only button allowed this treatment.
 - **Submit (form):** cobalt background, white text, uppercase Oswald label with `0.04em` tracking, full-width in the contact form. Hover **inverts** (white background, cobalt text/border) rather than darkening — the one button variant that swaps instead of deepens.
 - **Ghost (text link):** no background, cobalt text, an animated underline that retracts on hover instead of appearing — used for "read more" style links.
@@ -272,7 +273,7 @@ Four cross-cutting moments carry the "developer console" identity, deliberately 
 
 1. **Logo caret** — the wordmark "AntoshkinDev" ends in a blinking cobalt caret (`steps(1)` blink, 1.06s), a literal cursor.
 2. **Author IDE card** (About page) — a dark, 24px-radius card styled as a code editor window: red/yellow/green traffic-light dots, a lowercase monospace title bar, and a syntax-highlighted fake code snippet in the footer.
-3. **Decoding hero subtitle** — the hero's identity line decodes itself character-by-character (unresolved characters cycle through random glyphs of the same alphabet in cobalt, then lock to Ink) on load and again on a long loop, echoing a terminal printing text.
+3. **Decoding hero subtitle** — the hero's identity line decodes itself character-by-character (unresolved characters cycle through random glyphs of the same alphabet in cobalt, then lock to Ink) on load and again on a long loop, echoing a terminal printing text. On touch screens (`hover: none`) it decodes exactly once, on load, and then stays readable.
 4. **PhotoRing inspect hover** — hovering the author photo ring (shared by `AuthorIdentity` and `AuthorPhoto`) reveals a dashed cobalt outline and a `<PhotoRing />` tag chip in the reserved monospace stack, echoing a browser devtools "inspect element" highlight — a grace note for the technically literate visitor that doubles as a wink at the site's own React/JSX stack.
 
 All four respect `prefers-reduced-motion` by disabling their transition and rendering statically (the caret, card glow, and subtitle stop animating; the inspect overlay's hover fade becomes instant rather than eased).

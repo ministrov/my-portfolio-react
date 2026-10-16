@@ -18,10 +18,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Files carrying JSX renamed to `.jsx`: `src/index.jsx`, `src/const/index.jsx`, `src/components/socials/socials.jsx`.
 - Web3Forms key switched from `REACT_APP_WEB3FORMS_KEY` to `VITE_WEB3FORMS_KEY`.
 - `browserslist` dropped in favour of Vite's `baseline-widely-available` target — a deliberate narrowing of browser support.
+- **Hero fits the screen on tablets and phones (≤ 1024 px).** `.hero` is `border-box` with `min-height: 100svh` (`100vh` fallback): at 390×844 it was 1 004 px tall, now exactly the viewport. "Scroll ↓" moved out of `.hero__inner` and is pinned to the bottom edge with `env(safe-area-inset-bottom)`. The "Open to work" badge sits above the heading. Below 768 px a second, outline "Discuss a project" button stands under "Download CV" in a single column. Desktop ≥ 1025 px is unchanged: content-box height, scroll hint in flow, no badge.
+- **The hero subtitle decodes exactly once on touch screens.** Under `(hover: none)` it decodes on load and then stays readable: no 7 s loop, and no replay when the hero scrolls back into view. Desktop with a mouse keeps the loop, paused while off-screen.
+- `AuthorMeta` renders the availability badge through the new `AvailabilityBadge`; its look in the author card (light on the home page, dark on /about) is unchanged.
 
 ### Added
 
 - **`useMediaQuery` hook** (`src/hooks/useMediaQuery.jsx`) — tracks a CSS media query via `useSyncExternalStore`: the value is correct on the first render and follows `change` events. Groundwork for the touch layouts of the mobile sprint (S01).
+- **`AvailabilityBadge` component** (`src/components/availabilityBadge/`) — the pulsing "Open to work" status, extracted from `AuthorMeta` into its own BEM block with `light` / `dark` variants, so the hero and the author card share it.
+- **`outline` variant of `CtaButton`** — transparent pill with a 1.5 px cobalt border, 48 px tall, Frost background on hover (mouse only) and on press. A secondary action next to a primary one; used by the hero on phones.
+- Tests for `CtaButton` and `AvailabilityBadge`.
 - **Vitest harness** (`vitest`, Testing Library, jsdom) replacing the Jest that left with `react-scripts`, plus `npm test` / `npm run test:run`.
 - Tests for the projects filter reducer and for the language resolver.
 - `src/utils/lang.js` — single source of truth for the initial-language precedence (`?lang=` → `localStorage` → `ru`), shared by the i18next bootstrap and `LanguageProvider`.

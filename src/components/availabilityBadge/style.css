@@ -1,0 +1,51 @@
+/* Бейдж статуса «Открыт к предложениям». Внешнюю геометрию (выравнивание,
+   отступы) задаёт родитель через класс-микс — здесь только сам бейдж */
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-gray-800);
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 999px;
+}
+
+/* На тёмной IDE-карточке (/about) заливка и рамка чуть плотнее, текст белый */
+.availability-badge--dark {
+  border-color: rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--color-white);
+}
+
+.availability-badge__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-green-500);
+  /* Мягкий пульс — сигнализирует об актуальности */
+  animation: availability-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes availability-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Уважение к системной настройке «уменьшить движение» */
+@media (prefers-reduced-motion: reduce) {
+  .availability-badge__dot {
+    animation: none;
+  }
+}
