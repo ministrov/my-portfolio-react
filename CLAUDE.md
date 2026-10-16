@@ -75,6 +75,16 @@ The rule files were partly copied from a different (Redux/TypeScript) project an
 
 The parts of the rules that **do** apply are already reflected above (Russian JSDoc, functional components, plain CSS/BEM, naming, the "do not add" list, and the commit format).
 
+## Team workflow (training product team)
+
+The repo doubles as a practice ground for team product development, run in scope-based sprints:
+
+- **Team lead** — the `team-lead` skill, in the main conversation: estimates and decomposes sprint briefs, assigns tasks, takes the hardest ones, reviews everything. Modes: `/team-lead plan|start|review|status|demo|retro <id>`.
+- **Layout engineer** — the `layout-engineer` subagent (`.claude/agents/`), preloaded with the `frontend-architect` skill. Works only from an approved task card, never commits; the lead reviews and commits its work.
+- **Junior frontend developer** — the user. Claude never implements tasks assigned to the junior: the lead hands over a task card (direction, no ready code) and reviews the user's diff.
+
+Sprint artifacts live in `.claude/sprints/S<NN>-<slug>/` (brief, plan/board, task cards, reviews, retro); templates are in `.claude/skills/team-lead/templates/`.
+
 ## Commits
 
 Commit-message rules live in the **`commit` skill** (`.claude/skills/commit/SKILL.md`) — invoke it when writing a commit. In short: Conventional Commits format (`<type>(scope): subject` + optional bulleted body), and commit **as the repo owner only** — never add a `Co-Authored-By: Claude` trailer.
