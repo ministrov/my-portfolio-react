@@ -77,6 +77,47 @@
   transform: translateX(4px);
 }
 
+/* ─── Вариант «контур» (вторичная кнопка: герой на телефоне) ────── */
+
+/* Вторая по значимости кнопка рядом с главной: контур вместо заливки,
+   чтобы не спорить с ней за внимание. Перебивает из базы цвет текста
+   и отсутствие рамки. Высота — min-height, а не height: при зуме и
+   увеличенных интервалах текста подпись не обрежется. */
+.cta-button--outline {
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-headings);
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--color-blue-700);
+  background-color: transparent;
+  border: 1.5px solid var(--color-blue-700);
+  border-radius: 999px;
+}
+
+/* Hover только для мыши: кнопка живёт на тач-экранах, и после тапа
+   фон залипал бы до следующего касания */
+@media (hover: hover) {
+  .cta-button--outline:hover {
+    background-color: var(--color-gray-200);
+  }
+
+  .cta-button--outline:hover .cta-button__arrow {
+    transform: translateX(3px);
+  }
+}
+
+/* Отклик на касание вместо hover: тот же Frost на время нажатия */
+.cta-button--outline:active {
+  background-color: var(--color-gray-200);
+}
+
+.cta-button--outline:focus-visible {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 2px;
+}
+
 @media screen and (max-width: 360px) {
   .cta-button--block {
     padding: 12px 18px;

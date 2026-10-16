@@ -10,6 +10,9 @@ import {
 import { GoArrowUpRight, GoCheck } from 'react-icons/go';
 import useScrambleText from '../../hooks/useScrambleText';
 import useCharWidths from '../../hooks/useCharWidths';
+import useMediaQuery from '../../hooks/useMediaQuery';
+import AvailabilityBadge from '../../components/availabilityBadge/AvailabilityBadge';
+import CtaButton from '../../components/ctaButton/CtaButton';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import './style.css';
 
@@ -121,11 +124,16 @@ const ctaPopReduced = {
 const DOWNLOAD_ACK_MS = 2200;
 
 /**
- * Hero-секция главной страницы: центрированный блок с кикером,
- * крупным заголовком с градиентным акцентом, подзаголовком
- * и кнопкой скачивания резюме.
+ * Hero-секция главной страницы: центрированный блок с бейджем статуса,
+ * крупным заголовком с градиентным акцентом, подзаголовком, кнопкой
+ * скачивания резюме и подсказкой скролла.
  *
- * Весь текст резолвится из i18n-словаря по ключам `hero.*`.
+ * До 1024px герой ровно в экран, бейдж виден над заголовком, а подсказка
+ * прижата к нижнему краю; до 767px под резюме появляется вторичная
+ * контурная «Обсудить проект». На тач-экранах (`hover: none`) подзаголовок
+ * расшифровывается без цикла. Десктоп с мышью — без изменений.
+ *
+ * Текст героя резолвится из i18n-словаря по ключам `hero.*`.
  *
  * @returns {JSX.Element} Hero-секция
  * @example
@@ -144,14 +152,22 @@ const Hero = () => {
   const isContentInView = useInView(contentRef);
   const subtitleRef = useRef(null);
   const isSubtitleInView = useInView(subtitleRef);
+  // На таче подзаголовок расшифровывается ровно один раз, при загрузке, и
+  // дальше только читается: без цикла (повторный скрамбл приходился на момент
+  // первого взгляда) и без паузы по видимости — useScrambleText перезапускает
+  // расшифровку при каждом включении `active`, и возврат к герою шифровал бы
+  // текст заново. isTouch верен с первого рендера (useSyncExternalStore),
+  // поэтому `active` на таче не мигает. На десктопе цикл, как раньше,
+  // замирает вне кадра
+  const isTouch = useMediaQuery('(hover: none)');
   const subtitleText = t('hero.subtitle');
   const subtitleGlyphs = useScrambleText(subtitleText, {
     delayMs: (ANIMATION_DELAYS.SUBTITLE + 0.15) * 1000,
     stepMs: 30,
     tickMs: 42,
-    loop: true,
+    loop: !isTouch,
     pauseMs: 7000,
-    active: isSubtitleInView,
+    active: isTouch || isSubtitleInView,
   });
   const subtitleCharWidths = useCharWidths(subtitleRef, subtitleText);
   const [isDownloadAcked, setIsDownloadAcked] = useState(false);
@@ -203,6 +219,12 @@ const Hero = () => {
       <div className="container">
         <LazyMotion features={domAnimation}>
           <div className="hero__inner" ref={contentRef}>
+            {/* Статус «открыт к предложениям» — над заголовком и появляется
+                вместе с ним; на десктопе скрыт в CSS (см. .hero__badge) */}
+            <m.div className="hero__badge" {...titleMotion}>
+              <AvailabilityBadge />
+            </m.div>
+
             <h1 className="hero__title">
               {/* Визуальный заголовок — афоризм без ключевых слов; для
                   краулеров и AI-выдачи (GEO) в тот же h1 добавлена
@@ -302,17 +324,25 @@ const Hero = () => {
                   {isDownloadAcked ? t('hero.btnDownloading') : ''}
                 </span>
               </div>
-            </m.div>
 
-            <p
-              className="hero__scroll-hint"
-              style={{ '--scroll-delay': `${ANIMATION_DELAYS.SCROLL_HINT}s` }}
-            >
-              {t('hero.scrollHint')}
-            </p>
+              {/* Вторичная «Обсудить проект» — только до 767px, где CTA
+                  шапки спрятан в бургер; подпись и скролл к контактам —
+                  поведение CtaButton по умолчанию */}
+              <CtaButton variant="outline" className="hero__secondary-cta" />
+            </m.div>
           </div>
         </LazyMotion>
       </div>
+
+      {/* Подсказка — прямой ребёнок секции, а не .hero__inner: до 1024px она
+          позиционируется абсолютно от нижнего края .hero, а у .hero__inner
+          свой position: relative */}
+      <p
+        className="hero__scroll-hint"
+        style={{ '--scroll-delay': `${ANIMATION_DELAYS.SCROLL_HINT}s` }}
+      >
+        {t('hero.scrollHint')}
+      </p>
     </section>
   );
 };

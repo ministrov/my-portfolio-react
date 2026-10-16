@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { BsGeoAlt } from 'react-icons/bs';
+import AvailabilityBadge from '../availabilityBadge/AvailabilityBadge';
 import SocialList from '../socials/SocialList';
 import './style.css';
 
@@ -30,10 +31,7 @@ const AuthorMeta = ({ variant = 'light' }) => {
         {t('authorPhoto.location')}
       </p>
 
-      <div className="author-meta__available">
-        <span className="author-meta__available-dot" aria-hidden="true" />
-        {t('about.available')}
-      </div>
+      <AvailabilityBadge variant={variant} className="author-meta__badge" />
 
       <SocialList variant={variant === 'dark' ? 'white' : 'blue'} />
     </div>

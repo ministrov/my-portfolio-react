@@ -65,53 +65,8 @@
   opacity: 0.7;
 }
 
-/* Бейдж доступности */
-.author-meta__available {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+/* Место бейджа доступности (блок availability-badge) в колонке меты:
+   по ширине содержимого, а не растянут на всю колонку */
+.author-meta__badge {
   align-self: flex-start;
-  padding: 0.3rem 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  border-radius: 999px;
-  line-height: 1.4;
-  background: rgba(34, 197, 94, 0.08);
-  color: var(--color-gray-800);
-}
-
-.author-meta--dark .author-meta__available {
-  border-color: rgba(34, 197, 94, 0.35);
-  background: rgba(34, 197, 94, 0.12);
-  color: var(--color-white);
-}
-
-.author-meta__available-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--color-green-500);
-  /* Мягкий пульс — сигнализирует об актуальности */
-  animation: availability-pulse 2.4s ease-in-out infinite;
-}
-
-@keyframes availability-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.4;
-  }
-}
-
-/* Уважение к системной настройке «уменьшить движение» */
-@media (prefers-reduced-motion: reduce) {
-  .author-meta__available-dot {
-    animation: none;
-  }
 }

@@ -1,0 +1,3 @@
+- [S01: desktop must not change](project_desktop_unchanged_s01.md) — brief CSS landing in base rules must be scoped to ≤1024; verify at 1280
+- [Hero traps](project_hero_traps.md) — dormant spotlight width rule (keep column fit-content), +4px frame, scramble restarts when `active` turns on
+- [CSS chunk order](project_css_chunk_order.md) — mix overrides of component props: raise specificity via parent, don't rely on chunk <link> order

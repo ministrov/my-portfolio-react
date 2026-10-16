@@ -4,12 +4,15 @@ import './style.css';
 
 /**
  * Переиспользуемая CTA-кнопка «Обсудить проект».
- * Прокручивает страницу к секции контактов (`.contact`). Используется в шапке
- * и в модальном окне; внешний вид задаётся пропом `variant`.
+ * Прокручивает страницу к секции контактов (`.contact`). Используется в шапке,
+ * мобильном меню, модальном окне и на первом экране; внешний вид задаётся
+ * пропом `variant`.
  *
  * @component
  * @param {Object}   props
- * @param {('pill'|'block')} [props.variant='pill'] - Вариант оформления: «пилюля» (шапка) или блок (модалка)
+ * @param {('pill'|'block'|'outline')} [props.variant='pill'] - Вариант оформления:
+ *   «пилюля» (шапка), блок (модалка, мобильное меню) или контур — вторичная
+ *   кнопка рядом с главной (первый экран на телефоне)
  * @param {string}   [props.label]     - Текст кнопки; по умолчанию ключ `modal.cta`
  * @param {Function} [props.onClick]   - Доп. колбэк перед скроллом (например, закрытие модалки)
  * @param {string}   [props.className=''] - Дополнительные CSS-классы
@@ -19,6 +22,7 @@ import './style.css';
  * @example
  * <CtaButton variant="pill" />
  * <CtaButton variant="block" onClick={handleClose} />
+ * <CtaButton variant="outline" className="hero__secondary-cta" />
  */
 const CtaButton = ({
   variant = 'pill',

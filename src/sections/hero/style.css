@@ -26,6 +26,17 @@
   z-index: 2;
 }
 
+/* Обёртка бейджа статуса над заголовком (её же анимирует titleMotion).
+   Flex, а не блок со строчным бейджем внутри: иначе бейдж сел бы в строку
+   с line-height от body и высота обёртки зависела бы от него.
+   На десктопе скрыт — десктопный вид героя в S01 не меняется; показывается
+   с 1024px и ниже, см. медиазапрос */
+.hero__badge {
+  display: none;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
 .hero__title {
   position: relative;
   margin-bottom: 1.75rem;
@@ -106,6 +117,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Вторичная контурная кнопка: только на телефоне (до 767px), где CTA шапки
+   спрятан в бургер. С 768px её роль берёт CTA шапки: на десктопе он виден
+   уже сейчас, на 768–992px — после переноса брейкпоинта меню (S01-T06).
+   Через родителя, а не одним классом: иначе display перебивал бы базовый
+   .cta-button той же специфичности только порядком CSS-чанков в сборке */
+.hero__actions .hero__secondary-cta {
+  display: none;
 }
 
 /* Колонка под кнопку (соответствует структуре хендоффа: gap:14px оставляет
@@ -245,8 +265,12 @@
   transform: scale(1.14);
 }
 
+/* Прямой ребёнок .hero, а не .hero__inner: центровку текста задаёт сам.
+   На десктопе стоит в потоке под кнопками, как раньше; до 1024px прижат
+   к нижнему краю экрана (см. медиазапрос) */
 .hero__scroll-hint {
   margin-top: 3rem;
+  text-align: center;
   font-family: var(--font-headings);
   font-size: 0.75rem;
   font-weight: 400;
@@ -304,10 +328,56 @@
   }
 }
 
+/* Планшет и телефон: герой ровно в экран, подсказка скролла у нижнего края.
+   Десктоп не трогаем: там герой остаётся content-box и подсказка в потоке */
+@media screen and (max-width: 1024px) {
+  /* border-box: отступы входят в высоту, а не прибавляются к ней (раньше
+     100dvh + 96 + 64px давали 940px на экране 780). svh не пересчитывается,
+     когда схлопывается панель Safari, поэтому блок не прыгает при скролле;
+     100vh — фолбэк для Safari до 15.4, где svh нет */
+  .hero {
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .hero__badge {
+    display: flex;
+  }
+
+  /* Подсказка живёт в нижнем паддинге секции и не наезжает на кнопки.
+     Центровка — растяжкой на всю ширину, а не translateX(-50%): transform
+     занят анимацией hero-scroll-bounce. safe-area-inset — запас под домашний
+     индикатор iPhone на случай viewport-fit=cover (сейчас инсет равен 0) */
+  .hero__scroll-hint {
+    position: absolute;
+    inset-inline: 0;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    margin: 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .hero {
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+}
+
+/* Телефон: две кнопки столбиком, вторичная — под главной. Ширина колонки —
+   по содержимому, то есть по ширине spotlight-кнопки: вторичная растягивается
+   под неё, а сама spotlight остаётся такой же, как до появления пары */
+@media screen and (max-width: 767px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: fit-content;
+    margin-inline: auto;
+  }
+
+  .hero__actions .hero__secondary-cta {
+    display: flex;
   }
 }
 
