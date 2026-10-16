@@ -1,7 +1,8 @@
 ---
 name: test
 description: Add Vitest + Testing Library tests for a given file in the my-portfolio-react portfolio (Vite 8 + React 19, JS/JSX). Use when asked to write, add or extend tests for a component, hook, reducer or util.
-model: sonnet
+model: opus
+effort: xhigh
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(npm run test:run:*), Bash(npx vitest:*), Bash(npx eslint:*)
 user-invocable: true
 argument-hint: <filepath>
