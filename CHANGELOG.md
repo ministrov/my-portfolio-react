@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **`useMediaQuery` hook** (`src/hooks/useMediaQuery.jsx`) — tracks a CSS media query via `useSyncExternalStore`: the value is correct on the first render and follows `change` events. Groundwork for the touch layouts of the mobile sprint (S01).
 - **Vitest harness** (`vitest`, Testing Library, jsdom) replacing the Jest that left with `react-scripts`, plus `npm test` / `npm run test:run`.
 - Tests for the projects filter reducer and for the language resolver.
 - `src/utils/lang.js` — single source of truth for the initial-language precedence (`?lang=` → `localStorage` → `ru`), shared by the i18next bootstrap and `LanguageProvider`.
