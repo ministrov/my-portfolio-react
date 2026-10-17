@@ -72,8 +72,12 @@ const getActiveSlideIndex = (track, slides) => {
  * на каждом событии `scroll` — браузер шлёт его не чаще раза за кадр, так что
  * отдельный троттлинг через `requestAnimationFrame` не нужен. Клик по точке
  * прокручивает трек к точке привязки по той же формуле, поэтому активная
- * точка после клика совпадает с выбранной по построению. Tab по ссылкам
- * браузер сам доводит до слайда в фокусе — счётчик идёт за ним так же.
+ * точка после клика совпадает с выбранной по построению. Фокус с клавиатуры
+ * внутри слайда прокручивает трек к этому слайду по той же формуле — в обе
+ * стороны Tab и в любом браузере; полагаться на то, как браузер сам доводит
+ * элемент в фокусе, нельзя: частично видимую ссылку соседнего слайда он
+ * оставляет как есть, и привязка возвращает ленту назад. Счётчик идёт за
+ * прокруткой так же, как после свайпа.
  *
  * Ссылка «Смотреть проект» — только кнопка внутри слайда, а не вся карточка:
  * при свайпе по растянутой ссылке бывают случайные переходы. Доступное имя —
@@ -118,7 +122,11 @@ const ShowcaseCarousel = ({ projects }) => {
     setActiveIndex(getActiveSlideIndex(track, slideRefs.current));
   };
 
-  const handleDotClick = (index) => {
+  /**
+   * Прокручивает трек так, чтобы слайд встал к началу ленты.
+   * @param {number} index - Индекс слайда.
+   */
+  const scrollToSlide = (index) => {
     const track = trackRef.current;
     const slide = slideRefs.current[index];
     const firstSlide = slideRefs.current[0];
@@ -128,6 +136,23 @@ const ShowcaseCarousel = ({ projects }) => {
       left: getSlideScrollLeft(slide, firstSlide),
       behavior: prefersReducedMotion ? 'auto' : 'smooth',
     });
+  };
+
+  /**
+   * Доводит до слайда, в котором оказался фокус с клавиатуры. Фокус от мыши
+   * и касания пропускается (`:focus-visible` для него не срабатывает): Chrome
+   * ставит фокус на ссылку ещё на `mousedown`, и прокрутка увела бы
+   * выглядывающую кнопку из-под курсора до `mouseup` — клик не дошёл бы до
+   * ссылки, переход потерялся бы.
+   * @param {FocusEvent} event - Событие `focus`, всплывшее до трека.
+   */
+  const handleTrackFocus = (event) => {
+    if (!event.target.matches(':focus-visible')) return;
+
+    const index = slideRefs.current.findIndex((slide) =>
+      slide?.contains(event.target)
+    );
+    if (index !== -1) scrollToSlide(index);
   };
 
   return (
@@ -156,7 +181,7 @@ const ShowcaseCarousel = ({ projects }) => {
               aria-label={t('showcasing.dotAriaLabel', {
                 project: t(project.title),
               })}
-              onClick={() => handleDotClick(index)}
+              onClick={() => scrollToSlide(index)}
             />
           ))}
         </div>
@@ -166,6 +191,7 @@ const ShowcaseCarousel = ({ projects }) => {
         className="showcase-carousel__track"
         ref={trackRef}
         onScroll={handleScroll}
+        onFocus={handleTrackFocus}
       >
         {projects.map((project, index) => {
           const titleId = `${baseId}-title-${project.id}`;

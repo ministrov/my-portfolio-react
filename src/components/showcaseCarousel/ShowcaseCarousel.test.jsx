@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { render, screen, fireEvent, within } from '@testing-library/react';
+import { render, screen, fireEvent, within, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '../../utils/i18n/index'; // инициализирует i18next (язык по умолчанию — ru)
 import { projects } from '../../sections/projects/projects';
@@ -246,6 +246,61 @@ describe('ShowcaseCarousel', () => {
 
       expect(getCounter()).toHaveTextContent('04 / 04');
       expect(getDots()[3]).toHaveAttribute('aria-current', 'true');
+    });
+  });
+
+  describe('фокус в слайде', () => {
+    /**
+     * Ставит фокус на «Смотреть проект» слайда. jsdom понимает
+     * `:focus-visible`, но всегда отвечает false — вердикт браузера
+     * «фокус с клавиатуры» подменяется на самой ссылке.
+     * @param {number} index - Индекс слайда.
+     * @param {{ keyboard: boolean }} options - Откуда пришёл фокус.
+     */
+    const focusSlideLink = (index, { keyboard }) => {
+      const link = within(screen.getAllByRole('group')[index]).getByRole(
+        'link'
+      );
+      vi.spyOn(link, 'matches').mockImplementation(
+        (selector) => keyboard && selector === ':focus-visible'
+      );
+      act(() => link.focus());
+    };
+
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it('с клавиатуры прокручивает трек к слайду в фокусе', () => {
+      const { track } = renderCarousel();
+
+      focusSlideLink(2, { keyboard: true });
+
+      expect(track.scrollTo).toHaveBeenCalledTimes(1);
+      expect(track.scrollTo).toHaveBeenCalledWith({
+        left: 568,
+        behavior: 'smooth',
+      });
+    });
+
+    it('при Shift+Tab назад доводит до предыдущего слайда', () => {
+      const { track, scrollTrackTo } = renderCarousel(TABLET_1024);
+      scrollTrackTo(1124);
+
+      focusSlideLink(2, { keyboard: true });
+
+      expect(track.scrollTo).toHaveBeenCalledWith({
+        left: 1064,
+        behavior: 'smooth',
+      });
+    });
+
+    it('от мыши и касания не прокручивает — клик не уходит из-под курсора', () => {
+      const { track } = renderCarousel();
+
+      focusSlideLink(1, { keyboard: false });
+
+      expect(track.scrollTo).not.toHaveBeenCalled();
     });
   });
 });
