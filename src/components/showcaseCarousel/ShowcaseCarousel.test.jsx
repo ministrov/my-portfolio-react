@@ -66,8 +66,12 @@ const renderCarousel = (geometry = PHONE) => {
   return { track, scrollTrackTo };
 };
 
-/** @returns {HTMLElement} Счётчик «01 / 04». */
-const getCounter = () => screen.getByText(/^\d{2} \/ \d{2}$/);
+/**
+ * Счётчик ищется по классу, а не по тексту: «/ 04» лежит в отдельном `span`,
+ * а `getByText` смотрит только собственный текст узла.
+ * @returns {HTMLElement} Счётчик «01 / 04».
+ */
+const getCounter = () => document.querySelector('.showcase-carousel__counter');
 
 /** @returns {HTMLElement[]} Точки-переключатели в порядке слайдов. */
 const getDots = () =>

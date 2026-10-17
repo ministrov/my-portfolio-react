@@ -1,6 +1,10 @@
 /* Свайп-лента лучших проектов. Рендерится на планшетах, телефонах и любых
-   тач-экранах (TOUCH_LAYOUT_QUERY в StickyShowcase.jsx). Свой фон не задаёт:
-   градиент уже у обёртки секции .showcasing__wrapper.
+   тач-экранах (TOUCH_LAYOUT_QUERY в StickyShowcase.jsx). Свой фон — по
+   макету (images/01-showcase.png): градиент почти сверху вниз, кобальт →
+   фиолетовый, без индиго посередине. Лента целиком закрывает обёртку
+   .showcasing__wrapper, а её сайтовый градиент 120° остаётся десктопной
+   витрине. Приглушённые цвета текста ниже подобраны под этот фон: на
+   индиго сайтового градиента они не проходят AA.
 
    Desktop-first, как весь проект: база — самый широкий случай, где лента
    вообще появляется (тач-экраны шире 1024 px — iPad в альбомной ориентации,
@@ -19,8 +23,16 @@
   --carousel-gap: 12px;
   --carousel-slide-width: 520px;
   /* Без padding-inline: проценты в padding-inline-end трека считаются от
-     ширины этого блока и должны совпадать с шириной самого трека */
-  padding-block: 16px 24px;
+     ширины этого блока и должны совпадать с шириной самого трека.
+     11 px сверху — центр строки счётчика и точек на 33 px, как в макете. */
+  padding-block: 11px 16px;
+  /* Скругление — от обёртки, иначе фон ленты закрыл бы её углы */
+  border-radius: inherit;
+  background: linear-gradient(
+    160deg,
+    var(--color-blue-700),
+    var(--color-violet-500)
+  );
   color: var(--color-white);
 }
 
@@ -34,47 +46,61 @@
   padding-inline: var(--carousel-gutter);
 }
 
-/* Типографика — как у .sticky-showcase__counter (та же роль на десктопе).
-   Цвет — чистый белый: на индиго-середине градиента обёртки даже он даёт
-   около 4.5:1, любая прозрачность опустила бы контраст ниже. */
+/* Крупный жирный текст (≥ 19 px, 700 — по WCAG от 14 pt bold): ему хватает
+   3:1. Поэтому «/ 04» приглушён до 0.65, как в макете, — при 0.6 выходит
+   2.9:1. Номер текущей карточки — чистый белый. */
 .showcase-carousel__counter {
   font-family: var(--font-headings);
-  font-size: 1.25rem;
-  font-weight: 600;
+  /* Цифры Oswald сидят в строке ниже её середины: отступ снизу поднимает
+     их центр на середину строки точек (33 px от верха ленты) */
+  margin-block-end: 2px;
+  font-size: 1.1875rem;
+  font-weight: 700;
   line-height: 1.2;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-/* Зона касания — сама кнопка 44×44, соседние стоят вплотную: так 44 px
-   честные, без перекрытия зон. Видимая точка (8 px) рисуется в ::before.
-   Отрицательный отступ подтягивает ряд к краю: у кнопки по 18 px прозрачного
-   поля вокруг точки, без него ряд визуально отступал бы от края вдвое дальше
-   счётчика. 14 px, а не 18: зона последней кнопки не выходит за экран. */
+.showcase-carousel__counter-total {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Плотная группа точек макета: шаг 24 px, видимые зазоры 16 px. Зоны
+   касания 24×44 у неактивной и 40×44 у активной — кнопки стоят вплотную,
+   без перекрытия. 24 px — минимум WCAG 2.5.8 (AA); 44×44 из ТЗ в плотную
+   группу не помещается — решение пользователя (S01-T05, раунд 3).
+   Отрицательный отступ ставит правый край последней видимой точки на
+   отступ ленты 16 px: у кнопки по 8 px прозрачного поля вокруг точки. */
 .showcase-carousel__dots {
   display: flex;
-  margin-inline-end: -14px;
+  margin-inline-end: -8px;
 }
 
 .showcase-carousel__dot {
   display: grid;
   place-items: center;
-  width: 44px;
+  width: 24px;
   height: 44px;
   border: none;
   background: none;
   cursor: pointer;
+  transition: width 0.25s ease;
 }
 
-/* Неактивная точка — белый 0.7: от 3:1 к любой точке градиента (WCAG
-   1.4.11). Активная отличается не только цветом, но и формой (пилюля). */
+.showcase-carousel__dot--active {
+  width: 40px;
+}
+
+/* Неактивная точка — белый 0.62: от 3:1 к фону ленты под точками (WCAG
+   1.4.11; в макете 0.4 — это 2:1). Активная отличается не только цветом,
+   но и формой (пилюля). */
 .showcase-carousel__dot::before {
   content: '';
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.62);
   transition:
     width 0.25s ease,
     background-color 0.25s ease;
@@ -85,8 +111,8 @@
   background: var(--color-white);
 }
 
-/* Кольцо фокуса — вокруг видимой точки, а не вокруг всей зоны 44×44:
-   квадрат вокруг точки в 8 px читался бы как отдельная кнопка */
+/* Кольцо фокуса — вокруг видимой точки, а не вокруг всей зоны касания:
+   прямоугольник 24×44 вокруг точки в 8 px читался бы как отдельная кнопка */
 .showcase-carousel__dot:focus-visible {
   outline: none;
 }
@@ -103,9 +129,10 @@
    трек точкой отсчёта offsetLeft слайдов.
 
    overflow-x: auto делает и overflow-y не visible: всё, что выходит за
-   padding-box трека, обрезается. Отсюда padding-block — сверху запас под
-   тень картинки (0 8px 24px уходит вверх примерно на 16 px), снизу — под
-   кольцо фокуса «Смотреть проект» (2 px + отступ 3 px).
+   padding-box трека, обрезается. Отсюда padding-block. Снизу — запас под
+   кольцо фокуса «Смотреть проект» (2 px + отступ 3 px). Сверху — 7 px, чтобы
+   верх картинки встал на 62 px, как в макете. Тень картинки (0 8px 24px)
+   над верхним краем почти прозрачна, и обрезка выше 7 px незаметна.
 
    padding-inline-end — запас в конце трека: на тач-экранах шире 1024 px
    два последних слайда помещаются целиком и без запаса делили бы одну точку
@@ -120,7 +147,7 @@
   position: relative;
   display: flex;
   gap: var(--carousel-gap);
-  padding-block: 16px 8px;
+  padding-block: 7px 8px;
   padding-inline: var(--carousel-gutter)
     calc(100% - var(--carousel-slide-width) - var(--carousel-gutter));
   overflow-x: auto;
@@ -153,50 +180,53 @@
    ShowcasingCardPicture), радиус и тень. Здесь не дублируется. */
 
 /* Текстовая часть растёт на всю свободную высоту слайда и отодвигает
-   кнопку вниз; padding-bottom — минимальный отступ до кнопки */
+   кнопку вниз; padding-bottom — минимальный отступ до кнопки. Отступы
+   подобраны по макету на 390 px по чернилам глифов, а не по строкам. */
 .showcase-carousel__body {
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
-  gap: 6px;
-  padding-block: 20px;
+  padding-block: 16px 17px;
 }
 
-/* Label из DESIGN.md: Oswald, капс, трекинг */
+/* Label из DESIGN.md: Oswald, капс, трекинг. 0.85 белого, как в макете:
+   на фоне ленты это от 4.5:1. */
 .showcase-carousel__meta {
+  color: rgba(255, 255, 255, 0.85);
   font-family: var(--font-headings);
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.4;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-/* Разделитель «·» между годом и ролью, как у .sticky-showcase__meta */
+/* Разделитель — текстовая «·» с зазорами по 7 px, как в макете. Пустой
+   альтернативный текст (второе объявление): скринридер её не читает, а
+   браузер без этого синтаксиса возьмёт первое. */
 .showcase-carousel__meta-role::before {
-  content: '';
-  display: inline-block;
-  width: 3px;
-  height: 3px;
-  margin-inline: 0.625rem;
-  border-radius: 50%;
-  background: currentColor;
-  vertical-align: middle;
+  content: '·';
+  content: '·' / '';
+  margin-inline: 0.35em;
 }
 
-/* Headline из DESIGN.md: 24 px на телефоне → 26 px на планшете */
+/* Headline из DESIGN.md, верх его диапазона: заглавные 22 px, как в макете */
 .showcase-carousel__title {
+  margin-top: 7px;
   font-family: var(--font-headings);
-  font-size: clamp(1.5rem, 2.5vw, 1.625rem);
-  font-weight: 600;
+  font-size: 1.6875rem;
+  font-weight: 700;
   line-height: 1.25;
   overflow-wrap: break-word;
   text-wrap: balance;
 }
 
+/* Meta-ступень DESIGN.md (0.9375rem), межстрочный 22 px, 0.9 белого */
 .showcase-carousel__slogan {
-  font-size: 1rem;
-  line-height: 1.5;
+  margin-top: 3.5px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9375rem;
+  line-height: calc(22 / 15);
   overflow-wrap: break-word;
   text-wrap: pretty;
 }
@@ -286,6 +316,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .showcase-carousel__dot,
   .showcase-carousel__dot::before,
   .showcase-carousel__link,
   .showcase-carousel__link-icon {

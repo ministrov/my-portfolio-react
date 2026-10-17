@@ -164,7 +164,10 @@ const ShowcaseCarousel = ({ projects }) => {
     >
       <div className="showcase-carousel__controls">
         <span className="showcase-carousel__counter" aria-hidden="true">
-          {pad(activeIndex + 1)} / {pad(count)}
+          {pad(activeIndex + 1)}{' '}
+          <span className="showcase-carousel__counter-total">
+            / {pad(count)}
+          </span>
         </span>
 
         <div className="showcase-carousel__dots">
