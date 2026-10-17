@@ -220,18 +220,22 @@ const ShowcaseCarousel = ({ projects }) => {
                 name={project.title}
               />
 
-              <p className="showcase-carousel__meta">
-                <span>{project.year}</span>
-                <span className="showcase-carousel__meta-role">
-                  {project.role}
-                </span>
-              </p>
+              <div className="showcase-carousel__body">
+                <p className="showcase-carousel__meta">
+                  <span>{project.year}</span>
+                  <span className="showcase-carousel__meta-role">
+                    {project.role}
+                  </span>
+                </p>
 
-              <h3 id={titleId} className="showcase-carousel__title">
-                {t(project.title)}
-              </h3>
+                <h3 id={titleId} className="showcase-carousel__title">
+                  {t(project.title)}
+                </h3>
 
-              {slogan && <p className="showcase-carousel__slogan">{slogan}</p>}
+                {slogan && (
+                  <p className="showcase-carousel__slogan">{slogan}</p>
+                )}
+              </div>
 
               <Link
                 to={`/projects#project-${project.id}`}

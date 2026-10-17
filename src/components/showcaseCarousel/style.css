@@ -1,45 +1,303 @@
-/* Функциональный минимум, чтобы проверить поведение ленты (S01-T04):
-   прокрутка с привязкой, ширина слайда, кликабельные точки. Визуал —
-   отступы, пропорции картинок, зона касания точек 44 px — S01-T05. */
+/* Свайп-лента лучших проектов. Рендерится на планшетах, телефонах и любых
+   тач-экранах (TOUCH_LAYOUT_QUERY в StickyShowcase.jsx). Свой фон не задаёт:
+   градиент уже у обёртки секции .showcasing__wrapper.
+
+   Desktop-first, как весь проект: база — самый широкий случай, где лента
+   вообще появляется (тач-экраны шире 1024 px — iPad в альбомной ориентации,
+   сенсорные ноутбуки), ниже — @media (max-width: 1024px) для планшетов и
+   (max-width: 767px) для телефонов.
+
+   --carousel-gutter питает и padding-inline-start трека, и его
+   scroll-padding-inline-start. Логика в ShowcaseCarousel.jsx
+   (getSlideScrollLeft) считает точку привязки первого слайда нулевой
+   прокруткой, а это верно, только пока оба отступа равны: одна переменная
+   держит их равными по построению.
+   --carousel-slide-width — ширина слайда (на телефоне — её потолок); из неё
+   считается запас в конце трека (см. .showcase-carousel__track). */
 .showcase-carousel {
+  --carousel-gutter: 16px;
+  --carousel-gap: 12px;
+  --carousel-slide-width: 520px;
+  /* Без padding-inline: проценты в padding-inline-end трека считаются от
+     ширины этого блока и должны совпадать с шириной самого трека */
+  padding-block: 16px 24px;
   color: var(--color-white);
 }
+
+/* ─── Панель: счётчик и точки ──────────────────────────────────── */
 
 .showcase-carousel__controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
+  padding-inline: var(--carousel-gutter);
 }
 
+/* Типографика — как у .sticky-showcase__counter (та же роль на десктопе).
+   Цвет — чистый белый: на индиго-середине градиента обёртки даже он даёт
+   около 4.5:1, любая прозрачность опустила бы контраст ниже. */
+.showcase-carousel__counter {
+  font-family: var(--font-headings);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Зона касания — сама кнопка 44×44, соседние стоят вплотную: так 44 px
+   честные, без перекрытия зон. Видимая точка (8 px) рисуется в ::before.
+   Отрицательный отступ подтягивает ряд к краю: у кнопки по 18 px прозрачного
+   поля вокруг точки, без него ряд визуально отступал бы от края вдвое дальше
+   счётчика. 14 px, а не 18: зона последней кнопки не выходит за экран. */
 .showcase-carousel__dots {
   display: flex;
-  gap: 8px;
+  margin-inline-end: -14px;
 }
 
 .showcase-carousel__dot {
-  width: 12px;
-  height: 12px;
-  padding: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
   border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  background: none;
   cursor: pointer;
 }
 
-.showcase-carousel__dot--active {
+/* Неактивная точка — белый 0.7: от 3:1 к любой точке градиента (WCAG
+   1.4.11). Активная отличается не только цветом, но и формой (пилюля). */
+.showcase-carousel__dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.showcase-carousel__dot--active::before {
+  width: 24px;
   background: var(--color-white);
 }
 
-/* position: relative делает трек точкой отсчёта offsetLeft слайдов */
+/* Кольцо фокуса — вокруг видимой точки, а не вокруг всей зоны 44×44:
+   квадрат вокруг точки в 8 px читался бы как отдельная кнопка */
+.showcase-carousel__dot:focus-visible {
+  outline: none;
+}
+
+.showcase-carousel__dot:focus-visible::before {
+  outline: 2px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+/* ─── Трек и слайды ────────────────────────────────────────────── */
+
+/* Прокрутка и привязка — только здесь: на треке висят ref и onScroll, и
+   активный слайд считается из его scrollLeft. position: relative делает
+   трек точкой отсчёта offsetLeft слайдов.
+
+   overflow-x: auto делает и overflow-y не visible: всё, что выходит за
+   padding-box трека, обрезается. Отсюда padding-block — сверху запас под
+   тень картинки (0 8px 24px уходит вверх примерно на 16 px), снизу — под
+   кольцо фокуса «Смотреть проект» (2 px + отступ 3 px).
+
+   padding-inline-end — запас в конце трека: на тач-экранах шире 1024 px
+   два последних слайда помещаются целиком и без запаса делили бы одну точку
+   привязки (точки 3 и 4 вели бы в одно место). С запасом в ширину экрана
+   минус слайд и отступ последний слайд может встать к началу ленты. На
+   ≤ 1024 px запас снят — там последний слайд упирается в край сам.
+
+   Доводку ленты до слайда со ссылкой в фокусе при Tab в обе стороны делает
+   обработчик фокуса в ShowcaseCarousel.jsx (handleTrackFocus), а не CSS:
+   сам браузер частично видимую ссылку соседнего слайда не прокручивает. */
 .showcase-carousel__track {
   position: relative;
   display: flex;
+  gap: var(--carousel-gap);
+  padding-block: 16px 8px;
+  padding-inline: var(--carousel-gutter)
+    calc(100% - var(--carousel-slide-width) - var(--carousel-gutter));
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
+  scroll-padding-inline-start: var(--carousel-gutter);
+  scrollbar-width: none;
 }
 
+.showcase-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ширина здесь — явная, не min(…, 72%): процент в flex-basis считается от
+   content-box трека, а его сужает запас в конце, так что 72% замкнулись бы
+   сами на себя. scroll-snap-stop: always — быстрый свайп не проскакивает
+   карточки, одна за жест. Колонка: кнопка у всех слайдов стоит по нижнему
+   краю, даже если слогана нет (у Mish) или он в одну строку. */
 .showcase-carousel__slide {
-  flex: 0 0 85%;
+  display: flex;
+  flex: 0 0 var(--carousel-slide-width);
+  flex-direction: column;
   min-width: 0;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Картинку оформляет общий блок .showcasing-card__image: cover, верх кадра,
+   16/9, а на ≤ 767 px — 3/4 (граница совпадает с <source media> в
+   ShowcasingCardPicture), радиус и тень. Здесь не дублируется. */
+
+/* Текстовая часть растёт на всю свободную высоту слайда и отодвигает
+   кнопку вниз; padding-bottom — минимальный отступ до кнопки */
+.showcase-carousel__body {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  gap: 6px;
+  padding-block: 20px;
+}
+
+/* Label из DESIGN.md: Oswald, капс, трекинг */
+.showcase-carousel__meta {
+  font-family: var(--font-headings);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+/* Разделитель «·» между годом и ролью, как у .sticky-showcase__meta */
+.showcase-carousel__meta-role::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-inline: 0.625rem;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: middle;
+}
+
+/* Headline из DESIGN.md: 24 px на телефоне → 26 px на планшете */
+.showcase-carousel__title {
+  font-family: var(--font-headings);
+  font-size: clamp(1.5rem, 2.5vw, 1.625rem);
+  font-weight: 600;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+.showcase-carousel__slogan {
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+/* Белая пилюля с кобальтовым текстом — как .sticky-showcase__cta; кобальт
+   на белом 5.17:1. Высота — min-height: при зуме и увеличенных интервалах
+   подпись не обрежется. align-self: ширина по подписи, а не на всю колонку. */
+.showcase-carousel__link {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding-inline: 1.25rem;
+  border-radius: 999px;
+  background-color: var(--color-white);
+  color: var(--color-blue-700);
+  font-family: var(--font-headings);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background-color 0.2s ease;
+}
+
+/* Отклик на касание: тот же Frost, что на hover мышью */
+.showcase-carousel__link:active {
+  background-color: var(--color-gray-200);
+}
+
+/* Белое кольцо через зазор в 3 px градиента — видно на любом его участке */
+.showcase-carousel__link:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+.showcase-carousel__link-icon {
+  flex: none;
+  transition: transform 0.2s ease;
+}
+
+/* Hover только для мыши: на таче фон залипал бы после тапа. Сдвиг
+   стрелки остаётся внутри кнопки и не расширяет прокрутку трека. */
+@media (hover: hover) {
+  .showcase-carousel__dot:hover::before {
+    background: var(--color-white);
+  }
+
+  .showcase-carousel__link:hover {
+    background-color: var(--color-gray-200);
+  }
+
+  .showcase-carousel__link:hover .showcase-carousel__link-icon {
+    transform: translateX(3px);
+  }
+}
+
+/* ─── Адаптив ──────────────────────────────────────────────────── */
+
+/* Планшеты (768–1024 px): запаса в конце трека нет, слайд — 520 px или
+   72% ширины, если экран уже */
+@media screen and (max-width: 1024px) {
+  .showcase-carousel__track {
+    padding-inline-end: var(--carousel-gutter);
+  }
+
+  .showcase-carousel__slide {
+    flex-basis: min(var(--carousel-slide-width), 72%);
+  }
+}
+
+/* Телефоны: следующая карточка выглядывает на --carousel-peek = 60 px —
+   слайд на 60 − 16 (отступ трека) + 12 (gap) = 56 px уже контента трека.
+   Потолок 340 px — чтобы на 480–767 px портретная картинка 3/4 не
+   вырастала в полэкрана высоты; после него сосед выглядывает больше. */
+@media screen and (max-width: 767px) {
+  .showcase-carousel {
+    --carousel-peek: 60px;
+    --carousel-slide-width: 340px;
+  }
+
+  .showcase-carousel__slide {
+    flex-basis: calc(
+      100% - var(--carousel-peek) + var(--carousel-gutter) - var(--carousel-gap)
+    );
+    max-width: var(--carousel-slide-width);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-carousel__dot::before,
+  .showcase-carousel__link,
+  .showcase-carousel__link-icon {
+    transition: none;
+  }
+}
+
+/* Высокий контраст Windows заменяет фоны цветом фона страницы — точки
+   исчезли бы. Рамка в этом режиме перекрашивается в цвет текста: точки
+   видны контуром, активная по-прежнему отличается формой. */
+@media (forced-colors: active) {
+  .showcase-carousel__dot::before {
+    border: 1px solid;
+  }
 }

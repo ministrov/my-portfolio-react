@@ -255,6 +255,10 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 - **Border:** whisper-thin, tinted per surface (see Shapes).
 - **Internal Padding:** scales with viewport via `clamp()`, typically `1rem`–`2.5rem`.
 
+### Showcase Strip (touch layouts)
+
+On tablets, phones and any touch screen (`(max-width: 1024px), (hover: none)`) the home page's best projects become a native CSS scroll-snap strip instead of the sticky showcase; desktop with a mouse keeps the sticky one, reduced motion keeps the static list. The strip sits on the section's existing gradient and adds no background of its own. One swipe moves exactly one card (`scroll-snap-stop: always`); on phones (≤ 767px) the next card peeks 60px (card = width − 56px, capped at 340px), from 768px up cards are 520px. The image keeps the shared showcasing-card treatment — `cover`, anchored to the top, 16/9 on tablets and 3/4 below 768px, the same breakpoint as its `<picture>` sources. Under it: a Label meta line (year · role), a Headline title and a Body slogan, all pure white — translucent white drops below 4.5:1 on the indigo middle of the gradient. "View project" is a white pill with cobalt Oswald text (the sticky showcase's CTA precedent), pinned to the card's bottom so the buttons line up across cards. Above the strip: the "01 / 04" counter on the left, dots on the right — an 8px dot (the active one a 24px pill, so state reads by shape, not only by color) inside contiguous 44×44 buttons. Focus is a white 2px ring with a 3px gap, drawn around the visible dot rather than its hit area; the track keeps vertical padding so no ring is clipped top or bottom, and keyboard focus moving into a card — Tab or Shift+Tab — scrolls the strip to that card.
+
 ### Inputs / Fields
 
 - **Style:** Paper background, near-invisible `rgba(0,0,0,0.1)` border, 8px radius.
