@@ -12,8 +12,17 @@ import { useReducedMotion } from 'motion/react';
 import { MdArrowForward } from 'react-icons/md';
 import ShowcasingCard from '../showcasingCard/ShowcasingCard';
 import ShowcasingCardPicture from '../showcasingCard/ShowcasingCardPicture';
+import ShowcaseCarousel from '../showcaseCarousel/ShowcaseCarousel';
+import useMediaQuery from '../../hooks/useMediaQuery';
 import { projects } from '../../sections/projects/projects';
 import './style.css';
+
+/**
+ * Где вместо липкой витрины рендерится свайп-лента: планшеты и телефоны
+ * (≤ 1024 px) и любые экраны без наведения (тач) — там липкая витрина
+ * занимала N экранов прокрутки и прятала хедер.
+ */
+const TOUCH_LAYOUT_QUERY = '(max-width: 1024px), (hover: none)';
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
@@ -54,6 +63,12 @@ const HEADER_HIDDEN_CLASS = 'sticky-showcase-pinned';
  * {@link ShowcasingCard}) друг под другом в обычном потоке документа, без
  * `sticky` и без слушателя скролла.
  *
+ * На планшетах, телефонах и тач-экранах ({@link TOUCH_LAYOUT_QUERY}) вместо
+ * липкой витрины — свайп-лента {@link ShowcaseCarousel}: слушатель скролла
+ * не подключается, класс на `<body>` не ставится. Reduced motion проверяется
+ * раньше: на таче с ним остаётся тот же статичный список. Ветка меняется на
+ * лету — при повороте планшета через 1024 px перезагрузка не нужна.
+ *
  * @component
  * @example
  * return <StickyShowcase />
@@ -62,6 +77,7 @@ const HEADER_HIDDEN_CLASS = 'sticky-showcase-pinned';
 const StickyShowcase = () => {
   const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
+  const isTouchLayout = useMediaQuery(TOUCH_LAYOUT_QUERY);
   const wrapperRef = useRef(null);
   const viewportRef = useRef(null);
   const stageRef = useRef(null);
@@ -115,20 +131,28 @@ const StickyShowcase = () => {
   }, [count, setContinuousIndexVar]);
 
   /**
-   * Синхронизирует класс, скрывающий хедер, с состоянием `isPinned` —
+   * Хедер прячется, только пока закреплена именно липкая ветка. Одного
+   * `isPinned` мало: при смене ветки компонент не размонтируется, а слушатель
+   * скролла снимается, так что `isPinned` застывает в последнем значении — при
+   * повороте планшета в момент закрепления класс остался бы и над лентой.
+   */
+  const isHeaderHidden = isPinned && !isTouchLayout;
+
+  /**
+   * Синхронизирует класс, скрывающий хедер, с {@link isHeaderHidden} —
    * отдельно от измерения скролла в {@link recalc}, чтобы добавление и
    * удаление класса были симметричны по построению (одна и та же функция
    * эффекта, а не разнесённые по разным колбэкам add/remove).
    */
   useEffect(() => {
-    document.body.classList.toggle(HEADER_HIDDEN_CLASS, isPinned);
+    document.body.classList.toggle(HEADER_HIDDEN_CLASS, isHeaderHidden);
     return () => {
       document.body.classList.remove(HEADER_HIDDEN_CLASS);
     };
-  }, [isPinned]);
+  }, [isHeaderHidden]);
 
   useLayoutEffect(() => {
-    if (prefersReducedMotion || count < 2) return undefined;
+    if (prefersReducedMotion || isTouchLayout || count < 2) return undefined;
 
     const handleScroll = () => {
       if (rafRef.current !== null) return;
@@ -154,7 +178,7 @@ const StickyShowcase = () => {
         rafRef.current = null;
       }
     };
-  }, [prefersReducedMotion, count, recalc]);
+  }, [prefersReducedMotion, isTouchLayout, count, recalc]);
 
   const scrollToSegment = useCallback(
     (index) => {
@@ -200,6 +224,10 @@ const StickyShowcase = () => {
         </div>
       </div>
     );
+  }
+
+  if (isTouchLayout) {
+    return <ShowcaseCarousel projects={bestProjects} />;
   }
 
   const activeProject = bestProjects[activeIndex];
