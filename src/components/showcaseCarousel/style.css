@@ -1,0 +1,45 @@
+/* Функциональный минимум, чтобы проверить поведение ленты (S01-T04):
+   прокрутка с привязкой, ширина слайда, кликабельные точки. Визуал —
+   отступы, пропорции картинок, зона касания точек 44 px — S01-T05. */
+.showcase-carousel {
+  color: var(--color-white);
+}
+
+.showcase-carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.showcase-carousel__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.showcase-carousel__dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.showcase-carousel__dot--active {
+  background: var(--color-white);
+}
+
+/* position: relative делает трек точкой отсчёта offsetLeft слайдов */
+.showcase-carousel__track {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.showcase-carousel__slide {
+  flex: 0 0 85%;
+  min-width: 0;
+  scroll-snap-align: start;
+}

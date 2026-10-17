@@ -189,7 +189,11 @@
     "regionAriaLabel": "Витрина лучших проектов",
     "dotAriaLabel": "Перейти к проекту «{{project}}»",
     "emptyMessage": "Нет проектов для отображения",
-    "eyebrow": "Проект {{current}} из {{total}}"
+    "eyebrow": "Проект {{current}} из {{total}}",
+    "carouselLabel": "Лучшие проекты",
+    "carouselRole": "карусель",
+    "slideLabel": "{{current}} из {{total}}: {{project}}",
+    "slideRole": "слайд"
   },
   "testimonials": {
     "title": "Тёплые слова от",

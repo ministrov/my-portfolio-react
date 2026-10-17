@@ -189,7 +189,11 @@
     "regionAriaLabel": "Showcase of best projects",
     "dotAriaLabel": "Go to the {{project}} project",
     "emptyMessage": "No projects to display",
-    "eyebrow": "Project {{current}} of {{total}}"
+    "eyebrow": "Project {{current}} of {{total}}",
+    "carouselLabel": "Best projects",
+    "carouselRole": "carousel",
+    "slideLabel": "{{current}} of {{total}}: {{project}}",
+    "slideRole": "slide"
   },
   "testimonials": {
     "title": "Kind words from",
