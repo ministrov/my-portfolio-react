@@ -85,7 +85,9 @@
     "showMenu": "Show menu",
     "hideMenu": "Hide menu",
     "about": "About",
-    "projects": "Projects"
+    "projects": "Projects",
+    "contacts": "Contacts",
+    "siteLanguage": "Site language"
   },
   "promo": {
     "promoSlogan": "A frontend developer from Moscow helping businesses create modern, fast, and user-friendly websites.",

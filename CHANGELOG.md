@@ -22,6 +22,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **The hero subtitle decodes exactly once on touch screens.** Under `(hover: none)` it decodes on load and then stays readable: no 7 s loop, and no replay when the hero scrolls back into view. Desktop with a mouse keeps the loop, paused while off-screen.
 - `AuthorMeta` renders the availability badge through the new `AvailabilityBadge`; its look in the author card (light on the home page, dark on /about) is unchanged.
 - **Best projects become a swipe strip on tablets, phones and touch screens** (`(max-width: 1024px), (hover: none)`). The sticky showcase took 3 120 px of scrolling at 360 px and hid the header while pinned; the new `ShowcaseCarousel` is a native scroll-snap strip with a "01 / 04" counter, dots that follow the swipe, and a "View project" link inside each card. The layout switches on the fly when a tablet rotates across 1024 px, and the header-hiding class never stays on `<body>`. Desktop with a mouse keeps the sticky showcase; reduced motion keeps the static list. Cards snap one per swipe (`scroll-snap-stop: always`). On phones the next card peeks at least 60 px and images are 3:4; on tablets cards are 520 px with 16:9 images. Each card has a white "View project" pill. The strip follows the audit mockup at 390 px to within 2 px on the counter, meta line and slogan. It has its own 160° cobalt → violet gradient; the desktop showcase keeps the site gradient. The counter's "/ 04", the meta line and the slogan are muted, and every alpha still meets AA on that gradient. The dots form a dense group stepped every 24 px, with 24×44 touch targets (40×44 for the active pill). The strip leaves room above and below so focus rings are not clipped. Keyboard focus moving into a card, with Tab or Shift+Tab, scrolls the strip to that card. At 360 px the showcase is 631 px tall instead of 3 120 px.
+- **The header shows the regular menu from 768 px.** The burger and its full-screen drawer now appear only at ≤ 767 px instead of ≤ 992 px, so tablets no longer open a drawer for two links. At 768–992 px the header fits on one line in both locales: logo, "About", "Projects", language, "Discuss a project". The actions gap there is 0.75 rem, and the CTA uses 15 px text with 16 px side padding. The header stays 81 px tall, so `--header-height` still matches it. Nav links and the CTA are at least 44 px tall at 768–1024 px. Desktop ≥ 1025 px is unchanged.
+- **The mobile menu gains "Contacts" and the CV, and follows the audit mockup.** "Contacts" follows the routes. It closes the menu and scrolls to the contact heading; under reduced motion the scroll is instant. On the home page and /about the heading lands right under the header. On /projects it can stop short while project images are still loading, because they push the page down mid-scroll; that is fixed with the project card images later in this sprint. Below the items:
+  - a cobalt "Download CV" (the same PDF as the hero);
+  - "Discuss a project" as the outline button;
+  - a "Site language" row: a gray label on the left, the switcher on the right, room for a 44 px control.
+
+  Every item now ends in a "›" chevron instead of a per-route icon, and the unused `Icon` fields left `routes`. The density matches the mockup at 390 px to within 2 px:
+  - 56 px items 10 px apart, starting 84 px from the top;
+  - 48 px buttons, 28 px between groups;
+  - Oswald 600 19 px Cobalt Deep labels, a 35% cobalt hairline.
+
+  Phones up to 375 px get the same layout instead of their old centred variant with cobalt rules. The drawer now runs from the header to the bottom of the screen (`100dvh`, was `90vh`) and scrolls on its own, so on a landscape phone nothing is out of reach.
 
 ### Added
 
@@ -31,6 +43,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tests for `CtaButton` and `AvailabilityBadge`.
 - **`ShowcaseCarousel` component** (`src/components/showcaseCarousel/`) — WAI-ARIA carousel: a region with slides as `role="group"` ("1 of 4: Vam Voda") and localized role descriptions. The active slide is derived from the track's `scrollLeft` — the nearest snap point, clamped to the end of the track — rather than from `IntersectionObserver`: at 860–1024 px a neighbouring slide stays more than 60% visible. Dot clicks scroll by the same formula, so the active dot always matches the one pressed. Each "View project" link is named together with its project title ("View project Mish").
 - Tests for `ShowcaseCarousel` and `StickyShowcase` (layout branches, rotation while pinned), and a shared `IntersectionObserver` stub in `src/setupTests.js`.
+- Tests for `MobileMenu`:
+  - the items and their order, and the decorative chevrons;
+  - the CV download link;
+  - the "Site language" label next to the switcher;
+  - "Contacts" closing the menu before it scrolls, instantly under reduced motion.
 - **Vitest harness** (`vitest`, Testing Library, jsdom) replacing the Jest that left with `react-scripts`, plus `npm test` / `npm run test:run`.
 - Tests for the projects filter reducer and for the language resolver.
 - `src/utils/lang.js` — single source of truth for the initial-language precedence (`?lang=` → `localStorage` → `ru`), shared by the i18next bootstrap and `LanguageProvider`.

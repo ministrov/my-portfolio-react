@@ -35,7 +35,16 @@
   color: var(--color-blue-700);
 }
 
-@media screen and (max-width: 992px) {
+/* На планшетах ссылки — цели касания: 44px по высоте (WCAG 2.5.5).
+   Только до 1024: на десктопе выросло бы кольцо фокуса, а вид ≥ 1025
+   в спринте S01 не меняется. Флекс и центровка уже есть в базе. */
+@media screen and (max-width: 1024px) {
+  .nav-list__link {
+    min-height: 44px;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .nav-list {
     display: none;
   }

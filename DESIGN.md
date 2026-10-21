@@ -235,9 +235,9 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 ### Buttons
 
-- **Shape:** 8px radius by default; fully pill (999px) for the header/nav-mobile CTA.
-- **Primary (pill):** cobalt background, white text, Oswald label typography, uppercase-free — used in the header and mobile nav for the "Discuss a project" CTA. Hover darkens to Cobalt Deep and lifts `-1px` with a cobalt-tinted glow.
-- **Outline (secondary):** transparent background, a 1.5px cobalt border, cobalt Oswald text, `min-height: 48px`, fully pill — the quiet partner placed next to a primary action, never on its own. Frost background on hover (mouse only, under `@media (hover: hover)`) and on `:active` as touch feedback. Currently used by the hero below 768px, as "Discuss a project" under the CV download, sized to the Spotlight button's width.
+- **Shape:** 8px radius by default; fully pill (999px) for the header CTA and the mobile-menu button pair.
+- **Primary (pill):** cobalt background, white text, Oswald label typography, uppercase-free. Hover darkens to Cobalt Deep and lifts `-1px` with a cobalt-tinted glow (mouse only in the mobile menu). Two uses: "Discuss a project" in the header, and "Download CV" in the mobile menu. The menu one is a `download` link, not a button: full width, `min-height: 48px`, a "↓" after the label. It leads the menu's button pair, because the CV comes first and freelance second.
+- **Outline (secondary):** transparent background, a 1.5px cobalt border, cobalt Oswald text, `min-height: 48px`, fully pill — the quiet partner placed next to a primary action, never on its own. Frost background on hover (mouse only, under `@media (hover: hover)`) and on `:active` as touch feedback. "Discuss a project" uses it in two places, each time below a CV download. In the hero below 768px it is sized to the Spotlight button's width. In the mobile menu it sits under the cobalt "Download CV" pill, full width, with the arrow 4px from the label, as in that pill.
 - **Hero Spotlight (CV download):** the one glassmorphic button in the system — frosted white glass (`backdrop-filter: blur(16px) saturate(170%)`), CTA Spotlight Ink text, wrapped in a frame with a rotating CTA Spotlight rainbow border and a pulsing ring on entrance (see Colors → CTA Spotlight). This is the single most important conversion action on the page (CV download) and is the only button allowed this treatment.
 - **Submit (form):** cobalt background, white text, uppercase Oswald label with `0.04em` tracking, full-width in the contact form. Hover **inverts** (white background, cobalt text/border) rather than darkening — the one button variant that swaps instead of deepens.
 - **Ghost (text link):** no background, cobalt text, an animated underline that retracts on hover instead of appearing — used for "read more" style links.
@@ -274,7 +274,10 @@ These alphas are the lowest that hold 4.5:1 across the strip's gradient at 360�
 ### Navigation
 
 - **Desktop:** plain Oswald text links (no background chrome), Carbon at rest, turning Cobalt on hover/active — restrained and typographic.
-- **Mobile:** the same links are "buttonized" into cobalt-bordered pill-ish rows inside a full-screen white drawer — a deliberate shift from typographic to tactile as the nav becomes touch-primary.
+- **Mobile:** the same links are "buttonized" into rows inside a full-screen white drawer — a deliberate shift from typographic to tactile as the nav becomes touch-primary.
+  - Each row is 56px tall with a 12px radius, a 35% cobalt hairline, a Cobalt Deep Oswald label and a cobalt "›" chevron on the right. The chevron reads as "go there", so rows carry no per-route icons.
+  - "Contacts" is a row like the routes, but it is an anchor to the contact section.
+  - Below the rows sit the CV / "Discuss a project" pair and a "Site language" row: a gray label on the left, the switcher on the right.
 - **Header shell:** transparent and borderless at the top of the page; gains a blurred white background, hairline border, and soft shadow once scrolled (`.header--bg`).
 
 ### Signature: The Developer's Console
