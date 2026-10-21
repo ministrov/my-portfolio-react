@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { LANGUAGES } from '../../const';
 import { useLanguage } from '../../hooks/useLanguage';
+import { LANGUAGES } from '../../const';
 import './styles.css';
 
 /**
@@ -22,21 +22,34 @@ import './styles.css';
  * <ToggleLang className="header-toggle" />
  */
 const ToggleLang = ({ className = '' }) => {
-  const { lang, toggleLang } = useLanguage();
   const { t } = useTranslation();
-  const isRu = lang === LANGUAGES.RU;
-
-  const btnClassName = ['toggle-btn', className].filter(Boolean).join(' ');
+  const { lang, toggleLang } = useLanguage();
 
   return (
-    <button
-      type="button"
-      className={btnClassName}
-      onClick={toggleLang}
+    <div
+      role="group"
+      className={`toggle-group ${className}`}
       aria-label={t('toggleLang.ariaLabel')}
     >
-      {isRu ? 'Ру' : 'En'}
-    </button>
+      {[LANGUAGES.RU, LANGUAGES.EN].map((code) => {
+        const isActive = lang === code;
+
+        return (
+          <button
+            key={code}
+            className={`toggle-group__btn ${isActive ? 'toggle-group__btn--active' : ''}`}
+            type="button"
+            onClick={() => {
+              if (!isActive) toggleLang();
+            }}
+            aria-pressed={isActive}
+            disabled={isActive}
+          >
+            {code.toUpperCase()}
+          </button>
+        );
+      })}
+    </div>
   );
 };
 
