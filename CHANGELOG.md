@@ -36,6 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Phones up to 375 px get the same layout instead of their old centred variant with cobalt rules. The drawer now runs from the header to the bottom of the screen (`100dvh`, was `90vh`) and scrolls on its own, so on a landscape phone nothing is out of reach.
 
 - **The language switch is an RU/EN segment.** The old 34 px pill showed only the current language ("Ру"), so it was unclear what a tap would do. Now RU and EN sit side by side in a labelled group, and the current one is marked with `aria-pressed` and a white face with a Cobalt Shadow on the Frost track. A click on the current language does nothing, and that button stays in the Tab order. The segment is 44 px tall on phones (≤ 767 px) and 40 px in the header at every width, desktop included. This is a deliberate exception to "desktop is unchanged": the old pill was just as unclear on desktop.
+- **"↑" stays out of the way on tablets and phones (≤ 1024 px).** It was a 48 px blue square shown after 300 px of scrolling, and it covered services, testimonials, the showcase and form fields. Now it is a 44 px translucent white circle with an 8 px backdrop blur, a thin cobalt border and a cobalt arrow, 16 px from the edges. It appears only when scrolling up more than two screens down the page and hides when scrolling down. Shifts of 8 px or less are ignored, so inertial scrolling on iOS does not make it flicker. It stays hidden while the contact form or the footer is on screen. It fades in with an 8 px slide over 200 ms, instantly under reduced motion. Desktop ≥ 1025 px is unchanged.
+- **The mobile menu closes itself when the layout stops being mobile.** Rotating a tablet or zooming past 767 px with the menu open left it open behind the CSS, with page scrolling locked. The condition is the negation of the CSS query `(max-width: 767px)`, so a fractional 767.5 px width is covered too.
 
 ### Added
 
@@ -51,6 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - the "Site language" label next to the switcher;
   - "Contacts" closing the menu before it scrolls, instantly under reduced motion.
 - Tests for `ToggleLang`: the current language is marked with `aria-pressed`, and only a click on the other language switches.
+- Tests for `Up`: scroll direction, the two-screen limit, the 8 px dead zone, hiding over the contact form and the footer, and the unchanged desktop behaviour.
+- Tests for `HamburgerButton` and `Header`: Enter keydown and keyup as separate events, and the menu closing when the layout stops being mobile.
 - **Vitest harness** (`vitest`, Testing Library, jsdom) replacing the Jest that left with `react-scripts`, plus `npm test` / `npm run test:run`.
 - Tests for the projects filter reducer and for the language resolver.
 - `src/utils/lang.js` — single source of truth for the initial-language precedence (`?lang=` → `localStorage` → `ru`), shared by the i18next bootstrap and `LanguageProvider`.
@@ -61,6 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **Enter on a mobile menu item no longer reopens the menu.** The item fired on keydown and closed the menu, focus went back to the burger, and `hamburger-react` toggled on the keyup that followed. The burger now ignores an Enter keyup whose keydown happened on another element. The bug predates S01 and affected every item.
 - **Language choice no longer resets to Russian.** `LanguageProvider` restored the language in an effect that raced its own save-to-`localStorage` effect; under StrictMode the second pass read an already-overwritten value and reverted to `ru`. The initial language is now resolved synchronously before first render, and the effect is gone. The `isMounted` ref that had been masking the race was removed with it.
 - `hreflang` → `hrefLang` in the three page components — React 19 rejects the lowercase DOM property.
 - `m(Tag)` → `m.create(Tag)` in `AboutCapabilities`, silencing a Motion 12 deprecation warning.

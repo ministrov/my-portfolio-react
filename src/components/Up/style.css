@@ -46,13 +46,40 @@
   outline-offset: 2px;
 }
 
-@media screen and (max-width: 375px) {
+/* Планшет и телефон: полупрозрачный круг вместо синего квадрата — не
+   перекрывает текст глухим пятном. Появляется только при прокрутке вверх
+   (логика — в Up.jsx). Иконка берёт цвет кнопки через currentColor. */
+@media screen and (max-width: 1024px) {
   .scroll-to {
-    bottom: 2rem;
-    right: 1rem;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: 16px;
     width: 44px;
     height: 44px;
     min-width: 44px;
     min-height: 44px;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    border-radius: 50%;
+    color: var(--color-blue-700);
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Нажатие: светлая заливка Frost вместо тёмно-синей десктопной —
+     на ней кобальтовая стрелка пропала бы. */
+  .scroll-to:active {
+    background-color: var(--color-gray-200);
+    box-shadow: none;
+  }
+}
+
+/* Наведение мышью в узком окне: белая заливка и тень оттенка Cobalt Shadow
+   (правило цветной тени из DESIGN.md, уменьшенное под 44 px), а не синяя
+   заливка десктопа — иначе стрелка сливается с фоном. */
+@media screen and (max-width: 1024px) and (hover: hover) {
+  .scroll-to:hover {
+    background-color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(0, 88, 167, 0.18);
   }
 }
