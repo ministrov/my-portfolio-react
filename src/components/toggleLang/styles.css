@@ -54,6 +54,16 @@
   outline-offset: 2px;
 }
 
+@media screen and (max-width: 767px) {
+  .toggle-group {
+    height: 44px;
+  }
+
+  .toggle-group__btn {
+    height: 40px;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .toggle-group__btn {
     border-radius: var(--border-radius-s);
