@@ -91,7 +91,7 @@ describe('MobileMenu', () => {
     renderMenu();
 
     const label = screen.getByText('Язык сайта');
-    const toggle = screen.getByRole('button', {
+    const toggle = screen.getByRole('group', {
       name: 'Переключить язык интерфейса',
     });
 
