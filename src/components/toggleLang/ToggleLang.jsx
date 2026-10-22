@@ -43,7 +43,6 @@ const ToggleLang = ({ className = '' }) => {
               if (!isActive) toggleLang();
             }}
             aria-pressed={isActive}
-            disabled={isActive}
           >
             {code.toUpperCase()}
           </button>
