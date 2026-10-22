@@ -255,6 +255,14 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 - **Border:** whisper-thin, tinted per surface (see Shapes).
 - **Internal Padding:** scales with viewport via `clamp()`, typically `1rem`–`2.5rem`.
 
+**Project card (/projects).** Card text reads as text, not as links: titles and section headings are Carbon, the description and table values Ink, table lines a neutral `rgba(0, 0, 0, 0.08)` hairline; cobalt stays only on tags, links and buttons. On tablets and phones (≤ 1024px) the card turns compact:
+
+- Year and role become one Label line above the title: Oswald 700 0.75rem, 0.09em tracking, Graphite, a drawn 3px dot with 6px either side. The "Info" table is hidden. On phones (≤ 580px) the line sits 12px under the image.
+- The title is a bold Headline, Oswald 700 1.6875rem, the same step as the showcase strip title.
+- The "Tools" heading is hidden visually but kept for screen readers, so the tags follow the description directly.
+- "Demo" and "GitHub" become card actions, a distinct button variant rather than the pill Outline: 44px tall, 8px radius, a 1.5px cobalt border on both. Demo is filled cobalt with white text and a small 11px "opens the site" arrow; GitHub is transparent with cobalt text and a 16px logo. Label and icon sit 10px apart. They share the row 50/50, and a single link takes the full width. Hover is mouse-only (Cobalt Deep / Frost); a tap gives the same feedback.
+- From 768px down every card image is a 4:5 frame, `object-fit: cover`, anchored to the top. At 769–1024px screenshots keep their own ratio under a 46rem cap.
+
 ### Showcase Strip (touch layouts)
 
 On tablets, phones and any touch screen (`(max-width: 1024px), (hover: none)`) the home page's best projects become a native CSS scroll-snap strip instead of the sticky showcase; desktop with a mouse keeps the sticky one, reduced motion keeps the static list. The strip carries its own background from the audit mockup: `linear-gradient(160deg, cobalt, Signal Violet)` (`--color-blue-700` → `--color-violet-500`), almost top to bottom and with no indigo midpoint. It covers the section wrapper, whose 120° site gradient stays with the desktop showcase. This is a separate device from the One Gradient token, and the muted text colors below are tuned to it: on the indigo middle of the site gradient they fail AA. One swipe moves exactly one card (`scroll-snap-stop: always`); on phones (≤ 767px) the next card peeks at least 60px (card = width − 56px, capped at 340px), from 768px up cards are 520px. The image keeps the shared showcasing-card treatment — `cover`, anchored to the top, 16/9 on tablets and 3/4 below 768px, the same breakpoint as its `<picture>` sources. Under it:

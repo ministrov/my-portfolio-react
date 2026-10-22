@@ -44,7 +44,7 @@ export const projects = [
   {
     id: 1,
     title: 'projects.vamvoda.title',
-    skills: 'JavaScript, HTML, CSS, PHP, WooCommerse',
+    skills: 'JavaScript, HTML, CSS, PHP, WooCommerce',
     img: vamvoda,
     imgTablet: vamvodaTablet,
     imgMobile: vamvodaMobile,

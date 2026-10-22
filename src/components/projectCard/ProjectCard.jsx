@@ -19,8 +19,9 @@ import './style.css';
  * @param {string} [props.imgMobile] - URL изображения для мобильного
  * @param {number} [props.imgHeight] - Реальная высота десктопного изображения при ширине 658px (для резервирования места и предотвращения CLS)
  * @param {string} props.overview - Краткое описание проекта (уже переведённая строка)
- * @param {string} [props.year] - Год реализации
- * @param {string} [props.role] - Роль в проекте
+ * @param {string} [props.year] - Год реализации: на десктопе — в таблице «Информация»,
+ *   на ≤ 1024 px — в мета-строке над заголовком
+ * @param {string} [props.role] - Роль в проекте (выводится там же, где год)
  * @param {string} [props.infoTitle] - Заголовок блока информации (переводной ключ)
  * @param {string} [props.toolsTitle] - Заголовок блока технологий (переводной ключ)
  * @param {string} [props.yearText] - Текст для года (переводной ключ)
@@ -80,6 +81,16 @@ const ProjectCard = ({
       </div>
 
       <div className="project-card__info">
+        {/* Мета-строка «год · роль» — компактная замена таблицы «Информация»
+            на ≤ 1024 px. Обе версии скрываются через display: none, поэтому
+            скринридер одновременно читает только одну из них. */}
+        {(year || role) && (
+          <p className="project-card__meta">
+            {year && <span className="project-card__meta-item">{year}</span>}
+            {role && <span className="project-card__meta-item">{role}</span>}
+          </p>
+        )}
+
         <h3 className="project-card__info-title">{title}</h3>
 
         <p className="project-card__info-desc">{overview}</p>
@@ -112,7 +123,7 @@ const ProjectCard = ({
           <div className="project-card__links">
             {demoLink && (
               <ButtonLink
-                className="project-card__link"
+                className="project-card__link project-card__link--primary"
                 path={demoLink}
                 text={t('projectCard.liveDemo')}
                 icon={<BsBoxArrowInUpRight size={22} aria-hidden="true" />}
@@ -123,7 +134,7 @@ const ProjectCard = ({
 
             {gitHubLink && (
               <ButtonLink
-                className="project-card__link"
+                className="project-card__link project-card__link--secondary"
                 path={gitHubLink}
                 text={t('projectCard.seeOnGithub')}
                 icon={<FaGithub size={22} aria-hidden="true" />}

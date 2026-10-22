@@ -5,7 +5,7 @@ metadata:
   type: project
 ---
 
-В production-сборке Vite (rolldown) CSS общих компонентов попадает не в чанк того, кто их импортирует. На 2026-10-16 база `.cta-button` лежит в `Contact-*.css`, а `AvailabilityBadge` — в `About-*.css`. Порядок `<link>` в `build/index.html`: `Heading → Contact → About → index`. В dev-режиме порядок другой — по порядку вычисления модулей.
+В production-сборке Vite (rolldown) CSS общих компонентов попадает не в чанк того, кто их импортирует. На 2026-10-16 база `.cta-button` лежит в `Contact-*.css`, а `AvailabilityBadge` — в `About-*.css`. Порядок `<link>` в `build/index.html`: `Heading → Contact → About → index`. В dev-режиме порядок другой — по порядку вычисления модулей. На 2026-10-22 база `.button-link` тоже в `Contact-*.css`, а `.project-card` — в ленивом `ProjectsPage-*.css` (S01-T09: модификаторы кнопок карточки — через `.project-card__links .project-card__link--*`).
 
 Решение лида (S01-T03, раунд 2): если родитель перебивает свойство блока-компонента (`display` у `.cta-button` и т. п.), не полагаться на порядок каскада. Специфичность поднимается через родителя: `.hero__actions .hero__secondary-cta`. Это допустимое отступление от «один класс».
 
