@@ -42,6 +42,7 @@
 .toggle-group__btn--active {
   color: var(--color-blue-800);
   background-color: var(--color-white);
+  box-shadow: 0px 1px 3px 0px rgba(0, 88, 167, 0.2);
 }
 
 .toggle-group__btn:hover {
