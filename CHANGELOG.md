@@ -35,6 +35,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
   Phones up to 375 px get the same layout instead of their old centred variant with cobalt rules. The drawer now runs from the header to the bottom of the screen (`100dvh`, was `90vh`) and scrolls on its own, so on a landscape phone nothing is out of reach.
 
+- **The language switch is an RU/EN segment.** The old 34 px pill showed only the current language ("Ру"), so it was unclear what a tap would do. Now RU and EN sit side by side in a labelled group, and the current one is marked with `aria-pressed` and a white face with a Cobalt Shadow on the Frost track. A click on the current language does nothing, and that button stays in the Tab order. The segment is 44 px tall on phones (≤ 767 px) and 40 px in the header at every width, desktop included. This is a deliberate exception to "desktop is unchanged": the old pill was just as unclear on desktop.
+
 ### Added
 
 - **`useMediaQuery` hook** (`src/hooks/useMediaQuery.jsx`) — tracks a CSS media query via `useSyncExternalStore`: the value is correct on the first render and follows `change` events. Groundwork for the touch layouts of the mobile sprint (S01).
@@ -48,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - the CV download link;
   - the "Site language" label next to the switcher;
   - "Contacts" closing the menu before it scrolls, instantly under reduced motion.
+- Tests for `ToggleLang`: the current language is marked with `aria-pressed`, and only a click on the other language switches.
 - **Vitest harness** (`vitest`, Testing Library, jsdom) replacing the Jest that left with `react-scripts`, plus `npm test` / `npm run test:run`.
 - Tests for the projects filter reducer and for the language resolver.
 - `src/utils/lang.js` — single source of truth for the initial-language precedence (`?lang=` → `localStorage` → `ru`), shared by the i18next bootstrap and `LanguageProvider`.
