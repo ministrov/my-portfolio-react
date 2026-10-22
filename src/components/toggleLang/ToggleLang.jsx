@@ -25,6 +25,10 @@ const ToggleLang = ({ className = '' }) => {
   const { t } = useTranslation();
   const { lang, toggleLang } = useLanguage();
 
+  function handleClick(isActive) {
+    if (!isActive) toggleLang();
+  }
+
   return (
     <div
       role="group"
@@ -39,9 +43,7 @@ const ToggleLang = ({ className = '' }) => {
             key={code}
             className={`toggle-group__btn ${isActive ? 'toggle-group__btn--active' : ''}`}
             type="button"
-            onClick={() => {
-              if (!isActive) toggleLang();
-            }}
+            onClick={() => handleClick(isActive)}
             aria-pressed={isActive}
           >
             {code.toUpperCase()}
