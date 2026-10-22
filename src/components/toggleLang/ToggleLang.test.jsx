@@ -38,7 +38,7 @@ describe('ToggleLang', () => {
     expect(toggleLang).toHaveBeenCalledTimes(1);
   });
 
-  it('клик по активному языку шпион не вызван', () => {
+  it('клик по активному языку не переключает язык', () => {
     const toggleLang = renderToggle({ lang: 'ru' });
 
     fireEvent.click(screen.getByRole('button', { name: 'RU' }));

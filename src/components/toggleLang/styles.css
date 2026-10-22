@@ -11,10 +11,6 @@
   line-height: 1;
   color: var(--color-gray-500);
   background-color: var(--color-gray-200);
-  cursor: pointer;
-  transition:
-    border-color 0.3s ease-in-out,
-    background-color 0.3s ease-in-out;
   box-sizing: border-box;
 }
 
@@ -46,7 +42,7 @@
 }
 
 .toggle-group__btn:hover {
-  border-color: var(--color-blue-700);
+  color: var(--color-blue-700);
 }
 
 .toggle-group__btn:focus-visible {
@@ -61,11 +57,5 @@
 
   .toggle-group__btn {
     height: 40px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .toggle-group__btn {
-    border-radius: var(--border-radius-s);
   }
 }
