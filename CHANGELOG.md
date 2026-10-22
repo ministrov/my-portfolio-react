@@ -43,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Year and role sit in one Label line above the title ("2025 · Frontend Developer": Oswald 700, 12 px, 0.09 em tracking, Graphite) and replace the "Project info" table. On desktop it is the other way round. Both are hidden with `display: none`, so a screen reader never hears both. The title turns bold (Oswald 700, 27 px), and the "Tools" heading is hidden visually but kept for screen readers, so the tags follow the description directly.
   - "Demo" and "GitHub" are 44 px buttons instead of 22 px text links: a cobalt fill and a 1.5 px cobalt outline, side by side 50/50, or full width when a project has a single link. Hover is mouse-only; a tap darkens the fill or gives the outline a Frost background.
   - At ≤ 768 px every image is a 4:5 frame cropped from the top (`object-fit: cover`).
+  - The description folds to three lines with a "Read more" button (`aria-expanded`, `aria-controls`) that turns into "Show less". The button appears only when the text is actually cut: it is re-measured on resize, after web fonts load and on a language switch. At 1024 px short descriptions show no button; desktop always shows the full text. The description is set at 16 px with a 26 px line, as in the mockup, instead of a cramped 15/19. The Vam Voda card at 390 px is 763 px instead of 932, and /projects at 360 px is 7 917 px.
 
 ### Added
 
@@ -60,6 +61,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tests for `ToggleLang`: the current language is marked with `aria-pressed`, and only a click on the other language switches.
 - Tests for `Up`: scroll direction, the two-screen limit, the 8 px dead zone, hiding over the contact form and the footer, and the unchanged desktop behaviour.
 - Tests for `HamburgerButton` and `Header`: Enter keydown and keyup as separate events, and the menu closing when the layout stops being mobile.
+- Tests for `ProjectCard`: the year and role line above the title, folding and unfolding a long description, no button for a description that fits, and a single link without a GitHub repository.
 - **Vitest harness** (`vitest`, Testing Library, jsdom) replacing the Jest that left with `react-scripts`, plus `npm test` / `npm run test:run`.
 - Tests for the projects filter reducer and for the language resolver.
 - `src/utils/lang.js` — single source of truth for the initial-language precedence (`?lang=` → `localStorage` → `ru`), shared by the i18next bootstrap and `LanguageProvider`.

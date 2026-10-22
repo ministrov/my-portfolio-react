@@ -259,6 +259,7 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 - Year and role become one Label line above the title: Oswald 700 0.75rem, 0.09em tracking, Graphite, a drawn 3px dot with 6px either side. The "Info" table is hidden. On phones (≤ 580px) the line sits 12px under the image.
 - The title is a bold Headline, Oswald 700 1.6875rem, the same step as the showcase strip title.
+- The description is Body at 1rem with a 1.625 line and folds to three lines. Under it, a Ghost "Read more ⌄" toggle (cobalt Oswald 500 1rem, 44px tall, `aria-expanded`) turns into "Show less" with the chevron flipped. It is rendered only when the text is actually cut, so a short description has no toggle; desktop always shows the full text.
 - The "Tools" heading is hidden visually but kept for screen readers, so the tags follow the description directly.
 - "Demo" and "GitHub" become card actions, a distinct button variant rather than the pill Outline: 44px tall, 8px radius, a 1.5px cobalt border on both. Demo is filled cobalt with white text and a small 11px "opens the site" arrow; GitHub is transparent with cobalt text and a 16px logo. Label and icon sit 10px apart. They share the row 50/50, and a single link takes the full width. Hover is mouse-only (Cobalt Deep / Frost); a tap gives the same feedback.
 - From 768px down every card image is a 4:5 frame, `object-fit: cover`, anchored to the top. At 769–1024px screenshots keep their own ratio under a 46rem cap.

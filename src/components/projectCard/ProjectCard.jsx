@@ -1,6 +1,8 @@
+import { useId, useLayoutEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
+import { GoChevronDown } from 'react-icons/go';
 import { BREAKPOINTS } from '../../const';
 import ButtonLink from '../buttonLink/ButtonLink';
 import Tag from '../tag/Tag';
@@ -9,6 +11,13 @@ import './style.css';
 /**
  * Компонент карточки проекта, отображающий информацию о проекте,
  * включая изображения, описание, метаданные, технологии и ссылки.
+ *
+ * На ≤ 1024 px описание свёрнуто до трёх строк (модификатор `--clamped`
+ * действует только в этом медиазапросе). Кнопка «Читать полностью» появляется,
+ * только если текст действительно обрезан: `scrollHeight` свёрнутого описания
+ * больше `clientHeight`. Замер повторяется при изменении размера описания
+ * (`ResizeObserver`), после загрузки веб-шрифтов и при смене текста — смене
+ * языка. На десктопе обрезки нет, поэтому кнопка не появляется.
  *
  * @component
  * @param {Object} props - Пропсы компонента
@@ -48,6 +57,38 @@ const ProjectCard = ({
   gitHubLink,
 }) => {
   const { t } = useTranslation();
+  const descId = useId();
+  const descRef = useRef(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  // Меряем только свёрнутое описание: раскрытое не переполнено по
+  // определению, а кнопка «Свернуть» должна остаться на месте.
+  useLayoutEffect(() => {
+    const desc = descRef.current;
+    if (!desc || isExpanded) return undefined;
+
+    let cancelled = false;
+
+    // Допуск в 1 px — на дробном масштабе высоты округляются по-разному
+    const measure = () => {
+      if (cancelled) return;
+      setIsOverflowing(desc.scrollHeight - desc.clientHeight > 1);
+    };
+
+    measure();
+    document.fonts?.ready.then(measure);
+
+    const resizeObserver = new ResizeObserver(measure);
+    resizeObserver.observe(desc);
+
+    return () => {
+      cancelled = true;
+      resizeObserver.disconnect();
+    };
+  }, [isExpanded, overview]);
+
+  const handleToggleClick = () => setIsExpanded((prev) => !prev);
 
   return (
     <article
@@ -93,7 +134,34 @@ const ProjectCard = ({
 
         <h3 className="project-card__info-title">{title}</h3>
 
-        <p className="project-card__info-desc">{overview}</p>
+        <p
+          ref={descRef}
+          id={descId}
+          className={[
+            'project-card__info-desc',
+            !isExpanded && 'project-card__info-desc--clamped',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
+          {overview}
+        </p>
+
+        {isOverflowing && (
+          <button
+            type="button"
+            className="project-card__toggle"
+            aria-expanded={isExpanded}
+            aria-controls={descId}
+            onClick={handleToggleClick}
+          >
+            {t(isExpanded ? 'projectCard.readLess' : 'projectCard.readMore')}
+            <GoChevronDown
+              className="project-card__toggle-icon"
+              aria-hidden="true"
+            />
+          </button>
+        )}
 
         <div className="project-card__info-box">
           <h4>{t(infoTitle)}</h4>
