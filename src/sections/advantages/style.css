@@ -105,8 +105,8 @@
 
 @media screen and (max-width: 1024px) {
   .advantages__list {
-    grid-template-columns: 1fr;
-    gap: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
     padding: 1rem;
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-200);
@@ -116,8 +116,10 @@
   .advantages__item {
     display: grid;
     grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 14px;
     padding: 0;
-    padding-top: 14px;
+    /* padding-top: 14px; */
     padding-bottom: 14px;
     border: none;
     border-radius: 0;
@@ -132,6 +134,7 @@
   .advantages__item:nth-child(1) .advantages__item-text,
   .advantages__item:nth-child(6) .advantages__item-text {
     font-size: 1rem;
+    line-height: 1.4;
   }
 
   .advantages__item:nth-child(n) {
@@ -139,19 +142,8 @@
     grid-row: auto;
   }
 
-  /* Бенто-иерархия (2×2-карточки item 1/6) существует только в 4-колоночной
-     сетке выше — здесь все карточки уже равного размера, крупный clamp-шрифт
-     ("Крупные карточки" выше) больше не привязан к реальной площади карточки
-     и просто не помещается. Три селектора нужны, чтобы перебить это
-     hero-правило по специфичности. */
-  .advantages__item-text,
-  .advantages__item:nth-child(1) .advantages__item-text,
-  .advantages__item:nth-child(6) .advantages__item-text {
-    font-size: 1.125rem;
-    line-height: 1.4;
-  }
-
-  .advantages__item:first-child {
+  .advantages__item:first-child,
+  .advantages__item:nth-child(2) {
     padding-top: 0;
   }
 
@@ -193,6 +185,15 @@
 
   .advantages__list {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .advantages__item {
+    padding-top: 14px;
+  }
+
+  .advantages__item:nth-child(2) {
+    padding-top: 14px;
   }
 }
 
