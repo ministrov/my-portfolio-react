@@ -18,31 +18,32 @@ const CodeString = ({ value }) => (
 
 /**
  * Скалярное свойство объекта в блоке кода (`ключ: 'значение',`).
+ * Строка — блочный `span` без перевода строки и пробелов в тексте: отступ
+ * и висячий перенос на узком экране задаёт CSS (`.author-code__line`).
  * @param {Object} props
  * @param {string} props.name - Имя свойства
  * @param {string} props.value - Значение свойства
  * @returns {JSX.Element}
  */
 const StringProp = ({ name, value }) => (
-  <>
-    {'\n  '}
+  <span className="author-code__line">
     <span className="token-property">{name}</span>
     <span className="token-punctuation">: </span>
     <CodeString value={value} />
     <span className="token-punctuation">,</span>
-  </>
+  </span>
 );
 
 /**
  * Свойство-массив строк в блоке кода (`ключ: ['a', 'b'],`).
+ * Строка — блочный `span`, как у `StringProp`.
  * @param {Object} props
  * @param {string} props.name - Имя свойства
  * @param {string[]} props.items - Элементы массива
  * @returns {JSX.Element}
  */
 const ArrayProp = ({ name, items }) => (
-  <>
-    {'\n  '}
+  <span className="author-code__line">
     <span className="token-property">{name}</span>
     <span className="token-punctuation">: [</span>
     {items.map((item, index) => (
@@ -54,7 +55,7 @@ const ArrayProp = ({ name, items }) => (
       </Fragment>
     ))}
     <span className="token-punctuation">],</span>
-  </>
+  </span>
 );
 
 /**
@@ -96,7 +97,8 @@ const AuthorPhoto = () => {
         <AuthorMeta variant="dark" />
       </div>
 
-      {/* Блок с кодом */}
+      {/* Блок с кодом: каждое свойство и закрывающая `};` — блочные строки,
+          поэтому символов перевода строки в тексте нет */}
       <pre className="author-code">
         <code>
           <span className="token-keyword">const</span>{' '}
@@ -112,8 +114,9 @@ const AuthorPhoto = () => {
           <ArrayProp name="interests" items={code.interests} />
           <ArrayProp name="currentlyLearning" items={code.currentlyLearning} />
           <ArrayProp name="availableFor" items={code.availableFor} />
-          {'\n'}
-          <span className="token-punctuation">{'};'}</span>
+          <span className="author-code__end">
+            <span className="token-punctuation">{'};'}</span>
+          </span>
         </code>
       </pre>
     </div>

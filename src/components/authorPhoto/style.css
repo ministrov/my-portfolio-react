@@ -97,27 +97,6 @@
   height: 220px;
 }
 
-@media (max-width: 720px) {
-  .author-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  /* Карточка сужается в колонку — без этого шага фото застревало на 220px
-     до самого брейкпоинта 480px */
-  .author-card__photo .photo-ring__img {
-    width: 170px;
-    height: 170px;
-  }
-}
-
-@media (max-width: 480px) {
-  .author-card__photo .photo-ring__img {
-    width: 140px;
-    height: 140px;
-  }
-}
-
 .author-code {
   margin: 0;
   padding: 1.25rem 1.75rem 1.6rem;
@@ -132,6 +111,20 @@
   font-size: 0.8rem;
   line-height: 1.5;
   color: #e5e7eb;
+}
+
+/* Строка свойства — блок, а отступ в два символа задаёт CSS, а не пробелы
+   в тексте: так на телефоне строку можно перенести с висячим отступом (см.
+   брейкпоинт 480px). `ch` берётся от шрифта <code>, которым набран сам код,
+   поэтому 2ch ровно равны прежним двум пробелам */
+.author-code__line {
+  display: block;
+  padding-inline-start: 2ch;
+}
+
+/* Закрывающая `};` — своей строкой, без отступа */
+.author-code__end {
+  display: block;
 }
 
 .author-code .token-keyword {
@@ -166,4 +159,44 @@
 .author-code .token-comment {
   color: #5c6370;
   font-style: italic;
+}
+
+/* ───────────────────────── Адаптивность ───────────────────────── */
+
+/* Медиа-запросы — после базы `.author-code`: при равной специфичности
+   правило выше по файлу проиграло бы ей, и перенос кода не включился бы */
+@media (max-width: 720px) {
+  .author-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Карточка сужается в колонку — без этого шага фото застревало на 220px
+     до самого брейкпоинта 480px */
+  .author-card__photo .photo-ring__img {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 480px) {
+  .author-card__photo .photo-ring__img {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* На телефоне горизонтальная прокрутка кода невидима, и хвосты строк
+     просто терялись за краем — строки переносятся. overflow-x остаётся
+     auto из базы: карточка обрезает всё, что вылезло (overflow: hidden),
+     и токен, которому не хватит строки, хотя бы прокрутится, а не пропадёт */
+  .author-code {
+    white-space: pre-wrap;
+  }
+
+  /* Висячий отступ: первая строка — на прежних 2ch, перенесённая часть —
+     на 4ch, правее имени свойства, чтобы не сливаться со следующим ключом */
+  .author-code__line {
+    padding-inline-start: 4ch;
+    text-indent: -2ch;
+  }
 }
