@@ -29,12 +29,6 @@
     border-color 0.25s ease;
 }
 
-.advantages__item:hover {
-  box-shadow: 0 8px 24px rgba(0, 88, 167, 0.15);
-  transform: translateY(-4px);
-  border-color: rgba(0, 88, 167, 0.22);
-}
-
 .advantages__item-text {
   margin-top: auto;
   overflow-wrap: break-word;
@@ -99,11 +93,45 @@
   line-height: 1.1;
 }
 
+@media (hover: hover) {
+  .advantages__item:hover {
+    box-shadow: 0 8px 24px rgba(0, 88, 167, 0.15);
+    transform: translateY(-4px);
+    border-color: rgba(0, 88, 167, 0.22);
+  }
+}
+
 /* ───────────────────────── Адаптивность ───────────────────────── */
 
 @media screen and (max-width: 1024px) {
   .advantages__list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 1rem;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 16px;
+  }
+
+  .advantages__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 0;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .advantages__item-text {
+    margin-top: initial;
+  }
+
+  .advantages__item-text,
+  .advantages__item:nth-child(1) .advantages__item-text,
+  .advantages__item:nth-child(6) .advantages__item-text {
+    font-size: 1rem;
   }
 
   .advantages__item:nth-child(n) {
@@ -121,40 +149,6 @@
   .advantages__item:nth-child(6) .advantages__item-text {
     font-size: 1.125rem;
     line-height: 1.4;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .advantages {
-    min-height: auto;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    border-radius: 16px;
-  }
-
-  .advantages__list {
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding: 1rem;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-gray-200);
-    border-radius: 16px;
-  }
-
-  .advantages__item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    padding: 0;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .advantages__item-text {
-    font-size: 1rem;
   }
 
   .advantages__item:first-child {
@@ -182,10 +176,23 @@
   }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 768px) {
+  .advantages {
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    border-radius: 16px;
+  }
+}
+
+@media screen and (max-width: 568px) {
   .advantages {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .advantages__list {
+    grid-template-columns: 1fr;
   }
 }
 
