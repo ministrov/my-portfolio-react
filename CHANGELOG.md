@@ -44,6 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - "Demo" and "GitHub" are 44 px buttons instead of 22 px text links: a cobalt fill and a 1.5 px cobalt outline, side by side 50/50, or full width when a project has a single link. Hover is mouse-only; a tap darkens the fill or gives the outline a Frost background.
   - At ≤ 768 px every image is a 4:5 frame cropped from the top (`object-fit: cover`).
   - The description folds to three lines with a "Read more" button (`aria-expanded`, `aria-controls`) that turns into "Show less". The button appears only when the text is actually cut: it is re-measured on resize, after web fonts load and on a language switch. At 1024 px short descriptions show no button; desktop always shows the full text. The description is set at 16 px with a 26 px line, as in the mockup, instead of a cramped 15/19. The Vam Voda card at 390 px is 763 px instead of 932, and /projects at 360 px is 7 917 px.
+- **"Why me" is a compact list on tablets and phones (≤ 1024 px).** Seven cards, each about 190 px tall for one line of text, become rows in one white card: a 40 px Frost icon tile next to 16 px text, with a hairline between rows. At 569–1024 px the rows form two columns, at 568 px and below one. At 360 px the section is 715 px tall instead of 1 521 (675 px in English). The card hover lift is now mouse-only (`(hover: hover)`), so a tap no longer leaves a card raised, and the rows never lift. Desktop ≥ 1025 px keeps the bento grid.
 
 ### Added
 
