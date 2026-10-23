@@ -201,7 +201,7 @@ Mostly a two-color system — cobalt as the one true action color, violet as a q
 
 The container caps at `1440px` and steps down at wide breakpoints (`1200px` at ≤1520px, `1068px` at ≤1268px), with fluid inline padding `clamp(16px, 4vw, 32px)`. Section rhythm comes from a shared `.wrapper` (80px top / 60px bottom margin, tightening to 64px top on ≤768px) rather than per-section spacing.
 
-Responsive behavior is **desktop-first**: every component is styled for its widest state first, then narrowed with `max-width` media queries. Breakpoints are tuned per component to that component's own content (1520, 1268, 1024, 992, 893, 768, 580, 475, 396, 375, 360, 320px all appear somewhere) rather than snapped to one fixed global grid — expect a new component to need its own breakpoint tuning, not a lookup into a shared set.
+Responsive behavior is **desktop-first**: every component is styled for its widest state first, then narrowed with `max-width` media queries. Breakpoints are tuned per component to that component's own content (1520, 1268, 1024, 992, 893, 768, 580, 567, 479, 475, 396, 375, 360, 320px all appear somewhere) rather than snapped to one fixed global grid — expect a new component to need its own breakpoint tuning, not a lookup into a shared set.
 
 ### Named Rules
 
@@ -235,9 +235,9 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 ### Buttons
 
-- **Shape:** 8px radius by default; fully pill (999px) for the header/nav-mobile CTA.
-- **Primary (pill):** cobalt background, white text, Oswald label typography, uppercase-free — used in the header and mobile nav for the "Discuss a project" CTA. Hover darkens to Cobalt Deep and lifts `-1px` with a cobalt-tinted glow.
-- **Outline (secondary):** transparent background, a 1.5px cobalt border, cobalt Oswald text, `min-height: 48px`, fully pill — the quiet partner placed next to a primary action, never on its own. Frost background on hover (mouse only, under `@media (hover: hover)`) and on `:active` as touch feedback. Currently used by the hero below 768px, as "Discuss a project" under the CV download, sized to the Spotlight button's width.
+- **Shape:** 8px radius by default; fully pill (999px) for the header CTA and the mobile-menu button pair.
+- **Primary (pill):** cobalt background, white text, Oswald label typography, uppercase-free. Hover darkens to Cobalt Deep and lifts `-1px` with a cobalt-tinted glow (mouse only in the mobile menu). Two uses: "Discuss a project" in the header, and "Download CV" in the mobile menu. The menu one is a `download` link, not a button: full width, `min-height: 48px`, a "↓" after the label. It leads the menu's button pair, because the CV comes first and freelance second.
+- **Outline (secondary):** transparent background, a 1.5px cobalt border, cobalt Oswald text, `min-height: 48px`, fully pill — the quiet partner placed next to a primary action, never on its own. Frost background on hover (mouse only, under `@media (hover: hover)`) and on `:active` as touch feedback. "Discuss a project" uses it in two places, each time below a CV download. In the hero below 768px it is sized to the Spotlight button's width. In the mobile menu it sits under the cobalt "Download CV" pill, full width, with the arrow 4px from the label, as in that pill.
 - **Hero Spotlight (CV download):** the one glassmorphic button in the system — frosted white glass (`backdrop-filter: blur(16px) saturate(170%)`), CTA Spotlight Ink text, wrapped in a frame with a rotating CTA Spotlight rainbow border and a pulsing ring on entrance (see Colors → CTA Spotlight). This is the single most important conversion action on the page (CV download) and is the only button allowed this treatment.
 - **Submit (form):** cobalt background, white text, uppercase Oswald label with `0.04em` tracking, full-width in the contact form. Hover **inverts** (white background, cobalt text/border) rather than darkening — the one button variant that swaps instead of deepens.
 - **Ghost (text link):** no background, cobalt text, an animated underline that retracts on hover instead of appearing — used for "read more" style links.
@@ -254,6 +254,19 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 - **Shadow Strategy:** ambient at rest, cobalt-tinted and deeper on hover (see Elevation & Depth) — except the testimonial card, which never lifts; it's a static reading surface.
 - **Border:** whisper-thin, tinted per surface (see Shapes).
 - **Internal Padding:** scales with viewport via `clamp()`, typically `1rem`–`2.5rem`.
+
+**Project card (/projects).** Card text reads as text, not as links: titles and section headings are Carbon, the description and table values Ink, table lines a neutral `rgba(0, 0, 0, 0.08)` hairline; cobalt stays only on tags, links and buttons. On tablets and phones (≤ 1024px) the card turns compact:
+
+- Year and role become one Label line above the title: Oswald 700 0.75rem, 0.09em tracking, Graphite, a drawn 3px dot with 6px either side. The "Info" table is hidden. On phones (≤ 580px) the line sits 12px under the image.
+- The title is a bold Headline, Oswald 700 1.6875rem, the same step as the showcase strip title.
+- The description is Body at 1rem with a 1.625 line and folds to three lines. Under it, a Ghost "Read more ⌄" toggle (cobalt Oswald 500 1rem, 44px tall, `aria-expanded`) turns into "Show less" with the chevron flipped. It is rendered only when the text is actually cut, so a short description has no toggle; desktop always shows the full text.
+- The "Tools" heading is hidden visually but kept for screen readers, so the tags follow the description directly.
+- "Demo" and "GitHub" become card actions, a distinct button variant rather than the pill Outline: 44px tall, 8px radius, a 1.5px cobalt border on both. Demo is filled cobalt with white text and a small 11px "opens the site" arrow; GitHub is transparent with cobalt text and a 16px logo. Label and icon sit 10px apart. They share the row 50/50, and a single link takes the full width. Hover is mouse-only (Cobalt Deep / Frost); a tap gives the same feedback.
+- From 768px down every card image is a 4:5 frame, `object-fit: cover`, anchored to the top. At 769–1024px screenshots keep their own ratio under a 46rem cap.
+
+**Advantages list ("Why me", home).** On desktop the seven advantages are a bento grid of cards that lift on hover, mouse only. On tablets and phones (≤ 1024px) they become rows inside one white card: 16px radius, a 1px Frost border, 16px padding. Each row is a 40px Frost icon tile (8px radius, 9px inset, cobalt icon) beside Body text at 1rem with a 1.4 line, centred vertically. Rows are 14px apart with a Frost hairline under every row but the last. At 569–1024px the rows run in two columns 14px apart, at 568px and below in one; the hairline reads as a row boundary, so in two columns the last row of the right column keeps it. Rows never lift — the hover lift belongs to the bento cards only.
+
+**About facts and author card (home).** On desktop the four fact plaques are a flex row of natural-width chips. On tablets and phones (≤ 1024px) they are a grid of equal plaques across the column, four in a row down to 568px and 2×2 at 567px and below. The value keeps the desktop Oswald 700 1.6rem and never wraps; the label is a Label, Oswald 600 0.75rem with 0.08em tracking, as in the audit mockup (desktop keeps its Golos label). The light author card stays a row down to 480px: photo on the left, meta on the right. At ≤ 1024px it follows the mockup — the photo grows from 120px at 480px to 150px at 768px, the name is a Headline growing from 1.25rem to 1.75rem, the role sits at 0.9375rem and the location at 0.875rem, and the "Open to work" badge shares a row with 44px social circles, the circles wrapping under the badge where the row is narrow. Below 480px the card is a column with everything centred. These rules live under `.author-identity` only: the dark IDE card on /about shares `AuthorMeta` and keeps its own layout.
 
 ### Showcase Strip (touch layouts)
 
@@ -274,7 +287,10 @@ These alphas are the lowest that hold 4.5:1 across the strip's gradient at 360�
 ### Navigation
 
 - **Desktop:** plain Oswald text links (no background chrome), Carbon at rest, turning Cobalt on hover/active — restrained and typographic.
-- **Mobile:** the same links are "buttonized" into cobalt-bordered pill-ish rows inside a full-screen white drawer — a deliberate shift from typographic to tactile as the nav becomes touch-primary.
+- **Mobile:** the same links are "buttonized" into rows inside a full-screen white drawer — a deliberate shift from typographic to tactile as the nav becomes touch-primary.
+  - Each row is 56px tall with a 12px radius, a 35% cobalt hairline, a Cobalt Deep Oswald label and a cobalt "›" chevron on the right. The chevron reads as "go there", so rows carry no per-route icons.
+  - "Contacts" is a row like the routes, but it is an anchor to the contact section.
+  - Below the rows sit the CV / "Discuss a project" pair and a "Site language" row: a gray label on the left, the switcher on the right.
 - **Header shell:** transparent and borderless at the top of the page; gains a blurred white background, hairline border, and soft shadow once scrolled (`.header--bg`).
 
 ### Signature: The Developer's Console
@@ -282,7 +298,7 @@ These alphas are the lowest that hold 4.5:1 across the strip's gradient at 360�
 Four cross-cutting moments carry the "developer console" identity, deliberately using the same reserved monospace stack and cobalt hue rather than unrelated ideas:
 
 1. **Logo caret** — the wordmark "AntoshkinDev" ends in a blinking cobalt caret (`steps(1)` blink, 1.06s), a literal cursor.
-2. **Author IDE card** (About page) — a dark, 24px-radius card styled as a code editor window: red/yellow/green traffic-light dots, a lowercase monospace title bar, and a syntax-highlighted fake code snippet in the footer.
+2. **Author IDE card** (About page) — a dark, 24px-radius card styled as a code editor window: red/yellow/green traffic-light dots, a lowercase monospace title bar, and a syntax-highlighted fake code snippet in the footer. Each property of the snippet is a block line indented `2ch` by CSS, not by spaces in the text; on phones (≤ 480px) the snippet wraps instead of scrolling sideways, and a wrapped continuation hangs `2ch` further in, to the right of the property name.
 3. **Decoding hero subtitle** — the hero's identity line decodes itself character-by-character (unresolved characters cycle through random glyphs of the same alphabet in cobalt, then lock to Ink) on load and again on a long loop, echoing a terminal printing text. On touch screens (`hover: none`) it decodes exactly once, on load, and then stays readable.
 4. **PhotoRing inspect hover** — hovering the author photo ring (shared by `AuthorIdentity` and `AuthorPhoto`) reveals a dashed cobalt outline and a `<PhotoRing />` tag chip in the reserved monospace stack, echoing a browser devtools "inspect element" highlight — a grace note for the technically literate visitor that doubles as a wink at the site's own React/JSX stack.
 

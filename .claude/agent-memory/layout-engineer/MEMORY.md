@@ -3,3 +3,6 @@
 - [CSS chunk order](project_css_chunk_order.md) — mix overrides of component props: raise specificity via parent, don't rely on chunk <link> order
 - [Snap strip traps](project_snap_strip_traps.md) — Chrome focus-scroll skips partially visible links (fixed by JS focus handler, CSS hack rejected); flex-basis % vs tail
 - [Touch verification](project_touch_verification.md) — use isMobile+hasTouch context, not resize; addStyleTag races lazy CSS; no fling in emulation
+- [Nav/menu traps](project_nav_menu_traps.md) — header is containing block for fixed drawer; <a> needs border-box; hamburger keyup Enter reopens menu
+- [Author card traps](project_author_card_traps.md) — AuthorMeta shared home//about; badge/location centering; <code> UA monospace; useCharWidths stale widths
+- [Project card traps](project_project_card_traps.md) — img height attr distorts ≥1025; 700px cap crops at ~990–1024; top glow drops Graphite < AA; stagger

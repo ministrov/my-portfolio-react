@@ -155,6 +155,39 @@
   }
 }
 
+/* С планшета цифры — сетка на всю ширину колонки, плашки одной ширины:
+   flex с естественной шириной плашек (~122px) оставлял справа пустую
+   полосу. minmax(0, 1fr), а не 1fr: иначе подпись с nowrap раздвинет свою
+   колонку и ширины плашек разойдутся. На десктопе flex остаётся */
+@media screen and (max-width: 1024px) {
+  .about__stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* Ширину плашки задаёт трек сетки — нижний предел для flex не нужен.
+     Верхний отступ 14px вместо 12 — по макету 06: плашка 79px в высоту */
+  .about__stat {
+    min-width: 0;
+    padding-top: 0.875rem;
+  }
+
+  /* Значение не переносится: символы — inline-block, и на 568px «Middle»
+     в плашке ~122px иначе разрывался на две строки, вытягивая весь ряд */
+  .about__stat-number {
+    white-space: nowrap;
+  }
+
+  /* Подпись — Label из DESIGN.md (Oswald 600, uppercase с трекингом), как
+     в макете 06: узкий шрифт держит «АНГЛИЙСКИЙ» и «YEARS EXP.» в плашке
+     с запасом и на 568px, где плашка всего ~122px */
+  .about__stat-label {
+    font-family: var(--font-headings);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .about {
     padding-top: 4rem;
@@ -164,10 +197,6 @@
 
   .about__left {
     flex-direction: column;
-  }
-
-  .about__stat-number {
-    font-size: 1.35rem;
   }
 }
 
@@ -190,6 +219,13 @@
   .about__btns {
     flex-direction: column;
     max-width: fit-content;
+  }
+}
+
+/* На телефоне четыре колонки слишком узки для подписей — сетка 2×2 */
+@media screen and (max-width: 567px) {
+  .about__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

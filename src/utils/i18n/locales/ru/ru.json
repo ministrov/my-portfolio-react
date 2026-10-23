@@ -85,7 +85,9 @@
     "showMenu": "Показать меню",
     "hideMenu": "Скрыть меню",
     "about": "Обо мне",
-    "projects": "Проекты"
+    "projects": "Проекты",
+    "contacts": "Контакты",
+    "siteLanguage": "Язык сайта"
   },
   "promo": {
     "promoSlogan": "Фронтенд-разработчик из Москвы, помогающий бизнесу создавать современные, быстрые и удобные сайты.",
@@ -374,7 +376,9 @@
     "ariaLabel": "Проект: {{title}}",
     "imgAlt": "{{title}} — скриншот проекта",
     "demoAriaLabel": "Демо проекта {{title}}",
-    "githubAriaLabel": "GitHub проекта {{title}}"
+    "githubAriaLabel": "GitHub проекта {{title}}",
+    "readMore": "Читать полностью",
+    "readLess": "Свернуть"
   },
   "errorMessage": {
     "message": "Кажется, вы забрели на неизведанную территорию. Попробуйте найти путь обратно домой.",

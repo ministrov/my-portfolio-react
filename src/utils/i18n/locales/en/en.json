@@ -85,7 +85,9 @@
     "showMenu": "Show menu",
     "hideMenu": "Hide menu",
     "about": "About",
-    "projects": "Projects"
+    "projects": "Projects",
+    "contacts": "Contacts",
+    "siteLanguage": "Site language"
   },
   "promo": {
     "promoSlogan": "A frontend developer from Moscow helping businesses create modern, fast, and user-friendly websites.",
@@ -344,7 +346,9 @@
     "ariaLabel": "Project: {{title}}",
     "imgAlt": "{{title}} — project screenshot",
     "demoAriaLabel": "Demo of {{title}}",
-    "githubAriaLabel": "GitHub of {{title}}"
+    "githubAriaLabel": "GitHub of {{title}}",
+    "readMore": "Read more",
+    "readLess": "Show less"
   },
   "aboutCapabilities": {
     "text": "Core stack — React, Next.js, TypeScript, RTK Query. I build e-commerce platforms and marketing landing pages with a focus on performance, pixel perfect, and accessibility (WCAG 2.1). I have a solid understanding of the full frontend cycle — from Figma layouts to Core Web Vitals optimization and working in Agile/Scrum. Continuing to grow: currently learning Python and backend development.",

@@ -29,12 +29,6 @@
     border-color 0.25s ease;
 }
 
-.advantages__item:hover {
-  box-shadow: 0 8px 24px rgba(0, 88, 167, 0.15);
-  transform: translateY(-4px);
-  border-color: rgba(0, 88, 167, 0.22);
-}
-
 .advantages__item-text {
   margin-top: auto;
   overflow-wrap: break-word;
@@ -99,11 +93,59 @@
   line-height: 1.1;
 }
 
+@media (hover: hover) {
+  .advantages__item:hover {
+    box-shadow: 0 8px 24px rgba(0, 88, 167, 0.15);
+    transform: translateY(-4px);
+    border-color: rgba(0, 88, 167, 0.22);
+  }
+}
+
 /* ───────────────────────── Адаптивность ───────────────────────── */
 
 @media screen and (max-width: 1024px) {
   .advantages__list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 1rem;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 16px;
+  }
+
+  .advantages__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 0;
+    padding-bottom: 14px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Подъём при наведении — только у бенто-карточек на десктопе: здесь строки
+     внутри одной карточки, и приподнятая строка «выпрыгивала» бы из неё
+     (окно в пол-экрана с мышью — ~960px). Специфичность та же, что у правила
+     подъёма выше, — побеждает порядком в файле. */
+  .advantages__item:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .advantages__item-text {
+    margin-top: initial;
+  }
+
+  /* Строки равного размера — крупный clamp-шрифт «Крупных карточек» здесь не
+     нужен. Три селектора — чтобы перебить то правило по специфичности: у него
+     0-3-0, одиночный класс (0-1-0) проиграл бы даже ниже по файлу. */
+  .advantages__item-text,
+  .advantages__item:nth-child(1) .advantages__item-text,
+  .advantages__item:nth-child(6) .advantages__item-text {
+    font-size: 1rem;
+    line-height: 1.4;
   }
 
   .advantages__item:nth-child(n) {
@@ -111,16 +153,24 @@
     grid-row: auto;
   }
 
-  /* Бенто-иерархия (2×2-карточки item 1/6) существует только в 4-колоночной
-     сетке выше — здесь все карточки уже равного размера, крупный clamp-шрифт
-     ("Крупные карточки" выше) больше не привязан к реальной площади карточки
-     и просто не помещается. Три селектора нужны, чтобы перебить это
-     hero-правило по специфичности. */
-  .advantages__item-text,
-  .advantages__item:nth-child(1) .advantages__item-text,
-  .advantages__item:nth-child(6) .advantages__item-text {
-    font-size: 1.125rem;
-    line-height: 1.4;
+  .advantages__item:last-child {
+    padding-bottom: 0;
+  }
+
+  .advantages__item:not(:last-child) {
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .advantages__item-img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 9px;
+    font-size: 30px;
+    background-color: var(--color-gray-200);
+    border-radius: var(--border-radius-s);
+    box-sizing: border-box;
   }
 }
 
@@ -134,13 +184,17 @@
 }
 
 @media screen and (max-width: 568px) {
-  /* Раньше переходим в одну колонку — на 768px 2 колонки помещаются
-     свободно (карточка на короткую строку текста получает ~350px и
-     переносит без разрывов слов); измерено вплоть до 568px. Ниже уже
-     ломается — «производительности» переносится посреди слова без
-     дефиса на 480px, поэтому 1 колонка начинается только отсюда. */
   .advantages__list {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .advantages__item {
+    padding-top: 14px;
+  }
+
+  .advantages__item:first-child {
+    padding-top: 0;
   }
 }
 

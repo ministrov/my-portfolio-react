@@ -56,11 +56,36 @@
     padding: 1rem;
   }
 
+  /* 48px — высота бургера, из которой сложились 81px в --header-height.
+     На 768–992 бургера нет, и без этой строки ряд держал бы CTA (44px):
+     хедер стал бы 77px, а отступы страниц и scroll-margin-top якорей
+     считали бы 81 — и на 767/768 хедер прыгал бы на 4px. */
+  .nav {
+    min-height: 48px;
+  }
+
+  /* Компактный хедер на 768–992: меню, язык и CTA в одну строку */
+  .header__actions {
+    gap: 0.75rem;
+  }
+
+  /* Через родителя (0,2,0), а не одним классом: база .cta-button--pill
+     лежит в другом CSS-чанке, и при равной специфичности победитель
+     зависел бы от порядка <link>. min-height — потому что при 15px
+     пилюля опускается ниже цели нажатия 44px. */
+  .header__actions > .cta-button {
+    min-height: 44px;
+    padding-inline: 16px;
+    font-size: 0.9375rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
   .header__actions > .cta-button {
     display: none;
   }
 
-  /* Переключатель языка дублируется внутри NavMobile — на мобильном/планшете
+  /* Переключатель языка дублируется внутри NavMobile — на телефоне
      оставляем только один, в выезжающем меню */
   .header__actions > .nav__lang {
     display: none;

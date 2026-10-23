@@ -1,5 +1,3 @@
-import { GoProjectSymlink } from 'react-icons/go';
-import { FaUserTie } from 'react-icons/fa6';
 import { SlGlobe } from 'react-icons/sl';
 // Здесь была SiAffinitydesigner — Simple Icons убрали бренд Affinity Designer,
 // в react-icons 5 его больше нет. Услуга описывает дизайн вообще, а не работу
@@ -11,12 +9,10 @@ export const routes = [
   {
     title: 'mainNav.about',
     href: '/about',
-    Icon: FaUserTie,
   },
   {
     title: 'mainNav.projects',
     href: '/projects',
-    Icon: GoProjectSymlink,
   },
 ];
 

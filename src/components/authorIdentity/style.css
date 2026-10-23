@@ -6,7 +6,7 @@
 }
 
 /* На десктопе прижато к левому краю, вровень с текстом меты ниже;
-   центрируется снова на мобильном (см. брейкпоинт 768px) */
+   центрируется снова в колонке на телефоне (см. брейкпоинт 479px) */
 .author-identity__photo {
   width: fit-content;
   margin: 1rem 0 0 1.25rem;
@@ -21,7 +21,9 @@
 
 /* ───────────────────────── Адаптивность ───────────────────────── */
 
-/* На планшете карточка становится компактной горизонтальной строкой */
+/* От 1104px до 480px карточка — компактная горизонтальная строка: фото
+   слева, мета справа. Размеры по макету и строка «бейдж + соцсети» — с
+   1024px, в блоке ниже */
 @media screen and (max-width: 1104px) {
   .author-identity {
     display: flex;
@@ -47,11 +49,91 @@
   }
 }
 
-/* На мобильном возвращаемся к вертикальной карточке */
-@media screen and (max-width: 768px) {
+/* С 1024px — вид по макету 06 («Стало · 768»): фото крупнее, имя заметнее,
+   бейдж и соцсети одной строкой. Блок 1104 выше частично десктопный
+   (1025–1104), поэтому новые размеры — только здесь: десктоп не меняется.
+   Отступ фото, само фото и имя растут линейно от 480px (прежняя строка:
+   16px, 120px, 20px) до 768px (макет: 24px, 150px, 28px) и дальше не растут */
+@media screen and (max-width: 1024px) {
+  .author-identity {
+    --author-identity-inset: clamp(1rem, 0.1667rem + 2.778vw, 1.5rem);
+    --author-identity-photo: clamp(120px, 70px + 10.417vw, 150px);
+  }
+
+  /* Справа 8px: вместе с паддингом меты (20px) текст стоит в 28px от
+     кольца, как в макете */
+  .author-identity__photo {
+    margin: var(--author-identity-inset);
+    margin-inline-end: 0.5rem;
+  }
+
+  .author-identity__photo .photo-ring__img {
+    width: var(--author-identity-photo);
+    height: var(--author-identity-photo);
+  }
+
+  /* Мета — строки с переносом: имя, роль и локация во всю ширину, бейдж и
+     соцсети — общей строкой, если помещаются (на 480px соцсети уходят под
+     бейдж). Разметку AuthorMeta не трогаем — она общая с IDE-карточкой.
+     Паддинг снизу 16px вместо 20px — блок текста по центру фото, как в макете */
+  .author-identity .author-meta {
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    column-gap: 0.875rem;
+    padding-block-end: 1rem;
+  }
+
+  .author-identity .author-meta__name,
+  .author-identity .author-meta__role,
+  .author-identity .author-meta__location {
+    width: 100%;
+  }
+
+  /* Вес 0-3-0: кегль и трекинг имени задаёт `.author-meta--light
+     .author-meta__name` (0-2-0) из другого чанка CSS — равная специфичность
+     отдала бы победу порядку чанков в сборке */
+  .author-identity .author-meta--light .author-meta__name {
+    font-size: clamp(1.25rem, 0.4167rem + 2.778vw, 1.75rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* Роль и локация — однострочные подписи: плотный интервал, как в макете */
+  .author-identity .author-meta__role {
+    font-size: 0.9375rem;
+    line-height: 1.2;
+  }
+
+  /* Отступ снизу — воздух перед строкой бейджа */
+  .author-identity .author-meta__location {
+    margin-block-end: 0.375rem;
+    font-size: 0.875rem;
+    line-height: 1.2;
+  }
+
+  /* В строке с соцсетями бейдж стоит по центру их высоты — у меты он прижат
+     к началу (align-self: flex-start) */
+  .author-identity .author-meta__badge {
+    align-self: center;
+    font-size: 0.8125rem;
+  }
+
+  /* Кружки 44px, как в макете, — не меньше цели нажатия спринта; иконка
+     уменьшена в той же пропорции, что и кружок */
+  .author-identity .socials__link {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.625rem;
+  }
+}
+
+/* Уже 480px строке не хватает места под мету — карточка становится
+   колонкой. На 480–768px строка держится: колонка там давала фото по
+   центру и текст по левому краю — две оси в одной карточке */
+@media screen and (max-width: 479px) {
   .author-identity {
     flex-direction: column;
-    width: 100%;
   }
 
   /* Строчный 120px-аватар был вёрсткой для узкой горизонтальной строки —
@@ -64,5 +146,22 @@
   .author-identity__photo .photo-ring__img {
     width: 140px;
     height: 140px;
+  }
+
+  /* В колонке всё по одной оси с фото — по центру. Мета снова колонка:
+     в строках с переносом align-items центрировал бы только по вертикали.
+     Мета — только через .author-identity: тот же AuthorMeta стоит в
+     IDE-карточке на /about и там остаётся прижатым влево. text-align
+     центрирует имя и роль на всю ширину; бейдж уже по центру (блок 1024),
+     соцсети во flex-колонке с align-items: center сжаты по иконкам */
+  .author-identity .author-meta {
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Локация — flex-строка «иконка + текст»: text-align её не центрирует */
+  .author-identity .author-meta__location {
+    justify-content: center;
   }
 }
