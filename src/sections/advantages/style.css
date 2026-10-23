@@ -125,6 +125,11 @@
     box-shadow: none;
   }
 
+  .advantages__item:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
   .advantages__item-text {
     margin-top: initial;
   }
@@ -172,11 +177,6 @@
 }
 
 @media screen and (max-width: 568px) {
-  .advantages {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
   .advantages__list {
     grid-template-columns: 1fr;
     gap: 0;
@@ -188,6 +188,13 @@
 
   .advantages__item:first-child {
     padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .advantages {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 
