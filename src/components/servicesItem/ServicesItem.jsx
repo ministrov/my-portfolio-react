@@ -1,6 +1,6 @@
-import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdArrowForward } from 'react-icons/md';
+import useGoToContacts from '../../hooks/useGoToContacts';
 import './style.css';
 
 /**
@@ -20,12 +20,8 @@ import './style.css';
 const ServicesItem = ({ service }) => {
   const { icon, title, description } = service;
   const { t } = useTranslation();
-
-  // Тот же приём, что у CtaButton (шапка/модалка) — плавный скролл к секции
-  // контактов вместо навигации, специальный хук ради одной строки не нужен.
-  const handleCueClick = useCallback(() => {
-    document.querySelector('.contact')?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+  // Та же цель, что у CtaButton и «Контактов» в меню, — заголовок контактов
+  const goToContacts = useGoToContacts();
 
   return (
     <>
@@ -37,7 +33,7 @@ const ServicesItem = ({ service }) => {
         <p className="services__description">{t(description)}</p>
       </div>
 
-      <button type="button" className="services__cue" onClick={handleCueClick}>
+      <button type="button" className="services__cue" onClick={goToContacts}>
         {t('modal.cta')}
         <MdArrowForward className="services__cue-icon" aria-hidden="true" />
       </button>

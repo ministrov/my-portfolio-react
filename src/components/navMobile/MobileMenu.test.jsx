@@ -6,7 +6,7 @@ import {
   within,
   waitFor,
 } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, useLocation } from 'react-router-dom';
 import '../../utils/i18n/index'; // инициализирует i18next (язык по умолчанию — ru)
 import MobileMenu from './MobileMenu';
 
@@ -21,9 +21,19 @@ vi.mock('motion/react', async (importOriginal) => ({
 }));
 
 /**
- * Рендерит открытое меню рядом с заголовком контактов — целью прокрутки
- * «Контактов». В jsdom нет `scrollIntoView`, поэтому он подменяется моком
- * прямо на элементе. Роутер нужен пунктам-маршрутам (`NavLink`).
+ * Выводит текущий адрес роутера — по нему видно, был ли переход.
+ * @returns {JSX.Element} Адрес в `data-testid="location"`.
+ */
+const LocationProbe = () => {
+  const { pathname, hash } = useLocation();
+  return <output data-testid="location">{pathname + hash}</output>;
+};
+
+/**
+ * Рендерит открытое меню на странице `/no-such-page` рядом с заголовком
+ * контактов — целью прокрутки «Контактов». В jsdom нет `scrollIntoView`,
+ * поэтому он подменяется моком прямо на элементе. Роутер нужен
+ * пунктам-маршрутам (`NavLink`) и переходу к контактам.
  * @param {Object} [options]
  * @param {boolean} [options.withContacts=true] - Есть ли на странице секция контактов.
  * @returns {{ onClose: Function, heading: HTMLElement | null }} Колбэк закрытия и заголовок.
@@ -32,9 +42,10 @@ const renderMenu = ({ withContacts = true } = {}) => {
   const onClose = vi.fn();
 
   render(
-    <MemoryRouter>
+    <MemoryRouter initialEntries={['/no-such-page']}>
       <MobileMenu isOpen onClose={onClose} />
       {withContacts && <h2 id="contact-heading">Связаться</h2>}
+      <LocationProbe />
     </MemoryRouter>
   );
 
@@ -144,12 +155,38 @@ describe('MobileMenu', () => {
     );
   });
 
-  it('без секции контактов на странице клик закрывает меню и не падает', () => {
+  it('«Контакты» при контактах на странице не меняют адрес', async () => {
+    const { heading } = renderMenu();
+
+    fireEvent.click(screen.getByRole('link', { name: 'Контакты' }));
+
+    await waitFor(() => expect(heading.scrollIntoView).toHaveBeenCalled());
+    expect(screen.getByTestId('location')).toHaveTextContent('/no-such-page');
+  });
+
+  it('без секции контактов (404) «Контакты» закрывают меню и ведут на главную к контактам', async () => {
     const { onClose } = renderMenu({ withContacts: false });
 
-    expect(() =>
-      fireEvent.click(screen.getByRole('link', { name: 'Контакты' }))
-    ).not.toThrow();
+    fireEvent.click(screen.getByRole('link', { name: 'Контакты' }));
+
     expect(onClose).toHaveBeenCalledTimes(1);
+    await waitFor(() =>
+      expect(screen.getByTestId('location')).toHaveTextContent(
+        '/#contact-heading'
+      )
+    );
+  });
+
+  it('без секции контактов (404) «Обсудить проект» закрывает меню и ведёт на главную к контактам', async () => {
+    const { onClose } = renderMenu({ withContacts: false });
+
+    fireEvent.click(screen.getByRole('button', { name: /Обсудить проект/ }));
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+    await waitFor(() =>
+      expect(screen.getByTestId('location')).toHaveTextContent(
+        '/#contact-heading'
+      )
+    );
   });
 });
