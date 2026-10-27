@@ -48,6 +48,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **The "About me" facts hold a grid on tablets and phones (≤ 1024 px).** The four plaques were flex chips of their natural width, about 122 px each: at 360 px they left a 65 px strip empty on the right, at 768 px they took 531 of 707 px. Now they form a grid across the whole column with plaques of equal width: four in a row down to 568 px, 2×2 at 567 px and below. A plaque is 158 px wide at 360 px and 168 px at 768 px. The plaques follow the audit mockup to within 1 px at 390 and 768 px: the value keeps the desktop 1.6 rem (it used to shrink to 1.35 rem below 768 px) and never wraps, the label is set as a Label (Oswald 600, 12 px, 0.08 em tracking), and a plaque is 79 px tall instead of 73. At 568 px the tightest label keeps 21 px from the edge ("АНГЛИЙСКИЙ"; in English "YEARS EXP.", 29 px). Desktop ≥ 1025 px keeps the flex row and its labels.
 - **The author card on the home page stays a row down to 480 px.** At 480–768 px it used to stack into a column with the photo centred and the text left-aligned, two axes in one card. Now the photo sits on the left and the name, role, location, badge and socials sit to its right, as they already did at 769–1104 px. At 768 px the card follows the audit mockup to within 2 px: a 150 px photo, the name at 28 px, the role at 15 px, and the "Open to work" badge in one row with 44 px social circles; the card is 206 px tall instead of 371. Between 480 and 768 px the photo, its inset and the name scale linearly from the old row's 120 px, 16 px and 20 px, and where the row is narrow the socials move under the badge. At 769–1024 px they stay at the mockup size; from 1025 px the card is unchanged. Below 480 px the card is a column with everything centred, the location, the "Open to work" badge and the socials included. The rules apply only inside `.author-identity`, so the dark author card on /about, which shares `AuthorMeta`, is unchanged.
 - **The code in the /about author card wraps on phones (≤ 480 px).** Lines such as `focus` and `interests` ran past the card's edge, and the horizontal scroll that held them is invisible on a phone. Each property is now a block line indented by CSS (`2ch`) instead of spaces in the text, and the closing `};` is a line of its own. At ≤ 480 px a long line wraps, and its continuation hangs 2 characters to the right of the property name. At 360 px five lines wrap, the block grows by 96 px and nothing scrolls sideways; at 390 px the same four lines wrap as in the audit mockup. Above 480 px the code looks as before: at 1280 and 768 px every token keeps its position to within 0.1 px, and the block keeps its height. Syntax colours and the monospace font are unchanged.
+- **The 404 page has a visible heading and two ways out.** Before:
+  - the h1 was visually hidden;
+  - the only text was a 24 px cobalt paragraph that read as a link;
+  - the only exit, a 208 × 22 px "Go back homepage" link with an "opens externally" icon, ended at 798 px at 360 × 780, below the fold.
+
+  Now the page has:
+  - an "Error 404" Label;
+  - a visible h1 "Page not found";
+  - an Ink paragraph that names the missing address in readable form (`/страница`, not `%D1%81…`);
+  - two 48 px pill links, "Go to homepage" (cobalt) and "View projects →" (outline).
+
+  Below 576 px the links stack full width; from 576 px they sit in a centred row. At 360 × 780 the second button ends at 698 px, with no scrolling. With a long address of about 150 characters it ends at 770 px, still on the first screen. The robot is 240 px on phones and 320 px elsewhere instead of being stretched to 550 px. It loads at once (`fetchpriority="high"`, no `loading="lazy"`; `width` and `height` reserve its box), and `mix-blend-mode: multiply` removes its white rectangle. `role="alert"` and the nested section are gone. A malformed `%` sequence is shown as it is, and markup in the address shows as text. It is escaped before `Trans` parses the string, so `<path style="…">` in a link cannot crash the page. The `errorMessage.message` and `errorMessage.back` keys, with their English typos, are replaced by the new copy. This change reaches desktop by design (decision R6).
 
 ### Added
 
@@ -66,6 +78,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tests for `Up`: scroll direction, the two-screen limit, the 8 px dead zone, hiding over the contact form and the footer, and the unchanged desktop behaviour.
 - Tests for `HamburgerButton` and `Header`: Enter keydown and keyup as separate events, and the menu closing when the layout stops being mobile.
 - Tests for `ProjectCard`: the year and role line above the title, folding and unfolding a long description, no button for a description that fits, and a single link without a GitHub repository.
+- Tests for `ErrorMessage` and the 404 page:
+  - one h1, no `role="alert"`, and a single section labelled by that h1;
+  - a Cyrillic address shown decoded;
+  - malformed `%` sequences and markup in the address shown as text, without a crash;
+  - links to `/` and `/projects`;
+  - the robot's loading attributes;
+  - the English copy.
 - Tests for `AuthorPhoto`: nine code lines, one per property of `authorData.code`, with their exact text; the closing `};` on its own line; no line-break characters left in the code.
 - **Vitest harness** (`vitest`, Testing Library, jsdom) replacing the Jest that left with `react-scripts`, plus `npm test` / `npm run test:run`.
 - Tests for the projects filter reducer and for the language resolver.

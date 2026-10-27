@@ -381,8 +381,12 @@
     "dateFour": "June 2026 — Present"
   },
   "errorMessage": {
-    "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",
-    "back": "Go back homepage"
+    "eyebrow": "Error 404",
+    "title": "Page",
+    "accent": "not found",
+    "text": "There is nothing at <path>{{path}}</path>. The link may be outdated, or the address has a typo.",
+    "home": "Go to homepage",
+    "projects": "View projects"
   },
   "loader": {
     "loading": "Loading",

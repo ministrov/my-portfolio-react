@@ -1,46 +1,176 @@
+/* Страница 404: робот, ярлык, h1, текст с адресом и два выхода — одной
+   колонкой по центру. Размеры — по таблице «Размеры из макета» блока 01
+   ТЗ S02: на 360 × 780 обе кнопки видны без прокрутки. */
 .not-found {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
 }
 
+/* 320, а не исходные 400: GIF не растягивается и не мылится, а первый
+   экран остаётся под текст и кнопки. multiply делает белый фон GIF
+   прозрачным на светлой сетке страницы — без нового файла; внутренняя
+   белая заливка робота тоже чуть пропускает сетку, это принято на макете. */
 .not-found__image {
   display: block;
-  width: 850px;
-  height: 550px;
-  object-fit: contain;
+  width: 320px;
+  height: 320px;
+  margin-bottom: 1.5rem;
+  mix-blend-mode: multiply;
 }
 
-.not-found__text {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 32px;
-  color: var(--color-blue-700);
-}
-
-.not-found__btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  max-width: 20rem;
-  font-size: 16px;
-  line-height: 16px;
+/* Label из DESIGN.md: Oswald 700, 0.75rem, трекинг 0.09em, Graphite */
+.not-found__eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-headings);
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-blue-700);
-  border-bottom: 2px solid var(--color-blue-700);
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
 }
 
-.not-found__btn-icon {
+/* 0-2-0 перебивает margin-bottom у .heading-sec--display (3rem, на ≤ 768 —
+   2rem): база заголовка лежит в другом CSS-чанке, и при равной
+   специфичности победитель зависел бы от порядка <link>. */
+.not-found .not-found__title {
+  margin: 0 0 1rem;
+}
+
+/* «не найдена» / «not found» переносится целиком: на телефоне заголовок —
+   две строки «Страница» + акцент, без висящего «не» */
+.not-found__title .heading-sec__accent {
+  white-space: nowrap;
+}
+
+/* Ink, а не кобальт: текст не должен читаться как ссылка */
+.not-found__text {
+  max-width: 32rem;
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-gray-800);
+  text-wrap: pretty;
+}
+
+/* Адрес — Golos 600, не моноширинный (One Monospace Rule). anywhere:
+   длинный адрес без пробелов переносится, а не распирает страницу. */
+.not-found__path {
+  font-weight: 600;
+  color: var(--color-gray-900);
+  overflow-wrap: anywhere;
+}
+
+/* Зазор 0.625rem — как у пары кнопок мобильного меню */
+.not-found__actions {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.625rem;
+}
+
+/* Пара Primary (pill) + Outline — те же значения, что у пары в мобильном
+   меню (.nav-mobile__cv и .cta-button--outline). Рамка 1.5px у обеих:
+   высота и ширина пары совпадают. Высота — min-height, а не height: при
+   зуме и увеличенных интервалах текста подпись не обрежется. */
+.not-found__primary,
+.not-found__secondary {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.25rem;
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-headings);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  border: 1.5px solid var(--color-blue-700);
+  border-radius: 999px;
 }
 
-@media only screen and (max-width: 964px) {
+.not-found__primary {
+  color: var(--color-white);
+  background-color: var(--color-blue-700);
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.not-found__secondary {
+  color: var(--color-blue-700);
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+/* inline-block — иначе transform на строчном элементе не работает */
+.not-found__arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+/* Hover только для мыши: на таче состояние залипало бы после тапа.
+   Основная — темнее, подъём на 1px и кобальтовое свечение, как пилюля CTA
+   в шапке; контурная — фон Frost и стрелка на 3px вперёд. */
+@media (hover: hover) {
+  .not-found__primary:hover {
+    background-color: var(--color-blue-800);
+    border-color: var(--color-blue-800);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+  }
+
+  .not-found__secondary:hover {
+    background-color: var(--color-gray-200);
+  }
+
+  .not-found__secondary:hover .not-found__arrow {
+    transform: translateX(3px);
+  }
+}
+
+/* Отклик на касание вместо hover: те же цвета на время нажатия */
+.not-found__primary:active {
+  background-color: var(--color-blue-800);
+  border-color: var(--color-blue-800);
+}
+
+.not-found__secondary:active {
+  background-color: var(--color-gray-200);
+}
+
+/* --color-blue-700 даёт 5.17:1 на белом — кольцо видно и на сетке фона */
+.not-found__primary:focus-visible,
+.not-found__secondary:focus-visible {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 2px;
+}
+
+/* Телефон: робот меньше, кнопки — столбиком во всю ширину колонки */
+@media screen and (max-width: 575px) {
   .not-found__image {
-    display: block;
-    width: 100%;
-    height: auto;
+    width: 240px;
+    height: 240px;
+  }
+
+  .not-found__actions {
+    flex-direction: column;
+    align-self: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found__primary,
+  .not-found__secondary,
+  .not-found__arrow {
+    transition: none;
+  }
+
+  .not-found__primary:hover,
+  .not-found__secondary:hover .not-found__arrow {
+    transform: none;
   }
 }

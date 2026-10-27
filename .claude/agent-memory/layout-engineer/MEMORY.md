@@ -5,4 +5,5 @@
 - [Touch verification](project_touch_verification.md) — use isMobile+hasTouch context, not resize; addStyleTag races lazy CSS; no fling in emulation
 - [Nav/menu traps](project_nav_menu_traps.md) — header is containing block for fixed drawer; <a> needs border-box; hamburger keyup Enter reopens menu
 - [Author card traps](project_author_card_traps.md) — AuthorMeta shared home//about; badge/location centering; <code> UA monospace; useCharWidths stale widths
+- [Trans values traps](project_trans_values_traps.md) — user values in Trans parsed as markup (escapeValue off) crash React; pathname encoding; 404 min-height (content-box)
 - [Project card traps](project_project_card_traps.md) — img height attr distorts ≥1025; 700px cap crops at ~990–1024; top glow drops Graphite < AA; stagger

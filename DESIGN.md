@@ -235,9 +235,9 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 ### Buttons
 
-- **Shape:** 8px radius by default; fully pill (999px) for the header CTA and the mobile-menu button pair.
-- **Primary (pill):** cobalt background, white text, Oswald label typography, uppercase-free. Hover darkens to Cobalt Deep and lifts `-1px` with a cobalt-tinted glow (mouse only in the mobile menu). Two uses: "Discuss a project" in the header, and "Download CV" in the mobile menu. The menu one is a `download` link, not a button: full width, `min-height: 48px`, a "↓" after the label. It leads the menu's button pair, because the CV comes first and freelance second.
-- **Outline (secondary):** transparent background, a 1.5px cobalt border, cobalt Oswald text, `min-height: 48px`, fully pill — the quiet partner placed next to a primary action, never on its own. Frost background on hover (mouse only, under `@media (hover: hover)`) and on `:active` as touch feedback. "Discuss a project" uses it in two places, each time below a CV download. In the hero below 768px it is sized to the Spotlight button's width. In the mobile menu it sits under the cobalt "Download CV" pill, full width, with the arrow 4px from the label, as in that pill.
+- **Shape:** 8px radius by default; fully pill (999px) for the header CTA and the button pairs of the mobile menu and the 404 page.
+- **Primary (pill):** cobalt background, white text, Oswald label typography, uppercase-free. Hover darkens to Cobalt Deep and lifts `-1px` with a cobalt-tinted glow (mouse only in the mobile menu and on the 404 page). Three uses: "Discuss a project" in the header, "Download CV" in the mobile menu, and "Go to homepage" on the 404 page. The menu one is a `download` link, not a button: full width, `min-height: 48px`, a "↓" after the label. It leads the menu's button pair, because the CV comes first and freelance second. The 404 one is a route link leading its pair: `min-height: 48px`, and a 1.5px cobalt border that turns Cobalt Deep with the fill, so it matches its Outline partner to the pixel.
+- **Outline (secondary):** transparent background, a 1.5px cobalt border, cobalt Oswald text, `min-height: 48px`, fully pill — the quiet partner placed next to a primary action, never on its own. Frost background on hover (mouse only, under `@media (hover: hover)`) and on `:active` as touch feedback. "Discuss a project" uses it in two places, each time below a CV download. In the hero below 768px it is sized to the Spotlight button's width. In the mobile menu it sits under the cobalt "Download CV" pill, full width, with the arrow 4px from the label, as in that pill. On the 404 page "View projects →" wears it as a route link with its own class (not `CtaButton`), next to "Go to homepage": in a centred row 10px apart from 576px, a full-width column below. Its arrow sits 4px from the label and moves 3px forward on hover, as `CtaButton`'s does.
 - **Hero Spotlight (CV download):** the one glassmorphic button in the system — frosted white glass (`backdrop-filter: blur(16px) saturate(170%)`), CTA Spotlight Ink text, wrapped in a frame with a rotating CTA Spotlight rainbow border and a pulsing ring on entrance (see Colors → CTA Spotlight). This is the single most important conversion action on the page (CV download) and is the only button allowed this treatment.
 - **Submit (form):** cobalt background, white text, uppercase Oswald label with `0.04em` tracking, full-width in the contact form. Hover **inverts** (white background, cobalt text/border) rather than darkening — the one button variant that swaps instead of deepens.
 - **Ghost (text link):** no background, cobalt text, an animated underline that retracts on hover instead of appearing — used for "read more" style links.
@@ -292,6 +292,16 @@ These alphas are the lowest that hold 4.5:1 across the strip's gradient at 360�
   - "Contacts" is a row like the routes, but it is an anchor to the contact section.
   - Below the rows sit the CV / "Discuss a project" pair and a "Site language" row: a gray label on the left, the switcher on the right.
 - **Header shell:** transparent and borderless at the top of the page; gains a blurred white background, hairline border, and soft shadow once scrolled (`.header--bg`).
+
+### 404 page
+
+One centred column inside `.container`, top padding `--header-height` + 2rem. It holds the robot GIF, then a Label eyebrow ("Error 404"), then a visible Display h1, then a Body paragraph, then the Primary / Outline pair ("Go to homepage" / "View projects →"). The steps between them are 1.5rem, 0.5rem, 1rem and 2rem.
+
+- **h1.** The section heading component at level 1: "Page" in Carbon plus "not found" as the Signal Violet accent. The accent never breaks, so phones get two clean lines.
+- **Text.** Ink, not cobalt, so it does not read as a link, capped at 32rem. The missing address inside it is Golos 600 Carbon. It is decoded (`/страница`, not `%D1%81…`) and breaks anywhere, and it is deliberately not monospace (One Monospace Rule).
+- **Robot.** 320px, 240px at ≤ 575px, never wider than its 400px source. It loads eagerly. `mix-blend-mode: multiply` dissolves the GIF's white background into the page grid; the robot's own white fill lets the grid through a little, which the mockup accepts.
+- **Fit.** At 360 × 780 the eyebrow, heading, text and both buttons fit on the first screen: the second button ends at 698px.
+- **Semantics.** No `role="alert"`: the page is static content, not an urgent announcement.
 
 ### Signature: The Developer's Console
 
