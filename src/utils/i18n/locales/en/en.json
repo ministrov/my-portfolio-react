@@ -21,9 +21,6 @@
     }
   },
   "pages": {
-    "about": {
-      "title": "About page"
-    },
     "projects": {
       "heading": "Projects page"
     }

@@ -23,11 +23,20 @@ import './style.css';
  * @param {Object} props - Пропсы компонента
  * @param {boolean} [props.link=false] - Показывать ли карточку автора и ссылку на страницу "Обо мне"
  * @param {boolean} [props.button=false] - Показывать ли кнопку скачивания CV и соцсети
+ * @param {boolean} [props.border=false] - Режим отдельной страницы /about: хлебные крошки
+ *   и модификатор `about__without`
+ * @param {(1|2)} [props.headingLevel=2] - Уровень заголовка «Немного обо мне»: на /about
+ *   он главный на странице (1), на главной — заголовок секции (2)
  * @example
  * <About link />
- * <About button />
+ * <About border headingLevel={1} />
  */
-const About = ({ link = false, button = false, border = false }) => {
+const About = ({
+  link = false,
+  button = false,
+  border = false,
+  headingLevel = 2,
+}) => {
   const { t } = useTranslation();
   // Гейт расшифровки плашек: строка статистики должна попасть в кадр.
   // `once` обязателен — расшифровка это момент прибытия, а не фоновый цикл;
@@ -59,6 +68,7 @@ const About = ({ link = false, button = false, border = false }) => {
               id="about-heading"
               title={t('heading.about.name')}
               accent={t('heading.about.accent')}
+              level={headingLevel}
             />
             {link && <AuthorIdentity />}
           </div>
