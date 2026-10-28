@@ -53,5 +53,8 @@
       "fileMatch": ["package.json"],
       "url": "https://json.schemastore.org/package.json"
     }
-  ]
+  ],
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
