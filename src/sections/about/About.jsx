@@ -1,10 +1,9 @@
 import { memo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'motion/react';
-import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import Heading from '../../components/heading/Heading';
 import ButtonLink from '../../components/buttonLink/ButtonLink';
-import SocialList from '../../components/socials/SocialList';
+import CtaButton from '../../components/ctaButton/CtaButton';
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 import AboutStory from '../../components/aboutStory/AboutStory';
 import AuthorIdentity from '../../components/authorIdentity/AuthorIdentity';
@@ -22,14 +21,16 @@ import './style.css';
  * @component
  * @param {Object} props - Пропсы компонента
  * @param {boolean} [props.link=false] - Показывать ли карточку автора и ссылку на страницу "Обо мне"
- * @param {boolean} [props.button=false] - Показывать ли кнопку скачивания CV и соцсети
+ * @param {boolean} [props.button=false] - Показывать ли под тегами пару кнопок «Скачать
+ *   резюме ↓» (ссылка-скачивание) и «Обсудить проект →» (`CtaButton`, контур) —
+ *   на /about резюме доступно без бургер-меню
  * @param {boolean} [props.border=false] - Режим отдельной страницы /about: хлебные крошки
  *   и модификатор `about__without`
  * @param {(1|2)} [props.headingLevel=2] - Уровень заголовка «Немного обо мне»: на /about
  *   он главный на странице (1), на главной — заголовок секции (2)
  * @example
  * <About link />
- * <About border headingLevel={1} />
+ * <About border button headingLevel={1} />
  */
 const About = ({
   link = false,
@@ -43,9 +44,6 @@ const About = ({
   // без него факты переигрывались бы на каждом возврате скроллом
   const statsRef = useRef(null);
   const areStatsInView = useInView(statsRef, { once: true });
-
-  // Используется дважды (как текст кнопки и внутри aria-label) — выносим в переменную
-  const promoBtnText = t('promo.promoBtn');
 
   return (
     <section
@@ -100,22 +98,20 @@ const About = ({
               ))}
             </ul>
 
+            {/* Пара действий, как в мобильном меню: резюме первым (работа
+                важнее фриланса), «Обсудить проект» — контурной кнопкой рядом.
+                Имя файла — то же, что в меню и на первом экране главной */}
             {button && (
-              <div className="about__btns">
+              <div className="about__actions">
                 <a
-                  className="promo__btn"
+                  className="about__cv"
                   href={cvPdf}
-                  download="my-cv.pdf"
-                  rel="noopener noreferrer"
-                  aria-label={t('about.cvAriaLabel', { text: promoBtnText })}
+                  download="Anton_Zhilin_CV.pdf"
                 >
-                  {promoBtnText}
-                  <span className="btn__icon">
-                    <BsBoxArrowInUpRight />
-                  </span>
+                  {t('hero.btn')}
+                  <span aria-hidden="true">↓</span>
                 </a>
-
-                <SocialList variant="blue" />
+                <CtaButton variant="outline" className="about__cta" />
               </div>
             )}
 

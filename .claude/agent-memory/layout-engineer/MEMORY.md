@@ -2,7 +2,7 @@
 - [Hero traps](project_hero_traps.md) — dormant spotlight width rule (keep column fit-content), +4px frame, scramble restarts when `active` turns on
 - [CSS chunk order](project_css_chunk_order.md) — mix overrides of component props: raise specificity via parent, don't rely on chunk <link> order
 - [Snap strip traps](project_snap_strip_traps.md) — Chrome focus-scroll skips partially visible links (fixed by JS focus handler, CSS hack rejected); flex-basis % vs tail
-- [Touch verification](project_touch_verification.md) — use isMobile+hasTouch context, not resize; addStyleTag races lazy CSS; no fling in emulation
+- [Touch verification](project_touch_verification.md) — isMobile+hasTouch context, not resize; addStyleTag races lazy CSS; 1.5px outline reads 1px; download/scroll checks
 - [Nav/menu traps](project_nav_menu_traps.md) — header is containing block for fixed drawer; <a> needs border-box; hamburger keyup Enter reopens menu
 - [Author card traps](project_author_card_traps.md) — AuthorMeta shared home//about; badge/location centering; <code> UA monospace; useCharWidths stale widths
 - [Trans values traps](project_trans_values_traps.md) — user values in Trans parsed as markup (escapeValue off) crash React; pathname encoding; 404 min-height (content-box)

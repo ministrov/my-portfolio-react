@@ -5,7 +5,8 @@ import '../../utils/i18n/index'; // инициализирует i18next (язы
 import About from './About';
 
 // Плашки фактов меряют символы через canvas и спрашивают matchMedia — в jsdom
-// нет ни того, ни другого. Тест про заголовок, поэтому плашки заглушены.
+// нет ни того, ни другого. Тесты про заголовок и пару кнопок, плашки им не
+// нужны — поэтому заглушены.
 vi.mock('../../components/aboutStat/AboutStat', () => ({
   default: () => null,
 }));
@@ -39,5 +40,30 @@ describe('About', () => {
     expect(headings).toHaveLength(1);
     expect(headings[0]).toHaveAccessibleName('Немного обо мне');
     expect(headings[0]).toHaveAttribute('id', 'about-heading');
+  });
+
+  it('с button — «Скачать резюме» скачивает PDF и стоит перед контурной «Обсудить проект»', () => {
+    renderAbout({ border: true, button: true, headingLevel: 1 });
+
+    const cvLink = screen.getByRole('link', { name: 'Скачать резюме' });
+    const cta = screen.getByRole('button', { name: /Обсудить проект/ });
+
+    expect(cvLink).toHaveAttribute('download', 'Anton_Zhilin_CV.pdf');
+    expect(cvLink.getAttribute('href')).toMatch(/my-cv.*\.pdf/);
+    expect(cta).toHaveClass('cta-button--outline');
+    expect(
+      cvLink.compareDocumentPosition(cta) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+  });
+
+  it('без button (главная) — ни ссылки на резюме, ни «Обсудить проект»', () => {
+    renderAbout({ link: true });
+
+    expect(
+      screen.queryByRole('link', { name: 'Скачать резюме' })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: /Обсудить проект/ })
+    ).not.toBeInTheDocument();
   });
 });

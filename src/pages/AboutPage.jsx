@@ -82,7 +82,7 @@ const AboutPage = () => {
         dangerouslySetInnerHTML={{ __html: breadcrumbSchema }}
       />
 
-      <About border headingLevel={1} />
+      <About border button headingLevel={1} />
 
       <div className="container wrapper">
         <AuthorPhoto />
