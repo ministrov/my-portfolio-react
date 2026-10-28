@@ -75,3 +75,27 @@
     height: 2rem;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .breadcrumbs {
+    overflow-x: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .breadcrumbs__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .breadcrumbs {
+    margin-bottom: 1rem;
+  }
+}

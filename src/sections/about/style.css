@@ -150,6 +150,10 @@
     gap: 1.5rem;
   }
 
+  .about__without .about__left .heading-sec--display {
+    width: 100%;
+  }
+
   .about__right {
     width: 100%;
   }
