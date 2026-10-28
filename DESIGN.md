@@ -199,7 +199,7 @@ Mostly a two-color system — cobalt as the one true action color, violet as a q
 
 ## Layout
 
-The container caps at `1440px` and steps down at wide breakpoints (`1200px` at ≤1520px, `1068px` at ≤1268px), with fluid inline padding `clamp(16px, 4vw, 32px)`. Section rhythm comes from a shared `.wrapper` (80px top / 60px bottom margin, tightening to 64px top on ≤768px) rather than per-section spacing.
+The container caps at `1440px` and steps down at wide breakpoints (`1200px` at ≤1520px, `1068px` at ≤1268px), with fluid inline padding `clamp(16px, 4vw, 32px)`. Section rhythm comes from a shared `.wrapper` (80px top / 60px bottom margin, tightening to 64px top on ≤768px) rather than per-section spacing. The page frame keeps the footer on the bottom edge: when a page is shorter than the screen (the 404), the spare height goes to `main`, above the footer, never into a band below it.
 
 Responsive behavior is **desktop-first**: every component is styled for its widest state first, then narrowed with `max-width` media queries. Breakpoints are tuned per component to that component's own content (1520, 1268, 1024, 992, 893, 768, 580, 567, 479, 475, 396, 375, 360, 320px all appear somewhere) rather than snapped to one fixed global grid — expect a new component to need its own breakpoint tuning, not a lookup into a shared set.
 
