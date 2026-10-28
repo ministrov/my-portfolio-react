@@ -163,6 +163,17 @@
 
 /* ───────────────────────── Адаптивность ───────────────────────── */
 
+@media screen and (max-width: 1024px) {
+  .author-card .socials {
+    gap: 1rem;
+  }
+
+  .author-card .socials__link {
+    margin: -6px;
+    padding: 6px;
+  }
+}
+
 /* Медиа-запросы — после базы `.author-code`: при равной специфичности
    правило выше по файлу проиграло бы ей, и перенос кода не включился бы */
 @media (max-width: 720px) {
@@ -176,6 +187,15 @@
   .author-card__photo .photo-ring__img {
     width: 170px;
     height: 170px;
+  }
+
+  .author-card .author-meta {
+    display: flex;
+    align-items: center;
+  }
+
+  .author-card .author-meta__badge {
+    align-self: center;
   }
 }
 
