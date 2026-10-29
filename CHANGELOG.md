@@ -87,6 +87,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - the English copy.
 - Tests for `AuthorPhoto`: nine code lines, one per property of `authorData.code`, with their exact text; the closing `};` on its own line; no line-break characters left in the code.
 - Tests for `useCharWidths`: re-measuring after `document.fonts.ready` and on `loadingdone` while the `font` string stays the same, unsubscribing on unmount, and no crash without `document.fonts`.
+- **`ResumeCard` component** (`src/components/resumeCard/`) — one card for both experience and education on /about. It is not wired in yet: the experience and education sections switch to it next. The props are ready strings, not i18n keys: `label`, `title`, `date`, `stages` (`{ date, summary, points }`), `text` and `className`; only `title` and `date` are required. The markup is an `article` with an h3 in its `header`, and points are a real `ul > li` list (`role="list"`, so VoiceOver keeps announcing it under `list-style: none`). The title is Carbon, not cobalt, so it does not read as a link. With the Russian "Service Market" copy the card follows the audit mockup to within 0.5 px at 390 and 768 px:
+  - 22.4 / 28.3 px padding, with the Label 23.4 / 29.3 px from the card's edge;
+  - Label 12/17, title 24/30 8 px below it, dates 14/20 8 px under the title;
+  - the stage date 16 px after the card's dates, then the summary and points at 16/26, 8 px apart, a 16 px indent and a 6 × 6 dot 10 px from the top;
+  - a 1 px line between stages with 24 px on each side;
+  - for reference, with the brief's copy: 358 × 1 025 px at 390 and 707 × 673 at 768.
+
+  From 769 px the dates sit on the title's baseline at the right edge (checked at 769, 1024, 1025 and 1280 px). At 320 px nothing scrolls sideways, and the longest date, "September 2021 — November 2023", fits with 9 px to spare. In forced-colors mode the dot is drawn with a border, so it does not vanish.
+
+- Tests for `ResumeCard`: no crash and no stray `undefined` class without the optional props, the parent's mix class, stages with their dates and summaries, points as list items in their own list, a stage without points rendering no empty list, and the paragraph variant for education.
 - **Vitest harness** (`vitest`, Testing Library, jsdom) replacing the Jest that left with `react-scripts`, plus `npm test` / `npm run test:run`.
 - Tests for the projects filter reducer and for the language resolver.
 - `src/utils/lang.js` — single source of truth for the initial-language precedence (`?lang=` → `localStorage` → `ru`), shared by the i18next bootstrap and `LanguageProvider`.

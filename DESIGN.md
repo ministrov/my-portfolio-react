@@ -223,7 +223,7 @@ The system is mostly flat-at-rest with soft, low-alpha ambient shadows that _dee
 
 ## Shapes
 
-Corners default to a gentle **8px** (`--border-radius-s`) on buttons, cards, inputs, and images — the system's baseline geometry. Larger standalone surfaces scale their radius up with their size: 16px for the FAQ item and the about-story card, 20px for the modal (16px, then 14px as it shrinks on small screens), 24px for the author card. Fully circular **pill** radii (999px) are reserved for compact interactive/label chrome — the header's CTA button, the availability badge — never for content containers. The author photo ring is the one deliberate exception to the corner scale: a squircle (24px ring / 21px image, one step past the standalone-surface ceiling) rather than a pill, because its bottom edge carries a scrim gradient that dissolves the photo's cropped edge into its own backdrop — an effect a circular crop would fight rather than support.
+Corners default to a gentle **8px** (`--border-radius-s`) on buttons, cards, inputs, and images — the system's baseline geometry. Larger standalone surfaces scale their radius up with their size: 16px for the FAQ item, the about-story card and the resume card, 20px for the modal (16px, then 14px as it shrinks on small screens), 24px for the author card. Fully circular **pill** radii (999px) are reserved for compact interactive/label chrome — the header's CTA button, the availability badge — never for content containers. The author photo ring is the one deliberate exception to the corner scale: a squircle (24px ring / 21px image, one step past the standalone-surface ceiling) rather than a pill, because its bottom edge carries a scrim gradient that dissolves the photo's cropped edge into its own backdrop — an effect a circular crop would fight rather than support.
 
 Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tinted to match their surface rather than a flat gray: Cobalt Shadow-tinted (`rgba(0, 88, 167, 0.1–0.3)`) on project imagery, cards, and the loader spinner, neutral-black-tinted (`rgba(0, 0, 0, 0.06–0.08)`) on light hairline dividers (header, FAQ, about-story card), white-tinted (`rgba(255, 255, 255, 0.05–0.1)`) on the two dark surfaces.
 
@@ -249,7 +249,7 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 ### Cards / Containers
 
-- **Corner Style:** 8px for project/services cards; 16px for the about-story card and FAQ items.
+- **Corner Style:** 8px for project/services cards; 16px for the about-story card, resume cards and FAQ items.
 - **Background:** white by default; the project card itself has no fill (transparent over the page), relying on its border and shadow alone.
 - **Shadow Strategy:** ambient at rest, cobalt-tinted and deeper on hover (see Elevation & Depth) — except the testimonial card, which never lifts; it's a static reading surface.
 - **Border:** whisper-thin, tinted per surface (see Shapes).
@@ -263,6 +263,16 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 - The "Tools" heading is hidden visually but kept for screen readers, so the tags follow the description directly.
 - "Demo" and "GitHub" become card actions, a distinct button variant rather than the pill Outline: 44px tall, 8px radius, a 1.5px cobalt border on both. Demo is filled cobalt with white text and a small 11px "opens the site" arrow; GitHub is transparent with cobalt text and a 16px logo. Label and icon sit 10px apart. They share the row 50/50, and a single link takes the full width. Hover is mouse-only (Cobalt Deep / Frost); a tap gives the same feedback.
 - From 768px down every card image is a 4:5 frame, `object-fit: cover`, anchored to the top. At 769–1024px screenshots keep their own ratio under a 46rem cap.
+
+**Resume card (experience, education).** One card per job or course on /about, shared by both sections. It is a white surface with a 16px radius and a neutral 6% hairline, padded `clamp(1.4rem, 1rem + 1.6vw, 2.25rem)`: 22.4px at 390px, 28.3px at 768px, 36px on desktop. As on the project card, the text reads as text, not as links: there is no cobalt in it. Top to bottom:
+
+- An optional Label for the company or school: Oswald 700 0.75rem, 0.09em tracking, Graphite, 8px above the title. Freelance work has none.
+- A Headline h3 for the role or programme: Oswald 600 `clamp(1.5rem, 2.5vw, 1.625rem)` with a 1.25 line, Carbon, balanced when it wraps.
+- Meta dates: Golos 400 0.875rem, Graphite, never wrapping. From 769px they sit on the title's baseline at the right edge, and the title wraps first. At 768px and below they move 8px under the title.
+- Stages, the first 16px under the dates. Each has a stage date (Golos 600 0.875rem, Ink), then a one-sentence Body summary (1rem, 1.625 line, Ink), then points 8px apart. A point is the same Body with a 16px indent and a 6px Graphite dot 10px from its top, centred on the first 26px line. The list keeps `role="list"`, so VoiceOver still announces it despite `list-style: none`. Stages are split by the project card's 8% hairline, with 24px above and below it.
+- Without stages, one Body paragraph 16px under the dates (education).
+
+The card never lifts: it is a static reading surface, like the testimonial card. In forced-colors mode the dot is drawn with a 3px border, because the mode paints backgrounds over. Spacing between cards belongs to the parent list.
 
 **Advantages list ("Why me", home).** On desktop the seven advantages are a bento grid of cards that lift on hover, mouse only. On tablets and phones (≤ 1024px) they become rows inside one white card: 16px radius, a 1px Frost border, 16px padding. Each row is a 40px Frost icon tile (8px radius, 9px inset, cobalt icon) beside Body text at 1rem with a 1.4 line, centred vertically. Rows are 14px apart with a Frost hairline under every row but the last. At 569–1024px the rows run in two columns 14px apart, at 568px and below in one; the hairline reads as a row boundary, so in two columns the last row of the right column keeps it. Rows never lift — the hover lift belongs to the bento cards only.
 
