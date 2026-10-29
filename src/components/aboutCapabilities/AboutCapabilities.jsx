@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { LazyMotion, m, domAnimation } from 'motion/react';
 import Heading from '../heading/Heading';
 import Tag from '../tag/Tag';
-import { skills } from '../../const';
+import { STACK_GROUPS } from '../../const';
 import './style.css';
 
 // Анимация контейнера списка
@@ -33,12 +33,25 @@ const itemVariants = {
 const MotionTag = m.create(Tag);
 
 /**
- * Компонент секции "Возможности" (навыки и технологии).
- * Отображает заголовок, описание и список технологий в виде тегов.
- * Использует анимации Framer Motion для плавного появления элементов.
+ * Секция «Мой стек» на /about: технологии группами чипов, без абзаца.
+ *
+ * Разметка — список описаний: `dl > div > dt + dd`. `dt` — подпись группы из
+ * словаря (`aboutCapabilities.groups.<key>`), `dd` — её чипы списком `Tag`.
+ * `div` внутри `dl` — допустимая в HTML обёртка пары, на нём строится сетка
+ * «подпись слева, чипы справа». Группы и имена технологий — `STACK_GROUPS`
+ * из `const/`; имена не переводятся.
+ *
+ * Доступное имя «Стек технологий» — у всего `dl`: списков чипов пять, своего
+ * имени у них нет — каждый относится к `dt` своей пары по структуре `dl` и
+ * порядку чтения. Чипы каждой группы проявляются каскадом,
+ * когда группа входит в кадр, — те же варианты и тайминги, что у прежнего
+ * единственного списка; подписи не анимируются.
  *
  * @component
- * @returns {JSX.Element} Секция с навыками
+ * @returns {JSX.Element} Секция с заголовком и группами технологий
+ *
+ * @example
+ * <AboutCapabilities />
  */
 const AboutCapabilities = () => {
   const { t } = useTranslation();
@@ -56,26 +69,39 @@ const AboutCapabilities = () => {
             accent={t('heading.capabilities.accent')}
           />
 
-          <div className="about-capabilities__text-container">
-            <p className="about-capabilities__text">
-              {t('aboutCapabilities.text')}
-            </p>
-
+          <div className="about-capabilities__card">
             <LazyMotion features={domAnimation}>
-              <m.ul
-                className="about-capabilities__list"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-50px' }}
+              <dl
+                className="about-capabilities__groups"
                 aria-label={t('aboutCapabilities.ariaLabel')}
               >
-                {skills.map((skill) => (
-                  <MotionTag key={skill} variants={itemVariants}>
-                    {skill}
-                  </MotionTag>
+                {STACK_GROUPS.map(({ key, items }) => (
+                  <div className="about-capabilities__group" key={key}>
+                    <dt className="about-capabilities__term">
+                      {t(`aboutCapabilities.groups.${key}`)}
+                    </dt>
+                    <dd className="about-capabilities__details">
+                      {/* role="list" — не дубль: при list-style: none
+                          (глобально у li в main.css) Safari с VoiceOver
+                          перестаёт объявлять список и число пунктов */}
+                      <m.ul
+                        className="about-capabilities__chips"
+                        role="list"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-50px' }}
+                      >
+                        {items.map((item) => (
+                          <MotionTag key={item} variants={itemVariants}>
+                            {item}
+                          </MotionTag>
+                        ))}
+                      </m.ul>
+                    </dd>
+                  </div>
                 ))}
-              </m.ul>
+              </dl>
             </LazyMotion>
           </div>
         </div>

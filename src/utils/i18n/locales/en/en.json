@@ -60,7 +60,7 @@
     },
     "capabilities": {
       "name": "My",
-      "accent": "capabilities"
+      "accent": "stack"
     },
     "experience": {
       "name": "My",
@@ -346,8 +346,14 @@
     "readLess": "Show less"
   },
   "aboutCapabilities": {
-    "text": "Core stack — React, Next.js, TypeScript, RTK Query. I build e-commerce platforms and marketing landing pages with a focus on performance, pixel perfect, and accessibility (WCAG 2.1). I have a solid understanding of the full frontend cycle — from Figma layouts to Core Web Vitals optimization and working in Agile/Scrum. Continuing to grow: currently learning Python and backend development.",
-    "ariaLabel": "List of technologies"
+    "ariaLabel": "Technology stack",
+    "groups": {
+      "core": "Core stack",
+      "layout": "Layout",
+      "quality": "Quality",
+      "also": "Also worked with",
+      "learning": "Learning"
+    }
   },
   "aboutExperience": {
     "items": [

@@ -94,15 +94,32 @@ export const faqs = [
   },
 ];
 
-export const skills = [
-  'JavaScript',
-  'JQuery',
-  'HTML',
-  'CSS',
-  'React',
-  'RTK',
-  'Zustand',
-  'Next',
+/**
+ * Группы раздела «Мой стек» на /about (`AboutCapabilities`), сверху вниз.
+ *
+ * `key` — ключ подписи группы в словарях: `aboutCapabilities.groups.<key>`;
+ * новая группа — объект здесь и подпись в `ru.json` и `en.json`.
+ * `items` — имена технологий, они не переводятся. Пишутся так же, как на
+ * остальном сайте (теги и история «Обо мне»): jQuery, RTK Query, Next.js —
+ * не «JQuery», «RTK», «Next».
+ *
+ * @type {{ key: string, items: string[] }[]}
+ */
+export const STACK_GROUPS = [
+  { key: 'core', items: ['React', 'Next.js', 'TypeScript', 'RTK Query'] },
+  { key: 'layout', items: ['HTML', 'CSS', 'CSS Modules', 'mobile-first'] },
+  { key: 'quality', items: ['WCAG 2.1', 'Core Web Vitals'] },
+  {
+    key: 'also',
+    items: [
+      'JavaScript',
+      'jQuery',
+      'Zustand',
+      'Framer Motion',
+      'React i18next',
+    ],
+  },
+  { key: 'learning', items: ['Python'] },
 ];
 
 /**

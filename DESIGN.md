@@ -223,7 +223,7 @@ The system is mostly flat-at-rest with soft, low-alpha ambient shadows that _dee
 
 ## Shapes
 
-Corners default to a gentle **8px** (`--border-radius-s`) on buttons, cards, inputs, and images — the system's baseline geometry. Larger standalone surfaces scale their radius up with their size: 16px for the FAQ item, the about-story card and the resume card, 20px for the modal (16px, then 14px as it shrinks on small screens), 24px for the author card. Fully circular **pill** radii (999px) are reserved for compact interactive/label chrome — the header's CTA button, the availability badge — never for content containers. The author photo ring is the one deliberate exception to the corner scale: a squircle (24px ring / 21px image, one step past the standalone-surface ceiling) rather than a pill, because its bottom edge carries a scrim gradient that dissolves the photo's cropped edge into its own backdrop — an effect a circular crop would fight rather than support.
+Corners default to a gentle **8px** (`--border-radius-s`) on buttons, cards, inputs, and images — the system's baseline geometry. Larger standalone surfaces scale their radius up with their size: 16px for the FAQ item, the about-story card, the stack card and the resume card, 20px for the modal (16px, then 14px as it shrinks on small screens), 24px for the author card. Fully circular **pill** radii (999px) are reserved for compact interactive/label chrome — the header's CTA button, the availability badge — never for content containers. The author photo ring is the one deliberate exception to the corner scale: a squircle (24px ring / 21px image, one step past the standalone-surface ceiling) rather than a pill, because its bottom edge carries a scrim gradient that dissolves the photo's cropped edge into its own backdrop — an effect a circular crop would fight rather than support.
 
 Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tinted to match their surface rather than a flat gray: Cobalt Shadow-tinted (`rgba(0, 88, 167, 0.1–0.3)`) on project imagery, cards, and the loader spinner, neutral-black-tinted (`rgba(0, 0, 0, 0.06–0.08)`) on light hairline dividers (header, FAQ, about-story card), white-tinted (`rgba(255, 255, 255, 0.05–0.1)`) on the two dark surfaces.
 
@@ -249,7 +249,7 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 ### Cards / Containers
 
-- **Corner Style:** 8px for project/services cards; 16px for the about-story card, resume cards and FAQ items.
+- **Corner Style:** 8px for project/services cards; 16px for the about-story card, the stack card, resume cards and FAQ items.
 - **Background:** white by default; the project card itself has no fill (transparent over the page), relying on its border and shadow alone.
 - **Shadow Strategy:** ambient at rest, cobalt-tinted and deeper on hover (see Elevation & Depth) — except the testimonial card, which never lifts; it's a static reading surface.
 - **Border:** whisper-thin, tinted per surface (see Shapes).
@@ -273,6 +273,14 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 - Without stages, one Body paragraph 16px under the dates (education).
 
 The card never lifts: it is a static reading surface, like the testimonial card. In forced-colors mode the dot is drawn with a 3px border, because the mode paints backgrounds over. Spacing between cards belongs to the parent list.
+
+**Stack groups ("My stack", /about).** The technologies on /about, in five groups without a paragraph: core stack, layout, quality, also worked with, learning. They sit on one white card, the about-story surface: 16px radius, a neutral 6% hairline, padded `clamp(1.4rem, 1rem + 1.6vw, 2.25rem)`. The markup is a description list, one `div` around each group's `dt` and `dd`:
+
+- The group name is the resume card's Label: Oswald 700 0.75rem with a 1.4 line, 0.09em tracking, uppercase, Graphite.
+- The chips are Tag chips (see Chips), 8px apart within a row and between rows. Each group's chips are a list with `role="list"` that follows its label; the whole `dl` is named "Technology stack".
+- From 576px the label sits in a 160px column, 24px from the chips and on the baseline of their first row; groups are 16px apart. At 575px and below the label stands 8px above its chips, and groups are 24px apart.
+
+Technology names are spelled as everywhere else on the site: jQuery, RTK Query, Next.js. Nothing in the card is clickable, and the labels never take cobalt. Each group's chips fade in one by one as the group scrolls into view; the labels stay still.
 
 **Advantages list ("Why me", home).** On desktop the seven advantages are a bento grid of cards that lift on hover, mouse only. On tablets and phones (≤ 1024px) they become rows inside one white card: 16px radius, a 1px Frost border, 16px padding. Each row is a 40px Frost icon tile (8px radius, 9px inset, cobalt icon) beside Body text at 1rem with a 1.4 line, centred vertically. Rows are 14px apart with a Frost hairline under every row but the last. At 569–1024px the rows run in two columns 14px apart, at 568px and below in one; the hairline reads as a row boundary, so in two columns the last row of the right column keeps it. Rows never lift — the hover lift belongs to the bento cards only.
 
