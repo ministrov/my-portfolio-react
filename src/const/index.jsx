@@ -94,33 +94,6 @@ export const faqs = [
   },
 ];
 
-export const education = [
-  {
-    id: 1,
-    titleKey: 'aboutEducation.title1',
-    textKey: 'aboutEducation.textOne',
-    dateKey: 'aboutEducation.dateOne',
-  },
-  {
-    id: 2,
-    titleKey: 'aboutEducation.title2',
-    textKey: 'aboutEducation.textTwo',
-    dateKey: 'aboutEducation.dateTwo',
-  },
-  {
-    id: 3,
-    titleKey: 'aboutEducation.title3',
-    textKey: 'aboutEducation.textThree',
-    dateKey: 'aboutEducation.dateThree',
-  },
-  {
-    id: 4,
-    titleKey: 'aboutEducation.title4',
-    textKey: 'aboutEducation.textFour',
-    dateKey: 'aboutEducation.dateFour',
-  },
-];
-
 export const skills = [
   'JavaScript',
   'JQuery',
