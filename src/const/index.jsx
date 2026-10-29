@@ -121,31 +121,6 @@ export const education = [
   },
 ];
 
-// Массив данных для элементов опыта
-export const experienceItems = [
-  {
-    id: 1,
-    titleKey: 'aboutExperience.titleOne',
-    dateKey: 'aboutExperience.dateOne',
-    textKey: 'aboutExperience.textOne',
-    hasCompany: false, // У первого элемента нет названия компании
-  },
-  {
-    id: 2,
-    titleKey: 'aboutExperience.titleTwo',
-    dateKey: 'aboutExperience.dateTwo',
-    textKey: 'aboutExperience.textTwo',
-    hasCompany: true,
-  },
-  {
-    id: 3,
-    titleKey: 'aboutExperience.titleThree',
-    dateKey: 'aboutExperience.dateThree',
-    textKey: 'aboutExperience.textThree',
-    hasCompany: true,
-  },
-];
-
 export const skills = [
   'JavaScript',
   'JQuery',

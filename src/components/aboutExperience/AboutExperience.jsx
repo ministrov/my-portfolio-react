@@ -1,21 +1,30 @@
 import { useTranslation } from 'react-i18next';
-import { experienceItems } from '../../const';
 import Heading from '../heading/Heading';
+import ResumeCard from '../resumeCard/ResumeCard';
 import './style.css';
 
 /**
- * Компонент секции "Мой опыт" (AboutExperience).
- * Отображает список профессионального опыта с заголовками, датами, названием компании и описанием.
- * Использует переводы через react-i18next для поддержки мультиязычности.
+ * Секция «Мой опыт» на /about: места работы карточками `ResumeCard`,
+ * текущая работа — первой.
+ *
+ * Данные лежат не в `const/`, а в словарях: `aboutExperience.items` — массив
+ * карточек, и порядок на странице задаёт сам массив. Каждый элемент —
+ * готовые пропсы `ResumeCard` (`label`, `title`, `date`, `stages`), поэтому
+ * передаётся целиком. Новое место работы — один объект в начале массива,
+ * в `ru.json` и в `en.json`.
  *
  * @component
+ * @returns {JSX.Element} Секция с заголовком и списком карточек опыта
+ *
  * @example
- * return (
- *   <AboutExperience />
- * )
+ * <AboutExperience />
  */
 const AboutExperience = () => {
   const { t } = useTranslation();
+  const translated = t('aboutExperience.items', { returnObjects: true });
+  // Потерянный ключ i18next возвращает строкой (самим ключом), а не массивом:
+  // без проверки `.map` уронил бы всю страницу, с ней — список просто пуст
+  const items = Array.isArray(translated) ? translated : [];
 
   return (
     <section className="about-experience" aria-labelledby="experience-heading">
@@ -28,26 +37,12 @@ const AboutExperience = () => {
           />
 
           <ul className="about-experience__experience-list">
-            {experienceItems.map((item) => (
-              <li key={item.id}>
-                <article className="about-experience__item">
-                  <header className="about-experience__head">
-                    <h3 className="about-experience__title">
-                      {t(item.titleKey)}
-                    </h3>
-                    <span className="about-experience__date">
-                      {t(item.dateKey)}
-                    </span>
-                  </header>
-                  {item.hasCompany && (
-                    <p className="about-experience__name">
-                      {t('aboutExperience.name')}
-                    </p>
-                  )}
-                  <p className="about-experience__item-text">
-                    {t(item.textKey)}
-                  </p>
-                </article>
+            {items.map((item, index) => (
+              // Индекс — корректный ключ: массив из словаря не
+              // переупорядочивается и не фильтруется, а тексты в нём меняются
+              // вместе с языком
+              <li key={index}>
+                <ResumeCard {...item} />
               </li>
             ))}
           </ul>

@@ -56,7 +56,6 @@ import './style.css';
  *     },
  *     { date: 'Декабрь 2023 — ноябрь 2024', summary: 'В составе фронтенд-команды…' },
  *   ]}
- *   className="about-experience__item"
  * />
  *
  * @example

@@ -350,16 +350,46 @@
     "ariaLabel": "List of technologies"
   },
   "aboutExperience": {
-    "name": "OOO Service Market",
-    "titleOne": "Freelance Developer",
-    "titleTwo": "Frontend Developer",
-    "titleThree": "Frontend Developer",
-    "textOne": "During my freelance period, I developed commercial websites end-to-end for B2B and B2C clients. Key project — WaterDel promo site: in a 2-week sprint, built a fully responsive interface with smooth animations from scratch (JS, HTML, CSS, jQuery). Confirmed Middle-level qualification at the HTML Academy Layout Championship (Professional League) — evaluated by a jury of IT companies on criteria of pixel perfect, responsiveness, and code quality.",
-    "textTwo": "As part of the frontend team, contributed to the development of the high-load Vam Voda online store — an e-commerce platform serving 20,000+ active users monthly. Responsibilities included semantic responsive layout, implementing JavaScript components, and building product sliders and carousels with touch gesture support and smooth CSS animations. Paid close attention to cross-browser compatibility and rendering performance.",
-    "textThree": "At OOO «Service Market», I develop and maintain an e-commerce platform (MAU 20,000+) using Next.js, TypeScript, RTK Query, and React i18next. Designed and implemented the Ratingus Review Service interactive review widget — boosting user engagement by 25%. I launch promotional landing pages together with the marketing team, build layouts from Figma designs, and implement animations and UI components. I monitor Core Web Vitals, WCAG 2.1 compliance, and production build stability.",
-    "dateOne": "September 2021 — November 2023",
-    "dateTwo": "December 2023 — November 2024",
-    "dateThree": "November 2024 — Present"
+    "items": [
+      {
+        "label": "Service Market LLC",
+        "title": "Frontend Developer",
+        "date": "December 2023 — present",
+        "stages": [
+          {
+            "date": "Since November 2024",
+            "summary": "I develop and maintain an e-commerce platform (MAU 20,000+) using Next.js, TypeScript, RTK Query, and React i18next.",
+            "points": [
+              "Designed and implemented the Ratingus Review Service interactive review widget — boosting user engagement by 25%.",
+              "Launch promotional landing pages together with the marketing team: layouts from Figma designs, animations, and UI components.",
+              "Monitor Core Web Vitals, WCAG 2.1 compliance, and production build stability."
+            ]
+          },
+          {
+            "date": "December 2023 — November 2024",
+            "summary": "As part of the frontend team, contributed to the high-load Vam Voda online store — an e-commerce platform serving 20,000+ active users monthly.",
+            "points": [
+              "Semantic responsive layout and JavaScript components.",
+              "Product sliders and carousels with touch gesture support and smooth CSS animations.",
+              "Cross-browser compatibility and rendering performance."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Freelance Developer",
+        "date": "September 2021 — November 2023",
+        "stages": [
+          {
+            "summary": "Developed commercial websites end-to-end for B2B and B2C clients.",
+            "points": [
+              "Key project — WaterDel promo site: in a 2-week sprint, built a fully responsive interface with smooth animations from scratch (JS, HTML, CSS, jQuery).",
+              "Confirmed Middle-level qualification at the HTML Academy Layout Championship (Professional League) — evaluated by a jury of IT companies on pixel perfect, responsiveness, and code quality."
+            ]
+          }
+        ]
+      }
+    ]
   },
   "aboutEducation": {
     "title1": "Educational Institution: Moscow College of Management and New Technologies",
