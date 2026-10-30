@@ -104,6 +104,22 @@
 
 /* ── Адаптив ─────────────────────────────────────────────── */
 
+@media screen and (max-width: 1024px) {
+  /* Зона нажатия 44 px без сдвига соседей: поле прибавляет, отрицательное
+     поле вычитает столько же. Не min-height: он добавляет «сколько не
+     хватает», а на 320 email уже в две строки и 44 px — прибавка 0,
+     вычитание 22, и форма уезжает вверх. */
+  .contact__info-item button.copy-email {
+    margin: -11px 0;
+    padding: 11px 0;
+  }
+
+  .contact__order-btn {
+    margin: -13px 0;
+    padding: 13px 0;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .contact__layout {
     grid-template-columns: 1fr;
