@@ -199,7 +199,7 @@ Mostly a two-color system — cobalt as the one true action color, violet as a q
 
 ## Layout
 
-The container caps at `1440px` and steps down at wide breakpoints (`1200px` at ≤1520px, `1068px` at ≤1268px), with fluid inline padding `clamp(16px, 4vw, 32px)`. Section rhythm comes from a shared `.wrapper` (80px top / 60px bottom margin, tightening to 64px top on ≤768px) rather than per-section spacing.
+The container caps at `1440px` and steps down at wide breakpoints (`1200px` at ≤1520px, `1068px` at ≤1268px), with fluid inline padding `clamp(16px, 4vw, 32px)`. Section rhythm comes from a shared `.wrapper` (80px top / 60px bottom margin, tightening to 64px top on ≤768px) rather than per-section spacing. The page frame keeps the footer on the bottom edge: when a page is shorter than the screen (the 404), the spare height goes to `main`, above the footer, never into a band below it.
 
 Responsive behavior is **desktop-first**: every component is styled for its widest state first, then narrowed with `max-width` media queries. Breakpoints are tuned per component to that component's own content (1520, 1268, 1024, 992, 893, 768, 580, 567, 479, 475, 396, 375, 360, 320px all appear somewhere) rather than snapped to one fixed global grid — expect a new component to need its own breakpoint tuning, not a lookup into a shared set.
 
@@ -223,7 +223,7 @@ The system is mostly flat-at-rest with soft, low-alpha ambient shadows that _dee
 
 ## Shapes
 
-Corners default to a gentle **8px** (`--border-radius-s`) on buttons, cards, inputs, and images — the system's baseline geometry. Larger standalone surfaces scale their radius up with their size: 16px for the FAQ item and the about-story card, 20px for the modal (16px, then 14px as it shrinks on small screens), 24px for the author card. Fully circular **pill** radii (999px) are reserved for compact interactive/label chrome — the header's CTA button, the availability badge — never for content containers. The author photo ring is the one deliberate exception to the corner scale: a squircle (24px ring / 21px image, one step past the standalone-surface ceiling) rather than a pill, because its bottom edge carries a scrim gradient that dissolves the photo's cropped edge into its own backdrop — an effect a circular crop would fight rather than support.
+Corners default to a gentle **8px** (`--border-radius-s`) on buttons, cards, inputs, and images — the system's baseline geometry. Larger standalone surfaces scale their radius up with their size: 16px for the FAQ item, the about-story card, the stack card and the resume card, 20px for the modal (16px, then 14px as it shrinks on small screens), 24px for the author card. Fully circular **pill** radii (999px) are reserved for compact interactive/label chrome — the header's CTA button, the availability badge — never for content containers. The author photo ring is the one deliberate exception to the corner scale: a squircle (24px ring / 21px image, one step past the standalone-surface ceiling) rather than a pill, because its bottom edge carries a scrim gradient that dissolves the photo's cropped edge into its own backdrop — an effect a circular crop would fight rather than support.
 
 Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tinted to match their surface rather than a flat gray: Cobalt Shadow-tinted (`rgba(0, 88, 167, 0.1–0.3)`) on project imagery, cards, and the loader spinner, neutral-black-tinted (`rgba(0, 0, 0, 0.06–0.08)`) on light hairline dividers (header, FAQ, about-story card), white-tinted (`rgba(255, 255, 255, 0.05–0.1)`) on the two dark surfaces.
 
@@ -235,9 +235,9 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 ### Buttons
 
-- **Shape:** 8px radius by default; fully pill (999px) for the header CTA and the mobile-menu button pair.
-- **Primary (pill):** cobalt background, white text, Oswald label typography, uppercase-free. Hover darkens to Cobalt Deep and lifts `-1px` with a cobalt-tinted glow (mouse only in the mobile menu). Two uses: "Discuss a project" in the header, and "Download CV" in the mobile menu. The menu one is a `download` link, not a button: full width, `min-height: 48px`, a "↓" after the label. It leads the menu's button pair, because the CV comes first and freelance second.
-- **Outline (secondary):** transparent background, a 1.5px cobalt border, cobalt Oswald text, `min-height: 48px`, fully pill — the quiet partner placed next to a primary action, never on its own. Frost background on hover (mouse only, under `@media (hover: hover)`) and on `:active` as touch feedback. "Discuss a project" uses it in two places, each time below a CV download. In the hero below 768px it is sized to the Spotlight button's width. In the mobile menu it sits under the cobalt "Download CV" pill, full width, with the arrow 4px from the label, as in that pill.
+- **Shape:** 8px radius by default; fully pill (999px) for the header CTA and the button pairs of the mobile menu, the 404 page and /about.
+- **Primary (pill):** cobalt background, white text, Oswald label typography, uppercase-free. Hover darkens to Cobalt Deep and lifts `-1px` with a cobalt-tinted glow (mouse only in the mobile menu, on the 404 page and on /about). Four uses: "Discuss a project" in the header, "Download CV" in the mobile menu and on /about, and "Go to homepage" on the 404 page. The menu one is a `download` link, not a button: full width, `min-height: 48px`, a "↓" after the label. It leads the menu's button pair, because the CV comes first and freelance second. The /about one repeats it under the tags of the first section, so the CV is reachable without the burger menu and on desktop: the same values and the same order, in a row 10px apart from 576px, a full-width column below. The 404 one is a route link leading its pair: `min-height: 48px`, and a 1.5px cobalt border that turns Cobalt Deep with the fill, so it matches its Outline partner to the pixel.
+- **Outline (secondary):** transparent background, a 1.5px cobalt border, cobalt Oswald text, `min-height: 48px`, fully pill — the quiet partner placed next to a primary action, never on its own. Frost background on hover (mouse only, under `@media (hover: hover)`) and on `:active` as touch feedback. "Discuss a project" uses it in three places, each time after a CV download. In the hero below 768px it is sized to the Spotlight button's width. In the mobile menu it sits under the cobalt "Download CV" pill, full width, with the arrow 4px from the label, as in that pill. On /about it follows that pill the same way, with the arrow 4px from the label: beside it from 576px, under it at full width below. On the 404 page "View projects →" wears it as a route link with its own class (not `CtaButton`), next to "Go to homepage": in a centred row 10px apart from 576px, a full-width column below. Its arrow sits 4px from the label and moves 3px forward on hover, as `CtaButton`'s does.
 - **Hero Spotlight (CV download):** the one glassmorphic button in the system — frosted white glass (`backdrop-filter: blur(16px) saturate(170%)`), CTA Spotlight Ink text, wrapped in a frame with a rotating CTA Spotlight rainbow border and a pulsing ring on entrance (see Colors → CTA Spotlight). This is the single most important conversion action on the page (CV download) and is the only button allowed this treatment.
 - **Submit (form):** cobalt background, white text, uppercase Oswald label with `0.04em` tracking, full-width in the contact form. Hover **inverts** (white background, cobalt text/border) rather than darkening — the one button variant that swaps instead of deepens.
 - **Ghost (text link):** no background, cobalt text, an animated underline that retracts on hover instead of appearing — used for "read more" style links.
@@ -249,7 +249,7 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 
 ### Cards / Containers
 
-- **Corner Style:** 8px for project/services cards; 16px for the about-story card and FAQ items.
+- **Corner Style:** 8px for project/services cards; 16px for the about-story card, the stack card, resume cards and FAQ items.
 - **Background:** white by default; the project card itself has no fill (transparent over the page), relying on its border and shadow alone.
 - **Shadow Strategy:** ambient at rest, cobalt-tinted and deeper on hover (see Elevation & Depth) — except the testimonial card, which never lifts; it's a static reading surface.
 - **Border:** whisper-thin, tinted per surface (see Shapes).
@@ -263,6 +263,24 @@ Borders are almost always **whisper-thin (1–1.5px) and semi-transparent**, tin
 - The "Tools" heading is hidden visually but kept for screen readers, so the tags follow the description directly.
 - "Demo" and "GitHub" become card actions, a distinct button variant rather than the pill Outline: 44px tall, 8px radius, a 1.5px cobalt border on both. Demo is filled cobalt with white text and a small 11px "opens the site" arrow; GitHub is transparent with cobalt text and a 16px logo. Label and icon sit 10px apart. They share the row 50/50, and a single link takes the full width. Hover is mouse-only (Cobalt Deep / Frost); a tap gives the same feedback.
 - From 768px down every card image is a 4:5 frame, `object-fit: cover`, anchored to the top. At 769–1024px screenshots keep their own ratio under a 46rem cap.
+
+**Resume card (experience, education).** One card per job or course on /about, shared by both sections. It is a white surface with a 16px radius and a neutral 6% hairline, padded `clamp(1.4rem, 1rem + 1.6vw, 2.25rem)`: 22.4px at 390px, 28.3px at 768px, 36px on desktop. As on the project card, the text reads as text, not as links: there is no cobalt in it. Top to bottom:
+
+- An optional Label for the company or school: Oswald 700 0.75rem, 0.09em tracking, Graphite, 8px above the title. Freelance work has none.
+- A Headline h3 for the role or programme: Oswald 600 `clamp(1.5rem, 2.5vw, 1.625rem)` with a 1.25 line, Carbon, balanced when it wraps.
+- Meta dates: Golos 400 0.875rem, Graphite, never wrapping. From 769px they sit on the title's baseline at the right edge, and the title wraps first. At 768px and below they move 8px under the title.
+- Stages, the first 16px under the dates. Each has a stage date (Golos 600 0.875rem, Ink), then a one-sentence Body summary (1rem, 1.625 line, Ink), then points 8px apart. A point is the same Body with a 16px indent and a 6px Graphite dot 10px from its top, centred on the first 26px line. The list keeps `role="list"`, so VoiceOver still announces it despite `list-style: none`. Stages are split by the project card's 8% hairline, with 24px above and below it.
+- Without stages, one Body paragraph 16px under the dates (education).
+
+The card never lifts: it is a static reading surface, like the testimonial card. In forced-colors mode the dot is drawn with a 3px border, because the mode paints backgrounds over. Spacing between cards belongs to the parent list.
+
+**Stack groups ("My stack", /about).** The technologies on /about, in five groups without a paragraph: core stack, layout, quality, also worked with, learning. They sit on one white card, the about-story surface: 16px radius, a neutral 6% hairline, padded `clamp(1.4rem, 1rem + 1.6vw, 2.25rem)`. The markup is a description list, one `div` around each group's `dt` and `dd`:
+
+- The group name is the resume card's Label: Oswald 700 0.75rem with a 1.4 line, 0.09em tracking, uppercase, Graphite.
+- The chips are Tag chips (see Chips), 8px apart within a row and between rows. Each group's chips are a list with `role="list"` that follows its label; the whole `dl` is named "Technology stack".
+- From 576px the label sits in a 160px column, 24px from the chips and on the baseline of their first row; groups are 16px apart. At 575px and below the label stands 8px above its chips, and groups are 24px apart.
+
+Technology names are spelled as everywhere else on the site: jQuery, RTK Query, Next.js. Nothing in the card is clickable, and the labels never take cobalt. Each group's chips fade in one by one as the group scrolls into view; the labels stay still.
 
 **Advantages list ("Why me", home).** On desktop the seven advantages are a bento grid of cards that lift on hover, mouse only. On tablets and phones (≤ 1024px) they become rows inside one white card: 16px radius, a 1px Frost border, 16px padding. Each row is a 40px Frost icon tile (8px radius, 9px inset, cobalt icon) beside Body text at 1rem with a 1.4 line, centred vertically. Rows are 14px apart with a Frost hairline under every row but the last. At 569–1024px the rows run in two columns 14px apart, at 568px and below in one; the hairline reads as a row boundary, so in two columns the last row of the right column keeps it. Rows never lift — the hover lift belongs to the bento cards only.
 
@@ -292,6 +310,16 @@ These alphas are the lowest that hold 4.5:1 across the strip's gradient at 360�
   - "Contacts" is a row like the routes, but it is an anchor to the contact section.
   - Below the rows sit the CV / "Discuss a project" pair and a "Site language" row: a gray label on the left, the switcher on the right.
 - **Header shell:** transparent and borderless at the top of the page; gains a blurred white background, hairline border, and soft shadow once scrolled (`.header--bg`).
+
+### 404 page
+
+One centred column inside `.container`, top padding `--header-height` + 2rem. It holds the robot GIF, then a Label eyebrow ("Error 404"), then a visible Display h1, then a Body paragraph, then the Primary / Outline pair ("Go to homepage" / "View projects →"). The steps between them are 1.5rem, 0.5rem, 1rem and 2rem.
+
+- **h1.** The section heading component at level 1: "Page" in Carbon plus "not found" as the Signal Violet accent. The accent never breaks, so phones get two clean lines.
+- **Text.** Ink, not cobalt, so it does not read as a link, capped at 32rem. The missing address inside it is Golos 600 Carbon. It is decoded (`/страница`, not `%D1%81…`) and breaks anywhere, and it is deliberately not monospace (One Monospace Rule).
+- **Robot.** 320px, 240px at ≤ 575px, never wider than its 400px source. It loads eagerly. `mix-blend-mode: multiply` dissolves the GIF's white background into the page grid; the robot's own white fill lets the grid through a little, which the mockup accepts.
+- **Fit.** At 360 × 780 the eyebrow, heading, text and both buttons fit on the first screen: the second button ends at 698px.
+- **Semantics.** No `role="alert"`: the page is static content, not an urgent announcement.
 
 ### Signature: The Developer's Console
 

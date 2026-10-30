@@ -1,26 +1,15 @@
 import { memo, useCallback, useEffect, useRef } from 'react';
-import {
-  LazyMotion,
-  m,
-  domAnimation,
-  AnimatePresence,
-  useReducedMotion,
-} from 'motion/react';
+import { LazyMotion, m, domAnimation, AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { GoChevronRight } from 'react-icons/go';
 import ToggleLang from '../toggleLang/ToggleLang';
 import CtaButton from '../ctaButton/CtaButton';
+import useGoToContacts, {
+  CONTACT_HEADING_ID,
+} from '../../hooks/useGoToContacts';
 import { routes } from '../../const';
 import cvPdf from '../../assets/pdfs/my-cv.pdf';
 import MenuItem, { MenuItemFrame } from './MenuItem';
-
-/**
- * `id` заголовка секции контактов (`sections/contact/Contact.jsx`).
- * Секция есть на главной, /about и /projects, поэтому переход между
- * маршрутами не нужен. От ухода под фикс-хедер заголовок защищает
- * `scroll-margin-top` из правила `[id$='-heading']` в `main.css`.
- */
-const CONTACT_HEADING_ID = 'contact-heading';
 
 /**
  * Анимированное мобильное меню-оверлей.
@@ -31,9 +20,10 @@ const CONTACT_HEADING_ID = 'contact-heading';
  *
  * «Контакты» — отдельный `<li>`, а не запись в `routes`: иначе пункт
  * появился бы и в десктопном меню как `NavLink`. Это якорь, а не маршрут:
- * клик закрывает меню и в следующем кадре прокручивает к заголовку
- * контактов — приём `CtaButton`. При `prefers-reduced-motion` прокрутка
- * мгновенная. Анимацию появления пункт берёт из `MenuItemFrame` и
+ * клик закрывает меню и ведёт к заголовку контактов через
+ * `useGoToContacts`, как `CtaButton`: где секция есть — прокрутка
+ * (мгновенная при `prefers-reduced-motion`), где нет (404) — переход на
+ * главную к контактам. Анимацию появления пункт берёт из `MenuItemFrame` и
  * продолжает каскад маршрутов.
  *
  * Подпись «Язык сайта» — видимый текст без связи с переключателем:
@@ -58,7 +48,7 @@ const CONTACT_HEADING_ID = 'contact-heading';
  */
 const MobileMenu = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
-  const prefersReducedMotion = useReducedMotion();
+  const goToContacts = useGoToContacts();
   const menuRef = useRef(null);
   const lastFocusedRef = useRef(null);
 
@@ -75,20 +65,15 @@ const MobileMenu = ({ isOpen, onClose }) => {
     };
   }, [isOpen]);
 
-  // Сначала закрываем меню, затем прокручиваем в следующем кадре — когда
-  // меню уже закрыто и блокировка скролла страницы снята. Заголовок лежит
-  // в другом компоненте, поэтому ищем его по id, а не через ref.
+  // Сначала закрываем меню, затем переход к контактам — хук откладывает его
+  // на следующий кадр, когда блокировка скролла страницы уже снята.
   const handleContactsClick = useCallback(
     (event) => {
       event.preventDefault();
       onClose();
-      requestAnimationFrame(() => {
-        document.getElementById(CONTACT_HEADING_ID)?.scrollIntoView({
-          behavior: prefersReducedMotion ? 'auto' : 'smooth',
-        });
-      });
+      goToContacts();
     },
-    [onClose, prefersReducedMotion]
+    [onClose, goToContacts]
   );
 
   return (

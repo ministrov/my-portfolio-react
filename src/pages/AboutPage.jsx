@@ -82,10 +82,7 @@ const AboutPage = () => {
         dangerouslySetInnerHTML={{ __html: breadcrumbSchema }}
       />
 
-      {/* Скрытый заголовок для доступности */}
-      <h1 className="visually-hidden">{t('pages.about.title')}</h1>
-
-      <About border />
+      <About border button headingLevel={1} />
 
       <div className="container wrapper">
         <AuthorPhoto />

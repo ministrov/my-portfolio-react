@@ -21,9 +21,6 @@
     }
   },
   "pages": {
-    "about": {
-      "title": "About page"
-    },
     "projects": {
       "heading": "Projects page"
     }
@@ -63,7 +60,7 @@
     },
     "capabilities": {
       "name": "My",
-      "accent": "capabilities"
+      "accent": "stack"
     },
     "experience": {
       "name": "My",
@@ -90,8 +87,7 @@
     "siteLanguage": "Site language"
   },
   "promo": {
-    "promoSlogan": "A frontend developer from Moscow helping businesses create modern, fast, and user-friendly websites.",
-    "promoBtn": "Download CV"
+    "promoSlogan": "A frontend developer from Moscow helping businesses create modern, fast, and user-friendly websites."
   },
   "hero": {
     "titleLead": "Fast with AI.",
@@ -107,7 +103,6 @@
     "descriptionTwo": "Tech stack: Next.js (Pages & App Router), TypeScript, RTK Query, React i18next, CSS Modules, mobile-first.I implement WCAG 2.1 accessibility standards, optimize Core Web Vitals, and work in Agile/Scrum with CI/CD processes.Validated my Middle-level skills at the HTML Academy layout championship.English — B2 (Upper-Intermediate).Open to office, hybrid, or remote work.Shall we discuss your project?",
     "link": "More about me",
     "photoAlt": "Anton Zhilin — frontend developer",
-    "cvAriaLabel": "Download CV ({{text}})",
     "available": "Open to work",
     "techAriaLabel": "Technology stack",
     "stats": {
@@ -351,38 +346,89 @@
     "readLess": "Show less"
   },
   "aboutCapabilities": {
-    "text": "Core stack — React, Next.js, TypeScript, RTK Query. I build e-commerce platforms and marketing landing pages with a focus on performance, pixel perfect, and accessibility (WCAG 2.1). I have a solid understanding of the full frontend cycle — from Figma layouts to Core Web Vitals optimization and working in Agile/Scrum. Continuing to grow: currently learning Python and backend development.",
-    "ariaLabel": "List of technologies"
+    "ariaLabel": "Technology stack",
+    "groups": {
+      "core": "Core stack",
+      "layout": "Layout",
+      "quality": "Quality",
+      "also": "Also worked with",
+      "learning": "Learning"
+    }
   },
   "aboutExperience": {
-    "name": "OOO Service Market",
-    "titleOne": "Freelance Developer",
-    "titleTwo": "Frontend Developer",
-    "titleThree": "Frontend Developer",
-    "textOne": "During my freelance period, I developed commercial websites end-to-end for B2B and B2C clients. Key project — WaterDel promo site: in a 2-week sprint, built a fully responsive interface with smooth animations from scratch (JS, HTML, CSS, jQuery). Confirmed Middle-level qualification at the HTML Academy Layout Championship (Professional League) — evaluated by a jury of IT companies on criteria of pixel perfect, responsiveness, and code quality.",
-    "textTwo": "As part of the frontend team, contributed to the development of the high-load Vam Voda online store — an e-commerce platform serving 20,000+ active users monthly. Responsibilities included semantic responsive layout, implementing JavaScript components, and building product sliders and carousels with touch gesture support and smooth CSS animations. Paid close attention to cross-browser compatibility and rendering performance.",
-    "textThree": "At OOO «Service Market», I develop and maintain an e-commerce platform (MAU 20,000+) using Next.js, TypeScript, RTK Query, and React i18next. Designed and implemented the Ratingus Review Service interactive review widget — boosting user engagement by 25%. I launch promotional landing pages together with the marketing team, build layouts from Figma designs, and implement animations and UI components. I monitor Core Web Vitals, WCAG 2.1 compliance, and production build stability.",
-    "dateOne": "September 2021 — November 2023",
-    "dateTwo": "December 2023 — November 2024",
-    "dateThree": "November 2024 — Present"
+    "items": [
+      {
+        "label": "Service Market LLC",
+        "title": "Frontend Developer",
+        "date": "December 2023 — present",
+        "stages": [
+          {
+            "date": "Since November 2024",
+            "summary": "I develop and maintain an e-commerce platform (MAU 20,000+) using Next.js, TypeScript, RTK Query, and React i18next.",
+            "points": [
+              "Designed and implemented the Ratingus Review Service interactive review widget — boosting user engagement by 25%.",
+              "Launch promotional landing pages together with the marketing team: layouts from Figma designs, animations, and UI components.",
+              "Monitor Core Web Vitals, WCAG 2.1 compliance, and production build stability."
+            ]
+          },
+          {
+            "date": "December 2023 — November 2024",
+            "summary": "As part of the frontend team, contributed to the high-load Vam Voda online store — an e-commerce platform serving 20,000+ active users monthly.",
+            "points": [
+              "Semantic responsive layout and JavaScript components.",
+              "Product sliders and carousels with touch gesture support and smooth CSS animations.",
+              "Cross-browser compatibility and rendering performance."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Freelance Developer",
+        "date": "September 2021 — November 2023",
+        "stages": [
+          {
+            "summary": "Developed commercial websites end-to-end for B2B and B2C clients.",
+            "points": [
+              "Key project — WaterDel promo site: in a 2-week sprint, built a fully responsive interface with smooth animations from scratch (JS, HTML, CSS, jQuery).",
+              "Confirmed Middle-level qualification at the HTML Academy Layout Championship (Professional League) — evaluated by a jury of IT companies on pixel perfect, responsiveness, and code quality."
+            ]
+          }
+        ]
+      }
+    ]
   },
   "aboutEducation": {
-    "title1": "Educational Institution: Moscow College of Management and New Technologies",
-    "title2": "Educational Institution: HTML Academy Online Academy",
-    "title3": "Educational Institution: HTML Academy Professional Courses: React. Developing Complex Client Applications.",
-    "textOne": "Specialty: Information Technology and Computing.",
-    "textTwo": "Specialty: Professional Web Interface Development.",
-    "textThree": "Specialty: React. Developing Complex Client Applications.",
-    "dateOne": "September 1998 — June 2002",
-    "dateTwo": "May 2020 — March 2021",
-    "dateThree": "September 2024 — November 2024",
-    "title4": "Educational Institution: PurpleSchool — Backend Developer in Python",
-    "textFour": "Purposefully expanding my competencies toward backend development: studying Python, FastAPI, Django, working with PostgreSQL and Redis, as well as DevOps tools — Docker, Kubernetes, and microservice architecture. Growing as a full-stack developer to better understand server-side logic and collaborate more effectively with backend teams.",
-    "dateFour": "June 2026 — Present"
+    "items": [
+      {
+        "label": "PurpleSchool",
+        "title": "Backend Developer in Python",
+        "date": "June 2026 — present",
+        "text": "Purposefully expanding my competencies toward backend development: studying Python, FastAPI, Django, working with PostgreSQL and Redis, as well as DevOps tools — Docker, Kubernetes, and microservice architecture. Growing as a full-stack developer to better understand server-side logic and collaborate more effectively with backend teams."
+      },
+      {
+        "label": "HTML Academy Professional Courses",
+        "title": "React. Developing Complex Client Applications",
+        "date": "September 2024 — November 2024"
+      },
+      {
+        "label": "HTML Academy Online Academy",
+        "title": "Professional Web Interface Development",
+        "date": "May 2020 — March 2021"
+      },
+      {
+        "label": "Moscow College of Management and New Technologies",
+        "title": "Information Technology and Computing",
+        "date": "September 1998 — June 2002"
+      }
+    ]
   },
   "errorMessage": {
-    "message": "Looks like you're exploring uncharted territory. Try finding your wayback home.",
-    "back": "Go back homepage"
+    "eyebrow": "Error 404",
+    "title": "Page",
+    "accent": "not found",
+    "text": "There is nothing at <path>{{path}}</path>. The link may be outdated, or the address has a typo.",
+    "home": "Go to homepage",
+    "projects": "View projects"
   },
   "loader": {
     "loading": "Loading",

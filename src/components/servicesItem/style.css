@@ -87,8 +87,8 @@
 /* Подсказка «Обсудить проект» — Ghost-приём сайта (retracting underline,
    см. buttonLink/style.css): текст без фона, подчёркивание уезжает влево
    на hover вместо того, чтобы появляться, стрелка сдвигается вправо. Это
-   button, а не Link — клик скроллит к .contact (тот же приём, что у
-   CtaButton), отдельный React Router путь тут не нужен. */
+   button, а не Link — клик прокручивает к заголовку контактов
+   (useGoToContacts, как у CtaButton), отдельный маршрут тут не нужен. */
 .services__cue {
   position: relative;
   display: inline-flex;

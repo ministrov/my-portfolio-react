@@ -94,67 +94,32 @@ export const faqs = [
   },
 ];
 
-export const education = [
+/**
+ * Группы раздела «Мой стек» на /about (`AboutCapabilities`), сверху вниз.
+ *
+ * `key` — ключ подписи группы в словарях: `aboutCapabilities.groups.<key>`;
+ * новая группа — объект здесь и подпись в `ru.json` и `en.json`.
+ * `items` — имена технологий, они не переводятся. Пишутся так же, как на
+ * остальном сайте (теги и история «Обо мне»): jQuery, RTK Query, Next.js —
+ * не «JQuery», «RTK», «Next».
+ *
+ * @type {{ key: string, items: string[] }[]}
+ */
+export const STACK_GROUPS = [
+  { key: 'core', items: ['React', 'Next.js', 'TypeScript', 'RTK Query'] },
+  { key: 'layout', items: ['HTML', 'CSS', 'CSS Modules', 'mobile-first'] },
+  { key: 'quality', items: ['WCAG 2.1', 'Core Web Vitals'] },
   {
-    id: 1,
-    titleKey: 'aboutEducation.title1',
-    textKey: 'aboutEducation.textOne',
-    dateKey: 'aboutEducation.dateOne',
+    key: 'also',
+    items: [
+      'JavaScript',
+      'jQuery',
+      'Zustand',
+      'Framer Motion',
+      'React i18next',
+    ],
   },
-  {
-    id: 2,
-    titleKey: 'aboutEducation.title2',
-    textKey: 'aboutEducation.textTwo',
-    dateKey: 'aboutEducation.dateTwo',
-  },
-  {
-    id: 3,
-    titleKey: 'aboutEducation.title3',
-    textKey: 'aboutEducation.textThree',
-    dateKey: 'aboutEducation.dateThree',
-  },
-  {
-    id: 4,
-    titleKey: 'aboutEducation.title4',
-    textKey: 'aboutEducation.textFour',
-    dateKey: 'aboutEducation.dateFour',
-  },
-];
-
-// Массив данных для элементов опыта
-export const experienceItems = [
-  {
-    id: 1,
-    titleKey: 'aboutExperience.titleOne',
-    dateKey: 'aboutExperience.dateOne',
-    textKey: 'aboutExperience.textOne',
-    hasCompany: false, // У первого элемента нет названия компании
-  },
-  {
-    id: 2,
-    titleKey: 'aboutExperience.titleTwo',
-    dateKey: 'aboutExperience.dateTwo',
-    textKey: 'aboutExperience.textTwo',
-    hasCompany: true,
-  },
-  {
-    id: 3,
-    titleKey: 'aboutExperience.titleThree',
-    dateKey: 'aboutExperience.dateThree',
-    textKey: 'aboutExperience.textThree',
-    hasCompany: true,
-  },
-];
-
-export const skills = [
-  'JavaScript',
-  'JQuery',
-  'HTML',
-  'CSS',
-  'React',
-  'RTK',
-  'Zustand',
-  'Next',
+  { key: 'learning', items: ['Python'] },
 ];
 
 /**

@@ -1,30 +1,55 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter, useLocation } from 'react-router-dom';
 import '../../utils/i18n/index'; // инициализирует i18next (язык по умолчанию — ru)
 import CtaButton from './CtaButton';
 
-/**
- * Рендерит кнопку рядом с секцией контактов — целью её скролла.
- * В jsdom нет `scrollIntoView`, поэтому он подменяется моком прямо на элементе.
- * @param {Object} [props] - Пропсы CtaButton.
- * @returns {{ contact: HTMLElement, button: HTMLElement }} Секция контактов и кнопка.
- */
-const renderWithContact = (props) => {
-  const { container } = render(
-    <>
-      <CtaButton {...props} />
-      <section className="contact" />
-    </>
-  );
-  const contact = container.querySelector('.contact');
-  contact.scrollIntoView = vi.fn();
+// motion кэширует prefers-reduced-motion на уровне модуля при первом чтении —
+// значение подменяется напрямую, остальное в модуле настоящее.
+const reducedMotion = vi.hoisted(() => ({ current: false }));
 
-  return { contact, button: screen.getByRole('button') };
+vi.mock('motion/react', async (importOriginal) => ({
+  ...(await importOriginal()),
+  useReducedMotion: () => reducedMotion.current,
+}));
+
+/**
+ * Выводит текущий адрес роутера — по нему видно, был ли переход.
+ * @returns {JSX.Element} Адрес в `data-testid="location"`.
+ */
+const LocationProbe = () => {
+  const { pathname, hash } = useLocation();
+  return <output data-testid="location">{pathname + hash}</output>;
+};
+
+/**
+ * Рендерит кнопку в роутере на странице `/no-such-page`: роутер нужен
+ * переходу к контактам. С `withContacts` рядом лежит заголовок контактов —
+ * цель прокрутки; в jsdom нет `scrollIntoView`, поэтому он подменяется моком
+ * прямо на элементе.
+ * @param {Object} [props] - Пропсы CtaButton.
+ * @param {Object} [options]
+ * @param {boolean} [options.withContacts=false] - Есть ли на странице заголовок контактов.
+ * @returns {{ heading: HTMLElement | null, button: HTMLElement }} Заголовок и кнопка.
+ */
+const renderButton = (props, { withContacts = false } = {}) => {
+  render(
+    <MemoryRouter initialEntries={['/no-such-page']}>
+      <CtaButton {...props} />
+      {withContacts && <h2 id="contact-heading">Свяжитесь со мной</h2>}
+      <LocationProbe />
+    </MemoryRouter>
+  );
+
+  const heading = document.getElementById('contact-heading');
+  if (heading) heading.scrollIntoView = vi.fn();
+
+  return { heading, button: screen.getByRole('button') };
 };
 
 describe('CtaButton', () => {
   beforeEach(() => {
-    // Кадр анимации выполняется сразу — скролл проверяется синхронно
+    // Кадр анимации выполняется сразу — переход проверяется синхронно
     vi.stubGlobal('requestAnimationFrame', (callback) => {
       callback(0);
       return 0;
@@ -33,20 +58,23 @@ describe('CtaButton', () => {
 
   afterEach(() => {
     vi.unstubAllGlobals();
+    reducedMotion.current = false;
   });
 
   it('по умолчанию — пилюля с подписью «Обсудить проект»', () => {
-    render(<CtaButton />);
+    const { button } = renderButton();
 
-    const button = screen.getByRole('button', { name: /Обсудить проект/ });
+    expect(button).toHaveAccessibleName(/Обсудить проект/);
     expect(button).toHaveClass('cta-button', 'cta-button--pill');
     expect(button).toHaveAttribute('type', 'button');
   });
 
   it('вариант outline ставит модификатор и сохраняет класс-микс родителя', () => {
-    render(<CtaButton variant="outline" className="hero__secondary-cta" />);
+    const { button } = renderButton({
+      variant: 'outline',
+      className: 'hero__secondary-cta',
+    });
 
-    const button = screen.getByRole('button', { name: /Обсудить проект/ });
     expect(button).toHaveClass(
       'cta-button',
       'cta-button--outline',
@@ -56,45 +84,63 @@ describe('CtaButton', () => {
   });
 
   it('показывает переданную подпись вместо подписи по умолчанию', () => {
-    render(<CtaButton label="Написать" />);
+    const { button } = renderButton({ label: 'Написать' });
 
-    expect(
-      screen.getByRole('button', { name: /Написать/ })
-    ).toBeInTheDocument();
+    expect(button).toHaveAccessibleName(/Написать/);
   });
 
   it('стрелка скрыта от скринридера', () => {
-    render(<CtaButton />);
+    renderButton();
 
     expect(screen.getByText('→')).toHaveAttribute('aria-hidden', 'true');
   });
 
-  it('по клику плавно прокручивает к секции контактов', () => {
-    const { contact, button } = renderWithContact({ variant: 'outline' });
+  it('контакты на странице есть — плавно прокручивает к ним, адрес прежний', () => {
+    const { heading, button } = renderButton(
+      { variant: 'outline' },
+      { withContacts: true }
+    );
 
     fireEvent.click(button);
 
-    expect(contact.scrollIntoView).toHaveBeenCalledTimes(1);
-    expect(contact.scrollIntoView).toHaveBeenCalledWith({
+    expect(heading.scrollIntoView).toHaveBeenCalledTimes(1);
+    expect(heading.scrollIntoView).toHaveBeenCalledWith({
       behavior: 'smooth',
     });
+    expect(screen.getByTestId('location')).toHaveTextContent('/no-such-page');
+  });
+
+  it('при reduced motion прокручивает к контактам без анимации', () => {
+    reducedMotion.current = true;
+    const { heading, button } = renderButton({}, { withContacts: true });
+
+    fireEvent.click(button);
+
+    expect(heading.scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto' });
+  });
+
+  it('контактов на странице нет (404) — ведёт на главную к контактам', () => {
+    const { button } = renderButton({ variant: 'pill' });
+
+    fireEvent.click(button);
+
+    expect(screen.getByTestId('location')).toHaveTextContent(
+      '/#contact-heading'
+    );
   });
 
   it('вызывает внешний колбэк раньше скролла', () => {
     const calls = [];
     const handleClick = vi.fn(() => calls.push('onClick'));
-    const { contact, button } = renderWithContact({ onClick: handleClick });
-    contact.scrollIntoView.mockImplementation(() => calls.push('scroll'));
+    const { heading, button } = renderButton(
+      { onClick: handleClick },
+      { withContacts: true }
+    );
+    heading.scrollIntoView.mockImplementation(() => calls.push('scroll'));
 
     fireEvent.click(button);
 
     expect(handleClick).toHaveBeenCalledTimes(1);
     expect(calls).toEqual(['onClick', 'scroll']);
-  });
-
-  it('без секции контактов на странице клик не падает', () => {
-    render(<CtaButton variant="outline" />);
-
-    expect(() => fireEvent.click(screen.getByRole('button'))).not.toThrow();
   });
 });

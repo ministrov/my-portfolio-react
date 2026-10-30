@@ -1,3 +1,5 @@
+/* «Мой стек»: подписи групп и чипы на белой карточке. Размеры — из прототипа
+   ТЗ S02, блок 05 (таблица «Размеры из макета»). */
 .about-capabilities {
   padding-top: 80px;
   padding-bottom: 80px;
@@ -11,25 +13,55 @@
   gap: 24px;
 }
 
-.about-capabilities__text-container {
+/* Поверхность — как у карточки истории и ResumeCard: белая, радиус 16,
+   нейтральная рамка 6% */
+.about-capabilities__card {
   background: var(--color-white);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 16px;
   padding: clamp(1.4rem, 1rem + 1.6vw, 2.25rem);
 }
 
-.about-capabilities__text {
-  margin-bottom: 1.25rem;
-  font-size: clamp(1rem, 0.96rem + 0.3vw, 1.0625rem);
-  line-height: 1.75;
-  color: var(--color-gray-800);
-  text-wrap: pretty;
+/* У dl, dt и dd глобального сброса нет (main.css обнуляет ul, li, p…),
+   поэтому margin: 0 — у каждого из них */
+.about-capabilities__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
 }
 
-.about-capabilities__list {
+/* Подпись — в колонке 160 px, чипы — через 24 px от неё. По базовой линии:
+   подпись стоит на одной линии с текстом первого ряда чипов */
+.about-capabilities__group {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  column-gap: 1.5rem;
+  align-items: baseline;
+}
+
+/* Label — тот же, что у компании в ResumeCard */
+.about-capabilities__term {
+  margin: 0;
+  font-family: var(--font-headings);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+}
+
+.about-capabilities__details {
+  margin: 0;
+}
+
+/* Сброс полей и маркеров у ul и li — глобальный (main.css). Зазор 8 px —
+   и между чипами в ряду, и между рядами */
+.about-capabilities__chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 0.5rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -47,6 +79,22 @@
 
   .about-capabilities__wrapper {
     gap: 0;
+  }
+}
+
+/* Колонке 160 + 24 px здесь тесно: подпись встаёт над чипами, группы
+   расходятся на 24 px, чтобы не слипаться без колонки */
+@media screen and (max-width: 575px) {
+  .about-capabilities__groups {
+    gap: 1.5rem;
+  }
+
+  .about-capabilities__group {
+    display: block;
+  }
+
+  .about-capabilities__term {
+    margin-bottom: 0.5rem;
   }
 }
 

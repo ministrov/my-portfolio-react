@@ -61,7 +61,7 @@ These rules are marked `alwaysApply` and define how code in this repo is expecte
 - Naming: PascalCase files/components, `use`-prefixed camelCase hooks, UPPER_SNAKE_CASE constants, CamelCase enum objects. Event handlers `handle*`, callback props `on*`. Prefer `ref` over `document.querySelector`. Guard against unmount when an effect resolves **asynchronously**; do not add an `isMounted` ref to a synchronous effect — `LanguageProvider` used to carry one and it masked a real race rather than preventing one.
 - Imports ordered: third-party first, then internal modules.
 
-**Formatting** (`.prettierrc`): single quotes (double for JSX attributes), 2-space tabs, semicolons, `es5` trailing commas, 100-char lines. Editor formats on save with Prettier + ESLint autofix (`.vscode/settings.json`).
+**Formatting** (`.prettierrc`): single quotes (double for JSX attributes), 2-space tabs, semicolons, `es5` trailing commas, 80-char lines (Prettier's default — `.prettierrc` sets no `printWidth`; Prettier does not rewrap comments). Editor formats on save with Prettier + ESLint autofix (`.vscode/settings.json`).
 
 ### Stale rules — ignore these parts
 

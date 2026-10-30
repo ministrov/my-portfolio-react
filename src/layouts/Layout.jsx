@@ -11,6 +11,10 @@ import AnimatedBackground from '../components/animatedBackground/AnimatedBackgro
  * основное содержимое (Outlet), кнопку "Наверх" (Up) и подвал (Footer).
  * Используется для обёртки всех страниц маршрутизации.
  *
+ * Подвал прижат к нижнему краю каркасом `#root` (`styles/main.css`): он
+ * рассчитан на то, что `main` и подвал — единственные элементы в потоке,
+ * а фон, шапка и «Наверх» спозиционированы как fixed.
+ *
  * @component
  * @example
  * return <Layout />

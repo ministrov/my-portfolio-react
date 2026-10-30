@@ -5,8 +5,10 @@ import './style.css';
 
 /**
  * Страница 404 (не найдена).
- * Отображает сообщение об ошибке с возможностью вернуться на главную.
- * Управляет мета-тегами для SEO.
+ * Одна секция, подписанная видимым h1 из `ErrorMessage` (`id="not-found-title"`):
+ * ярлык, заголовок, текст с адресом и два выхода — на главную и к проектам.
+ * Управляет мета-тегами для SEO; `noindex, follow` — страница не попадает в
+ * индекс, а ссылки с неё учитываются.
  *
  * @component
  * @example
@@ -21,13 +23,8 @@ const PageNotFound = () => {
       <meta name="description" content={t('metadata.notFound.description')} />
       <meta name="robots" content="noindex, follow" />
 
-      <section className="page-not-found">
-        <h1 className="visually-hidden">{t('metadata.notFound.title')}</h1>
-
-        <ErrorMessage
-          textContent={t('errorMessage.message')}
-          btnText={t('errorMessage.back')}
-        />
+      <section className="page-not-found" aria-labelledby="not-found-title">
+        <ErrorMessage />
       </section>
     </>
   );
