@@ -9,9 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Dependencies updated within their current major versions.** Vite 8.2.0 → 8.3.5, Swiper 14.0 → 14.4, React Router 7.18.2 → 7.18.5, i18next 26.3 → 26.7, react-i18next 17.0 → 17.1, Vitest 4.1.10 → 4.1.12, plus the testing and lint tooling. ESLint 9, Motion 12 and Vitest 4 stay on their majors. Page heights, footer positions and control sizes match the S03 baseline to the pixel on 4 pages, RU and EN, 5 windows.
+- **React stays on 19.2 (19.2.8 → 19.2.9, range `~19.2.9`).** React 19.3 adds 8.7 kB gzip to the main bundle (85.76 → 94.49 kB) and brings nothing this site uses.
+- **The home "About" section now ships in the main bundle.** Vite 8.2.4 and later builds it into the first chunk instead of a separate one: main JS 83.00 → 85.76 kB gzip, main CSS 6.72 → 8.75 kB gzip. Every Vite release that fixes the advisories below behaves the same way.
+
 ### Fixed
 
 - **Direct links to /about and /projects open the page instead of the server's "Not Found".** `public/.htaccess` tells Apache to answer the app's routes with `index.html` and status 200, so links from a CV, a message or `sitemap.xml` work. Any other unknown address gets `index.html` with status 404: visitors see the site's 404 page, and search engines get an honest 404. Existing files are served as before. The route list mirrors `<Routes>` in `App.jsx`, and a comment on both sides says so.
+
+### Security
+
+- **`npm audit`: 9 high → 0, 17 moderate → 16; production dependencies stay at 0.** Fixed by the updates above and `npm audit fix`, plus an `overrides` entry that lifts `compression` to 1.8.2: the latest `serve` (14.2.6) still pins the vulnerable 1.8.1. The 16 moderate advisories all come from an old `minimatch` inside ESLint 9, `source-map-explorer` and `serve` — development tools only, and their fixes need a new major version.
 
 ## [1.2.0] - 2026-10-30
 
