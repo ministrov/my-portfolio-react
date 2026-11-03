@@ -28,6 +28,9 @@ const App = () => {
         <ScrollToTop />
         <LanguageProvider>
           <Suspense fallback={<Loader />}>
+            {/* Маршруты продублированы в public/.htaccess: сервер отдаёт по ним
+                index.html со статусом 200, остальным адресам — 404. Новую
+                страницу добавлять в оба места. */}
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />

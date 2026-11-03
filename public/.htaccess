@@ -1,0 +1,19 @@
+# Фолбэк одностраничного приложения для Apache (хостинг Timeweb: nginx → Apache).
+# Vite копирует файл из public/ в build/ как есть; на сервере он лежит в
+# public_html рядом с index.html. Переадресацию на HTTPS делает nginx.
+#
+# Существующие файлы (ресурсы, robots.txt, sitemap.xml) отдаются как есть:
+# правило ниже ловит только адреса маршрутов.
+
+# Маршруты приложения → index.html со статусом 200. Список дублирует <Routes>
+# в src/App.jsx: новую страницу добавлять в оба места. Флаг NC — как у
+# React Router, который сверяет адреса без учёта регистра.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^(about|projects)/?$ index.html [NC,L]
+</IfModule>
+
+# Любой другой несуществующий адрес → index.html со статусом 404: сайт рисует
+# PageNotFound, поисковик видит честный 404.
+ErrorDocument 404 /index.html

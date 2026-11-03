@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **Direct links to /about and /projects open the page instead of the server's "Not Found".** `public/.htaccess` tells Apache to answer the app's routes with `index.html` and status 200, so links from a CV, a message or `sitemap.xml` work. Any other unknown address gets `index.html` with status 404: visitors see the site's 404 page, and search engines get an honest 404. Existing files are served as before. The route list mirrors `<Routes>` in `App.jsx`, and a comment on both sides says so.
+
 ## [1.2.0] - 2026-10-30
 
 Toolchain upgrade (Vite 8, React 19, ESLint 9), the mobile and touch audit of sprint S01 and the
