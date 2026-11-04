@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { format } from 'node:util';
 import {
   render,
   screen,
@@ -276,5 +277,85 @@ describe('ContactForm', () => {
       )
     );
     expect(screen.getByText('* — required field')).toBeInTheDocument();
+  });
+
+  /**
+   * Консоль браузера видит любой, кто откроет DevTools. Форма не пишет туда
+   * ничего, кроме одной ошибки при сбое отправки — с причиной, но без данных
+   * посетителя и ключа (S03-T08).
+   */
+  describe('консоль: форма не печатает данные посетителя', () => {
+    /** Методы консоли, которые форма не вызывает вовсе. */
+    const SILENT = ['log', 'info', 'debug', 'warn'];
+    let spies;
+
+    beforeEach(() => {
+      // Шпионы вместо методов консоли: тест видит вызовы, вывод тестов чистый
+      spies = Object.fromEntries(
+        [...SILENT, 'error'].map((method) => [
+          method,
+          vi.spyOn(console, method).mockImplementation(() => {}),
+        ])
+      );
+    });
+
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    /** Проверяет, что ни один метод из SILENT не вызывался. */
+    const expectSilent = () =>
+      SILENT.forEach((method) =>
+        expect(spies[method], `console.${method}`).not.toHaveBeenCalled()
+      );
+
+    it('пустая отправка ничего не пишет в консоль', async () => {
+      render(<ContactForm />);
+
+      fireEvent.click(submitButton());
+
+      await waitFor(() =>
+        expect(field('Ваше имя')).toHaveAttribute('aria-invalid', 'true')
+      );
+      expectSilent();
+      expect(spies.error).not.toHaveBeenCalled();
+    });
+
+    it('отправка и «Написать ещё» ничего не пишут в консоль', async () => {
+      fetchMock.mockResolvedValue(jsonResponse({ success: true }));
+      render(<ContactForm />);
+      fillForm(VALID);
+
+      fireEvent.click(submitButton());
+      fireEvent.click(
+        await screen.findByRole('button', { name: 'Написать ещё' })
+      );
+
+      expect(
+        await screen.findByRole('textbox', { name: 'Ваше имя' })
+      ).toHaveValue('');
+      expectSilent();
+      expect(spies.error).not.toHaveBeenCalled();
+    });
+
+    it('при отказе — одна ошибка с причиной, без данных посетителя и ключа', async () => {
+      fetchMock.mockResolvedValue(
+        jsonResponse({ success: false, message: 'invalid_access_key' })
+      );
+      render(<ContactForm />);
+      fillForm(VALID);
+
+      fireEvent.click(submitButton());
+      await screen.findByRole('alert');
+
+      expectSilent();
+      expect(spies.error).toHaveBeenCalledTimes(1);
+      // Строка так, как её показала бы консоль: объекты — со всем содержимым
+      const printed = format(...spies.error.mock.calls[0]);
+      expect(printed).toContain('invalid_access_key');
+      [...Object.values(VALID), 'test-key'].forEach((secret) =>
+        expect(printed).not.toContain(secret)
+      );
+    });
   });
 });
