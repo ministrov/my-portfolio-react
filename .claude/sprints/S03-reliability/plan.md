@@ -33,7 +33,7 @@
 | S03-T02 | Версия 1.2.0: CHANGELOG, `package.json`, тег           | 1   | Лид         | —          | Done   |
 | S03-T03 | Фолбэк на SPA: `public/.htaccess` (бывшая S02-T14)     | 2   | Лид         | T02        | Done   |
 | S03-T04 | Зависимости: минорные, патчи, `npm audit fix`          | 2   | Лид         | T01        | Done   |
-| S03-T05 | CI: lint, тесты, сборка на PR                          | 2   | Лид         | T04        | To do  |
+| S03-T05 | CI: lint, тесты, сборка на PR                          | 2   | Лид         | T04        | Done   |
 | S03-T06 | Source maps только для `npm run analyze`               | 1   | Лид         | T04        | To do  |
 | S03-T07 | Тесты формы заявок: хук, API, компонент                | 3   | Лид         | —          | To do  |
 | S03-T08 | Убрать логи формы, правило `no-console`                | 1   | Junior      | T07        | To do  |
@@ -145,3 +145,13 @@
   главном чанке — `index.js` gzip 83,00 → 85,76, `index.css` 6,72 → 8,75. Замер T01 — 0 px на 400
   значениях; главная, витрина и анимации на свежем порту работают, консоль чистая. Оставшиеся moderate,
   React 19.3 и склейка `About` — в [../backlog.md](../backlog.md).
+- 2026-11-04 — T05 → **Done** (`1132dc39`). `.github/workflows/ci.yml`: `npm ci`, lint, test:run, build на
+  Node 24, без секретов. **Решение пользователя:** кроме PR и push в master — push в `sprint/**`, иначе
+  запуск до PR в конце спринта не проверить. Зелёный:
+  [push](https://github.com/ministrov/my-portfolio-react/actions/runs/41797265796) и
+  [pull_request](https://github.com/ministrov/my-portfolio-react/actions/runs/41797267772), 35–42 с.
+  Красный — временная ветка с ошибкой lint:
+  [запуск](https://github.com/ministrov/my-portfolio-react/actions/runs/41797649092), ветка удалена.
+  Найдено: PR #192 из ветки спринта в master открыт с 2026-10-30 — он и есть PR релиза, сливать после
+  демо; пока он открыт, каждый push проверяется дважды. Пушит пользователь из терминала VS Code
+  (`git push`), ветка спринта теперь привязана к `origin`. Для T18: упомянуть CI в `CLAUDE.md`.
