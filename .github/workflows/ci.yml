@@ -1,0 +1,41 @@
+# Автоматическая проверка Definition of Done: lint, тесты, сборка.
+#
+# Когда запускается:
+# - на каждый PR в master — проверка перед слиянием;
+# - на push в master — после слияния;
+# - на push в ветки спринтов `sprint/**` — обратная связь по ходу спринта, а
+#   не только на PR в его конце. Цена: после открытия PR каждый push в ветку
+#   спринта проверяется дважды (push и pull_request) — это допустимо.
+#
+# Секретов нет: сборка проходит без `VITE_WEB3FORMS_KEY`, форма в такой сборке
+# просто не отправит заявку — для проверки это не важно.
+name: CI
+
+on:
+  push:
+    branches: [master, 'sprint/**']
+  pull_request:
+    branches: [master]
+
+# Workflow только читает код — больше прав токену не нужно.
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Lint, test, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      # Та же крупная версия Node, на которой проект собирается локально (24.x).
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:run
+      - run: npm run build

@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Continuous integration on GitHub Actions** (`.github/workflows/ci.yml`). Every pull request to master, every push to master and every push to a `sprint/**` branch runs `npm ci`, `npm run lint`, `npm run test:run` and `npm run build` on Node 24. No secrets are needed: the build passes without `VITE_WEB3FORMS_KEY`.
+
 ### Changed
 
 - **Dependencies updated within their current major versions.** Vite 8.2.0 → 8.3.5, Swiper 14.0 → 14.4, React Router 7.18.2 → 7.18.5, i18next 26.3 → 26.7, react-i18next 17.0 → 17.1, Vitest 4.1.10 → 4.1.12, plus the testing and lint tooling. ESLint 9, Motion 12 and Vitest 4 stay on their majors. Page heights, footer positions and control sizes match the S03 baseline to the pixel on 4 pages, RU and EN, 5 windows.
