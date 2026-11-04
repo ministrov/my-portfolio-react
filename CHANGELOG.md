@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **Continuous integration on GitHub Actions** (`.github/workflows/ci.yml`). Every pull request to master, every push to master and every push to a `sprint/**` branch runs `npm ci`, `npm run lint`, `npm run test:run` and `npm run build` on Node 24. No secrets are needed: the build passes without `VITE_WEB3FORMS_KEY`.
+- **Tests for the contact form, the site's only lead channel.** 40 tests in 3 files: the Web3Forms transport (request, `success: false`, network and JSON errors), the `useContactForm` hook (rules per field, when errors show, focus on the first invalid field, submitting → success / error, reset) and the whole form in all four states, idle, submitting, success and error, in Russian and English. The form tests find fields by role and label, not by class, so they survive refactoring the markup. Breaking the form code on purpose in 19 different ways turned the suite red every time. The form code itself is unchanged. 129 → 169 tests.
 
 ### Changed
 
