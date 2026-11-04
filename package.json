@@ -22,7 +22,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "lint": "eslint src",
-    "analyze": "source-map-explorer 'build/assets/*.js' --no-border-checks"
+    "analyze": "vite build --sourcemap --outDir build-analyze && source-map-explorer \"build-analyze/assets/*.js\" --no-border-checks"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

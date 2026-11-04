@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+- **The production build no longer ships source maps.** `npm run build` used to emit 15 `.map` files, so anyone could read the site's original source on the server. The build is now 6.74 MB in 78 files instead of 21.60 MB in 93. `npm run analyze` builds its own copy with maps into `build-analyze/` (git-ignored), so `build/` is always safe to deploy. The glob in the script is double-quoted, which works in both cmd and POSIX shells.
 - **`npm audit`: 9 high → 0, 17 moderate → 16; production dependencies stay at 0.** Fixed by the updates above and `npm audit fix`, plus an `overrides` entry that lifts `compression` to 1.8.2: the latest `serve` (14.2.6) still pins the vulnerable 1.8.1. The 16 moderate advisories all come from an old `minimatch` inside ESLint 9, `source-map-explorer` and `serve` — development tools only, and their fixes need a new major version.
 
 ## [1.2.0] - 2026-10-30
