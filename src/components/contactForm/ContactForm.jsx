@@ -4,23 +4,8 @@ import { BsCheckCircleFill } from 'react-icons/bs';
 import { IoSend } from 'react-icons/io5';
 import { useContactForm, FIELDS } from './useContactForm';
 import CopyEmail from '../copyEmail/CopyEmail';
+import { FADE_UP, SLIDE_DOWN } from './animations';
 import './style.css';
-
-/** Анимация fade + сдвиг вверх — для блока успеха и формы. */
-const FADE_UP = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -8 },
-  transition: { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] },
-};
-
-/** Анимация slide-down — для inline-ошибок и баннера. */
-const SLIDE_DOWN = {
-  initial: { opacity: 0, y: -4 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -4 },
-  transition: { duration: 0.18 },
-};
 
 /**
  * Форма обратной связи — чистый рендер без логики.
