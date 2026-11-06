@@ -35,6 +35,27 @@ const COMPACT_HIDDEN = { y: 8, opacity: 0 };
 /** Видимое состояние на ≤ 1024 px. */
 const COMPACT_SHOWN = { y: 0, opacity: 1 };
 
+/** Сколько px нужно прокрутить на ≥ 1025 px, чтобы кнопка появилась. */
+const SCROLL_THRESHOLD = 300;
+
+/** Размер стрелки в px. */
+const ICON_SIZE = 20;
+
+/** Цвет стрелки на ≥ 1025 px; на ≤ 1024 px цвет задаёт CSS через `currentColor`. */
+const ICON_COLOR = 'white';
+
+/**
+ * Задержка дебаунса прокрутки на ≥ 1025 px, мс: кнопка решает, показываться ли,
+ * после паузы в прокрутке, а не на каждое событие.
+ */
+const DEBOUNCE_DELAY = 100;
+
+/** Длительность появления и исчезновения на ≥ 1025 px, с. На ≤ 1024 px — своя, в `motionProps`. */
+const ANIMATION_DURATION = 0.65;
+
+/** Плавность появления и исчезновения на ≥ 1025 px. */
+const ANIMATION_EASE = 'easeOut';
+
 /**
  * Кнопка «Наверх» в одной из двух раскладок. Рендерится из `Up` с `key` по
  * раскладке: при повороте планшета через 1024 px компонент монтируется
@@ -57,16 +78,16 @@ const COMPACT_SHOWN = { y: 0, opacity: 1 };
  */
 const UpButton = ({
   isCompact,
-  threshold,
+  // threshold,
   icon,
-  iconSize,
-  iconColor,
+  // iconSize,
+  // iconColor,
   // className,
   // ariaLabel,
   smoothScroll,
-  debounceDelay,
-  animationDuration,
-  animationEase,
+  // debounceDelay,
+  // animationDuration,
+  // animationEase,
   enableEscape,
   autoFocus,
   // tabIndex,
@@ -92,7 +113,7 @@ const UpButton = ({
     const { scrollY, innerHeight } = window;
 
     if (!isCompact) {
-      setIsShowed(scrollY >= threshold);
+      setIsShowed(scrollY >= SCROLL_THRESHOLD);
       return;
     }
 
@@ -101,7 +122,7 @@ const UpButton = ({
 
     lastScrollYRef.current = scrollY;
     setIsShowed(delta < 0 && scrollY > innerHeight * REVEAL_AFTER_SCREENS);
-  }, [isCompact, threshold]);
+  }, [isCompact]);
 
   /**
    * Плавно скроллит окно к началу страницы.
@@ -133,7 +154,7 @@ const UpButton = ({
     // Десктоп: дебаунс ограничивает частоту вызовов. Создаётся здесь, а не в
     // useMemo: обработчик читает ref, а при рендере refs читать нельзя.
     if (!isCompact) {
-      const debouncedHandleScroll = debounce(handleScroll, debounceDelay);
+      const debouncedHandleScroll = debounce(handleScroll, DEBOUNCE_DELAY);
       window.addEventListener('scroll', debouncedHandleScroll, {
         passive: true,
       });
@@ -157,7 +178,7 @@ const UpButton = ({
       cancelAnimationFrame(frameId);
       window.removeEventListener('scroll', handleScrollFrame);
     };
-  }, [isCompact, handleScroll, debounceDelay]);
+  }, [isCompact, handleScroll]);
 
   useEffect(() => {
     if (!enableEscape) return undefined;
@@ -203,8 +224,8 @@ const UpButton = ({
   // пишет `color` в inline-стиль, и CSS его иначе не перебьёт.
   const IconComponent = icon || (
     <FaLongArrowAltUp
-      size={iconSize}
-      color={isCompact ? 'currentColor' : iconColor}
+      size={ICON_SIZE}
+      color={isCompact ? 'currentColor' : ICON_COLOR}
     />
   );
 
@@ -222,7 +243,7 @@ const UpButton = ({
         initial: { y: 50, opacity: 0 },
         animate: { y: 0, opacity: 1 },
         exit: { y: 50, opacity: 0 },
-        transition: { duration: animationDuration, ease: animationEase },
+        transition: { duration: ANIMATION_DURATION, ease: ANIMATION_EASE },
       };
 
   return (
