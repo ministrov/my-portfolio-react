@@ -1,5 +1,5 @@
 - [S01: desktop must not change](project_desktop_unchanged_s01.md) — brief CSS landing in base rules must be scoped to ≤1024; verify at 1280
-- [Hero traps](project_hero_traps.md) — dormant spotlight width rule (keep column fit-content), +4px frame, scramble restarts when `active` turns on
+- [Hero traps](project_hero_traps.md) — dormant spotlight width rule, +4px frame, scramble restarts on `active`; offscreen-pause check must catch decoding phase
 - [CSS chunk order](project_css_chunk_order.md) — mix overrides of component props: raise specificity via parent, don't rely on chunk <link> order
 - [Snap strip traps](project_snap_strip_traps.md) — Chrome focus-scroll skips partially visible links (fixed by JS focus handler, CSS hack rejected); flex-basis % vs tail
 - [Touch verification](project_touch_verification.md) — isMobile+hasTouch context, not resize; addStyleTag races lazy CSS; 1.5px outline reads 1px; temp mount; motion y skews rects
@@ -8,4 +8,5 @@
 - [Trans values traps](project_trans_values_traps.md) — user values in Trans parsed as markup (escapeValue off) crash React; pathname encoding; 404 min-height (content-box)
 - [Project card traps](project_project_card_traps.md) — img height attr distorts ≥1025; 700px cap crops at ~990–1024; top glow drops Graphite < AA; stagger
 - [A11y platform traps](project_a11y_platform_traps.md) — li list-style:none drops VoiceOver list role; forced-colors dots; dl aria-label in Chromium; duplicate list names
+- [jsdom test traps](project_jsdom_test_traps.md) — canvas/ResizeObserver/matchMedia crash scramble hooks; anchor click adds jsdom timer; afterEach order
 - [Tooling traps](project_tooling_traps.md) — prettier --check red on untouched CRLF files (autocrlf), not a format regression; hook rewraps at 80
