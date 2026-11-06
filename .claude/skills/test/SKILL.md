@@ -118,9 +118,12 @@ Providers and context:
 - `<Link>` / `<NavLink>` / `useNavigate` / `useLocation` → wrap in `<MemoryRouter>`.
 - **`LanguageProvider` needs a router above it** — it uses `useUrlParams`, which calls
   `useNavigate`/`useLocation`. Wrap as `<MemoryRouter><LanguageProvider>…</LanguageProvider></MemoryRouter>`.
-- There are **two `useLanguage`s**: `hooks/useLanguage.jsx` (context + `i18n.changeLanguage` —
-  what components import) and the one exported from `context/LanguageProvider.jsx` (bare context).
-  Check which one the file under test uses before mocking or wrapping.
+- Two hooks read the language: `useLanguage` from `hooks/useLanguage.jsx` (context +
+  `i18n.changeLanguage` — `ToggleLang` uses it) and `useLanguageContext` from
+  `context/LanguageContext.js` (bare context — `useSeoMeta` uses it). Check which one the file under
+  test uses before mocking or wrapping. To fake the language without the router, wrap in
+  `<LanguageContext.Provider value={{ lang, toggleLang }}>` (see `ToggleLang.test.jsx`); for the real
+  provider, see `context/LanguageProvider.test.jsx`.
 - **i18n is a module-level singleton** shared by every test in a file (Vitest isolates files, not
   tests). If a test switches language (`await i18n.changeLanguage('en')`), switch it back in
   `afterEach`, and reset `localStorage`/URL the way `lang.test.js` does.

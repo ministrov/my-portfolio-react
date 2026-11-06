@@ -1,33 +1,14 @@
-import {
-  createContext,
-  useContext,
-  useMemo,
-  useEffect,
-  useCallback,
-} from 'react';
+import { useMemo, useEffect, useCallback } from 'react';
 import { useUrlParams } from '../hooks/useUrlParams';
 import { resolveInitialLang } from '../utils/lang';
 import { LANGUAGES, LOCAL_STORAGE_KEY } from '../const';
-
-/**
- * Контекст для управления языком интерфейса.
- * Предоставляет текущий язык и функцию для его переключения.
- *
- * @typedef {Object} LanguageContextValue
- * @property {string} lang - Текущий язык ('ru' или 'en')
- * @property {Function} toggleLang - Функция переключения языка
- *
- * @type {React.Context<LanguageContextValue>}
- */
-export const LanguageContext = createContext({
-  lang: 'ru',
-  toggleLang: () => {},
-});
+import { LanguageContext } from './LanguageContext';
 
 /**
  * Провайдер контекста языка.
  * Управляет состоянием языка через URL-параметр 'lang' с сохранением выбора в localStorage.
  * Значение контекста мемоизировано для оптимизации производительности.
+ * Сам контекст и хук чтения `useLanguageContext` — в `./LanguageContext.js`.
  *
  * @component
  * @param {Object} props - Свойства компонента.
@@ -80,20 +61,3 @@ export function LanguageProvider({ children }) {
     </LanguageContext.Provider>
   );
 }
-
-/**
- * Кастомный хук для доступа к контексту языка.
- *
- * @returns {LanguageContextValue} Объект с текущим языком и функцией переключения.
- *
- * @example
- * // Использование в компоненте
- * const { lang, toggleLang } = useLanguage();
- *
- * return (
- *   <button onClick={toggleLang}>
- *     {lang === LANGUAGES.RU ? 'Switch to English' : 'Переключить на русский'}
- *   </button>
- * );
- */
-export const useLanguage = () => useContext(LanguageContext);
