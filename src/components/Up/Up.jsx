@@ -54,43 +54,11 @@ import useMediaQuery from '../../hooks/useMediaQuery';
 /** Планшет и телефон: здесь «↑» появляется только при прокрутке вверх. */
 const COMPACT_QUERY = '(max-width: 1024px)';
 
-const Up = ({
-  threshold = 300,
-  icon = null,
-  iconSize = 20,
-  iconColor = 'white',
-  className = '',
-  ariaLabel = null,
-  smoothScroll = true,
-  debounceDelay = 100,
-  animationDuration = 0.65,
-  animationEase = 'easeOut',
-  enableEscape = true,
-  autoFocus = false,
-  tabIndex = 0,
-  onClick = null,
-}) => {
+const Up = () => {
   const isCompact = useMediaQuery(COMPACT_QUERY);
 
   return (
-    <UpButton
-      key={isCompact ? 'compact' : 'desktop'}
-      isCompact={isCompact}
-      threshold={threshold}
-      icon={icon}
-      iconSize={iconSize}
-      iconColor={iconColor}
-      className={className}
-      ariaLabel={ariaLabel}
-      smoothScroll={smoothScroll}
-      debounceDelay={debounceDelay}
-      animationDuration={animationDuration}
-      animationEase={animationEase}
-      enableEscape={enableEscape}
-      autoFocus={autoFocus}
-      tabIndex={tabIndex}
-      onClick={onClick}
-    />
+    <UpButton key={isCompact ? 'compact' : 'desktop'} isCompact={isCompact} />
   );
 };
 

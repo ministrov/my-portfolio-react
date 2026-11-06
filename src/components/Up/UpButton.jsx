@@ -76,26 +76,9 @@ const ANIMATION_EASE = 'easeOut';
  * @param {boolean} props.isCompact - Раскладка планшета и телефона (≤ 1024 px).
  * @returns {JSX.Element} Кнопка с иконкой стрелки вверх, обёрнутая в анимационные компоненты.
  */
-const UpButton = ({
-  isCompact,
-  // threshold,
-  icon,
-  // iconSize,
-  // iconColor,
-  // className,
-  // ariaLabel,
-  smoothScroll,
-  // debounceDelay,
-  // animationDuration,
-  // animationEase,
-  enableEscape,
-  autoFocus,
-  // tabIndex,
-  onClick,
-}) => {
+const UpButton = ({ isCompact }) => {
   const [isShowed, setIsShowed] = useState(false);
   const [isOverHiddenBlock, setIsOverHiddenBlock] = useState(false);
-  const buttonRef = useRef(null);
   const lastScrollYRef = useRef(0);
   const { pathname } = useLocation();
   const prefersReducedMotion = useReducedMotion();
@@ -132,17 +115,14 @@ const UpButton = ({
     if (typeof window === 'undefined') return;
     window.scrollTo({
       top: 0,
-      behavior: smoothScroll ? 'smooth' : 'auto',
+      behavior: 'smooth',
     });
-    if (onClick && typeof onClick === 'function') {
-      onClick();
-    }
-  }, [smoothScroll, onClick]);
+  }, []);
 
   // Обработчик глобального Escape для скрытия кнопки
   const { handleGlobalKeyDown } = useKeyboardHandlers({
     isShowed,
-    enableEscape,
+    enableEscape: true,
     setIsShowed,
   });
 
@@ -181,13 +161,11 @@ const UpButton = ({
   }, [isCompact, handleScroll]);
 
   useEffect(() => {
-    if (!enableEscape) return undefined;
-
     document.addEventListener('keydown', handleGlobalKeyDown);
     return () => {
       document.removeEventListener('keydown', handleGlobalKeyDown);
     };
-  }, [handleGlobalKeyDown, enableEscape]);
+  }, [handleGlobalKeyDown]);
 
   // На ≤ 1024 px следим, видны ли форма контактов и футер. Поиск повторяется
   // при смене маршрута: на каждой странице своя форма.
@@ -212,17 +190,9 @@ const UpButton = ({
   }, [isCompact, pathname]);
 
   const isVisible = isShowed && !isOverHiddenBlock;
-
-  // Автофокус при появлении кнопки
-  useEffect(() => {
-    if (isVisible && autoFocus && buttonRef.current) {
-      buttonRef.current.focus();
-    }
-  }, [isVisible, autoFocus]);
-
   // На ≤ 1024 px иконка берёт цвет кнопки из CSS (`currentColor`): react-icons
   // пишет `color` в inline-стиль, и CSS его иначе не перебьёт.
-  const IconComponent = icon || (
+  const IconComponent = (
     <FaLongArrowAltUp
       size={ICON_SIZE}
       color={isCompact ? 'currentColor' : ICON_COLOR}
@@ -253,7 +223,7 @@ const UpButton = ({
           <m.button
             type="button"
             {...motionProps}
-            className={t('up.ariaLabel')}
+            className={'scroll-to'}
             onClick={scrollToTop}
             aria-label={t('up.ariaLabel')}
           >
