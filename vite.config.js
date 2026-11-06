@@ -8,7 +8,11 @@ import react from '@vitejs/plugin-react';
  * работать `/build` в `.gitignore`, скрипт `npm run prod` (`serve -s build`)
  * и внешние настройки деплоя.
  *
- * `sourcemap: true` нужен для `npm run analyze` (source-map-explorer).
+ * Source maps в обычной сборке выключены (дефолт Vite): иначе вместе с сайтом
+ * на сервер уходят ~15 MB карт, а по ним читаются исходники. Карты нужны только
+ * `npm run analyze` (source-map-explorer) — скрипт собирает их сам флагом
+ * `--sourcemap` в отдельную папку `build-analyze/`, чтобы `build/` для выкладки
+ * никогда не содержала `.map`.
  */
 export default defineConfig({
   plugins: [react()],
@@ -18,7 +22,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'build',
-    sourcemap: true,
   },
   test: {
     environment: 'jsdom',

@@ -26,7 +26,15 @@ npm run analyze  # source-map-explorer over the built JS bundles
 
 ## Architecture
 
-**Entry chain**: `index.html` (project root, not `public/`) loads `src/index.jsx` → wraps `App` in `StrictMode` and imports `./utils/i18n/index` for its initialization side effect. `src/App.jsx` sets up `BrowserRouter` → `ScrollToTop` → `LanguageProvider` → a `Suspense`-wrapped `Routes`. All routes nest under a single `Layout` (`Header` / `<Outlet/>` / `Up` / `Footer`). `HomePage` is eager; `AboutPage`, `ProjectsPage`, `PageNotFound` are `React.lazy` code-split.
+**Entry chain**: `index.html` (project root, not `public/`) loads `src/index.jsx` → wraps `App` in `StrictMode` and imports `./utils/i18n/index` for its initialization side effect. `src/App.jsx` sets up `BrowserRouter` → `ScrollToTop` → `LanguageProvider` → `ErrorBoundary` → a `Suspense`-wrapped `Routes`. All routes nest under a single `Layout` (`Header` / `<Outlet/>` / `Up` / `Footer`). `HomePage` is eager; `AboutPage`, `ProjectsPage`, `PageNotFound` are `React.lazy` code-split.
+
+**Error boundaries** (`components/errorBoundary/`, S03-T10) sit at three levels, so a failure never leaves a white screen:
+
+- **Page:** inside `Layout`, around `<Outlet/>`, keyed by `pathname`. A broken page keeps the header and footer, and the next navigation resets the boundary.
+- **Shell:** in `App`, around `Suspense`. Catches failures in the header, the footer or `Layout` itself.
+- **Section:** on `HomePage`, around each lazy section (`Showcasing`, `Testimonials`), with `variant="section"`. One failed section doesn't hide the whole home page.
+
+A failed chunk load — typically a tab opened before a deploy asking for a hashed file that is gone — reloads the tab once per session by itself. A `sessionStorage` flag (`chunk-reload`) stops a reload loop; after that, the fallback's button reloads. The button always does a full reload: `lazy()` caches a rejected import, so re-rendering would fail again. A new `lazy()` chunk that one failure shouldn't take down with its neighbours gets its own `variant="section"` boundary. The fallback imports nothing that could fail to load: no `Heading`, no images, its CSS in the main bundle.
 
 **SEO / `<head>`**: no Helmet — React 19 hoists `<title>`, `<meta>` and `<link>` written anywhere in the tree. Pages declare them inline. **Inline `<script>` is _not_ hoisted**, so JSON-LD splits by nature: the language-independent `Person` and `WebSite` schemas sit statically in `index.html` (crawlers see them without running JS), while the localized `BreadcrumbList` schemas stay in `AboutPage`/`ProjectsPage` and render into `<body>`, which search engines accept.
 
@@ -39,10 +47,10 @@ npm run analyze  # source-map-explorer over the built JS bundles
 
 **Language switching** is a two-layer system — understand both before touching it:
 
-1. `context/LanguageProvider.jsx` owns the `lang` state, syncing it to the `?lang=` URL param (via `hooks/useUrlParams.jsx`) and persisting to `localStorage` under `preferredLang`. It does **not** talk to i18next.
-2. `hooks/useLanguage.jsx` (distinct from the `useLanguage` exported by `LanguageProvider.jsx` — import the **hook** version) reads the context and runs `i18n.changeLanguage(lang)` in an effect. This is the bridge that actually swaps i18next's active language. Allowed values come from the `LANGUAGES` enum in `const/index.jsx`.
+1. `context/LanguageProvider.jsx` owns the `lang` state, syncing it to the `?lang=` URL param (via `hooks/useUrlParams.jsx`) and persisting to `localStorage` under `preferredLang`. It does **not** talk to i18next, and it exports only the component. The context object and its read-only hook `useLanguageContext` live in `context/LanguageContext.js`: a file that also exports non-components breaks Fast Refresh, and `react-refresh/only-export-components` warns about it.
+2. `hooks/useLanguage.jsx` — the only `useLanguage` — reads the context and runs `i18n.changeLanguage(lang)` in an effect. This is the bridge that actually swaps i18next's active language; `ToggleLang` uses it. Where only the language code is needed (`useSeoMeta`), read `useLanguageContext` instead, so i18next isn't switched from every consumer. Allowed values come from the `LANGUAGES` enum in `const/index.jsx`.
 
-**The initial language is resolved synchronously**, before first render, by `resolveInitialLang()` in `src/utils/lang.js` — precedence `?lang=` → `localStorage` → `ru`. That one resolver feeds **both** the i18next bootstrap (`utils/i18n/index.js`) and `LanguageProvider`'s initial state, so the two layers always start in agreement. Do not reintroduce an effect that restores the language after mount: the previous version raced its own save-to-`localStorage` effect and, under StrictMode, reset the user's choice back to `ru`. `utils/lang.test.js` guards this.
+**The initial language is resolved synchronously**, before first render, by `resolveInitialLang()` in `src/utils/lang.js` — precedence `?lang=` → `localStorage` → `ru`. That one resolver feeds **both** the i18next bootstrap (`utils/i18n/index.js`) and `LanguageProvider`'s initial state, so the two layers always start in agreement. Do not reintroduce an effect that restores the language after mount: the previous version raced its own save-to-`localStorage` effect and, under StrictMode, reset the user's choice back to `ru`. `utils/lang.test.js` guards the resolver, `context/LanguageProvider.test.jsx` the provider under StrictMode.
 
 **Projects filtering**: `sections/projects/projectsReduce.js` is a `useReducer` reducer (`SET_FILTER` action) driving project list filtering; consumed via `hooks/useProjectsFilter.jsx`. Filter buttons come from the `filters` array in `const/index.jsx`. Note `project.skills` is a comma-separated **string**, filtered with `.includes()`.
 
@@ -55,7 +63,7 @@ npm run analyze  # source-map-explorer over the built JS bundles
 These rules are marked `alwaysApply` and define how code in this repo is expected to look:
 
 - **Comments & JSDoc are written in Russian.** Add JSDoc to components (props + example), functions (params/returns), and modules. Match the existing dense JSDoc style in `context/`, `hooks/`, `layouts/`.
-- **Functional components only** — class components are forbidden.
+- **Functional components only** — class components are forbidden. The one exception is `components/errorBoundary/ErrorBoundary.jsx`: React has no hook for catching render errors, only `getDerivedStateFromError` / `componentDidCatch` on a class (owner's decision, S03-T10, instead of a new dependency). Don't add a second class; reuse that boundary.
 - **Plain CSS with BEM** (`.block__element--modifier`) in a `style.css` beside the component. No inline styles except genuinely dynamic values (e.g. `width: ${w}px`). No Sass/Less, no styled-components/Emotion, no Tailwind.
 - **Do not add without discussion**: TypeScript, other state managers (Redux/MobX/Zustand), UI libraries (MUI/Ant), or any new dependency.
 - Naming: PascalCase files/components, `use`-prefixed camelCase hooks, UPPER_SNAKE_CASE constants, CamelCase enum objects. Event handlers `handle*`, callback props `on*`. Prefer `ref` over `document.querySelector`. Guard against unmount when an effect resolves **asynchronously**; do not add an `isMounted` ref to a synchronous effect — `LanguageProvider` used to carry one and it masked a real race rather than preventing one.
@@ -80,7 +88,7 @@ The parts of the rules that **do** apply are already reflected above (Russian JS
 The repo doubles as a practice ground for team product development, run in scope-based sprints:
 
 - **Team lead** — the `team-lead` skill, in the main conversation: estimates and decomposes sprint briefs, assigns tasks, takes the hardest ones, reviews everything. Modes: `/team-lead plan|start|review|status|demo|retro <id>`.
-- **Layout engineer** — the `layout-engineer` subagent (`.claude/agents/`), preloaded with the `frontend-architect` skill. Works only from an approved task card, never commits; the lead reviews and commits its work.
+- **Middle (middle+ frontend developer, strong in layout)** — the `layout-engineer` subagent (`.claude/agents/`), preloaded with the `frontend-architect` and `test` skills. It takes React components with local state and effects, component refactoring and tests, plus markup, CSS, responsive and a11y work. Global state, integrations and new app-wide abstractions stay with the lead. It works only from an approved task card and never commits; the lead reviews and commits its work. Until 2026-11-06 the role was called "layout engineer" (S01–S03 docs); the agent id kept that name.
 - **Junior frontend developer** — the user. Claude never implements tasks assigned to the junior: the lead hands over a task card (direction, no ready code) and reviews the user's diff.
 
 Sprint artifacts live in `.claude/sprints/S<NN>-<slug>/` (brief, plan/board, task cards, reviews, retro); templates are in `.claude/skills/team-lead/templates/`.

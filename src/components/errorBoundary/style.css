@@ -1,0 +1,120 @@
+/* Запасной экран границы ошибок (ErrorBoundary). Стили — в главном CSS:
+   файлы страниц и секций при сбое могут не загрузиться, а этот уже здесь.
+   Вид — как у страницы 404 (errorMessage/style.css): одна колонка по
+   центру, ярлык, заголовок, текст и кобальтовая пилюля. */
+.error-fallback {
+  text-align: center;
+}
+
+/* Отступ сверху — от высоты фикс-хедера, как у 404 (pageNotFound/style.css) */
+.error-fallback--page {
+  padding: calc(var(--header-height) + 2rem) 0 4rem;
+}
+
+.error-fallback__inner,
+.error-fallback--section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* На месте секции — столько воздуха, сколько у соседних секций сверху
+   и снизу (.wrapper в main.css: 80px / 60px) */
+.error-fallback--section {
+  padding-block: 5rem 3.75rem;
+}
+
+/* Label из DESIGN.md: Oswald 700, 0.75rem, трекинг 0.09em, Graphite —
+   как ярлык «Ошибка 404» */
+.error-fallback__eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-headings);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+}
+
+/* Display заголовка секции (heading/style.css), без акцента. Свой класс, а
+   не Heading: экран не должен зависеть от других файлов. */
+.error-fallback__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-gray-900);
+  text-wrap: balance;
+}
+
+/* Ink, а не кобальт: текст не должен читаться как ссылка */
+.error-fallback__text {
+  max-width: 32rem;
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-gray-800);
+  text-wrap: pretty;
+}
+
+.error-fallback--section .error-fallback__text {
+  margin-bottom: 1.25rem;
+}
+
+/* Primary (pill) — те же значения, что у «На главную» на 404
+   (.not-found__primary). Общий класс пилюли — задача S03-T19. */
+.error-fallback__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-headings);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-white);
+  background-color: var(--color-blue-700);
+  border: 1.5px solid var(--color-blue-700);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover только для мыши: на таче состояние залипало бы после тапа */
+@media (hover: hover) {
+  .error-fallback__button:hover {
+    background-color: var(--color-blue-800);
+    border-color: var(--color-blue-800);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+  }
+}
+
+/* Отклик на касание вместо hover */
+.error-fallback__button:active {
+  background-color: var(--color-blue-800);
+  border-color: var(--color-blue-800);
+}
+
+/* --color-blue-700 даёт 5.17:1 на белом — кольцо видно и на сетке фона */
+.error-fallback__button:focus-visible {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-fallback__button {
+    transition: none;
+  }
+
+  .error-fallback__button:hover {
+    transform: none;
+  }
+}
