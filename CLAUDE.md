@@ -88,7 +88,7 @@ The parts of the rules that **do** apply are already reflected above (Russian JS
 The repo doubles as a practice ground for team product development, run in scope-based sprints:
 
 - **Team lead** — the `team-lead` skill, in the main conversation: estimates and decomposes sprint briefs, assigns tasks, takes the hardest ones, reviews everything. Modes: `/team-lead plan|start|review|status|demo|retro <id>`.
-- **Layout engineer** — the `layout-engineer` subagent (`.claude/agents/`), preloaded with the `frontend-architect` skill. Works only from an approved task card, never commits; the lead reviews and commits its work.
+- **Middle (middle+ frontend developer, strong in layout)** — the `layout-engineer` subagent (`.claude/agents/`), preloaded with the `frontend-architect` and `test` skills. It takes React components with local state and effects, component refactoring and tests, plus markup, CSS, responsive and a11y work. Global state, integrations and new app-wide abstractions stay with the lead. It works only from an approved task card and never commits; the lead reviews and commits its work. Until 2026-11-06 the role was called "layout engineer" (S01–S03 docs); the agent id kept that name.
 - **Junior frontend developer** — the user. Claude never implements tasks assigned to the junior: the lead hands over a task card (direction, no ready code) and reviews the user's diff.
 
 Sprint artifacts live in `.claude/sprints/S<NN>-<slug>/` (brief, plan/board, task cards, reviews, retro); templates are in `.claude/skills/team-lead/templates/`.
