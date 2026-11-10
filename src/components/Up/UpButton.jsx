@@ -91,8 +91,6 @@ const UpButton = ({ isCompact }) => {
    * @private
    */
   const handleScroll = useCallback(() => {
-    if (typeof window === 'undefined') return;
-
     const { scrollY, innerHeight } = window;
 
     if (!isCompact) {
@@ -112,7 +110,6 @@ const UpButton = ({ isCompact }) => {
    * @private
    */
   const scrollToTop = useCallback(() => {
-    if (typeof window === 'undefined') return;
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -223,7 +220,7 @@ const UpButton = ({ isCompact }) => {
           <m.button
             type="button"
             {...motionProps}
-            className={'scroll-to'}
+            className="scroll-to"
             onClick={scrollToTop}
             aria-label={t('up.ariaLabel')}
           >
