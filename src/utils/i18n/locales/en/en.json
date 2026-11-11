@@ -92,7 +92,7 @@
   "hero": {
     "titleLead": "Fast with AI.",
     "titleAccent": "Exact — myself",
-    "subtitle": "Hi! I'm Anton Zhilin, a Frontend Developer based in Moscow",
+    "subtitle": "Hi! I'm Anton Zhilin, a frontend developer based in Moscow.",
     "btn": "Download CV",
     "btnDownloading": "Download started",
     "scrollHint": "Scroll ↓"
@@ -429,6 +429,22 @@
     "text": "There is nothing at <path>{{path}}</path>. The link may be outdated, or the address has a typo.",
     "home": "Go to homepage",
     "projects": "View projects"
+  },
+  "errorBoundary": {
+    "eyebrow": "Error",
+    "chunk": {
+      "title": "The page didn't load",
+      "text": "The connection may have dropped, or the site has just been updated. Reloading the page usually helps."
+    },
+    "render": {
+      "title": "Something went wrong",
+      "text": "Something broke on this page. Reload it, and if that doesn't help, come back a little later."
+    },
+    "section": {
+      "chunk": "This section didn't load: the connection may have dropped, or the site has just been updated.",
+      "render": "Something broke in this section."
+    },
+    "reload": "Reload the page"
   },
   "loader": {
     "loading": "Loading",
