@@ -44,7 +44,13 @@
 .breadcrumbs__link:active {
   color: var(--color-blue-800);
 }
-/* --color-blue-700 даёт 5.17:1 на белом — кольцо видно и на сетке фона */
+
+/*
+ * :focus-visible, а не :focus: кольцо нужно при фокусе с клавиатуры, а :focus
+ * срабатывает и от клика мышью. --color-blue-700 даёт 5.17:1 на белом.
+ * У .breadcrumbs нет overflow: кольцо выходит за ссылку на 4 px, «Главная»
+ * стоит у левого края, и overflow срезал бы его.
+ */
 .breadcrumbs__link:focus-visible {
   outline: 2px solid var(--color-blue-700);
   outline-offset: 2px;
