@@ -148,19 +148,9 @@
   color: #c3e88d;
 }
 
-.author-code .token-number {
-  color: #f78c6c;
-}
-
 .author-code .token-punctuation {
   color: #89a1b5;
 }
-
-.author-code .token-comment {
-  color: #5c6370;
-  font-style: italic;
-}
-
 /* ───────────────────────── Адаптивность ───────────────────────── */
 
 @media screen and (max-width: 1024px) {
