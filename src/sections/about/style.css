@@ -138,51 +138,11 @@
   gap: 0.625rem;
 }
 
-/* Главное действие — заливка кобальтом: те же значения, что у
-   .nav-mobile__cv (общий класс пилюли — кандидат в S03). border-box —
-   ссылка, в отличие от <button>, по умолчанию content-box, и поля
-   прибавились бы к 48px. Высота — min-height, а не height: при зуме и
-   увеличенных интервалах текста подпись не обрежется. */
+/* Главное действие — заливка кобальтом: геометрия, типографика, цвет,
+   hover, active и фокус — в общем .pill-button (main.css). Здесь только
+   display: flex — в паре /about кнопка растянута на ширину колонки. */
 .about__cv {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-  box-sizing: border-box;
-  min-height: 48px;
-  padding: 0.5rem 1.25rem;
-  font-family: var(--font-headings);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--color-white);
-  background-color: var(--color-blue-700);
-  border-radius: 999px;
-  transition:
-    background-color 0.2s ease,
-    transform 0.15s ease,
-    box-shadow 0.2s ease;
-}
-
-/* Hover только для мыши (на таче залипал бы после тапа) — как у пилюли
-   CTA в шапке: темнее, подъём на 1px и кобальтовое свечение */
-@media (hover: hover) {
-  .about__cv:hover {
-    background-color: var(--color-blue-800);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
-  }
-}
-
-/* Отклик на касание вместо hover */
-.about__cv:active {
-  background-color: var(--color-blue-800);
-}
-
-/* --color-blue-700 даёт 5.17:1 на белом — кольцо видно и на сетке фона */
-.about__cv:focus-visible {
-  outline: 2px solid var(--color-blue-700);
-  outline-offset: 2px;
 }
 
 /* Стрелка контурной кнопки ближе к подписи, как у «Скачать резюме» рядом.
@@ -294,12 +254,7 @@
 
 /* Уважение к системной настройке «уменьшить движение» */
 @media (prefers-reduced-motion: reduce) {
-  .about__stat,
-  .about__cv {
+  .about__stat {
     transition: none;
-  }
-
-  .about__cv:hover {
-    transform: none;
   }
 }

@@ -77,11 +77,17 @@ const ErrorMessage = () => {
       </p>
 
       <div className="not-found__actions">
-        <Link className="not-found__primary" to="/">
+        <Link
+          className="not-found__primary pill-button pill-button--bordered"
+          to="/"
+        >
           {t('errorMessage.home')}
         </Link>
 
-        <Link className="not-found__secondary" to="/projects">
+        <Link
+          className="not-found__secondary pill-button pill-button--outline"
+          to="/projects"
+        >
           {t('errorMessage.projects')}
           <span className="not-found__arrow" aria-hidden="true">
             →

@@ -123,7 +123,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             <div className="nav-mobile__footer">
               <div className="nav-mobile__actions">
                 <a
-                  className="nav-mobile__cv"
+                  className="nav-mobile__cv pill-button"
                   href={cvPdf}
                   download="Anton_Zhilin_CV.pdf"
                 >

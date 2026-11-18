@@ -264,6 +264,111 @@ img {
   margin-bottom: 60px;
 }
 
+/* ─────────────────────────── Кнопка-пилюля ─────────────────────────── */
+
+/* Общая основа пяти кнопок-пилюль: резюме в мобильном меню и на /about,
+   пара на 404, «Обновить страницу» в запасном экране ошибки. Лежит в главном
+   CSS, а не в чанках компонентов: класс нужен и ленивым страницам, и экрану
+   ошибки, который стилей компонента может не дождаться.
+
+   `display` в базу не входит: у меню и /about кнопка растянута на ширину
+   колонки (`flex`), у пары на 404 и у кнопки фолбэка ширина по содержимому
+   (`inline-flex`) — это намеренное различие, строка остаётся в файле
+   компонента. Выравнивание по центру нужно обеим раскладкам, поэтому живёт
+   здесь. Высота — `min-height`, а не `height`: при зуме и увеличенных
+   интервалах текста подпись не обрежется. */
+.pill-button {
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-height: 48px;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-headings);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-white);
+  background-color: var(--color-blue-700);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover только для мыши: на таче состояние залипало бы после тапа */
+@media (hover: hover) {
+  .pill-button:hover {
+    background-color: var(--color-blue-800);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+  }
+}
+
+/* Отклик на касание вместо hover */
+.pill-button:active {
+  background-color: var(--color-blue-800);
+}
+
+/* --color-blue-700 даёт 5.17:1 на белом — кольцо видно и на сетке фона */
+.pill-button:focus-visible {
+  outline: 2px solid var(--color-blue-700);
+  outline-offset: 2px;
+}
+
+/* Рамка — у кнопок, которые стоят на фоне страницы, а не в паре с соседкой:
+   «На главную» на 404 и кнопка экрана ошибки. Базе рамка не нужна: у пилюль
+   меню и /about её нет, а лишние 3px ширины сдвинули бы пару. */
+.pill-button--bordered {
+  border: 1.5px solid var(--color-blue-700);
+}
+
+@media (hover: hover) {
+  .pill-button--bordered:hover {
+    border-color: var(--color-blue-800);
+  }
+}
+
+.pill-button--bordered:active {
+  border-color: var(--color-blue-800);
+}
+
+/* Контурная «Смотреть проекты»: прозрачный фон и кобальтовая подпись.
+   Перебивает базовый hover — без подъёма и свечения, переход только по
+   фону. Рамку ставит себе сама, второй модификатор не нужен. */
+.pill-button--outline {
+  color: var(--color-blue-700);
+  background-color: transparent;
+  border: 1.5px solid var(--color-blue-700);
+  transition: background-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .pill-button--outline:hover {
+    background-color: var(--color-gray-200);
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.pill-button--outline:active {
+  background-color: var(--color-gray-200);
+}
+
+/* Уважение к системной настройке «уменьшить движение»: цвета остаются,
+   но без анимации и подъёма */
+@media (prefers-reduced-motion: reduce) {
+  .pill-button {
+    transition: none;
+  }
+
+  .pill-button:hover {
+    transform: none;
+  }
+}
+
 @media screen and (max-width: 1520px) {
   .container {
     max-width: 1200px;

@@ -33,7 +33,7 @@ const ErrorFallback = ({ variant = 'page', isChunkError = false }) => {
   const reloadButton = (
     <button
       type="button"
-      className="error-fallback__button"
+      className="error-fallback__button pill-button pill-button--bordered"
       onClick={reloadPage}
     >
       {t('errorBoundary.reload')}

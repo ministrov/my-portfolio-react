@@ -104,7 +104,7 @@ const About = ({
             {button && (
               <div className="about__actions">
                 <a
-                  className="about__cv"
+                  className="about__cv pill-button"
                   href={cvPdf}
                   download="Anton_Zhilin_CV.pdf"
                 >

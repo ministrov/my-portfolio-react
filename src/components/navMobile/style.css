@@ -62,46 +62,11 @@
 }
 
 /* Главное действие меню — заливка кобальтом, как пилюля CTA в шапке.
-   Высота — min-height в пару контурной кнопке (48px), а не height:
-   при зуме и увеличенных интервалах текста подпись не обрежется. */
+   Геометрия, типографика, цвет, hover, active и фокус — в общем
+   .pill-button (main.css). Здесь только display: flex — в отличие от пары
+   на 404, кнопка растянута на всю ширину колонки. */
 .nav-mobile__cv {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-  box-sizing: border-box;
-  min-height: 48px;
-  padding: 0.5rem 1.25rem;
-  font-family: var(--font-headings);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--color-white);
-  background-color: var(--color-blue-700);
-  border-radius: 999px;
-  transition:
-    background-color 0.2s ease,
-    transform 0.15s ease,
-    box-shadow 0.2s ease;
-}
-
-/* Hover только для мыши (на таче залипал бы после тапа) — как у пилюли
-   CTA в шапке: темнее, подъём на 1px и кобальтовое свечение */
-@media (hover: hover) {
-  .nav-mobile__cv:hover {
-    background-color: var(--color-blue-800);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
-  }
-}
-
-.nav-mobile__cv:active {
-  background-color: var(--color-blue-800);
-}
-
-.nav-mobile__cv:focus-visible {
-  outline: 2px solid var(--color-blue-700);
-  outline-offset: 2px;
 }
 
 .nav-mobile__cta {
@@ -175,15 +140,5 @@
 @media screen and (max-width: 580px) {
   .nav-mobile__wrapper {
     padding: 0.25rem 1rem 1rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nav-mobile__cv {
-    transition: none;
-  }
-
-  .nav-mobile__cv:hover {
-    transform: none;
   }
 }

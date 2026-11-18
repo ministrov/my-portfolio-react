@@ -10,3 +10,4 @@
 - [A11y platform traps](project_a11y_platform_traps.md) — li list-style:none drops VoiceOver list role; forced-colors dots; dl aria-label in Chromium; duplicate list names
 - [jsdom test traps](project_jsdom_test_traps.md) — canvas/ResizeObserver/matchMedia crash scramble hooks; anchor click adds jsdom timer; afterEach order
 - [Tooling traps](project_tooling_traps.md) — prettier --check red on untouched CRLF files (autocrlf), not a format regression; hook rewraps at 80
+- [Pill measurement](project_pill_measurement.md) — Chrome 157 matches baseline.md 0 px; flex-item display reads blockified, compare sizes not display
