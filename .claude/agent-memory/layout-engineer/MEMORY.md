@@ -11,3 +11,4 @@
 - [jsdom test traps](project_jsdom_test_traps.md) — canvas/ResizeObserver/matchMedia crash scramble hooks; anchor click adds jsdom timer; afterEach order
 - [Tooling traps](project_tooling_traps.md) — prettier --check red on untouched CRLF files (autocrlf), not a format regression; hook rewraps at 80
 - [Pill measurement](project_pill_measurement.md) — Chrome 157 matches baseline.md 0 px; flex-item display reads blockified, compare sizes not display
+- [Playwright media verification](project_playwright_media_verification.md) — screenshot path needs backslashes + existing dir; hashed preview URLs → prefix match; visible source px formula; dy=0 proves no shift
