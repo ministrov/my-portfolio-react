@@ -8,6 +8,7 @@ import Services from '../sections/services/Services.jsx';
 import Contact from '../sections/contact/Contact.jsx';
 import Advantages from '../sections/advantages/Advantages.jsx';
 import Loader from '../components/loader/Loader';
+import ErrorBoundary from '../components/errorBoundary/ErrorBoundary';
 
 const Showcasing = lazy(() => import('../sections/showcasing/Showcasing.jsx'));
 const Testimonials = lazy(
@@ -21,6 +22,11 @@ const Testimonials = lazy(
  *
  * JSON-LD автора (Person + WebSite) живёт статикой в index.html: схемы не зависят
  * ни от языка, ни от маршрута, а инлайновые <script> React в <head> не поднимает.
+ *
+ * У двух ленивых секций — своя граница ошибок: без неё сбой загрузки одной
+ * секции поднимался до границы страницы и прятал всю главную (замер S03-T10:
+ * вместо 11 411 px оставался экран ошибки в 900 px). С ней на месте секции —
+ * короткое сообщение, остальная главная на месте.
  *
  * @component
  * @example
@@ -63,14 +69,18 @@ const Home = () => {
 
       <Hero />
       <About link />
-      <Suspense fallback={<Loader />}>
-        <Showcasing />
-      </Suspense>
+      <ErrorBoundary variant="section">
+        <Suspense fallback={<Loader />}>
+          <Showcasing />
+        </Suspense>
+      </ErrorBoundary>
       <Services />
       <Advantages />
-      <Suspense fallback={<Loader />}>
-        <Testimonials />
-      </Suspense>
+      <ErrorBoundary variant="section">
+        <Suspense fallback={<Loader />}>
+          <Testimonials />
+        </Suspense>
+      </ErrorBoundary>
       <Faq />
       <Contact />
     </>

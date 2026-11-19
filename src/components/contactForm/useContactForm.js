@@ -133,12 +133,8 @@ export function useContactForm(onSuccess) {
     }, {});
     setErrors(allErrors);
 
-    console.log('[useContactForm] Сабмит. Значения полей:', values);
-    console.log('[useContactForm] Ошибки валидации:', allErrors);
-
     if (Object.keys(allErrors).length > 0) {
       // Есть ошибки — fetch не запускаем, фокусируем первое проблемное поле
-      console.warn('[useContactForm] Валидация не прошла. Запрос отменён.');
       const firstErrName = FIELDS.find((f) => allErrors[f.name])?.name;
       if (firstErrName) fieldRefs.current[firstErrName]?.focus();
       return;
@@ -147,7 +143,6 @@ export function useContactForm(onSuccess) {
     // Валидация прошла — переходим в состояние «отправляем»
     // setStatus здесь синхронный: React поставит перерендер в очередь,
     // но выполнит его только после того как handleSubmit отдаст управление (на ближайшем await)
-    console.log('[useContactForm] Валидация OK → статус: submitting');
     setStatus('submitting');
 
     try {
@@ -162,7 +157,6 @@ export function useContactForm(onSuccess) {
       });
 
       // Сюда попадаем только если Promise разрешился без исключения (отправка успешна)
-      console.log('[useContactForm] Отправка успешна → статус: success');
       setStatus('success');
       onSuccess?.(); // Вызываем внешний коллбек если передан
     } catch (error) {
@@ -177,7 +171,6 @@ export function useContactForm(onSuccess) {
 
   /** Сбрасывает форму в начальное состояние. */
   const handleReset = () => {
-    console.log('[useContactForm] Форма сброшена → статус: idle');
     setValues(INITIAL_VALUES);
     setTouched({});
     setErrors({});

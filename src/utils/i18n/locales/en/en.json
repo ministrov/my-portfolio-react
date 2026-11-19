@@ -86,13 +86,10 @@
     "contacts": "Contacts",
     "siteLanguage": "Site language"
   },
-  "promo": {
-    "promoSlogan": "A frontend developer from Moscow helping businesses create modern, fast, and user-friendly websites."
-  },
   "hero": {
     "titleLead": "Fast with AI.",
     "titleAccent": "Exact — myself",
-    "subtitle": "Hi! I'm Anton Zhilin, a Frontend Developer based in Moscow",
+    "subtitle": "Hi! I'm Anton Zhilin, a frontend developer based in Moscow.",
     "btn": "Download CV",
     "btnDownloading": "Download started",
     "scrollHint": "Scroll ↓"
@@ -168,8 +165,6 @@
       "name": "Can I contact you for consultation?",
       "answer": "Certainly! Feel free to contact me through social media, Telegram, or email. I’ll be delighted to assist with any inquiries and provide a project estimate."
     },
-    "open": "Show more",
-    "close": "Hide",
     "listAriaLabel": "List of frequently asked questions",
     "emptyMessage": "No questions available"
   },
@@ -233,10 +228,8 @@
     "ariaLabel": "Back to top of page"
   },
   "footer": {
-    "description": "Creating Intuitive User Experiences Through Clean Code and Modern Design",
     "copyright": "Copyright {{year}}. Made by",
-    "author": "Anton Zhilin",
-    "reachOutButton": "Reach Out"
+    "author": "Anton Zhilin"
   },
   "authorPhoto": {
     "name": "Anton Zhilin",
@@ -429,6 +422,22 @@
     "text": "There is nothing at <path>{{path}}</path>. The link may be outdated, or the address has a typo.",
     "home": "Go to homepage",
     "projects": "View projects"
+  },
+  "errorBoundary": {
+    "eyebrow": "Error",
+    "chunk": {
+      "title": "The page didn't load",
+      "text": "The connection may have dropped, or the site has just been updated. Reloading the page usually helps."
+    },
+    "render": {
+      "title": "Something went wrong",
+      "text": "Something broke on this page. Reload it, and if that doesn't help, come back a little later."
+    },
+    "section": {
+      "chunk": "This section didn't load: the connection may have dropped, or the site has just been updated.",
+      "render": "Something broke in this section."
+    },
+    "reload": "Reload the page"
   },
   "loader": {
     "loading": "Loading",

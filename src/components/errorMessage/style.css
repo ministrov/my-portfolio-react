@@ -70,40 +70,13 @@
   gap: 0.625rem;
 }
 
-/* Пара Primary (pill) + Outline — те же значения, что у пары в мобильном
-   меню (.nav-mobile__cv и .cta-button--outline). Рамка 1.5px у обеих:
-   высота и ширина пары совпадают. Высота — min-height, а не height: при
-   зуме и увеличенных интервалах текста подпись не обрежется. */
+/* Пара Primary (pill) + Outline: геометрия, типографика, цвет, рамка,
+   hover, active и фокус — в общем .pill-button (main.css) и его
+   модификаторах. Здесь только display: inline-flex — обе кнопки по
+   содержимому, а не во всю ширину, как пара в мобильном меню. */
 .not-found__primary,
 .not-found__secondary {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-  box-sizing: border-box;
-  min-height: 48px;
-  padding: 0.5rem 1.25rem;
-  font-family: var(--font-headings);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
-  border: 1.5px solid var(--color-blue-700);
-  border-radius: 999px;
-}
-
-.not-found__primary {
-  color: var(--color-white);
-  background-color: var(--color-blue-700);
-  transition:
-    background-color 0.2s ease,
-    transform 0.15s ease,
-    box-shadow 0.2s ease;
-}
-
-.not-found__secondary {
-  color: var(--color-blue-700);
-  background-color: transparent;
-  transition: background-color 0.2s ease;
 }
 
 /* inline-block — иначе transform на строчном элементе не работает */
@@ -112,41 +85,12 @@
   transition: transform 0.2s ease;
 }
 
-/* Hover только для мыши: на таче состояние залипало бы после тапа.
-   Основная — темнее, подъём на 1px и кобальтовое свечение, как пилюля CTA
-   в шапке; контурная — фон Frost и стрелка на 3px вперёд. */
+/* Стрелка контурной кнопки ведёт вперёд только на мыши: на таче
+   состояние залипало бы после тапа */
 @media (hover: hover) {
-  .not-found__primary:hover {
-    background-color: var(--color-blue-800);
-    border-color: var(--color-blue-800);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
-  }
-
-  .not-found__secondary:hover {
-    background-color: var(--color-gray-200);
-  }
-
   .not-found__secondary:hover .not-found__arrow {
     transform: translateX(3px);
   }
-}
-
-/* Отклик на касание вместо hover: те же цвета на время нажатия */
-.not-found__primary:active {
-  background-color: var(--color-blue-800);
-  border-color: var(--color-blue-800);
-}
-
-.not-found__secondary:active {
-  background-color: var(--color-gray-200);
-}
-
-/* --color-blue-700 даёт 5.17:1 на белом — кольцо видно и на сетке фона */
-.not-found__primary:focus-visible,
-.not-found__secondary:focus-visible {
-  outline: 2px solid var(--color-blue-700);
-  outline-offset: 2px;
 }
 
 /* Телефон: робот меньше, кнопки — столбиком во всю ширину колонки */
@@ -163,13 +107,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .not-found__primary,
-  .not-found__secondary,
   .not-found__arrow {
     transition: none;
   }
 
-  .not-found__primary:hover,
   .not-found__secondary:hover .not-found__arrow {
     transform: none;
   }

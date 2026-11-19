@@ -16,17 +16,27 @@ npm test         # Vitest in watch mode
 npm run test:run # Vitest, single run
 npm run lint     # eslint src
 npm run prod     # build, then serve the static build with `serve -s build`
-npm run analyze  # source-map-explorer over the built JS bundles
+npm run analyze  # bundle analysis: builds build-analyze/ with source maps
 ```
 
 - **Lint**: ESLint 9 flat config in `eslint.config.js`. `eslint-plugin-react` is wired narrowly — only `jsx-runtime` plus the `react/jsx-uses-vars` rule, because without it the base `no-unused-vars` does not see components used in JSX and reports ~200 false positives. The full `react.configs.flat.recommended` is deliberately **not** enabled.
+- **`analyze` and source maps**: `npm run analyze` builds its own copy into `build-analyze/` (git-ignored) with `--sourcemap`, and `build/` never contains `.map` files, so the deploy artifact cannot leak the source. The reasoning is written down in `vite.config.js`.
+- **CI**: `.github/workflows/ci.yml` runs `npm ci`, `npm run lint`, `npm run test:run` and `npm run build` on Node 24, with no secrets — a build without `VITE_WEB3FORMS_KEY` still passes. It runs on every PR to `master`, every push to `master` and every push to `sprint/**`. `master` is protected by a GitHub ruleset: merge needs a green "Lint, test, build" check and a merge commit (squash and rebase would drop version tags out of the history).
 - **Run a single test**: `npm test -- <pattern>` (e.g. `npm test -- projectsReduce`).
-- Tests live next to the file under test as `*.test.js`/`*.test.jsx`. Two exist so far: `sections/projects/projectsReduce.test.js` and `utils/lang.test.js` (the latter guards the language-restore fix — see below).
+- Tests live next to the file under test as `*.test.js`/`*.test.jsx` — 29 files, 203 tests as of 2026-11-18. They cover the code that carries logic: the projects reducer, the language resolver and `LanguageProvider` under StrictMode (see below), the contact form (Web3Forms transport, `useContactForm` hook, the whole form in four states), the error boundary with its chunk-reload guard, and components whose rendering follows state. Markup-only UI is not tested, and full coverage is not a gate.
 - **Browser cache trap:** after upgrading a dependency major, Vite may reuse the same dep-optimizer hash, so the browser serves the _old_ bundle from its HTTP cache under the same `?v=` URL. `rm -rf node_modules/.vite` and `vite --force` fix the server, not the browser. Verify on a **fresh port** (`npx vite --port 3100`) or with the cache disabled.
 
 ## Architecture
 
-**Entry chain**: `index.html` (project root, not `public/`) loads `src/index.jsx` → wraps `App` in `StrictMode` and imports `./utils/i18n/index` for its initialization side effect. `src/App.jsx` sets up `BrowserRouter` → `ScrollToTop` → `LanguageProvider` → a `Suspense`-wrapped `Routes`. All routes nest under a single `Layout` (`Header` / `<Outlet/>` / `Up` / `Footer`). `HomePage` is eager; `AboutPage`, `ProjectsPage`, `PageNotFound` are `React.lazy` code-split.
+**Entry chain**: `index.html` (project root, not `public/`) loads `src/index.jsx` → wraps `App` in `StrictMode` and imports `./utils/i18n/index` for its initialization side effect. `src/App.jsx` sets up `BrowserRouter` → `ScrollToTop` → `LanguageProvider` → `ErrorBoundary` → a `Suspense`-wrapped `Routes`. All routes nest under a single `Layout` (`Header` / `<Outlet/>` / `Up` / `Footer`). `HomePage` is eager; `AboutPage`, `ProjectsPage`, `PageNotFound` are `React.lazy` code-split.
+
+**Error boundaries** (`components/errorBoundary/`, S03-T10) sit at three levels, so a failure never leaves a white screen:
+
+- **Page:** inside `Layout`, around `<Outlet/>`, keyed by `pathname`. A broken page keeps the header and footer, and the next navigation resets the boundary.
+- **Shell:** in `App`, around `Suspense`. Catches failures in the header, the footer or `Layout` itself.
+- **Section:** on `HomePage`, around each lazy section (`Showcasing`, `Testimonials`), with `variant="section"`. One failed section doesn't hide the whole home page.
+
+A failed chunk load — typically a tab opened before a deploy asking for a hashed file that is gone — reloads the tab once per session by itself. A `sessionStorage` flag (`chunk-reload`) stops a reload loop; after that, the fallback's button reloads. The button always does a full reload: `lazy()` caches a rejected import, so re-rendering would fail again. A new `lazy()` chunk that one failure shouldn't take down with its neighbours gets its own `variant="section"` boundary. The fallback imports nothing that could fail to load: no `Heading`, no images, its CSS in the main bundle.
 
 **SEO / `<head>`**: no Helmet — React 19 hoists `<title>`, `<meta>` and `<link>` written anywhere in the tree. Pages declare them inline. **Inline `<script>` is _not_ hoisted**, so JSON-LD splits by nature: the language-independent `Person` and `WebSite` schemas sit statically in `index.html` (crawlers see them without running JS), while the localized `BreadcrumbList` schemas stay in `AboutPage`/`ProjectsPage` and render into `<body>`, which search engines accept.
 
@@ -39,10 +49,10 @@ npm run analyze  # source-map-explorer over the built JS bundles
 
 **Language switching** is a two-layer system — understand both before touching it:
 
-1. `context/LanguageProvider.jsx` owns the `lang` state, syncing it to the `?lang=` URL param (via `hooks/useUrlParams.jsx`) and persisting to `localStorage` under `preferredLang`. It does **not** talk to i18next.
-2. `hooks/useLanguage.jsx` (distinct from the `useLanguage` exported by `LanguageProvider.jsx` — import the **hook** version) reads the context and runs `i18n.changeLanguage(lang)` in an effect. This is the bridge that actually swaps i18next's active language. Allowed values come from the `LANGUAGES` enum in `const/index.jsx`.
+1. `context/LanguageProvider.jsx` owns the `lang` state, syncing it to the `?lang=` URL param (via `hooks/useUrlParams.jsx`) and persisting to `localStorage` under `preferredLang`. It does **not** talk to i18next, and it exports only the component. The context object and its read-only hook `useLanguageContext` live in `context/LanguageContext.js`: a file that also exports non-components breaks Fast Refresh, and `react-refresh/only-export-components` warns about it.
+2. `hooks/useLanguage.jsx` — the only `useLanguage` — reads the context and runs `i18n.changeLanguage(lang)` in an effect. This is the bridge that actually swaps i18next's active language; `ToggleLang` uses it. Where only the language code is needed (`useSeoMeta`), read `useLanguageContext` instead, so i18next isn't switched from every consumer. Allowed values come from the `LANGUAGES` enum in `const/index.jsx`.
 
-**The initial language is resolved synchronously**, before first render, by `resolveInitialLang()` in `src/utils/lang.js` — precedence `?lang=` → `localStorage` → `ru`. That one resolver feeds **both** the i18next bootstrap (`utils/i18n/index.js`) and `LanguageProvider`'s initial state, so the two layers always start in agreement. Do not reintroduce an effect that restores the language after mount: the previous version raced its own save-to-`localStorage` effect and, under StrictMode, reset the user's choice back to `ru`. `utils/lang.test.js` guards this.
+**The initial language is resolved synchronously**, before first render, by `resolveInitialLang()` in `src/utils/lang.js` — precedence `?lang=` → `localStorage` → `ru`. That one resolver feeds **both** the i18next bootstrap (`utils/i18n/index.js`) and `LanguageProvider`'s initial state, so the two layers always start in agreement. Do not reintroduce an effect that restores the language after mount: the previous version raced its own save-to-`localStorage` effect and, under StrictMode, reset the user's choice back to `ru`. `utils/lang.test.js` guards the resolver, `context/LanguageProvider.test.jsx` the provider under StrictMode.
 
 **Projects filtering**: `sections/projects/projectsReduce.js` is a `useReducer` reducer (`SET_FILTER` action) driving project list filtering; consumed via `hooks/useProjectsFilter.jsx`. Filter buttons come from the `filters` array in `const/index.jsx`. Note `project.skills` is a comma-separated **string**, filtered with `.includes()`.
 
@@ -55,7 +65,7 @@ npm run analyze  # source-map-explorer over the built JS bundles
 These rules are marked `alwaysApply` and define how code in this repo is expected to look:
 
 - **Comments & JSDoc are written in Russian.** Add JSDoc to components (props + example), functions (params/returns), and modules. Match the existing dense JSDoc style in `context/`, `hooks/`, `layouts/`.
-- **Functional components only** — class components are forbidden.
+- **Functional components only** — class components are forbidden. The one exception is `components/errorBoundary/ErrorBoundary.jsx`: React has no hook for catching render errors, only `getDerivedStateFromError` / `componentDidCatch` on a class (owner's decision, S03-T10, instead of a new dependency). Don't add a second class; reuse that boundary.
 - **Plain CSS with BEM** (`.block__element--modifier`) in a `style.css` beside the component. No inline styles except genuinely dynamic values (e.g. `width: ${w}px`). No Sass/Less, no styled-components/Emotion, no Tailwind.
 - **Do not add without discussion**: TypeScript, other state managers (Redux/MobX/Zustand), UI libraries (MUI/Ant), or any new dependency.
 - Naming: PascalCase files/components, `use`-prefixed camelCase hooks, UPPER_SNAKE_CASE constants, CamelCase enum objects. Event handlers `handle*`, callback props `on*`. Prefer `ref` over `document.querySelector`. Guard against unmount when an effect resolves **asynchronously**; do not add an `isMounted` ref to a synchronous effect — `LanguageProvider` used to carry one and it masked a real race rather than preventing one.
@@ -69,7 +79,7 @@ The rule files were partly copied from a different (Redux/TypeScript) project an
 
 - **Redux** — `quality-criteria.md` Б13 and Д12–Д19 require Redux/redux-thunk/selectors/`combineReducer`. This project has **no Redux**; global state is the Context API + a single `useReducer` (`projectsReduce.js`). Do not introduce Redux.
 - **TypeScript** — references to `.ts`/`.tsx`, "TSX-файла structure" (Д8), and `.types.ts` files. This is a **plain JS/JSX** project; types are JSDoc-only. Do not add TypeScript.
-- **Mandatory tests** — Д22–Д24/Б "tests required" criteria. The repo has a Vitest harness and two test files, not a suite; add tests next to the file under test when the task calls for it, but full coverage is not a gate.
+- **Mandatory tests** — Д22–Д24/Б "tests required" criteria. The repo has a real Vitest suite (see Commands), but full coverage is not a gate: add tests next to the file under test when the task calls for it.
 
 (`npm run lint` used to be listed here as non-existent. It exists now — the note is gone.)
 
@@ -80,7 +90,7 @@ The parts of the rules that **do** apply are already reflected above (Russian JS
 The repo doubles as a practice ground for team product development, run in scope-based sprints:
 
 - **Team lead** — the `team-lead` skill, in the main conversation: estimates and decomposes sprint briefs, assigns tasks, takes the hardest ones, reviews everything. Modes: `/team-lead plan|start|review|status|demo|retro <id>`.
-- **Layout engineer** — the `layout-engineer` subagent (`.claude/agents/`), preloaded with the `frontend-architect` skill. Works only from an approved task card, never commits; the lead reviews and commits its work.
+- **Middle (middle+ frontend developer, strong in layout)** — the `layout-engineer` subagent (`.claude/agents/`), preloaded with the `frontend-architect` and `test` skills. It takes React components with local state and effects, component refactoring and tests, plus markup, CSS, responsive and a11y work. Global state, integrations and new app-wide abstractions stay with the lead. It works only from an approved task card and never commits; the lead reviews and commits its work. Until 2026-11-06 the role was called "layout engineer" (S01–S03 docs); the agent id kept that name.
 - **Junior frontend developer** — the user. Claude never implements tasks assigned to the junior: the lead hands over a task card (direction, no ready code) and reviews the user's diff.
 
 Sprint artifacts live in `.claude/sprints/S<NN>-<slug>/` (brief, plan/board, task cards, reviews, retro); templates are in `.claude/skills/team-lead/templates/`.

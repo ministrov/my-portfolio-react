@@ -24,12 +24,3 @@
   transform: scaleX(var(--carousel-progress, 0));
   transform-origin: left center;
 }
-
-/* Поверх тёмной витрины линия-подложка на синем почти не видна */
-.carousel-progress--on-dark {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.carousel-progress--on-dark .carousel-progress__bar {
-  background: var(--color-white);
-}

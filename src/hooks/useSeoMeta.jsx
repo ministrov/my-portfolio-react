@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageProvider';
+import { useLanguageContext } from '../context/LanguageContext';
 
 /** Базовый URL сайта для формирования абсолютных ссылок. */
 const BASE_URL = 'https://antoshkindev.ru';
@@ -29,7 +29,7 @@ const OG_LOCALE_MAP = { ru: 'ru_RU', en: 'en_US' };
  */
 export const useSeoMeta = () => {
   const { pathname } = useLocation();
-  const { lang } = useLanguage();
+  const { lang } = useLanguageContext();
 
   const canonical = `${BASE_URL}${pathname}?lang=${lang}`;
   const ruUrl = `${BASE_URL}${pathname}?lang=ru`;

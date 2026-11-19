@@ -4,23 +4,9 @@ import { BsCheckCircleFill } from 'react-icons/bs';
 import { IoSend } from 'react-icons/io5';
 import { useContactForm, FIELDS } from './useContactForm';
 import CopyEmail from '../copyEmail/CopyEmail';
+import ContactFormField from './ContactFormField';
+import { FADE_UP, SLIDE_DOWN } from './animations';
 import './style.css';
-
-/** Анимация fade + сдвиг вверх — для блока успеха и формы. */
-const FADE_UP = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -8 },
-  transition: { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] },
-};
-
-/** Анимация slide-down — для inline-ошибок и баннера. */
-const SLIDE_DOWN = {
-  initial: { opacity: 0, y: -4 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -4 },
-  transition: { duration: 0.18 },
-};
 
 /**
  * Форма обратной связи — чистый рендер без логики.
@@ -106,86 +92,24 @@ const ContactForm = ({ onSuccess }) => {
 
               {FIELDS.map((field) => {
                 const hasError = touched[field.name] && !!errors[field.name];
-                const fieldId = `contact-form-${field.name}`;
-                const errorId = `${fieldId}-error`;
 
                 return (
-                  <div
+                  <ContactFormField
                     key={field.name}
-                    className={[
-                      'contact-form__group',
-                      hasError ? 'contact-form__group--error' : '',
-                    ]
-                      .filter(Boolean)
-                      .join(' ')}
-                  >
-                    <label className="contact-form__label" htmlFor={fieldId}>
-                      {t(`contactForm.fields.${field.name}.label`)}
-                      <span
-                        className="contact-form__required-mark"
-                        aria-hidden="true"
-                      >
-                        {' '}
-                        *
-                      </span>
-                    </label>
-
-                    {field.tag === 'textarea' ? (
-                      <textarea
-                        id={fieldId}
-                        name={field.name}
-                        className="contact-form__textarea"
-                        rows={field.rows}
-                        placeholder={t(
-                          `contactForm.fields.${field.name}.placeholder`
-                        )}
-                        value={values[field.name]}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        disabled={isSubmitting}
-                        aria-required="true"
-                        aria-invalid={hasError || undefined}
-                        aria-describedby={hasError ? errorId : undefined}
-                        ref={(el) => {
-                          fieldRefs.current[field.name] = el;
-                        }}
-                      />
-                    ) : (
-                      <input
-                        id={fieldId}
-                        name={field.name}
-                        type={field.type}
-                        className="contact-form__input"
-                        placeholder={t(
-                          `contactForm.fields.${field.name}.placeholder`
-                        )}
-                        value={values[field.name]}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        disabled={isSubmitting}
-                        aria-required="true"
-                        aria-invalid={hasError || undefined}
-                        aria-describedby={hasError ? errorId : undefined}
-                        ref={(el) => {
-                          fieldRefs.current[field.name] = el;
-                        }}
-                      />
-                    )}
-
-                    <AnimatePresence>
-                      {hasError && (
-                        <m.span
-                          key="error"
-                          id={errorId}
-                          className="contact-form__field-error"
-                          role="alert"
-                          {...SLIDE_DOWN}
-                        >
-                          {getErrorMsg(field.name, errors[field.name])}
-                        </m.span>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                    field={field}
+                    value={values[field.name]}
+                    error={
+                      hasError
+                        ? getErrorMsg(field.name, errors[field.name])
+                        : null
+                    }
+                    disabled={isSubmitting}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    ref={(el) => {
+                      fieldRefs.current[field.name] = el;
+                    }}
+                  />
                 );
               })}
 

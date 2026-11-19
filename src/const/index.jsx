@@ -119,7 +119,7 @@ export const STACK_GROUPS = [
       'React i18next',
     ],
   },
-  { key: 'learning', items: ['Python'] },
+  { key: 'learning', items: ['Python', 'PostgreSQL'] },
 ];
 
 /**
@@ -139,7 +139,7 @@ export const authorData = {
     focus: 'Frontend architecture, animation, DX',
     stack: ['React', 'Next.js', 'TypeScript'],
     interests: ['UX', 'Design systems', 'Animations'],
-    currentlyLearning: ['Testing', 'Node.js'],
+    currentlyLearning: ['Python', 'PostgreSQL'],
     availableFor: ['Remote', 'Consulting'],
   },
 };

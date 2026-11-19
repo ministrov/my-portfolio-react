@@ -1,0 +1,71 @@
+/* Запасной экран границы ошибок (ErrorBoundary). Стили — в главном CSS:
+   файлы страниц и секций при сбое могут не загрузиться, а этот уже здесь.
+   Вид — как у страницы 404 (errorMessage/style.css): одна колонка по
+   центру, ярлык, заголовок, текст и кобальтовая пилюля. */
+.error-fallback {
+  text-align: center;
+}
+
+/* Отступ сверху — от высоты фикс-хедера, как у 404 (pageNotFound/style.css) */
+.error-fallback--page {
+  padding: calc(var(--header-height) + 2rem) 0 4rem;
+}
+
+.error-fallback__inner,
+.error-fallback--section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* На месте секции — столько воздуха, сколько у соседних секций сверху
+   и снизу (.wrapper в main.css: 80px / 60px) */
+.error-fallback--section {
+  padding-block: 5rem 3.75rem;
+}
+
+/* Label из DESIGN.md: Oswald 700, 0.75rem, трекинг 0.09em, Graphite —
+   как ярлык «Ошибка 404» */
+.error-fallback__eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-headings);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+}
+
+/* Display заголовка секции (heading/style.css), без акцента. Свой класс, а
+   не Heading: экран не должен зависеть от других файлов. */
+.error-fallback__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-gray-900);
+  text-wrap: balance;
+}
+
+/* Ink, а не кобальт: текст не должен читаться как ссылка */
+.error-fallback__text {
+  max-width: 32rem;
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-gray-800);
+  text-wrap: pretty;
+}
+
+.error-fallback--section .error-fallback__text {
+  margin-bottom: 1.25rem;
+}
+
+/* Primary (pill) — общий .pill-button с рамкой (main.css): тот же вид, что
+   у «На главную» на 404. Здесь только display: inline-flex — кнопка по
+   содержимому, а не во всю ширину. */
+.error-fallback__button {
+  display: inline-flex;
+}

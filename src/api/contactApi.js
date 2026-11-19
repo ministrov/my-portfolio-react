@@ -41,9 +41,6 @@ export async function submitContactForm(data) {
     ...data,
   };
 
-  // ШАГ 1 — смотрим что уходит на сервер
-  console.log('[ContactAPI] → Отправляем запрос. Payload:', payload);
-
   // fetch() сразу возвращает Promise<Response> — не ждёт завершения.
   // await приостанавливает функцию до получения заголовков ответа.
   // После этой строки в `res` — объект Response с HTTP-статусом и заголовками.
@@ -57,23 +54,9 @@ export async function submitContactForm(data) {
     body: JSON.stringify(payload), // JS-объект → строка '{"name":"...","email":"...",...}'
   });
 
-  // ШАГ 2 — смотрим заголовки ответа (тело ещё не прочитано)
-  // res.ok === true если HTTP-статус 200–299
-  // res.status — числовой код: 200 OK, 400 Bad Request, 500 Server Error, ...
-  console.log(
-    '[ContactAPI] ← Получены заголовки. HTTP-статус:',
-    res.status,
-    '| ok:',
-    res.ok
-  );
-
   // res.json() читает оставшийся поток данных и парсит JSON → JS-объект.
   // Тоже async — нужен второй await.
   const responseData = await res.json();
-
-  // ШАГ 3 — смотрим полный распарсенный ответ
-  // Web3Forms возвращает: { success: true/false, message: "Sent" / "invalid_access_key" / ... }
-  console.log('[ContactAPI] ← Тело ответа (JSON):', responseData);
 
   // Отличаем «бизнес-ошибку» (неверный ключ, превышен лимит) от сетевой:
   // HTTP-статус при этом может быть 200, но success === false

@@ -173,7 +173,7 @@ JS gzip вырос со 183.8 до 202.9 kB. Прибавку дали наме�
 | Speed Index              | **0.8 s**     |
 
 > [!WARNING]
-> Цифры этого блока — исторические, замерены на сборке CRA **до** миграции. Файла `main.js` больше не существует (Vite собирает в `build/assets/`), а Lighthouse после переезда на Vite и React 19 не перезамерялся. Актуальные показатели веса — в блоке о миграции выше.
+> Цифры этого блока — исторические, замерены на сборке CRA **до** миграции. Файла `main.js` больше не существует (Vite собирает в `build/assets/`). Актуальные метрики — в блоке SEO/GEO выше (десктоп, прод-сборка); на мобильном профиле (медиана трёх прогонов, ноябрь 2026) Performance главной — **75/100**, `/about` — **81/100**, Accessibility — 100/100.
 
 ---
 
@@ -187,7 +187,7 @@ JS gzip вырос со 183.8 до 202.9 kB. Прибавку дали наме�
 - 🔍 **SEO / GEO** — нативные метаданные React 19 (`title`, `description`, `canonical`, `hreflang`, Open Graph), локализованные мета-теги, JSON-LD `Person`/`WebSite`/`BreadcrumbList`/`CreativeWork` по каждому проекту, `public/llms.txt` для AI-агентов.
 - ♿ **Доступность** — скрытые заголовки `h1`, `aria-label`, обработка `Escape` и блокировка прокрутки для модальных окон.
 - 📨 **Форма обратной связи** — встроена в секцию «Контакты», отправляет письма через Web3Forms (без бэкенда). Рядом — копирование email в буфер и ссылки на соцсети (GitHub, Telegram, VK, MAX).
-- 🧪 **Тесты** — Vitest; файлы лежат рядом с тестируемым кодом (`*.test.js`).
+- 🧪 **Тесты** — Vitest; файлы лежат рядом с тестируемым кодом (`*.test.js` / `*.test.jsx`), 29 файлов и 203 теста на ноябрь 2026: форма заявок, границы ошибок, выбор языка, фильтр проектов.
 
 ---
 
@@ -234,7 +234,7 @@ JS gzip вырос со 183.8 до 202.9 kB. Прибавку дали наме�
 ├── index.html            # Точка входа Vite (в корне, не в public/) + статический JSON-LD
 ├── vite.config.js        # Конфиг сборки и Vitest
 ├── eslint.config.js      # Flat config ESLint 9
-├── public/               # Копируется в билд как есть (favicon, manifest, robots, sitemap)
+├── public/               # Копируется в билд как есть (favicon, manifest, robots, sitemap, og-cover, llms.txt, .htaccess)
 └── src/
     ├── index.jsx         # Монтирование: StrictMode + инициализация i18n
     ├── App.jsx           # Роутер, провайдеры, ленивые страницы
@@ -244,7 +244,7 @@ JS gzip вырос со 183.8 до 202.9 kB. Прибавку дали наме�
     ├── components/       # Переиспользуемые компоненты (папка + ComponentName.jsx + style.css)
     ├── layouts/          # Каркас: Header, Footer, Layout
     ├── hooks/            # Кастомные хуки (useLanguage, useUrlParams, useProjectsFilter, ...)
-    ├── context/          # LanguageProvider (контекст языка)
+    ├── context/          # LanguageProvider и контекст языка (LanguageContext.js)
     ├── const/index.jsx   # Константы и данные (маршруты, услуги, FAQ, навыки)
     ├── api/              # Отправка формы через Web3Forms
     ├── utils/
@@ -383,10 +383,10 @@ const Hello = () => {
 Нет. Это статический клиентский сайт без серверной части. Единственный внешний вызов — отправка формы обратной связи в Web3Forms.
 
 **Как запустить тесты?**
-`npm test` — watch-режим, `npm run test:run` — один прогон. Тесты лежат рядом с тестируемым файлом (`projectsReduce.test.js`, `lang.test.js`).
+`npm test` — watch-режим, `npm run test:run` — один прогон. Тесты лежат рядом с тестируемым файлом: `*.test.js` и `*.test.jsx`, например `projectsReduce.test.js` и `lang.test.js`. Те же проверки (lint, тесты, сборка) запускает CI: на каждый PR и push в `master` и на каждый push в ветку спринта.
 
 **Как задеплоить?**
-Соберите проект (`npm run build`) и разместите содержимое каталога `build/` на любом статическом хостинге (Netlify, Vercel, GitHub Pages, Nginx и т.п.). Локально проверить продакшен-сборку — `npm run prod`.
+Соберите проект (`npm run build`) и разместите содержимое каталога `build/` на любом статическом хостинге (Netlify, Vercel, GitHub Pages, Nginx и т.п.). Локально проверить продакшен-сборку — `npm run prod`. На Apache в сборке лежит `build/.htaccess`: он отдаёт `index.html` по прямым ссылкам (`/about`, `/projects`), а неизвестные адреса — с честным 404. На хостинге без Apache нужен эквивалентный SPA-fallback, иначе прямые ссылки отдают «Not Found».
 
 **Каким стандартам следуют коммиты?**
 Conventional Commits (`type(scope): описание`). Подробности — в `CLAUDE.md`.
