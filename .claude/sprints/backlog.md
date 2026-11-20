@@ -54,8 +54,8 @@
 - Мобильное меню:
   - фокус после «Контактов» — к секции, а не на бургер (S01-T06);
   - после автозакрытия меню фокус уходит на `body` — бургер скрыт на ≥ 768 (S01-T08);
-  - `hamburger-react` не активирует `div role="button"` пробелом и теряет `aria-controls`
-    (S01-T08).
+  - ~~`hamburger-react` не активирует `div role="button"` пробелом и теряет `aria-controls`
+    (S01-T08).~~ → S04-T13, S04-T15
 - `(max-width: 1024px)` без `(hover: none)` — iPad Pro в альбомной получает десктопную «↑»
   (S01-T08).
 - `:focus-visible` у `.nav-list__link` (S01-T06).
