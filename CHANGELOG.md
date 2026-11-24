@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Fonts no longer shift the page when they swap in.** While a web font loads, the browser draws the text in a fallback, and when the real font arrives the lines can rewrap. On `/about` that moved the whole page: Lighthouse scored CLS 0.169–0.180 in four runs out of six. Each of the three families now has a metric fallback — Arial under a new name, with `size-adjust`, `ascent-override`, `descent-override` and `line-gap-override` measured in Chrome against the real files, so the fallback text has the same width and line height and nothing moves on the swap. Golos Text's cyrillic file moved to `public/fonts/` and is preloaded from `index.html`, so it arrives before the first paint instead of two round trips after it. Checked on the production build: CLS on `/about?lang=ru` is 0 in six runs out of six (0.169–0.180 before), the median on `/` and `/about` in both languages is 0, FCP drops from 3.49 to 3.34 s and TBT rises from 100 to 136 ms — both still green. Preloading the display font as well was measured and dropped: 31 kB more ahead of everything pushed the English home page's LCP from 4.21 to 4.36 s. Once the fonts load the text looks the same, and page heights match the S04 baseline to the pixel on 24 page, language and window combinations.
+
 ## [1.3.0] - 2026-11-19
 
 The reliability sprint S03: an error boundary in place of the white screen, direct links that open the
