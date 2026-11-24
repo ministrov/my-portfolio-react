@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-11-19
+
+The reliability sprint S03: an error boundary in place of the white screen, direct links that open the
+page instead of the server's "Not Found", project screenshots 5.6 times lighter, no console logs or
+source maps in production, and continuous integration on GitHub Actions. A round of refactors and 203
+tests; the site itself looks the same.
+
 ### Added
 
 - **Continuous integration on GitHub Actions** (`.github/workflows/ci.yml`). Every pull request to master, every push to master and every push to a `sprint/**` branch runs `npm ci`, `npm run lint`, `npm run test:run` and `npm run build` on Node 24. No secrets are needed: the build passes without `VITE_WEB3FORMS_KEY`.
