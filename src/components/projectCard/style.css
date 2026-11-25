@@ -22,10 +22,13 @@
   flex-direction: row-reverse;
 }
 
+/* Пропорцию скриншота задаёт кадр, а не файл: 4:3 выше 768 px — одна
+   высота у всех карточек. overflow: hidden — обрезка и защита от
+   растягивания: у скролл-контейнера автоминимум высоты равен 0. */
 .project-card__image {
   overflow: hidden;
+  aspect-ratio: 4 / 3;
   flex: 1 1 50%;
-  max-height: 536px;
   border: 1px solid rgba(0, 88, 167, 0.2);
   border-radius: var(--border-radius-s);
 }
@@ -133,13 +136,15 @@
   color: var(--color-gray-800);
 }
 
-/* Атрибут height (резерв места против CLS) без height: auto задаёт
-   фиксированную высоту при растянутой ширине: скриншот искажался везде,
-   где колонка не 658 px. С height: auto браузер берёт из атрибутов
-   width/height пропорцию — она совпадает с файлом, так что место
-   по-прежнему резервируется до загрузки. */
+/* Пропорцию задаёт кадр, а не файл: картинка заполняет его целиком и
+   обрезается по верху. object-fit: cover не даёт исказить исходник,
+   хотя width и height здесь обе 100% — файлы почти никогда не совпадают
+   с кадром точно. Место до загрузки резервирует aspect-ratio кадра. */
 .project-card__img {
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
   border-radius: var(--border-radius-s);
 }
 
@@ -196,7 +201,6 @@
 
   .project-card__image {
     width: 100%;
-    max-height: 43.75rem;
     min-height: auto;
   }
 
@@ -215,13 +219,6 @@
   .project-card {
     background-color: transparent;
     box-shadow: none;
-  }
-
-  /* Потолок кадра выше, чем на ≤ 1274 (43.75rem): самый высокий скриншот
-     с пропорцией 0,8 на 1024 — 728 px, и при 700 px он терял низ. Mish
-     (пропорция 2,1) по-прежнему упирается в потолок. */
-  .project-card__image {
-    max-height: 46rem;
   }
 
   /* Headline как у заголовка ленты витрины (Oswald 700 1.6875rem) —
@@ -443,24 +440,14 @@
     transform: none;
   }
 
-  /* Единый кадр 4:5 для всех карточек. Место задаёт CSS, а не атрибуты
-     width/height картинки: на этих ширинах picture грузит вертикальные
-     tablet/mobile исходники другой пропорции, и резерв по атрибутам врал
-     бы (CLS).
-     max-height снят — иначе на широких телефонах кадр стал бы ниже 4:5.
-     overflow: hidden из базы здесь нужен и как обрезка, и потому, что у
-     скролл-контейнера автоминимум высоты равен 0 — длинный скриншот не
-     растянет кадр. */
+  /* Кадр 4:5 — единственное отличие от базы. Пропорцию задаёт CSS, а не
+     атрибуты width/height картинки: на этих ширинах picture грузит
+     вертикальные tablet/mobile исходники другой пропорции, и резерв по
+     атрибутам врал бы (CLS). overflow: hidden из базы остаётся нужен и
+     как обрезка, и потому, что у скролл-контейнера автоминимум высоты
+     равен 0 — длинный скриншот не растянет кадр. */
   .project-card__image {
     aspect-ratio: 4 / 5;
-    max-height: none;
-  }
-
-  .project-card__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
   }
 
   .project-card__skills {
