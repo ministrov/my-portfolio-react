@@ -55,31 +55,26 @@ export const fadeUpReduced = {
  * Единый блок вместо покадрового reveal по строкам — переносы строк зависят
  * от языка (ru использует <br/>, en переносится естественно), поэтому строки
  * не фиксированы и не могут анимироваться по отдельности без риска разъехаться.
+ *
+ * Прозрачности в пресете нет сознательно (S04-T05): заголовок — элемент LCP на
+ * главной, а `opacity: 0` на старте откладывал его отрисовку на всё время
+ * проявления. Замер до правки: наблюдаемый LCP 1584 мс при FCP 316 мс, в режиме
+ * `prefers-reduced-motion` (там от пресета оставалась одна прозрачность) —
+ * 912 мс. Без прозрачности заголовок виден с первого кадра, LCP упирается в FCP,
+ * а движение и блюр остаются.
+ *
+ * При `prefers-reduced-motion` этот пресет отдельной версии не требует:
+ * `MotionConfig reducedMotion="user"` сам гасит анимации `transform` и `filter`,
+ * и заголовок просто появляется.
  * @type {import('motion/react').MotionProps}
  */
 export const titleReveal = {
-  initial: { y: '30%', rotate: 1.2, opacity: 0, filter: 'blur(10px)' },
-  animate: { y: 0, rotate: 0, opacity: 1, filter: 'blur(0px)' },
+  initial: { y: '30%', rotate: 1.2, filter: 'blur(10px)' },
+  animate: { y: 0, rotate: 0, filter: 'blur(0px)' },
   transition: {
     duration: 1.05,
     delay: ANIMATION_DELAYS.TITLE,
     ease: [0.16, 1, 0.3, 1],
-  },
-};
-
-/**
- * Облегчённая версия titleReveal для prefers-reduced-motion: только
- * прозрачность, без сдвига, поворота и блюра — задержка сохранена, чтобы
- * порядок появления секций остался прежним.
- * @type {import('motion/react').MotionProps}
- */
-export const titleRevealReduced = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: {
-    duration: 0.4,
-    delay: ANIMATION_DELAYS.TITLE,
-    ease: 'linear',
   },
 };
 

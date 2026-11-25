@@ -14,7 +14,6 @@ import HeroCvButton from './HeroCvButton';
 import {
   ANIMATION_DELAYS,
   titleReveal,
-  titleRevealReduced,
   ctaPop,
   ctaPopReduced,
 } from './animations';
@@ -46,7 +45,6 @@ import './style.css';
 const Hero = () => {
   const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
-  const titleMotion = prefersReducedMotion ? titleRevealReduced : titleReveal;
   const ctaMotion = prefersReducedMotion ? ctaPopReduced : ctaPop;
   // Наблюдаем за блоком контента, а не за секцией: .hero тянется на 100vh и
   // покидает вьюпорт только через целый экран скролла, из-за чего циклы
@@ -61,7 +59,10 @@ const Hero = () => {
           <div className="hero__inner" ref={contentRef}>
             {/* Статус «открыт к предложениям» — над заголовком и появляется
                 вместе с ним; на десктопе скрыт в CSS (см. .hero__badge) */}
-            <m.div className="hero__badge" {...titleMotion}>
+            {/* Пресета для reduced-motion у заголовка нет: прозрачности в
+                titleReveal больше нет, а transform и filter MotionConfig гасит
+                сам (S04-T05) */}
+            <m.div className="hero__badge" {...titleReveal}>
               <AvailabilityBadge />
             </m.div>
 
@@ -72,7 +73,7 @@ const Hero = () => {
               <span className="visually-hidden">
                 {t('metadata.home.title')}
               </span>
-              <m.div {...titleMotion}>
+              <m.div {...titleReveal}>
                 <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
                 {/* Акцент всегда с новой строки: заголовок построен как афоризм
                     из двух тактов, и разрыв между ними держит его ритм в обеих локалях */}
