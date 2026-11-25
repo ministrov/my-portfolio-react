@@ -1,9 +1,16 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import i18n from '../../utils/i18n/index'; // инициализирует i18next (язык по умолчанию — ru)
 import AboutExperience from './AboutExperience';
 
 const ITEMS_KEY = 'aboutExperience.items';
+
+// Английский словарь приезжает отдельным чанком (S04-T04), поэтому тест, который
+// читает ресурсы обоих языков напрямую из i18next, догружает его сам.
+beforeAll(async () => {
+  await i18n.changeLanguage('en');
+  await i18n.changeLanguage('ru');
+});
 
 /**
  * Форма карточек без текстов: число этапов и пунктов в каждом этапе.

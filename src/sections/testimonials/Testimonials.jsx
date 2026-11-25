@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, A11y } from 'swiper/modules';
+// Базовые стили Swiper нужны только этой секции: импорт живёт здесь, а не
+// в App.jsx, иначе CSS грузится со всей страницей ради одного блока (S04-T04).
+import 'swiper/css';
 import { useInView } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { MdPause, MdPlayArrow } from 'react-icons/md';
