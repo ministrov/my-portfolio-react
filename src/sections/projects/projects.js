@@ -14,6 +14,7 @@ import blog from '../../assets/projects/blog.webp';
 import blogTablet from '../../assets/projects/blog-tablet.webp';
 import blogMobile from '../../assets/projects/blog-mobile.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
+import ratingusTablet from '../../assets/projects/ratingus-tablet.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
 import waterdelTablet from '../../assets/projects/waterdel-tablet.webp';
 import waterdelMobile from '../../assets/projects/waterdel-mobile.webp';
@@ -137,8 +138,8 @@ export const projects = [
     title: 'projects.ratingus.title',
     skills: 'Next, TypeScript, React, Zustand, Yup, Formik, Framer Motion',
     img: ratingus,
-    imgTablet: '',
-    imgMobile: '',
+    imgTablet: ratingusTablet,
+    imgMobile: ratingusTablet,
     imgHeight: 494,
     slogan: 'projects.ratingus.slogan',
     overview: 'projects.ratingus.overview',
