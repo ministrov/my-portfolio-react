@@ -188,29 +188,31 @@ const ProjectCard = ({
             </ul>
           </div>
 
-          <div className="project-card__links">
-            {demoLink && (
-              <ButtonLink
-                className="project-card__link project-card__link--primary"
-                path={demoLink}
-                text={t('projectCard.liveDemo')}
-                icon={<BsBoxArrowInUpRight size={22} aria-hidden="true" />}
-                target
-                aria-label={t('projectCard.demoAriaLabel', { title })}
-              />
-            )}
+          {(demoLink || gitHubLink) && (
+            <div className="project-card__links">
+              {demoLink && (
+                <ButtonLink
+                  className="project-card__link project-card__link--primary"
+                  path={demoLink}
+                  text={t('projectCard.liveDemo')}
+                  icon={<BsBoxArrowInUpRight size={22} aria-hidden="true" />}
+                  target
+                  aria-label={t('projectCard.demoAriaLabel', { title })}
+                />
+              )}
 
-            {gitHubLink && (
-              <ButtonLink
-                className="project-card__link project-card__link--secondary"
-                path={gitHubLink}
-                text={t('projectCard.seeOnGithub')}
-                icon={<FaGithub size={22} aria-hidden="true" />}
-                target
-                aria-label={t('projectCard.githubAriaLabel', { title })}
-              />
-            )}
-          </div>
+              {gitHubLink && (
+                <ButtonLink
+                  className="project-card__link project-card__link--secondary"
+                  path={gitHubLink}
+                  text={t('projectCard.seeOnGithub')}
+                  icon={<FaGithub size={22} aria-hidden="true" />}
+                  target
+                  aria-label={t('projectCard.githubAriaLabel', { title })}
+                />
+              )}
+            </div>
+          )}
         </div>
       </div>
     </article>

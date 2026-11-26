@@ -31,6 +31,7 @@
   flex: 1 1 50%;
   border: 1px solid rgba(0, 88, 167, 0.2);
   border-radius: var(--border-radius-s);
+  box-sizing: border-box;
 }
 
 .project-card__info {
