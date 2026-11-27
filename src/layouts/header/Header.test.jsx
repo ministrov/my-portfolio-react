@@ -38,17 +38,17 @@ const createMatchMediaMock = () => {
 };
 
 /**
- * Бургер — `<div role="button">` из `hamburger-react`; подпись меняется
- * вместе с состоянием меню, поэтому ищем по обеим.
+ * Бургер — нативная `<button>`; подпись меняется вместе с состоянием меню,
+ * поэтому ищем по обеим.
  * @returns {HTMLElement} Кнопка-бургер.
  */
 const getBurger = () =>
   screen.getByRole('button', { name: /^(Показать|Скрыть) меню$/ });
 
 /**
- * Рендерит хедер в мобильной раскладке и открывает меню с клавиатуры: фокус
- * на бургере, Enter. Меню запоминает бургер и вернёт на него фокус при
- * закрытии — как у пользователя, который пришёл к бургеру по Tab.
+ * Рендерит хедер в мобильной раскладке и открывает меню кликом по бургеру.
+ * Меню запоминает бургер и вернёт на него фокус при закрытии — как у
+ * пользователя, который пришёл к бургеру по Tab.
  */
 const renderWithOpenMenu = () => {
   render(
@@ -59,8 +59,7 @@ const renderWithOpenMenu = () => {
 
   const burger = getBurger();
   burger.focus();
-  fireEvent.keyDown(burger, { key: 'Enter' });
-  fireEvent.keyUp(burger, { key: 'Enter' });
+  fireEvent.click(burger);
 };
 
 describe('Header', () => {
@@ -88,22 +87,20 @@ describe('Header', () => {
     expect(document.body.style.overflow).toBe('unset');
   });
 
-  // Порядок браузера: keydown на пункте → переход по ссылке и закрытие меню →
-  // фокус возвращается на бургер → keyup приходит уже на бургер.
-  it('Enter на пункте меню закрывает меню и не открывает его снова', () => {
+  // Меню закрывается по клику на пункт и возвращает фокус на бургер — как у
+  // пользователя, который пришёл к бургеру по Tab. Клавиатурную активацию
+  // нативная кнопка получает от браузера сама, в jsdom её не изобразить —
+  // Enter и пробел на бургере проверяются в браузере в T15.
+  it('клик по пункту меню закрывает меню и возвращает фокус на бургер', () => {
     renderWithOpenMenu();
 
     // «Обо мне» есть и в десктопном меню — jsdom не применяет CSS, который его прячет
     const aboutLink = within(screen.getByRole('dialog')).getByRole('link', {
       name: 'Обо мне',
     });
-    fireEvent.keyDown(aboutLink, { key: 'Enter' });
     fireEvent.click(aboutLink);
 
     expect(document.activeElement).toBe(getBurger());
-
-    fireEvent.keyUp(getBurger(), { key: 'Enter' });
-
     expect(getBurger()).toHaveAttribute('aria-expanded', 'false');
   });
 });

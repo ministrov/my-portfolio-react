@@ -1,5 +1,4 @@
 import { memo, useRef } from 'react';
-import { Squash as Hamburger } from 'hamburger-react';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -54,16 +53,18 @@ const HamburgerButton = ({ isOpen, onToggle }) => {
       onKeyUpCapture={handleKeyUpCapture}
       onBlurCapture={handleBlurCapture}
     >
-      <Hamburger
-        toggled={isOpen}
-        size={28}
-        toggle={onToggle}
-        color="#0058a7"
-        hideOutline={false}
-        label={isOpen ? t('mainNav.hideMenu') : t('mainNav.showMenu')}
-        aria-expanded={isOpen}
+      <button
+        className="nav-mobile__burger"
+        type="button"
+        onClick={() => onToggle(!isOpen)}
+        aria-label={isOpen ? t('mainNav.hideMenu') : t('mainNav.showMenu')}
         aria-controls="mobile-navigation-menu"
-      />
+        aria-expanded={isOpen}
+      >
+        <span className="nav-mobile__burger-line nav-mobile__burger-line--first"></span>
+        <span className="nav-mobile__burger-line nav-mobile__burger-line--second"></span>
+        <span className="nav-mobile__burger-line nav-mobile__burger-line--third"></span>
+      </button>
     </div>
   );
 };

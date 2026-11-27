@@ -109,6 +109,56 @@
     gap: 0.45rem;
   }
 
+  .nav-mobile__burger {
+    flex-shrink: 0;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .nav-mobile__burger-line {
+    position: absolute;
+    left: 10px;
+    width: 28px;
+    height: 3px;
+    background-color: var(--color-blue-700);
+  }
+
+  .nav-mobile__burger-line--first {
+    top: 15px;
+  }
+
+  .nav-mobile__burger-line--second {
+    top: 23px;
+  }
+
+  .nav-mobile__burger-line--third {
+    top: 31px;
+  }
+
+  .nav-mobile__burger[aria-expanded='true'] .nav-mobile__burger-line--first {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-mobile__burger[aria-expanded='true'] .nav-mobile__burger-line--second {
+    opacity: 0;
+  }
+
+  .nav-mobile__burger[aria-expanded='true'] .nav-mobile__burger-line--third {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-mobile__burger:focus-visible {
+    outline: 2px solid var(--color-blue-700);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-s);
+  }
+
   /* Шторка от хедера до низа экрана со своим скроллом: страница под меню
      заблокирована, и на телефоне в ландшафте (667×375) без него резюме,
      CTA и язык были бы недостижимы.
