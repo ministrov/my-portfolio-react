@@ -40,13 +40,24 @@
 .hero__title {
   position: relative;
   margin-bottom: 1.75rem;
-  overflow: hidden;
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 9vw, 6rem);
   font-weight: 700;
   line-height: 1.03;
   letter-spacing: -0.025em;
   color: var(--color-gray-900);
+}
+
+/* Обёртка блика держит обрезку вместо самого заголовка.
+   Раньше `overflow: hidden` стоял на `.hero__title` — ради блика, который
+   уезжает за край. Но заголовок виден с первого кадра и наводится из
+   blur(10px) (S04-T05), а обрезка срезала размытие ровной линией по краю
+   родителя. Теперь обрезается только блик, текст — нет. */
+.hero__title-glare-mask {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 /* Диагональный блик, один раз пробегает по заголовку после его появления */

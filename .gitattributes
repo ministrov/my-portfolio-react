@@ -1,0 +1,3 @@
+# .htaccess — всегда LF, чтобы Apache не спотыкался и не было шумных диффов
+
+public/.htaccess  text eol=lf

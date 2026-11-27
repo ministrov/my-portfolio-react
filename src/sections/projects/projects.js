@@ -14,6 +14,7 @@ import blog from '../../assets/projects/blog.webp';
 import blogTablet from '../../assets/projects/blog-tablet.webp';
 import blogMobile from '../../assets/projects/blog-mobile.webp';
 import ratingus from '../../assets/projects/ratingus.webp';
+import ratingusTablet from '../../assets/projects/ratingus-tablet.webp';
 import waterdel from '../../assets/projects/waterdel.webp';
 import waterdelTablet from '../../assets/projects/waterdel-tablet.webp';
 import waterdelMobile from '../../assets/projects/waterdel-mobile.webp';
@@ -23,10 +24,9 @@ import mishMobile from '../../assets/projects/mish-mobile.webp';
 
 // Кроп 16:9 (десктоп/планшет) и 3:4 (мобильный) под ShowcasingCard — только
 // для isBest-проектов, которые попадают в карусель на главной. `img*` выше —
-// нетронутые полные скриншоты, которые нужны ProjectCard на /projects
-// (там `imgHeight` посчитан под их собственное натуральное соотношение
-// сторон, кроп его сломает). У showcasing свой набор файлов, чтобы одна
-// карточка не тянула за собой требования другой.
+// нетронутые полные скриншоты, которые нужны ProjectCard на /projects.
+// У showcasing свой набор файлов, чтобы одна карточка не тянула за собой
+// требования другой.
 import vamvodaCover from '../../assets/projects/vam-voda-cover.webp';
 import vamvodaTabletCover from '../../assets/projects/vam-voda-tablet-cover.webp';
 import vamvodaMobileCover from '../../assets/projects/vam-voda-mobile-cover.webp';
@@ -51,7 +51,6 @@ export const projects = [
     imgCover: vamvodaCover,
     imgCoverTablet: vamvodaTabletCover,
     imgCoverMobile: vamvodaMobileCover,
-    imgHeight: 470,
     slogan: 'projects.vamvoda.slogan',
     overview: 'projects.vamvoda.overview',
     demoLink: 'https://vam-voda.com/',
@@ -74,7 +73,6 @@ export const projects = [
     imgCover: waterdelCover,
     imgCoverTablet: waterdelTabletCover,
     imgCoverMobile: waterdelMobileCover,
-    imgHeight: 421,
     slogan: 'projects.waterdel.slogan',
     overview: 'projects.waterdel.overview',
     gitHubLink: 'https://github.com/ministrov/waterdel-newest',
@@ -95,7 +93,6 @@ export const projects = [
     img: only,
     imgTablet: onlyTablet,
     imgMobile: onlyMobile,
-    imgHeight: 472,
     gitHubLink: 'https://github.com/ministrov/only-championship',
     slogan: 'projects.only.slogan',
     overview: 'projects.only.overview',
@@ -118,7 +115,6 @@ export const projects = [
     imgCover: landingCover,
     imgCoverTablet: landingTabletCover,
     imgCoverMobile: landingMobileCover,
-    imgHeight: 526,
     slogan: 'projects.area.slogan',
     gitHubLink: 'https://github.com/ministrov/landing-area-next-ts',
     demoLink: 'https://landing-area-next-ts.vercel.app/',
@@ -137,9 +133,8 @@ export const projects = [
     title: 'projects.ratingus.title',
     skills: 'Next, TypeScript, React, Zustand, Yup, Formik, Framer Motion',
     img: ratingus,
-    imgTablet: '',
-    imgMobile: '',
-    imgHeight: 494,
+    imgTablet: ratingusTablet,
+    imgMobile: ratingusTablet,
     slogan: 'projects.ratingus.slogan',
     overview: 'projects.ratingus.overview',
     year: '2024',
@@ -158,7 +153,6 @@ export const projects = [
     img: blog,
     imgTablet: blogTablet,
     imgMobile: blogMobile,
-    imgHeight: 526,
     slogan: 'projects.blog.slogan',
     gitHubLink: 'https://github.com/ministrov/personal-blog-next-ts',
     overview: 'projects.blog.overview',
@@ -178,7 +172,6 @@ export const projects = [
     img: createX,
     imgTablet: createXTablet,
     imgMobile: createXMobile,
-    imgHeight: 526,
     gitHubLink: 'https://github.com/ministrov/createX-construction',
     demoLink: 'https://create-x-construction.vercel.app/',
     slogan: 'projects.createx.slogan',
@@ -202,7 +195,6 @@ export const projects = [
     imgCover: mishCover,
     imgCoverTablet: mishTabletCover,
     imgCoverMobile: mishMobileCover,
-    imgHeight: 1383,
     gitHubLink: 'https://github.com/ministrov/champ-project',
     // demoLink: 'https://create-x-construction.vercel.app/',
     slogan: 'projects.mish.slogan',

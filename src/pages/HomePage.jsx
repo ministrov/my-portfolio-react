@@ -5,7 +5,6 @@ import Hero from '../sections/hero/Hero';
 import About from '../sections/about/About';
 import Faq from '../sections/faq/Faq';
 import Services from '../sections/services/Services.jsx';
-import Contact from '../sections/contact/Contact.jsx';
 import Advantages from '../sections/advantages/Advantages.jsx';
 import Loader from '../components/loader/Loader';
 import ErrorBoundary from '../components/errorBoundary/ErrorBoundary';
@@ -14,6 +13,7 @@ const Showcasing = lazy(() => import('../sections/showcasing/Showcasing.jsx'));
 const Testimonials = lazy(
   () => import('../sections/testimonials/Testimonials.jsx')
 );
+const Contact = lazy(() => import('../sections/contact/Contact.jsx'));
 
 /**
  * Компонент главной страницы портфолио.
@@ -23,10 +23,16 @@ const Testimonials = lazy(
  * JSON-LD автора (Person + WebSite) живёт статикой в index.html: схемы не зависят
  * ни от языка, ни от маршрута, а инлайновые <script> React в <head> не поднимает.
  *
- * У двух ленивых секций — своя граница ошибок: без неё сбой загрузки одной
+ * У трёх ленивых секций — своя граница ошибок: без неё сбой загрузки одной
  * секции поднимался до границы страницы и прятал всю главную (замер S03-T10:
  * вместо 11 411 px оставался экран ошибки в 900 px). С ней на месте секции —
  * короткое сообщение, остальная главная на месте.
+ *
+ * Contact в этом списке — самая тяжёлая секция главной (JS и CSS формы в
+ * критическом пути первой отрисовки, T16), хотя стоит в самом низу страницы.
+ * Якорь «Обсудить проект» от этого не страдает: `useGoToContacts` при
+ * отсутствии заголовка переходит на `/#contact-heading`, а `ScrollToTop` ждёт
+ * цель по кадрам, пока ленивый чанк не смонтирует секцию.
  *
  * @component
  * @example
@@ -82,7 +88,11 @@ const Home = () => {
         </Suspense>
       </ErrorBoundary>
       <Faq />
-      <Contact />
+      <ErrorBoundary variant="section">
+        <Suspense fallback={<Loader />}>
+          <Contact />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };

@@ -43,7 +43,6 @@ const renderCard = (props = {}) =>
       overview="Старая версия сайта была медленной, с неудобной фильтрацией товаров."
       skills={['JavaScript', 'WooCommerce']}
       img="vam-voda.webp"
-      imgHeight={470}
       year="2025"
       role="Frontend Developer"
       infoTitle="projects.vamvoda.infoTitle"

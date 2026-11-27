@@ -10,7 +10,6 @@ import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary';
 
 import './styles/main.css';
-import 'swiper/css';
 
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));

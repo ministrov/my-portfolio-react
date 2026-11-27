@@ -14,7 +14,6 @@ import HeroCvButton from './HeroCvButton';
 import {
   ANIMATION_DELAYS,
   titleReveal,
-  titleRevealReduced,
   ctaPop,
   ctaPopReduced,
 } from './animations';
@@ -46,7 +45,6 @@ import './style.css';
 const Hero = () => {
   const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
-  const titleMotion = prefersReducedMotion ? titleRevealReduced : titleReveal;
   const ctaMotion = prefersReducedMotion ? ctaPopReduced : ctaPop;
   // Наблюдаем за блоком контента, а не за секцией: .hero тянется на 100vh и
   // покидает вьюпорт только через целый экран скролла, из-за чего циклы
@@ -61,7 +59,10 @@ const Hero = () => {
           <div className="hero__inner" ref={contentRef}>
             {/* Статус «открыт к предложениям» — над заголовком и появляется
                 вместе с ним; на десктопе скрыт в CSS (см. .hero__badge) */}
-            <m.div className="hero__badge" {...titleMotion}>
+            {/* Пресета для reduced-motion у заголовка нет: прозрачности в
+                titleReveal больше нет, а transform и filter MotionConfig гасит
+                сам (S04-T05) */}
+            <m.div className="hero__badge" {...titleReveal}>
               <AvailabilityBadge />
             </m.div>
 
@@ -72,7 +73,7 @@ const Hero = () => {
               <span className="visually-hidden">
                 {t('metadata.home.title')}
               </span>
-              <m.div {...titleMotion}>
+              <m.div {...titleReveal}>
                 <Trans i18nKey="hero.titleLead" components={{ br: <br /> }} />{' '}
                 {/* Акцент всегда с новой строки: заголовок построен как афоризм
                     из двух тактов, и разрыв между ними держит его ритм в обеих локалях */}
@@ -81,21 +82,22 @@ const Hero = () => {
                 </span>
               </m.div>
 
-              <m.span
-                className="hero__title-glare"
-                aria-hidden="true"
-                initial={{ x: '-120%', skewX: -18, opacity: 0 }}
-                animate={{ x: '220%', skewX: -18, opacity: [0, 0.9, 0.9, 0] }}
-                transition={{
-                  duration: 1.5,
-                  delay:
-                    ANIMATION_DELAYS.TITLE +
-                    titleReveal.transition.duration +
-                    0.2,
-                  times: [0, 0.12, 0.88, 1],
-                  ease: [0.4, 0, 0.2, 1],
-                }}
-              />
+              <span className="hero__title-glare-mask" aria-hidden="true">
+                <m.span
+                  className="hero__title-glare"
+                  initial={{ x: '-120%', skewX: -18, opacity: 0 }}
+                  animate={{ x: '220%', skewX: -18, opacity: [0, 0.9, 0.9, 0] }}
+                  transition={{
+                    duration: 1.5,
+                    delay:
+                      ANIMATION_DELAYS.TITLE +
+                      titleReveal.transition.duration +
+                      0.2,
+                    times: [0, 0.12, 0.88, 1],
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                />
+              </span>
             </h1>
 
             <HeroSubtitle />

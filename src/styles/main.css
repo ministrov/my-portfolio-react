@@ -40,7 +40,11 @@
 
 @font-face {
   font-family: 'Golos Text';
-  src: url('../assets/fonts/GolosText-cyrillic.woff2') format('woff2');
+  /* Кириллица — текст абзацев, LCP на /about и виновник сдвига при подмене
+     шрифта. Лежит в public/fonts со стабильным путём: адреса из src/assets
+     Vite хеширует, и preload на них из index.html не поставить. Латиница
+     остаётся в src/assets и грузится обычным порядком. */
+  src: url('/fonts/GolosText-cyrillic.woff2') format('woff2');
   font-weight: 400 900;
   font-display: swap;
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
@@ -57,10 +61,57 @@
     U+2215, U+FEFF, U+FFFD;
 }
 
+/* Метрические фолбэки. Пока веб-шрифт грузится, текст рисуется Arial'ом, но с
+   шириной и вертикальными метриками веб-шрифта, поэтому подмена шрифта не
+   меняет ни длину строк, ни высоту строки — и не даёт CLS.
+   size-adjust измерен в Chrome: ширина эталонной строки веб-шрифтом, делённая на
+   ширину того же текста фолбэком. Табличный xAvgCharWidth из OS/2 для этого не
+   годится — на кириллице он занижает ширину Arial на 15–25 %, а жирность браузер
+   у фолбэка синтезирует, не меняя ширину глифов. Поэтому Golos Text сведён по
+   строке обычного текста (400), а Oswald и Unbounded — по тем начертаниям, в
+   которых стоят на сайте: капс-подписи 600/700 и заголовок героя 700.
+   Кириллица и латиница дают разное отношение к Arial (у Oswald латиница на 8 %
+   уже кириллицы), а size-adjust один на семейство — поэтому итог сведён посередине
+   и расходится не больше чем на 4 % в любом языке.
+   ascent-override, descent-override и line-gap-override — метрики веб-шрифта
+   (hhea), поделённые на size-adjust: строка фолбэка выходит ровно той же высоты,
+   что у веб-шрифта.
+   Arial — запасной шрифт в Chrome на Windows и в замерах Lighthouse. На Android
+   вместо него подставится Roboto с близкими, но не равными метриками. */
+@font-face {
+  font-family: 'Golos Text Fallback';
+  src: local('Arial');
+  font-weight: 400 900;
+  size-adjust: 106.2%;
+  ascent-override: 92.28%;
+  descent-override: 20.72%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Oswald Fallback';
+  src: local('Arial');
+  font-weight: 200 700;
+  size-adjust: 80.43%;
+  ascent-override: 148.33%;
+  descent-override: 35.93%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Unbounded Fallback';
+  src: local('Arial');
+  font-weight: 400 800;
+  size-adjust: 136.77%;
+  ascent-override: 72.75%;
+  descent-override: 17.91%;
+  line-gap-override: 0%;
+}
+
 :root {
-  --font-base: 'Golos Text', sans-serif;
-  --font-headings: 'Oswald', sans-serif;
-  --font-display: 'Unbounded', var(--font-headings);
+  --font-base: 'Golos Text', 'Golos Text Fallback', sans-serif;
+  --font-headings: 'Oswald', 'Oswald Fallback', sans-serif;
+  --font-display: 'Unbounded', 'Unbounded Fallback', 'Oswald', sans-serif;
   /* Базовые цвета */
   --color-white: #fff;
   --color-black: #000;

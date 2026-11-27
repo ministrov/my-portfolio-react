@@ -6,9 +6,10 @@
 - [Nav/menu traps](project_nav_menu_traps.md) — header is containing block for fixed drawer; <a> needs border-box; hamburger keyup Enter reopens menu
 - [Author card traps](project_author_card_traps.md) — AuthorMeta shared home//about; badge/location centering; <code> UA monospace; useCharWidths stale widths
 - [Trans values traps](project_trans_values_traps.md) — user values in Trans parsed as markup (escapeValue off) crash React; pathname encoding; 404 min-height (content-box)
-- [Project card traps](project_project_card_traps.md) — img drives card height ≥1275; 700px cap crops 7/8 at 1269–1274; header CLS floor; hold-not-abort
+- [Project card traps](project_project_card_traps.md) — 4:3/4:5 frame; 520 px at 1280 (658 is the img attr); full-width 4:3 at 1269–1274
 - [A11y platform traps](project_a11y_platform_traps.md) — li list-style:none drops VoiceOver list role; forced-colors dots; dl aria-label in Chromium; duplicate list names
 - [jsdom test traps](project_jsdom_test_traps.md) — canvas/ResizeObserver/matchMedia crash scramble hooks; anchor click adds jsdom timer; afterEach order
 - [Tooling traps](project_tooling_traps.md) — prettier --check red on untouched CRLF files (autocrlf), not a format regression; hook rewraps at 80
 - [Pill measurement](project_pill_measurement.md) — Chrome 157 matches baseline.md 0 px; flex-item display reads blockified, compare sizes not display
-- [Playwright media verification](project_playwright_media_verification.md) — screenshot path needs backslashes + existing dir; hashed preview URLs → prefix match; visible source px formula; dy=0 proves no shift
+- [Playwright media verification](project_playwright_media_verification.md) — screenshots only in .playwright-mcp; hashed URL prefix match; hide 10px scrollbar or heights lie by 100px
+- [Motion transition traps](project_motion_transition_traps.md) — await 2 rAF after click before getAnimations; reduced-motion needs the state selector repeated; scroll lock shifts 10px
