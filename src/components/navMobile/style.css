@@ -129,12 +129,29 @@
     background-color: var(--color-blue-700);
   }
 
+  /* Squash, как у hamburger-react: две фазы по 0,25 с и кривая
+     cubic-bezier(0, 0, 0, 1). У полоски один элемент (T13), поэтому фазы
+     разведены по свойствам: съезд — `translate`, поворот — `rotate`.
+     Переход берётся из правила состояния, в которое идём: базовое —
+     поворот сразу, съезд через 0,25 с; открытое — наоборот. Так закрытие
+     повторяет Squash в обратном порядке. */
+  .nav-mobile__burger-line--first,
+  .nav-mobile__burger-line--third {
+    translate: 0 0;
+    rotate: 0deg;
+    transition:
+      rotate 0.25s cubic-bezier(0, 0, 0, 1),
+      translate 0.25s cubic-bezier(0, 0, 0, 1) 0.25s;
+  }
+
   .nav-mobile__burger-line--first {
     top: 15px;
   }
 
+  /* Средняя гаснет за первую фазу и без задержки в обе стороны. */
   .nav-mobile__burger-line--second {
     top: 23px;
+    transition: opacity 0.25s cubic-bezier(0, 0, 0, 1);
   }
 
   .nav-mobile__burger-line--third {
@@ -142,7 +159,11 @@
   }
 
   .nav-mobile__burger[aria-expanded='true'] .nav-mobile__burger-line--first {
-    transform: translateY(8px) rotate(45deg);
+    translate: 0 8px;
+    rotate: 45deg;
+    transition:
+      translate 0.25s cubic-bezier(0, 0, 0, 1),
+      rotate 0.25s cubic-bezier(0, 0, 0, 1) 0.25s;
   }
 
   .nav-mobile__burger[aria-expanded='true'] .nav-mobile__burger-line--second {
@@ -150,7 +171,11 @@
   }
 
   .nav-mobile__burger[aria-expanded='true'] .nav-mobile__burger-line--third {
-    transform: translateY(-8px) rotate(-45deg);
+    translate: 0 -8px;
+    rotate: -45deg;
+    transition:
+      translate 0.25s cubic-bezier(0, 0, 0, 1),
+      rotate 0.25s cubic-bezier(0, 0, 0, 1) 0.25s;
   }
 
   .nav-mobile__burger:focus-visible {
@@ -190,5 +215,15 @@
 @media screen and (max-width: 580px) {
   .nav-mobile__wrapper {
     padding: 0.25rem 1rem 1rem;
+  }
+}
+
+/* Просили без движения — полоски меняют состояние мгновенно, как до T14.
+   Селектор открытого состояния нужен отдельно: он специфичнее базового
+   (0,3,0 против 0,1,0), и без него при открытии переход играл бы. */
+@media (prefers-reduced-motion: reduce) {
+  .nav-mobile__burger-line,
+  .nav-mobile__burger[aria-expanded='true'] .nav-mobile__burger-line {
+    transition: none;
   }
 }
