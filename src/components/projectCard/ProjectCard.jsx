@@ -26,7 +26,6 @@ import './style.css';
  * @param {string} props.img - URL изображения для десктопа
  * @param {string} [props.imgTablet] - URL изображения для планшета
  * @param {string} [props.imgMobile] - URL изображения для мобильного
- * @param {number} [props.imgHeight] - Реальная высота десктопного изображения при ширине 658px (для резервирования места и предотвращения CLS)
  * @param {string} props.overview - Краткое описание проекта (уже переведённая строка)
  * @param {string} [props.year] - Год реализации: на десктопе — в таблице «Информация»,
  *   на ≤ 1024 px — в мета-строке над заголовком
@@ -39,13 +38,18 @@ import './style.css';
  * @param {string} [props.gitHubLink] - Ссылка на репозиторий GitHub
  * @returns {JSX.Element} Карточка проекта
  */
+
+// Константы повторяют пропорцию кадра 4:3 и нужны только до загрузки
+// CSS и картинки.
+const IMG_WIDTH = 658;
+const IMG_HEIGHT = 494;
+
 const ProjectCard = ({
   title,
   skills = [],
   img,
   imgTablet,
   imgMobile,
-  imgHeight,
   overview,
   year,
   role,
@@ -112,8 +116,8 @@ const ProjectCard = ({
           <img
             className="project-card__img"
             src={img}
-            width={658}
-            height={imgHeight}
+            width={IMG_WIDTH}
+            height={IMG_HEIGHT}
             alt={t('projectCard.imgAlt', { title })}
             loading="lazy"
             decoding="async"
