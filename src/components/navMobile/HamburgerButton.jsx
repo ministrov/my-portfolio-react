@@ -1,14 +1,12 @@
-import { memo, useRef } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
  * Компонент кнопки гамбургера для мобильного меню.
  *
- * `hamburger-react` рендерит `<div role="button">`, который переключается по
- * keyup Enter, а пункты меню срабатывают по keydown. Без защиты Enter на пункте
- * закрывал меню, фокус возвращался на бургер, и тот же keyup открывал меню
- * снова. Поэтому keyup Enter пропускается к бургеру, только если keydown был
- * на нём же: обёртка ловит оба события в фазе погружения, раньше бургера.
+ * Кнопка — нативный `<button>`: роль, фокус, Enter и пробел даёт браузер.
+ * Открытое состояние рисует CSS по `aria-expanded` (см. style.css), отдельного
+ * класса-переключателя нет; клик передаёт `onToggle` следующее состояние.
  *
  * @component
  * @param {Object} props - Свойства компонента.
@@ -21,38 +19,9 @@ import { useTranslation } from 'react-i18next';
  */
 const HamburgerButton = ({ isOpen, onToggle }) => {
   const { t } = useTranslation();
-  const isEnterDownOnBurgerRef = useRef(false);
-
-  /**
-   * Запоминает, что Enter нажат, пока фокус на бургере.
-   * @param {React.KeyboardEvent} event - Событие keydown в фазе погружения.
-   */
-  const handleKeyDownCapture = (event) => {
-    if (event.key === 'Enter') isEnterDownOnBurgerRef.current = true;
-  };
-
-  /**
-   * Не пускает к бургеру keyup Enter, чей keydown был на другом элементе.
-   * @param {React.KeyboardEvent} event - Событие keyup в фазе погружения.
-   */
-  const handleKeyUpCapture = (event) => {
-    if (event.key !== 'Enter') return;
-    if (!isEnterDownOnBurgerRef.current) event.stopPropagation();
-    isEnterDownOnBurgerRef.current = false;
-  };
-
-  /** Сбрасывает флаг, если фокус ушёл с бургера между keydown и keyup. */
-  const handleBlurCapture = () => {
-    isEnterDownOnBurgerRef.current = false;
-  };
 
   return (
-    <div
-      className="nav-mobile__buttons"
-      onKeyDownCapture={handleKeyDownCapture}
-      onKeyUpCapture={handleKeyUpCapture}
-      onBlurCapture={handleBlurCapture}
-    >
+    <div className="nav-mobile__buttons">
       <button
         className="nav-mobile__burger"
         type="button"

@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "hamburger-react": "^2.5.2",
     "i18next": "^26.3.6",
     "motion": "^12.43.0",
     "react": "~19.2.9",
